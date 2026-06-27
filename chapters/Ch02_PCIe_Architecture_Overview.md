@@ -27,7 +27,7 @@ As is true of many high-speed serial transports, PCIe uses a bidirectional conne
 </table>
 
 Figure 2-1: Dual-Simplex Link | 图2-1：双单工链路
-<img src="images/part01_65b78af38b282e69f5fdeb21d0deaaed27d55c195d68a17adf0b5efaf114013c.jpg" width="700" alt="">
+<img src="../images/part01_65b78af38b282e69f5fdeb21d0deaaed27d55c195d68a17adf0b5efaf114013c.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -41,7 +41,7 @@ The term for this path between the devices is a Link, and is made up of one or m
 </table>
 
 Figure 2-2: One Lane | 图2-2：一条通道
-<img src="images/part01_d306bee7ca3c426ae22abbd7183cdcc877f14259eb84ed016a9ecf23cb33f97b.jpg" width="700" alt="">
+<img src="../images/part01_d306bee7ca3c426ae22abbd7183cdcc877f14259eb84ed016a9ecf23cb33f97b.jpg" width="700" alt="">
 
 ## Software Backward Compatibility | 软件向后兼容性
 
@@ -102,7 +102,7 @@ the difference in arrival times for all the signals needed on a given clock. Cle
 </table>
 
 Figure 2-3: Parallel Bus Limitations | 图2-3：并行总线限制
-<img src="images/part01_cad406f51fee6b3bdd083a43706ee08ceb147b9df21159602c9b3bd68b38cc3b.jpg" width="700" alt="">
+<img src="../images/part01_cad406f51fee6b3bdd083a43706ee08ceb147b9df21159602c9b3bd68b38cc3b.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -228,7 +228,7 @@ The differential receiver gets both signals and subtracts the negative voltage f
 </table>
 
 Figure 2-4: Differential Signaling | 图2-4：差分信令
-<img src="images/part01_19617ab8aabed3825fec312da2852c1cab58d1a4316c11531725e52085351821.jpg" width="700" alt="">
+<img src="../images/part01_19617ab8aabed3825fec312da2852c1cab58d1a4316c11531725e52085351821.jpg" width="700" alt="">
 
 ## No Common Clock | 无需公共时钟
 
@@ -252,7 +252,7 @@ One thing to note regarding clock recovery is that the PLL does need transitions
 </table>
 
 Figure 2‑5: Simple PLL Block Diagram | 图2‑5：简单PLL框图
-<img src="images/part01_1ac5a5952da14d3c864dfd8ae7562de4296c023562e71158e645bcfaa523de03.jpg" width="700" alt="">
+<img src="../images/part01_1ac5a5952da14d3c864dfd8ae7562de4296c023562e71158e645bcfaa523de03.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -344,7 +344,7 @@ A simple PCIe topology example is shown in Figure 2-6 on page 47, and will help 
 </tr>
 </table>
 
-<img src="images/part01_34a427996186c803b2803145ff8128e9ffca6b77a36205ada2f9edbabf07d2f8.jpg" width="700" alt="">
+<img src="../images/part01_34a427996186c803b2803145ff8128e9ffca6b77a36205ada2f9edbabf07d2f8.jpg" width="700" alt="">
 Figure 2-6: Example PCIe Topology | 图2-6：PCIe拓扑示例
 
 ## Topology Characteristics | 拓扑特性
@@ -429,7 +429,7 @@ One way compatibility with older software is maintained is that the configuratio
 </table>
 
 Figure 2-7: Configuration Headers | 图2-7：配置头
-<img src="images/part01_4598ae3c1199ed477d3ccef20aaef66e7b609af082432a00b29e46209ac766a4.jpg" width="700" alt="">
+<img src="../images/part01_4598ae3c1199ed477d3ccef20aaef66e7b609af082432a00b29e46209ac766a4.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -443,7 +443,7 @@ To illustrate the way the system appears to software, consider the example topol
 </table>
 
 Figure 2-8: Topology Example | 图2-8：拓扑示例
-<img src="images/part01_72ed8540ba3dab1abb3d98bb1818bcb24326ec6e6cb2dfa7aa26bc280a051ec7.jpg" width="700" alt="">
+<img src="../images/part01_72ed8540ba3dab1abb3d98bb1818bcb24326ec6e6cb2dfa7aa26bc280a051ec7.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -457,7 +457,7 @@ In a similar way, the internal organization of a Switch, shown in Figure 2-9 on 
 </table>
 
 Figure 2-9: Example Results of System Enumeration | 图2-9：系统枚举结果示例
-<img src="images/part01_f638e407fa47fd789349bb4bcedad28fc44b8e09d34bb8bdc151b71785c20758.jpg" width="700" alt="">
+<img src="../images/part01_f638e407fa47fd789349bb4bcedad28fc44b8e09d34bb8bdc151b71785c20758.jpg" width="700" alt="">
 
 ## System Examples | 系统示例
 
@@ -489,13 +489,13 @@ This also gives us an opportunity to revisit the question of what constitutes th
 </table>
 
 Figure 2-10: Low-Cost PCIe System | 图2-10：低成本PCIe系统
-<img src="images/part01_5ff8ff7874b46982636a2c89e9d372e5b202af4f26ccb619508231c3bf2581b6.jpg" width="700" alt="">
+<img src="../images/part01_5ff8ff7874b46982636a2c89e9d372e5b202af4f26ccb619508231c3bf2581b6.jpg" width="700" alt="">
 
 Figure 2-11: Server PCIe System | 图2-11：服务器PCIe系统
-<img src="images/part01_25e684fbd36b47ce7c8b7ba7836b9a3abb02994b5d51c666d43805ed343231cb.jpg" width="700" alt="">
+<img src="../images/part01_25e684fbd36b47ce7c8b7ba7836b9a3abb02994b5d51c666d43805ed343231cb.jpg" width="700" alt="">
 
 Figure 2-12: PCI Express Device Layers | 图2-12：PCI Express设备层
-<img src="images/part01_47b594d06dc401b1dd86f88ea3ba1a41b677ec3e156a5d1a5023a8ebf9bb5a74.jpg" width="700" alt="">
+<img src="../images/part01_47b594d06dc401b1dd86f88ea3ba1a41b677ec3e156a5d1a5023a8ebf9bb5a74.jpg" width="700" alt="">
 
 
 ## Introduction to Device Layers | 设备层介绍
@@ -552,7 +552,7 @@ Physical Layer. This layer is responsible for Ordered-Set packet creation on the
 </table>
 
 Figure 2-13: Switch Port Layers | 图2-13：交换机端口层
-<img src="images/part01_e3fa1c34a3567a36d538a2d4befaf296a5a8dcf73d1b5f9156c39ec2574193d7.jpg" width="700" alt="">
+<img src="../images/part01_e3fa1c34a3567a36d538a2d4befaf296a5a8dcf73d1b5f9156c39ec2574193d7.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -582,7 +582,7 @@ Before we go deeper, let's first walk through an overview to see how the layers 
 </table>
 
 Figure 2-14: Detailed Block Diagram of PCI Express Device's Layers | 图2-14：PCI Express设备层的详细框图
-<img src="images/part01_b426a340ae362d5ecd38a466e8f6661c8d0a1467a519762768ce084a583b1bed.jpg" width="700" alt="">
+<img src="../images/part01_b426a340ae362d5ecd38a466e8f6661c8d0a1467a519762768ce084a583b1bed.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -714,7 +714,7 @@ TLP 起源于发送方的事务层，终止于接收方的事务层，如第 62 
 </table>
 
 Figure 2‐15: TLP Origin and Destination | 图2‐15：TLP源和目的
-<img src="images/part01_2d93b227db3af60a5c879a305a9ce0c208c42e8ca62960cf8ba8cfc54eee0a3f.jpg" width="700" alt="">
+<img src="../images/part01_2d93b227db3af60a5c879a305a9ce0c208c42e8ca62960cf8ba8cfc54eee0a3f.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -752,7 +752,7 @@ Finally, the resulting packet is forwarded to the Physical Layer where other cha
 </table>
 
 Figure 2‐16: TLP Assembly | 图2‐16：TLP组装
-<img src="images/part01_f4dc1d23b9f282c911cca51857d4c8c6af625629d3f9fa72a3c80019e0584197.jpg" width="700" alt="">
+<img src="../images/part01_f4dc1d23b9f282c911cca51857d4c8c6af625629d3f9fa72a3c80019e0584197.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -782,7 +782,7 @@ The target device can check ECRC errors if it's capable and was enabled. If this
 </table>
 
 Figure 2-17: TLP Disassembly | 图2-17：TLP拆解
-<img src="images/part01_03174f5c4603b31616bc41880229c0cb55362305b782e00f7b81d9cad5ed94fe.jpg" width="700" alt="">
+<img src="../images/part01_03174f5c4603b31616bc41880229c0cb55362305b782e00f7b81d9cad5ed94fe.jpg" width="700" alt="">
 
 ## Non-Posted Transactions | 非转发事务
 
@@ -797,7 +797,7 @@ Ordinary Reads. Figure 2-18 on page 65 shows an example of a Memory Read Request
 </tr>
 </table>
 
-<img src="images/part01_5452ecadcd1bba8bce5c5ea16df4ac668fffb978f89f3c92496aaf27a82c8f74.jpg" width="700" alt="">
+<img src="../images/part01_5452ecadcd1bba8bce5c5ea16df4ac668fffb978f89f3c92496aaf27a82c8f74.jpg" width="700" alt="">
 Figure 2-18: Non-Posted Read Example | 图2-18：非投递读示例
 
 <table>
@@ -819,7 +819,7 @@ Those Completion packets also contain routing information to direct them back to
 
 | The locked request is routed through the topology using the target memory address and eventually reaches the Legacy Endpoint. As the packet makes its way through each routing device (called a service point) along the way, the Egress Port for the packet is locked, meaning no other packets will be allowed in that direction until the path is unlocked. | 锁定请求使用目标内存地址通过拓扑进行路由，最终到达传统端点。当数据包沿途经过每个路由设备（称为服务点）时，该数据包的出口端口被锁定，这意味着在路径解锁之前，不允许其他数据包沿该方向传输。 |
 
-<img src="images/part01_9452f6cc0a3e8b47afb255b29595483f8984e42f10efe820b785a81645045ed1.jpg" width="700" alt="">
+<img src="../images/part01_9452f6cc0a3e8b47afb255b29595483f8984e42f10efe820b785a81645045ed1.jpg" width="700" alt="">
 Figure 2-19: Non-Posted Locked Read Transaction Protocol | 图2-19：非投递锁定读事务协议
 
 <table>
@@ -839,7 +839,7 @@ When the Completer receives the packet and decodes its contents, it gathers the 
 
 | If the completion reports no errors the Requester knows that the write data has been successfully delivered and the next step in the sequence of instructions for that Completer is now permitted. And that really summarizes the motivation for the non-posted write: unlike a memory write, it's not enough to know that the data will get to the destination sometime in the future. Instead, the next step can't logically take place until we know that it has gotten there. As with locked cycles, non-posted writes can only come from the processor. | 如果完成报文报告没有错误，请求方就知道写数据已成功交付，并且针对该完成方的指令序列中的下一步现在可以执行了。这实际上总结了非转发写的动机：与存储器写不同，仅仅知道数据将在未来某个时刻到达目的地是不够的；相反，只有在我们知道数据已经到达之后，下一步在逻辑上才能进行。与锁定周期一样，非转发写只能来自处理器。 |
 
-<img src="images/part01_97842da0ea4cf92dd317251ca0abc4bdd91ddecb6ee46dbda4c34ff55e078c3a.jpg" width="700" alt="">
+<img src="../images/part01_97842da0ea4cf92dd317251ca0abc4bdd91ddecb6ee46dbda4c34ff55e078c3a.jpg" width="700" alt="">
 Figure 2-20: Non-Posted Write Transaction Protocol | 图2-20：非投递写事务协议
 
 ## Posted Writes | Posted写操作
@@ -855,7 +855,7 @@ Memory Writes. Memory writes are always posted and never receive completions. On
 </tr>
 </table>
 
-<img src="images/part01_a5e7d7dd9c99f8f39e565e11c3b7da1e32a9cd97ab756fc884933b745181b666.jpg" width="700" alt="">
+<img src="../images/part01_a5e7d7dd9c99f8f39e565e11c3b7da1e32a9cd97ab756fc884933b745181b666.jpg" width="700" alt="">
 Figure 2‑21: Posted Memory Write Transaction Protocol | 图2‑21：投递存储器写事务协议
 
 <table>
@@ -899,7 +899,7 @@ To illustrate the concept, consider Figure 2‐22 on page 71, in which a video c
 </table>
 
 Figure 2‐22: QoS Example | 图2‐22：QoS示例
-<img src="images/part01_68913402a366d0cb0ac47ade82ed80c3126c8b2f21e71d0c60b67b3891f455ea.jpg" width="700" alt="">
+<img src="../images/part01_68913402a366d0cb0ac47ade82ed80c3126c8b2f21e71d0c60b67b3891f455ea.jpg" width="700" alt="">
 
 ## Transaction Ordering
 
@@ -927,7 +927,7 @@ A typical protocol used by serial transports is to require that a transmitter on
 </tr>
 </table>
 
-<img src="images/part01_34defad3d017482a1996623b249b74a472faaf7b5f7614f0334bcd86ea4ac153.jpg" width="700" alt="">
+<img src="../images/part01_34defad3d017482a1996623b249b74a472faaf7b5f7614f0334bcd86ea4ac153.jpg" width="700" alt="">
 Figure 2‑23: Flow Control Basics | 图2‑23：流控基础
 
 <table>
@@ -967,7 +967,7 @@ DLLP在一条链路上的两个相邻设备的数据链路层之间传输。事�
 </tr>
 </table>
 
-<img src="images/part01_b30f53bdfa5d6e8ed045e64ede23898966683e806de825718d4cf1e83872d04e.jpg" width="700" alt="">
+<img src="../images/part01_b30f53bdfa5d6e8ed045e64ede23898966683e806de825718d4cf1e83872d04e.jpg" width="700" alt="">
 Figure 2-24: DLLP Origin and Destination | 图2-24：DLLP源和目的
 
 <table>
@@ -1017,10 +1017,10 @@ If the Receiver detects a TLP error, it drops the TLP and returns a Nak to the T
 </table>
 
 Figure 2-25: Data Link Layer Replay Mechanism | 图2-25：数据链路层重放机制
-<img src="images/part01_1d0465b846db99c393d9b871470744aced9a9e0f97d9a2254be79fb289631762.jpg" width="700" alt="">
+<img src="../images/part01_1d0465b846db99c393d9b871470744aced9a9e0f97d9a2254be79fb289631762.jpg" width="700" alt="">
 
 Figure 2-26: TLP and DLLP Structure at the Data Link Layer | 图2-26：数据链路层的TLP和DLLP结构
-<img src="images/part01_4b13cbcbba117e0b2830a1899a8f7f3d36a7c3b0c6edb4df39a94d21ad867746.jpg" width="700" alt="">
+<img src="../images/part01_4b13cbcbba117e0b2830a1899a8f7f3d36a7c3b0c6edb4df39a94d21ad867746.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -1082,7 +1082,7 @@ Step 4b: No error is seen, so the Requester returns Ack DLLP to Switch. Switch d
 </table>
 
 Figure 2-27: Non-Posted Transaction with Ack/Nak Protocol | 图2-27：带Ack/Nak协议的非投递事务
-<img src="images/part01_4ae1274d3c62e6cae58663f0ca6c06a4df881526c14c91a9ae452886aba66420.jpg" width="700" alt="">
+<img src="../images/part01_4ae1274d3c62e6cae58663f0ca6c06a4df881526c14c91a9ae452886aba66420.jpg" width="700" alt="">
 
 ## Flow Control | 流控
 
@@ -1144,7 +1144,7 @@ TLPs and DLLPs from the Data Link Layer are clocked into a buffer in the Physica
 </tr>
 </table>
 
-<img src="images/part01_c58f072a15f652ded0aceac01109da848c2e7a679bd4a382e0f70bae2257870a.jpg" width="700" alt="">
+<img src="../images/part01_c58f072a15f652ded0aceac01109da848c2e7a679bd4a382e0f70bae2257870a.jpg" width="700" alt="">
 Figure 2-28: TLP and DLLP Structure at the Physical Layer | 图2-28：物理层的TLP和DLLP结构
 
 <table>
@@ -1206,7 +1206,7 @@ The physical sender and receiver on a Link are connected with an AC-coupled Link
 </tr>
 </table>
 
-<img src="images/part01_f7a6ed1fb949a7e2d336cf74fcfd6bb7623029c1c62460d6f20f9fa133057f62.jpg" width="700" alt="">
+<img src="../images/part01_f7a6ed1fb949a7e2d336cf74fcfd6bb7623029c1c62460d6f20f9fa133057f62.jpg" width="700" alt="">
 Figure 2-29: Physical Layer Electrical | 图2-29：物理层电气
 
 ## Ordered Sets
@@ -1247,7 +1247,7 @@ Ordered Sets always terminate at the neighboring device and are not routed throu
 </table>
 
 Figure 2-30: Ordered Sets Origin and Destination | 图2-30：有序集源和目的
-<img src="images/part01_66d3d75c287bad02c9558f911ba317ab6316bf563ad0d68c22eae1b4425882bb.jpg" width="700" alt="">
+<img src="../images/part01_66d3d75c287bad02c9558f911ba317ab6316bf563ad0d68c22eae1b4425882bb.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -1261,7 +1261,7 @@ Ordered Sets are used in the Link Training process, as described in Chapter 14, 
 </table>
 
 Figure 2-31: Ordered-Set Structure | 图2-31：有序集结构
-<img src="images/part01_94a184797d8a62418f98923cc328ca7fef4f4555e29988d0531350e5288d1461.jpg" width="700" alt="">
+<img src="../images/part01_94a184797d8a62418f98923cc328ca7fef4f4555e29988d0531350e5288d1461.jpg" width="700" alt="">
 
 ## Protocol Review Example | 协议回顾示例
 
@@ -1289,7 +1289,7 @@ For the first part of the discussion, refer to Figure 2‑32 on page 81. The Req
 </tr>
 </table>
 
-<img src="images/part01_34f769f7dfc2736dc87c224e3be486badf3cb160102a504621d040e46945b775.jpg" width="700" alt="">
+<img src="../images/part01_34f769f7dfc2736dc87c224e3be486badf3cb160102a504621d040e46945b775.jpg" width="700" alt="">
 Figure 2‑32: Memory Read Request Phase | 图2‑32：存储器读请求阶段
 
 ## PCI Express Technology | PCI Express 技术
@@ -1367,7 +1367,7 @@ For the second half of this discussion, refer to Figure 2-33 on page 83. To serv
 </table>
 
 Figure 2-33: Completion with Data Phase | 图2-33：带数据阶段的完成
-<img src="images/part01_44abc929e33d3e9a3a65bda68f55cf9bcdd4234c7656778ecebe304461e5d4b0.jpg" width="700" alt="">
+<img src="../images/part01_44abc929e33d3e9a3a65bda68f55cf9bcdd4234c7656778ecebe304461e5d4b0.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -1572,7 +1572,7 @@ PCIe 允许在单条 PCI 总线上连接最多 32 个设备，然而，PCIe 的�
 </tr>
 </table>
 
-<img src="images/part01_796b26ae80ef8b4eae2285a9fc6e3e01a4e27dedd4ba1cd25a014299d25c40dc.jpg" width="700" alt="">
+<img src="../images/part01_796b26ae80ef8b4eae2285a9fc6e3e01a4e27dedd4ba1cd25a014299d25c40dc.jpg" width="700" alt="">
 Figure 3-1: Example System | 图3-1：示例系统
 
 
@@ -1654,7 +1654,7 @@ MSI和/或MSI-X
 </table>
 
 Figure 3-2: PCI Compatible Configuration Register Space | 图3-2：PCI兼容配置寄存器空间
-<img src="images/part01_87179b365d2be6585bf707eba292ed9ce1ac72779bb7362e1133b3d921008c53.jpg" width="700" alt="">
+<img src="../images/part01_87179b365d2be6585bf707eba292ed9ce1ac72779bb7362e1133b3d921008c53.jpg" width="700" alt="">
 
 ## Extended Configuration Space | 扩展配置空间
 
@@ -1669,7 +1669,7 @@ Refer to Figure 3‑3 on page 90 during this discussion. When PCIe was introduce
 </tr>
 </table>
 
-<img src="images/part01_1942869259537b7f4b2e0c2773f830739adecc65a9d75ed0e60a239556142560.jpg" width="700" alt="">
+<img src="../images/part01_1942869259537b7f4b2e0c2773f830739adecc65a9d75ed0e60a239556142560.jpg" width="700" alt="">
 Figure 3‑3: 4KB Configuration Space per PCI Express Function | 图3‑3：每个PCI Express功能的4KB配置空间
 
 <table>

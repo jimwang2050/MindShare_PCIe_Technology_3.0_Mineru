@@ -68,10 +68,16 @@ def merge_chapter(name, start, end):
 
     if lines:
         # Add chapter header comment
+        # Fix image paths: chapters/ is a subdirectory, images/ is at repo root
+        import re
+        body_fixed = re.sub(
+            r'(<img\s+src=")images/',
+            r'\1../images/',
+            "\n\n".join(lines)
+        )
         header = f"# {name}\n\n"
-        body = "\n\n".join(lines)
         out_path = OUT_DIR / f"{name}.md"
-        out_path.write_text(header + body, encoding="utf-8")
+        out_path.write_text(header + body_fixed, encoding="utf-8")
         size_kb = out_path.stat().st_size / 1024
         pct = available_chunks / total_chunks * 100
         status = "✅" if available_chunks == total_chunks else "⚠️"

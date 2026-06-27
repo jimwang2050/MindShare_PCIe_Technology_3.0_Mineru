@@ -2472,7 +2472,7 @@ LeCroy 为您提供最广泛的测试工具和专业探头，以简化和加速�
 </tr>
 </table>
 
-<img src="images/part06_db1d8a0ef5d82fe3f63e618fea24454033902d41262fd2c31a28b69305dfbe85.jpg" width="700" alt="">
+<img src="../images/part06_db1d8a0ef5d82fe3f63e618fea24454033902d41262fd2c31a28b69305dfbe85.jpg" width="700" alt="">
 Summit T3-16 Protocol Analyzer
 
 <table>
@@ -2486,7 +2486,7 @@ Summit T3-16 协议分析仪
 </tr>
 </table>
 
-<img src="images/part06_88fff1651927cf103367b4a035afa2cb32e3ae4520197a3d9ff3852106a69688.jpg" width="700" alt="">
+<img src="../images/part06_88fff1651927cf103367b4a035afa2cb32e3ae4520197a3d9ff3852106a69688.jpg" width="700" alt="">
 Summit T3-8 Protocol Analyzer
 
 <table>
@@ -2500,7 +2500,7 @@ Summit T3-8 协议分析仪
 </tr>
 </table>
 
-<img src="images/part06_a87699b2a1d5f064a9d1e612319e1d3db4f48ea553ca85d7ceb3548ec870921d.jpg" width="700" alt="">
+<img src="../images/part06_a87699b2a1d5f064a9d1e612319e1d3db4f48ea553ca85d7ceb3548ec870921d.jpg" width="700" alt="">
 Summit T2-16 Protocol Analyzer
 
 <table>
@@ -2514,7 +2514,7 @@ Summit T2-16 协议分析仪
 </tr>
 </table>
 
-<img src="images/part06_f123c6d9b1d4154d15c9f7a4d05701291fcaeab461524b2af6b2c79cc5dac9ea.jpg" width="700" alt="">
+<img src="../images/part06_f123c6d9b1d4154d15c9f7a4d05701291fcaeab461524b2af6b2c79cc5dac9ea.jpg" width="700" alt="">
 Summit T28 Protocol Analyzer
 
 <table>
@@ -2528,7 +2528,7 @@ Summit T28 协议分析仪
 </tr>
 </table>
 
-<img src="images/part06_7fa735d06a36e97d06e0d29a1bf737a3e49bd0258f40ac367a3a4073e99b6a4f.jpg" width="700" alt="">
+<img src="../images/part06_7fa735d06a36e97d06e0d29a1bf737a3e49bd0258f40ac367a3a4073e99b6a4f.jpg" width="700" alt="">
 Edge T1-4 Protocol Analyzer
 
 <table>
@@ -2542,9 +2542,9 @@ Edge T1-4 协议分析仪
 </tr>
 </table>
 
-<img src="images/part06_aa7359a655018f49da5a8a2bd02aa27ad19eec94ad0fa7966c1681a882e98554.jpg" width="700" alt="">
+<img src="../images/part06_aa7359a655018f49da5a8a2bd02aa27ad19eec94ad0fa7966c1681a882e98554.jpg" width="700" alt="">
 
-<img src="images/part06_aef67bb59227c24198e180ec61c84910fac443623820d6dc752baadec4b8dacd.jpg" width="700" alt="">
+<img src="../images/part06_aef67bb59227c24198e180ec61c84910fac443623820d6dc752baadec4b8dacd.jpg" width="700" alt="">
 Summit Z3-16 Device Emulator
 Summit Z3-16 Host Emulator
 
@@ -2559,9 +2559,9 @@ Summit Z3-16 设备仿真器 / Summit Z3-16 主机仿真器
 </tr>
 </table>
 
-<img src="images/part06_76cf54c67309c074ad604290b40ff0d3cc9f10b6dbc93d138f2a024c0507a6e5.jpg" width="700" alt="">
+<img src="../images/part06_76cf54c67309c074ad604290b40ff0d3cc9f10b6dbc93d138f2a024c0507a6e5.jpg" width="700" alt="">
 
-<img src="images/part06_a08f4b8f768052ee663fc31cc1044c37434657e6c30db123b84c3134232e5f2d.jpg" width="700" alt="">
+<img src="../images/part06_a08f4b8f768052ee663fc31cc1044c37434657e6c30db123b84c3134232e5f2d.jpg" width="700" alt="">
 Gen2 Protocol Test Card
 
 <table>
@@ -2575,7 +2575,7 @@ Gen2 协议测试卡
 </tr>
 </table>
 
-<img src="images/part06_08c758d4473efd6e569be918c68ce18492189fb5ce51be86f54b7ce1ee147734.jpg" width="700" alt="">
+<img src="../images/part06_08c758d4473efd6e569be918c68ce18492189fb5ce51be86f54b7ce1ee147734.jpg" width="700" alt="">
 SimPASS PE Simulation Analysis
 Gen3 x16 Active Interposer
 
@@ -2590,7 +2590,7 @@ SimPASS PE 仿真分析 / Gen3 x16 有源转接板
 </tr>
 </table>
 
-<img src="images/part06_4f8fe86eb29c93a42ce2bdec13b51ad4561667aca10cce8c8ce624a6ec06e3d4.jpg" width="700" alt="">
+<img src="../images/part06_4f8fe86eb29c93a42ce2bdec13b51ad4561667aca10cce8c8ce624a6ec06e3d4.jpg" width="700" alt="">
 MidBus Probe
 
 <table>
@@ -2604,7 +2604,7 @@ MidBus Probe
 </tr>
 </table>
 
-<img src="images/part06_ba360deef3a8fd65ffdc8fc7fdd604cd4f8c5f4a2767d50957ef3fcf06f660ce.jpg" width="700" alt="">
+<img src="../images/part06_ba360deef3a8fd65ffdc8fc7fdd604cd4f8c5f4a2767d50957ef3fcf06f660ce.jpg" width="700" alt="">
 Multi-lead Probe
 
 <table>
@@ -2618,7 +2618,7 @@ Multi-lead Probe
 </tr>
 </table>
 
-<img src="images/part06_0996bf639f911d7ba76b966008f7343037b87b3cd52c7045f57a14278697b6d6.jpg" width="700" alt="">
+<img src="../images/part06_0996bf639f911d7ba76b966008f7343037b87b3cd52c7045f57a14278697b6d6.jpg" width="700" alt="">
 AMC Interposer
 
 <table>
@@ -2632,7 +2632,7 @@ AMC 转接板
 </tr>
 </table>
 
-<img src="images/part06_bec16d2d4faa86604b6d1bf290c57dbb29220211f02e6804b5a644ba304c1e8d.jpg" width="700" alt="">
+<img src="../images/part06_bec16d2d4faa86604b6d1bf290c57dbb29220211f02e6804b5a644ba304c1e8d.jpg" width="700" alt="">
 MiniCard Interposer
 
 <table>
@@ -2783,7 +2783,7 @@ The Ultimate Tool to View, Edit and Verify Configuration Settings of a Computer
 </tr>
 </table>
 
-<img src="images/part06_9b957f7566a7a6443690ad205f5b9a683894de6724be7447b3afe3e40c807723.jpg" width="700" alt="">
+<img src="../images/part06_9b957f7566a7a6443690ad205f5b9a683894de6724be7447b3afe3e40c807723.jpg" width="700" alt="">
 
 ## Feature List | 功能列表
 

@@ -48,7 +48,7 @@
 
 Figure 0-1: Enumeration Using Transparent Bridges | 图0-1：使用透明桥的枚举
 
-<img src="images/part06_f19b0d11bcc662e3364a706795525203cbb743404a04fb6c4daa834282b683f2.jpg" width="700" alt="">
+<img src="../images/part06_f19b0d11bcc662e3364a706795525203cbb743404a04fb6c4daa834282b683f2.jpg" width="700" alt="">
 
 ## Implementing Multi-host/Intelligent Adapters in PCI Express Base Systems / 在 PCI Express 基础系统中实现多主机/智能适配器
 
@@ -74,13 +74,13 @@ Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple 
 | ## Chapter : Appendix C: Implementing Intelligent Adapt- | ## 附录 C：实现智能适配器 |
 | Figure 0-2: Direct Address Translation | 图 0-2：直接地址翻译 |
 
-<img src="images/part06_16233cf40f4625514aa729e0d5e6ef58d10bffece04650cd6f5ca16551038551.jpg" width="700" alt="">
+<img src="../images/part06_16233cf40f4625514aa729e0d5e6ef58d10bffece04650cd6f5ca16551038551.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
 | Figure 0-3: Look Up Table Translation Creates Multiple Windows | 图 0-3：查找表翻译创建多个窗口 |
 
-<img src="images/part06_6167f9ca8ef7cd1d5ab3169da775a6c92633563dbc3ff796511be68938551498.jpg" width="700" alt="">
+<img src="../images/part06_6167f9ca8ef7cd1d5ab3169da775a6c92633563dbc3ff796511be68938551498.jpg" width="700" alt="">
 
 ## Example: Implementing Intelligent Adapters in a PCI Express Base System
 ## 示例：在 PCI Express 基础系统中实现智能适配器
@@ -93,7 +93,7 @@ Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple 
 ## Chapter : Appendix C: Implementing Intelligent Adapters in PCI and PCI Express Systems
 
 Figure 0-4: Intelligent Adapters in PCI and PCI Express Systems | 图0-4：PCI和PCI Express系统中的智能适配器
-<img src="images/part06_0e0303807b2f7dda9278e3b16af14b791f92f12d8fda9ad48de3811f454afdbb.jpg" width="700" alt="">
+<img src="../images/part06_0e0303807b2f7dda9278e3b16af14b791f92f12d8fda9ad48de3811f454afdbb.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -112,7 +112,7 @@ Figure 0-4: Intelligent Adapters in PCI and PCI Express Systems | 图0-4：PCI�
 
 Figure 0-5: Host Failover in PCI and PCI Express Systems | 图0-5：PCI和PCI Express系统中的主机故障切换
 
-<img src="images/part06_dcdfbe316f4856a23c1d4583b50d833827e3691ebefb4bde0b61800919d42d50.jpg" width="700" alt="">
+<img src="../images/part06_dcdfbe316f4856a23c1d4583b50d833827e3691ebefb4bde0b61800919d42d50.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -129,7 +129,7 @@ Figure 0-5: Host Failover in PCI and PCI Express Systems | 图0-5：PCI和PCI Ex
 
 **Figure 0-6: Dual Host in a PCI and PCI Express System**
 
-<img src="images/part06_3e90664de5b3fa4c38071f2bcf85d67cc73ba20b85766b70b400fce321e4722b.jpg" width="700" alt="">
+<img src="../images/part06_3e90664de5b3fa4c38071f2bcf85d67cc73ba20b85766b70b400fce321e4722b.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -146,7 +146,7 @@ Figure 0-5: Host Failover in PCI and PCI Express Systems | 图0-5：PCI和PCI Ex
 
 Figure 0-7: Dual-Star Fabric | 图0-7：双星型结构
 
-<img src="images/part06_69ca642d9ad66b908a02f832e8d4df8a1e3ead77d74ca0a56383a15939f36816.jpg" width="700" alt="">
+<img src="../images/part06_69ca642d9ad66b908a02f832e8d4df8a1e3ead77d74ca0a56383a15939f36816.jpg" width="700" alt="">
 
 ## Summary | 总结
 
@@ -243,7 +243,7 @@ The addresses of all upstream and downstream transactions are translated (except
 </table>
 
 Figure 0-8: Direct Address Translation | 图0-8：直接地址转换
-<img src="images/part06_b9f658a82478d41670c0713da32fb2eee4cb996c6d3204c17970773156d57fed.jpg" width="700" alt="">
+<img src="../images/part06_b9f658a82478d41670c0713da32fb2eee4cb996c6d3204c17970773156d57fed.jpg" width="700" alt="">
 
 ## Lookup Table Based Address Translation | 基于查找表的地址转换
 
@@ -270,7 +270,7 @@ On the secondary side, BAR3 uses a special lookup table based address translatio
 </table>
 
 Figure 0‐9: Lookup Table Based Translation | 图0‐9：基于查找表的转换  
-<img src="images/part06_46e325e25efdfe78f84ef0cb38c00866541e316a5f27b0f5e056285f1bce257c.jpg" width="700" alt="">
+<img src="../images/part06_46e325e25efdfe78f84ef0cb38c00866541e316a5f27b0f5e056285f1bce257c.jpg" width="700" alt="">
 
 ## Downstream BAR Limit Registers | 下游BAR限制寄存器
 
@@ -286,7 +286,7 @@ The two downstream BARs on the primary side (BAR2/3 and BAR4/5) also have Limit 
 </table>
 
 Figure 0‐10: Use of Limit Register | 图0‐10：限制寄存器的使用
-<img src="images/part06_16fce13f8a5cd71d166a65ba7b9fcbcd49e7b122d14528f1c3be9b36c0ede20a.jpg" width="700" alt="">
+<img src="../images/part06_16fce13f8a5cd71d166a65ba7b9fcbcd49e7b122d14528f1c3be9b36c0ede20a.jpg" width="700" alt="">
 
 ## Forwarding 64bit Address Memory Transactions | 转发64位地址存储器事务
 
@@ -736,7 +736,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </table>
 
 Figure D-1: Lock Sequence Begins with Memory Read Lock Request | 图D-1：锁定序列以存储器读锁定请求开始
-<img src="images/part06_f6913aa97476401663ef2a81abb4e6b5da7417c5e2f611200ca27786fdc6951b.jpg" width="700" alt="">
+<img src="../images/part06_f6913aa97476401663ef2a81abb4e6b5da7417c5e2f611200ca27786fdc6951b.jpg" width="700" alt="">
 
 ## Read Data Modified and Written to Target and Lock Completes | 读数据被修改并写入目标，锁定完成
 
@@ -829,7 +829,7 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 </table>
 
 Figure D-2: Lock Completes with Memory Write Followed by Unlock Message | 图D-2：锁定以存储器写后跟解锁消息完成
-<img src="images/part06_5b9488b3a211370278d851a4da3e757bbb0a8776bfad32d700487c491a9d52cb.jpg" width="700" alt="">
+<img src="../images/part06_5b9488b3a211370278d851a4da3e757bbb0a8776bfad32d700487c491a9d52cb.jpg" width="700" alt="">
 
 ## Notification of an Unsuccessful Lock | 不成功锁定的通知
 
@@ -1575,7 +1575,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </table>
 
 Figure D‐1: Lock Sequence Begins with Memory Read Lock Request | 图D‐1：锁定序列以存储器读锁定请求开始
-<img src="images/part06_f6913aa97476401663ef2a81abb4e6b5da7417c5e2f611200ca27786fdc6951b.jpg" width="700" alt="">
+<img src="../images/part06_f6913aa97476401663ef2a81abb4e6b5da7417c5e2f611200ca27786fdc6951b.jpg" width="700" alt="">
 
 ## Read Data Modified and Written to Target and Lock Completes | 读取数据修改后写入目标并完成锁定
 
@@ -1681,7 +1681,7 @@ Root Complex's transmission of the Unlock message that releases the lock:
 </table>
 
 Figure D‐2: Lock Completes with Memory Write Followed by Unlock Message | 图D‐2：锁定以存储器写后跟解锁消息完成
-<img src="images/part06_5b9488b3a211370278d851a4da3e757bbb0a8776bfad32d700487c491a9d52cb.jpg" width="700" alt="">
+<img src="../images/part06_5b9488b3a211370278d851a4da3e757bbb0a8776bfad32d700487c491a9d52cb.jpg" width="700" alt="">
 
 ## Notification of an Unsuccessful Lock | 锁定失败通知
 

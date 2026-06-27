@@ -27,6 +27,7 @@ As is true of many high-speed serial transports, PCIe uses a bidirectional conne
 </table>
 
 Figure 2-1: Dual-Simplex Link | 图2-1：双单工链路
+
 <img src="images/part01_65b78af38b282e69f5fdeb21d0deaaed27d55c195d68a17adf0b5efaf114013c.jpg" width="700" alt="">
 
 <table>
@@ -41,6 +42,7 @@ The term for this path between the devices is a Link, and is made up of one or m
 </table>
 
 Figure 2-2: One Lane | 图2-2：一条通道
+
 <img src="images/part01_d306bee7ca3c426ae22abbd7183cdcc877f14259eb84ed016a9ecf23cb33f97b.jpg" width="700" alt="">
 
 ## Software Backward Compatibility | 软件向后兼容性
@@ -102,6 +104,7 @@ the difference in arrival times for all the signals needed on a given clock. Cle
 </table>
 
 Figure 2-3: Parallel Bus Limitations | 图2-3：并行总线限制
+
 <img src="images/part01_cad406f51fee6b3bdd083a43706ee08ceb147b9df21159602c9b3bd68b38cc3b.jpg" width="700" alt="">
 
 <table>
@@ -228,6 +231,7 @@ The differential receiver gets both signals and subtracts the negative voltage f
 </table>
 
 Figure 2-4: Differential Signaling | 图2-4：差分信令
+
 <img src="images/part01_19617ab8aabed3825fec312da2852c1cab58d1a4316c11531725e52085351821.jpg" width="700" alt="">
 
 ## No Common Clock | 无需公共时钟
@@ -252,6 +256,7 @@ One thing to note regarding clock recovery is that the PLL does need transitions
 </table>
 
 Figure 2‑5: Simple PLL Block Diagram | 图2‑5：简单PLL框图
+
 <img src="images/part01_1ac5a5952da14d3c864dfd8ae7562de4296c023562e71158e645bcfaa523de03.jpg" width="700" alt="">
 
 <table>
@@ -429,6 +434,7 @@ One way compatibility with older software is maintained is that the configuratio
 </table>
 
 Figure 2-7: Configuration Headers | 图2-7：配置头
+
 <img src="images/part01_4598ae3c1199ed477d3ccef20aaef66e7b609af082432a00b29e46209ac766a4.jpg" width="700" alt="">
 
 <table>
@@ -443,6 +449,7 @@ To illustrate the way the system appears to software, consider the example topol
 </table>
 
 Figure 2-8: Topology Example | 图2-8：拓扑示例
+
 <img src="images/part01_72ed8540ba3dab1abb3d98bb1818bcb24326ec6e6cb2dfa7aa26bc280a051ec7.jpg" width="700" alt="">
 
 <table>
@@ -457,6 +464,7 @@ In a similar way, the internal organization of a Switch, shown in Figure 2-9 on 
 </table>
 
 Figure 2-9: Example Results of System Enumeration | 图2-9：系统枚举结果示例
+
 <img src="images/part01_f638e407fa47fd789349bb4bcedad28fc44b8e09d34bb8bdc151b71785c20758.jpg" width="700" alt="">
 
 ## System Examples | 系统示例
@@ -489,10 +497,13 @@ This also gives us an opportunity to revisit the question of what constitutes th
 </table>
 
 Figure 2-10: Low-Cost PCIe System | 图2-10：低成本PCIe系统
+
 Figure 2-11: Server PCIe System | 图2-11：服务器PCIe系统
 <img src="images/part01_5ff8ff7874b46982636a2c89e9d372e5b202af4f26ccb619508231c3bf2581b6.jpg" width="700" alt="">
+
 Figure 2-12: PCI Express Device Layers | 图2-12：PCI Express设备层
 <img src="images/part01_25e684fbd36b47ce7c8b7ba7836b9a3abb02994b5d51c666d43805ed343231cb.jpg" width="700" alt="">
+
 <img src="images/part01_47b594d06dc401b1dd86f88ea3ba1a41b677ec3e156a5d1a5023a8ebf9bb5a74.jpg" width="700" alt="">
 
 
@@ -550,6 +561,7 @@ Physical Layer. This layer is responsible for Ordered-Set packet creation on the
 </table>
 
 Figure 2-13: Switch Port Layers | 图2-13：交换机端口层
+
 <img src="images/part01_e3fa1c34a3567a36d538a2d4befaf296a5a8dcf73d1b5f9156c39ec2574193d7.jpg" width="700" alt="">
 
 <table>
@@ -580,6 +592,7 @@ Before we go deeper, let's first walk through an overview to see how the layers 
 </table>
 
 Figure 2-14: Detailed Block Diagram of PCI Express Device's Layers | 图2-14：PCI Express设备层的详细框图
+
 <img src="images/part01_b426a340ae362d5ecd38a466e8f6661c8d0a1467a519762768ce084a583b1bed.jpg" width="700" alt="">
 
 <table>
@@ -780,6 +793,7 @@ The target device can check ECRC errors if it's capable and was enabled. If this
 </table>
 
 Figure 2-17: TLP Disassembly | 图2-17：TLP拆解
+
 <img src="images/part01_03174f5c4603b31616bc41880229c0cb55362305b782e00f7b81d9cad5ed94fe.jpg" width="700" alt="">
 
 ## Non-Posted Transactions | 非转发事务
@@ -1015,8 +1029,10 @@ If the Receiver detects a TLP error, it drops the TLP and returns a Nak to the T
 </table>
 
 Figure 2-25: Data Link Layer Replay Mechanism | 图2-25：数据链路层重放机制
+
 Figure 2-26: TLP and DLLP Structure at the Data Link Layer | 图2-26：数据链路层的TLP和DLLP结构
 <img src="images/part01_1d0465b846db99c393d9b871470744aced9a9e0f97d9a2254be79fb289631762.jpg" width="700" alt="">
+
 <img src="images/part01_4b13cbcbba117e0b2830a1899a8f7f3d36a7c3b0c6edb4df39a94d21ad867746.jpg" width="700" alt="">
 
 <table>
@@ -1079,6 +1095,7 @@ Step 4b: No error is seen, so the Requester returns Ack DLLP to Switch. Switch d
 </table>
 
 Figure 2-27: Non-Posted Transaction with Ack/Nak Protocol | 图2-27：带Ack/Nak协议的非投递事务
+
 <img src="images/part01_4ae1274d3c62e6cae58663f0ca6c06a4df881526c14c91a9ae452886aba66420.jpg" width="700" alt="">
 
 ## Flow Control | 流控
@@ -1244,6 +1261,7 @@ Ordered Sets always terminate at the neighboring device and are not routed throu
 </table>
 
 Figure 2-30: Ordered Sets Origin and Destination | 图2-30：有序集源和目的
+
 <img src="images/part01_66d3d75c287bad02c9558f911ba317ab6316bf563ad0d68c22eae1b4425882bb.jpg" width="700" alt="">
 
 <table>
@@ -1258,6 +1276,7 @@ Ordered Sets are used in the Link Training process, as described in Chapter 14, 
 </table>
 
 Figure 2-31: Ordered-Set Structure | 图2-31：有序集结构
+
 <img src="images/part01_94a184797d8a62418f98923cc328ca7fef4f4555e29988d0531350e5288d1461.jpg" width="700" alt="">
 
 ## Protocol Review Example | 协议回顾示例
@@ -1364,6 +1383,7 @@ For the second half of this discussion, refer to Figure 2-33 on page 83. To serv
 </table>
 
 Figure 2-33: Completion with Data Phase | 图2-33：带数据阶段的完成
+
 <img src="images/part01_44abc929e33d3e9a3a65bda68f55cf9bcdd4234c7656778ecebe304461e5d4b0.jpg" width="700" alt="">
 
 <table>
@@ -1651,6 +1671,7 @@ MSI和/或MSI-X
 </table>
 
 Figure 3-2: PCI Compatible Configuration Register Space | 图3-2：PCI兼容配置寄存器空间
+
 <img src="images/part01_87179b365d2be6585bf707eba292ed9ce1ac72779bb7362e1133b3d921008c53.jpg" width="700" alt="">
 
 ## Extended Configuration Space | 扩展配置空间

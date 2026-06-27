@@ -5,29 +5,29 @@
 
 ## 📚 章节列表
 
-| 章节 | 文件 | 内容 | 大小 |
+| 章节 | 文件 | 内容 | 页码 |
 |:---|:---|:---|---:|
-| Ch01 | [Ch01_Front_Matter_and_Introduction.md](Ch01_Front_Matter_and_Introduction.md) | 前言、版权、目录、PCI/PCI-X 背景介绍 | 416 KB |
-| Ch02 | [Ch02_PCIe_Architecture_Overview.md](Ch02_PCIe_Architecture_Overview.md) | PCIe 架构概述（分层、TLP、带宽） | 173 KB |
-| Ch03 | [Ch03_Configuration_Overview.md](Ch03_Configuration_Overview.md) | 配置机制（CF8h/CFCh、ECAM、枚举） | 93 KB |
-| Ch04 | [Ch04_Address_Space_and_Transaction_Routing.md](Ch04_Address_Space_and_Transaction_Routing.md) | 地址空间与事务路由（BAR、路由） | 191 KB |
-| Ch05 | [Ch05_TLP_Elements.md](Ch05_TLP_Elements.md) | TLP 元素（Header 格式、类型） | 53 KB |
-| Ch06 | [Ch06_Flow_Control.md](Ch06_Flow_Control.md) | 流控（信用机制、初始化） | 67 KB |
-| Ch07 | [Ch07_Quality_of_Service.md](Ch07_Quality_of_Service.md) | QoS/VC（流量类、仲裁、等时） | 99 KB |
-| Ch08 | [Ch08_Transaction_Ordering.md](Ch08_Transaction_Ordering.md) | 事务排序（排序规则、IDO） | 56 KB |
-| Ch09 | [Ch09_DLLP_Elements.md](Ch09_DLLP_Elements.md) | DLLP 元素（类型、格式） | 19 KB |
-| Ch10 | [Ch10_AckNak_Protocol.md](Ch10_AckNak_Protocol.md) | Ack/Nak 协议（重传、超时） | 144 KB |
-| Ch11 | [Ch11_Physical_Layer_Logical_Gen1_Gen2.md](Ch11_Physical_Layer_Logical_Gen1_Gen2.md) | 物理层逻辑 Gen1/Gen2（8b/10b、条带化） | 132 KB |
-| Ch12 | [Ch12_Physical_Layer_Logical_Gen3.md](Ch12_Physical_Layer_Logical_Gen3.md) | 物理层逻辑 Gen3（128b/130b、加扰） | 204 KB |
-| Ch13 | [Ch13_Physical_Layer_Electrical.md](Ch13_Physical_Layer_Electrical.md) | 物理层电气（差分信号、均衡、眼图） | 430 KB |
-| Ch14 | [Ch14_Link_Initialization_Training.md](Ch14_Link_Initialization_Training.md) | 链路初始化与训练（LTSSM） | 227 KB |
-| Ch15 | [Ch15_Error_Detection_Handling.md](Ch15_Error_Detection_Handling.md) | 错误检测与处理（AER、错误分类） | 218 KB |
-| Ch16 | [Ch16_Power_Management.md](Ch16_Power_Management.md) | 电源管理（ASPM、L0s/L1/L2） | 165 KB |
-| Ch17 | [Ch17_Interrupt_Support.md](Ch17_Interrupt_Support.md) | 中断支持（INTx、MSI、MSI-X） | 105 KB |
-| Ch18 | [Ch18_Optional_Features.md](Ch18_Optional_Features.md) | 可选特性（LTR、OBFF、TPH、FLR、DPA） | 78 KB |
-| Ch19 | [Ch19_Hot_Plug_Power_Budgeting.md](Ch19_Hot_Plug_Power_Budgeting.md) | 热插拔与功率预算 | 113 KB |
-| Ch20 | [Ch20_Updates_Spec_Rev_2.1.md](Ch20_Updates_Spec_Rev_2.1.md) | Spec 2.1 修订更新 | 89 KB |
-| Appendix | [Appendix.md](Appendix.md) | 附录（索引、术语表） | 56 KB |
+| Ch01 | [Ch01_Front_Matter_and_Introduction.md](Ch01_Front_Matter_and_Introduction.md) | 前言、版权、目录、PCI/PCI-X 背景介绍 | pp 1-99 |
+| Ch02 | [Ch02_PCIe_Architecture_Overview.md](Ch02_PCIe_Architecture_Overview.md) | PCIe 架构概述（分层、TLP、带宽） | pp 100-145 |
+| Ch03 | [Ch03_Configuration_Overview.md](Ch03_Configuration_Overview.md) | 配置机制（CF8h/CFCh、ECAM、枚举） | pp 146-181 |
+| Ch04 | [Ch04_Address_Space_and_Transaction_Routing.md](Ch04_Address_Space_and_Transaction_Routing.md) | 地址空间与事务路由（BAR、路由） | pp 182-229 |
+| Ch05 | [Ch05_TLP_Elements.md](Ch05_TLP_Elements.md) | TLP 元素（Header 格式、类型） | pp 230-275 |
+| Ch06 | [Ch06_Flow_Control.md](Ch06_Flow_Control.md) | 流控（信用机制、初始化） | pp 276-305 |
+| Ch07 | [Ch07_Quality_of_Service.md](Ch07_Quality_of_Service.md) | QoS/VC（流量类、仲裁、等时） | pp 306-345 |
+| Ch08 | [Ch08_Transaction_Ordering.md](Ch08_Transaction_Ordering.md) | 事务排序（排序规则、IDO） | pp 346-367 |
+| Ch09 | [Ch09_DLLP_Elements.md](Ch09_DLLP_Elements.md) | DLLP 元素（类型、格式） | pp 368-377 |
+| Ch10 | [Ch10_AckNak_Protocol.md](Ch10_AckNak_Protocol.md) | Ack/Nak 协议（重传、超时） | pp 378-421 |
+| Ch11 | [Ch11_Physical_Layer_Logical_Gen1_Gen2.md](Ch11_Physical_Layer_Logical_Gen1_Gen2.md) | 物理层逻辑 Gen1/Gen2（8b/10b、条带化） | pp 422-467 |
+| Ch12 | [Ch12_Physical_Layer_Logical_Gen3.md](Ch12_Physical_Layer_Logical_Gen3.md) | 物理层逻辑 Gen3（128b/130b、加扰） | pp 468-507 |
+| Ch13 | [Ch13_Physical_Layer_Electrical.md](Ch13_Physical_Layer_Electrical.md) | 物理层电气（差分信号、均衡、眼图） | pp 508-565 |
+| Ch14 | [Ch14_Link_Initialization_Training.md](Ch14_Link_Initialization_Training.md) | 链路初始化与训练（LTSSM） | pp 566-707 |
+| Ch15 | [Ch15_Error_Detection_Handling.md](Ch15_Error_Detection_Handling.md) | 错误检测与处理（AER、错误分类） | pp 708-763 |
+| Ch16 | [Ch16_Power_Management.md](Ch16_Power_Management.md) | 电源管理（ASPM、L0s/L1/L2） | pp 764-853 |
+| Ch17 | [Ch17_Interrupt_Support.md](Ch17_Interrupt_Support.md) | 中断支持（INTx、MSI、MSI-X） | pp 854-893 |
+| Ch18 | [Ch18_Optional_Features.md](Ch18_Optional_Features.md) | 可选特性（LTR、OBFF、TPH、FLR、DPA） | pp 894-907 |
+| Ch19 | [Ch19_Hot_Plug_Power_Budgeting.md](Ch19_Hot_Plug_Power_Budgeting.md) | 热插拔与功率预算 | pp 908-947 |
+| Ch20 | [Ch20_Updates_Spec_Rev_2.1.md](Ch20_Updates_Spec_Rev_2.1.md) | Spec 2.1 修订更新 | pp 948-1057 |
+| Appendix | [Appendix.md](Appendix.md) | 附录（索引、术语表） | pp 948-1057 |
 
 ## 📖 格式说明
 

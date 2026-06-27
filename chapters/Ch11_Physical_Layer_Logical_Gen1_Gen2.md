@@ -6,9 +6,9 @@
 | Logic controlling the Elastic Buffer adjusts for minor clock variations between the recovered clock and the local clock of the receiver by adding or removing SKP Symbols as needed when an SOS (SKP Ordered Set) is detected. Finally, the Receiver's local clock moves each Symbol out of the Elastic Buffer. | 控制弹性缓冲区的逻辑通过在检测到SOS（SKP有序集）时按需添加或移除SKP符号，来调整恢复时钟与接收器本地时钟之间的微小时钟变化。最后，接收器的本地时钟将每个符号移出弹性缓冲区。 |
 | Using the 8b/10b Decoder, Gen1/Gen2 Symbols are decoded thus converting the 10-bit symbols to 8-bit characters. The descrambler applies the same scrambling method used at the transmitter to recover the original data. Finally, the bytes from each Lane are un-striped to form a byte stream that will be forwarded up to the Data Link Layer. Only TLPs and DLLPs are loaded into the receive buffer and sent to the Data Link Layer. | 使用8b/10b解码器，Gen1/Gen2符号被解码，从而将10位符号转换为8位字符。解扰器应用与发送端相同的加扰方法来恢复原始数据。最后，来自每个通道的字节被解除交错，形成字节流并向上转发至数据链路层。只有TLP和DLLP被载入接收缓冲区并发送到数据链路层。 |
 
-Figure 11‐4: Physical Layer Receive Logic Details
+Figure 11‐4: Physical Layer Receive Logic Details | 图11‐4：物理层接收逻辑详情
 
-![](images/part03_cfc1d3430fc349105920dfcdb34b14b14c5e16958d5ba84e27008b346a1a0791.jpg)
+<img src="images/part03_cfc1d3430fc349105920dfcdb34b14b14c5e16958d5ba84e27008b346a1a0791.jpg" width="700" alt="">
 
 ## Transmit Logic Details (Gen1 and Gen2 Only)
 
@@ -32,8 +32,8 @@ Figure 11‐4: Physical Layer Receive Logic Details
 | **Transmit Data Buffer.** When the Data Link Layer supplies a packet, the mux gates the character stream through. All of the characters coming from the buffer are D characters, so the D/K# signal is driven high when Tx Buffer contents are gated. | **发送数据缓冲器。** 当数据链路层提供报文时，复用器将字符流选通通过。来自缓冲区的所有字符都是D字符，因此当发送缓冲器内容被选通时，D/K#信号被驱动力高电平。 |
 | **Start and End characters.** These Control characters are added to the start and end of every TLP and DLLP (see Figure 11-7 on page 371) and allow a receiver to readily detect the boundaries of a packet. There are two Start characters: STP indicates the start of a TLP, while SDP indicates the start of a DLLP. An indicator from the Data Link Layer, along with the packet type, determines what type of framing character to insert. There are also two end characters, the End Good character (END) for normal transmission, and the End Bad character (EDB) to handle some error cases. Start and End characters are K characters, so the D/K# signal is driven low when the Start and End characters are inserted (see Table 11-1 on page 386 for a list of Control characters). | **起始与结束字符。** 这些控制字符被添加到每个TLP和DLLP的起始和结束位置（见图11-7，第371页），使接收器能够容易地检测报文的边界。有两个起始字符：STP指示TLP的起始，而SDP指示DLLP的起始。来自数据链路层的指示信号以及报文类型决定了插入何种类型的帧定界字符。还有两个结束字符：End Good字符（END）用于正常传输，End Bad字符（EDB）用于处理某些错误情况。起始和结束字符是K字符，因此当插入起始和结束字符时，D/K#信号被驱动为低电平（控制字符列表见表11-1，第386页）。 |
 
-Figure 11-5: Physical Layer Transmit Logic Details (Gen1 and Gen2 Only)
-![](images/part03_f7d851ea136ae0d53cc1b93b9e1de2bf2f18d2f11b6b4f0b34a6fa6d5b2f71af.jpg)
+Figure 11-5: Physical Layer Transmit Logic Details (Gen1 and Gen2 Only) | 图11-5：物理层发送逻辑详情（仅Gen1和Gen2）
+<img src="images/part03_f7d851ea136ae0d53cc1b93b9e1de2bf2f18d2f11b6b4f0b34a6fa6d5b2f71af.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -44,11 +44,11 @@ Figure 11-5: Physical Layer Transmit Logic Details (Gen1 and Gen2 Only)
 | — When a device wants to change the Link power state from L0s low power state to the L0 full-on power state, it sends a set of Fast Training Sequence (FTS) ordered sets to the receiver. The receiver uses this ordered set to re-synchronize its PLL to the transmitter clock. | — 当一个设备希望将链路功耗状态从L0s低功耗状态更改为L0全开功耗状态时，它向接收器发送一组快速训练序列（FTS）有序集。接收器使用该有序集将其PLL重新同步到发送器时钟。 |
 | **Logical Idle Sequence.** When there are no packets ready to transmit and no ordered sets to send, the link is logically idle. In order to keep the receiver PLL locked on to the transmitter's frequency, it's important that the transmitter keep sending something, so Logical Idle characters are inserted for that case. Logical Idle is very simple, and consists of nothing more than a string of Data 00h characters. | **逻辑空闲序列。** 当没有报文准备发送且没有有序集需要发送时，链路处于逻辑空闲状态。为了使接收器PLL保持锁定在发送器频率上，发送器必须持续发送一些内容，因此在这种情况下插入逻辑空闲字符。逻辑空闲非常简单，仅由一串数据00h字符组成。 |
 
-Figure 11-6: Transmit Logic Multiplexer
-![](images/part03_4a724f93c27902d3f76f63dfe2e3f2dec1b894bba3395ed4185e2a2496eb9390.jpg)
+Figure 11-6: Transmit Logic Multiplexer | 图11-6：发送逻辑多路复用器
+<img src="images/part03_4a724f93c27902d3f76f63dfe2e3f2dec1b894bba3395ed4185e2a2496eb9390.jpg" width="700" alt="">
 
-Figure 11-7: TLP and DLLP Packet Framing with Start and End Control Characters
-![](images/part03_9c1aee11c9c92d4ea4d61e7f77028e9aea17d081578948e7a81f486aa12926b2.jpg)
+Figure 11-7: TLP and DLLP Packet Framing with Start and End Control Characters | 图11-7：使用起始和结束控制字符的TLP和DLLP数据包组帧
+<img src="images/part03_9c1aee11c9c92d4ea4d61e7f77028e9aea17d081578948e7a81f486aa12926b2.jpg" width="700" alt="">
 
 ## Byte Striping (for Wide Links) / 字节条带化（宽链路）
 
@@ -58,19 +58,19 @@ Figure 11-7: TLP and DLLP Packet Framing with Start and End Control Characters
 | Three examples of byte striping are illustrated in the following diagrams. In Figure 11-8 on page 372, a single-lane link (x1) is shown. This is not a very interesting case, since the packet enters the Physical Layer a byte at a time and goes out the same way, but illustrates the way the sequence of characters will be drawn. | 下图展示了字节条带化的三个示例。图11-8（第372页）显示了一个单通道链路（x1）。这并不是一个非常有趣的案例，因为数据包以字节为单位进入物理层并以相同方式输出，但它说明了字符序列的绘制方式。 |
 | Figure 11-9 on page 372 shows the incoming Dword packets from the mutiplexer. Each byte is directed to the corresponding lanes. Finally, Figure 11-10 on page 373 illustrates an eight-lane (x8) link. In this example, two Dwords are required to populate all 8 lanes. This requires the Dword to arrive at twice the rate as the previous example. The format of the data being sent across each lane is described in the sections that follow. | 图11-9（第372页）显示了来自多路复用器的传入Dword数据包。每个字节被导向相应的通道。最后，图11-10（第373页）展示了一个八通道（x8）链路。在此示例中，需要两个Dword来填充所有8条通道。这要求Dword以比前一个示例快两倍的速率到达。每条通道上发送的数据格式将在后续章节中描述。 |
 
-Figure 11-8: x1 Byte Striping
-![](images/part03_193ae566228bb5a38c6779a830989a67dafd49076f3dc4c4e4ac9f841dcd6e1c.jpg)
+Figure 11-8: x1 Byte Striping | 图11-8：x1字节条带化
+<img src="images/part03_193ae566228bb5a38c6779a830989a67dafd49076f3dc4c4e4ac9f841dcd6e1c.jpg" width="700" alt="">
 
-Figure 11-9: x4 Byte Striping
-![](images/part03_bcbeb4b9dc01a018d3f347a2af4b0464d494032a800dfaf2fff82ba83cdb5645.jpg)
+Figure 11-9: x4 Byte Striping | 图11-9：x4字节条带化
+<img src="images/part03_bcbeb4b9dc01a018d3f347a2af4b0464d494032a800dfaf2fff82ba83cdb5645.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | ## Chapter 11: Physical Layer - Logical (Gen1 and Gen2) | ## 第11章：物理层——逻辑子层（Gen1和Gen2） |
 | Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：x8字节条带化与双字并行数据 |
 
-Figure 11-10: x8 Byte Striping with DWord Parallel Data
-![](images/part03_7a0ee10a617a196a9378c6dd5304501341c5ddde75311b3a54c0d4bfd04e1d44.jpg)
+Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：DWord并行数据的x8字节条带化
+<img src="images/part03_7a0ee10a617a196a9378c6dd5304501341c5ddde75311b3a54c0d4bfd04e1d44.jpg" width="700" alt="">
 
 ## Packet Format Rules
 
@@ -100,8 +100,8 @@ Figure 11-10: x8 Byte Striping with DWord Parallel Data
 |---|---|
 | The example shown in Figure 11-11 on page 374 illustrates the format of packets transmitted over a x1 link (a link with only one lane operational). A sequence of packets is shown interspersed with one SKIP Ordered Set. Logical Idles are shown at the end to represent the case when the transmitter has no more packets to send and uses idle characters as filler. | 第374页图11-11所示的示例说明了通过x1链路（仅一条通道工作的链路）传输的数据包格式。图中显示了一串数据包，其中穿插了一个SKIP有序集。末尾显示了逻辑空闲状态，表示发送方没有更多数据包要发送，并使用空闲字符作为填充。 |
 
-Figure 11-11: x1 Packet Format
-![](images/part03_3597424c02cfcbe00699943bf0dbe72a91895ee9749f262ae476483b993b7887.jpg)
+Figure 11-11: x1 Packet Format | 图11-11：x1数据包格式
+<img src="images/part03_3597424c02cfcbe00699943bf0dbe72a91895ee9749f262ae476483b993b7887.jpg" width="700" alt="">
 
 ## x4 Format Rules / x4 格式规则
 
@@ -123,7 +123,7 @@ Figure 11-11: x1 Packet Format
 |---|---|
 | The example shown in Figure 11‑12 on page 375 illustrates the format of packets sent over a x4 Link (link with four data lanes operational). The illustration shows one TLP followed by a SKIP ordered set transmitted on all Lanes for receiver clock compensation. Next is a DLLP, followed by Logical Idle on all lanes. This example highlights that the packets are always multiples of 4 characters because the start character always appears in lane 0 and the end character is always in lane 3. It also illustrates that ordered sets must appear on all the lanes simultaneously. | 第375页图11-12所示的示例说明了通过x4链路（具有四条数据通道运行的链路）发送的报文的格式。该图示显示了一个TLP，后跟一个在所有通道上发送的用于接收端时钟补偿的SKIP有序集。接着是一个DLLP，随后是所有通道上的逻辑空闲。此示例强调了报文始终是4个字符的整数倍，因为起始字符始终出现在通道0，而结束字符始终在通道3。它还说明了有序集必须同时出现在所有通道上。 |
 
-Figure 11-12: x4 Packet Format
+Figure 11-12: x4 Packet Format | 图11-12：x4数据包格式
 
 <table><tr><td>Lane0</td><td>Lane1</td><td>Lane2</td><td>Lane3</td></tr><tr><td>STP</td><td>Sequence</td><td>Sequence</td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td colspan="2">TLP</td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td>LCRC</td></tr><tr><td>LCRC</td><td>LCRC</td><td>LCRC</td><td>END</td></tr><tr><td>COM</td><td>COM</td><td>COM</td><td>COM</td></tr><tr><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td></tr><tr><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td></tr><tr><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td></tr><tr><td>SDP</td><td colspan="2">DLLP</td><td></td></tr><tr><td></td><td></td><td></td><td>END</td></tr><tr><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td></tr><tr><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td></tr><tr><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td></tr><tr><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td></tr><tr><td>Idle (00h)</td><td></td><td></td><td></td></tr></table>
 
@@ -145,7 +145,7 @@ Figure 11-12: x4 Packet Format
 |---|---|
 | The example shown in Figure 11-13 on page 377 illustrates the format of packets transmitted over a x8 link. The illustration shows a TLP followed by a SKIP ordered set, a DLLP, and finally a TLP that ends on Lane 3. At that point, the transmitter has no more packets ready to send but the current packet doesn't extend to include all the available lanes. One might expect the extra lanes to be filled with Logical Idle, but it won't work here because idles must appear on all lanes at the same time. So another fill character is needed, and the spec writers chose to use the PAD control character here. The only other place that PAD is used is during the training process. Finally, since there are still no more packets to send, Logical Idles are sent on all the lanes. | 第377页图11-13所示的示例说明了通过 x8 链路传输的报文格式。图中展示了一个 TLP，后跟一个 SKIP 有序集、一个 DLLP，以及最后一个结束于 Lane 3 的 TLP。此时，发送方已没有更多报文要发送，但当前报文并未扩展到涵盖所有可用通道。有人可能预计多余通道会用逻辑空闲来填充，但这里行不通，因为空闲必须同时出现在所有通道上。因此需要另一种填充字符，规范作者选择了在此处使用 PAD 控制字符。PAD 唯一被使用的另一个地方是在训练过程中。最后，由于仍然没有更多报文要发送，在所有通道上发送逻辑空闲。 |
 
-Figure 11-13: x8 Packet Format
+Figure 11-13: x8 Packet Format | 图11-13：x8数据包格式
 
 <table><tr><td>Time\Lane 0</td><td>Lane 1</td><td>Lane 2</td><td>Lane 3</td><td>Lane 4</td><td>Lane 5</td><td>Lane 6</td><td>Lane 7</td></tr><tr><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td></tr><tr><td>STP</td><td>Sequence</td><td>Sequence</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td colspan="2">TLP</td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td>LCRC</td><td>LCRC</td><td>LCRC</td><td>LCRC</td><td>END</td></tr><tr><td>COM</td><td>COM</td><td>COM</td><td>COM</td><td>COM</td><td>COM</td><td>COM</td><td>COM</td></tr><tr><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td></tr><tr><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td></tr><tr><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td></tr><tr><td>SDP</td><td></td><td></td><td colspan="2">DLLP</td><td></td><td></td><td>END</td></tr><tr><td>STP</td><td>Sequence</td><td>Sequence</td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td colspan="2">TLP</td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td colspan="2"></td><td></td><td></td><td>LCRC</td></tr><tr><td>LCRC</td><td>LCRC</td><td>LCRC</td><td>END</td><td>PAD</td><td>PAD</td><td>PAD</td><td>PAD</td></tr><tr><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td></tr><tr><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td><td>Idle (00h)</td></tr></table>
 
@@ -166,8 +166,8 @@ $$
 G (x) = X ^ {1 6} + X ^ {5} + X ^ {4} + X ^ {3} + 1
 $$
 
-Figure 11-14: Scrambler
-![](images/part03_1dccb2fc25412a566b1934abaecf51df9ba715b26a579a482342834d1d8f2b91.jpg)
+Figure 11-14: Scrambler | 图11-14：加扰器
+<img src="images/part03_1dccb2fc25412a566b1934abaecf51df9ba715b26a579a482342834d1d8f2b91.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -214,10 +214,10 @@ Figure 11-14: Scrambler
 | **Enhancing Error Detection.** The encoding scheme also facilitates the detection of transmission errors. For a 10-bit value, 1024 codes are possible, but the character to be encoded only has 256 unique codes. To maintain DC balance the design uses two codes for each character, and chooses which one based on the disparity of the last Symbol that was sent, so 512 codes would be needed. However, many of the neutral disparity encodings have the same values (D28.5 is one example), so not all 512 are used. As a result, more than half the possible encodings are not used and will be considered illegal if seen at a Receiver. If a transmission error does change the bit pattern of a Symbol, there is a good chance the result would be one of these illegal patterns that can be recognized right away. For more on this see the section titled, "Disparity" on page 383. | **增强错误检测。** 该编码方案也有助于检测传输错误。对于一个10位值，可能有1024种编码，但要编码的字符只有256个唯一编码。为维持直流平衡，设计对每个字符使用两种编码，并根据最近发送的符号的不一致性选择其一，因此需要512种编码。然而，许多中性不一致性编码具有相同的值（D28.5是一个例子），因此并非全部512种都被使用。结果，超过一半的可能编码未被使用，如果在接收器处看到这些编码，将被视为非法。如果传输错误确实改变了某个符号的比特模式，结果很有可能成为这些可被立即识别出的非法模式之一。有关更多信息，请参见第383页的"不一致性"一节。 |
 | The major disadvantage of 8b/10b encoding is the overhead it requires. The actual transmission performance is degraded by 20% from the Receiver's point of view because 10 bits are sent for each byte, but only 8 useful bits are recovered at the receiver. This is a non-trivial price to pay but is still considered acceptable to gain the advantages mentioned. | 8b/10b编码的主要缺点是其所需的开销。从接收器的角度来看，实际传输性能降低了20%，因为每字节发送了10位，但接收器只恢复了8个有效位。这是不小的代价，但为了获得上述优势，仍然认为可以接受。 |
 
-Figure 11-15: Example of 8-bit Character 00h Encoding  
+Figure 11-15: Example of 8-bit Character 00h Encoding | 图11-15：8位字符00h编码示例  
 图11-15：8位字符00h编码示例
 
-![](images/part03_8b2c5cb6d23aaa162dca1904cf335bba441f32521e487080c133d69ce4a5b88b.jpg)
+<img src="images/part03_8b2c5cb6d23aaa162dca1904cf335bba441f32521e487080c133d69ce4a5b88b.jpg" width="700" alt="">
 
 ## Properties of 10-bit Symbols
 
@@ -247,9 +247,9 @@ Figure 11-15: Example of 8-bit Character 00h Encoding
 | 3. Create the decimal equivalent for each sub-block. | 3. 为每个子块创建十进制等价形式。 |
 | 4. The character takes the form Dxx.y for Data characters, or Kxx.y for Control characters. In this notation, xx is the decimal equivalent of the 5-bit field, and y is the decimal equivalent of the 3-bit field. | 4. 数据字符采用Dxx.y形式，控制字符采用Kxx.y形式。在此记法中，xx是5位字段的十进制值，y是3位字段的十进制值。 |
 
-Figure 11-16: 8b/10b Nomenclature
+Figure 11-16: 8b/10b Nomenclature | 图11-16：8b/10b命名法
 
-![](images/part03_cffa556aba73050d96ef76e95d8b1dd633a0d3498cea54cbd88bc2bb292c831c.jpg)
+<img src="images/part03_cffa556aba73050d96ef76e95d8b1dd633a0d3498cea54cbd88bc2bb292c831c.jpg" width="700" alt="">
 
 ## Disparity / 差异
 
@@ -272,8 +272,8 @@ Figure 11-16: 8b/10b Nomenclature
 | An example 8b/10b block diagram is shown in Figure 11-17 on page 384. A new outgoing Symbol is created based on three things: the incoming character, the D/K# indication for that character, and the CRD. A new CRD value is computed based on the outgoing Symbol and is fed back for use in encoding the next character. After encoding, the resulting Symbol is fed to a serializer that clocks out the individual bits. Figure 11-18 on page 385 shows some sample 8b/10b encodings that will be useful for the example that follows. | 图11-17（第384页）展示了一个8b/10b编码器框图示例。新的输出符号基于三个要素生成：输入字符、该字符的D/K#指示以及CRD。新的CRD值根据输出符号计算得出，并反馈用于编码下一个字符。编码完成后，生成的符号被送入串行器，逐位时钟输出。图11-18（第385页）展示了一些示例8b/10b编码，这些编码对后续示例非常有用。 |
 | Figure 11-17: 8-bit to 10-bit (8b/10b) Encoder | 图11-17：8位到10位（8b/10b）编码器 |
 
-Figure 11-17: 8-bit to 10-bit (8b/10b) Encoder
-![](images/part03_617e4056ba20b5bc1e60876252ee7489ce2c1b0067167e006b7996f804dae376.jpg)
+Figure 11-17: 8-bit to 10-bit (8b/10b) Encoder | 图11-17：8位到10位（8b/10b）编码器
+<img src="images/part03_617e4056ba20b5bc1e60876252ee7489ce2c1b0067167e006b7996f804dae376.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
@@ -288,7 +288,7 @@ Figure 11-17: 8-bit to 10-bit (8b/10b) Encoder
 | In this example the initial CRD is negative so K28.5 encodes into 001111 1010b. This Symbol has positive disparity (more ones than zeros), and causes the CRD polarity to flip to positive. The next K28.5 is encoded into 110000 0101b and has a negative disparity. That causes the CRD this time to flip to negative. Finally, D10.3 is encoded into 010101 1100b. Since its disparity is neutral, the CRD doesn't change in this case but remains negative for whatever the next character will be. | 在本示例中，初始CRD为负，因此K28.5编码为001111 1010b。该符号具有正极性（1比0多），使CRD极性翻转为正。下一个K28.5编码为110000 0101b，具有负极性，使CRD此次翻转为负。最后，D10.3编码为010101 1100b。由于其极性为中性，CRD在这种情况下不改变，对于下一个字符仍保持为负。 |
 | Initialized value of CRD is don't care. Receiver can determine from incoming bit stream | CRD的初始化值无关紧要。接收器可以从传入的比特流中确定。 |
 
-Figure 11‐19: Example 8b/10b Transmission
+Figure 11‐19: Example 8b/10b Transmission | 图11‐19：8b/10b传输示例
 
 | EN | ZH |
 |---|---|
@@ -307,7 +307,7 @@ Figure 11‐19: Example 8b/10b Transmission
 | ## Control Characters | ## 控制字符 |
 | The 8b/10b encoding provides several special characters for Link management and Table 11‑1 on page 386 shows their encoding. | 8b/10b编码提供了多个用于链路管理的特殊字符，表11‑1（第386页）展示了它们的编码。 |
 
-Table 11‑1: Control Character Encoding and Definition
+Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字符编码和定义
 
 <table><tr><td>Character Name</td><td>8b/10b Name</td><td>Description</td></tr><tr><td>COM</td><td>K28.5</td><td>First character in any ordered set. Also used by Rx to achieve Symbol lock during training.</td></tr><tr><td>PAD</td><td>K23.7</td><td>Packet filler</td></tr><tr><td>SKP</td><td>K28.0</td><td>Used in SKIP ordered set for Clock Tolerance Compensation</td></tr><tr><td>STP</td><td>K27.7</td><td>Start of a TLP</td></tr><tr><td>SDP</td><td>K28.2</td><td>Start of a DLLP</td></tr><tr><td>END</td><td>K29.7</td><td>End of Good Packet</td></tr><tr><td>EDB</td><td>K30.7</td><td>End of a bad or 'nullified' TLP.</td></tr><tr><td>FTS</td><td>K28.1</td><td>Used to exit from L0s low power state to L0</td></tr><tr><td>IDL</td><td>K28.3</td><td>Used to place Link into Electrical Idle state</td></tr><tr><td>EIE</td><td>K28.7</td><td>Part of the Electrical Idle Exit Ordered Set sent prior to bringing the Link back to full power for speeds higher than 2.5 GT/s</td></tr></table>
 
@@ -375,7 +375,7 @@ Table 11‑1: Control Character Encoding and Definition
 | Understandably, the transmitter should introduce a minimal skew between lanes to leave as much Rx skew budget as possible for routing and other variations. The spec lists the Tx skew values as 500ps + 2 UI for Gen1, 500ps + 4UI for Gen2, and 500ps + 6 UI for Gen3. Recalling that UI (unit interval) represents one bit time on the Link, this works out as shown in Table 11‐2 below. | 可以理解，发送器应在通道之间引入最小的偏斜，以便为布线和其他变化留出尽可能多的接收器偏斜预算。规范列出的发送器偏斜值为：Gen1 为 500ps + 2 UI，Gen2 为 500ps + 4 UI，Gen3 为 500ps + 6 UI。UI（单位间隔）表示链路上一个比特的时间，据此计算得出的结果如下表 11-2 所示。 |
 | Table 11‐2: Allowable Transmitter Signal Skew | 表 11-2：允许的发送器信号偏斜 |
 
-Table 11‐2: Allowable Transmitter Signal Skew
+Table 11‐2: Allowable Transmitter Signal Skew | 表11‐2：允许的发送器信号偏斜
 
 <table><tr><td>Spec Version</td><td>Allowable Tx Skew</td></tr><tr><td>Gen1</td><td>1300 ps</td></tr><tr><td>Gen2</td><td>1300 ps</td></tr><tr><td>Gen3</td><td>1250 ps</td></tr></table>
 
@@ -397,9 +397,9 @@ Table 11‐2: Allowable Transmitter Signal Skew
 | During low‑power link states, any counters used to schedule SKIP ordered sets must be reset. There's no need for them when the transmitter isn't signaling, and it wouldn't make sense to wake up the link to send them. | 在低功耗链路状态期间，用于调度SKIP有序集的任何计数器必须复位。当发送器不发送信号时不需要它们，且唤醒链路来发送SKIP是没有意义的。 |
 | SKIP ordered sets must not be transmitted while the Compliance Pattern is in progress. | 在进行合规性码型期间，不得发送SKIP有序集。 |
 
-Figure 11‑20: SKIP Ordered Set
+Figure 11‑20: SKIP Ordered Set | 图11‑20：SKIP有序集
 
-![](images/part03_f2bcdc5d4139250774ae9b3c5afce6824aad1263a3dc9420d9e352195fb37845.jpg)
+<img src="images/part03_f2bcdc5d4139250774ae9b3c5afce6824aad1263a3dc9420d9e352195fb37845.jpg" width="700" alt="">
 
 # Receive Logic Details (Gen1 and Gen2 Only) | 接收逻辑细节（仅Gen1和Gen2）
 
@@ -414,8 +414,8 @@ Figure 11-21 shows the receiver logic of the Logical Physical Layer. This sectio
 </tr>
 </table>
 
-Figure 11-21: Physical Layer Receive Logic Details (Gen1 and Gen2 Only)
-![](images/part03_a0c8b62f2dab2bdd71b60110cee0583ece1f437673c39b9ff9313d893cba7e74.jpg)
+Figure 11-21: Physical Layer Receive Logic Details (Gen1 and Gen2 Only) | 图11-21：物理层接收逻辑详情（仅Gen1和Gen2）
+<img src="images/part03_a0c8b62f2dab2bdd71b60110cee0583ece1f437673c39b9ff9313d893cba7e74.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -435,8 +435,8 @@ For a detailed discussion of receiver characteristics, see section "Receiver Cha
 </tr>
 </table>
 
-Figure 11-22: Receiver Logic's Front End Per Lane  
-![](images/part03_9b4406d0c8e6d7033566f2934b4285871310497b5fa7fede156cb3f55621b16f.jpg)
+Figure 11-22: Receiver Logic's Front End Per Lane | 图11-22：每条通道的接收器逻辑前端  
+<img src="images/part03_9b4406d0c8e6d7033566f2934b4285871310497b5fa7fede156cb3f55621b16f.jpg" width="700" alt="">
 
 ## Rx Clock Recovery | 接收时钟恢复
 
@@ -682,7 +682,7 @@ This could be done by adjusting an analog delay line on the incoming signals. Al
 </tr>
 </table>
 
-Table 11-3: Allowable Receiver Signal Skew
+Table 11-3: Allowable Receiver Signal Skew | 表11-3：允许的接收器信号偏斜
 
 <table><tr><td>Spec Version</td><td>Allowable Rx Skew</td></tr><tr><td>Gen1</td><td>20 ns(5 clocks at 4ns per Symbol)</td></tr><tr><td>Gen2</td><td>8 ns(4 clocks at 2ns per Symbol)</td></tr><tr><td>Gen3</td><td>6 ns(4 clocks at 1.25ns per Symbol)</td></tr></table>
 
@@ -710,9 +710,9 @@ An unambiguous pattern is needed on all lanes at the same time to perform deskew
 </tr>
 </table>
 
-![](images/part03_e14e3ea1ddde9954ae176139350040efc51e207ef63d2e94aecab81636770539.jpg)
+<img src="images/part03_e14e3ea1ddde9954ae176139350040efc51e207ef63d2e94aecab81636770539.jpg" width="700" alt="">
 
-Figure 11‐23: Receiver's Link De‐Skew Logic
+Figure 11‐23: Receiver's Link De‐Skew Logic | 图11‐23：接收器的链路解偏斜逻辑
 
 | EN | ZH |
 |----|-----|
@@ -814,9 +814,9 @@ PCIe的前两代使用8b/10b编码，而Gen3则不使用。我们首先探讨其
 | --- | --- |
 | At the receiver a Symbol cannot have a disparity that doesn't match what it should be for the CRD. If it does, a disparity error is detected. Some disparity errors may not be detectable until the subsequent Symbol is processed (see Figure 11‐25 on page 401). For example, if two bits in a Symbol flip in error, the error may not be visible and the Symbol may decode into a valid 8‐bit character. Such an error won't be detected in the Physical Layer. | 在接收端，符号的差异值必须与CRD所期望的差异值匹配。若不匹配，则检测到差异错误。某些差异错误可能直到处理后续符号时才被检测到（参见第401页图11-25）。例如，如果符号中的两个比特发生错误翻转，该错误可能不可见，且该符号可能被解码为有效的8位字符。此类错误将不会在物理层中被检测到。 |
 
-Figure 11‐24: 8b/10b Decoder per Lane  
-![](images/part03_ce508842c25c7157ba376e1189dd79d55a2d6886fa9a898a14df7618f4153d5a.jpg)  
-Figure 11‐25: Example of Delayed Disparity Error Detection
+Figure 11‐24: 8b/10b Decoder per Lane | 图11‐24：每条通道的8b/10b解码器  
+<img src="images/part03_ce508842c25c7157ba376e1189dd79d55a2d6886fa9a898a14df7618f4153d5a.jpg" width="700" alt="">  
+Figure 11‐25: Example of Delayed Disparity Error Detection | 图11‐25：延迟不一致性错误检测示例
 
 <table><tr><td></td><td>CRD</td><td>Character</td><td>CRD</td><td>Character</td><td>CRD</td><td>Character</td><td>CRD</td></tr><tr><td>Transmitted Character Stream</td><td>-</td><td>D21.1</td><td>-</td><td>D10.2</td><td>-</td><td>D23.5</td><td>+</td></tr><tr><td>Transmitted Bit Stream</td><td>-</td><td>101010 1001</td><td>-</td><td>010101 0101</td><td>-</td><td>111010 1010</td><td>+</td></tr><tr><td>Bit Stream After Error</td><td>-</td><td>101010 1011</td><td>+</td><td>010101 0101</td><td>+</td><td>111010 1010</td><td>+</td></tr><tr><td>Decoded Character Stream</td><td>-</td><td>D21.0</td><td>+</td><td>D10.2</td><td>+</td><td>Invalid</td><td>+</td></tr></table>
 
@@ -922,8 +922,8 @@ Figure 11‐26 on page 403 shows eight character streams from the descramblers o
 </tr>
 </table>
 
-Figure 11‐26: Example of x8 Byte Un‐Striping  
-![](images/part03_5aec7bb334a106d235c88609720431b720987dea7799d3985fb0e79cb30aad16.jpg)
+Figure 11‐26: Example of x8 Byte Un‐Striping | 图11‐26：x8字节解条带化示例  
+<img src="images/part03_5aec7bb334a106d235c88609720431b720987dea7799d3985fb0e79cb30aad16.jpg" width="700" alt="">
 
 ## Filter and Packet Alignment Check / 过滤与包对齐检查
 
@@ -1107,7 +1107,7 @@ The previous chapter describes the Gen1/Gen2 logical sub-block of the Physical L
 | Some circuit board materials experience significant signal degradation at higher frequencies. This problem can be overcome with better materials and more design effort, but those add cost and development time. Since PCIe is intended to serve a wide variety of systems, the goal was that it should work well in inexpensive designs, too. | 某些电路板材料在更高频率下会出现明显的信号 degradation。这个问题可以通过更好的材料和更多的设计投入来解决，但这会增加成本和开发时间。由于 PCIe 旨在服务于各种不同的系统，其目标是在低成本设计中也能良好工作。 |
 | Similarly, allowing new designs to use the existing infrastructure (circuit boards and connectors, for example) minimizes board design effort and cost. Using higher frequencies makes that more difficult because trace lengths and other parameters must be adjusted to account for the new timing, and that makes high frequencies less desirable. | 同样，允许新设计使用现有基础设施（例如电路板和连接器）可以最大限度地减少板卡设计工作量 and 成本。使用更高频率会使这变得更加困难，因为必须调整走线长度和其他参数以适应新的时序，这使得高频率不那么理想。 |
 
-Table 12‑1: PCI Express Aggregate Bandwidth for Various Link Widths
+Table 12‑1: PCI Express Aggregate Bandwidth for Various Link Widths | 表12‑1：各种链路宽度的PCI Express聚合带宽
 
 <table><tr><td>Link Width</td><td>x1</td><td>x2</td><td>x4</td><td>x8</td><td>x12</td><td>x16</td><td>x32</td></tr><tr><td>Gen1 Bandwidth (GB /s)</td><td>0.5</td><td>1</td><td>2</td><td>4</td><td>6</td><td>8</td><td>16</td></tr><tr><td>Gen2 Bandwidth (GB/s)</td><td>1</td><td>2</td><td>4</td><td>8</td><td>12</td><td>16</td><td>32</td></tr><tr><td>Gen3 Bandwidth (GB/s)</td><td>2</td><td>4</td><td>8</td><td>16</td><td>24</td><td>32</td><td>64</td></tr></table>
 
@@ -1139,8 +1139,8 @@ To illustrate the difference between these two encodings, first consider Figure 
 </tr>
 </table>
 
-Figure 12-1: 8b/10b Lane Encoding
-![](images/part03_8e8b2536712548b5cf71ff092a8397924fad2f41dec6a562ea8a300a3be336aa.jpg)
+Figure 12-1: 8b/10b Lane Encoding | 图12-1：8b/10b通道编码
+<img src="images/part03_8e8b2536712548b5cf71ff092a8397924fad2f41dec6a562ea8a300a3be336aa.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -1153,8 +1153,8 @@ By comparison, Figure 12-2 on page 410 shows the 128b/130b encoding. This encodi
 </tr>
 </table>
 
-Figure 12-2: 128b/130b Block Encoding
-![](images/part03_8e396753562b4c02e5acbb2ce39225fbae9cf9ae0d04449fd86ae697870bc928.jpg)
+Figure 12-2: 128b/130b Block Encoding | 图12-2：128b/130b块编码
+<img src="images/part03_8e396753562b4c02e5acbb2ce39225fbae9cf9ae0d04449fd86ae697870bc928.jpg" width="700" alt="">
 
 ## Sophisticated Signal Equalization | 先进的信号均衡
 
@@ -1195,8 +1195,8 @@ To illustrate the use of Blocks, consider Figure 12-3 on page 411, where a singl
 </tr>
 </table>
 
-Figure 12-3: Sync Header Data Block Example
-![](images/part03_6ac516600982325a4aa85c7120224e1847521191b3a11c349329940f7ccae4a5.jpg)
+Figure 12-3: Sync Header Data Block Example | 图12-3：同步头数据块示例
+<img src="images/part03_6ac516600982325a4aa85c7120224e1847521191b3a11c349329940f7ccae4a5.jpg" width="700" alt="">
 
 ## Block Alignment | 块对齐
 
@@ -1211,8 +1211,8 @@ Like previous implementations, Gen3 achieves Bit Lock first and then attempts to
 </tr>
 </table>
 
-Figure 12-4: Gen3 Mode EIEOS Symbol Pattern
-![](images/part03_2d24e0365b63cccc917708348c7e7cac47600a483259ac1c9fe0468c65910a75.jpg)
+Figure 12-4: Gen3 Mode EIEOS Symbol Pattern | 图12-4：Gen3模式EIEOS符号模式
+<img src="images/part03_2d24e0365b63cccc917708348c7e7cac47600a483259ac1c9fe0468c65910a75.jpg" width="700" alt="">
 
 ## Ordered Set Blocks | 有序集块
 
@@ -1238,7 +1238,7 @@ The basic format of the Ordered Set Block is similar to the Data Block, except t
 </tr>
 </table>
 
-![](images/part03_2a61d3f682f1caa8e4de362275bf4f8b6711758462a6e6f43aa4f9c94e9bacc6.jpg)
+<img src="images/part03_2a61d3f682f1caa8e4de362275bf4f8b6711758462a6e6f43aa4f9c94e9bacc6.jpg" width="700" alt="">
 Figure 12-5: Gen3 x1 Ordered Set Block Example | 图12-5：Gen3 x1 有序集块示例
 
 <table>

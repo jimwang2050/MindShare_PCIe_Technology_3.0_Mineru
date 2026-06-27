@@ -13,7 +13,7 @@ To give the reader an example of the Ordered Set structure, Figure 12‐6 shows 
 </tr>
 </table>
 
-Figure 12‐6: Gen3 FTS Ordered Set Example
+Figure 12‐6: Gen3 FTS Ordered Set Example | 图12‐6：Gen3 FTS有序集示例
 
 <table><tr><td colspan="2">FTS Ordered Set</td><td colspan="2">Ordered Set Identifiers</td></tr><tr><td>Symbol</td><td>Value</td><td>Ordered Set</td><td>First Symbol</td></tr><tr><td>Sync Header</td><td>01b</td><td>EIEOS</td><td>00h</td></tr><tr><td>0</td><td>55h</td><td>EIOS</td><td>66h</td></tr><tr><td>1</td><td>47h</td><td>FTS</td><td>55h</td></tr><tr><td>2</td><td>4Eh</td><td>SDS</td><td>E1</td></tr><tr><td>3</td><td>C7h</td><td>TS1</td><td>1Eh</td></tr><tr><td>4</td><td>CCh</td><td>TS2</td><td>2Dh</td></tr><tr><td>5</td><td>C6h</td><td>SKP</td><td>AAh</td></tr><tr><td>6</td><td>C9h</td><td></td><td></td></tr><tr><td>7</td><td>25h</td><td></td><td></td></tr><tr><td>8</td><td>6Eh</td><td></td><td></td></tr><tr><td>9</td><td>ECh</td><td></td><td></td></tr><tr><td>10</td><td>88h</td><td></td><td></td></tr><tr><td>11</td><td>7Fh</td><td></td><td></td></tr><tr><td>12</td><td>80h</td><td></td><td></td></tr><tr><td>13</td><td>8Dh</td><td></td><td></td></tr><tr><td>14</td><td>8Bh</td><td></td><td></td></tr><tr><td>15</td><td>8Eh</td><td></td><td></td></tr></table>
 
@@ -37,8 +37,8 @@ Figure 12‐6: Gen3 FTS Ordered Set Example
 
 Figure 12‑7 provides an example of a Data Block consisting of a single lane TLP transmission.
 
-Figure 12‑7: Gen3 x1 Frame Construction Example
-![](images/part03_91f854394ed1f959138b8ef0bfb2ba9387ee27ad4e788d4f994102650a7a6f33.jpg)
+Figure 12‑7: Gen3 x1 Frame Construction Example | 图12‑7：Gen3 x1帧构建示例
+<img src="images/part03_91f854394ed1f959138b8ef0bfb2ba9387ee27ad4e788d4f994102650a7a6f33.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -67,9 +67,9 @@ Figure 12‑7: Gen3 x1 Frame Construction Example
 | DLLPs. The SDP Token indicates the beginning of a DLLP and doesn't include a length field because it will always be exactly 8 bytes long: the 2-byte Token is followed by 4 bytes of DLLP payload and 2 bytes of DLLP LCRC. Perhaps coincidently, this DLLP length is the same as it was in earlier PCIe generations, but they also do not have an end good symbol. | DLLP。SDP令牌指示DLLP的开始，不包含长度字段，因为DLLP始终恰好为8字节长：2字节的令牌后跟4字节的DLLP载荷和2字节的DLLP LCRC。也许巧合的是，这个DLLP长度与早期PCIe代次相同，但它们也没有结束良好符号。 |
 | The EDB Token is added to the end of TLPs that are nullified. For a normal TLP, there is no "end good" indication; it's assumed to be good unless explicitly marked as bad. If the TLP ends up being nullified, the LCRC value is inverted and an EDB Token is appended as an extension of the TLP, although it's not included in the length value. Physical layer receivers must check for the EDB at the end of every TLP and inform the Link layer if they see one. Not surprisingly, receiving an EDB at any time other than immediately after a TLP will be considered to be a Framing Error. | EDB令牌被附加到被无效化的TLP末尾。对于正常TLP，没有"结束良好"指示；除非被明确标记为错误，否则假定为良好。如果TLP最终被无效化，则LCRC值被反转，并附加EDB令牌作为TLP的扩展，尽管它不包含在长度值中。物理层接收器必须检查每个TLP末尾的EDB，并在看到时通知链路层。毫不意外，在TLP之后以外的任何时间收到EDB都将被视为帧错误。 |
 
-Figure 12-8: Gen3 Frame Token Examples
+Figure 12-8: Gen3 Frame Token Examples | 图12-8：Gen3帧令牌示例
 
-![](images/part03_6eaea40fdbcfd6253e6dfdc1c1becdc3dcaf53539f645a2bec44a434bde525c6.jpg)
+<img src="images/part03_6eaea40fdbcfd6253e6dfdc1c1becdc3dcaf53539f645a2bec44a434bde525c6.jpg" width="700" alt="">
 
 ## Transmitter Framing Requirements
 
@@ -146,9 +146,9 @@ Figure 12-8: Gen3 Frame Token Examples
 | Initiate the error recovery process. If the Link is in the L0 state, that will involve a transition to the Recovery state. The spec says that the time through the Recovery state is "expected" to be less than 1μs. | 启动错误恢复过程。如果链路处于L0状态，这将涉及转换到Recovery状态。规范规定，通过Recovery状态的时间"预期"小于1微秒。 |
 | Note that recovery from Framing Errors is not necessarily expected to directly cause Data Link Layer initiated recovery activity via the Ack/Nak mechanism. Of course, if a TLP is lost or corrupted as a result of the error, then a replay event will be needed. | 注意，从帧错误中恢复不一定直接导致通过Ack/Nak机制启动数据链路层恢复活动。当然，如果TLP因错误而丢失或损坏，则需要重放事件。 |
 
-Figure 12‐9: AER Correctable Error Register
+Figure 12‐9: AER Correctable Error Register | 图12‐9：AER可校正错误寄存器
 
-![](images/part03_2f6f7cbaafc0b8a723a8d195a91ae08e43d9d90c843cc726dd05ed3614e68f3a.jpg)
+<img src="images/part03_2f6f7cbaafc0b8a723a8d195a91ae08e43d9d90c843cc726dd05ed3614e68f3a.jpg" width="700" alt="">
 
 ## Gen3 Physical Layer Transmit Logic
 
@@ -168,8 +168,8 @@ Figure 12‐9: AER Correctable Error Register
 | Packets are transmitted in Blocks which are identified by the 2-bit Sync Header. The Sync Header is added by the multiplexer. However, the Sync Header is replicated on all Lanes of a multi-Lane Link by the Byte Striping logic. | 数据包以块(Block)为单位传输，块由2位同步头(Sync Header)标识。同步头由复用器添加。然而，同步头通过字节分条(Byte Striping)逻辑复制到多通道链路的所有通道上。 |
 | When there are no packets or Ordered Sets to send but the Link is to remain active in L0 state, the IDL (Logical Idle, or data zero) Tokens are used as fillers. These are scrambled just like other data bytes and are recognized as filler by the Receiver. | 当没有数据包或有序集需要发送，但链路需保持L0状态活跃时，IDL（逻辑空闲或数据零）Token被用作填充。这些Token像其他数据字节一样被加扰，并被接收方识别为填充。 |
 
-Figure 12-10: Gen3 Physical Layer Transmitter Details
-![](images/part03_8654cb31b7255e03daa2c5e98e77d96d9193571f03ed508f3ca1b0eeaac0d48a.jpg)
+Figure 12-10: Gen3 Physical Layer Transmitter Details | 图12-10：Gen3物理层发送器详情
+<img src="images/part03_8654cb31b7255e03daa2c5e98e77d96d9193571f03ed508f3ca1b0eeaac0d48a.jpg" width="700" alt="">
 
 | EN | ZH |
 | :-- | :-- |
@@ -177,8 +177,8 @@ Figure 12-10: Gen3 Physical Layer Transmitter Details
 | This logic spreads the bytes to be delivered across all the available Lanes. The framing rules were described earlier in "Transmitter Framing Requirements" on page 417, so now let's look at some examples and discuss how the rules apply. | 该逻辑将待传输的字节分散到所有可用的 Lane 上。成帧规则先前已在第 417 页的"发送器成帧要求"中描述过，现在我们来看一些示例并讨论这些规则如何应用。 |
 | Consider first the example shown in Figure 12-11 on page 424, where a 4-Lane Link is illustrated. Notice that the Sync Header bits appear on all the Lanes at the same time when a new Block begins and define the block type (a Data Block in this example). Block encoding is handled independently for each Lane, but the bytes (or symbols) are striped across all the Lanes just as they were for the earlier generations of PCIe. | 首先考虑第 424 页图 12-11 所示的示例，其中描绘了一条 x4 链路。注意，当一个新的块开始时，同步头比特会在所有 Lane 上同时出现，并定义块类型（本例中为一个数据块）。每个 Lane 独立进行块编码，但字节（或符号）会像前几代 PCIe 一样条带化到所有 Lane 上。 |
 
-Figure 12-11: Gen3 Byte Striping x4
-![](images/part03_8f48cedf03eae3d61d69d2124b1e827a0ef69faa5bce696b93bf3915feb4485e.jpg)
+Figure 12-11: Gen3 Byte Striping x4 | 图12-11：Gen3 x4字节条带化
+<img src="images/part03_8f48cedf03eae3d61d69d2124b1e827a0ef69faa5bce696b93bf3915feb4485e.jpg" width="700" alt="">
 
 ## Byte Striping x8 Example
 
@@ -187,7 +187,7 @@ Figure 12-11: Gen3 Byte Striping x4
 | Next, consider the x8 Link shown in Figure 12‑12 on page 425, which is an example from the spec redrawn to make it easier to read. Here the bit stream is vertical instead of horizontal. At the top we can see that the Sync bits, shown in little‑endian order as required, appear on all Lanes simultaneously and indicate that a Data Block is starting. | 接下来考虑第425页图12‑12所示的x8链路，该图源自规范并经重绘以更易于阅读。此处数据流为垂直方向而非水平方向。在顶部可以看到，同步位（Sync bits）按小端序（little‑endian）显示（按规定要求），同时出现在所有通道（Lanes）上，指示一个数据块（Data Block）正在开始。 |
 | In this example, a TLP is sent first, so Symbols 0‑4 contain the STP framing Token, which includes a length of 7 DW for the entire TLP including the Token. The receiver needs to know the length of the TLP because for 8 GT/s speeds there is no END control character. Instead, the receiver counts the dwords and if there is no EDB (End Bad) observed, the TLP is assumed to be good. In this case, the TLP ends on Lane 3 of Symbol 3. | 在此示例中，首先发送一个TLP，因此Symbol 0‑4包含STP成帧令牌（STP framing Token），该令牌包括整个TLP（含令牌本身）的长度为7 DW。接收端需要知道TLP的长度，因为在8 GT/s速率下没有END控制字符。相反，接收端对dword进行计数，如果未观察到EDB（End Bad，异常结束），则假定该TLP正确无误。在此情形下，该TLP结束于Symbol 3的Lane 3。 |
 
-Figure 12‑12: Gen3 x8 Example: TLP Straddles Block Boundary
+Figure 12‑12: Gen3 x8 Example: TLP Straddles Block Boundary | 图12‑12：Gen3 x8示例：TLP跨越块边界
 
 <table><tr><td></td><td>Lane 0</td><td>Lane 1</td><td>Lane 2</td><td>Lane 3</td><td>Lane 4</td><td>Lane 5</td><td>Lane 6</td><td>Lane 7</td></tr><tr><td>Sync</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td></tr><tr><td>Symbol 0</td><td colspan="4">STP Token: Length=7, CRC, Parity, Seq Num</td><td></td><td></td><td></td><td></td></tr><tr><td>Symbol 1</td><td></td><td></td><td colspan="2">TLP</td><td></td><td></td><td></td><td></td></tr><tr><td>Symbol 2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Symbol 3</td><td colspan="4">LCRC</td><td colspan="2">SDP Token</td><td></td><td></td></tr><tr><td>Symbol 4</td><td></td><td>DLLP</td><td></td><td></td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td></tr><tr><td>Symbol 5</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td></tr><tr><td>Symbol 6</td><td colspan="4">STP Token: Length=23, CRC, Parity, Seq Num</td><td></td><td colspan="2">DW 1</td><td></td></tr><tr><td>Symbol 7</td><td></td><td colspan="2">DW 2</td><td></td><td></td><td colspan="2">DW 3</td><td></td></tr><tr><td>Symbol 15</td><td></td><td colspan="2">DW 18</td><td></td><td></td><td colspan="2">DW 19</td><td></td></tr><tr><td>Sync</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td></tr><tr><td>Symbol 0</td><td></td><td colspan="2">DW 20</td><td></td><td></td><td colspan="2">DW 21</td><td></td></tr><tr><td>Symbol 1</td><td colspan="4">LCRC</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td></tr></table>
 
@@ -203,7 +203,7 @@ Figure 12‑12: Gen3 x8 Example: TLP Straddles Block Boundary
 | A nullified TLP can occur when a switch forwards a packet to the egress port before having received the packet at the ingress port and before error checking. Because an error was detected in this example, the TLP must be nullified. | 当交换机在入口端口接收报文之前且在进行错误检查之前，就将报文转发至出口端口时，可能会产生无效化的TLP。由于在此示例中检测到错误，该TLP必须被无效化。 |
 | Figure 12-13 illustrates the steps taken to nullify TLP. The TLP being sent by the egress port, starts in the first block (Lane 0 of Symbol 6). When the error is detected, the egress port inverts the CRC (Lanes 0-3 of Symbol 1) and adds an EDB token immediately following the TLP (Lanes 4-7 of symbol 1). Together, those two changes make it clear to the Receiver that this TLP has been nullified and should be discarded. Note that the EDB bytes are not included in the packet length field, because they dynamically added to a packet in flight when an error occurs. | 图12-13说明了无效化TLP所采取的步骤。由出口端口发送的TLP从第一个块(符号6的通道0)开始。当检测到错误时，出口端口反转CRC(符号1的通道0-3)并在TLP之后立即添加EDB标记(符号1的通道4-7)。这两个变化共同向接收端表明该TLP已被无效化且应被丢弃。请注意，EDB字节未包含在报文长度字段中，因为它们是在错误发生时动态添加到正在传输的报文中的。 |
 
-Figure 12-13: Gen3 x8 Nullified Packet
+Figure 12-13: Gen3 x8 Nullified Packet | 图12-13：Gen3 x8无效数据包
 
 <table><tr><td></td><td>Lane 0</td><td>Lane 1</td><td>Lane 2</td><td>Lane 3</td><td>Lane 4</td><td>Lane 5</td><td>Lane 6</td><td>Lane 7</td></tr><tr><td rowspan="2">Sync</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td>Symbol 0</td><td colspan="4">STP Token: Length=7, CRC, Parity, Seq Num</td><td></td><td></td><td></td><td></td></tr><tr><td>Symbol 1</td><td></td><td></td><td colspan="2">TLP</td><td></td><td></td><td></td><td></td></tr><tr><td>Symbol 2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Symbol 3</td><td colspan="4">LCRC</td><td colspan="2">SDP Token</td><td></td><td></td></tr><tr><td>Symbol 4</td><td></td><td>DLLP</td><td></td><td></td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td></tr><tr><td>Symbol 5</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td></tr><tr><td>Symbol 6</td><td colspan="4">STP Token: Length=23, CRC, Parity, Seq Num</td><td></td><td colspan="2">DW 1</td><td></td></tr><tr><td>Symbol 7</td><td></td><td colspan="2">DW 2</td><td></td><td></td><td colspan="2">DW 3</td><td></td></tr><tr><td>Symbol 15</td><td></td><td colspan="2">DW 18</td><td></td><td></td><td colspan="2">DW 19</td><td></td></tr><tr><td rowspan="2">Sync</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td>Symbol 0</td><td></td><td colspan="2">DW 20</td><td></td><td></td><td colspan="2">DW 21</td><td></td></tr><tr><td>Symbol 1</td><td colspan="4">LCRC (inverted)</td><td>EDB</td><td>EDB</td><td>EDB</td><td>EDB</td></tr></table>
 
@@ -215,8 +215,8 @@ Figure 12-13: Gen3 x8 Nullified Packet
 |---|---|
 | Now let's consider an example of Ordered Set transmission. As shown in Figure 12-14 on page 427, an Ordered Set is indicated by the 2-bit Sync Header value of 01b. The bytes that follow will be understood by the receiver to make up an Ordered Set that is always 16 bytes (128 bits) in length. The one exception is the SOS (Skip Ordered Set), because it can be changed by intermediate receivers in increments of 4 bytes at a time for clock compensation. Consequently, an SOS is legally allowed to be 8, 12, 16, 20, or 24 Symbols in length. In the absence of a Link repeater device that does not add or delete SKPs in a SOS, a SOS will also be made up of 16 bytes. | 现在让我们考虑一个有序集传输的示例。如第427页图12-14所示，有序集通过2位同步头（Sync Header）值01b来指示。接收方将理解后续字节构成一个长度始终为16字节（128位）的有序集。唯一的例外是SOS（Skip Ordered Set，跳过有序集），因为中间接收方可以每次以4字节为增量对其进行修改以进行时钟补偿。因此，SOS的合法长度可以为8、12、16、20或24个符号（Symbol）。如果不存在在SOS中添加或删除SKP的链路中继器（Link Repeater）设备，则SOS也将由16字节组成。 |
 
-Figure 12-14: Gen3 x1 Ordered Set Construction
-![](images/part03_8f9ed4213abfae04744382fae93180caecf64f5c57d5f21ee5268f276cb76735.jpg)
+Figure 12-14: Gen3 x1 Ordered Set Construction | 图12-14：Gen3 x1有序集构建
+<img src="images/part03_8f9ed4213abfae04744382fae93180caecf64f5c57d5f21ee5268f276cb76735.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -224,11 +224,11 @@ Figure 12-14: Gen3 x1 Ordered Set Construction
 | Receiving the EDS Token means that the Data Stream is either ending or pausing to insert an SOS. An EDS is the only Token that can start on a dword-aligned Lane in the same Symbol Time as an IDL, and this example does just that, beginning in Lane 4 of Symbol Time 15. Recall that EDS must also be in the last dword of the Data Block. According to the receiver framing requirements, only an Ordered Set Block is allowed after an EDS and must be an SOS, EIOS, or EIEOS or else it will be seen as a framing error. As was true for earlier spec versions, the Ordered Sets must appear on all Lanes at the same time. Receivers may optionally check to ensure that each Lane sees the same Ordered Set. | 接收EDS令牌意味着数据流正在结束或暂停以插入SOS。EDS是唯一可以与IDL在同一符号时间（Symbol Time）内从双字对齐的通道（Lane）上启动的令牌，本例正是如此，从符号时间15的通道4开始。回顾一下，EDS也必须位于数据块的最后一个双字中。根据接收方的组帧要求，EDS之后只允许出现有序集块（Ordered Set Block），且必须是SOS、EIOS或EIEOS，否则将被视为组帧错误。与早期规范版本一样，有序集必须同时在所有通道上出现。接收方可选择检查以确保每条通道看到相同的有序集。 |
 | In our example, a 16 byte SOS is seen next, and is recognized by the Ordered Set Sync Header as well as the SKP byte pattern. There are always 4 Symbols at the end of the SOS that contain the current 24-bit scrambler LFSR state. In Symbol 12 the Receiver knows that the SKP characters have ended and also that the Block has three more bytes to deliver per Lane. These are the output of the scrambling logic LFSR, as shown in Table 12-2 on page 428. | 在我们的示例中，接下来看到一个16字节的SOS，通过有序集同步头以及SKP字节模式进行识别。SOS的末尾始终有4个符号包含当前24位加扰器LFSR状态。在符号12处，接收方知道SKP字符已结束，并且该块每条通道还需再传送3个字节。这些是加扰逻辑LFSR的输出，如第428页表12-2所示。 |
 
-Figure 12-15: Gen3 x8 Skip Ordered Set (SOS) Example
+Figure 12-15: Gen3 x8 Skip Ordered Set (SOS) Example | 图12-15：Gen3 x8 SKIP有序集（SOS）示例
 
 <table><tr><td></td><td>Lane 0</td><td>Lane 1</td><td>Lane 2</td><td>Lane 3</td><td>Lane 4</td><td>Lane 5</td><td>Lane 6</td><td>Lane 7</td></tr><tr><td>Sync</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td></tr><tr><td>Symbol 0</td><td colspan="4">STP Token: Length=7, CRC, Parity, Seq Num</td><td></td><td></td><td></td><td></td></tr><tr><td>Symbol 1</td><td></td><td></td><td colspan="2">TLP</td><td></td><td></td><td></td><td></td></tr><tr><td>Symbol 2</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Symbol 3</td><td colspan="4">LCRC</td><td colspan="2">SDP Token</td><td></td><td></td></tr><tr><td>Symbol 4</td><td></td><td></td><td>DLLP</td><td></td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td></tr><tr><td>Symbol 5</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td></tr><tr><td>Symbol 6</td><td colspan="2">SDP Token</td><td></td><td></td><td></td><td>DLLP</td><td></td><td></td></tr><tr><td>Symbol 7</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td></tr><tr><td>Symbol 15</td><td>IDL</td><td>IDL</td><td>IDL</td><td>IDL</td><td colspan="4">EDS Token (End of Data Stream)</td></tr><tr><td>Sync</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td></tr><tr><td>Symbol 0</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td></tr><tr><td>Symbol 3</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td><td>SKP</td></tr><tr><td>Symbol 4</td><td>SKP_END</td><td>SKP_END</td><td>SKP_END</td><td>SKP_END</td><td>SKP_END</td><td>SKP_END</td><td>SKP_END</td><td>SKP_END</td></tr><tr><td>Symbol 5</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td></tr><tr><td>Symbol 6</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td></tr><tr><td>Symbol 7</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td><td>LFSR</td></tr><tr><td>Sync</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td><td>01</td></tr></table>
 
-Table 12-2: Gen3 16-bit Skip Ordered Set Encoding
+Table 12-2: Gen3 16-bit Skip Ordered Set Encoding | 表12-2：Gen3 16位SKIP有序集编码
 
 <table><tr><td>Symbol Number</td><td>Value</td><td>Description</td></tr><tr><td>0 to 11</td><td>AAh</td><td>SKP Symbol. Since Symbol 0 is the Ordered Set Identifier, this is seen as an SOS.</td></tr><tr><td>12</td><td>E1h</td><td>SKP_END Symbol, which indicates that the SOS will be complete after 3 more Symbols</td></tr><tr><td>13</td><td>00-FFh</td><td>a) If LTSSM state is Polling.Compliance: AAhb) Else if prior block was a Data Block:Bit [7] = Data ParityBit [6:0] = LFSR [22:16]c) ElseBit [7] = ~LFSR [22]Bit [6:0] = LFSR [22:16]</td></tr><tr><td>14</td><td>00-FFh</td><td>a) If LTSSM state is Polling.Compliance: Error_Status [7:0]b) Else LFSR [15:8]</td></tr><tr><td>15</td><td>00-FFh</td><td>a) If LTSSM state is Polling.Compliance: Error_Status [7:0]b) Else LFSR [7:0]</td></tr></table>
 
@@ -270,15 +270,15 @@ Table 12-2: Gen3 16-bit Skip Ordered Set Encoding
 | At the lower data rates every Lane was scrambled in the same way, so a single Linear‑Feedback Shift Register (LFSR) could supply the scrambling input for all of them. For Gen3, though, the designers wanted different scrambling values for neighboring Lanes. The reasons probably include a desire to decrease the possibility of cross‑talk between the Lanes by scrambling their outputs with respect to each other and avoid having the same value on each Lane, as might happen when sending IDLs. The spec describes two approaches to achieving this goal, one that emphasizes lower latency and one that emphasizes lower cost. | 在较低数据速率下，每条通道（Lane）以相同方式加扰，因此单个线性反馈移位寄存器（LFSR）可为所有通道提供加扰输入。但对于Gen3，设计者希望相邻通道使用不同的加扰值。其原因可能包括：通过对各通道的输出进行相互加扰来降低通道间串扰的可能性，并避免每条通道出现相同的值（如在发送IDLs时可能发生的情况）。规范描述了实现此目标的两种方法，一种侧重于低延迟，另一种侧重于低成本。 |
 | First Option: Multiple LFSRs. One solution is to implement a separate LFSR for each Lane, and initialize each with a different starting value or "seed". This has the advantage of simplicity and speed, at the cost of adding logic. As shown in Figure 12‑16, each LFSR creates a pseudo‑random output based on the polynomial given in the spec as $\mathrm { G } ( \mathrm { X } ) = \dot { \mathrm { X } } ^ { 2 3 } + \mathrm { X } ^ { 2 1 } + \mathrm { X } ^ { 1 6 } +$ + $\mathsf X ^ { 8 } + \mathsf X ^ { 5 } + \mathsf X ^ { 2 } + 1$. This polynomial is longer than the previous version and also behaves a little differently because of the different seed values. Eight different seed values for each Lane are specified requiring eight different LFSRs, one per Lane 0 through 7. | 第一种方案：多个LFSR。一种解决方案是为每条通道实现独立的LFSR，并使用不同的初始值（或称"种子"）初始化每个LFSR。其优点是简单快速，代价是增加逻辑。如图12-16所示，每个LFSR基于规范中给出的多项式 $\mathrm { G } ( \mathrm { X } ) = \dot { \mathrm { X } } ^ { 2 3 } + \mathrm { X } ^ { 2 1 } + \mathrm { X } ^ { 1 6 } +$ + $\mathsf X ^ { 8 } + \mathsf X ^ { 5 } + \mathsf X ^ { 2 } + 1$ 产生伪随机输出。该多项式比之前的版本更长，且由于种子值不同，其行为也有所不同。规范为每条通道指定了8个不同的种子值，需要8个不同的LFSR，分别对应通道0到7。 |
 
-Figure 12‑16: Gen3 Per‑Lane LFSR Scrambling Logic
+Figure 12‑16: Gen3 Per‑Lane LFSR Scrambling Logic | 图12‑16：Gen3每条通道LFSR加扰逻辑
 
-![](images/part03_bad455e7c47ccc0aeb6a4e4ede3b81b3ae0bb5278249a47207e73a64ceb49369.jpg)
+<img src="images/part03_bad455e7c47ccc0aeb6a4e4ede3b81b3ae0bb5278249a47207e73a64ceb49369.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | The 24‑bit seed value for each Lane is listed in Table 12‑3 on page 432. The series repeats itself, meaning the seed for Lane 8 will be the same as Lane 0, so only the first 8 values are shown. Every Lane uses the same LFSR and the same tap points to create the scrambling output, and the different seed values give the desired difference. | 每条通道的24位种子值列于第432页的表12-3中。该序列会重复，即通道8的种子与通道0相同，因此仅显示前8个值。每条通道使用相同的LFSR和相同的抽头点来生成加扰输出，不同的种子值提供了所需的差异。 |
 
-Table 12‑3: Gen3 Scrambler Seed Values
+Table 12‑3: Gen3 Scrambler Seed Values | 表12‑3：Gen3加扰器种子值
 
 <table><tr><td>Lane</td><td>Seed Value</td></tr><tr><td>0</td><td>1DBFBCh</td></tr><tr><td>1</td><td>0607BBh</td></tr><tr><td>2</td><td>1EC760h</td></tr><tr><td>3</td><td>18C0DBh</td></tr><tr><td>4</td><td>010F12h</td></tr><tr><td>5</td><td>19CFC9h</td></tr><tr><td>6</td><td>0277CEh</td></tr><tr><td>7</td><td>1BB807h</td></tr></table>
 
@@ -291,11 +291,11 @@ Table 12‑3: Gen3 Scrambler Seed Values
 | Lane 6 = Lane 5 XOR Lane 7 | Lane 6 = Lane 5 XOR Lane 7 |
 | The single‑LFSR solution uses fewer gates than the multi‑LFSR version does, but incurs extra latency through the XOR process, providing a different cost/performance option. | 单LFSR方案比多LFSR方案使用更少的逻辑门，但通过XOR过程引入了额外的延迟，提供了不同的成本/性能选择。 |
 
-Figure 12‑17: Gen3 Single‑LFSR Scrambler
+Figure 12‑17: Gen3 Single‑LFSR Scrambler | 图12‑17：Gen3单LFSR加扰器
 
-![](images/part03_ef925679aa956ffa227d4c1d1433e5b02a7e5ab5c6d7898477ba000cba5ee3e2.jpg)
+<img src="images/part03_ef925679aa956ffa227d4c1d1433e5b02a7e5ab5c6d7898477ba000cba5ee3e2.jpg" width="700" alt="">
 
-Table 12‑4: Gen3 Tap Equations for Single‑LFSR Scrambler
+Table 12‑4: Gen3 Tap Equations for Single‑LFSR Scrambler | 表12‑4：Gen3单LFSR加扰器的抽头方程
 
 <table><tr><td>Lane Numbers</td><td>Tap Equation</td></tr><tr><td>0, 8, 16, 24</td><td>D9 xor D13</td></tr><tr><td>1, 9, 17, 25</td><td>D1 xor D13</td></tr><tr><td>2, 10, 18, 26</td><td>D13 xor D22</td></tr><tr><td>3, 11, 19, 27</td><td>D1 xor D22</td></tr><tr><td>4, 12, 20, 28</td><td>D3 xor D22</td></tr><tr><td>5, 13, 21, 29</td><td>D1 xor D3</td></tr><tr><td>6, 14, 22, 30</td><td>D3 xor D9</td></tr><tr><td>7, 15, 23, 31</td><td>D1 xor D9</td></tr></table>
 
@@ -356,11 +356,11 @@ Table 12‑4: Gen3 Tap Equations for Single‑LFSR Scrambler
 |---|---|
 | The differential receiver logic is unchanged, but there are electrical changes to improve signal integrity (see "Signal Compensation" on page 468), as well as training changes to establish signal equalization, which are covered in "Link Equalization Overview" on page 577. | 差分接收器逻辑未改变，但为改善信号完整性进行了电气变更（见第468页的"信号补偿"），以及为建立信号均衡进行了训练变更，这些在第577页的"链路均衡概述"中介绍。 |
 
-Figure 12‐18: Gen3 Physical Layer Receiver Details  
-![](images/part03_2a6a7fc50b6b98b9bc3bd7b7b06d4c27472a61ccced3f8960916549bf1daa1b6.jpg)
+Figure 12‐18: Gen3 Physical Layer Receiver Details | 图12‐18：Gen3物理层接收器详情  
+<img src="images/part03_2a6a7fc50b6b98b9bc3bd7b7b06d4c27472a61ccced3f8960916549bf1daa1b6.jpg" width="700" alt="">
 
-Figure 12‐19: Gen3 CDR Logic  
-![](images/part03_1ddda3e956f3a9df2b6dcb01c0428ae6647f941f2d5cc2f248c674bfe0709328.jpg)
+Figure 12‐19: Gen3 CDR Logic | 图12‐19：Gen3 CDR逻辑  
+<img src="images/part03_1ddda3e956f3a9df2b6dcb01c0428ae6647f941f2d5cc2f248c674bfe0709328.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -386,8 +386,8 @@ Figure 12‐19: Gen3 CDR Logic
 |---|---|
 | The EIEOSs sent during training serve to identify boundaries for the 130-bit blocks. As shown in Figure 12-20 on page 438, this Ordered Set can be recognized in a bit stream because it appears as a pattern of alternating bytes of 00h and FFh. When this pattern is seen, the last Symbol of the EIEOS is interpreted as the Block boundary, and testing the next 130 bits will reveal whether the boundary is correct. If not, the logic continues to search for this pattern. This process is described in the spec as occurring in three phases: Unaligned, Aligned, and Locked. | 训练期间发送的EIEOS用于标识130-bit块的边界。如第438页图12-20所示，该有序集在比特流中可被识别，因为它表现为00h和FFh字节交替出现的模式。当看到此模式时，EIEOS的最后一个符号被解释为块边界，测试接下来的130个比特将揭示该边界是否正确。如果不正确，逻辑将继续搜索此模式。规范将此过程描述为三个相位：未对齐、已对齐和锁定。 |
 
-Figure 12-20: EIEOS Symbol Pattern
-![](images/part03_6a6283dcc5b05d621aac80370026a98fc63dd6535e035d40f1ebc29eeec88f88.jpg)
+Figure 12-20: EIEOS Symbol Pattern | 图12-20：EIEOS符号模式
+<img src="images/part03_6a6283dcc5b05d621aac80370026a98fc63dd6535e035d40f1ebc29eeec88f88.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -419,9 +419,9 @@ Figure 12-20: EIEOS Symbol Pattern
 |---|---|
 | The received Symbols are clocked into the elastic buffer, as shown in Figure 12-21 on page 441, using the recovered clock and clocked out using the receiver's local clock. The Elastic Buffer compensates for the frequency difference by adding or removing SKP Symbols as before, but now it does so four Symbols at a time instead of only one at a time. When a SKP Ordered Set arrives, control logic watching the status of the buffer makes an evaluation. If the local clock is running faster, the buffer will be approaching an underflow condition and the logic can compensate by appending four extra SKPs when the SOS arrives to quickly refill the buffer. On the other hand, if the recovered clock is running faster, the buffer will be approaching an overflow condition and the logic will compensate for that by deleting four SKPs to quickly drain the buffer when an SOS is seen. | 接收到的符号使用恢复时钟送入弹性缓冲器（如图12-21所示，第441页），并使用接收器的本地时钟输出。弹性缓冲器通过添加或删除SKP符号来补偿频率差异，与之前相同，但现在一次操作四个符号，而非仅一个。当SKP有序集到达时，监视缓冲器状态的控制逻辑进行评估。如果本地时钟运行较快，缓冲器将接近欠载状态，逻辑可在SOS到达时追加四个额外的SKP以快速重新填充缓冲器。另一方面，如果恢复时钟运行较快，缓冲器将接近过载状态，逻辑将在检测到SOS时删除四个SKP以快速排空缓冲器。 |
 
-Figure 12-21: Gen3 Elastic Buffer Logic
+Figure 12-21: Gen3 Elastic Buffer Logic | 图12-21：Gen3弹性缓冲逻辑
 
-![](images/part03_c97d7681ed4be3655d8b1b1ee582daccaddd526f345ed89e9d9922c231c9b72b.jpg)
+<img src="images/part03_c97d7681ed4be3655d8b1b1ee582daccaddd526f345ed89e9d9922c231c9b72b.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -460,7 +460,7 @@ Figure 12-21: Gen3 Elastic Buffer Logic
 |---|---|
 | Understandably, the transmitter is only allowed to introduce a minimal amount of skew so as to leave the rest of the skew budget to cover routing differences and other variations. The amount of allowed skew that can be corrected at the Receiver is shown in Table 12‐5 on page 443, where it can be seen that this skew corresponds easily to a number of Symbol times for Gen3 just as it did for the earlier data rates. That allows the same option of using delay registers to accomplish de‐skew after the elastic buffer as was described for Gen1/Gen2 Physical Layer implementations earlier. | 可以理解，发送器仅被允许引入最小量的偏斜，以便将剩余的偏斜预算留给路由差异和其他变化。接收器可校正的允许偏斜量如表12‐5（第443页）所示，可以看出该偏斜量对于Gen3而言同样对应若干符号时间，与之前的数据速率情况一致。这使得可以采用与先前描述的Gen1/Gen2物理层实现相同的方案，即在弹性缓冲之后使用延迟寄存器来完成解偏斜。 |
 
-Table 12‐5: Signal Skew Parameters
+Table 12‐5: Signal Skew Parameters | 表12‐5：信号偏斜参数
 
 <table><tr><td></td><td>Gen1</td><td>Gen2</td><td>Gen3</td></tr><tr><td>Tx max skew</td><td>1.3 ns</td><td>1.3 ns</td><td>1.1 ns</td></tr><tr><td>Rx max skew</td><td>20 ns</td><td>8 ns</td><td>6 ns</td></tr><tr><td>Symbol time period</td><td>4ns</td><td>2ns</td><td>1ns</td></tr><tr><td>Rx skew expressed in Symbol Times</td><td>5</td><td>4</td><td>6</td></tr></table>
 
@@ -468,8 +468,8 @@ Table 12‐5: Signal Skew Parameters
 |---|---|
 | When using 8b/10b encoding, an unambiguous de‐skew mechanism is to watch for the COM control character, which must appear on all Lanes simultaneously. That option is not available for 128b/130b, but Ordered Sets still arrive at the same time on all the Lanes, such as the SOS, SDS, and EIEOS. As a result, the process can be very much the same even though the pattern to search for when de‐skewing the Lanes is different. | 当使用8b/10b编码时，一种明确的解偏斜机制是监测COM控制字符，该字符必须同时在所有通道上出现。对于128b/130b编码，该选项不可用，但有序集仍然同时在所有通道上到达，例如SOS、SDS和EIEOS。因此，尽管解偏斜时需要搜索的图案不同，但其过程可以非常相似。 |
 
-Figure 12‐22: Receiver Link De‐Skew Logic  
-![](images/part03_99cc9ad84bf461b55f50f4177371db6854a3488709d4afd3a145bec3268009c2.jpg)
+Figure 12‐22: Receiver Link De‐Skew Logic | 图12‐22：接收器链路解偏斜逻辑  
+<img src="images/part03_99cc9ad84bf461b55f50f4177371db6854a3488709d4afd3a145bec3268009c2.jpg" width="700" alt="">
 
 ## Descrambler
 
@@ -493,8 +493,8 @@ Figure 12‐22: Receiver Link De‐Skew Logic
 |---|---|
 | This logic is basically unchanged from Gen1 or Gen2 implementation. At some point, the byte streams for Gen3 and for the lower data rates will have to muxed together, and the example in Figure 12-23 on page 445 shows that happening just before the un-striping logic. | 该逻辑与Gen1或Gen2实现基本保持不变。在某个节点，Gen3与较低数据速率的字节流必须复用在一起，图12-23（第445页）中的示例展示了这一过程恰好在解交错逻辑之前发生。 |
 
-Figure 12-23: Physical Layer Receive Logic Details
-![](images/part03_82cfe65d49421709725722f0cf0809da7bb5cf79ed00cca48587c8b28cae2bca.jpg)
+Figure 12-23: Physical Layer Receive Logic Details | 图12-23：物理层接收逻辑详情
+<img src="images/part03_82cfe65d49421709725722f0cf0809da7bb5cf79ed00cca48587c8b28cae2bca.jpg" width="700" alt="">
 
 ## Packet Filtering
 
@@ -571,8 +571,8 @@ Figure 12-23: Physical Layer Receive Logic Details
 |---|---|
 | The electrical sub‑block associated with each lane, as shown in Figure 13‑1 on page 450, provides the physical interface to the Link and contains differential Transmitters and Receivers. The Transmitter delivers outbound Symbols on each Lane by converting the bit stream into two single‑ended electrical signals with opposite polarity. Receivers compare the two signals and, when the difference is sufficiently positive or negative, generate a one or zero internally to represent the intended serial bit stream to the rest of the Physical Layer. | 如图13‑1（第450页）所示，每条通道关联的电气子块提供了链路的物理接口，包含差分发送器和接收器。发送器通过将比特流转换为两个极性相反的单端电信号，在每条通道上发送传出符号。接收器比较这两个信号，当差值足够正或足够负时，内部生成1或0，以向物理层的其余部分表示预期的串行比特流。 |
 
-Figure 13‑1: Electrical Sub‑Block of the Physical Layer
-![](images/part03_6e712889d05e8bc6546bed30964c5f60adf57a658cefb6fd8d3aa2a32cb575f5.jpg)
+Figure 13‑1: Electrical Sub‑Block of the Physical Layer | 图13‑1：物理层的电子子块
+<img src="images/part03_6e712889d05e8bc6546bed30964c5f60adf57a658cefb6fd8d3aa2a32cb575f5.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -587,17 +587,17 @@ Figure 13‑1: Electrical Sub‑Block of the Physical Layer
 | The high-speed signaling environment of PCIe is characterized by the drawing in Figure 13-2 on page 451. This low-voltage differential signaling environment is a common method used in many serial transports and one reason is for the noise rejection it provides. Electrical noise that affects one signal will also affect the other because they are on adjacent pins and their traces are very close to each other. Since both signals are influenced, as shown in Figure 13-3 on page 452, the difference between them doesn't change much and is therefore not seen at the receiver. | PCIe的高速信号传输环境如图13-2（第451页）所示。这种低压差分信号传输环境是许多串行传输中常用的方法，其原因之一在于其提供的噪声抑制能力。由于两个信号位于相邻引脚上且其走线彼此非常靠近，因此影响一个信号的电噪声也会影响另一个信号。如图13-3（第452页）所示，由于两个信号都受到干扰，它们之间的差值变化不大，因此在接收端不会被察觉。 |
 | A design goal for the 3.0 spec revision was that the 8.0 GT/s rate should still work with existing standard FR4 circuit boards and connectors, and that was achieved by changing the encoding scheme from the old 8b/10b to the new 128b/130b model to keep the frequency low. This goal will probably change with the next speed step (Gen4). | 3.0规范修订版的一个设计目标是8.0 GT/s速率应仍能在现有标准FR4电路板和连接器上工作，这一目标通过将编码方案从旧的8b/10b改为新的128b/130b模型以保持较低频率而得以实现。这一目标可能会随下一个速率等级（Gen4）而改变。 |
 
-Figure 13-2: Differential Transmitter/Receiver
-![](images/part03_4794091b4253abf1ca0852dec51247c44c93e0bd731f8c2976e24291d2c70749.jpg)
+Figure 13-2: Differential Transmitter/Receiver | 图13-2：差分发送器/接收器
+<img src="images/part03_4794091b4253abf1ca0852dec51247c44c93e0bd731f8c2976e24291d2c70749.jpg" width="700" alt="">
 
-Figure 13-3: Differential Common-Mode Noise Rejection
-![](images/part03_322db897b43d7c2cba942048336e9661d947d4f9f96548e1f99ac700e6f17134.jpg)
+Figure 13-3: Differential Common-Mode Noise Rejection | 图13-3：差分共模噪声抑制
+<img src="images/part03_322db897b43d7c2cba942048336e9661d947d4f9f96548e1f99ac700e6f17134.jpg" width="700" alt="">
 
-![](images/part03_7a180e65f4c5d7cfe41c62c89266fdf254d82db9ab4d543656159347d214786f.jpg)
+<img src="images/part03_7a180e65f4c5d7cfe41c62c89266fdf254d82db9ab4d543656159347d214786f.jpg" width="700" alt="">
 
-![](images/part03_0d7bb2d1cfba34b7f7674beef1704be9e8079768d327b6a1ab8afd7f8bab7386.jpg)
+<img src="images/part03_0d7bb2d1cfba34b7f7674beef1704be9e8079768d327b6a1ab8afd7f8bab7386.jpg" width="700" alt="">
 
-![](images/part03_659fca927975fe98b9efdc599bfde8a9e970e812cbbaf4140cf7f377fccc9237.jpg)
+<img src="images/part03_659fca927975fe98b9efdc599bfde8a9e970e812cbbaf4140cf7f377fccc9237.jpg" width="700" alt="">
 
 ## Clock Requirements
 
@@ -622,14 +622,14 @@ Figure 13-3: Differential Common-Mode Noise Rejection
 | • The modulation rate must be between 30KHz and 33KHz. | • 调制速率必须在 30KHz 至 33KHz 之间。 |
 | The +/- 300 ppm requirement for clock frequency accuracy still holds and therefore so does the maximum 600 ppm variation between Link partners. The spec states that most implementations will require both Link partners to use the same clock source, although it's not required. One way to do that would be for them to both use a modulated version of the Refclk to derive their own clocks (see "Common Refclk" on page 456). | 对于时钟频率精度的 +/- 300 ppm 要求仍然有效，因此链路伙伴之间的最大 600 ppm 偏差也同样适用。规范指出，大多数实现将要求两个链路伙伴使用相同的时钟源，尽管这不是强制要求。一种实现方式是两者都使用调制版本的 Refclk 来导出各自的时钟（参见第 456 页的"Common Refclk"）。 |
 
-Figure 13-4: SSC Motivation
-![](images/part03_c47d0cedef0c2adf285fa12e016975a24724870427b1e3c499d89b2c472612a4.jpg)
+Figure 13-4: SSC Motivation | 图13-4：SSC动机
+<img src="images/part03_c47d0cedef0c2adf285fa12e016975a24724870427b1e3c499d89b2c472612a4.jpg" width="700" alt="">
 
-Figure 13-5: Signal Rate Less Than Half the Clock Rate
-![](images/part03_660d4e5e8974123adaf716d6f38766d29ee64ea3726a9639845b5e503e939a9f.jpg)
+Figure 13-5: Signal Rate Less Than Half the Clock Rate | 图13-5：信号速率低于时钟速率的一半
+<img src="images/part03_660d4e5e8974123adaf716d6f38766d29ee64ea3726a9639845b5e503e939a9f.jpg" width="700" alt="">
 
-Figure 13-6: SSC Modulation Example
-![](images/part03_c2092f82e9faf8c85ccb0373ebe93186bb6ebd05b22e76d2f94f3c26053a6d30.jpg)
+Figure 13-6: SSC Modulation Example | 图13-6：SSC调制示例
+<img src="images/part03_c2092f82e9faf8c85ccb0373ebe93186bb6ebd05b22e76d2f94f3c26053a6d30.jpg" width="700" alt="">
 
 ## Refclk Overview
 
@@ -653,22 +653,22 @@ Figure 13-6: SSC Modulation Example
 | Second, the use of SSC will be simplest with this model because maintaining the 600 ppm separation between the Tx and Rx clocks is easy if both follow the same modulated reference. | 第二，使用SSC在这种模式下最为简单，因为如果发送端和接收端跟随相同的调制参考，保持两者时钟之间600 ppm的间隔很容易。 |
 | Third, the Refclk remains available during low-power Link states L0s and L1 and that allows the Receiver's CDR to maintain a semblance of the recovered clock even in the absence of a bit stream to supply the edges in the data. That, in turn, keeps the local PLLs from drifting as much as they otherwise would, resulting in a reduced recovery time back to L0 compared to the other clocking options. | 第三，在低功耗链路状态L0s和L1期间Refclk仍然可用，这使得接收端的CDR即使在缺少提供数据边沿的比特流时，也能保持恢复时钟的某种形态。这反过来使本地PLL不会像其他情况下那样严重漂移，从而相比其他时钟选项，恢复到L0的恢复时间更短。 |
 
-Figure 13-7: Shared Refclk Architecture
-![](images/part03_e4cb97067b2235c260bdec68100c3c4ef124a1bee60d02a289337ac7e6082030.jpg)
+Figure 13-7: Shared Refclk Architecture | 图13-7：共享参考时钟架构
+<img src="images/part03_e4cb97067b2235c260bdec68100c3c4ef124a1bee60d02a289337ac7e6082030.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | **Data Clocked Rx Architecture.** In this clock architecture, the Receiver doesn't use a reference clock at all, but simply recovers the Transmitter clock from the data stream, as shown in Figure 13-9 on page 457. This implementation is clearly the simplest of the three and would therefore ordinarily be preferred. The spec doesn't prohibit the use of SSC in this model, but doing so would bring up two issues. First, the Receiver CDR must remain locked onto the input frequency as it modulates through a much wider range (5600 ppm instead of the usual 600 ppm), and that could require more complex logic. And second, the maximum clock frequency separation of 600 ppm must still be maintained and it's less clear how that would be done without a common reference. | **数据时钟接收架构.** 在这种时钟架构中，接收端完全不使用参考时钟，而是简单地从数据流中恢复发送端时钟，如第457页图13-9所示。这种实现显然是三种中最简单的，因此通常会被优先选择。规范不禁止在这种模型中使用SSC，但这样做会带来两个问题。第一，接收端CDR必须在输入频率调制通过更宽的范围（5600 ppm而非通常的600 ppm）时保持锁定，这可能需要更复杂的逻辑。第二，600 ppm的最大时钟频率间隔仍需保持，而在没有公共参考的情况下如何做到这一点则不太明确。 |
 
-Figure 13-8: Data Clocked Rx Architecture
-![](images/part03_a4a0ac1c67cc820fac8d5ccbc7fb6b81caae2d0822361512cac4cb5353b3744d.jpg)
+Figure 13-8: Data Clocked Rx Architecture | 图13-8：数据时钟接收器架构
+<img src="images/part03_a4a0ac1c67cc820fac8d5ccbc7fb6b81caae2d0822361512cac4cb5353b3744d.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | **Separate Refclks.** Finally, it's also possible for the Link partners to use different reference clocks, as shown in Figure 13-9 on page 457. However, this implementation makes substantially tighter demands on the Refclks because the jitter seen at the Receiver will be the RSS (Root Sum of Squares) combination of them both, making the timing budget difficult. It also becomes enormously more difficult to manage SSC in this model and that's why the spec states that SSC must be turned off in this case. Overall, the spec gives the impression that this is the least desirable alternative, and states that it doesn't explicitly define the requirements for this architecture. | **独立Refclks.** 最后，链路双方也可以使用不同的参考时钟，如第457页图13-9所示。然而，这种实现对Refclk提出了更严格的要求，因为接收端看到的抖动将是两者抖动的RSS（平方和根）组合，使得时序预算变得困难。在这种模式下管理SSC也变得极其困难，这就是规范规定在这种情况下必须关闭SSC的原因。总体而言，规范给人的印象是这是最不可取的选择，并指出它没有明确定义这种架构的要求。 |
 
-Figure 13-9: Separate Refclk Architecture
-![](images/part03_6971cd25e470e9f722586e44a2e8b1f0dc496bfd609f2045dca5f7652c53af8f.jpg)
+Figure 13-9: Separate Refclk Architecture | 图13-9：独立参考时钟架构
+<img src="images/part03_6971cd25e470e9f722586e44a2e8b1f0dc496bfd609f2045dca5f7652c53af8f.jpg" width="700" alt="">
 
 ## 8.0 GT/s
 
@@ -690,7 +690,7 @@ Figure 13-9: Separate Refclk Architecture
 **Figure 13-10: Test Circuit Measurement Channels**
 **图 13-10：测试电路测量通道**
 
-![](images/part03_a8b7437b35c5b3eef79c0f6fdd39c7ee955cc103d305d3747aefbfff2a3da671.jpg)
+<img src="images/part03_a8b7437b35c5b3eef79c0f6fdd39c7ee955cc103d305d3747aefbfff2a3da671.jpg" width="700" alt="">
 
 ## Tx Impedance Requirements / 发送器阻抗要求
 
@@ -728,8 +728,8 @@ Figure 13-9: Separate Refclk Architecture
 | — Receiver is present if the charge time is long (dominated by the series capacitor and Receiver termination). | — 若充电时间长（由串联电容和接收端端接主导），则接收端存在。 |
 | The spec mentions a possible problem here: the proper load may appear on one of the differential signals but not the other, and if detection doesn't check both it could misinterpret the situation. The simple way to avoid that would be to perform the Detect operation on both D+ and D-. The 3.0 spec does not require this, but mentions that future spec revisions may. Therefore, it would be wise to include this functionality in new designs. | 规范在此处提到了一个可能的问题：正确的负载可能出现在其中一个差分信号上而非另一个，若检测未对两者都进行检查，则可能误判情况。避免该问题的简单方法是对 D+ 和 D- 都执行检测操作。3.0 规范未对此作出要求，但提到未来规范修订版可能会要求。因此，在新设计中包含此功能将是明智之举。 |
 
-Figure 13-11: Receiver Detection Mechanism
-![](images/part03_35bcad802354414454a0431d6641d58255f2b53ad8ee41dd396818d88c20ce7e.jpg)
+Figure 13-11: Receiver Detection Mechanism | 图13-11：接收器检测机制
+<img src="images/part03_35bcad802354414454a0431d6641d58255f2b53ad8ee41dd396818d88c20ce7e.jpg" width="700" alt="">
 
 ## Transmitter Voltages
 
@@ -755,8 +755,8 @@ Figure 13-11: Receiver Detection Mechanism
 | During Electrical Idle the Transmitter holds the differential peak voltage V<sub>TX‐</sub> (see Table 13‐3 on page 489) very near zero (0‐20 mV). During this time the Transmitter may be in either a low‐ or high‐impedance state. | 在电气空闲期间，发送器将差分峰值电压 V<sub>TX-</sub>（参见表 13-3 第 489 页）维持在非常接近零的值（0-20 mV）。在此期间，发送器可处于低阻抗或高阻抗状态。 |
 | The Receiver senses a logical one or zero, as well as Electrical Idle, by evaluating the voltage on the Link. The signal loss expected at high frequency means the Receiver must be able to sense an attenuated version of the signal, defined as $\mathrm { V _ { R X - D I F F p - p } }$ (see Table 13‐5 on page 498). | 接收器通过评估链路上的电压来检测逻辑 1 或 0，以及电气空闲。在高频下预期的信号衰减意味着接收器必须能够检测到信号的衰减版本，定义为 $\mathrm{V_{RX-DIFFp-p}}$（参见表 13-5 第 498 页）。 |
 
-Figure 13‐12: Differential Signaling  
-![](images/part03_73f0c474fb2a9c7c0d959aa0d16a529c0140c298b1cf169b2832c954585a3d29.jpg)
+Figure 13‐12: Differential Signaling | 图13‐12：差分信令  
+<img src="images/part03_73f0c474fb2a9c7c0d959aa0d16a529c0140c298b1cf169b2832c954585a3d29.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -765,8 +765,8 @@ Figure 13‐12: Differential Signaling
 | 1. Differential Peak Voltage $\Rightarrow \mathrm { \Delta V _ { D I F F p } = ( m a x \mid V _ { D + } - V _ { D - } \mid ) }$<br><br>2. Differential Peak‐to‐Peak Voltage $\Rightarrow \mathrm { V _ { D I F F p - p } } = 2 \ ^ { * } ( \mathrm { m a x } \ | \mathrm { V _ { D + } } - \mathrm { V _ { D - } } \ | )$ | 1. 差分峰值电压 $\Rightarrow \mathrm { \Delta V _ { D I F F p } = ( m a x \mid V _ { D + } - V _ { D - } \mid ) }$<br><br>2. 差分峰峰值电压 $\Rightarrow \mathrm { V _ { D I F F p - p } } = 2 \ ^ { * } ( \mathrm { m a x } \ | \mathrm { V _ { D + } } - \mathrm { V _ { D - } } \ | )$ |
 | As an example, assume $\mathrm { V } _ { \mathrm { C M } } = 0 \mathrm { V } ,$ then if the D+ value is 300mV and the Dvalue is ‐300mV, then V would be $3 0 0 - ( - 3 0 0 ) = 6 0 0$ mV for a logical one. Similarly, it would be (‐300) ‐ (+300) = ‐600 mV for a logical zero. The $\mathrm { V _ { D I F F p - p } }$ for this symmetric case would be 1200 mV. The allowed $\mathrm { V _ { D I F F p - p } }$ range for 2.5 GT/s and 5.0 GT/s is 800 to 1200 mV, while for 8.0 GT/s it is 800 to 1300 mV before equalization is applied. | 例如，假设 $\mathrm { V } _ { \mathrm { C M } } = 0 \mathrm { V } ,$ 如果 D+ 值为 300mV，D- 值为 -300mV，则逻辑 1 的 V 值为 $3 0 0 - ( - 3 0 0 ) = 6 0 0$ mV。类似地，逻辑 0 的值为 (‐300) ‐ (+300) = ‐600 mV。此对称情况下的 $\mathrm { V _ { D I F F p - p } }$ 为 1200 mV。2.5 GT/s 和 5.0 GT/s 允许的 $\mathrm { V _ { D I F F p - p } }$ 范围为 800 到 1200 mV，而 8.0 GT/s 在均衡前的范围为 800 到 1300 mV。 |
 
-Figure 13‐13: Differential Peak‐to‐Peak $( \mathrm { V _ { D I F F p - p } } )$ and Peak $( \mathrm { V _ { D I F F p } } )$ Voltages  
-![](images/part03_b34668f0cb7eacadd364805b344324a4aca211fb770728fb99782e23f18b0927.jpg)
+Figure 13‐13: Differential Peak‐to‐Peak $( \mathrm { V _ { D I F F p - p } } )$ and Peak $( \mathrm { V _ { D I F F p } } )$ Voltages | 图13‐13：差分峰峰值 $(V_{DIFFp-p})$ 和峰值 $(V_{DIFFp})$ 电压  
+<img src="images/part03_b34668f0cb7eacadd364805b344324a4aca211fb770728fb99782e23f18b0927.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -789,8 +789,8 @@ Figure 13‐13: Differential Peak‐to‐Peak $( \mathrm { V _ { D I F F p - p }
 | The concept of margining is that Transmitter characteristics like output voltage can be adjusted across a wide range of values during testing to determine how well it can handle a signaling environment. The 2.5 GT/s rate didn't include this capability, but voltage margining was added with the 5.0 GT/s rate and must be implemented by Transmitters that use that rate or higher. Other parameters, like de-emphasis or jitter can optionally be margined as well. The granularity for the margining adjustments must be controllable on a Link basis and may be controllable on a Lane basis. This control is accomplished by means of the Link Control 2 register in the PCIe Capability register block. The transmit margin field, shown in Figure 13-14 on page 465, contains 3 bits and can thus represent 8 levels. Their values are not defined, and not all of them need to be implemented. The default value is all zeros, which represents the normal operating range. | 裕量调节的概念是指：在测试过程中，发送器特性（如输出电压）可以在较大范围内进行调整，以确定其处理信号环境的能力。2.5 GT/s速率未包含此能力，但电压裕量调节随5.0 GT/s速率一同引入，并且使用该速率或更高速率的发送器必须实现此功能。其他参数（如去加重或抖动）也可选择性地进行裕量调节。裕量调节的粒度必须在链路级别可控，并可在通道级别可控。该控制通过PCIe能力寄存器块中的链路控制2寄存器来实现。如图13-14（第465页）所示的发送裕量字段包含3位，因此可表示8个级别。这些值未作定义，且不必全部实现。默认值为全零，表示正常工作范围。 |
 | It's important to note that this field is only intended for debug and compliance testing purposes during which software is only allowed to modify it during those times. At all other times, the value is required to be set to the default of all zeros. | 需要特别注意的是，该字段仅用于调试和一致性测试目的，在此期间软件才允许修改它。在其他所有时间，该值必须设置为默认的全零。 |
 
-Figure 13-14: Transmit Margin Field in Link Control 2 Register  
-![](images/part03_e3f1b23a2644c72ee039f732c189e163318bf962e428c70cf2c88a7a78be9c9a.jpg)
+Figure 13-14: Transmit Margin Field in Link Control 2 Register | 图13-14：链路控制2寄存器中的发送裕量字段  
+<img src="images/part03_e3f1b23a2644c72ee039f732c189e163318bf962e428c70cf2c88a7a78be9c9a.jpg" width="700" alt="">
 
 ## PCI Express Technology
 
@@ -817,9 +817,9 @@ Figure 13-14: Transmit Margin Field in Link Control 2 Register
 | The Receiver's DC common mode voltage is specified to be 0V for all data rates, and that's represented in Figure 13-15 on page 467 by showing the signal terminations connected to ground. The $C _ { \mathrm { T } \mathrm { X } }$ in-line capacitor permits this voltage to be something different at the Transmitter, which is specified to be in the range from 0 - 3.6V. That's not as interesting when the Transmitter and Receiver are in the same enclosure and have the same power supply, but if they're connected over a cable and reside in different machines with different power supplies it becomes more important. In that case it's difficult to avoid reference voltage differences between the machines and, since the signal voltages are already small, such a difference could make the signal difficult to recognize at the Receiver. The location of this capacitor must be near the Transmitter pins when a connector of some kind will be used but, if there's no connector, it can be located at any convenient place on the transmission line. Although it could be integrated into a device, it's expected that $C _ { \mathrm { T } \mathrm { X } }$ will be external because it would be too big to integrate. | 对于所有数据速率，接收器的直流共模电压规定为0V，图13-15（第467页）中通过将信号终端连接到地来表示这一点。$C _ { \mathrm { T } \mathrm { X } }$ 串联电容允许该电压在发送器侧有所不同，发送器侧的电压规定范围为0-3.6V。当发送器和接收器位于同一机箱内且共用同一电源时，这一点并不那么重要；但如果它们通过线缆连接且位于不同机器中（使用不同电源），则变得更为关键。在这种情况下，很难避免机器之间的参考电压差异，而且由于信号电压已经很小，这种差异可能导致接收器难以识别信号。当使用某种连接器时，该电容必须靠近发送器引脚放置；如果没有连接器，则可以放置在传输线上的任何方便位置。虽然它可以集成到器件内部，但预计 $C _ { \mathrm { T } \mathrm { X } }$ 将外置，因为它体积太大无法集成。 |
 | The drawing in Figure 13-15 on page 467 also shows an optional set of resistors at the Receiver, labeled as "No Spec" because they are not mentioned in the spec. The story here is that Receiver designers dislike using a common-mode voltage of zero for the simple reason that it usually requires them to implement two reference voltages, one above zero and one below it. A preferred implementation offsets the signal entirely above or below zero, so that only one reference voltage is needed. The circuit shown within the dotted line accomplishes this by adding a small-value in-line capacitor to de-couple the DC component of the signal on the wire from that of the Receiver itself. Then, a resistor ladder serves to offset the Receiver's common-mode voltage in one direction or the other to accomplish the goal. | 图13-15（第467页）中的示意图还显示了一组可选的接收器电阻，标有"未规定(No Spec)"，因为规范中并未提及它们。原因是接收器设计人员不喜欢使用零共模电压，原因很简单：这通常要求他们实现两个参考电压，一个高于零、一个低于零。更优选的实现方式是将信号完全偏移到零以上或零以下，从而只需一个参考电压。虚线框内所示的电路通过添加一个小值串联电容来实现这一点，该电容将导线上信号的直流分量与接收器自身的直流分量去耦。然后，电阻分压网络用于将接收器的共模电压向某一方向偏移，以达到目标。 |
 
-Figure 13-15: Receiver DC Common-Mode Voltage Adjustment
+Figure 13-15: Receiver DC Common-Mode Voltage Adjustment | 图13-15：接收器DC共模电压调整
 
-![](images/part03_a791366c3885c455d698bd84e2e478fb95a9619959ab2bb132aaf628ede1277a.jpg)
+<img src="images/part03_a791366c3885c455d698bd84e2e478fb95a9619959ab2bb132aaf628ede1277a.jpg" width="700" alt="">
 
 ## Transmission Loss
 
@@ -861,8 +861,8 @@ Figure 13-15: Receiver DC Common-Mode Voltage Adjustment
 | The de‐emphasized voltage is reduced by 3.5 dB from normal for 2.5 GT/s, which translates to about a one‐third reduction in voltage. | 对于2.5 GT/s，去加重电压比正常值降低3.5 dB，相当于电压降低约三分之一。 |
 | • The Beacon signal is de‐emphasized, too, but uses slightly different rules. (see "Beacon Signaling" on page 483). | • Beacon信号也会被去加重，但使用略有不同的规则。（见第483页的"Beacon信令"）。 |
 
-Figure 13‐16: Transmission with De‐emphasis
-![](images/part03_919dddc80d72d4f41b62a20261e1a3e7397a965cfff2e94d4b428b99faa51e41.jpg)
+Figure 13‐16: Transmission with De‐emphasis | 图13‐16：带去加重的传输
+<img src="images/part03_919dddc80d72d4f41b62a20261e1a3e7397a965cfff2e94d4b428b99faa51e41.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -870,16 +870,16 @@ Figure 13‐16: Transmission with De‐emphasis
 | For 2.5 GT/s, each subsequent bit transmitted after the first bit of the same polarity must be de‑emphasized by 3.5dB to accommodate this worst‑case loss budget. Of course, for low‑loss environments this is less important and for a very short path it can even make the received signal look worse. After all, de‑emphasis is essentially distorting the transmitted signal in the opposite way of the distortion that is expected during transmission so as to cancel it out. If there turns out to be little or no distortion, then de‑emphasis will make the signal look worse. The spec doesn’t describe any way to test the signal environment or adjust the de‑emphasis level, but doesn’t prohibit a designer from developing an implementation‑specific method of doing so. | 对于2.5 GT/s，在发送相同极性的第一位之后，后续发送的每一位都必须进行3.5dB的去加重，以适应这一最坏情况下的损耗预算。当然，对于低损耗环境，这就不那么重要了，而对于非常短的路径，它甚至可能使接收信号变得更差。毕竟，去加重本质上是以与传输过程中预期的失真相反的方式来扭曲发送信号，从而抵消失真。如果实际失真很小或没有失真，那么去加重反而会使信号变得更差。规范没有描述任何测试信号环境或调整去加重级别的方法，但也不禁止设计人员开发实现特定的方法来实现这一点。 |
 | An example of the benefit of de‑emphasis is shown in Figure 13‑17 on page 471, which is a scope capture converted into a drawing for clarity. The captures were taken from a device driving a long path and using a bit stream with several repeated bits to show the signal distortion. The trace at the top shows that the bit pattern for one side of the differential pair (also called a single‑ended signal) has 2 bits of one polarity followed by 5 bits of the opposite polarity. Five consecutive bits is the worst case for 8b/10b, and this particular pattern only appears in a few characters like the COM character. The channel resists high‑speed changes but will continue to charge up if the driver keeps trying to reach a higher voltage and that can be seen in this example. When the bits aren’t repeated there isn’t time for the voltage to go as far, but repeated bits give more time for the change. The problem this creates is seen in the bit following the 5<sup>th</sup> in a row (highlighted in the oval), which fails to reach a good signal value during its UI because the voltage difference was too large to overcome in that short time. The difference between the value it reaches and the value it should have reached is shown by the line marking the level reached by other bits that aren’t experiencing as much ISI. | 去加重优势的一个示例如图13-17（第471页）所示，该图为清晰起见由示波器捕获图转换而成。这些捕获图来自驱动长路径的设备，使用了包含多个重复比特的比特流来显示信号失真。顶部的迹线显示，差分对一侧（也称为单端信号）的比特模式具有2个相同极性的比特，随后是5个相反极性的比特。五个连续比特是8b/10b的最坏情况，这种特定模式仅出现在少数几个字符中，如COM字符。信道会阻碍高速变化，但如果驱动器持续试图达到更高电压，信道将继续充电，这一点可在本例中看到。当比特不重复时，电压没有足够时间达到更高水平，但重复比特为电压变化提供了更多时间。由此产生的问题体现在连续第5个比特之后的那个比特上（椭圆突出显示），该比特在其UI期间未能达到良好的信号值，因为电压差太大，无法在如此短的时间内克服。该比特达到的值与其应达到的值之间的差异，由标记其他未经历过多ISI的比特所达到电平的线条表示。 |
 
-Figure 13‑17: Benefit of De‑emphasis at the Receiver  
-![](images/part03_380c4dd2edd4698564a37f946cc72580341e53019bac1720232d05e6aeacca71.jpg)
+Figure 13‑17: Benefit of De‑emphasis at the Receiver | 图13‑17：接收器处去加重的优势  
+<img src="images/part03_380c4dd2edd4698564a37f946cc72580341e53019bac1720232d05e6aeacca71.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | In the lower half of the illustration, a de‑emphasized version of the signal is captured and compared to the original. Here we can see that reducing the voltage for repeated bits prevents the voltage from charging up as much and results in a cleaner signal because the bits that follow are not influenced as much by the previous bits. For both the 2 consecutive bits and then the 5 consecutive bits, the over‑charging problem is reduced, which improves the timing jitter as well as the voltage levels. Consequently, the troublesome bit looks much better with de‑emphasis turned on and the received signal approaches the normal voltage swing in that bit time. | 在图示的下半部分，捕获了信号的去加重版本并与原始信号进行比较。这里我们可以看到，降低重复比特的电压可以防止电压过度充电，从而产生更干净的信号，因为后续比特受前面比特的影响较小。对于2个连续比特和5个连续比特，过充电问题都得到了缓解，从而改善了时序抖动和电压电平。因此，启用去加重后，问题比特看起来好得多，接收信号在该比特时间内接近正常电压摆幅。 |
 | In Figure 13‑18 on page 472 both positive and negative versions of the differential signal are shown so as to illustrate the resulting eye opening. The improved signal quality from de‑emphasis is clear because the eye opening at the troublesome time in the lower trace is so much larger than the one without de‑emphasis in the upper trace. | 在图13-18（第472页）中，同时显示了差分信号的正极和负极版本，以说明由此产生的眼图张开度。去加重带来的信号质量改善显而易见，因为下方迹线中问题时刻的眼图张开度远大于上方迹线中未使用去加重的情况。 |
 
-Figure 13‑18: Benefit of De‑emphasis at Receiver Shown With Differential Signals  
-![](images/part03_beaefc0473a7f5dcf0adfed328cd26050b51ec7667a474ea441f53aa68cc22b4.jpg)
+Figure 13‑18: Benefit of De‑emphasis at Receiver Shown With Differential Signals | 图13‑18：差分信号显示的接收器处去加重的优势  
+<img src="images/part03_beaefc0473a7f5dcf0adfed328cd26050b51ec7667a474ea441f53aa68cc22b4.jpg" width="700" alt="">
 
 ## Solution for 5.0 GT/s / 5.0 GT/s 的解决方案
 
@@ -889,23 +889,23 @@ Figure 13‑18: Benefit of De‑emphasis at Receiver Shown With Differential Sig
 | 1. When running at 2.5 GT/s speed, ‑3.5 dB de‑emphasis is required. | 1. 当以 2.5 GT/s 速率运行时，必须采用 ‑3.5 dB 去加重。 |
 | 2. When running at 5.0 GT/s speed, ‑6.0 dB de‑emphasis is recommended, while the use of ‑3.5 dB is optional. ‑6.0 dB de‑emphasis level is intended to compensate for the greater signal attenuation at higher frequency. As Figure 13‑19 on page 473 suggests, a 3.5 dB reduction represents a 33% reduction in voltage, while a 6 dB reduction represents a 50% reduction. To avoid a possible confusion, note that the dB measure of power and voltage are different by a factor of two. A 3 dB reduction represents a 50% change in power but only a 25% change in voltage. | 2. 当以 5.0 GT/s 速率运行时，建议采用 ‑6.0 dB 去加重，而 ‑3.5 dB 作为可选。‑6.0 dB 去加重电平旨在补偿较高频率下更大的信号衰减。如第 473 页图 13‑19 所示，3.5 dB 衰减对应电压降低 33%，而 6 dB 衰减对应电压降低 50%。为避免混淆，请注意功率与电压的 dB 度量相差两倍：3 dB 衰减对应功率变化 50%，但电压变化仅为 25%。 |
 
-Figure 13‑19: De‑emphasis Options for 5.0 GT/s / 图 13‑19: 5.0 GT/s 的去加重选项
+Figure 13‑19: De‑emphasis Options for 5.0 GT/s / 图 13‑19: 5.0 GT/s 的去加重选项 | 图13‑19：5.0 GT/s 的去加重选项
 
-![](images/part03_051c63803bd2009e8aa88e30fb76d6b3a6bcd3be96097b09d472ae55c73e6ef2.jpg)
+<img src="images/part03_051c63803bd2009e8aa88e30fb76d6b3a6bcd3be96097b09d472ae55c73e6ef2.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
 | 3. Normally, a Transmitter operates in the full‑swing mode and can use the entire available voltage range to help overcome signal attenuation. The voltage needs to start out at a higher value to compensate for the loss, as shown in the top half of Figure 13‑20 on page 474. However, for 5.0 GT/s another option is provided called reduced‑swing mode. This is intended to support short, low‑loss signaling environments, as shown in the lower half of Figure 13‑20 on page 474, and reduces the voltage swing by about half to save power. This mode also provides the third de‑emphasis option by turning off de‑emphasis entirely, which makes sense because, as mentioned earlier, the signal distortion it creates would not be reduced by loss in the path and the resulting signal at the Receiver would look worse. | 3. 通常，发送器工作在全摆幅模式下，可利用整个可用电压范围来帮助克服信号衰减。电压需要从较高值开始以补偿损耗，如第 474 页图 13‑20 的上半部分所示。然而，针对 5.0 GT/s 提供了另一种称为减摆幅模式的选项。该模式旨在支持短距离、低损耗的信号传输环境，如图 13‑20 下半部分所示，将电压摆幅降低约一半以节省功耗。该模式还通过完全关闭去加重来提供第三种去加重选项，这是合理的，因为如前所述，去加重产生的信号失真不会因路径损耗而减小，导致接收端的信号质量更差。 |
 
-Figure 13‑20: Reduced‑Swing Option for 5.0 GT/s with No De‑emphasis / 图 13‑20: 5.0 GT/s 无去加重的减摆幅选项
+Figure 13‑20: Reduced‑Swing Option for 5.0 GT/s with No De‑emphasis / 图 13‑20: 5.0 GT/s 无去加重的减摆幅选项 | 图13‑20：5.0 GT/s 无去加重的减摆幅选项
 
-![](images/part03_80c99058ce12f19c479fe5393541d58126592db532dac02ad1cd4611f0ce148f.jpg)
+<img src="images/part03_80c99058ce12f19c479fe5393541d58126592db532dac02ad1cd4611f0ce148f.jpg" width="700" alt="">
 
 Reduced Swing (low transmission amplitude) / 减摆幅（低传输幅度）
 
-![](images/part03_a777ec26977ff78613c333cab901584be2ccfaa82fabad85bd3ac32ef2aed444.jpg)
+<img src="images/part03_a777ec26977ff78613c333cab901584be2ccfaa82fabad85bd3ac32ef2aed444.jpg" width="700" alt="">
 
-![](images/part03_7861176aa61ea1266d881b66e65a403038e90c74d7448f4d10f70391eefd21dc.jpg)
+<img src="images/part03_7861176aa61ea1266d881b66e65a403038e90c74d7448f4d10f70391eefd21dc.jpg" width="700" alt="">
 
 ## Solution for 8.0 GT/s - Transmitter Equalization
 
@@ -920,16 +920,16 @@ Reduced Swing (low transmission amplitude) / 减摆幅（低传输幅度）
 |----|----|
 | To accomplish better wave shaping at the Transmitter, the spec requires the use of a 3-tap FIR (Finite Impulse Response) filter, meaning a filter with 3 bit-time-spaced inputs. A conceptual drawing of this is shown in Figure 13-21 on page 475, where it can be seen that the output voltage is the sum of three versions of the input: the original input, a version delayed by one bit time and a third delayed by another bit time. This type of FIR filter is often used in other SER-DES applications above 6.0 Gb/s, and it's helpful for PCIe because it compensates for the fact that the channel spreads the signal across a longer time. Another way of thinking about it is that a given bit is affected by both the bit value that preceded it and the bit that comes after it. | 为了在发送器实现更好的波形整形，规范要求使用3抽头FIR（有限脉冲响应）滤波器，即一个具有3个比特时间间隔输入的滤波器。其概念图如图13-21（第475页）所示，从中可以看出输出电压是三个输入版本的叠加：原始输入、延时一个比特时间的版本以及再延时一个比特时间的第三个版本。这种FIR滤波器常用于6.0 Gb/s以上的其他SER-DES应用中，它对PCIe很有帮助，因为它补偿了信道将信号展宽到更长时间这一效应。换个角度理解，即一个给定的比特会同时受到其前一个比特值和后一个比特值的影响。 |
 
-Figure 13-21: 3-Tap Tx Equalizer
-![](images/part03_8cc47add9767109176331cea75028b8dd7f8b3dda229c06db9a8ecd53cbd9366.jpg)
+Figure 13-21: 3-Tap Tx Equalizer | 图13-21：3抽头发送均衡器
+<img src="images/part03_8cc47add9767109176331cea75028b8dd7f8b3dda229c06db9a8ecd53cbd9366.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
 | With this in mind, the three inputs can be described by their timing position as "pre-cursor" for $\mathrm { { C } _ { - 1 } }$, "cursor" for $\mathrm { C } _ { 0 }$, and "post-cursor" for $C _ { + 1 }$, which combine to create an output based on the upcoming input, the current value, and the previous value. Adjusting the coefficients for the taps allows the output wave to be optimally shaped. This effect is illustrated by the pulse-response waveform shown in Figure 13-22 on page 476. Looking at a single pulse allows the adjustment to the signal to be more easily recognized. | 基于此，这三个输入可按其时间位置分别描述为：$\mathrm { C } _ { - 1 }$ 为"预光标"（pre-cursor），$\mathrm { C } _ { 0 }$ 为"主光标"（cursor），$C _ { + 1 }$ 为"后光标"（post-cursor），它们结合起来根据即将到来的输入、当前值和前一个值产生输出。调整各抽头的系数可使输出波形达到最佳形状。这一效果由图13-22（第476页）所示的脉冲响应波形图加以说明。观察单个脉冲可以更容易地识别对信号的调整。 |
 | The filter shapes the output according to the coefficient values (or tap weights) assigned to each tap. The sum of the absolute value of the three coefficient magnitudes together is defined to be unity so that only two of them need to be given for the third one to be calculated. Consequently, only $\mathrm { C } _ { - 1 }$ and $C _ { + 1 }$ are given in the spec and $\mathrm { C } _ { 0 }$ is always implied and is always positive. | 滤波器根据分配给每个抽头的系数值（或抽头权重）对输出进行整形。三个系数幅值的绝对值之和被定义为1，因此只需给出其中两个系数，第三个即可计算得出。因此，规范中只给出 $\mathrm { C } _ { - 1 }$ 和 $C _ { + 1 }$，而 $\mathrm { C } _ { 0 }$ 始终隐含且总为正数。 |
 
-Figure 13-22: Tx 3-Tap Equalizer Shaping of an Output Pulse
-![](images/part03_ae3a21842c66e21816395827162706145283808d0fd34f2ee324c3e0b80e2f3a.jpg)
+Figure 13-22: Tx 3-Tap Equalizer Shaping of an Output Pulse | 图13-22：发送3抽头均衡器输出脉冲整形
+<img src="images/part03_ae3a21842c66e21816395827162706145283808d0fd34f2ee324c3e0b80e2f3a.jpg" width="700" alt="">
 
 ## Pre-shoot, De-emphasis, and Boost
 
@@ -945,9 +945,9 @@ Figure 13-22: Tx 3-Tap Equalizer Shaping of an Output Pulse
 | — Bits between the first and last bits use Vb, the lowest voltage. | — 第一个和最后一个比特之间的比特使用Vb，即最低电压。 |
 | — The last repeated bit before a polarity change uses Vc, the next higher voltage to the lowest voltage Vb. | — 极性改变前的最后一个重复比特使用Vc，即高于最低电压Vb的下一个电压电平。 |
 
-Figure 13‐23: 8.0 GT/s Tx Voltage Levels
+Figure 13‐23: 8.0 GT/s Tx Voltage Levels | 图13‐23：8.0 GT/s发送器电压电平
 
-![](images/part03_1cc321a232e25a495c5515ba68fc237f3ebea8ddde3a6e3fb0fcfec8f7f2a798.jpg)
+<img src="images/part03_1cc321a232e25a495c5515ba68fc237f3ebea8ddde3a6e3fb0fcfec8f7f2a798.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|

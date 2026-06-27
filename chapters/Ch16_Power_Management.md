@@ -21,8 +21,8 @@
 |---|---|
 | PCI functions indicate support for an INTx# signal in their configuration headers. The read‑only Interrupt Pin register illustrated in Figure 17‑5 indicates whether an INTx# is supported by this function and if so, which interrupt pin will it assert when requesting an interrupt. | PCI 功能在配置头中指示对 INTx# 信号的支持。如图 17‑5 所示的只读中断引脚寄存器指示该功能是否支持 INTx#，如果支持，则在请求中断时将断言哪一根中断引脚。 |
 
-Figure 17‑5: Interrupt Registers in PCI Configuration Header
-![](images/part05_a59550f116cdf6a523de94de6495aaa642e867c00de61b348bffde0cc0df5cea.jpg)
+Figure 17‑5: Interrupt Registers in PCI Configuration Header | 图17‑5：PCI配置头中的中断寄存器
+<img src="images/part05_a59550f116cdf6a523de94de6495aaa642e867c00de61b348bffde0cc0df5cea.jpg" width="700" alt="">
 
 ## Interrupt Routing / 中断路由
 
@@ -37,9 +37,9 @@ Figure 17‑5: Interrupt Registers in PCI Configuration Header
 |---|---|
 | Based on system requirements, the router is programmed to connect its four inputs to four available PIC inputs. Once this is done, the routing of the INTx# pin associated with each function is known and the Interrupt Line number is written by software into each Function. The value is ultimately read by the Function's device driver so it will know which interrupt table entry it has been assigned. That's the place where the starting address of its ISR will be written, a process referred to as "hooking the interrupt". When this function later generates an interrupt, the CPU will receive the vector number that corresponds to the IRQ specified in the Interrupt Line register. The CPU uses this vector to index into the interrupt vector table to fetch the entry point of the interrupt service routine associated with the Function's device driver. | 根据系统需求，路由器被编程以将其四个输入连接到四个可用的PIC输入。完成后，与每个功能关联的INTx#引脚的布线已知，软件将中断线号写入每个功能。该值最终由功能的设备驱动程序读取，以便驱动程序知道它被分配了哪个中断表条目。这是其ISR起始地址将被写入的位置，这一过程称为"挂接中断"。当该功能随后产生中断时，CPU将收到与中断线寄存器中指定的IRQ对应的向量号。CPU使用该向量索引中断向量表，以获取与该功能设备驱动程序关联的中断服务例程的入口点。 |
 
-Figure 17-6: INTx Signal Routing is Platform Specific
+Figure 17-6: INTx Signal Routing is Platform Specific | 图17-6：INTx信号路由是平台相关的
 
-![](images/part05_c59f2669195aa3ca43b73e5c385f3bac6bace9cd6bcb316f68852f0c8848d86c.jpg)
+<img src="images/part05_c59f2669195aa3ca43b73e5c385f3bac6bace9cd6bcb316f68852f0c8848d86c.jpg" width="700" alt="">
 
 ## INTx# 信号传输
 
@@ -50,11 +50,11 @@ Figure 17-6: INTx Signal Routing is Platform Specific
 | Interrupt Disable. The 2.3 PCI spec added an Interrupt Disable bit (Bit 10) to the Command register of the config header. See Figure 17-7 on page 804. The bit is cleared at reset permitting INTx# signal generation, but software may set it to prevent that. Note that the Interrupt Disable bit has no effect on Message Signalled Interrupts (MSI). MSIs are enabled via the Command Register in the MSI Capability structure. Enabling MSI automatically has the effect of disabling interrupt pins or emulation. | 中断禁用。PCI 2.3 规范在配置头的命令寄存器中添加了中断禁用位（位 10）。参见第 804 页的图 17-7。复位时该位被清零，允许生成 INTx# 信号，但软件可设置该位以禁止生成 INTx# 信号。注意，中断禁用位对消息信号中断（MSI）无效。MSI 通过 MSI 能力结构中的命令寄存器使能。使能 MSI 会自动禁用中断引脚或仿真。 |
 | Interrupt Status. The PCI 2.3 spec added a read-only Interrupt Status bit to the configuration status register (pictured in Figure 17-8 on page 805). A function must set this status bit when an interrupt is pending. In addition, if the Interrupt Disable bit in the Command register of the header is cleared (i.e. interrupts enabled), then the function's INTx# signal is asserted when this status bit is set. This bit is unaffected by the state of the Interrupt Disable bit. | 中断状态。PCI 2.3 规范在配置状态寄存器中添加了只读的中断状态位（如图 17-8 所示，第 805 页）。当有中断挂起时，功能必须设置该状态位。此外，如果配置头命令寄存器中的中断禁用位被清零（即中断使能），则当该状态位被设置时，功能的 INTx# 信号被置为有效。该位不受中断禁用位状态的影响。 |
 
-Figure 17-7: Configuration Command Register — Interrupt Disable Field
-![](images/part05_e43fb776b10ab126cf1cbc3724644203bc5a08ddf32f156b4401ce9aa3343d35.jpg)
+Figure 17-7: Configuration Command Register — Interrupt Disable Field | 图17-7：配置命令寄存器 — 中断禁用字段
+<img src="images/part05_e43fb776b10ab126cf1cbc3724644203bc5a08ddf32f156b4401ce9aa3343d35.jpg" width="700" alt="">
 
-Figure 17-8: Configuration Status Register — Interrupt Status Field
-![](images/part05_0b951b286ad62923ae65ad5060936c667325716e9bca0c04433269d7846f0722.jpg)
+Figure 17-8: Configuration Status Register — Interrupt Status Field | 图17-8：配置状态寄存器 — 中断状态字段
+<img src="images/part05_0b951b286ad62923ae65ad5060936c667325716e9bca0c04433269d7846f0722.jpg" width="700" alt="">
 
 ## Virtual INTx Signaling
 
@@ -80,16 +80,16 @@ Figure 17-8: Configuration Status Register — Interrupt Status Field
 | When a Function delivers an Assert\_INTx message, it also sets its Interrupt Status bit in the Configuration Status register, just as it would if it asserted the physical INTx# pin (see Figure 17‐8 on page 805). | 当功能发送Assert_INTx消息时，它还会在配置状态寄存器中设置其中断状态位，就像它断言物理INTx#引脚时一样（参见第805页的图17‑8）。 |
 | Figure 17‐9: Example of INTx Messages to Virtualize INTA#‐INTD# Signal Transitions | 图17‑9：用于虚拟化INTA#‑INTD#信号跳变的INTx消息示例 |
 
-Figure 17‐9: Example of INTx Messages to Virtualize INTA#‐INTD# Signal Transitions  
-![](images/part05_e54fb57f63b4fc4597cda9f8095c4c6c5cdcd465d3edbd4c61d0941ff432a9ee.jpg)
+Figure 17‐9: Example of INTx Messages to Virtualize INTA#‐INTD# Signal Transitions | 图17‐9：用于虚拟化INTA#-INTD#信号转换的INTx消息示例  
+<img src="images/part05_e54fb57f63b4fc4597cda9f8095c4c6c5cdcd465d3edbd4c61d0941ff432a9ee.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
 | Figure 17‐10 on page 807 depicts the format of the INTx message header. The interrupt controller is the ultimate destination of these messages, however the routing method employed is not "Route to the Root Complex", but is actually "Local - Terminate at Receiver" as shown in Figure 17‐10. There are two reasons for this. The first is because each bridge (including Switch Ports and Root Ports) along the upstream path may map the virtual interrupt wire to a different virtual interrupt wire across the bridge (e.g., a Switch Port receives Assert\_INTA but maps it to Assert\_INTB when propogating it upstream). More info about this INTx mapping can be found in "INTx Mapping" on page 808. | 图17-10（第807页）描述了INTx消息头的格式。中断控制器是这些消息的最终目的地，然而其所采用的路由方式并非"路由到根复合体"，而是如图17-10所示的"本地——在接收端终止"。这有两个原因。第一，因为上游路径上的每个桥（包括交换端口和根端口）都可能将虚拟中断线映射为穿过该桥的另一条不同的虚拟中断线（例如，某个交换端口接收了Assert\_INTA，但在向上游传播时将其映射为Assert\_INTB）。有关此INTx映射的更多信息，请参见第808页的"INTx映射"。 |
 | The second reason for the local routing type of these messages is due to the fact that we're emulating a pin-based signal. If a port receives an assert interrupt message that maps to INTA on its primary side and it has already sent an Assert\_INTA message upstream because of a previous interrupt, then there is no reason to send another one. INTA is already seen as asserted. More info about this collapsing of INTx messages can be found in "INTx Collapsing" on page 810. | 这些消息采用本地路由类型的第二个原因是，我们正在模拟基于引脚的中断信号。如果一个端口在其主侧收到一个映射到INTA的中断断言消息，而它由于之前的中断已经向上游发送过Assert\_INTA消息，那么就没有必要再发送一个。INTA已经被视为已断言。有关此INTx消息合并的更多信息，请参见第810页的"INTx合并"。 |
 
-Figure 17‐10: INTx Message Format and Type  
-![](images/part05_1f4256f11b306fc9107e7a4cff68dbc371071fec0b1c66b1cf237c0bb3568c2e.jpg)
+Figure 17‐10: INTx Message Format and Type | 图17‐10：INTx消息格式和类型  
+<img src="images/part05_1f4256f11b306fc9107e7a4cff68dbc371071fec0b1c66b1cf237c0bb3568c2e.jpg" width="700" alt="">
 
 ## Mapping and Collapsing INTx Messages
 
@@ -106,13 +106,13 @@ Figure 17‐10: INTx Message Format and Type
 | Next, the upstream Switch Port receives the propogated interrupt messages. The INTA interrupt from port 2:1:0 is going to be mapped to an INTB message when progopated upstream because the interrupt message indicates it came from Device 1 (ReqID 2:1:0). The other interrupt being propogated by port 2:2:0 is going to be mapped to an INTC message when sent from the upstream Switch Port to the Root Port. Refer to Table 17-1 to confirm these mappings. | 接下来，上游交换器端口接收到传播后的中断消息。来自端口 2:1:0 的 INTA 中断在向上游传播时将映射到 INTB 消息，因为该中断消息表明其来自设备 1（ReqID 2:1:0）。由端口 2:2:0 传播的另一个中断在从上游交换器端口发送到根端口（Root Port）时将映射到 INTC 消息。请参考表 17-1 确认这些映射。 |
 | The reason for this interrupt mapping is the same as it was for PCI: to avoid as much as possible having multiple functions sharing the same INTx# pin. As stated previously, single function devices are required to use INTA if using legacy interrupts. So if all the Functions downstream of a Root Port used INTA and there was no mapping across bridges, they would all be routed to the same IRQ. Which means anytime one of the Functions asserted INTA, all the Functions would have to be checked. This would result in significant interrupt servicing latencies for the Functions at the end of the list. This interrupt mapping method is a crude attempt at distributing interrupts (especially INTA) across all four INTx virtual wires because each INTx virtual wire can be mapped to a separate IRQ at the interrupt controller. | 这种中断映射的原因与 PCI 相同：尽可能避免多个功能共享同一个 INTx# 引脚。如前所述，若使用传统中断，单功能设备必须使用 INTA。因此，如果根端口下游的所有功能都使用 INTA，且桥之间不存在映射，则它们都将路由到同一个 IRQ。这意味着只要其中一个功能断言了 INTA，就必须检查所有功能。这将导致列表末尾的功能出现显著的中断服务延迟。这种中断映射方法是一种粗略的尝试，旨在将中断（尤其是 INTA）分布到全部四条 INTx 虚拟连线上，因为每条 INTx 虚拟连线都可以映射到中断控制器上的独立 IRQ。 |
 
-Table 17-1: INTx Message Mapping Across Virtual PCI-to-PCI Bridges / 表 17-1：跨虚拟 PCI-to-PCI 桥的 INTx 消息映射
+Table 17-1: INTx Message Mapping Across Virtual PCI-to-PCI Bridges / 表 17-1：跨虚拟 PCI-to-PCI 桥的 INTx 消息映射 | 表17-1：跨虚拟 PCI-to-PCI 桥的 INTx 消息映射
 
 <table><tr><td>Device Number of Delivering INTx</td><td>INTx Message Type at Input</td><td>INTx Message Type at Output</td></tr><tr><td rowspan="4">0, 4, 8, 12 etc.</td><td>INTA</td><td>INTA</td></tr><tr><td>INTB</td><td>INTB</td></tr><tr><td>INTC</td><td>INTC</td></tr><tr><td>INTD</td><td>INTD</td></tr><tr><td rowspan="4">1, 5, 9, 13 etc.</td><td>INTA</td><td>INTB</td></tr><tr><td>INTB</td><td>INTC</td></tr><tr><td>INTC</td><td>INTD</td></tr><tr><td>INTD</td><td>INTA</td></tr><tr><td rowspan="4">2, 6, 10, 14 etc.</td><td>INTA</td><td>INTC</td></tr><tr><td>INTB</td><td>INTD</td></tr><tr><td>INTC</td><td>INTA</td></tr><tr><td>INTD</td><td>INTB</td></tr><tr><td rowspan="4">3, 7, 11, 15 etc.</td><td>INTA</td><td>INTD</td></tr><tr><td>INTB</td><td>INTA</td></tr><tr><td>INTC</td><td>INTB</td></tr><tr><td>INTD</td><td>INTC</td></tr></table>
 
-Figure 17-11: Example of INTx Mapping
+Figure 17-11: Example of INTx Mapping | 图17-11：INTx映射示例
 
-![](images/part05_384c00450192fa5e4c8a68cb2bcbe564f85663b57aa3297a24d6b4964c665474.jpg)
+<img src="images/part05_384c00450192fa5e4c8a68cb2bcbe564f85663b57aa3297a24d6b4964c665474.jpg" width="700" alt="">
 
 ## INTx Collapsing
 
@@ -123,9 +123,9 @@ Figure 17-11: Example of INTx Mapping
 | When the upstream Switch Port maps the interrupt messages for delivery on the upstream link, both interrupts will be mapped as INTB (based on the device numbers of the downstream Switch Ports). Note that because these two overlapping messages are the same they must be collapsed. | 当上行交换机端口映射用于在上行链路上传递的中断消息时，两个中断都将被映射为 INTB（基于下行交换机端口的设备号）。请注意，由于这两个重叠的消息相同，因此必须合并。 |
 | Collapsing ensures that the interrupt controller will never receive two consecutive Assert_INTx or Deassert_INTx messages for the shared interrupts. This is equivalent to INTx signals being wire‑ORed. | 合并确保中断控制器永远不会收到两个连续的针对共享中断的 Assert_INTx 或 Deassert_INTx 消息。这等效于 INTx 信号进行线或处理。 |
 
-Figure 17-12: Switch Uses Bridge Mapping of INTx Messages
+Figure 17-12: Switch Uses Bridge Mapping of INTx Messages | 图17-12：交换机使用INTx消息的桥映射
 
-![](images/part05_1039201c8cc27476bb6df13f0288b48f32e1951d1e3e0555224c8b8d47e579c5.jpg)
+<img src="images/part05_1039201c8cc27476bb6df13f0288b48f32e1951d1e3e0555224c8b8d47e579c5.jpg" width="700" alt="">
 
 ## INTx Delivery Rules
 
@@ -155,7 +155,7 @@ Figure 17-12: Switch Uses Bridge Mapping of INTx Messages
 |---|---|
 | The MSI Capability Structure resides in the PCI‑compatible config space area (first 256 bytes). There are four variations of the MSI Capability Structure based on whether it supports 64‑bit addressing or only 32‑bit and whether it supports per vector masking or not. Native PCIe devices are required to support 64‑bit addressing. All four variations of the MSI Capability Structure can be found in Figure 17‑13 on page 813. | MSI能力结构位于PCI兼容配置空间区域（前256字节）。根据其是否支持64位寻址或仅支持32位寻址，以及是否支持每向量屏蔽，MSI能力结构有四种变体。原生PCIe设备必须支持64位寻址。图17‑13（第813页）展示了MSI能力结构的所有四种变体。 |
 
-Figure 17‑13: MSI Capability Structure Variations
+Figure 17‑13: MSI Capability Structure Variations | 图17‑13：MSI能力结构变体
 
 <table><tr><td colspan="3">32-bit Address</td></tr><tr><td>Message Control</td><td>Next Capability Pointer</td><td>Capability ID (05h) DW0</td></tr><tr><td colspan="3">Message Address [31:0]</td></tr><tr><td></td><td>Message Data</td><td>DW1 DW2</td></tr><tr><td colspan="3">64-bit Address</td></tr><tr><td>Message Control</td><td>Next Capability Pointer</td><td>Capability ID (05h) DW0</td></tr><tr><td colspan="3">Message Address [31:0]</td></tr><tr><td colspan="3">Message Address [63:32]</td></tr><tr><td></td><td>Message Data</td><td>DW1 DW2 DW3</td></tr><tr><td colspan="3">32-bit Address with Per-Vector Masking</td></tr><tr><td>Message Control</td><td>Next Capability Pointer</td><td>Capability ID (05h) DW0</td></tr><tr><td colspan="3">Message Address [31:0]</td></tr><tr><td>Reserved</td><td>Message Data</td><td>DW1 DW2 DW3 DW4</td></tr><tr><td colspan="3">Mask Bits</td></tr><tr><td colspan="3">Pending Bits</td></tr><tr><td colspan="3">64-bit Address with Per-Vector Masking</td></tr><tr><td>Message Control</td><td>Next Capability Pointer</td><td>Capability ID (05h) DW0</td></tr><tr><td colspan="3">Message Address [31:0]</td></tr><tr><td colspan="3">Message Address [63:32]</td></tr><tr><td>Reserved</td><td>Message Data</td><td>DW1 DW2 DW3 DW4 DW5</td></tr><tr><td colspan="3">Mask Bits</td></tr><tr><td colspan="3">Pending Bits</td></tr></table>
 
@@ -175,8 +175,8 @@ Figure 17‑13: MSI Capability Structure Variations
 | ## Message Control Register | ## 消息控制寄存器 |
 | Figure 17‑14 on page 814 and Table 17‑2 on page 814 illustrate the layout and usage of the Message Control register. | 第814页的图17-14和第814页的表17-2说明了消息控制寄存器的布局和用法。 |
 
-Figure 17‑14: Message Control Register
-![](images/part05_8a6a4a0cfb491543536acd16ab4683bf466a7c142a36180b2f75f4e228ca4dd3.jpg)
+Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
+<img src="images/part05_8a6a4a0cfb491543536acd16ab4683bf466a7c142a36180b2f75f4e228ca4dd3.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -239,8 +239,8 @@ The following list specifies the steps taken by software to configure MSI interr
 | 4. Software writes the base message data pattern into the device's Message Data register and writes a dword-aligned memory address to the device's Message Address register to serve as the destination address for MSI writes. | 4. 软件将基本消息数据模式写入设备的消息数据寄存器，并将双字对齐的内存地址写入设备的消息地址寄存器，作为MSI写操作的目标地址。 |
 | 5. Finally, software sets the MSI Enable bit in the device's Message Control register, enabling it to generate MSI writes and disabling other interrupt delivery options. | 5. 最后，软件设置设备消息控制寄存器中的MSI使能位，使其能够生成MSI写操作，并禁用其他中断投递选项。 |
 
-Figure 17-15: Device MSI Configuration Process
-![](images/part05_1654181dfd018f4368b5d9654a15e92923a7eefa7a474b0d97665ed98de04afd.jpg)
+Figure 17-15: Device MSI Configuration Process | 图17-15：设备MSI配置过程
+<img src="images/part05_1654181dfd018f4368b5d9654a15e92923a7eefa7a474b0d97665ed98de04afd.jpg" width="700" alt="">
 
 ## Basics of Generating an MSI Interrupt Request / MSI中断请求生成基础
 
@@ -269,8 +269,8 @@ Figure 17‐16 on page 821 illustrates the contents of an MSI Memory Write Trans
 | • Memory address FEEF_F00Ch has been written into the device's Message Address register. | • 已将存储器地址FEEF_F00Ch写入该设备的Message Address寄存器。 |
 | When one of the four events occurs, the device generates a request by performing a dword write to memory address FEEF_F00Ch with a data value of 0000_49A0h, 0000_49A1h, 0000_49A2h, or 0000_49A3h. In other words, the lower two bits of the data value are modified to specify which event occurred. If this Function would have been allocated 8 messages, then the lower three bits could be modified. Also, the device always uses 0000h for the upper 2 bytes of its message data value. | 当四个事件之一发生时，该设备通过向存储器地址FEEF_F00Ch执行双字写入来生成一个请求，数据值为0000_49A0h、0000_49A1h、0000_49A2h或0000_49A3h。换句话说，修改数据值的低两位以指明哪个事件发生。如果该功能本应被分配8个消息，则可修改低三位。此外，设备始终使用0000h作为其消息数据值的高2字节。 |
 
-Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Delivery  
-![](images/part05_853c46fe25ff1f321f1b8892650b097f2f07447ad0ca452aa4076d90951a22a7.jpg)
+Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Delivery | 图17‐16：本机设备MSI传递的存储器写事务格式  
+<img src="images/part05_853c46fe25ff1f321f1b8892650b097f2f07447ad0ca452aa4076d90951a22a7.jpg" width="700" alt="">
 
 ## The MSI-X Model
 
@@ -294,17 +294,17 @@ Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Deliver
 | --- | --- |
 | As shown in Figure 17-17 on page 822, the Message Control register is quite different from MSI. Interestingly, even though MSI-X can support up to 2048 vectors per Function versus the 32 for MSI, the number of configuration registers for MSI-X is actually a little smaller than for MSI. That's because the vector information isn't contained here. Instead, it's in a memory location (MMIO) pointed to by the Table BIR (Base address Indicator Register), as shown in Figure 17-18 on page 824. | 如第822页图17-17所示，消息控制寄存器与MSI有很大不同。有趣的是，尽管MSI-X每个功能最多支持2048个向量，而MSI为32个，但MSI-X的配置寄存器数量实际上比MSI还要少一些。这是因为向量信息并不包含在此处，而是位于由Table BIR（基址指示器寄存器）指向的内存位置（MMIO）中，如第824页图17-18所示。 |
 
-Figure 17-17: MSI-X Capability Structure
+Figure 17-17: MSI-X Capability Structure | 图17-17：MSI-X能力结构
 
 <table><tr><td colspan="2">Message Control</td><td>Next Capability Pointer</td><td>Capability ID (11h)</td></tr><tr><td colspan="3">MSI-X Table Offset</td><td>Table BIR</td></tr><tr><td colspan="3">Pending Bit Array (PBA) Offset</td><td>PBA BIR</td></tr></table>
 
-Table 17-3: Format and Usage of MSI-X Message Control Register
+Table 17-3: Format and Usage of MSI-X Message Control Register | 表17-3：MSI-X消息控制寄存器格式和用法
 
 <table><tr><td>Bit(s)</td><td>Field Name</td><td>Description</td></tr><tr><td>10:0</td><td>Table Size</td><td>Read-Only. This field indicates the number of interrupt messages (vectors) that this Function supports. The value here is interpreted in an N-1 fashion, so a value of 0 means 1 vector. A value of 7 means 8 vectors. Each vector has its own entry in the MSI-X Table and its own bit in the Pending Bit Array.</td></tr><tr><td>13:11</td><td>Reserved</td><td>Read-Only. Always zero.</td></tr><tr><td>14</td><td>Function Mask</td><td>Read/Write. This field provides system software an easy way to mask all the interrupts from a Function. If this bit is cleared, interrupts can still be masked individually by setting the mask bit within each vector's MSI-X table entry.</td></tr><tr><td>15</td><td>MSI-X Enable</td><td>Read/Write. State after reset is 0, indicating that the device's MSI-X capability is disabled. 0 = Function is disabled from using MSI-X. It must use MSI or INTx Messages. 1 = Function is enabled to use MSI-X to request service and won't use MSI or INTx Messages.</td></tr></table>
 
-Figure 17-18: Location of MSI-X Table
+Figure 17-18: Location of MSI-X Table | 图17-18：MSI-X表位置
 
-![](images/part05_a61ab039fc1c25f2bb4bb5650ef5ba5316b371393361ed72f7fabaf2caff8faf.jpg)
+<img src="images/part05_a61ab039fc1c25f2bb4bb5650ef5ba5316b371393361ed72f7fabaf2caff8faf.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -314,7 +314,7 @@ Figure 17-18: Location of MSI-X Table
 | DW0 and DW1 supply a unique 64-bit address for that vector, while DW2 gives a unique 32-bit data pattern for it. | DW0 和 DW1 提供该向量的唯一 64 位地址，而 DW2 提供其唯一的 32 位数据模式。 |
 | DW3 only contains one bit at present: a mask bit for that vector, allowing each vector to be independently masked off as needed. | DW3 目前只包含一个位：该向量的掩码位，允许根据需要独立屏蔽每个向量。 |
 
-Figure 17-19: MSI-X Table Entries
+Figure 17-19: MSI-X Table Entries | 图17-19：MSI-X表项
 
 <table><tr><td>DW3</td><td>DW2</td><td>DW1</td><td>DW0</td><td></td></tr><tr><td>Vector Control</td><td>Message Data</td><td>Upper Address</td><td>Lower Address</td><td>Entry 0</td></tr><tr><td>Vector Control</td><td>Message Data</td><td>Upper Address</td><td>Lower Address</td><td>Entry 1</td></tr><tr><td>Vector Control</td><td>Message Data</td><td>Upper Address</td><td>Lower Address</td><td>Entry 2</td></tr><tr><td>....</td><td>....</td><td>....</td><td>....</td><td></td></tr><tr><td>....</td><td>....</td><td>....</td><td>....</td><td></td></tr><tr><td>Vector Control</td><td>Message Data</td><td>Upper Address</td><td>Lower Address</td><td>Entry N-1</td></tr></table>
 
@@ -324,8 +324,8 @@ Figure 17-19: MSI-X Table Entries
 |----|----|
 | In much the same way, the Pending Bit Array is also located within a memory address. It can use the same BIR value (same BAR) as the MSI-X Table with a different offset, or it could use a different BAR altogether. The array, shown in Figure 17-20, simply contains a bit for every vector that will be used. If the event to trigger that interrupt occurs but its Mask Bit has been set, then an MSI-X transaction will not be sent. Instead, the corresponding pending bit is set. Later, if that vector is unmasked and the pending bit is still set, the interrupt will be generated at that time. | 类似地，Pending Bit Array（待处理位数组）也位于某个内存地址中。它可以与 MSI-X Table 共用相同的 BIR 值（同一 BAR）但使用不同的偏移量，也可以使用完全不同的 BAR。如图 17-20 所示，该数组简单地包含每个将要使用的向量所对应的一个比特位。如果触发该中断的事件发生但其中断掩码位（Mask Bit）已被置位，则不会发送 MSI-X 事务。取而代之的是，相应的待处理位（pending bit）被置位。之后，如果该向量被解除掩码且待处理位仍处于置位状态，则此时将生成中断。 |
 
-Figure 17-20: Pending Bit Array  
-![](images/part05_8dd9757aa7d0006b3e1aa35afdd05a4348e094e6ebcff937669f9d9c16de91c9.jpg)
+Figure 17-20: Pending Bit Array | 图17-20：待定位数组  
+<img src="images/part05_8dd9757aa7d0006b3e1aa35afdd05a4348e094e6ebcff937669f9d9c16de91c9.jpg" width="700" alt="">
 
 ## Memory Synchronization When Interrupt Handler Entered
 
@@ -343,8 +343,8 @@ Figure 17-20: Pending Bit Array
 | 4. The ISR starting address is fetched and control is passed to it. | 4. 获取ISR起始地址并将控制权传递给它。 |
 | 5. The ISR reads from the target memory buffer but the data payload still hasn't been delivered so it fetches stale data, possibly causing an error. | 5. ISR从目标存储器缓冲区读取，但数据载荷仍未送达，因此它获取到过时数据，可能引发错误。 |
 
-Figure 17-21: Memory Synchronization Problem
-![](images/part05_8a2295bdbc89d94065547b7688a638c8a1f1903a1e9de37551b56ef9a3a05cdb.jpg)
+Figure 17-21: Memory Synchronization Problem | 图17-21：存储器同步问题
+<img src="images/part05_8a2295bdbc89d94065547b7688a638c8a1f1903a1e9de37551b56ef9a3a05cdb.jpg" width="700" alt="">
 
 ## One Solution
 
@@ -373,8 +373,8 @@ Figure 17-21: Memory Synchronization Problem
 | An important point must be stressed here, however. Both the data and MSI must use the same Traffic Class for this to work. Recall that packets that have been assigned different TC values may end up being mapped into different Virtual Channels, and that packets in different VCs have no ordering relationship. If the data were mapped to VC0 and the MSI was mapped to VC1, then the system would be unaware of any ordering relationship between them and unable to enforce memory coherency automatically. | 然而，这里必须强调一个重要点。数据和MSI必须使用相同的流量类才能实现这一点。回想一下，被分配了不同TC值的报文最终可能会被映射到不同的虚通道中，而不同VC中的报文之间没有排序关系。如果数据被映射到VC0而MSI被映射到VC1，那么系统将无法感知它们之间的任何排序关系，也无法自动强制执行内存一致性。 |
 | If giving both packets the same TC is not possible, the system would need to use the "dummy read" method instead and the TC of the read request would need to match the TC of the data write packet. It should be clear that even if the same TC is used for both, the use of the Relaxed Ordering bit must be avoided. We're counting on the transaction ordering rules to achieve memory synchronization, so they must not be relaxed. | 如果无法为两个报文赋予相同的TC，则系统需要使用"虚读"方法，并且读请求的TC需要与数据写报文的TC匹配。应该清楚的是，即使两者使用相同的TC，也必须避免使用宽松排序位。我们依赖事务排序规则来实现内存同步，因此这些规则不能放宽。 |
 
-Figure 17‐22: MSI Delivery
-![](images/part05_f4510f5bc1c4bdc1a4a120ba4d49872937b73e292092f5a5f4adf055e7e0aaac.jpg)
+Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
+<img src="images/part05_f4510f5bc1c4bdc1a4a120ba4d49872937b73e292092f5a5f4adf055e7e0aaac.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -419,8 +419,8 @@ Figure 17‐22: MSI Delivery
 | Figure 17-23 on page 831 shows a older PCI Express system that includes an IO Controller Hub (ICH) attached to the Root Complex via a proprietary Hub link. The IO APIC embedded within the ICH can generate an MSI when it receives an interrupt request at its inputs. In such an implementation, software can assign the legacy vector number to each input to ensure that the correct legacy software will be called. | 图17-23第831页展示了一个较旧的PCI Express系统，其包含一个通过专有Hub链路连接到根复合体的I/O控制中心(ICH)。ICH内嵌的I/O APIC在其输入接收到中断请求时，可生成MSI。在这种实现中，软件可为每个输入分配传统向量号，以确保调用正确的传统软件。 |
 | The advantage of this approach is that existing hardware can be used to support the legacy requirements of a PCIe platform. This system also requires that the MSI subsystem be configured for use during the boot sequence. The example illustrated eliminates the need for INTx messages unless a PCIe expansion device incorporates a PCI Express-to-PCI Bridge. | 这种方法的优势在于现有硬件可用于支持PCIe平台的传统需求。该系统还必须要求MSI子系统在引导序列期间配置为可用状态。所展示的示例消除了对INTx消息的需求，除非PCIe扩展设备包含PCI Express到PCI桥接器。 |
 
-Figure 17-23: PCI Express System with PCI-Based IO Controller Hub  
-![](images/part05_35d1fc3d8cb11bf364d592dfba1dfc83a2340542f3b82d87604c690692c90552.jpg)
+Figure 17-23: PCI Express System with PCI-Based IO Controller Hub | 图17-23：基于PCI的IO控制器集线器的PCI Express系统  
+<img src="images/part05_35d1fc3d8cb11bf364d592dfba1dfc83a2340542f3b82d87604c690692c90552.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -505,8 +505,8 @@ Figure 17-23: PCI Express System with PCI-Based IO Controller Hub
 |---|---|
 | As an example of the need for an autonomous reset, a device whose main power has been turned off as part of a power management policy may be able to request a return to full power if it was designed to signal a wakeup. When power is restored, the device must be reset. The power controller for the system may assert the PERST# pin to the device, as shown in Figure 18‐1 on page 836, but if it doesn't, or if the device doesn't support PERST#, the device must autonomously generate its own Fundamental Reset when it senses main power reapplied. | 作为自主复位需求的示例，作为电源管理策略的一部分其主电源已被关闭的设备，如果被设计为能够发出唤醒信号，则其可以请求恢复到全功率状态。当电源恢复时，设备必须被复位。系统的电源控制器可能会向设备断言 PERST# 引脚，如图 18‐1（第 836 页）所示，但如果电源控制器未这样做，或者设备不支持 PERST#，则设备在检测到主电源重新施加时必须自主生成其自己的 Fundamental Reset。 |
 
-Figure 18‐1: PERST# Generation  
-![](images/part05_267333619166f2703f188335aac497d9fd1d446b17fb69c9d0e5b6d706809c28.jpg)
+Figure 18‐1: PERST# Generation | 图18‐1：PERST#生成  
+<img src="images/part05_267333619166f2703f188335aac497d9fd1d446b17fb69c9d0e5b6d706809c28.jpg" width="700" alt="">
 
 ## Hot Reset (In-band Reset)
 
@@ -514,8 +514,8 @@ Figure 18‐1: PERST# Generation
 |---|---|
 | A Hot Reset is propagated in-band from one link neighbor to another by sending several TS1s (whose contents are shown in Figure 18-2) with bit 0 of symbol 5 asserted. These TS1s are sent on all Lanes, using the previously negotiated Link and Lane numbers, for 2 ms. Once it's been sent, the Transmitter and Receiver of the Hot Reset will both end up in the Detect LTSSM state (see "Hot Reset State" on page 612). | 热复位通过带内方式从一个链路邻居传播到另一个链路邻居，其方法是发送多个TS1有序集（其内容如图18-2所示），并且符号5的位0被置位。这些TS1在所有通道上发送，使用先前协商的链路号和通道号，持续2毫秒。一旦发送完成，热复位的发送器和接收器都将进入Detect LTSSM状态（参见第612页的"热复位状态"）。 |
 
-Figure 18-2: TS1 Ordered-Set Showing the Hot Reset Bit
-![](images/part05_e02be89e991ca432a39565fc5dba292e740f6716908555ed1450a0325fe099df.jpg)
+Figure 18-2: TS1 Ordered-Set Showing the Hot Reset Bit | 图18-2：显示热复位位的TS1有序集
+<img src="images/part05_e02be89e991ca432a39565fc5dba292e740f6716908555ed1450a0325fe099df.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -536,8 +536,8 @@ Figure 18-2: TS1 Ordered-Set Showing the Hot Reset Bit
 | For a Switch or Bridge Upstream Port, if the Data Link Layer reports a DL\_Down state, the effect is very similar to a hot reset. This can happen when the Upstream Port has lost its connection with an upstream device due to an error that is not recoverable by the Physical Layer or Data Link Layer. | 对于交换机或桥接器的上行端口，如果数据链路层报告DL\_Down状态，其效果与热复位非常相似。当上行端口因物理层或数据链路层无法恢复的错误而丢失与上游设备的连接时，可能发生此情况。 |
 | Software sets the 'Secondary Bus Reset' bit of the Bridge Control configuration register associated with the Upstream Port, as shown in Figure 18‐3 on page 838. | 软件设置与上行端口相关联的桥接器控制配置寄存器的'Secondary Bus Reset'位，如第838页图18-3所示。 |
 
-Figure 18‐3: Switch Generates Hot Reset on One Downstream Port
-![](images/part05_ac4424b8e666fe39ee27dcf4ac43ce22c1d80f810b316aed7173b41441cdfb53.jpg)
+Figure 18‐3: Switch Generates Hot Reset on One Downstream Port | 图18‐3：交换机在一个下游端口上生成热复位
+<img src="images/part05_ac4424b8e666fe39ee27dcf4ac43ce22c1d80f810b316aed7173b41441cdfb53.jpg" width="700" alt="">
 Bridges Forward Hot Reset to the Secondary Bus
 
 | EN | ZH |
@@ -549,8 +549,8 @@ Bridges Forward Hot Reset to the Secondary Bus
 | ## Software Generation of Hot Reset | ## 热复位(Hot Reset)的软件生成 |
 | Software generates a Hot Reset on a specific port by writing a 1 followed by 0 to the 'Secondary Bus Reset' bit in the Bridge Control register of that associated port's configuration header (see Figure 18-5 on page 840). Consider the example shown in Figure 18-3 on page 838. Software sets the 'Secondary Bus Reset' register of Switch A's left Downstream Port, causing it to send TS1 Ordered Sets with the Hot Reset bit set. Switch B receives this Hot Reset on its Upstream Port and forwards it to all its Downstream Ports. | 软件通过在相应端口的配置头部的桥控制(Bridge Control)寄存器中的'Secondary Bus Reset'位先写入1再写入0，在特定端口上生成热复位(Hot Reset)(参见第840页图18-5)。考虑第838页图18-3所示的例子。软件设置交换机A左侧下行端口(Downstream Port)的'Secondary Bus Reset'寄存器，使其发送设置了热复位(Hot Reset)位的TS1有序集(Ordered Sets)。交换机B在其上行端口(Upstream Port)接收此热复位(Hot Reset)并将其转发至其所有下行端口(Downstream Port)。 |
 
-Figure 18-4: Switch Generates Hot Reset on All Downstream Ports
-![](images/part05_544ddba1052f9bea5da80c6c54d2bda121a65e3b76ef07f07f04ddf10a341677.jpg)
+Figure 18-4: Switch Generates Hot Reset on All Downstream Ports | 图18-4：交换机在所有下游端口上生成热复位
+<img src="images/part05_544ddba1052f9bea5da80c6c54d2bda121a65e3b76ef07f07f04ddf10a341677.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -563,8 +563,8 @@ Figure 18-4: Switch Generates Hot Reset on All Downstream Ports
 |----|----|
 | The receiver of the Hot Reset TS1s (always downstream) will go to the Recovery state, too. When it sees two consecutive TS1s with the Hot Reset bit set, it goes to the Hot Reset state for a 2ms timeout and then exits to Detect. Both Upstream and Downstream Ports are initialized and end up in the Detect state, ready to begin Link training. If the downstream device is also a Switch or Bridge, it forwards the Hot Reset to its Downstream Ports as well, as shown in Figure 18-3 on page 838. | 热复位 TS1 的接收方（始终是下游）也将进入 Recovery 状态。当它看到连续两个设置了 Hot Reset 位的 TS1 时，会进入 Hot Reset 状态并持续 2ms 超时，然后退出到 Detect 状态。上游端口和下游端口均被初始化，最终处于 Detect 状态，准备开始链路训练。如果下游设备也是一个交换机或桥接器，它还会将热复位转发给其下游端口，如第 838 页的图 18-3 所示。 |
 
-Figure 18-5: Secondary Bus Reset Register to Generate Hot Reset
-![](images/part05_5f36bbf2b146b6702c694fece8b578d7199248c4cba06826a582e175106f0951.jpg)
+Figure 18-5: Secondary Bus Reset Register to Generate Hot Reset | 图18-5：用于生成热复位的次级总线复位寄存器
+<img src="images/part05_5f36bbf2b146b6702c694fece8b578d7199248c4cba06826a582e175106f0951.jpg" width="700" alt="">
 
 ## Software Can Disable the Link
 
@@ -572,8 +572,8 @@ Figure 18-5: Secondary Bus Reset Register to Generate Hot Reset
 | :--- | :--- |
 | Software can also disable a Link, forcing it to go into Electrical Idle and remain there until further notice. The reason for mentioning that at this point is that disabling the Link also has the effect of causing a Hot Reset on downstream components. Disabling is accomplished by setting the Link Disable bit in the Link Control Register of the Downstream Port, shown in Figure 18-6 on page 841. That causes the Port to go to the Recovery LTSSM state and begin sending TS1s with the Disable bit set. Since this can only be controlled for Downstream Ports if the Link has been disabled, this bit is reserved for Upstream Ports (such as Endpoints or Switch Upstream Ports). | 软件也可以禁用一条链路，使其进入电气空闲状态并保持该状态，直至另行通知。在此提及该点的原因是禁用链路还会导致下游组件上发生热复位。通过在向下游端口的链路控制寄存器中设置链路禁用位来实现禁用，如图18-6（第841页）所示。这会导致该端口进入Recovery LTSSM状态，并开始发送设置了Disable位的TS1。由于此功能只能在链路已被禁用的前提下对下游端口进行控制，因此该位对上游端口（如端点或交换机的上游端口）而言为保留位。 |
 
-Figure 18-6: Link Control Register
-![](images/part05_caf069e9ea76648b307af6b281ae9604dfaf4305fe1bc7d1d5f121ad2508f4c9.jpg)
+Figure 18-6: Link Control Register | 图18-6：链路控制寄存器
+<img src="images/part05_caf069e9ea76648b307af6b281ae9604dfaf4305fe1bc7d1d5f121ad2508f4c9.jpg" width="700" alt="">
 
 | EN | ZH |
 | :--- | :--- |
@@ -585,8 +585,8 @@ Figure 18-6: Link Control Register
 |---|---|
 | # Part part06 — `mindshare_part06_p0901-1057` | # 第06部分 — `mindshare_part06_p0901-1057` |
 
-Figure 18‐7: TS1 Ordered‐Set Showing Disable Link Bit
-![](images/part06_280af5ed1cdc6b43ac8562ec897fb535910678f2c54921c3ccae916ec866e8cc.jpg)
+Figure 18‐7: TS1 Ordered‐Set Showing Disable Link Bit | 图18‐7：显示禁用链路位的TS1有序集
+<img src="images/part06_280af5ed1cdc6b43ac8562ec897fb535910678f2c54921c3ccae916ec866e8cc.jpg" width="700" alt="">
 
 ## Function Level Reset (FLR)
 
@@ -594,11 +594,11 @@ Figure 18‐7: TS1 Ordered‐Set Showing Disable Link Bit
 |----|-----|
 | The FLR capability allows software to reset just one Function within a multifunction device without affecting the Link that is shared by them all. Its implementation is strongly recommended but isn't required, so software would need to confirm its availability before attempting to use it by examining the Device Capabilities register, as shown in Figure 18-8 on page 843. If the Function-Level Reset Capability bit is set, then an FLR can be initiated by simply setting the Initiate Function-Level Reset bit in the Device Control Register as shown in Figure 18-9 on page 843. | FLR功能允许软件仅复位多功能设备中的单个功能，而不影响它们所共享的链路。强烈建议但非必须实现该功能，因此软件在使用前需通过检查设备能力寄存器（Device Capabilities register）来确认其可用性，如图18-8（第843页）所示。若功能级复位能力位（Function-Level Reset Capability bit）被置位，则只需设置设备控制寄存器（Device Control Register）中的发起功能级复位位（Initiate Function-Level Reset bit）即可发起FLR，如图18-9（第843页）所示。 |
 
-Figure 18-8: Function-Level Reset Capability
-![](images/part06_a97cecf61c37d9c691fd8a564fa09dcf19c60336fb45f5d284d8d8125cbf36e9.jpg)
+Figure 18-8: Function-Level Reset Capability | 图18-8：功能级复位能力
+<img src="images/part06_a97cecf61c37d9c691fd8a564fa09dcf19c60336fb45f5d284d8d8125cbf36e9.jpg" width="700" alt="">
 
-Figure 18-9: Function-Level Reset Initiate Bit
-![](images/part06_47559ccd168332b4ba513e5542fb8fe1a293972e253b351ea1c9f6831a888a7f.jpg)
+Figure 18-9: Function-Level Reset Initiate Bit | 图18-9：功能级复位发起位
+<img src="images/part06_47559ccd168332b4ba513e5542fb8fe1a293972e253b351ea1c9f6831a888a7f.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|-----|
@@ -716,11 +716,11 @@ Figure 18-9: Function-Level Reset Initiate Bit
 | hot plug slots on the bus. Isolation logic is needed in the PCI environment to electrically disconnect a card from the shared bus prior to making changes to avoid glitching the signals on an active bus. | 总线上的热插拔槽位。在PCI环境中需要隔离逻辑，以便在进行更改之前将板卡与共享总线电气断开，避免干扰活动总线上的信号。 |
 | PCIe uses point‐to‐point connections (see Figure 19‐2 on page 851) that eliminate the need for isolation logic but require a separate hot plug controller for each Port to which a connector is attached. A standardized software interface defined for each Root and Switch Port controls hot plug operations. | PCIe采用点对点连接（参见第851页图19-2），无需隔离逻辑，但每个连接了连接器的端口都需要独立的热插拔控制器。为每个根端口和交换端口定义的标准软件接口控制热插拔操作。 |
 
-Figure 19-1: PCI Hot Plug Elements  
-![](images/part06_e782447dba28ca410651c7234b506dd54f403efb0e758ffb8f581915ce4a2683.jpg)
+Figure 19-1: PCI Hot Plug Elements | 图19-1：PCI热插拔元素  
+<img src="images/part06_e782447dba28ca410651c7234b506dd54f403efb0e758ffb8f581915ce4a2683.jpg" width="700" alt="">
 
-Figure 19-2: PCI Express Hot‐Plug Elements  
-![](images/part06_7de86b5668c688a50e9eed39e6fa172dde150418b5d99ecf517ff17d5bd58b82.jpg)
+Figure 19-2: PCI Express Hot‐Plug Elements | 图19-2：PCI Express热插拔元素  
+<img src="images/part06_7de86b5668c688a50e9eed39e6fa172dde150418b5d99ecf517ff17d5bd58b82.jpg" width="700" alt="">
 
 ## Elements Required to Support Hot Plug
 
@@ -733,7 +733,7 @@ Figure 19-2: PCI Express Hot‐Plug Elements
 | ## Software Elements | ## 软件元素 |
 | The following table describes the major software elements that support Hot-Plug capability. | 下表描述了支持热插拔能力的主要软件元素。 |
 
-Table 19‐1: Introduction to Major Hot‐Plug Software Elements
+Table 19‐1: Introduction to Major Hot‐Plug Software Elements | 表19‐1：主要热插拔软件元素介绍
 
 <table><tr><td>Software Element</td><td>Supplied by</td><td>Description</td></tr><tr><td>User Interface</td><td>OS vendor</td><td>An OS-supplied utility that permits the user to request that a connector be powered off to remove a card or turned on to use a card that has just been installed.</td></tr><tr><td>Hot-Plug Service</td><td>OS vendor</td><td>A service that processes requests (referred to as Hot-Plug Primitives) issued by the OS. This includes requests to:provide slot identifiers;turn card power On or Off;turn Attention Indicator On or Off;read current power of slot (On or Off). The Hot-Plug Service interacts with the Hot-Plug System Driver to satisfy the requests. The interface (i.e., API) with the Hot-Plug System Driver is defined by the OS vendor.</td></tr><tr><td>Standardized Hot-Plug System Driver</td><td>System Board vendor or OS</td><td>Receives requests (Hot-Plug Primitives) from the Hot-Plug Service within the OS. Interacts with the hardware Hot-Plug Controllers to accomplish requests.</td></tr><tr><td>Device Driver</td><td>Adapter card vendor</td><td>Some Hot-Plug-specific capabilities must be incorporated in a Hot-Plug-capable device driver. This includes:• support for the Quiesce command;• optional support of the Pause command;• Support for Start command or optional Resume command.</td></tr></table>
 
@@ -748,7 +748,7 @@ Table 19‐1: Introduction to Major Hot‐Plug Software Elements
 | ## Hardware Elements | ## 硬件组件 |
 | Table 19-2 on page 853 lists the major hardware elements necessary to support PCI Express Hot-Plug operation. | 第853页的表19-2列出了支持PCI Express热插拔操作所需的主要硬件组件。 |
 
-Table 19-2: Major Hot-Plug Hardware Elements
+Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件元素
 
 <table><tr><td>Hardware Element</td><td>Description</td></tr><tr><td>Hot-Plug Controller</td><td>Receives and processes commands issued by the Hot-Plug System Driver. One Controller is associated with each Root or Switch Port that supports hot plug operation. The PCIe spec defines a standard software interface for the Hot-Plug Controller.</td></tr><tr><td>Card Slot Power Switching Logic</td><td>Allows power to a slot to be turned on or off under program control. Controlled by the Hot Plug controller under the direction of the Hot-Plug System Driver.</td></tr><tr><td>Card Reset Logic</td><td>Hot Plug Controller drives the PERST# signal to a specific slot as directed by the Hot-Plug System Driver.</td></tr><tr><td>Power Indicator</td><td>Indicates whether power is currently active on the connector. Controlled by the Hot Plug logic associated with each port and directed by the Hot Plug System Driver.</td></tr><tr><td>Attention Indicator</td><td>Draws operator attention to a connector that needs service. Controlled by the Hot Plug logic and directed by the Hot-Plug System Driver.</td></tr><tr><td>Attention Button</td><td>Pressed by the operator to notify Hot Plug software of a request to change a card.</td></tr><tr><td>Card Present Detect Pins</td><td>There are two of these: PRSNT1# is located at one end of the card slot and PRSNT2# at the opposite end. These pins are shorter than the others so that they disconnect first when a card is removed. The system board ties PRSNT1# to ground and connects PRSNT2# as an input to the Hot-Plug Controller with a pull-up resistor. Additional PRSNT2# pins are defined for wider connectors to support the insertion and recognition of shorter cards installed into longer connectors. The card itself shorts PRSNT1# to PRSNT2#, so that the PRSNT2# input is high if a card is not physically plugged in or low if it is.</td></tr></table>
 
@@ -883,7 +883,7 @@ Table 19-2: Major Hot-Plug Hardware Elements
 | The spec specifically prohibits Root or Switch Port hardware from changing the power indicator state autonomously as a result of power fault or other events. A single exception to this rule allows a platform to detect stuck‑on power faults. A stuck‑on fault is simply a condition in which commands issued to remove slot power are ineffective. If the system is designed to detect this condition the system may override the Root or Switch Port's command to turn the power indicator off and force it to remain on. This notifies the operator that the card should not be removed from the slot. The spec further states that supporting stuck‑on faults is optional and, if handled via system software, "the platform vendor must ensure that this optional feature of the Standard Usage Model is addressed via other software, platform documentation, or by other means." | 规范明确禁止根复合体或交换端口硬件因电源故障或其他事件而自主更改电源指示灯状态。该规则仅有一个例外，即允许平台检测持续导通故障（stuck‑on fault）。持续导通故障是指关闭插槽电源的命令无效的情况。若系统设计为可检测此状况，则系统可覆盖根复合体或交换端口关闭电源指示灯的命令，强制其保持点亮。这向操作员表明不应从插槽中移除该卡。规范进一步指出，支持持续导通故障检测是可选项，若通过系统软件处理，则"平台供应商必须确保此标准使用模型的可选特性通过其他软件、平台文档或其他方式解决"。 |
 | The behavior of the power indicator and the related power states are listed in Table 19‑4 on page 861. Note that $\mathrm { V _ { a u x } }$ remains on and switch signals are still connected until the retention latch is released or when the card is removed as detected by the Prsnt1# and Prsnt2# signals. | 电源指示灯的行为及相关电源状态列于第861页的表19‑4中。请注意，$\mathrm { V _ { a u x } }$ 保持供电，交换信号仍保持连接，直至释放保持锁存器，或通过 Prsnt1# 和 Prsnt2# 信号检测到卡被移除。 |
 
-Table 19‑4: Behavior and Meaning of the Power Indicator
+Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源指示器的行为和含义
 
 <table><tr><td>Indicator Behavior</td><td>Power State</td></tr><tr><td>Off</td><td>Power Off --- it is safe to remove or insert a card. All power has been removed as required for hot plug operation. Vaux is only removed when the Manual Retention Latch is released.</td></tr><tr><td>On</td><td>Power On --- removal or insertion of a card is not allowed. Power is currently applied to the slot.</td></tr><tr><td>Blinking</td><td>Power Transition --- card removal or insertion is not allowed. This state notifies the operator that software is currently removing or applying slot power in response to a hot plug request.</td></tr></table>
 
@@ -941,9 +941,9 @@ Table 19‑4: Behavior and Meaning of the Power Indicator
 | **MRL# (required if MRL Sensor is implemented)** — port input from the MRL sensor | **MRL# (若实现了MRL传感器则必需)** — 来自MRL传感器的端口输入 |
 | **BUTTON# (required if Attention Button is implemented)** — port input indicating operator has pressed the Attention Button | **BUTTON# (若实现了注意按钮则必需)** — 端口输入，指示操作员已按下注意按钮 |
 
-Figure 19-3: Hot Plug Control Functions within a Switch
+Figure 19-3: Hot Plug Control Functions within a Switch | 图19-3：交换机内的热插拔控制功能
 
-![](images/part06_36d5d3a4db7747b0685a323c79cfe69189bd59993c739e8367f657ea8287864d.jpg)
+<img src="images/part06_36d5d3a4db7747b0685a323c79cfe69189bd59993c739e8367f657ea8287864d.jpg" width="700" alt="">
 
 ## The Hot-Plug Controller Programming Interface
 
@@ -951,7 +951,7 @@ Figure 19-3: Hot Plug Control Functions within a Switch
 |---|---|
 | The standard programming interface to the Hot-Plug Controller is provided via the PCI Express Capability register block, shown in Figure 19-4 on page 865, where the Hot-Plug related registers are highlighted. Hot Plug features are primarily found in the Slot Registers defined for Root and Switch Ports. The Device Capability register is also used in some implementations as described later in this chapter. | 热插拔控制器的标准编程接口通过PCI Express能力寄存器块提供，如第865页图19-4所示，其中突出显示了与热插拔相关的寄存器。热插拔功能主要存在于为根端口和交换机端口定义的插槽寄存器中。设备能力寄存器在某些实现中也会被使用，本章后面将对此进行描述。 |
 
-Figure 19-4: PCIe Capability Registers Used for Hot-Plug
+Figure 19-4: PCIe Capability Registers Used for Hot-Plug | 图19-4：用于热插拔的PCIe能力寄存器
 
 <table><tr><td>PCI Express Capabilities Register</td><td>Next Cap Pointer</td><td>PCI Express Cap ID</td></tr><tr><td colspan="3">Device Capabilities Register</td></tr><tr><td>Device Status</td><td colspan="2">Device Control</td></tr><tr><td colspan="3">Link Capabilities</td></tr><tr><td>Link Status</td><td colspan="2">Link Control</td></tr><tr><td colspan="3">Slot Capabilities</td></tr><tr><td>Slot Status</td><td colspan="2">Slot Control</td></tr><tr><td>Root Capability</td><td colspan="2">Root Control</td></tr><tr><td colspan="3">Root Status</td></tr><tr><td colspan="3">Device Capabilities 2</td></tr><tr><td>Device Status 2</td><td colspan="2">Device Control 2</td></tr><tr><td colspan="3">Link Capabilities 2</td></tr><tr><td>Link Status 2</td><td colspan="2">Link Control 2</td></tr><tr><td colspan="3">Slot Capabilities 2</td></tr><tr><td>Slot Status 2</td><td colspan="2">Slot Control 2</td></tr></table>
 
@@ -960,9 +960,9 @@ Figure 19-4: PCIe Capability Registers Used for Hot-Plug
 | ## Slot Capabilities | ## 插槽能力 |
 | Figure 19‑5 on page 866 illustrates the slot capability register and bit fields. Hardware initializes all of these capability register fields to reflect the features implemented by this port. This register applies to both card slots and rack mount implementations, except for the indicators and attention button. Software must read from the device capability register within the module to determine if indicators and attention buttons are implemented. Table 19‑5 on page 866 lists and defines the slot capability fields. | 第866页的图19‑5展示了插槽能力寄存器和位域。硬件初始化所有这些能力寄存器字段，以反映该端口实现的功能。该寄存器适用于卡槽和机架安装实现，但指示灯和注意按钮除外。软件必须读取模块内的设备能力寄存器，以确定是否实现了指示灯和注意按钮。第866页的表19‑5列出并定义了插槽能力字段。 |
 
-Figure 19‑5: Slot Capabilities Register  
-![](images/part06_6bf6981b822affb3cf6e1c2eade1107c6bdd5de4cd342e9a1d3798bf944b2e0b.jpg)
+Figure 19‑5: Slot Capabilities Register | 图19‑5：插槽能力寄存器  
+<img src="images/part06_6bf6981b822affb3cf6e1c2eade1107c6bdd5de4cd342e9a1d3798bf944b2e0b.jpg" width="700" alt="">
 
-Table 19‑5: Slot Capability Register Fields and Descriptions
+Table 19‑5: Slot Capability Register Fields and Descriptions | 表19‑5：插槽能力寄存器字段和描述
 
 <table><tr><td>Bit(s)</td><td>Register Name and Description</td></tr><tr><td>0</td><td>Attention Button Present — indicates the presence of an attention button on the chassis adjacent to the slot.</td></tr><tr><td>1</td><td>Power Controller Present — indicates the presence of a power controller for this slot.</td></tr><tr><td>2</td><td>MRL Sensor Present — indicates the presence of a MRL Sensor on the slot.</td></tr><tr><td>3</td><td>Attention Indicator Present — indicates the presence of an attention indicator on the chassis adjacent to the slot.</td></tr><tr><td>4</td><td>Power Indicator Present — indicates the presence of a power indicator on the chassis adjacent to the slot.</td></tr></table>

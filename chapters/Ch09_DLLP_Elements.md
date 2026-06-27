@@ -32,8 +32,8 @@
 |---|---|
 | In performing these jobs, the Data Link Layer exchanges packets with its neighbor known as Data Link Layer Packets (DLLPs). DLLPs are communicated between the Data Link Layers of each device. Figure 9-1 on page 308 illustrates a DLLP exchanged between devices. | 在执行这些任务时，数据链路层与其对等层交换称为数据链路层报文（DLLP）的包。DLLP在各个设备的数据链路层之间进行通信。第308页的图9-1展示了设备之间交换的DLLP。 |
 
-Figure 9-1: Data Link Layer Sends A DLLP
-![](images/part03_c46d5e7c504582fae8e8d0a0f82ecd87129121c996919ba721010b23121fec66.jpg)
+Figure 9-1: Data Link Layer Sends A DLLP | 图9-1：数据链路层发送DLLP
+<img src="images/part03_c46d5e7c504582fae8e8d0a0f82ecd87129121c996919ba721010b23121fec66.jpg" width="700" alt="">
 
 ## DLLPs Are Local Traffic / DLLP 是本地流量
 
@@ -68,10 +68,10 @@ Figure 9-1: Data Link Layer Sends A DLLP
 |---|---|
 | These packets originate at the Data Link Layer and are passed to the Physical Layer. If 8b/10b encoding is in use (Gen1 and Gen2 mode), framing symbols will be added to both ends of the DLLP at this level before the packet is sent. In Gen3 mode, a SDP token of two bytes is added to the front end of the DLLP, but no END is added to the end of the DLLP. Figure 9-2 on page 310 shows a generic (Gen1/Gen2) DLLP in transit, showing the framing symbols and the general contents of the packet. | 这些数据包起源于数据链路层，并被传递到物理层。如果使用8b/10b编码（Gen1和Gen2模式），在此层级会在DLLP的两端添加帧标记符号，然后再发送数据包。在Gen3模式下，一个两字节的SDP令牌被添加到DLLP的前端，但DLLP的末尾不添加END标记。第310页的图9-2展示了一个正在传输中的通用（Gen1/Gen2）DLLP，显示了帧标记符号和数据包的一般内容。 |
 
-Figure 9-2: Generic Data Link Layer Packet Format
+Figure 9-2: Generic Data Link Layer Packet Format | 图9-2：通用数据链路层数据包格式
 图9-2：通用数据链路层数据包格式
 
-![](images/part03_a0b69fd3472e6ba2599f0071c57184de764d0a48ad7a778898ed5ab9f89957f6.jpg)
+<img src="images/part03_a0b69fd3472e6ba2599f0071c57184de764d0a48ad7a778898ed5ab9f89957f6.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -89,7 +89,7 @@ Figure 9-2: Generic Data Link Layer Packet Format
 | --- | --- |
 | There are four groups of DLLPs defined that deal with Ack/Nak, Power Management, and Flow Control, along with one Vendor Specific version. Some of these have several variants, and Table 9-1 on page 311 summarizes each variant as well as their DLLP Type field encoding. | 定义了四组DLLP，分别处理Ack/Nak、电源管理（Power Management）和流控（Flow Control），外加一个厂商特定（Vendor Specific）版本。其中一些有多个变体，表9-1（第311页）总结了每个变体及其DLLP类型字段编码。 |
 
-Table 9-1: DLLP Types / 表9-1：DLLP类型
+Table 9-1: DLLP Types / 表9-1：DLLP类型 | 表9-1：DLLP类型
 
 <table><tr><td>DLLP Type</td><td>Type Field Encoding</td><td>Purpose</td></tr><tr><td>Ack (TLP Acknowledge)</td><td>0000 0000b</td><td>TLP transmission integrity</td></tr><tr><td>Nak (TLP Negative Acknowledge)</td><td>0001 0000b</td><td>TLP transmission integrity</td></tr><tr><td>PM_Enter_L1</td><td>0010 0000b</td><td>Power Management</td></tr><tr><td>PM_Enter_L23</td><td>0010 0001b</td><td>Power Management</td></tr><tr><td>PM_Active_State_Request_L1</td><td>0010 0011b</td><td>Power Management</td></tr><tr><td>PM_Request_Ack</td><td>0010 0100b</td><td>Power Management</td></tr><tr><td>Vendor Specific</td><td>0011 0000b</td><td>Vendor Defined</td></tr><tr><td>InitFC1-P</td><td>0100 0xxxb</td><td>TLP Flow Control (xxx = VC number)</td></tr><tr><td>InitFC1-NP</td><td>0101 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC1-Cpl</td><td>0110 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC2-P</td><td>1100 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC2-NP</td><td>1101 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC2-Cpl</td><td>1110 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>UpdateFC-P</td><td>1000 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>UpdateFC-NP</td><td>1001 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>UpdateFC-Cpl</td><td>1010 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>Reserved</td><td>Others</td><td>Reserved</td></tr></table>
 
@@ -99,10 +99,10 @@ Table 9-1: DLLP Types / 表9-1：DLLP类型
 | --- | --- |
 | The format of the DLLP used by a device to Ack (acknowledge) or Nak (negatively acknowledge) the receipt of a TLP is illustrated in Figure 9‑3, and its fields are described in "Ack/Nak DLLP Fields" on page 313. For more discussion on how these are used to handle the Ack/Nak protocol, refer to Chapter 10, entitled "Ack/Nak Protocol," on page 317. | 设备用于确认（Ack）或否定确认（Nak）TLP 接收的 DLLP 格式如图 9‑3 所示，其字段在第 313 页的"Ack/Nak DLLP 字段"中描述。关于这些字段如何用于处理 Ack/Nak 协议的更多讨论，请参阅第 317 页第 10 章"Ack/Nak 协议"。 |
 
-Figure 9‑3: Ack Or Nak DLLP Format  
-![](images/part03_f17461775429bb7cd84d13bc3dec9d37f6e4a72b5bed76b2b4269047daa09460.jpg)
+Figure 9‑3: Ack Or Nak DLLP Format | 图9‑3：Ack或Nak DLLP格式  
+<img src="images/part03_f17461775429bb7cd84d13bc3dec9d37f6e4a72b5bed76b2b4269047daa09460.jpg" width="700" alt="">
 
-Table 9‑2: Ack/Nak DLLP Fields
+Table 9‑2: Ack/Nak DLLP Fields | 表9‑2：Ack/Nak DLLP字段
 
 <table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>DLLP Function</td></tr><tr><td>DLLP Type</td><td>Byte 0, [7:0]</td><td>Indicates the type of DLLP:0000 0000b = Ack0001 0000b = Nak</td></tr><tr><td>AckNak_Seq_Num</td><td>Byte 2, [3:0]Byte 3, [7:0]</td><td>If a good TLP was received:If incoming Sequence Number = NEXT_RCV_SEQ (matched what was expected), schedule Ack DLLP with that number.If incoming Sequence Number was earlier than NEXT_RCV_SEQ count (a duplicate TLP was received), schedule Ack DLLP with NEXT_RCV_SEQ - 1 (effectively, this is the number of the last good TLP).For a TLP received with a problem:If the TLP had an error, or its Sequence Number was higher than NEXT_RCV_SEQ, schedule a Nak DLLP with NEXT_RCV_SEQ - 1.</td></tr><tr><td>16-bit CRC</td><td>Byte 4, [7:0]Byte 5, [7:0]</td><td>This 16-bit CRC protects the contents of this DLLP. Calculation is based on Bytes 0-3 of the Ack/Nak.</td></tr></table>
 
@@ -112,10 +112,10 @@ Table 9‑2: Ack/Nak DLLP Fields
 |---|---|
 | Power management DLLP information is shown in Figure 9-4, and its fields are described in Table 9-3 on page 314. To learn more about the use of these packets in power management, refer to Chapter 16, entitled "Power Management," on page 703. | 电源管理DLLP信息如图9-4所示，其字段在314页的表9-3中描述。要了解更多关于这些报文在电源管理中的使用，请参阅703页的第16章"电源管理"。 |
 
-Figure 9-4: Power Management DLLP Format
-![](images/part03_183802acbcce55b0de64cd8c09e982d43c85c7db1a8912272e6fda8105e4b2b8.jpg)
+Figure 9-4: Power Management DLLP Format | 图9-4：电源管理DLLP格式
+<img src="images/part03_183802acbcce55b0de64cd8c09e982d43c85c7db1a8912272e6fda8105e4b2b8.jpg" width="700" alt="">
 
-Table 9-3: Power Management DLLP Fields / 表9-3：电源管理DLLP字段
+Table 9-3: Power Management DLLP Fields / 表9-3：电源管理DLLP字段 | 表9-3：电源管理DLLP字段
 
 <table><tr><td>Field Name / 字段名</td><td>Header Byte/Bit / 头字节/位</td><td>DLLP Function / DLLP功能</td></tr><tr><td>DLLP Type / DLLP类型</td><td>Byte 0, [7:0]</td><td>Indicates DLLP type. For Power Management DLLPs:<br>0010 0000b = PM_Enter_L1<br>0010 0001b = PM_Enter_L2<br>0010 0011b = PM_Active_State_Request_L1<br>0010 0100b = PM_Request_Ack<br><br>指示DLLP类型。对于电源管理DLLP：<br>0010 0000b = PM_Enter_L1<br>0010 0001b = PM_Enter_L2<br>0010 0011b = PM_Active_State_Request_L1<br>0010 0100b = PM_Request_Ack</td></tr><tr><td>16-bit CRC / 16位CRC</td><td>Byte 4, [7:0]<br>Byte 5, [7:0]</td><td>A 16-Bit CRC used to protect DLLP contents. Calculation is based on Bytes 0-3, regardless of whether fields are used.<br><br>用于保护DLLP内容的16位CRC。计算基于字节0-3，无论字段是否使用。</td></tr></table>
 
@@ -126,10 +126,10 @@ Table 9-3: Power Management DLLP Fields / 表9-3：电源管理DLLP字段
 | Like many other serial transport buses, PCIe improves transport efficiency by using a credit‑based flow control scheme. This topic is covered in detail in Chapter 6, entitled "Flow Control," on page 215. DLLPs are used to communicate flow control credit information. A variety of different DLLPs initialize flow control credits. Another category of update DLLPs are used to manage the runtime credit management as receiver buffer space is recovered. There are two Flow Control Initialization DLLPs called InitFC1 and InitFC2, and one Flow Control Update DLLP called UpdateFC. | 与许多其他串行传输总线一样，PCIe 通过使用基于信用的流控方案来提高传输效率。该主题将在第 215 页的第 6 章"流控"中详细讨论。DLLP 用于传输流控信用信息。多种不同的 DLLP 用于初始化流控信用。另一类更新 DLLP 用于在接收端缓冲区空间被回收时管理运行时信用管理。有两种流控初始化 DLLP，称为 InitFC1 和 InitFC2，以及一种流控更新 DLLP，称为 UpdateFC。 |
 | The packet format for all three variants is illustrated in Figure 9‑5 on page 315, while Table 9‑4 on page 315 describes the fields contained in it. | 所有三种变体的报文格式如第 315 页的图 9-5 所示，而第 315 页的表 9-4 描述了其中包含的字段。 |
 
-Figure 9‑5: Flow Control DLLP Format  
-![](images/part03_940c6bec3506e8ca08d228126a03402fb96c706db13e7d2a8f81e391e4f0ccde.jpg)
+Figure 9‑5: Flow Control DLLP Format | 图9‑5：流控DLLP格式  
+<img src="images/part03_940c6bec3506e8ca08d228126a03402fb96c706db13e7d2a8f81e391e4f0ccde.jpg" width="700" alt="">
 
-Table 9‑4: Flow Control DLLP Fields
+Table 9‑4: Flow Control DLLP Fields | 表9‑4：流控DLLP字段
 
 <table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>DLLP Function</td></tr><tr><td rowspan="3">DLLP Type</td><td>Byte 0, [7:4]</td><td>This code indicates the type of FC DLLP:0100b = InitFC1-P (Posted Requests)0101b = InitFC1-NP (Non-Posted Requests)0110b = InitFC1-Cpl (Completions)0101b = InitFC2-P (Posted Requests)1101b = InitFC2-NP (Non-Posted Requests)1110b = InitFC2-Cpl (Completions)1000b = UpdateFC-P (Posted Requests)1001b = UpdateFC-NP (Non-Posted Requests)1010b = UpdateFC-Cpl (Completions)</td></tr><tr><td>Byte 0, [3]</td><td>Must be 0b as part of flow control encoding.</td></tr><tr><td>Byte 0, [2:0]</td><td>VC ID. Indicates the Virtual Channel (VC 0-7) to be updated with these credits.</td></tr><tr><td>HdrFC</td><td>Byte 1, [5:0]Byte 2, [7:6]</td><td>Contains the credit count for header storage for the specified Virtual Channel. Each credit represents space for 1 header + the optional TLP Digest (ECRC).</td></tr><tr><td>DataFC</td><td>Byte 2, [3:0]Byte 3, [7:0]</td><td>Contains the credit count for data storage for the specified Virtual Channel. Each credit represents 16 bytes.</td></tr><tr><td>16-bit CRC</td><td>Byte 4, [7:0]Byte 5, [7:0]</td><td>A 16-Bit CRC that protects the contents of this DLLP. Calculation is based on Bytes 0-3, regardless of whether all fields are used.</td></tr></table>
 
@@ -139,6 +139,6 @@ Table 9‑4: Flow Control DLLP Fields
 |----|----|
 | The last defined DLLP type is used for vendor specific purposes. Therefore only the DLLP Type field is defined by the spec (0011 0000b), leaving the remaining contents available for vendor-defined use. | 最后一种定义的DLLP类型用于厂商专用目的。因此，规范仅定义了DLLP类型字段（0011 0000b），其余内容留待厂商定义使用。 |
 
-Figure 9-6: Vendor-Specific DLLP Format
+Figure 9-6: Vendor-Specific DLLP Format | 图9-6：厂商特定DLLP格式
 
 <table><tr><td rowspan="2"></td><td>+0</td><td>+1</td><td>+2</td><td>+3</td></tr><tr><td>7|6|5|4|3|2|1|0</td><td>7|6|5|4|3|2|1|0</td><td>7|6|5|4|3|2|1|0</td><td>7|6|5|4|3|2|1|0</td></tr><tr><td>Byte 0</td><td>0 0 1 1 0 0 0 0</td><td colspan="3">Vendor-Defined</td></tr><tr><td>Byte 4</td><td colspan="2">16-bit CRC</td><td colspan="2"></td></tr></table>

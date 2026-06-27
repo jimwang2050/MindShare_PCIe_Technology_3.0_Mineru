@@ -6,7 +6,7 @@
 | Optional. The 2.1 revision of the base spec added another optional capability that defines 32 more substates for D0 and describes their characteristics. This was intended to facilitate negotiation regarding power management between a device driver, OS, and an executing application, partly because some Functions don't have device drivers that handle PM well. One advantage of this model is that the Device technically still remains in the D0 state and may therefore be able to continue operating in a reduced capacity instead of going offline as would be caused by a change to the D1 or lower state. | 可选。基础规范2.1修订版增加了另一个可选能力，为D0定义了32个更多子状态并描述了其特征。此举旨在促进设备驱动程序、操作系统和正在运行的应用程序之间关于电源管理的协商，部分原因是某些功能没有能很好处理电源管理(PM)的设备驱动程序。该模型的一个优点是，设备在技术上仍保持在D0状态，因此可能能够以降级容量继续运行，而不会像切换到D1或更低状态那样导致离线。 |
 | DPA registers only apply when the Device power state is in D0 and aren't applicable in states D1-D3. Up to 32 substates can be defined, and they must be contiguously numbered from zero to the maximum value. Substate 0 is the initial default value and represents the maximum power the Function is capable of consuming. Software is not required to transition between substates in sequential order or even wait until a previous transition is completed before requesting another change in the substate. Consequently, when a Function has completed a substate change it must check the configured substate and, if they don't match, it must begin changing to the configured value. The registers to support DPA, illustrated in Figure 16-3 on page 715, are found in the Enhanced configuration space. | DPA寄存器仅在设备电源状态为D0时适用，不适用于D1-D3状态。最多可定义32个子状态，它们必须从零到最大值连续编号。子状态0是初始默认值，代表功能能够消耗的最大功率。软件无需按顺序在子状态间转换，也无需等待前一次转换完成即可请求再次改变子状态。因此，当一个功能完成子状态更改后，它必须检查已配置的子状态，如果不匹配，则必须开始更改为已配置的值。支持DPA的寄存器位于增强配置空间中，如图16-3（第715页）所示。 |
 
-Figure 16-3: Dynamic Power Allocation Registers
+Figure 16-3: Dynamic Power Allocation Registers | 图16-3：动态功耗分配寄存器
 
 <table>
 <tr><td colspan="2">PCIe Enhanced Capability Header</td><td>Offset</td></tr>
@@ -28,11 +28,11 @@ Figure 16-3: Dynamic Power Allocation Registers
 | substate. The latencies are multiplied by the Transition Latency Units to give the time in milliseconds. Similarly, the Power Allocation Scale value gives the multiplier for the power used in each substate, expressed in watts. For each defined substate, a 32‑bit field in the DPA Power Allocation Array describes the power used for that state. The first one of these is located at offset 010h, and the rest are implemented in subsequent dwords. | 子状态。延迟乘以转换延迟单位即可得到以毫秒为单位的时间。类似地，功率分配比例值给出了每个子状态所用功率的乘数，以瓦特为单位。对于每个定义的子状态，DPA 功率分配数组中的 32 位字段描述了该状态所使用的功率。第一个位于偏移量 010h 处，其余的在后续双字中实现。 |
 | The low‑order five bits of the DPA Control register are written by software to set a new substate, and the current substate can be read from the Status register, as shown in Figure 16‑5 on page 716. Notice that bit 8 of the Status register indicates whether the use of DPA substates has been enabled but it’s labeled as RW1C (Read, Write 1 to Clear), meaning software can clear this bit but can’t set it. DPA is enabled by default after a reset, and software would need to disable it by writing a one to this bit if it did not intend to use DPA. | 软件写入 DPA 控制寄存器的低五位以设置新的子状态，当前子状态可从状态寄存器中读取，如第 716 页图 16‑5 所示。请注意，状态寄存器的位 8 指示 DPA 子状态的使用是否已启用，但其标记为 RW1C（读取，写 1 清零），这意味着软件可以清除此位但不能设置它。复位后 DPA 默认启用，如果软件不打算使用 DPA，则需要向此位写 1 来禁用它。 |
 
-Figure 16‑4: DPA Capability Register
-![](images/part05_911a868787c582e3df9394c3532d48092653a2b8fbc0078a841baa80656a8f92.jpg)
+Figure 16‑4: DPA Capability Register | 图16‑4：DPA能力寄存器
+<img src="images/part05_911a868787c582e3df9394c3532d48092653a2b8fbc0078a841baa80656a8f92.jpg" width="700" alt="">
 
-Figure 16‑5: DPA Status Register
-![](images/part05_f8a402cfb1b111948b6519c4926cd1f805434d361cbfc9ec79ec955bf366f3d805.jpg)
+Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
+<img src="images/part05_f8a402cfb1b111948b6519c4926cd1f805434d361cbfc9ec79ec955bf366f3d805.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -130,14 +130,14 @@ Figure 16‑5: DPA Status Register
 | ## Function PM State Transitions | ## 功能PM状态转换 |
 | Figure 16-6 illustrates the PM state transitions for a PCIe Function. Table 16-10 on page 723 provides a description of each transition. Table 16-11 on page 724 illustrates the transitions from one state to another from both a hardware and a software perspective. | 图16-6展示了PCIe功能的PM状态转换。第723页的表16-10描述了每种转换。第724页的表16-11从硬件和软件两个角度说明了各状态之间的转换。 |
 
-Figure 16-6: PCIe Function D-State Transitions  
-![](images/part05_547d9d4a578662bb8ce1004893b67c56f49dee4a359dc4f7c52c1eb851b2d32e.jpg)
+Figure 16-6: PCIe Function D-State Transitions | 图16-6：PCIe功能D状态转换  
+<img src="images/part05_547d9d4a578662bb8ce1004893b67c56f49dee4a359dc4f7c52c1eb851b2d32e.jpg" width="700" alt="">
 
-Table 16-10: Description of Function State Transitions
+Table 16-10: Description of Function State Transitions | 表16-10：功能状态转换描述
 
 <table><tr><td>From State</td><td>To State</td><td>Description</td></tr><tr><td>D0 Uninitialized</td><td>D0 Active</td><td>Function has been completely configured and enabled by its driver.</td></tr><tr><td rowspan="3">D0 Active</td><td>D1</td><td>Software writes the PMCSR PowerState to D1.</td></tr><tr><td>D2</td><td>Software writes the PMCSR PowerState to D2.</td></tr><tr><td> $D3_{hot}$ </td><td>Software writes the PMCSR PowerState to  $D3_{hot}$ .</td></tr><tr><td rowspan="3">D1</td><td>D0 Active</td><td>Software writes the PMCSR PowerState to D0.</td></tr><tr><td>D2</td><td>Software writes the PMCSR PowerState to D2.</td></tr><tr><td> $D3_{hot}$ </td><td>Software writes the PMCSR PowerState to  $D3_{hot}$ .</td></tr><tr><td rowspan="2">D2</td><td>D0 Active</td><td>Software writes the PMCSR PowerState to D0.</td></tr><tr><td> $D3_{hot}$ </td><td>Software writes the PMCSR PowerState to  $D3_{hot}$ .</td></tr><tr><td rowspan="2"> $D3_{hot}$ </td><td> $D3_{cold}$ </td><td>Power is removed from the Function.</td></tr><tr><td>D0 Uninitialized</td><td>Software writes the PMCSR PowerState to D0.</td></tr><tr><td> $D3_{cold}$ </td><td>D0 Uninitialized</td><td>Power is restored to the Function.</td></tr></table>
 
-Table 16-11: Function State Transition Delays
+Table 16-11: Function State Transition Delays | 表16-11：功能状态转换延迟
 
 <table><tr><td>Initial State</td><td>Next State</td><td>Minimum software-guaranteed delays</td></tr><tr><td>D0</td><td>D1</td><td>0</td></tr><tr><td>D0 or D1</td><td>D2</td><td>200μs from new state setting to first access (including config accesses).</td></tr><tr><td>D0, D1, or D2</td><td> $D3_{hot}$ </td><td>10ms from new state setting to first access.</td></tr><tr><td>D1</td><td>D0</td><td>0</td></tr><tr><td>D2</td><td>D0</td><td>200μs from new state setting to first access.</td></tr><tr><td> $D3_{hot}$ </td><td>D0</td><td rowspan="2">10ms from new state setting to first access.</td></tr><tr><td> $D3_{cold}$ </td><td>D0</td></tr></table>
 
@@ -146,7 +146,7 @@ Table 16-11: Function State Transition Delays
 | ## Detailed Description of PCI-PM Registers | ## PCI-PM 寄存器详细说明 |
 | The PCI Bus PM Interface spec defines the PM registers (see Figure 16‐7) that are implemented in PCIe Functions. Configuration software can determine the PM capabilities and control its properties. | PCI 总线 PM 接口规范定义了在 PCIe 功能中实现的 PM 寄存器（见图 16-7）。配置软件可以确定 PM 能力并控制其属性。 |
 
-Figure 16‐7: PCI Function's PM Registers
+Figure 16‐7: PCI Function's PM Registers | 图16‐7：PCI功能的电源管理寄存器
 
 <table><tr><td colspan="2">Power Management Capabilities (PMC)</td><td>Pointer to Next Capability</td><td>Capability ID 01h</td></tr><tr><td>Data Register</td><td>Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2">Control/Status Register (PMCSR)</td></tr></table>
 
@@ -168,7 +168,7 @@ Figure 16‐7: PCI Function's PM Registers
 | If the optional Data register is implemented (see "Data Register" on page 731), two fields are used to permit software to select which information can be read through the Data register, and provide the scaling multiplier for the Data register value. | 如果实现了可选的数据寄存器（见第731页的"Data Register"），则使用两个字段来允许软件选择可通过数据寄存器读取的信息，并为数据寄存器值提供缩放倍率。 |
 | The register's PowerState field can be read to determine the current PM state of the Function and written to place the Function into a new PM state. | 该寄存器的PowerState字段可被读取以确定功能的当前PM状态，并可被写入以将功能置于新的PM状态。 |
 
-Table 16-13: PM Control/Status Register (PMCSR) Bit Assignments
+Table 16-13: PM Control/Status Register (PMCSR) Bit Assignments | 表16-13：电源管理控制/状态寄存器（PMCSR）位分配
 
 | EN | ZH |
 | --- | --- |
@@ -200,7 +200,7 @@ Table 16-13: PM Control/Status Register (PMCSR) Bit Assignments
 |---|---|
 | ## Chapter 16: Power Management | ## 第16章：电源管理 |
 
-Table 16‐13: PM Control/Status Register (PMCSR) Bit Assignments (Continued)
+Table 16‐13: PM Control/Status Register (PMCSR) Bit Assignments (Continued) | 表16‐13：电源管理控制/状态寄存器（PMCSR）位分配（续）
 表16‐13：PM控制/状态寄存器（PMCSR）位分配（续）
 
 <table><tr><td>Bit(s)</td><td>Value at Reset</td><td>Read/Write</td><td>Description</td></tr><tr><td>14:13</td><td>Device-specific</td><td>Read Only</td><td>Data_Scale field. Optional. If the Function does not implement the Data register this field is hardwired to return zeros.If the Data register is implemented, the Data_Scale field is mandatory and must be a read-only value representing the multiplier for it. The value and interpretation of the Data_Scale field depends on the data item selected to be viewed through the Data register by the Data_Select field.</td></tr><tr><td>12:9</td><td>0000b</td><td>Read/Write</td><td>Data_Select field. Optional. If the Function does not implement the Data register, this field is hardwired to return zeros.If the Data register is implemented, Data_Select is a mandatory read/write field. The value placed in this register selects the data to be viewed in the Data register. That value must then be multiplied by the value read from the Data_Scale field.</td></tr></table>
@@ -238,11 +238,11 @@ Table 16‐13: PM Control/Status Register (PMCSR) Bit Assignments (Continued)
 | **Multi-Function Devices.** In a multi-function PCI Express device, each Function must supply its own power information. The power information for the logic common to all the Functions is reported through Function zero's Data register (see Data Select Value = 8 in Table 16-14 on page 733). | **多功能设备。** 在多功能 PCI Express 设备中，每个功能必须提供其自身的电源信息。所有功能所共用逻辑的电源信息通过功能 0 的 Data 寄存器报告（参见第 733 页表 16-14 中 Data Select Value = 8）。 |
 | **Virtual PCI-to-PCI Bridge Power Data.** The spec doesn't specify data field use in PCI-to-PCI bridge Functions in a Root Complex or Switch. But, to maintain PCI-PM compatibility, bridges must report the power information they consume. Software could read the virtual PPB Data registers at each port of a switch to determine the power consumed by the switch in each power state. | **虚拟 PCI-to-PCI 桥电源数据。** 规范未指定根复合体或交换机中 PCI-to-PCI 桥功能的 Data 字段使用。但为保持 PCI-PM 兼容性，桥必须报告其所消耗的电源信息。软件可读取交换机每个端口的虚拟 PPB Data 寄存器，以确定交换机在每个电源状态下的功耗。 |
 
-Figure 16-8: PM Registers
+Figure 16-8: PM Registers | 图16-8：PM寄存器
 
 <table><tr><td colspan="2">Power Management Capabilities (PMC)</td><td>Pointer to Next Capability</td><td>Capability ID 01h</td></tr><tr><td>Data Register</td><td>Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2">Control/Status Register (PMCSR)</td></tr></table>
 
-Table 16-14: Data Register Interpretation
+Table 16-14: Data Register Interpretation | 表16-14：数据寄存器解释
 
 <table><tr><td>Data Select Value</td><td>Data Reported in Data Register</td><td>Interpretation of Data Scale Field in PMCSR</td><td>Units/Accuracy</td></tr><tr><td>00h</td><td>Power consumed in D0</td><td rowspan="9">00b = unknown<br>01b = multiply by 0.1<br>10b = multiply by 0.01<br>11b = multiply by 0.001</td><td rowspan="9">Watts</td></tr><tr><td>01h</td><td>Power consumed in D1</td></tr><tr><td>02h</td><td>Power consumed in D2</td></tr><tr><td>03h</td><td>Power consumed in D3</td></tr><tr><td>04h</td><td>Power dissipated in D0</td></tr><tr><td>05h</td><td>Power dissipated in D1</td></tr><tr><td>06h</td><td>Power dissipated in D2</td></tr><tr><td>07h</td><td>Power dissipated in D3</td></tr><tr><td>08h</td><td>In a multi-function PCI device, Function 0 indicates power consumed by logic common to all Functions in the package.</td></tr><tr><td>09h-0Fh</td><td>Reserved for future use of Function 0 in a multi-function device.</td><td rowspan="2">Reserved</td><td rowspan="2">TBD</td></tr><tr><td>08h-0Fh</td><td>Reserved in single-function devices and Functions other than Function 0 in a multi-function device</td></tr></table>
 
@@ -257,11 +257,11 @@ Table 16-14: Data Register Interpretation
 | $\mathbf { D 3 _ { h o t } }$ — When software places a device into the D3 state, the Link automatically transitions to L1 just as it does when going to the D1 and D2 states. Software may now choose to remove the reference clock and power, putting the device into $\mathrm { D } 3 _ { \mathrm { c o l d } } .$ But, before doing that, it's expected that the system will initiate a handshake process to prepare the Links by putting them into the L2/L3 Ready state. | $\mathbf { D 3 _ { h o t } }$ — 当软件将设备置入D3状态时，链路自动转换到L1，这与进入D1和D2状态时的情况相同。此时软件可以选择移除参考时钟和电源，将设备置入$\mathrm { D } 3 _ { \mathrm { c o l d } }$。但在执行此操作之前，系统应启动一个握手过程，通过将链路置入L2/L3 Ready状态来做好准备。 |
 | $\mathbf { D } 3 _ { \mathbf { c o l d } }$ — In this state, main power and the reference clock have been turned off. However, auxiliary power $(\bar { \mathrm { V } } _ { \mathrm { A U X } })$ may be available, allowing the device to signal a wakeup event to the system. If it is, the Link state will be in L2. If main power is removed but $\mathsf { V } _ { \mathrm { A U X } }$ is not available, the Link will be in L3. Table 16-16 on page 735 provides additional information regarding the Link power states. | $\mathbf { D } 3 _ { \mathbf { c o l d } }$ — 在此状态下，主电源和参考时钟已关闭。但辅助电源$(\bar { \mathrm { V } } _ { \mathrm { A U X } })$可能仍然可用，允许设备向系统发出唤醒事件信号。如果辅助电源可用，链路状态将为L2。如果主电源已移除但$\mathsf { V } _ { \mathrm { A U X } }$不可用，链路将处于L3状态。第735页表16-16提供了有关链路电源状态的更多信息。 |
 
-Table 16-15: Relationship Between Device and Link Power States
+Table 16-15: Relationship Between Device and Link Power States | 表16-15：设备和链路电源状态之间的关系
 
 <table><tr><td>Downstream Component D-State</td><td>Permissible Upstream Component D-State</td><td>Permissible Interconnect State</td></tr><tr><td>D0</td><td>D0</td><td>L0, L0s &amp; L1 (optional)</td></tr><tr><td>D1</td><td>D0-D1</td><td>L1</td></tr><tr><td>D2</td><td>D0-D2</td><td>L1</td></tr><tr><td>D3 hot</td><td>D0-D3 hot</td><td>L1, L2/L3 Ready</td></tr><tr><td>D3 cold</td><td>D0-D3 cold</td><td>L2 (AUX Pwr), L3</td></tr></table>
 
-Table 16-16: Link Power State Characteristics
+Table 16-16: Link Power State Characteristics | 表16-16：链路电源状态特性
 
 <table><tr><td>State</td><td>Description</td><td>Software Directed?</td><td>Active State Link PM</td><td>Ref. Clocks</td><td>Main Power</td><td>PLL</td><td>Vaux</td></tr><tr><td>L0</td><td>Fully Active</td><td>Yes (D0)</td><td>On</td><td>On</td><td>On</td><td>On</td><td>On/Off</td></tr><tr><td>L0s</td><td>Standby</td><td>No</td><td>Yes (D0)</td><td>On</td><td>On</td><td>On</td><td>On/Off</td></tr><tr><td>L1</td><td>Low Power Standby</td><td>Yes* (D1-D3 hot)</td><td>Yes (option) (D0)</td><td>On</td><td>On</td><td>On/Off</td><td>On/Off</td></tr><tr><td>L2/L3 Ready</td><td>Staging for power removal</td><td>Yes PME_Turn_Off handshake</td><td>No</td><td>On</td><td>On</td><td>On/Off</td><td>On/Off</td></tr><tr><td>L2</td><td>Low Power Sleep</td><td>Yes**</td><td>No</td><td>Off</td><td>Off</td><td>Off</td><td>On</td></tr><tr><td>L3</td><td>Off (Zero Power)</td><td>N/A</td><td>N/A</td><td>Off</td><td>Off</td><td>Off</td><td>Off</td></tr></table>
 
@@ -299,16 +299,16 @@ Table 16-16: Link Power State Characteristics
 | **Gen1/Gen2 Mode Encoding** | **Gen1/Gen2模式编码** |
 | For Gen1/Gen2 mode, the EIOS takes the form shown in Figure 16-9 on page 737. All four Symbols must be sent, but the Receiver only needs to see two IDL control characters to recognize this condition. | 对于Gen1/Gen2模式，EIOS的形式如图16-9（第737页）所示。必须发送全部四个符号（Symbol），但接收器只需检测到两个IDL控制字符即可识别该条件。 |
 
-Figure 16-9: Gen1/Gen2 Mode EIOS Pattern
-![](images/part05_12d61c63aaefd1001bbe61a3afb4c33d2e2a960cb755c0683c0e38060722b510.jpg)
+Figure 16-9: Gen1/Gen2 Mode EIOS Pattern | 图16-9：Gen1/Gen2模式EIOS模式
+<img src="images/part05_12d61c63aaefd1001bbe61a3afb4c33d2e2a960cb755c0683c0e38060722b510.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | **Gen3 Mode Encoding** | **Gen3模式编码** |
 | For Gen3 mode, the EIOS is an Ordered Set block that consists of an Ordered Set Sync Header (01b) followed by 16 bytes that are all 66h, as shown in Figure 16-10 on page 737. Curiously, a Transmitter is not required to finish the block if it will go directly to Electrical Idle but is allowed to stop after Symbol 13 (anywhere in Symbol 14 or 15). The reason is to allow for the case where an internal clock doesn't line up with the Symbol boundaries due to 128b/130b encoding. This truncation won't cause a problem at the Receiver because it only needs to see Symbols 0-3 of the EIOS to recognize it. | 对于Gen3模式，EIOS是一个有序集块（Ordered Set block），由一个有序集同步头（Ordered Set Sync Header，01b）后跟全部为66h的16个字节组成，如图16-10（第737页）所示。值得注意的是，如果发送器将直接进入电气空闲，则不要求其完成整个块，而是允许其在符号13之后停止（符号14或15中的任意位置）。这样做的原因是考虑到由于128b/130b编码，内部时钟可能与符号边界不对齐的情况。这种截断不会在接收器端引起问题，因为接收器只需看到EIOS的符号0-3即可识别该状态。 |
 
-Figure 16-10: Gen3 Mode EIOS Pattern
-![](images/part05_c0710d12e256c474df2870cd8809c5c6bef9b26ebf839c0fdf6e3170a8318432.jpg)
+Figure 16-10: Gen3 Mode EIOS Pattern | 图16-10：Gen3模式EIOS模式
+<img src="images/part05_c0710d12e256c474df2870cd8809c5c6bef9b26ebf839c0fdf6e3170a8318432.jpg" width="700" alt="">
 
 ## Transmitter Exit from Electrical Idle
 
@@ -320,8 +320,8 @@ Figure 16-10: Gen3 Mode EIOS Pattern
 | Before the first TS1 after entering the Configuration.Linkwidth.Start or Recovery.RcvrLock state. | 在进入 Configuration.Linkwidth.Start 或 Recovery.RcvrLock 状态后，发送第一个 TS1 之前。 |
 | After every 32 TS1s or TS2s are sent in Configuration.Linkwidth.Start, Recovery.RcvrLock, or Recovery.RcvrCfg states. The TS1/TS2 count is reset to zero whenever an EIEOS is sent or the first TS2 is received in the Recovery.RcvrCfg state. | 在 Configuration.Linkwidth.Start、Recovery.RcvrLock 或 Recovery.RcvrCfg 状态下每发送 32 个 TS1 或 TS2 之后。每当发送 EIEOS 或在 Recovery.RcvrCfg 状态下接收到第一个 TS2 时，TS1/TS2 计数器将复位为零。 |
 
-Figure 16-11: Gen1/Gen2 Mode EIEOS Symbol Pattern
-![](images/part05_baa1d13871ed11b0b0e824b9b4a63456f85f4b146081fa2d2f0d85d5d57d7b66.jpg)
+Figure 16-11: Gen1/Gen2 Mode EIEOS Symbol Pattern | 图16-11：Gen1/Gen2模式EIEOS符号模式
+<img src="images/part05_baa1d13871ed11b0b0e824b9b4a63456f85f4b146081fa2d2f0d85d5d57d7b66.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -342,9 +342,9 @@ Figure 16-11: Gen1/Gen2 Mode EIEOS Symbol Pattern
 | After every $2^{16}$ TS1s during the Equalization sequence, if the Reset EIEOS Interval Count bit has prevented it from being sent. The spec states that designs are allowed to satisfy this requirement by sending an EIEOS within 2 TS1s of the scrambling LFSR matching its seed value. | 在均衡序列期间每经过 $2^{16}$ 个 TS1 后，如果复位 EIEOS 间隔计数位阻止了其发送。规范指出，设计允许通过在扰码 LFSR 匹配其种子值后的 2 个 TS1 内发送一个 EIEOS 来满足此要求。 |
 | • As part of an FTS sequence, Compliance Pattern, or Modified Compliance pattern. | • 作为 FTS 序列、合规性模板或修改合规性模板的一部分。 |
 
-Figure 16‐12: 128b/130b EIEOS Block
+Figure 16‐12: 128b/130b EIEOS Block | 图16‐12：128b/130b EIEOS块
 
-![](images/part05_ab0a327bb776c6382f4898d15ddd8bae0856b48ea3707239b288a58b11fa9f74.jpg)
+<img src="images/part05_ab0a327bb776c6382f4898d15ddd8bae0856b48ea3707239b288a58b11fa9f74.jpg" width="700" alt="">
 
 ## Receiver Entry to Electrical Idle
 
@@ -354,7 +354,7 @@ Figure 16‐12: 128b/130b EIEOS Block
 | Detecting Electrical Idle Voltage. Once an EIOS has been received, the expectation is that the Transmitter will cease transmission very quickly. In the 1.x spec versions Receivers detect this by observing that the incoming voltage has dropped below the threshold of a valid signal. This isn't too difficult at 2.5 GT/s but it requires a squelch detect circuit that consumes space and power. | 检测电气空闲电压。一旦收到EIOS，预计发送器将很快停止发送。在1.x规范版本中，接收器通过观察输入电压是否降至有效信号阈值以下来检测此情况。在2.5 GT/s下这并不太难，但需要一个占用面积和功耗的静噪检测电路。 |
 | Inferring Electrical Idle. However, at higher frequencies the signal becomes increasingly attenuated, making it difficult for squelch detect logic to distinguish the levels. This is especially true for 8.0 GT/s, where it's expected that the Receiver may need to perform equalization internally to recover a good signal. To alleviate these detection problems, the 2.0 spec introduced the concept of allowing a Receiver to infer when the Link has gone to the Electrical Idle condition rather than testing the voltage level. In this model, the absence of expected events is used to indicate that the Link is not signaling and can therefore be assumed to be in Electrical Idle, as listed in Table 16‑17. By way of explanation, Flow Control Updates should arrive regularly while the Link is in L0, and SOSs are expected with certain timing, too. For simplicity, a Receiver is allowed to check for one or the other or both of these conditions. During Link training the TS1s and TS2s should arrive regularly, so their absence can also be taken to mean that the Link is Idle. For the last two rows of the table, though, it's possible that no Symbols have been received at all, and that will also be understood to mean the Link is Idle. Since Electrical Idle takes place for the overall Link and not for Lanes independently, there's no need for each Lane to measure these times. Instead, an LTSSM can just use one timer in common for all the Lanes on that Link. | 推断电气空闲。然而，在更高频率下，信号衰减加剧，使得静噪检测逻辑难以区分电平。对于8.0 GT/s尤其如此，接收器可能需要内部执行均衡才能恢复良好信号。为缓解这些检测问题，2.0规范引入了允许接收器推断链路何时进入电气空闲状态而非检测电压电平的概念。在此模型中，使用预期事件的缺失来指示链路没有发信号，因此可以假定处于电气空闲状态，如表16‑17所列。作为说明，当链路处于L0时，流控更新应定期到达，SOS也应按特定时序到达。为简化起见，允许接收器检查这些条件中的一个或另一个或两者皆检查。在链路训练期间，TS1和TS2应定期到达，因此它们的缺失也可被理解为链路处于空闲。但对于表中最后两行，可能根本没有收到任何符号，这也将被理解为链路处于空闲。由于电气空闲发生在整个链路上而非独立发生在各通道上，因此每个通道无需分别测量这些时间。相反，LTSSM可以仅使用一个定时器，供该链路上的所有通道共用。 |
 
-Table 16‑17: Electrical Idle Inference Conditions
+Table 16‑17: Electrical Idle Inference Conditions | 表16‑17：电气空闲推断条件
 
 <table><tr><td>State</td><td>2.5GT/s</td><td>5.0 GT/s</td><td>8.0 GT/s</td></tr><tr><td>L0</td><td colspan="3">Absence of an FC Update or SOS in a 128μs window</td></tr><tr><td>Recovery.RcvrCfg</td><td colspan="2">Absence of a TS1 or TS2 in a 1280 UI interval</td><td>Absence of a TS1 or TS2 in a 4ms window</td></tr><tr><td>Recovery.Speed (successful_speed_negotiation = 1b)</td><td colspan="2">Absence of a TS1 or TS2 in a 1280 UI interval</td><td>Absence of a TS1 or TS2 in a 4680 UI interval</td></tr><tr><td>Recovery.Speed (successful_speed_negotiation = 0b)</td><td>Absence of an exit from Electrical Idle in a 2000 UI interval</td><td colspan="2">Absence of an exit from Electrical Idle in a 16000 UI interval</td></tr><tr><td>Loopback.Active (as a slave)</td><td>Absence of an exit from Electrical Idle in a 128μs window</td><td>N/A</td><td>N/A</td></tr></table>
 
@@ -371,26 +371,26 @@ Table 16‑17: Electrical Idle Inference Conditions
 | In Electrical Idle, the Receiver's PLL looses clock synchronization. When the Transmitter exits Electrical Idle, it sends FTSs to exit from L0s, or TS1/TS2s to exit from all other Link states. Doing so supplies the needed transition density for the CDR logic to re-synchronize the receiver PLL and achieve Bit Lock and Symbol Lock or Block Alignment. | 在电气空闲状态下，接收器的PLL会失去时钟同步。当发送器退出电气空闲时，它会发送FTS以退出L0s，或发送TS1/TS2以退出所有其他链路状态。这样做为CDR逻辑提供了所需的跳变密度，以重新同步接收器PLL并实现位锁和符号锁或块对齐。 |
 | Figure 16-13 illustrates the Link state transitions and highlights the transitions between L0, L0s, and L1. Note that there is no direct path from L0s to L1, so the Link must be returned to the L0 state before changing between them. | 图16-13展示了链路状态转换，并突出显示了L0、L0s和L1之间的转换。注意，从L0s到L1没有直接路径，因此在它们之间切换时，链路必须先返回到L0状态。 |
 
-Figure 16-13: ASPM Link State Transitions  
-![](images/part05_db088fbe98114f49d74254b7e1c01a9bc488da98525b305e1c281b900b76e5a7.jpg)
+Figure 16-13: ASPM Link State Transitions | 图16-13：ASPM链路状态转换  
+<img src="images/part05_db088fbe98114f49d74254b7e1c01a9bc488da98525b305e1c281b900b76e5a7.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | The Link Capability register specifies a device's support for Active State Power Management. Figure 16-14 illustrates the ASPM Support field within this register. In earlier spec versions, not all 4 options were available, but the 2.1 spec filled in all of them. Note that bit 22 indicates whether all the options are available. | 链路能力寄存器指定设备对主动状态电源管理的支持。图16-14展示了该寄存器中的ASPM支持字段。在早期规范版本中，并非所有4个选项都可用，但2.1规范补充了所有选项。注意，位22指示所有选项是否均可用。 |
 
-Figure 16-14: ASPM Support  
-![](images/part05_79f98295c4ea5ad89a906334db32eb545e7c9393555f7d18c8b9aead71a26630.jpg)
+Figure 16-14: ASPM Support | 图16-14：ASPM支持  
+<img src="images/part05_79f98295c4ea5ad89a906334db32eb545e7c9393555f7d18c8b9aead71a26630.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | Software can enable and disable ASPM via the Active State PM Control field of the Link Control Register as illustrated in Figure 16-15 on page 744. The possible settings are listed in Table 16-18 on page 743. Note: The spec recommends that ASPM be disabled for all components in a path used for Isochronous transactions if the additional latencies associated with ASPM exceed the limits of the isochronous transactions. | 软件可通过链路控制寄存器的主动状态PM控制字段来启用和禁用ASPM，如图16-15（第744页）所示。可能的设置列于表16-18（第743页）。注意：如果与ASPM相关的额外延迟超过等时事务的延迟限制，规范建议在用于等时事务的路径中为所有组件禁用ASPM。 |
 
-Table 16-18: Active State Power Management Control Field Definition
+Table 16-18: Active State Power Management Control Field Definition | 表16-18：活动状态电源管理控制字段定义
 
 <table><tr><td>Setting</td><td>Description</td></tr><tr><td>00b</td><td>L0s and L1 ASPM disabled</td></tr><tr><td>01b</td><td>L0s enabled and L1 disabled</td></tr><tr><td>10b</td><td>L1 enabled and L0s disabled</td></tr><tr><td>11b</td><td>Both L0s and L1 enabled</td></tr></table>
 
-Figure 16-15: Active State PM Control Field  
-![](images/part05_77e209a142c65d91bf56500642e273f00f0fc13f303078745de3ee810ce97cb7.jpg)
+Figure 16-15: Active State PM Control Field | 图16-15：活动状态电源管理控制字段  
+<img src="images/part05_77e209a142c65d91bf56500642e273f00f0fc13f303078745de3ee810ce97cb7.jpg" width="700" alt="">
 
 ## L0s State
 
@@ -440,8 +440,8 @@ Figure 16-15: Active State PM Control Field
 | The optional L1 ASPM state provides deeper power savings than L0s, but has a greater recovery latency. This state results in both directions of the Link going into the L1 state and results in Link and Transaction layer deactivation within each device. | 可选的 L1 ASPM 状态提供比 L0s 更深的节能效果，但恢复延迟更大。该状态导致链路两个方向均进入 L1 状态，并导致每个设备内链路层和事务层停用。 |
 | Entry into this state is requested by an upstream port, such as from an Endpoint or the upstream port of a switch (upstream ports are shaded as shown in Figure 16-16). The downstream port responds to this request and either agrees to go into L1 or rejects the request through a negotiation process with the downstream component. Exiting L1 ASPM can be initiated by either the downstream or upstream port. | 进入该状态由上游端口请求，例如来自端点或交换机的上游端口（上游端口如图 16-16 所示以阴影标示）。下游端口响应该请求，并通过与下游组件协商，同意进入 L1 或拒绝该请求。退出 L1 ASPM 可由下游或上游端口发起。 |
 
-Figure 16-16: Only Upstream Ports Initiate L1 ASPM  
-![](images/part05_b97e1cf9a99cb4c47612ac5db33e2f91c348baf38a8902028212a4000b10ebbe.jpg)
+Figure 16-16: Only Upstream Ports Initiate L1 ASPM | 图16-16：仅上游端口发起L1 ASPM  
+<img src="images/part05_b97e1cf9a99cb4c47612ac5db33e2f91c348baf38a8902028212a4000b10ebbe.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -494,8 +494,8 @@ Figure 16-16: Only Upstream Ports Initiate L1 ASPM
 | Downstream Component Sees Acknowledgement. When the Downstream component sees the PM\_Request\_Ack, it stops sending the PM\_Active\_State\_Request\_L1, disables DLLP and TLP transmission, sends the EIOS and places its transmit lanes into Electrical Idle. | 下游组件看到确认。当下游组件看到PM\_Request\_Ack时，停止发送PM\_Active\_State\_Request\_L1，禁用DLLP和TLP发送，发送EIOS并将其发送通道置于电气空闲。 |
 | Upstream Component Receives Electrical Idle. When the Upstream component receives the EIOS, it stops sending the PM\_Request\_Ack DLLP, disables DLLP and TLP transmission, sends EIOS and places its own transmit lanes into Electrical Idle. | 上行组件接收电气空闲。当上行组件接收到EIOS时，停止发送PM\_Request\_Ack DLLP，禁用DLLP和TLP发送，发送EIOS并将其自身的发送通道置于电气空闲。 |
 
-Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM
-![](images/part05_a168403ad42ca4bdb2c1773513deeab401a0a1a8cbfe17143c8237f8e82d42da.jpg)
+Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM | 图16-17：进入L1活动状态电源管理所需的协商序列
+<img src="images/part05_a168403ad42ca4bdb2c1773513deeab401a0a1a8cbfe17143c8237f8e82d42da.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -536,9 +536,9 @@ Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM
 | • ACK or NAK DLLPs are scheduled for transfer | • ACK或NAK DLLP计划传输 |
 | Once the rejection message has been sent, the upstream component can continue sending TLPs and DLLPs as needed. The rejection tells the downstream component that L1 is not an option at present, and so it must transition to L0s instead, if possible. | 一旦拒绝消息被发送，上游组件可以根据需要继续发送TLP和DLLP。该拒绝告知下游组件，L1目前不是可用选项，因此如果可能，它必须转换到L0s。 |
 
-Figure 16-18: Negotiation Sequence Resulting in Rejection to Enter L1 ASPM State
+Figure 16-18: Negotiation Sequence Resulting in Rejection to Enter L1 ASPM State | 图16-18：导致拒绝进入L1 ASPM状态的协商序列
 
-![](images/part05_c96eb6d51261fef2cded052c64c1056f7c4bdbb779b8c3e4aafe075d155e3d75.jpg)
+<img src="images/part05_c96eb6d51261fef2cded052c64c1056f7c4bdbb779b8c3e4aafe075d155e3d75.jpg" width="700" alt="">
 
 ## Exit from L1 ASPM State
 
@@ -548,16 +548,16 @@ Figure 16-18: Negotiation Sequence Resulting in Rejection to Enter L1 ASPM State
 | L1 ASPM Exit Signaling. The spec states that exit from L1 is invoked by exiting electrical idle, which begins by sending TS1s. The receiving port responds by sending TS1s back to the originating device and the Physical Layer follows its LTSSM protocol to complete the Recovery state and return the Link to L0. Refer to "Recovery State" on page 571 for details. | L1 ASPM退出信令。规范规定，L1退出通过退出电气空闲来触发，其始于发送TS1序列。接收端口通过向发起设备回送TS1序列作为响应，物理层遵循其LTSSM协议完成Recovery状态并将链路恢复到L0。详情请参阅第571页的"Recovery状态"。 |
 | Switch Receives L1 Exit from Downstream Component. As pictured in Figure 16‐19, the Switch must respond to L1 exit on the downstream port by returning TS1s and, within 1μs (from signal L1 Exit downstream), it must also exit L1 on its upstream Link if it was in that state. | 交换机从下游组件接收L1退出。如图16‐19所示，交换机的下游端口必须通过回送TS1序列来响应L1退出，并且在1μs内（从下游发出L1退出信号起），如果其上游链路处于L1状态，也必须退出L1。 |
 
-Figure 16‐19: Switch Behavior When Downstream Component Signals L1 Exit  
-![](images/part05_ce536b694cb408923fab6037c48a47737553110bea1482acb1b187050d0b03e3.jpg)
+Figure 16‐19: Switch Behavior When Downstream Component Signals L1 Exit | 图16‐19：下游组件发出L1退出信号时的交换机行为  
+<img src="images/part05_ce536b694cb408923fab6037c48a47737553110bea1482acb1b187050d0b03e3.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
 | Presumably the reason the downstream component is transitioning back to L0 is because it's preparing to send a TLP upstream. Since L1 exit latencies are relatively long, a switch "must not wait until its Downstream Port Link has fully exited to L0 before initiating an L1 exit transition on its Upstream Port Link." This prevents accumulated latencies that would otherwise result if all L1 to L0 transitions occurred in a sequential fashion. | 下游组件恢复到L0的原因很可能是它准备向上游发送TLP。由于L1退出延迟相对较长，交换机"不得等到其下游端口链路完全退出到L0后，才在其上游端口链路上启动L1退出转换"。这可以避免如果所有L1到L0转换按顺序发生所导致的累积延迟。 |
 | Switch Receives L1 Exit from Upstream Component. In this case, the switch must respond with TS1s back upstream, and within 1μs it must also send TS1s to all downstream ports that are in the L1 ASPM state to return them to L0. As in the previous example, the goal is to minimize the overall exit latency of returning to the L0 state for every Link in the path from the initiator to the target of the transaction. Figure 16‐20 on page 755 summarizes these requirements. The Link between Switch F and EndPoint (EP) E is in the L1 state because software put EP E into the D1 state, which caused the Link to transition to L1. Only Links in the L1 ASPM state are transitioned to L0 as a result of the Root Complex (RC) initiating the exit from L1 ASPM. | 交换机从上游组件接收L1退出。在这种情况下，交换机必须向上游回送TS1序列，并在1μs内向所有处于L1 ASPM状态的下游端口发送TS1序列，使其恢复到L0。与前面的例子一样，目标是尽可能缩短从事务发起端到目标端路径上每条链路恢复到L0状态的总体退出延迟。图16‐20（第755页）总结了这些要求。交换机F与端点E之间的链路处于L1状态，这是因为软件将端点E置于D1状态，导致该链路转换到L1。只有处于L1 ASPM状态的链路才会因根复合体发起L1 ASPM退出而转换到L0。 |
 
-Figure 16‐20: Switch Behavior When Upstream Component Signals L1 Exit  
-![](images/part05_eadb4cfae045c7d72877e30ff8989d1e9352a010a66b692b5d75774c3be98549.jpg)
+Figure 16‐20: Switch Behavior When Upstream Component Signals L1 Exit | 图16‐20：上游组件发出L1退出信号时的交换机行为  
+<img src="images/part05_eadb4cfae045c7d72877e30ff8989d1e9352a010a66b692b5d75774c3be98549.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -573,9 +573,9 @@ Figure 16‐20: Switch Behavior When Upstream Component Signals L1 Exit
 | L0s Exit Latency Update. Exit latency for L0s is reported in the Link Capability register based on the default assumption that a common clock implementation does not exist. L0s exit latency is also reported in the TS1s used during Link training as the number of FTS Ordered Sets (N\_FTS) required to exit L0s. If software then detects a common clock implementation, it sets the Common Clock field and writes to the Retrain Link bit in the Link Control register to force Link training to repeat. During retraining new N\_FTS values are reported and in the L0s Latency field of the Link Capability register. | L0s退出延迟更新。L0s的退出延迟基于默认假设（不存在共用时钟实现）在链路能力寄存器中报告。L0s退出延迟也通过在链路训练期间使用的TS1中报告，作为退出L0s所需的FTS有序集数量(N\_FTS)。如果软件随后检测到共用时钟实现，它设置Common Clock字段并写入链路控制寄存器中的Retrain Link位以强制重复链路训练。在重新训练期间，将报告新的N\_FTS值并更新链路能力寄存器的L0s Latency字段。 |
 | L1 Exit Latency Update. Following Link retraining, new values will also be reported in the L1 Latency field. | L1退出延迟更新。链路重新训练后，新的值也将在L1 Latency字段中报告。 |
 
-Figure 16‐21: Config. Registers for ASPM Exit Latency Management and Reporting
+Figure 16‐21: Config. Registers for ASPM Exit Latency Management and Reporting | 图16‐21：用于ASPM退出延迟管理和报告的配置寄存器
 
-![](images/part05_689e1b6acc803718d51b5d17ad3df2374c5fa89e449024415be45dd4f1a29f9c.jpg)
+<img src="images/part05_689e1b6acc803718d51b5d17ad3df2374c5fa89e449024415be45dd4f1a29f9c.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -592,9 +592,9 @@ Figure 16‐21: Config. Registers for ASPM Exit Latency Management and Reporting
 | 5. Link F/RC completes exit from L1 in 8μs, completing at T+10μs. | 5. 链路 F/RC 在 8μs 内完成从 L1 的退出，在 T+10μs 时完成。 |
 | 6. Total latency to transition path to target back to L0 = T+17μs. | 6. 将路径上的所有链路恢复到 L0 的总延迟 = T+17μs。 |
 
-Figure 16-22: Example of Total L1 Latency  
+Figure 16-22: Example of Total L1 Latency | 图16-22：L1总延迟示例  
 
-![](images/part05_8961dee54e0ce29831b8a950cff03449f37bf7cb81237bcab49e719827a0f99a.jpg)
+<img src="images/part05_8961dee54e0ce29831b8a950cff03449f37bf7cb81237bcab49e719827a0f99a.jpg" width="700" alt="">
 
 ## Software Initiated Link Power Management
 
@@ -607,8 +607,8 @@ Figure 16-22: Example of Total L1 Latency
 | ## D1/D2/D3<sub>Hot</sub> and the L1 State | ## D1/D2/D3<sub>Hot</sub> 与 L1 状态 |
 | The spec requires that when all Functions within a device have been placed into any of the low power states (D1, D2, or D3_hot), the device must initiate a transition to the L1 state as shown in Figure 16-23. A device returns to L0 as a result of software initiating a configuration access to the device or a device initiated event. | 规范要求，当设备内的所有功能都被置于任何低功耗状态（D1、D2 或 D3_hot）时，该设备必须启动到 L1 状态的转换，如图 16-23 所示。设备返回 L0 的原因是软件启动对设备的配置访问或设备发起的事件。 |
 
-Figure 16‑23: Devices Transition to L1 When Software Changes their Power Level from D0
-![](images/part05_5e09bfe24dcb08db35d51671340b6b73826c3d79c24c40432f17f2d67edb51c4.jpg)
+Figure 16‑23: Devices Transition to L1 When Software Changes their Power Level from D0 | 图16‑23：软件将设备电源级别从D0变更时设备转换到L1
+<img src="images/part05_5e09bfe24dcb08db35d51671340b6b73826c3d79c24c40432f17f2d67edb51c4.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -631,9 +631,9 @@ Figure 16‑23: Devices Transition to L1 When Software Changes their Power Level
 | 10. When the downstream component receives the acknowledgement, it sends an EIOS and places its transmit lanes into electrical idle (transmitter is in Hi‑Z state). | 10. 当下游组件收到确认后，它发送EIOS并将其发送通道置于电气空闲状态（发射器处于Hi‑Z状态）。 |
 | 11. The upstream component recognizes the EIOS and places its transmit lanes into electrical idle. The Link has now entered the L1 state. | 11. 上游组件识别到EIOS并将其发送通道置于电气空闲状态。此时链路已进入L1状态。 |
 
-Figure 16‑24: Procedure Used to Transition a Link from the L0 to L1 State
+Figure 16‑24: Procedure Used to Transition a Link from the L0 to L1 State | 图16‑24：用于将链路从L0状态转换到L1状态的过程
 
-![](images/part05_ea98afc53224b6998c6c3023ea503b6051188e4800409676486442c903438cdd.jpg)
+<img src="images/part05_ea98afc53224b6998c6c3023ea503b6051188e4800409676486442c903438cdd.jpg" width="700" alt="">
 
 ## Exiting the L1 State
 
@@ -651,9 +651,9 @@ Figure 16‑24: Procedure Used to Transition a Link from the L0 to L1 State
 | Once software has placed all Functions within a Device into the D3hot state power can be safely removed from the device. A typical application for this would be to place all devices in the system into D3 and then remove power from them all to achieve the lowest power consumption. However, the spec does not give details of the actual mechanism that would be used to remove clock and power or require that a particular sequence be followed, allowing for a variety of implementations. | 一旦软件将设备内的所有功能都置于 D3hot 状态，便可安全地断开该设备的电源。一个典型应用是将系统中的所有设备都置于 D3 状态，然后断开所有设备的电源，以达到最低功耗。然而，规范并未给出用于移除时钟和电源的实际机制的细节，也未要求遵循特定的序列，从而允许各种实现方式。 |
 | The state transitions to prepare devices for power removal involve the preliminary steps of entering L1 and then returning to L0 before arriving at the L2/L3 Ready state as illustrated in Figure 16-25 on page 764. | 为准备设备断电而进行的状态转换涉及以下初步步骤：先进入 L1，然后返回到 L0，最后到达 L2/L3 Ready 状态，如图 16-25 所示（第 764 页）。 |
 
-Figure 16-25: Link States Transitions Associated with Preparing Devices for Removal of the Reference Clock and Power
+Figure 16-25: Link States Transitions Associated with Preparing Devices for Removal of the Reference Clock and Power | 图16-25：与准备设备移除参考时钟和电源相关的链路状态转换
 
-![](images/part05_2c9540144f970d6374d2245863bc321ad0c9fed42db8d6d9140b64734070eeef.jpg)
+<img src="images/part05_2c9540144f970d6374d2245863bc321ad0c9fed42db8d6d9140b64734070eeef.jpg" width="700" alt="">
 
 ## L2/L3 Ready Handshake Sequence
 
@@ -671,8 +671,8 @@ Figure 16-25: Link States Transitions Associated with Preparing Devices for Remo
 | 6. After sending the PME_TO_ACK, when it is ready to have the reference clock and power removed, devices send a PM_Enter_L23 DLLP repeatedly until a PM_Request_ACK DLLP is returned. The Links that enter the L2/L3 Ready state last are those attached to the device originating the PME_Turn_Off message (the Root Complex in this example). | 6. 在发送 PME_TO_ACK 后，当设备准备好移除参考时钟和电源时，设备会重复发送 PM_Enter_L23 DLLP，直到返回 PM_Request_ACK DLLP。最后进入 L2/L3 Ready 状态的链路是连接到发起 PME_Turn_Off 消息的设备（此示例中为根复合体）的那些链路。 |
 | 7. The reference clock and power can finally be removed when all Links have transitioned to the L2/L3 state, but not sooner than 100ns after that. If auxiliary power (V_AUX) is supplied to the devices, the Link transitions to L2. If no AUX power is available the Links will be in the L3 state. | 7. 当所有链路都已转换到 L2/L3 状态后，最终可以移除参考时钟和电源，但不得早于此后 100ns。如果向设备提供辅助电源 (V_AUX)，则链路转换到 L2 状态。如果没有 AUX 电源可用，则链路将处于 L3 状态。 |
 
-Figure 16-26: Negotiation for Entering L2/L3 Ready State
-![](images/part05_9adc2b8feff8cbe6076f4a3924391fe2ca8456f3d02396a2482c4f9dc33c5ed3.jpg)
+Figure 16-26: Negotiation for Entering L2/L3 Ready State | 图16-26：进入L2/L3就绪状态的协商
+<img src="images/part05_9adc2b8feff8cbe6076f4a3924391fe2ca8456f3d02396a2482c4f9dc33c5ed3.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -680,9 +680,9 @@ Figure 16-26: Negotiation for Entering L2/L3 Ready State
 | As illustrated in the state diagram in Figure 16-27, a device exits the L2/L3 Ready state when power is removed and has only two choices. When V_AUX is available the transition is to L2, otherwise the transition is to L3. | 如图16-27中的状态图所示，当电源被移除时，设备退出L2/L3预备状态，且只有两种选择。当V_AUX可用时，转换到L2状态，否则转换到L3状态。 |
 | Link state transitions are normally controlled by the LTSSM in the Physical Layer. However, transitions to L2 and L3 result from main power being removed and the LTSSM is not operational then. Consequently, the spec refers to L2 and L3 as pseudo-states defined for explaining the resulting condition of a device when power is removed. | 链路状态转换通常由物理层中的LTSSM控制。然而，L2和L3的转换是由于主电源被移除所致，此时LTSSM并不运行。因此，规范将L2和L3称为伪状态，定义为解释设备在电源移除后所处状态。 |
 
-Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed
+Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed | 图16-27：电源移除时从L2/L3就绪状态的状态转换
 
-![](images/part05_bde116ad18e1f8f978a0a3d72252fcf97654804997457b4c61b5c704416df591.jpg)
+<img src="images/part05_bde116ad18e1f8f978a0a3d72252fcf97654804997457b4c61b5c704416df591.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -710,9 +710,9 @@ Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed
 |---|---|
 | The PME message is delivered by devices that support PME notification. The message format is illustrated in Table 16-28 on page 769. The message may be initiated by a device in a low power state (D1, D2, D3_hot, and D3_cold) and is sent immediately upon return of the Link to L0. | PME 报文由支持 PME 通知的设备发送。报文格式如图 16-28 和第 769 页的表 16-28 所示。该报文可由处于低功耗状态（D1、D2、D3_hot 和 D3_cold）的设备发起，并在链路返回 L0 后立即发送。 |
 
-Figure 16-28: PME Message Format
+Figure 16-28: PME Message Format | 图16-28：PME消息格式
 
-![](images/part05_4e0193ca491c49c26bbfa3a0664a2ac9c0954a09db6d78678377fcb9266ff863.jpg)
+<img src="images/part05_4e0193ca491c49c26bbfa3a0664a2ac9c0954a09db6d78678377fcb9266ff863.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -798,8 +798,8 @@ Figure 16-28: PME Message Format
 | A hybrid implementation may also be used. In this case, WAKE# is sent to a switch, which in turn sends the beacon on its upstream port. The options are illustrated in Figure 16-29 on page 774 A and B. Note that when asserted, the WAKE# signal remains low until the PME_Status bit is cleared by software. | 也可以使用混合实现方式。在这种情况下，WAKE# 被发送到交换机，然后交换机在其上行端口上发送信标。这些选项如图 16-29（第 774 页，A 和 B）所示。请注意，当断言时，WAKE# 信号保持低电平，直到软件清除 PME_Status 位。 |
 | This signal must be implemented by ATX or ATX-based connectors and cards as well as by the mini-card form factor. No requirement is specified for embedded devices to use the WAKE# signal. | ATX 或基于 ATX 的连接器和卡以及迷你卡外形必须实现此信号。对于嵌入式设备，未指定使用 WAKE# 信号的要求。 |
 
-![](images/part05_f2408966fcbddf9c62276c74421bb598bd2c9ec03d7c4b51010ccaa266a5f268.jpg)  
-Figure 16-29: WAKE# Signal Implementations
+<img src="images/part05_f2408966fcbddf9c62276c74421bb598bd2c9ec03d7c4b51010ccaa266a5f268.jpg" width="700" alt="">  
+Figure 16-29: WAKE# Signal Implementations | 图16-29：WAKE#信号实现
 
 ## Auxiliary Power / 辅助电源
 
@@ -808,9 +808,9 @@ Figure 16-29: WAKE# Signal Implementations
 | Devices that support PME in the D3cold state must support the wakeup sequence and are allowed by the PCI-PM spec to consume the maximum auxiliary current of 375 mA (otherwise only 20 mA). The amount of current they need is reported in the Aux_Current field of the PM Capability registers. Auxiliary power is enabled when the PME_Enable bit is set within the PMCSR register. | 在D3cold状态下支持PME的设备必须支持唤醒序列，并且PCI-PM规范允许它们消耗最大375 mA的辅助电流（否则仅为20 mA）。它们所需的电流量在PM能力寄存器的Aux_Current字段中报告。当PMCSR寄存器中的PME_Enable位置位时，辅助电源被使能。 |
 | PCI Express extends the use of auxiliary power beyond the limitations given by PCI-PM. Now, any Device may consume the maximum auxiliary current if enabled by setting the Aux Power PM Enable bit of the Device Control register, illustrated in Figure 16-30 on page 775. This gives devices the opportunity to support other things like SM Bus while in a low power state. As in PCI-PM the amount of current consumed by a device is reported in the Aux_Current field in the PMC register. | PCI Express将辅助电源的使用扩展到PCI-PM所规定的限制之外。现在，任何设备都可以通过设置设备控制寄存器中的Aux Power PM Enable位（如图16-30第775页所示）来使能消耗最大辅助电流。这为设备提供了在低功耗状态下支持SM Bus等其他功能的机会。与PCI-PM一样，设备消耗的电流量在PMC寄存器的Aux_Current字段中报告。 |
 
-Figure 16-30: Auxiliary Current Enable for Devices Not Supporting PMEs
+Figure 16-30: Auxiliary Current Enable for Devices Not Supporting PMEs | 图16-30：不支持PME设备的辅助电流使能
 
-![](images/part05_96429d035b462f2fe78aefdf7c0c249cd312c31f122d226d8c2c8f2aaa527083.jpg)
+<img src="images/part05_96429d035b462f2fe78aefdf7c0c249cd312c31f122d226d8c2c8f2aaa527083.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
@@ -834,11 +834,11 @@ Figure 16-30: Auxiliary Current Enable for Devices Not Supporting PMEs
 |---|---|
 | The problem with bus‑master capable devices is that if they're not aware of the system power status, they may initiate transactions at times when it would be better to wait. The diagram in Figure 16‑31 on page 777 illustrates the problem in simple terms: there are many components initiating events and as a result, the times without activity when the system is idle and can go to sleep are few and short‑lived. In contrast, Figure 16‑32 on page 777 illustrates an improvement in which the same events are grouped and serviced together so that the times when the system is idle enough to go to sleep are both more frequent and of longer duration. Clearly, this would result in better power conservation and fortunately, it's not difficult to implement. PCIe components simply need to understand what they should do based on the system power state, and they'll need a way to learn what that state currently is. | 支持总线主控的设备存在的问题是，如果它们不了解系统电源状态，可能会在更适合等待的时机发起事务。图16-31（第777页）简要说明了这个问题：许多组件都在触发事件，导致系统空闲且可进入睡眠状态的无活动时段既稀少又短暂。相比之下，图16-32（第777页）展示了改进情况：相同的事件被分组并集中处理，使得系统空闲到足以进入睡眠的时段更加频繁且持续时间更长。显然，这将实现更好的节能效果，幸运的是，这并不难实现。PCIe组件只需根据系统电源状态理解应执行的操作，并且它们需要一种方式来获知当前的系统电源状态。 |
 
-Figure 16‑31: Poor System Idle Time  
-![](images/part05_3568037bc910ae8c02bdfddb6d5d44ff1820482aab8717544f7b73f815c2302c.jpg)
+Figure 16‑31: Poor System Idle Time | 图16‑31：较差的系统空闲时间  
+<img src="images/part05_3568037bc910ae8c02bdfddb6d5d44ff1820482aab8717544f7b73f815c2302c.jpg" width="700" alt="">
 
-Figure 16‑32: Improved System Idle Time  
-![](images/part05_f57cb1b1313651588e74633ef582ec8048806523bbdf7cae61b943d933551f11.jpg)
+Figure 16‑32: Improved System Idle Time | 图16‑32：改善后的系统空闲时间  
+<img src="images/part05_f57cb1b1313651588e74633ef582ec8048806523bbdf7cae61b943d933551f11.jpg" width="700" alt="">
 
 ## The Solution / 解决方案
 
@@ -847,8 +847,8 @@ Figure 16‑32: Improved System Idle Time
 | OBFF is an optional hint that a system can use to inform components about optimal time windows for traffic. It's just a hint, though, so bus-master-capable devices can still initiate traffic whenever they like. Of course, power consumption will be negatively affected if they do, so overriding the OBFF hints should be avoided as much as possible. The information is communicated in one of two ways: by sending messages to the Endpoints or by toggling the WAKE# pin. If both options are available, using the pin is strongly recommended because it avoids the counter-productive step of using excess power, possibly across several Links, to inform a component about the current system power state. In fact, the OBFF message should only be used if the WAKE# pin is not available. | OBFF是一种可选提示机制，系统可用它来告知组件关于流量的最佳时间窗口。然而，这仅仅是一个提示，因此具有总线主控能力的设备仍然可以随时发起流量。当然，如果它们这样做，功耗将受到负面影响，因此应尽可能避免覆盖OBFF提示。该信息通过两种方式之一进行通信：向端点发送消息或通过切换WAKE#引脚。如果两种选项都可用，强烈建议使用引脚方式，因为它可以避免使用额外功耗（可能跨越多条链路）来告知组件当前系统电源状态这一适得其反的步骤。实际上，仅当WAKE#引脚不可用时才应使用OBFF消息。 |
 | Figure 16-33 on page 778 gives an example showing a mix of both communication types. Using the pin is required if it's available, but in this example it's not an option between the two switches. To work around this problem, the upper switch can translate the state received on the WAKE# pin into a message going downstream. It should perhaps be noted here that switches are strongly encouraged to forward all OBFF indications downstream but not required to do so. It may be necessary, especially when using messages, to discard or collapse some indications and that is permitted. | 第778页的图16-33给出了一个混合使用两种通信类型的示例。如果引脚可用，则必须使用它，但在本例中，两个交换机之间无法使用该引脚。为解决此问题，上游交换机可以将WAKE#引脚上接收到的状态转换为向下游发送的消息。这里或许应注意，强烈建议交换机将所有OBFF指示转发到下游，但并不强制要求这样做。尤其是在使用消息时，可能有必要丢弃或合并某些指示，这是允许的。 |
 
-Figure 16-33: OBFF Signaling Example
-![](images/part05_6388cd761b9de74638617d414f6183577891272c712bc5aa6fca383938c9af26.jpg)
+Figure 16-33: OBFF Signaling Example | 图16-33：OBFF信令示例
+<img src="images/part05_6388cd761b9de74638617d414f6183577891272c712bc5aa6fca383938c9af26.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -857,8 +857,8 @@ Figure 16-33: OBFF Signaling Example
 | 2. OBFF -- system memory path available; transfers to and from memory are OK, but other transactions should wait for a higher power state. | 2. OBFF -- 系统内存路径可用；与内存之间的传送可以进行，但其他事务应等待更高的电源状态。 |
 | 3. Idle -- wait for a higher state before initiating. | 3. Idle（空闲）-- 在发起前等待更高状态。 |
 
-Figure 16-34: WAKE# Pin OBFF Signaling
-![](images/part05_99e29ed82cbb0cb4b3990e5b61068894439a3148a609c9461a7990d02d41820f.jpg)
+Figure 16-34: WAKE# Pin OBFF Signaling | 图16-34：WAKE#引脚OBFF信令
+<img src="images/part05_99e29ed82cbb0cb4b3990e5b61068894439a3148a609c9461a7990d02d41820f.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -870,24 +870,24 @@ Figure 16-34: WAKE# Pin OBFF Signaling
 | 3. 0000b -- Idle | 3. 0000b -- Idle（空闲） |
 | If a reserved code is received, components must treat it as "CPU Active." If a Port receives an OBFF message but doesn't support OBFF or hasn't enabled it yet, it must treat it as an Unsupported Request (Completion status UR). | 如果收到保留代码，组件必须将其视为"CPU Active"。如果某端口收到OBFF消息但不支持OBFF或尚未使能OBFF，则必须将其视为不支持的请求（完成状态UR）。 |
 
-Figure 16-35: OBFF Message Contents
-![](images/part05_d778ca93d07da3cfa8df8a68e2fbceba580892f258433912ce239698e49bfbe4.jpg)
+Figure 16-35: OBFF Message Contents | 图16-35：OBFF消息内容
+<img src="images/part05_d778ca93d07da3cfa8df8a68e2fbceba580892f258433912ce239698e49bfbe4.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | Support for OBFF is indicated via the Device Capability 2 register (Figure 16-36 on page 782), and enabled using the Device Control 2 register (Figure 16-37 on page 783). Note that both the pin and message options may be available. However, the pin method is preferred because it is the lower power option. | 对OBFF的支持通过设备能力2寄存器（第782页图16-36）指示，并使用设备控制2寄存器（第783页图16-37）使能。注意，引脚和消息两种选项都可以可用。然而，引脚方式是首选，因为它是功耗更低的选项。 |
 | Note that there are two variations for enabling a component to forward OBFF messages, and the difference between them has to do with handling a targeted Link that's not in L0. In Variation A, the message will only be sent if the Link is in L0. If it's not, the message is simply dropped to avoid the cost of waking the Link. This is preferred for Downstream Ports when the Device below it is not expected to have time-critical communication requirements and can indicate its need for non-urgent attention by simply returning the Link to L0. For Variation B, the message will always be forwarded and the Link will be returned to L0. This variation is preferred when the downstream Device can benefit from timely notification of the platform state. | 注意，使能组件转发OBFF消息有两种变体，它们之间的区别在于如何处理目标链路不在L0状态的情况。在变体A中，仅当链路处于L0时才发送消息。如果不是，则直接丢弃消息以避免唤醒链路的开销。当下游设备预计没有时间关键型通信需求，并且可以通过将链路返回到L0来指示其非紧急关注需求时，这种方式对于下游端口是首选。对于变体B，消息将始终被转发，并且链路将被返回到L0。当下游设备可以从平台状态的及时通知中受益时，这种变体是首选。 |
 
-Figure 16-36: OBFF Support Indication
-![](images/part05_9e862104fcc022c58db0305a7fa299134fd8d80288cdee7f84ca477179758789.jpg)
+Figure 16-36: OBFF Support Indication | 图16-36：OBFF支持指示
+<img src="images/part05_9e862104fcc022c58db0305a7fa299134fd8d80288cdee7f84ca477179758789.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | When using WAKE#, enabling any Root Port to assert it is considered a global enable unless there are multiple WAKE# signals, in which case only those associated with that Port are affected. When using the OBFF message, enabling a Root Port only enables the messages on that Port. The expectation in the spec is that all Root Ports would normally be enabled if any of them are, so as to ensure that the whole platform was enabled. However, selectively enabling some Ports and not others is permitted. | 当使用WAKE#时，使能任何根端口去断言它被认为是全局使能，除非存在多个WAKE#信号，在这种情况下只有与该端口关联的那些信号受影响。当使用OBFF消息时，使能根端口仅在该端口上使能消息。规范中的预期是：如果使能了任何一个根端口，通常所有根端口都应当被使能，以确保整个平台都被使能。然而，选择性地使能某些端口而不使能其他端口也是允许的。 |
 | When enabling Ports for OBFF, the spec recommends that all Upstream Ports be enabled before Downstream Ports, and Root Ports be enabled last of all. For unpopulated hot plug slots this isn't possible. For that case enabling OBFF using the WAKE# pin to the slot is permitted, but it's recommended that the Downstream Port above the slot not be enabled to deliver OBFF messages. | 在为OBFF使能端口时，规范建议先使能所有上游端口，再使能下游端口，而根端口最后使能。对于未插入设备的热插拔槽位，这是不可能的。对于这种情况，允许使用通往槽位的WAKE#引脚使能OBFF，但建议槽位上方的下游端口不要使能来传递OBFF消息。 |
 
-Figure 16-37: OBFF Enable Register
-![](images/part05_9ca431fe83126fe8ade34898c4618229c1eae073eed73b5d755c169c1906c01a.jpg)
+Figure 16-37: OBFF Enable Register | 图16-37：OBFF使能寄存器
+<img src="images/part05_9ca431fe83126fe8ade34898c4618229c1eae073eed73b5d755c169c1906c01a.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -905,11 +905,11 @@ Figure 16-37: OBFF Enable Register
 |---|---|
 | The LTR capability in a device is discovered using a new bit in the PCIe Device Capability 2 Register, as shown in Figure 16-38 on page 785, and enabled in the Device Control 2 Register, illustrated in Figure 16-39 on page 785. The spec prescribes a sequence for enabling LTR, too: devices closest to the Root must be enabled first, working down to the Endpoints. An Endpoint must not be enabled unless its associated Root Port and all intermediate switches also support LTR and have been enabled to service it. It's permissible for some Endpoints to support LTR while others do not. If a Root Port or switch Downstream Port receives an LTR message but doesn't support it or hasn't been enabled yet, the message must be treated as an Unsupported Request. It's recommended that Endpoints send an LTR message shortly after being enabled to do so. It's strongly recommended that Endpoints not send more than two LTR messages within any 500 μs period unless required by the spec. However, if they do, Downstream Ports must properly handle them and not generate an error based on that. | 设备中的LTR能力通过PCIe设备能力2寄存器中的一个新位来发现，如图16-38（第785页）所示，并通过设备控制2寄存器来使能，如图16-39（第785页）所示。规范也规定了使能LTR的顺序：最靠近根复合体的设备必须先使能，依次向下直至端点。除非端点关联的根端口及所有中间交换机也支持LTR并已使能以服务LTR，否则端点不得被使能。允许部分端点支持LTR而其他端点不支持。如果根端口或交换机的下游端口收到LTR消息但不支持或尚未使能，则该消息必须被视为不支持请求。建议端点在使能后尽快发送一条LTR消息。强烈建议端点在任意500微秒周期内发送不超过两条LTR消息，除非规范另有要求。但如果它们确实发送了，下游端口必须正确处理这些消息，不得据此产生错误。 |
 
-Figure 16-38: LTR Capability Status
-![](images/part05_58e135bd1ea08586e6b30f93ec632a90ad81b524fbf58866d4679f53ca3888d2.jpg)
+Figure 16-38: LTR Capability Status | 图16-38：LTR能力状态
+<img src="images/part05_58e135bd1ea08586e6b30f93ec632a90ad81b524fbf58866d4679f53ca3888d2.jpg" width="700" alt="">
 
-Figure 16-39: LTR Enable
-![](images/part05_3a953ecb972c353a8b6047610671a798f3716d0d7cc7eb8ddcdd5defa0c11df7.jpg)
+Figure 16-39: LTR Enable | 图16-39：LTR使能
+<img src="images/part05_3a953ecb972c353a8b6047610671a798f3716d0d7cc7eb8ddcdd5defa0c11df7.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -950,8 +950,8 @@ Figure 16-39: LTR Enable
 | 1. The RC is allowed to delay processing of a device Request as long as it satisfies the service requirements. One application of this might be to buffer up several Requests from an Endpoint and service them all in a batch. | 1. RC可以延迟处理设备请求，只要满足服务需求即可。此规则的一种应用可能是缓冲来自端点的多个请求，并批量处理它们。 |
 | 2. If the latency requirements are updated while a series of Requests is in progress, the new values must be comprehended by the RC prior to servicing the next Request, and within less time than the previously reported latency requirements. | 2. 如果在一系列请求进行过程中更新了延迟需求，则RC必须在服务下一个请求之前理解新值，并且所用时间必须少于先前报告的延迟需求。 |
 
-Figure 16-40: LTR Message Format
-![](images/part05_27130930bb399afbc02f675fb1f5a8c729d2102014b758834d9dbe6bbad836b0.jpg)
+Figure 16-40: LTR Message Format | 图16-40：LTR消息格式
+<img src="images/part05_27130930bb399afbc02f675fb1f5a8c729d2102014b758834d9dbe6bbad836b0.jpg" width="700" alt="">
 
 ## LTR Example / LTR 示例
 
@@ -959,15 +959,15 @@ Figure 16-40: LTR Message Format
 |---|---|
 | To illustrate the concepts discussed so far, consider the example topology shown in Figure 16-41 on page 789. Here, the Endpoint on the lower left has delivered an LTR message to the Switch reporting a Snoop Latency requirement of 1200ns. At this point, none of the other Endpoints connected to the Switch has reported an LTR value, so that becomes the conglomerated value to be reported upstream. However, the Switch has an internal latency of 50ns so that must be subtracted from the value to be reported, resulting in the Upstream Port sending an LTR message reporting 1150ns to the Root Port. | 为了说明到目前为止讨论的概念，考虑图16-41（第789页）所示的示例拓扑。这里，左下角的端点已向交换机发送了一条LTR消息，报告其侦听延迟要求为1200ns。此时，连接到交换机的其他端点均未报告LTR值，因此该值成为要向上游报告的聚合值。然而，交换机具有50ns的内部延迟，必须从要报告的值中减去该延迟，结果导致上游端口发送一条LTR消息，向根端口报告1150ns。 |
 
-Figure 16-41: LTR Example
-![](images/part05_9a29ad499c43ca63776097212ef8d2924b6a8c31c9fd9c2ddca3a4fce36f64bb.jpg)
+Figure 16-41: LTR Example | 图16-41：LTR示例
+<img src="images/part05_9a29ad499c43ca63776097212ef8d2924b6a8c31c9fd9c2ddca3a4fce36f64bb.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | Next, the Legacy Endpoint delivers an LTR message with a large latency requirement of 5000ns, as shown in Figure 16-42 on page 790. Since this is larger than the current conglomerate value for the Switch, no LTR message is sent for this case. | 接下来，如图16-42（第790页）所示，传统端点发送了一条LTR消息，其延迟要求为5000ns。由于该值大于交换机当前的聚合值，因此在这种情况下不会发送LTR消息。 |
 
-Figure 16-42: LTR - Change but no Update
-![](images/part05_139d4fe5a915e2915877754ea95c81e26aba0a59b345f7ce2ceddb2a281b7d0d.jpg)
+Figure 16-42: LTR - Change but no Update | 图16-42：LTR - 有变更但无更新
+<img src="images/part05_139d4fe5a915e2915877754ea95c81e26aba0a59b345f7ce2ceddb2a281b7d0d.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -977,11 +977,11 @@ Figure 16-42: LTR - Change but no Update
 |---|---|
 | Finally, the Link to the middle Endpoint stops working for some reason as shown in Figure 16-44 on page 791, and the Switch Port reports DL_Down. Consequently, the LTR value for that Port must be considered invalid. Since its value was being used as the current conglomerate value, the conglomerate will be updated to the lowest value that is still valid, which is the 1200ns reported by the left-most Endpoint. The Switch will then subtract its internal latency and report 1150ns to the Root Port with a new LTR message. | 最后，如图16-44（第791页）所示，到中间端点的链路因某种原因停止工作，交换机端口报告DL_Down。因此，该端口的LTR值必须视为无效。由于其值被用作当前聚合值，聚合值将更新为仍然有效的最低值，即最左侧端点报告的1200ns。然后，交换机将减去其内部延迟，并通过新的LTR消息向根端口报告1150ns。 |
 
-Figure 16-43: LTR - Change with Update
-![](images/part05_12783e2e6a2ae08def9894072cec50f6767a25f1e0f13dd8498973bcba537e86.jpg)
+Figure 16-43: LTR - Change with Update | 图16-43：LTR - 有变更且有更新
+<img src="images/part05_12783e2e6a2ae08def9894072cec50f6767a25f1e0f13dd8498973bcba537e86.jpg" width="700" alt="">
 
-Figure 16-44: LTR - Link Down Case
-![](images/part05_136e9cef633fd8eb73f5ca6102547677b3d0a2ec9d42d24f70a71d3a0f749284.jpg)
+Figure 16-44: LTR - Link Down Case | 图16-44：LTR - 链路断开情况
+<img src="images/part05_136e9cef633fd8eb73f5ca6102547677b3d0a2ec9d42d24f70a71d3a0f749284.jpg" width="700" alt="">
 
 # 17 Interrupt Support
 
@@ -1028,16 +1028,16 @@ Figure 16-44: LTR - Link Down Case
 | Legacy PCI Interrupt Delivery — This original mechanism defined for the PCI bus consists of up to four signals per device or INTx# (INTA#, INTB#, INTC#, and INTD#) as shown in Figure 17-1 on page 795. In this model, the pins are shared by wire-ORing them together, and they'd eventually be connected to an input on the 8259 PIC (Programmable Interrupt Controller). When a pin is asserted, the PIC in turn asserts its interrupt request pin to the CPU as part of a process described in "The Legacy Model" on page 796. | 传统PCI中断投递 — 这是为PCI总线定义的原始机制，每个设备最多有四个信号或INTx#（INTA#、INTB#、INTC#和INTD#），如图17-1（第795页）所示。在该模型中，引脚通过线或（wire-OR）方式共享，最终连接到8259 PIC（可编程中断控制器）的输入。当某个引脚被断言时，PIC反过来向CPU断言其中断请求引脚，这是第796页"传统模型"所述过程的一部分。 |
 | PCIe supports this PCI interrupt functionality for backward compatibility, but a design goal for serial transports is to minimize the pin count. As a result, the INTx# signals were not implemented as sideband pins. Instead, a Function can generate an inband interrupt message packet to indicate the assertion or deassertion of a pin. These messages act as "virtual wires", and target the interrupt controller in the system (typically in the Root Complex), as shown in Figure 17-2 on page 796. This picture also illustrates how an older PCI device using the pins can work in a PCIe system; the bridge translates the assertion of a pin into an interrupt emulation message (INTx) going upstream to the Root Complex. The expectation is that PCIe devices would not normally need to use the INTx messages but, at the time of this writing, in practice they often do because system software has not been updated to support MSI. | PCIe为了向后兼容而支持这种PCI中断功能，但串行传输的一个设计目标是尽量减少引脚数量。因此，INTx#信号并未实现为边带引脚。相反，功能（Function）可以生成带内中断消息包来指示引脚的断言或取消断言。这些消息充当"虚拟线"，目标是系统中的中断控制器（通常在根复合体中），如图17-2（第796页）所示。该图还说明了使用引脚的旧式PCI设备如何在PCIe系统中工作；桥接器将引脚的断言转换为发往根复合体的上游中断仿真消息（INTx）。预期PCIe设备通常不需要使用INTx消息，但在撰写本文时，实践中它们经常使用，因为系统软件尚未更新以支持MSI。 |
 
-Figure 17-1: PCI Interrupt Delivery
-![](images/part05_725b0a188c35dc149c85c12e66eccc0dddf4d89932beb419e1781eefccc5d4c4.jpg)
+Figure 17-1: PCI Interrupt Delivery | 图17-1：PCI中断传递
+<img src="images/part05_725b0a188c35dc149c85c12e66eccc0dddf4d89932beb419e1781eefccc5d4c4.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
 | MSI Interrupt Delivery — MSI eliminates the need for sideband signals by using memory writes to deliver the interrupt notification. The term "Message Signaled Interrupt" can be confusing because its name includes the term "Message" which is a type of TLP in PCIe, but an MSI interrupt is a Posted Memory Write instead of a Message transaction. MSI memory writes are distinguished from other memory writes only by the addresses they target, which are typically reserved by the system for interrupt delivery (e.g., x86-based systems traditionally reserve the address range FEEx_xxxxh for interrupt delivery). | MSI中断投递 — MSI通过使用存储器写操作来投递中断通知，从而消除了对边带信号的需求。术语"Message Signaled Interrupt"可能会引起混淆，因为其名称中包含"Message"一词，而Message是PCIe中的一种TLP类型，但MSI中断实际上是Posted Memory Write（推送存储器写）而非Message事务。MSI存储器写与其他存储器写的区别仅在于它们所针对的地址，这些地址通常由系统保留用于中断投递（例如，基于x86的系统传统上保留地址范围FEEx_xxxxh用于中断投递）。 |
 | Figure 17-2 illustrates the delivery of interrupts from various types of PCIe devices. All PCIe devices are required to support MSI, but software may or may not support MSI, in which case, the INTx messages would be used. Figure 17-2 also shows how a PCIe-to-PCI Bridge is required to convert sideband interrupts from connected PCI devices to PCIe-supported INTx messages. | 图17-2展示了来自各种类型PCIe设备的中断投递。所有PCIe设备都必须支持MSI，但软件可能支持也可能不支持MSI，在这种情况下将使用INTx消息。图17-2还说明了PCIe到PCI桥接器如何将来自所连接PCI设备的边带中断转换为PCIe支持的INTx消息。 |
 
-Figure 17-2: Interrupt Delivery Options in PCIe System
-![](images/part05_981b211aa82038ad22c82db88bb070d177e6b8a2f94224ed268786d39066e70a.jpg)
+Figure 17-2: Interrupt Delivery Options in PCIe System | 图17-2：PCIe系统中的中断传递选项
+<img src="images/part05_981b211aa82038ad22c82db88bb070d177e6b8a2f94224ed268786d39066e70a.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -1054,8 +1054,8 @@ Figure 17-2: Interrupt Delivery Options in PCIe System
 | 4. The interrupt handler then uses the vector as an offset into the Interrupt Table (an area set up by software to contain the start addresses of all the Interrupt Service Routines, ISRs), and fetches the ISR start address it finds at that location. | 4. 中断处理程序随后将该向量作为中断表（Interrupt Table）的偏移量（该表是软件设置的区域，包含所有中断服务例程 ISR 的起始地址），并获取在该位置找到的 ISR 起始地址。 |
 | 5. That address would point to the first instruction of the ISR that had been set up to handle this interrupt. This handler would be executed, servicing the interrupt and telling its device to deassert its INTx# line and then would return control to the previously interrupted task. | 5. 该地址指向为处理此中断而设置的 ISR 的第一条指令。将执行此处理程序，为该中断服务并通知其设备取消断言 INTx# 线，然后将控制权返回给先前被中断的任务。 |
 
-Figure 17-3: Legacy Interrupt Example
-![](images/part05_954a3c6f4c78a4dbeee5b035be59bfa551f71aa5922394621eeea3d4576b2bfd.jpg)
+Figure 17-3: Legacy Interrupt Example | 图17-3：传统中断示例
+<img src="images/part05_954a3c6f4c78a4dbeee5b035be59bfa551f71aa5922394621eeea3d4576b2bfd.jpg" width="700" alt="">
 
 ## Changes to Support Multiple Processors / 支持多处理器的变更
 
@@ -1068,9 +1068,9 @@ Figure 17-3: Legacy Interrupt Example
 | This model is known as the xAPIC model, and since it is not based on sideband signals which go into an interrupt controller with a limited number of inputs, the need to share interrupts is almost eliminated. More information can be found about this model in "An MSI Solution" on page 827. | 该模型称为xAPIC模型，由于它不依赖进入输入数量有限的中断控制器的边带信号，因此几乎消除了共享中断的需求。有关此模型的更多信息，请参见第827页的"MSI解决方案"。 |
 | PCI added MSI support as an option years ago and PCIe made that capability a requirement. A peripheral that can generate MSI transactions on its own opens new options for handling interrupts, such as giving each Function the ability to generate multiple unique interrupts instead of just one. | 多年前，PCI将MSI支持作为可选功能加入，而PCIe将该能力变为强制性要求。能够自行生成MSI事务的外设为中断处理开辟了新的选择，例如使每个功能都能生成多个唯一的中断，而不仅仅是只有一个中断。 |
 
-Figure 17‑4: APIC Model for Interrupt Delivery
+Figure 17‑4: APIC Model for Interrupt Delivery | 图17‑4：中断传递的APIC模型
 
-![](images/part05_ce26d7a690338f1dc4517fbaef8f6bcd7b9ff38e5913f5179763b8023c83ba9b.jpg)
+<img src="images/part05_ce26d7a690338f1dc4517fbaef8f6bcd7b9ff38e5913f5179763b8023c83ba9b.jpg" width="700" alt="">
 
 ## Legacy PCI Interrupt Delivery
 

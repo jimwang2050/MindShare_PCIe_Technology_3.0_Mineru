@@ -33,8 +33,8 @@
 |---|---|
 | Supporting high levels of service places requirements on system performance. For example, the transmission rate must be high enough to deliver sufficient data within a time frame that meets the demands of the application while accommodating competition from other traffic flows. In addition, the latency must be low enough to ensure timely arrival of packets and avoid delay problems. Finally, error handling must be managed so that it doesn't interfere with timely packet delivery. Achieving these goals requires some specific hardware elements, one of which is a set of configuration registers called the Virtual Channel Capability Block as shown in Figure 7‐1. | 支持高水平的服务对系统性能提出了要求。例如，传输速率必须足够高，以在满足应用需求的时间范围内传送足够的数据，同时容纳来自其他流量流的竞争。此外，延迟必须足够低，以确保数据包及时到达并避免延迟问题。最后，错误处理必须加以管理，使其不干扰数据包的及时传送。实现这些目标需要一些特定的硬件元素，其中之一是一组称为虚通道能力块的配置寄存器，如图7‐1所示。 |
 
-Figure 7‐1: Virtual Channel Capability Registers  
-![](images/part02_84ee9e7d227df3950570bcc4d5806ef6a0698fff16a4c5c0d12da0eecad477ad.jpg)
+Figure 7‐1: Virtual Channel Capability Registers | 图7‐1：虚拟通道能力寄存器  
+<img src="images/part02_84ee9e7d227df3950570bcc4d5806ef6a0698fff16a4c5c0d12da0eecad477ad.jpg" width="700" alt="">
 
 ## Traffic Class (TC) / 流量类（TC）
 
@@ -42,8 +42,8 @@ Figure 7‐1: Virtual Channel Capability Registers
 |---|---|
 | The first thing we need is a way to differentiate traffic; something to distinguish which packets have high priority. This is accomplished by designating Traffic Classes (TCs) that define eight priorities specified by a 3-bit TC field within each TLP header (with ascending priority; TC 0-7). The 32-bit memory request header in Figure 7-2 reveals the location of the TC field. During initialization, the device driver communicates the level of services to the isochronous management software, which returns the appropriate TC values to use for each type of packet. The driver then assigns the correct TC priority for the packet. The TC value defaults to zero so packets that don't need priority service won't accidentally interfere with those that do. | 我们首先需要一种区分流量的方法，用于识别哪些数据包具有高优先级。这通过指定流量类（TC）来实现，TC由每个TLP报头中的3位TC字段定义了八个优先级（优先级递增；TC 0-7）。图7-2中的32位存储器请求报头展示了TC字段的位置。在初始化期间，设备驱动程序将服务等级告知等时管理软件，后者返回适用于每种数据包类型的TC值。然后驱动程序为数据包分配正确的TC优先级。TC值默认为零，这样不需要优先级服务的数据包就不会意外干扰需要优先级服务的数据包。 |
 
-Figure 7-2: Traffic Class Field in TLP Header
-![](images/part02_7fc83f4e29c5c72ecbfbed64dad219b7d42909ac43c86b8c5064dd4eaf97e52e.jpg)
+Figure 7-2: Traffic Class Field in TLP Header | 图7-2：TLP头中的流量类别字段
+<img src="images/part02_7fc83f4e29c5c72ecbfbed64dad219b7d42909ac43c86b8c5064dd4eaf97e52e.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -67,8 +67,8 @@ Figure 7-2: Traffic Class Field in TLP Header
 | • A TC may not be mapped to more than one VC. | • 一个TC不得映射到多个VC。 |
 | The number of virtual channels used depends on the greatest capability shared by the two devices attached to a given link. Software assigns an ID for each VC and maps one or more TCs to the VCs. | 所使用的虚通道数量取决于连接到给定链路的两个设备所共有的最大能力。软件为每个VC分配一个ID，并将一个或多个TC映射到这些VC。 |
 
-Figure 7‑3: TC to VC Mapping Example
-![](images/part02_1a9daa3e0c3aca73dec8a6f69d0026fe5ad4a4d90142451c8d01fdf340670b4f.jpg)
+Figure 7‑3: TC to VC Mapping Example | 图7‑3：TC到VC映射示例
+<img src="images/part02_1a9daa3e0c3aca73dec8a6f69d0026fe5ad4a4d90142451c8d01fdf340670b4f.jpg" width="700" alt="">
 
 ## Determining the Number of VCs to be Used / 确定要使用的 VC 数量
 
@@ -82,15 +82,15 @@ Figure 7‑3: TC to VC Mapping Example
 |---|---|
 | Here, the switch supports all 8 VCs on each of its ports, while Device A supports only the default VC0, Device B supports 4 VCs, and Device C support 8 VCs. Note that even though switch port A supports all 8 VCs, Device A only supports VC0, so 7 VCs are left unused in switch port A. Similarly, only 4 VCs are used by switch port B. | 此处，交换机的每个端口均支持全部8个VC，而设备A仅支持默认的VC0，设备B支持4个VC，设备C支持8个VC。需要注意的是，即使交换机端口A支持全部8个VC，设备A仅支持VC0，因此交换机端口A中有7个VC未被使用。类似地，交换机端口B仅使用了4个VC。 |
 
-Figure 7-4: Multiple VCs Supported by a Device
-![](images/part02_4d4de81f0c9e88ddc5b4014d286cec57387170e6d117718471286448d0dadbc0.jpg)
+Figure 7-4: Multiple VCs Supported by a Device | 图7-4：设备支持的多个VC
+<img src="images/part02_4d4de81f0c9e88ddc5b4014d286cec57387170e6d117718471286448d0dadbc0.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | Configuration software determines the maximum number of VCs supported by each port interface by reading the Extended VC Count field in the Virtual Channel Capability registers, as shown in Figure 7-5 on page 251. Software checks the Extended VC Count at both ends of the Link and selects the highest common count. Using all the available VCs is not mandatory, though. Software may choose to enable fewer VCs as well. | 配置软件通过读取虚通道能力寄存器（Virtual Channel Capability registers）中的扩展VC计数字段（Extended VC Count），来确定每个端口接口支持的最大VC数量，如图7-5（第251页）所示。软件检查链路两端的扩展VC计数，并选取最高的公共计数。不过，使用所有可用VC并非强制要求。软件也可以选择启用较少的VC。 |
 
-Figure 7-5: Extended VCs Supported Field
-![](images/part02_01b8717e5301c3c8521b9b20031fb47aa87a7a46820a2577ae0b6be0ddd25dcf.jpg)
+Figure 7-5: Extended VCs Supported Field | 图7-5：扩展VC支持字段
+<img src="images/part02_01b8717e5301c3c8521b9b20031fb47aa87a7a46820a2577ae0b6be0ddd25dcf.jpg" width="700" alt="">
 
 ## Assigning VC Numbers (IDs) / 分配VC编号（ID）
 
@@ -116,9 +116,9 @@ Figure 7-5: Extended VCs Supported Field
 | 2. Group Arbitration — VCs are divided by hardware into one low‐priority group and one high‐priority group. The low‐priority group uses an arbitration method selected by software from the available choices, while the highpriority group always uses strict‐priority arbitration. | 2. 组仲裁——VC由硬件分为一个低优先级组和一个高优先级组。低优先级组使用软件从可用选项中选定的仲裁方法，而高优先级组始终使用严格优先级仲裁。 |
 | 3. Hardware Fixed arbitration — scheme built into the hardware. | 3. 硬件固定仲裁——内置于硬件中的方案。 |
 
-Figure 7‐6: VC Arbitration Example
+Figure 7‐6: VC Arbitration Example | 图7‐6：VC仲裁示例
 
-![](images/part02_3085c244d29089639875d921bd5cd20881136ab42b1f03a023f1d19301700bc8.jpg)
+<img src="images/part02_3085c244d29089639875d921bd5cd20881136ab42b1f03a023f1d19301700bc8.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -126,7 +126,7 @@ Figure 7‐6: VC Arbitration Example
 | The default priority scheme is based on the inherent priority of VC IDs (VC0=lowest priority and VC7=highest priority). The mechanism is automatic and requires no configuration. Figure 7-7 on page 254 illustrates a strict priority arbitration example that includes all VCs. The VC ID governs the order in which transactions are sent. The maximum number of VCs that use strict priority arbitration cannot be greater than the value in the Extended VC Count field. | 默认优先级方案基于VC ID的内在优先级（VC0为最低优先级，VC7为最高优先级）。该机制是自动的，无需配置。第254页的图7-7给出了一个包含所有VC的严格优先级仲裁示例。VC ID决定了事务发送的顺序。使用严格优先级仲裁的VC最大数量不能超过扩展VC计数字段中的值。 |
 | (See Figure 7-5 on page 251.) Furthermore, if the designer has chosen strict priority arbitration for all VCs supported, the Low Priority Extended VC Count field of Port VC Capability Register 1 is hardwired to zero. (See Figure 7-8 on page 255.) | （参见第251页的图7-5。）此外，如果设计者为所有支持的VC选择了严格优先级仲裁，则端口VC能力寄存器1的低优先级扩展VC计数字段被硬连线为0。（参见第255页的图7-8。） |
 
-Figure 7-7: Strict Priority Arbitration
+Figure 7-7: Strict Priority Arbitration | 图7-7：严格优先级仲裁
 
 <table><tr><td>VC Resources</td><td>Priority Order</td></tr><tr><td>8th VC</td><td>VC7 Highest</td></tr><tr><td>7th VC</td><td>VC6</td></tr><tr><td>6th VC</td><td>VC5</td></tr><tr><td>5th VC</td><td>VC4</td></tr><tr><td>4th VC</td><td>VC3</td></tr><tr><td>3rd VC</td><td>VC2</td></tr><tr><td>2nd VC</td><td>VC1</td></tr><tr><td>1st VC</td><td>VC0 Lowest</td></tr></table>
 
@@ -143,8 +143,8 @@ Figure 7-7: Strict Priority Arbitration
 |---|---|
 | Figure 7-8 illustrates the Low Priority Extended VC Count field within VC Capability Register 1. This read-only field specifies a VC ID that identifies the upper limit of the low-priority arbitration group for this device. For example, if this value is 4, then VC0-VC4 are members of the low-priority group and VC5-VC7 are in the high-priority group. Note that a Low Priority Extended VC Count of 7 means that no strict priority is used. | 图7-8展示了VC能力寄存器1中的低优先级扩展VC计数字段。该只读字段指定了一个VC ID，用于标识该设备的低优先级仲裁组的上限。例如，若该值为4，则VC0-VC4属于低优先级组，而VC5-VC7属于高优先级组。注意，低优先级扩展VC计数为7表示不使用严格优先级。 |
 
-Figure 7-8: Low-Priority Extended VCs
-![](images/part02_bb702db0e9dd72c5bfe709a482f22577102c614aab590092438b908771cd6213.jpg)
+Figure 7-8: Low-Priority Extended VCs | 图7-8：低优先级扩展VC
+<img src="images/part02_bb702db0e9dd72c5bfe709a482f22577102c614aab590092438b908771cd6213.jpg" width="700" alt="">
 
 ## PCI Express Technology
 
@@ -154,10 +154,10 @@ Figure 7-8: Low-Priority Extended VCs
 | • Hardware Based Fixed Arbitration | • 基于硬件的固定仲裁 |
 | • Weighted Round Robin Arbitration (WRR) | • 加权轮询仲裁（WRR） |
 
-Figure 7-9: VC Arbitration Capabilities
-![](images/part02_b6ab50731a9edf9b8f3c5765f01a3cecb34c9381f862c6b922a1071e93bff1f6.jpg)
+Figure 7-9: VC Arbitration Capabilities | 图7-9：VC仲裁能力
+<img src="images/part02_b6ab50731a9edf9b8f3c5765f01a3cecb34c9381f862c6b922a1071e93bff1f6.jpg" width="700" alt="">
 
-Figure 7-10: VC Arbitration Priorities
+Figure 7-10: VC Arbitration Priorities | 图7-10：VC仲裁优先级
 
 <table><tr><td>VC Resources</td><td>VC IDs</td><td>Split Priority</td></tr><tr><td>8th VC</td><td>VC7</td><td>Highest</td></tr><tr><td>7th VC</td><td>VC6</td><td>High-Priority (Strict Priority Scheme)</td></tr><tr><td>6th VC</td><td>VC5</td><td rowspan="3">Low-Priority VC ID = 4</td></tr><tr><td>5th VC</td><td>VC4</td></tr><tr><td>4th VC</td><td>VC3</td></tr><tr><td>3rd VC</td><td>VC2</td><td rowspan="2">Low-Priority (Alternate Priority Scheme) (Selected by Software)</td></tr><tr><td>2nd VC</td><td>VC1</td></tr><tr><td>1st VC</td><td>VC0</td><td>Lowest</td></tr></table>
 
@@ -174,8 +174,8 @@ Figure 7-10: VC Arbitration Priorities
 | Weighted Round Robin Arbitration Scheme | 加权轮询仲裁方案 |
 | This is a scheme in which some VCs can be weighted more (given higher priority) than others by giving them more entries in the sequence than others. The spec defines three WRR options, each with a different number of entries (called phases). The table size is selected by writing the corresponding value in to the VC Arbitration Select field of the Port VC Control Register (see Figure 7‐9 on page 256). Each entry in the table represents one phase that software loads with a low priority VC number. The VC arbiter will repeatedly scan all table entries in a sequential fashion and send packets from the VC specified in the table entries. Once a packet has been sent, the arbiter immediately proceeds to the next phase. Figure 7‐11 on page 258 shows an example of a WRR arbitration table with 64 entries. | 这是一种仲裁方案，其中某些VC可以通过在序列中获得比其他VC更多的条目来获得更高的权重（即被赋予更高优先级）。规范定义了三种WRR选项，每种选项具有不同数量的条目（称为相位）。通过向端口VC控制寄存器的VC仲裁选择字段写入相应的值来选择表大小（参见第256页的图7-9）。表中的每个条目代表一个相位，软件在其中加载一个低优先级VC号。VC仲裁器将以顺序方式重复扫描所有表条目，并从表条目中指定的VC发送报文。一旦发送了一个报文，仲裁器立即进入下一个相位。第258页的图7-11展示了一个具有64个条目的WRR仲裁表示例。 |
 
-Figure 7‐11: WRR VC Arbitration Table
-![](images/part02_96981d8b67c65e72959f2df5d78ff22ca6994c85269a2b407eeb9050233f233e.jpg)
+Figure 7‐11: WRR VC Arbitration Table | 图7‐11：WRR VC仲裁表
+<img src="images/part02_96981d8b67c65e72959f2df5d78ff22ca6994c85269a2b407eeb9050233f233e.jpg" width="700" alt="">
 
 ## Setting up the Virtual Channel Arbitration Table
 
@@ -184,8 +184,8 @@ Figure 7‐11: WRR VC Arbitration Table
 | The location of the VC Arbitration Table (VAT) in configuration space is given as an offset from the base address of the VC Capability Structure, as shown in Figure 7‐12 on page 259. | VC仲裁表(VAT)在配置空间中的位置以距VC能力结构基地址的偏移量给出，如第259页图7‐12所示。 |
 | As shown in Figure 7‐13 on page 260, each entry in the VAT is a 4‐bit field that identifies the VC number of the buffer that is scheduled to deliver data during that phase. The table length is selected by the arbitration option shown in Figure 7‐9 on page 256. | 如第260页图7‐13所示，VAT中的每个条目是一个4位字段，标识在该阶段被调度传送数据的缓冲区的VC编号。表长度由图7‐9(第256页)所示的仲裁选项选择。 |
 
-Figure 7‐12: VC Arbitration Table Offset and Load VC Arbitration Table Fields
-![](images/part02_9d87feb73a2c2594cee05c8b6d2d80ebbd8a287d87d0cdb43b642962e5c29299.jpg)
+Figure 7‐12: VC Arbitration Table Offset and Load VC Arbitration Table Fields | 图7‐12：VC仲裁表偏移量和加载VC仲裁表字段
+<img src="images/part02_9d87feb73a2c2594cee05c8b6d2d80ebbd8a287d87d0cdb43b642962e5c29299.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -193,7 +193,7 @@ Figure 7‐12: VC Arbitration Table Offset and Load VC Arbitration Table Fields
 
 <table><tr><td colspan="8">32 Phase Virtual Channel Arbitration Table</td></tr><tr><td>31</td><td>28</td><td>27</td><td>24</td><td>23</td><td>20</td><td>19</td><td>16</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>15</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>12</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>11</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>12</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>8</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>7</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>4</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>3</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>0</td></tr></table>
 
-Figure 7‐13: Loading the VC Arbitration Table Entries
+Figure 7‐13: Loading the VC Arbitration Table Entries | 图7‐13：加载VC仲裁表项
 
 ## PCI Express Technology
 
@@ -222,11 +222,11 @@ Figure 7‐13: Loading the VC Arbitration Table Entries
 | The connection to system memory is an interesting path. There will likely be packets from multiple ingress ports trying to access this port at the same time, so it needs to support port arbitration. However, it doesn't use a PCIe port, so it doesn't have the set of PCIe registers to support arbitration that we're describing here. Instead, the root will need to supply a vendor-specific set of registers called a Root Complex Register Block (RCRB) to provide the same functionality. | 通往系统内存的连接是一条有趣的路径。很可能有来自多个输入端口的包同时试图访问该端口，因此它需要支持端口仲裁。然而，它不使用PCIe端口，因此没有我们此处所述的用于支持仲裁的那组PCIe寄存器。相反，根复合体需要提供一组称为根复合体寄存器块（RCRB）的厂商特定寄存器来提供相同的功能。 |
 | Because port arbitration is managed independently for each VC of the egress port, a separate table is required for each VC that supports programmable port arbitration, as shown in Figure 7-15 on page 263. Port arbitration tables are supported only by switches and root ports and are not allowed in endpoints. | 由于端口仲裁是针对出口端口的每个VC独立管理的，因此对于每个支持可编程端口仲裁的VC都需要一个独立的表，如图7-15（第263页）所示。端口仲裁表仅由交换机和根端口支持，不允许在端点中使用。 |
 
-Figure 7-14: Port Arbitration Concept
-![](images/part02_00db08417841e65ec4a335c43d72b39ef1ea28bf4ddff0255fcf8734115c8d97.jpg)
+Figure 7-14: Port Arbitration Concept | 图7-14：端口仲裁概念
+<img src="images/part02_00db08417841e65ec4a335c43d72b39ef1ea28bf4ddff0255fcf8734115c8d97.jpg" width="700" alt="">
 
-Figure 7-15: Port Arbitration Tables for Each VC
-![](images/part02_d1158e33b7cbf226774c41e5939b3976c5fd48e86e62b0ca5b420b6a6168c450.jpg)
+Figure 7-15: Port Arbitration Tables for Each VC | 图7-15：每个VC的端口仲裁表
+<img src="images/part02_d1158e33b7cbf226774c41e5939b3976c5fd48e86e62b0ca5b420b6a6168c450.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -237,13 +237,13 @@ Figure 7-15: Port Arbitration Tables for Each VC
 | 4. A set of buffers is associated with each of the ingress ports, allowing the ingress port number to be tracked until port arbitration can be done. | 4. 一组缓冲区与每个输入端口相关联，允许跟踪输入端口号，直到端口仲裁可以完成。 |
 | 5. Port arbitration logic determines the order in which transactions are sent from each group of ingress buffers. | 5. 端口仲裁逻辑确定事务从每组输入缓冲区发送的顺序。 |
 
-Figure 7-16: Port Arbitration Buffering
-![](images/part02_20f2464ac876cc29e5fae22d7c21a9d0013eb585d7521865273edac0be236e49.jpg)
+Figure 7-16: Port Arbitration Buffering | 图7-16：端口仲裁缓冲
+<img src="images/part02_20f2464ac876cc29e5fae22d7c21a9d0013eb585d7521865273edac0be236e49.jpg" width="700" alt="">
 
 ## Port Arbitration Mechanisms
 
-Figure 7‑17: Software Selects Port Arbitration Scheme
-![](images/part02_d51d505f010cca14d1172de4b502b0f0e7700d51ff89cae4d6ef9c53496d9da0.jpg)
+Figure 7‑17: Software Selects Port Arbitration Scheme | 图7‑17：软件选择端口仲裁方案
+<img src="images/part02_d51d505f010cca14d1172de4b502b0f0e7700d51ff89cae4d6ef9c53496d9da0.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -269,8 +269,8 @@ Figure 7‑17: Software Selects Port Arbitration Scheme
 | This mechanism is required for isochronous support. As the name implies, time‑based weighted round robin adds the element of time to each arbitration phase. Just as in WRR the port arbiter delivers one transaction from the ingress port VC buffer indicated by the Port Number of the current phase. Now though, rather than immediately advancing to the next phase, the time‑based arbiter waits until the current virtual timeslot elapses before advancing. This ensures that transactions are accepted from the ingress port buffer at regular intervals. If the selected port does not have a packet ready to send then nothing will be sent until the next timeslot. Note that the timeslot does not govern the duration of the transfer, but rather the interval between transfers. The maximum duration of a transaction is the time it takes to complete the round robin and return to the original timeslot. The length of the timeslot may change in the future, but currently has the value of 100ns. | 该机制为等时支持所必需。顾名思义，基于时间的加权轮询将时间元素引入每个仲裁阶段。与WRR一样，端口仲裁器从当前阶段端口号所指明的入口端口VC缓冲器中交付一笔事务。但现在，基于时间的仲裁器不会立即前进到下一阶段，而是等待当前虚拟时隙耗尽后才前进。这确保了以固定时间间隔从入口端口缓冲器接收事务。如果所选端口没有准备好发送的数据包，则在下一个时隙之前不会发送任何数据。请注意，时隙并不控制传输的持续时间，而是控制传输之间的间隔。一次事务的最大持续时间是完成一轮轮询并返回到原始时隙所需的时间。时隙长度将来可能会改变，但目前为100ns。 |
 | Time‑based WRR arbitration supports a maximum table length of 128 phases, but the actual number of table entries available for a given VC may be less than that. The value is hardware initialized and reported in the Maximum Time Slots field of each virtual channel that supports TBWRR, as shown in Figure 7‑18 on page 267. | 基于时间的WRR仲裁支持最大128个阶段的表长度，但给定VC可用的实际表项数可能少于该值。该值由硬件初始化，并在支持TBWRR的每个虚通道的最大时隙字段中报告，如第267页图7‑18所示。 |
 
-Figure 7‑18: Maximum Time Slots Register
-![](images/part02_1662bf01eddbddcff350dc6ff5947cd25705fc952fa4cbb9df7244b1ae92dfa7.jpg)
+Figure 7‑18: Maximum Time Slots Register | 图7‑18：最大时隙寄存器
+<img src="images/part02_1662bf01eddbddcff350dc6ff5947cd25705fc952fa4cbb9df7244b1ae92dfa7.jpg" width="700" alt="">
 
 ## Loading the Port Arbitration Tables
 
@@ -283,7 +283,7 @@ Figure 7‑18: Maximum Time Slots Register
 | • 11b — 8 bits (256 ports) | • 11b — 8位（256个端口） |
 | Configuration software loads each table with port numbers to accomplish the desired port priority for each VC supported. As illustrated in Figure 7-19 on page 268, the table format depends on the size of each entry and the number of phases supported by this design. | 配置软件为每个表加载端口号，以实现每个支持的VC所需的端口优先级。如图7-19（第268页）所示，表格式取决于每个表项的大小以及该设计支持的相位数量。 |
 
-Figure 7-19: Format of Port Arbitration Tables
+Figure 7-19: Format of Port Arbitration Tables | 图7-19：端口仲裁表格式
 
 <table><tr><td colspan="8">32-Phase Port Arbitration Table
 with 4-bit entries</td></tr><tr><td>31</td><td>28</td><td>27</td><td>24</td><td>23</td><td>20</td><td>19</td><td>16</td></tr><tr><td>15</td><td>Phase[7]</td><td>Phase[6]</td><td>Phase[5]</td><td>Phase[4]</td><td>Phase[3]</td><td>Phase[2]</td><td>Phase[1]</td></tr><tr><td>15</td><td>Phase[15]</td><td>Phase[14]</td><td>Phase[13]</td><td>Phase[12]</td><td>Phase[11]</td><td>Phase[10]</td><td>Phase[9]</td></tr><tr><td>23</td><td>Phase[23]</td><td>Phase[22]</td><td>Phase[21]</td><td>Phase[20]</td><td>Phase[19]</td><td>Phase[18]</td><td>Phase[17]</td></tr><tr><td>31</td><td>Phase[31]</td><td>Phase[30]</td><td>Phase[29]</td><td>Phase[28]</td><td>Phase[27]</td><td>Phase[26]</td><td>Phase[25]</td></tr></table>
@@ -303,9 +303,9 @@ with 4-bit entries</td></tr><tr><td>31</td><td>28</td><td>27</td><td>24</td><td>
 | 6. Finally, VC arbitration determines the order in which transactions in the VC buffers will be sent across the link. | 6. 最后，VC仲裁决定VC缓冲区中的事务通过链路发送的顺序。 |
 | 7. Note that the VC arbiter selects packets for transmission only if sufficient flow control credits exist. | 7. 注意，VC仲裁器仅在存在足够的流控信用时才会选择数据包进行传输。 |
 
-Figure 7-20: Arbitration Examples in a Switch
+Figure 7-20: Arbitration Examples in a Switch | 图7-20：交换机中的仲裁示例
 
-![](images/part02_a276bce9f95a857b412c2aa15c3afe2ee78b7c5187086ebeb8b7cbab0bab9e84.jpg)
+<img src="images/part02_a276bce9f95a857b412c2aa15c3afe2ee78b7c5187086ebeb8b7cbab0bab9e84.jpg" width="700" alt="">
 
 ## Arbitration in Multi-Function Endpoints
 
@@ -314,8 +314,8 @@ Figure 7-20: Arbitration Examples in a Switch
 | Another set of registers called Multi-Function Virtual Channel (MFVC) capability is defined for the specific case of endpoints that will implement QoS in a device with multiple functions. Not surprisingly, this case presents the same arbitration issues internally that a switch port must handle. | 另一组称为多函数虚通道（MFVC）能力的寄存器针对特定情况定义，即在具有多个函数的设备中实现服务质量的端点。毫不意外，这种情况内部呈现了与交换机端口必须处理的相同的仲裁问题。 |
 | There are two cases described in the spec for this arbitration. In the first case, shown in Figure 7-21 on page 271, there are two Functions but only Function 0 includes VC Capability registers and the assignments made there are implicitly the same for all functions. For this option, arbitration between the functions will be handled in some vendor-specific manner. That's the simplest approach, but doesn't include a standard structure to define priority between requests from different functions and so it doesn't support QoS. | 规范描述了这种仲裁的两种情况。第一种情况如第271页图7-21所示，存在两个函数，但仅有函数0包含VC能力寄存器，且其中的分配隐式适用于所有函数。对于此选项，函数间的仲裁将以某种厂商特定的方式处理。这是最简单的方法，但不包含用于定义不同函数请求间优先级的标准结构，因此不支持QoS。 |
 
-Figure 7-21: Simple Multi-Function Arbitration
-![](images/part02_8680fc3f04f0e69dd595aafe18e0acd645d0b88f8599350acbc065c6f1130c1e.jpg)
+Figure 7-21: Simple Multi-Function Arbitration | 图7-21：简单多功能仲裁
+<img src="images/part02_8680fc3f04f0e69dd595aafe18e0acd645d0b88f8599350acbc065c6f1130c1e.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -323,8 +323,8 @@ Figure 7-21: Simple Multi-Function Arbitration
 | Figure 7-22 on page 272 shows the MFVC register block and a block diagram of an example with two functions in an endpoint whose port supports two VCs. Each function has a Transaction Layer and its own VC Capability registers, but doesn't implement the lower layers. Instead, they connect to the Transaction Layer of the shared port that does have all the layers. Sharing the hardware interface results in lower cost, of course, and the addition of MFVC allows the functions to handle isochronous traffic. | 第272页图7-22展示了MFVC寄存器块以及一个端点中两个函数的示例框图，该端口的端口支持两个VC。每个函数拥有事务层和其自己的VC能力寄存器，但不实现下层。相反，它们连接到共享端口的事务层，该端口拥有所有层。共享硬件接口当然会降低成本，而MFVC的添加允许这些函数处理等时流量。 |
 | As can be seen in the figure, the MFVC registers reside in Function 0 only and define the VCs and arbitration methods to be used for this interface. The MFVC registers look very much the same as VC capability registers and support VC arbitration and Function arbitration. Since packets from multiple functions can attempt to access the same VC at the same time, Function Arbitration decides the priorities among them. That should look familiar by now because it's the same concept as port arbitration and even uses the same arbitration options, including TBWRR. VC arbitration options are also the same as they are in the single-function VC registers. | 从图中可以看出，MFVC寄存器仅存在于函数0中，并定义了该接口使用的VC和仲裁方法。MFVC寄存器看起来与VC能力寄存器非常相似，支持VC仲裁和函数仲裁。由于来自多个函数的数据包可能同时尝试访问同一个VC，函数仲裁决定它们之间的优先级。这现在看起来应该很熟悉了，因为它与端口仲裁概念相同，甚至使用相同的仲裁选项，包括TBWRR。VC仲裁选项也与单函数VC寄存器中的相同。 |
 
-Figure 7-22: QoS Support in Multi-Function Arbitration
-![](images/part02_b3933be809f4ea0ecba8cb6a9e886e95d0db14dd0e900851c65d1a25cb162600.jpg)
+Figure 7-22: QoS Support in Multi-Function Arbitration | 图7-22：多功能仲裁中的QoS支持
+<img src="images/part02_b3933be809f4ea0ecba8cb6a9e886e95d0db14dd0e900851c65d1a25cb162600.jpg" width="700" alt="">
 
 ## Isochronous Support
 
@@ -342,8 +342,8 @@ Figure 7-22: QoS Support in Multi-Function Arbitration
 | Clearly, the system must be able to guarantee that the entire contents of buffer A can be delivered during the service interval, regardless of whether other traffic is in flight on the Link. This is handled by assigning a high priority to the time-sensitive packets and programming arbitration schemes so they'll be handled first any time there is competition with other traffic. Also note that, as long as all the data is delivered within the time window, it doesn't matter exactly when it arrives. It might be spread out across the interval or bunched up in one place inside it. As long as it's all delivered with the Service Interval the guarantees can still be met. | 显然，系统必须能够保证缓冲区A的全部内容可以在服务间隔内交付，无论链路上是否有其他流量正在传输。这通过为时间敏感报文分配高优先级并编程仲裁方案来实现，使得它们在与其他流量竞争时始终优先被处理。还需注意，只要所有数据在时间窗口内交付，其确切到达时间并不重要。数据可能分散在间隔内，也可能集中在间隔内的某处。只要所有数据都在服务间隔内交付，保证仍然可以满足。 |
 | 3. During SI 2, the tape deck receives and buffers the incoming data, which can then be delivered to storage for recording during SI 3. The camera unloads Buffer B onto the Link during SI 3 while accumulating new data into Buffer A, and the cycle repeats. | 3. 在SI 2期间，磁带机接收并缓冲传入数据，随后可在SI 3期间将这些数据交付到存储设备进行记录。摄像机在SI 3期间将缓冲区B卸载到链路上，同时将新数据累积到缓冲区A中，如此循环重复。 |
 
-Figure 7-23: Example Application of Isochronous Transaction
-![](images/part02_52af287f760b1dde29e105f5642ba88ecf1d9fb103db1b42e53b584c9d9c5e91.jpg)
+Figure 7-23: Example Application of Isochronous Transaction | 图7-23：等时事务应用示例
+<img src="images/part02_52af287f760b1dde29e105f5642ba88ecf1d9fb103db1b42e53b584c9d9c5e91.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -393,8 +393,8 @@ Figure 7-23: Example Application of Isochronous Transaction
 |---|---|
 | Starting at the bottom, what will be needed in the PCIe interface for the video endpoint device itself? In hardware, more than one VC will be required if we're going to differentiate packets. Let's assume a single-function device for simplicity. The device driver would need to report the device capabilities and isochronous timing requirements to the OS-level Isochronous broker, which would evaluate the system and then report back whether an isochronous contract was possible and which TCs the software should use. | 从底层开始，视频端点设备本身的PCIe接口需要什么？在硬件上，如果要区分数据包，则需要多个VC。为简单起见，我们假设一个单功能设备。设备驱动程序需要向操作系统级的等时代理报告设备能力和等时时序要求，该代理将评估系统，然后报告等时契约是否可能以及软件应使用哪些TC。 |
 
-Figure 7-24: Example Isochronous System
-![](images/part02_19d01764d36aa5659db7ca7b5ad112be2f5d1d57cdd4c1906d91efa8375fc533.jpg)
+Figure 7-24: Example Isochronous System | 图7-24：等时系统示例
+<img src="images/part02_19d01764d36aa5659db7ca7b5ad112be2f5d1d57cdd4c1906d91efa8375fc533.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -410,8 +410,8 @@ Figure 7-24: Example Isochronous System
 | VC arbitration for the isochronous egress port will most likely need to use the Strict Priority scheme for the same reasons the endpoint does. Port arbitration will need to use the Time-Based WRR scheme, and that means software must understand the proper access ratios and program the Port Arbitration Tables to implement them. This might not be as simple as it sounds if multiple switches are in the path because even though they'll all use the same TBWRR arbitration scheme, it's not clear how the service intervals for each of them would be coordinated. If the SIs are not aligned, meaning timing guarantees could be more difficult depending on the how busy the Links are. Coordinating the service intervals wasn't considered in the spec, though, so it would again involve a non-standard method. Clearly, this problem would be much simpler if we didn't have multiple switches in an isochronous path. | 等时出口端口的VC仲裁很可能需要使用与端点相同的严格优先级方案。端口仲裁需要使用基于时间的WRR方案，这意味着软件必须了解正确的访问比率并编程端口仲裁表来实现它们。如果路径中有多个交换机，这可能不像听起来那么简单，因为即使它们都使用相同的TBWRR仲裁方案，每个交换机的服务间隔如何协调也不明确。如果SI未对齐，意味着时序保证可能更加困难，具体取决于链路的繁忙程度。不过，规范中并未考虑协调服务间隔的问题，因此这又将涉及到非标准方法。显然，如果等时路径中没有多个交换机，这个问题会简单得多。 |
 | Timing Issues. Figure 7-25 on page 279 shows the timing of packets being delivered by the two endpoints for our example. Packets from the video device, with a known size and delivered in regular and predictable intervals, are shown as the heavier arrows. The smaller, lighter arrows represent packets from the SCSI drive that are lower priority and whose timing is not predictable. In the endpoint, the packets simply need to have the proper TC assigned to them, but a switch needs to ensure that the proper timing policy is enforced. This is done by using TBWRR, which specifies which port will have access at a given time and for how long. Knowing the size and frequency of the isochronous packets allows software to properly arrange the timing, but what kind of timing is needed? | 时序问题。第279页的图7-25显示了我们示例中两个端点传送报文的时序。来自视频设备的报文具有已知大小，并以规律且可预测的间隔传送，以较粗的箭头表示。较小、较细的箭头表示来自SCSI驱动器的报文，这些报文优先级较低且时序不可预测。在端点中，报文只需要分配正确的TC，但交换机需要确保执行正确的时序策略。这是通过使用TBWRR来实现的，它指定哪个端口在何时可以访问以及访问多长时间。了解等时报文的大小和频率使软件能够正确安排时序，但需要什么样的时序呢？ |
 
-Figure 7-25: Injection of Isochronous Packets
-![](images/part02_311ee515cc591beb1edb91c4e832e93dba144194441b2b987fe4cbabfb5602fc.jpg)
+Figure 7-25: Injection of Isochronous Packets | 图7-25：等时数据包注入
+<img src="images/part02_311ee515cc591beb1edb91c4e832e93dba144194441b2b987fe4cbabfb5602fc.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -436,15 +436,15 @@ $$
 | Bandwidth Allocation Problems. The TBWRR table must be programmed to guarantee sufficient timely bandwidth for isochronous traffic, and that other traffic won't be allowed to interfere. In Figure 7-25 on page 279, the SCSI controller is shown as sending one packet in SI 1 and another in SI 3. If the timing was such that one packet from that endpoint per SI was allowed then this works fine. | 带宽分配问题。必须对TBWRR表进行编程，以保证为等时流量提供足够的及时带宽，并且不允许其他流量干扰。在第279页的图7-25中，SCSI控制器在SI 1中发送一个报文，在SI 3中发送另一个报文。如果时序允许每个SI从该端点发送一个报文，那么这可以正常工作。 |
 | Now let's say the SCSI controller attempts to inject more packets than it has permission to do in SI 1, illustrated in Figure 7-26 on page 280. This is the first of two bandwidth allocation problems mentioned in the spec and is called "oversubscription." This could interfere with isochronous traffic flow, but programming the TBWRR table readily avoids that problem because the arbitration only allows a packet from that port at specific times. If more packets from that port are queued up, they simply have to wait until the next available time, which might be in SI 2, as shown in this example. Eventually, this can result in flow control back-pressure at the sending agent. | 现在假设SCSI控制器试图在SI 1中注入比其允许数量更多的报文，如图7-26（第280页）所示。这是规范中提到的两个带宽分配问题中的第一个，称为"超额认购"。这可能会干扰等时流量流，但编程TBWRR表可以轻松避免该问题，因为仲裁只允许在特定时间从该端口发送报文。如果从该端口排队了更多报文，它们必须等待下一个可用时间，可能是SI 2，如此例所示。最终，这可能导致发送代理处的流控反压。 |
 
-Figure 7-26: Over-Subscribing the Bandwidth
-![](images/part02_a7501a403d67ae62d025cd05b212b851dc3710595e00225f6dcb9f54b0a4ba78.jpg)
+Figure 7-26: Over-Subscribing the Bandwidth | 图7-26：带宽超额预订
+<img src="images/part02_a7501a403d67ae62d025cd05b212b851dc3710595e00225f6dcb9f54b0a4ba78.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
 | The second timing problem is called "congestion" and happens when too many isochronous requests are sent within a given time window, as shown in Figure 7-27 on page 281. This is a similar problem but now there is no simple solution. Unlike the previous case, postponing high-priority packets until another time slot is not an option, so the system must make an effort to handle them all. The result is that some requests may experience excessive service latencies. To correct this, software would need to change the distribution of packets so that they can be supported by the available hardware bandwidth. | 第二个时序问题称为"拥塞"，当在给定的时间窗口内发送了过多的等时请求时发生，如图7-27（第281页）所示。这是一个类似的问题，但此时没有简单的解决方案。与前面情况不同，将高优先级报文推迟到另一个时隙是不可行的，因此系统必须尽力处理所有报文。结果是某些请求可能经历过长的服务延迟。要纠正此问题，软件需要更改报文的分布，使其能够由可用的硬件带宽支持。 |
 
-Figure 7-27: Bandwidth Congestion
-![](images/part02_ecb9798179d1b53ae22882c937eb1f84b29a18cf1f4cfd4aa168c381b7b696b9.jpg)
+Figure 7-27: Bandwidth Congestion | 图7-27：带宽拥塞
+<img src="images/part02_ecb9798179d1b53ae22882c937eb1f84b29a18cf1f4cfd4aa168c381b7b696b9.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -473,4 +473,4 @@ Figure 7-27: Bandwidth Congestion
 | If there isn't enough time available for retries, the target agent may simply choose to discard any bad packets. Another option would be to use the bad packets as they are, errors and all. For some applications using isochronous support that isn't as counter‑intuitive as it sounds. An error in video streaming, for example, might cause an occasional glitch on the display, but that could be considered an acceptable risk. | 如果没有足够的时间进行重试，目标代理可以简单地选择丢弃任何错误报文。另一种选择是直接使用错误的报文，包括其中的所有错误。对于某些使用等时性支持的应用程序来说，这并不像听起来那么反直觉。例如，视频流中的错误可能偶尔会导致显示画面出现异常，但这可以被视为可接受的风险。 |
 | If there is enough time in the Service Interval to allow retries, a limit could be placed on the possible latency they might add by adding a timer to track the time until the end of the Service Interval and use that to decide whether a retry could be attempted. Errors shouldn't happen very often, of course, so this might be sufficient to correct the occasional transmission fault while still maintaining isochronous timing. | 如果服务间隔（Service Interval）中有足够的时间允许重试，则可以通过添加一个定时器来跟踪到服务间隔结束前的时间，并以此决定是否可以进行重试，从而限制重试可能增加的延迟。当然，错误不应频繁发生，因此这或许足以纠正偶发的传输故障，同时仍能维持等时定时。 |
 
-![](images/part02_eb1ae88c2cbc5e01e062355061788993fc48f05d5949d55ecd7a07ae70ef4f91.jpg)
+<img src="images/part02_eb1ae88c2cbc5e01e062355061788993fc48f05d5949d55ecd7a07ae70ef4f91.jpg" width="700" alt="">

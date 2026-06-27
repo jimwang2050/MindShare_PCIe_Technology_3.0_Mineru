@@ -46,9 +46,9 @@
 | Because the host does not know the system topology when it is first powered up or reset, it must perform discovery to learn what devices are present and then map them into the memory space. To support standard discovery and configuration software, the PCI specification defines a standard format for Control and Status Registers (CSRs) of compliant devices. The standard PCI-to-PCI bridge CSR header, called a Type 1 header, includes primary, secondary and subordinate bus number registers that, when written by the host, define the CSR addresses of devices on the other side of the bridge. Bridges that employ a Type 1 CSR header are called transparent bridges. | 由于主机在首次上电或复位时不知道系统拓扑，它必须执行发现过程来了解存在哪些设备，然后将它们映射到内存空间中。为了支持标准的发现和配置软件，PCI规范为兼容设备的控制和状态寄存器(CSR)定义了标准格式。标准PCI到PCI桥的CSR头部称为Type 1头部，包含主总线号、次级总线号和从属总线号寄存器，当主机写入这些寄存器时，它们定义了桥另一侧设备的CSR地址。采用Type 1 CSR头部的桥称为透明桥。 |
 | A Type 0 header is used for endpoints. A Type 0 CSR header includes base address registers (BARs) used to request memory or I/O apertures from the host. Both Type 1 and Type 0 headers include a class code register that indicates what kind of bridge or endpoint is represented, with further information available in a subclass field and in device ID and vendor ID registers. The CSR header format and addressing rules allow the processor to search all the branches of a PCI hierarchy, from the host bridge down to each of its leaves, reading the class code registers of each device it finds as it proceeds, and assigning bus numbers as appropriate as it discovers PCI-to-PCI bridges along the way. At the completion of discovery, the host knows which devices are present and the memory and I/O space each device requires to function. These concepts are illustrated in Figure C-0-1. | Type 0头部用于端点。Type 0 CSR头部包含基址寄存器(BAR)，用于向主机请求内存或I/O窗口。Type 1和Type 0头部都包含类别代码寄存器，指示所代表的是何种桥或端点，子类别字段以及设备ID和厂商ID寄存器提供进一步信息。CSR头部格式和寻址规则允许处理器搜索PCI层次结构的所有分支，从主桥向下直到每个叶子节点，在遍历过程中读取所发现的每个设备的类别代码寄存器，并在发现PCI到PCI桥时相应地分配总线号。发现过程完成后，主机知道存在哪些设备以及每个设备运行所需的内存和I/O空间。这些概念如图C-0-1所示。 |
 
-Figure 0-1: Enumeration Using Transparent Bridges
+Figure 0-1: Enumeration Using Transparent Bridges | 图0-1：使用透明桥的枚举
 
-![](images/part06_f19b0d11bcc662e3364a706795525203cbb743404a04fb6c4daa834282b683f2.jpg)
+<img src="images/part06_f19b0d11bcc662e3364a706795525203cbb743404a04fb6c4daa834282b683f2.jpg" width="700" alt="">
 
 ## Implementing Multi-host/Intelligent Adapters in PCI Express Base Systems / 在 PCI Express 基础系统中实现多主机/智能适配器
 
@@ -74,13 +74,13 @@ Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple 
 | ## Chapter : Appendix C: Implementing Intelligent Adapt- | ## 附录 C：实现智能适配器 |
 | Figure 0-2: Direct Address Translation | 图 0-2：直接地址翻译 |
 
-![](images/part06_16233cf40f4625514aa729e0d5e6ef58d10bffece04650cd6f5ca16551038551.jpg)
+<img src="images/part06_16233cf40f4625514aa729e0d5e6ef58d10bffece04650cd6f5ca16551038551.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
 | Figure 0-3: Look Up Table Translation Creates Multiple Windows | 图 0-3：查找表翻译创建多个窗口 |
 
-![](images/part06_6167f9ca8ef7cd1d5ab3169da775a6c92633563dbc3ff796511be68938551498.jpg)
+<img src="images/part06_6167f9ca8ef7cd1d5ab3169da775a6c92633563dbc3ff796511be68938551498.jpg" width="700" alt="">
 
 ## Example: Implementing Intelligent Adapters in a PCI Express Base System
 ## 示例：在 PCI Express 基础系统中实现智能适配器
@@ -92,8 +92,8 @@ Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple 
 
 ## Chapter : Appendix C: Implementing Intelligent Adapters in PCI and PCI Express Systems
 
-Figure 0-4: Intelligent Adapters in PCI and PCI Express Systems
-![](images/part06_0e0303807b2f7dda9278e3b16af14b791f92f12d8fda9ad48de3811f454afdbb.jpg)
+Figure 0-4: Intelligent Adapters in PCI and PCI Express Systems | 图0-4：PCI和PCI Express系统中的智能适配器
+<img src="images/part06_0e0303807b2f7dda9278e3b16af14b791f92f12d8fda9ad48de3811f454afdbb.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -110,9 +110,9 @@ Figure 0-4: Intelligent Adapters in PCI and PCI Express Systems
 |---|---|
 | Figure C-0-5 on page 953 illustrates how most PCI Express systems will implement host failover. The primary host processor in this illustration is on the left side of the diagram, with the backup host on the right side of the diagram. Like most systems with which we are familiar, the host processor connects to a root complex. In turn, the root complex routes its traffic to the switch. In this example, the switch has two ports to end points in addition to the upstream port for the primary host we have just described. Furthermore, this system also has another processor, which is connected to the switch via another root complex. | 图C-0-5（第953页）展示了大多数PCI Express系统如何实现主机故障切换。此图中的主宿主机位于示意图左侧，备份宿主机位于右侧。与我们熟悉的大多数系统一样，宿主机连接到一个根复合体。根复合体再将其流量路由到交换机。在此示例中，除了我们刚刚描述的主宿主机的上游端口外，交换机还有两个通向端点的端口。此外，该系统还有另一个处理器，该处理器通过另一个根复合体连接到交换机。 |
 
-Figure 0-5: Host Failover in PCI and PCI Express Systems
+Figure 0-5: Host Failover in PCI and PCI Express Systems | 图0-5：PCI和PCI Express系统中的主机故障切换
 
-![](images/part06_dcdfbe316f4856a23c1d4583b50d833827e3691ebefb4bde0b61800919d42d50.jpg)
+<img src="images/part06_dcdfbe316f4856a23c1d4583b50d833827e3691ebefb4bde0b61800919d42d50.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -129,7 +129,7 @@ Figure 0-5: Host Failover in PCI and PCI Express Systems
 
 **Figure 0-6: Dual Host in a PCI and PCI Express System**
 
-![](images/part06_3e90664de5b3fa4c38071f2bcf85d67cc73ba20b85766b70b400fce321e4722b.jpg)
+<img src="images/part06_3e90664de5b3fa4c38071f2bcf85d67cc73ba20b85766b70b400fce321e4722b.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -144,9 +144,9 @@ Figure 0-5: Host Failover in PCI and PCI Express Systems
 | Two host cards are shown. Host A is the primary host of Fabric A and the secondary host of Fabric B. Similarly, Host B is the primary host of Fabric B and the secondary host of Fabric A. | 图中显示两个主机卡。主机A是结构A的主主机和结构B的从主机。类似地，主机B是结构B的主主机和结构A的从主机。 |
 | Each host is connected to the fabric it serves via a transparent bridge/switch port and to the fabric for which it provides only backup via a non-transparent bridge/switch port. These non-transparent ports are used for host-to-host communications and also support cross-domain peer-to-peer transfers where address maps do not allow a more direct connection. | 每个主机通过透明桥接器/交换机端口连接到其所服务的结构，并通过非透明桥接器/交换机端口连接到其仅提供备份的结构。这些非透明端口用于主机间通信，并在地址映射不允许更直接连接的情况下支持跨域对等传输。 |
 
-Figure 0-7: Dual-Star Fabric
+Figure 0-7: Dual-Star Fabric | 图0-7：双星型结构
 
-![](images/part06_69ca642d9ad66b908a02f832e8d4df8a1e3ead77d74ca0a56383a15939f36816.jpg)
+<img src="images/part06_69ca642d9ad66b908a02f832e8d4df8a1e3ead77d74ca0a56383a15939f36816.jpg" width="700" alt="">
 
 ## Summary | 总结
 
@@ -242,8 +242,8 @@ The addresses of all upstream and downstream transactions are translated (except
 </tr>
 </table>
 
-Figure 0-8: Direct Address Translation
-![](images/part06_b9f658a82478d41670c0713da32fb2eee4cb996c6d3204c17970773156d57fed.jpg)
+Figure 0-8: Direct Address Translation | 图0-8：直接地址转换
+<img src="images/part06_b9f658a82478d41670c0713da32fb2eee4cb996c6d3204c17970773156d57fed.jpg" width="700" alt="">
 
 ## Lookup Table Based Address Translation | 基于查找表的地址转换
 
@@ -269,8 +269,8 @@ On the secondary side, BAR3 uses a special lookup table based address translatio
 </tr>
 </table>
 
-Figure 0‐9: Lookup Table Based Translation  
-![](images/part06_46e325e25efdfe78f84ef0cb38c00866541e316a5f27b0f5e056285f1bce257c.jpg)
+Figure 0‐9: Lookup Table Based Translation | 图0‐9：基于查找表的转换  
+<img src="images/part06_46e325e25efdfe78f84ef0cb38c00866541e316a5f27b0f5e056285f1bce257c.jpg" width="700" alt="">
 
 ## Downstream BAR Limit Registers | 下游BAR限制寄存器
 
@@ -285,8 +285,8 @@ The two downstream BARs on the primary side (BAR2/3 and BAR4/5) also have Limit 
 </tr>
 </table>
 
-Figure 0‐10: Use of Limit Register
-![](images/part06_16fce13f8a5cd71d166a65ba7b9fcbcd49e7b122d14528f1c3be9b36c0ede20a.jpg)
+Figure 0‐10: Use of Limit Register | 图0‐10：限制寄存器的使用
+<img src="images/part06_16fce13f8a5cd71d166a65ba7b9fcbcd49e7b122d14528f1c3be9b36c0ede20a.jpg" width="700" alt="">
 
 ## Forwarding 64bit Address Memory Transactions | 转发64位地址存储器事务
 
@@ -735,8 +735,8 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-Figure D-1: Lock Sequence Begins with Memory Read Lock Request
-![](images/part06_f6913aa97476401663ef2a81abb4e6b5da7417c5e2f611200ca27786fdc6951b.jpg)
+Figure D-1: Lock Sequence Begins with Memory Read Lock Request | 图D-1：锁定序列以存储器读锁定请求开始
+<img src="images/part06_f6913aa97476401663ef2a81abb4e6b5da7417c5e2f611200ca27786fdc6951b.jpg" width="700" alt="">
 
 ## Read Data Modified and Written to Target and Lock Completes | 读数据被修改并写入目标，锁定完成
 
@@ -828,8 +828,8 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 </tr>
 </table>
 
-Figure D-2: Lock Completes with Memory Write Followed by Unlock Message
-![](images/part06_5b9488b3a211370278d851a4da3e757bbb0a8776bfad32d700487c491a9d52cb.jpg)
+Figure D-2: Lock Completes with Memory Write Followed by Unlock Message | 图D-2：锁定以存储器写后跟解锁消息完成
+<img src="images/part06_5b9488b3a211370278d851a4da3e757bbb0a8776bfad32d700487c491a9d52cb.jpg" width="700" alt="">
 
 ## Notification of an Unsuccessful Lock | 不成功锁定的通知
 
@@ -1574,8 +1574,8 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-Figure D‐1: Lock Sequence Begins with Memory Read Lock Request
-![](images/part06_f6913aa97476401663ef2a81abb4e6b5da7417c5e2f611200ca27786fdc6951b.jpg)
+Figure D‐1: Lock Sequence Begins with Memory Read Lock Request | 图D‐1：锁定序列以存储器读锁定请求开始
+<img src="images/part06_f6913aa97476401663ef2a81abb4e6b5da7417c5e2f611200ca27786fdc6951b.jpg" width="700" alt="">
 
 ## Read Data Modified and Written to Target and Lock Completes | 读取数据修改后写入目标并完成锁定
 
@@ -1680,8 +1680,8 @@ Root Complex's transmission of the Unlock message that releases the lock:
 </tr>
 </table>
 
-Figure D‐2: Lock Completes with Memory Write Followed by Unlock Message
-![](images/part06_5b9488b3a211370278d851a4da3e757bbb0a8776bfad32d700487c491a9d52cb.jpg)
+Figure D‐2: Lock Completes with Memory Write Followed by Unlock Message | 图D‐2：锁定以存储器写后跟解锁消息完成
+<img src="images/part06_5b9488b3a211370278d851a4da3e757bbb0a8776bfad32d700487c491a9d52cb.jpg" width="700" alt="">
 
 ## Notification of an Unsuccessful Lock | 锁定失败通知
 

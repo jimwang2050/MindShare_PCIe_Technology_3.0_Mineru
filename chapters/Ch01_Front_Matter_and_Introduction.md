@@ -53,7 +53,7 @@ PCI Express 技术
 </tr>
 </table>
 
-![](images/part01_bd6316ecf120ddff1378b0bbb71efdbcee731b0e24a2e03774f7a36afc462733.jpg)
+<img src="images/part01_bd6316ecf120ddff1378b0bbb71efdbcee731b0e24a2e03774f7a36afc462733.jpg" width="700" alt="">
 
 
 # Comprehensive Guide to Generations 1.x, 2.x and 3.0 | 1.x、2.x 及 3.0 代综合指南
@@ -156,7 +156,7 @@ MindShare 提供大量自定进度培训形式（在线学习）的课程。我�
 </tr>
 </table>
 
-![](images/part01_fabedc978fca82652e077628d3b7a144d3509d619e1a177f99fc364607fb5aa1.jpg)
+<img src="images/part01_fabedc978fca82652e077628d3b7a144d3509d619e1a177f99fc364607fb5aa1.jpg" width="700" alt="">
 
 
 # The Ultimate Tool to View, Edit and Verify Configuration Settings of a Computer | 查看、编辑和验证计算机配置设置的终极工具
@@ -15121,7 +15121,7 @@ MindShare 技术丛书系列包含表 1 中所列的书籍。
 </tr>
 </table>
 
-Table 1: PC Architecture Book Series
+Table 1: PC Architecture Book Series | 表1：PC架构丛书
 
 <table><tr><td>Category</td><td>Title</td><td>Edition</td><td>ISBN</td></tr><tr><td rowspan="7">Processor Architectures</td><td>x86 Instruction Set Architecture</td><td>1st</td><td>978-0-9770878-5-3</td></tr><tr><td>The Unabridged Pentium 4</td><td>1st</td><td>0-321-24656-X</td></tr><tr><td>Pentium Pro and Pentium II System Architecture</td><td>2nd</td><td>0-201-30973-4</td></tr><tr><td>Pentium Processor System Architecture</td><td>2nd</td><td>0-201-40992-5</td></tr><tr><td>Protected Mode Software Architecture</td><td>1st</td><td>0-201-55447-X</td></tr><tr><td>80486 System Architecture</td><td>3rd</td><td>0-201-40994-1</td></tr><tr><td>PowerPC 601 System Architecture</td><td>1st</td><td>0-201-40990-9</td></tr><tr><td rowspan="11">Interconnect Architectures</td><td>PCI Express Technology 1.x, 2.x, 3.0</td><td>1st</td><td>978-0-9770878-6-0</td></tr><tr><td>Universal Serial Bus System Architecture 3.0</td><td>1st</td><td>978-0-9836465-1-8</td></tr><tr><td>HyperTransport 3.1 Interconnect Technology</td><td>1st</td><td>978-0-9770878-2-2</td></tr><tr><td>PCI Express System Architecture</td><td>2nd</td><td>0-321-15630-7</td></tr><tr><td>Universal Serial Bus System Architecture 2.0</td><td>2nd</td><td>0-201-46137-4</td></tr><tr><td>HyperTransport System Architecture</td><td>1st</td><td>0-321-16845-3</td></tr><tr><td>PCI-X System Architecture</td><td>1st</td><td>0-201-72682-3</td></tr><tr><td>PCI System Architecture</td><td>4th</td><td>0-201-30974-2</td></tr><tr><td>Firewire System Architecture: IEEE 1394a</td><td>2nd</td><td>0-201-48535-4</td></tr><tr><td>EISA System Architecture</td><td>Out-of-print</td><td>0-201-40995-X</td></tr><tr><td>ISA System Architecture</td><td>3rd</td><td>0-201-40996-8</td></tr><tr><td>Network Architecture</td><td>InfiniBand Network Architecture</td><td>1st</td><td>0-321-11765-4</td></tr><tr><td rowspan="4">Other Architectures</td><td>PCMCIA System Architecture: 16-Bit PC Cards</td><td>2nd</td><td>0-201-40991-7</td></tr><tr><td>CardBus System Architecture</td><td>1st</td><td>0-201-40997-6</td></tr><tr><td>Plug and Play System Architecture</td><td>1st</td><td>0-201-41013-3</td></tr><tr><td>AGP System Architecture</td><td>1st</td><td>0-201-37964-3</td></tr><tr><td rowspan="2">Storage Technologies</td><td>SAS Storage Architecture</td><td>1st</td><td>978-0-9770878-0-8</td></tr><tr><td>SATA Storage Technology</td><td>1st</td><td>978-0-9770878-1-5</td></tr></table>
 
@@ -15690,7 +15690,7 @@ These earlier bus definitions are listed in Table 1-1 on page 11, which shows th
 </tr>
 </table>
 
-Table 1-1:  Comparison of Bus Frequency, Bandwidth and Number of Slots
+Table 1-1:  Comparison of Bus Frequency, Bandwidth and Number of Slots | 表1-1：总线频率、带宽和插槽数量的比较
 
 <table><tr><td>Bus Type</td><td>Clock Frequency</td><td>Peak Bandwidth 32-bit - 64-bit bus</td><td>Number of Card Slots per Bus</td></tr><tr><td>PCI</td><td>33 MHz</td><td>133 - 266 MB/s</td><td>4-5</td></tr><tr><td>PCI</td><td>66 MHz</td><td>266 - 533 MB/s</td><td>1-2</td></tr><tr><td>PCI-X 1.0</td><td>66 MHz</td><td>266 - 533 MB/s</td><td>4</td></tr><tr><td>PCI-X 1.0</td><td>133 MHz</td><td>533 - 1066 MB/s</td><td>1-2</td></tr><tr><td>PCI-X 2.0 (DDR)</td><td>133 MHz</td><td>1066 - 2132 MB/s</td><td>1 (point-to-point bus)</td></tr><tr><td>PCI-X 2.0 (QDR)</td><td>133 MHz</td><td>2132 - 4262 MB/s</td><td>1 (point-to-point bus)</td></tr></table>
 
@@ -15755,8 +15755,8 @@ The South Bridge was typically also the central resource for PCI that provided s
 </tr>
 </table>
 
-![](images/part01_27335e43881500fcba7bf8039fafeffbd5432b13f46ec8e6860dae353737c192.jpg)
-Figure 1-1: Legacy PCI Bus-Based Platform
+<img src="images/part01_27335e43881500fcba7bf8039fafeffbd5432b13f46ec8e6860dae353737c192.jpg" width="700" alt="">
+Figure 1-1: Legacy PCI Bus-Based Platform | 图1-1：基于传统PCI总线的平台
 
 ## PCI Bus Initiator and Target
 
@@ -15819,8 +15819,8 @@ According to the protocol, whenever the previous transaction finishes and the bu
 </tr>
 </table>
 
-Figure 1-2: PCI Bus Arbitration  
-![](images/part01_22d6be0e07ba099c1f0c2799d2843fa17a65c71bc5e7aecb00767acff80cd716.jpg)
+Figure 1-2: PCI Bus Arbitration | 图1-2：PCI总线仲裁  
+<img src="images/part01_22d6be0e07ba099c1f0c2799d2843fa17a65c71bc5e7aecb00767acff80cd716.jpg" width="700" alt="">
 
 ## Typical PCI Bus Cycle | 典型PCI总线周期
 
@@ -15932,8 +15932,8 @@ In keeping with the low cost design goal for PCI, several signals have more than
 </tr>
 </table>
 
-Figure 1-3: Simple PCI Bus Transfer
-![](images/part01_21c63a177c6e8db0027f681b5522a2d4059ea9a946ae3b050c3292fee37620d7.jpg)
+Figure 1-3: Simple PCI Bus Transfer | 图1-3：简单PCI总线传输
+<img src="images/part01_21c63a177c6e8db0027f681b5522a2d4059ea9a946ae3b050c3292fee37620d7.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -15962,8 +15962,8 @@ As the length of the trace and the number of electrical loads on a bus increase,
 </tr>
 </table>
 
-Figure 1-4: PCI Reflected-Wave Signaling
-![](images/part01_6e57e6b5c72eb19d7c166337bcdfa03fc93f9f6ab824e5034f80c461d34fb019.jpg)
+Figure 1-4: PCI Reflected-Wave Signaling | 图1-4：PCI反射波信令
+<img src="images/part01_6e57e6b5c72eb19d7c166337bcdfa03fc93f9f6ab824e5034f80c461d34fb019.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -15984,8 +15984,8 @@ PCI 桥是拓扑结构的扩展。每个桥创建一个新的 PCI 总线，该�
 </tr>
 </table>
 
-Figure 1-5: 33 MHz PCI System, Including a PCI-to-PCI Bridge
-![](images/part01_863423002256f4bc14466a3226976a98f34bfb7995af11345ce198b8b7f55945.jpg)
+Figure 1-5: 33 MHz PCI System, Including a PCI-to-PCI Bridge | 图1-5：33 MHz PCI系统，含PCI-to-PCI桥
+<img src="images/part01_863423002256f4bc14466a3226976a98f34bfb7995af11345ce198b8b7f55945.jpg" width="700" alt="">
 
 ## PCI Bus Architecture Perspective | PCI总线架构视角
 
@@ -16011,8 +16011,8 @@ PIO was commonly used in the early days of the PC because designers were relucta
 
 | The process works but is inefficient for two reasons. First, there are two bus cycles generated by the CPU for every data transfer, and second, the CPU is busy with data transfer housekeeping rather than more interesting work. In the early days this was the fastest transfer method and the single‐tasking processor didn't have much else to do. These types of inefficiencies are typically not acceptable in modern systems, so this method is no longer very common for data transfers, and instead the DMA method described in the next section is the preferred approach. However, programmed IO is still a necessary transaction model in order for software to interact with a device. | 这个过程可行但效率低下，原因有二。第一，每次数据传输CPU会产生两个总线周期；第二，CPU忙于数据传输的簿记工作，而非更有价值的任务。在早期，这是最快的传输方法，而且单任务处理器也没有太多其他事情可做。这类低效在现代系统中通常不可接受，因此这种方法在数据传输中已不再普遍，取而代之的是下一节描述的DMA方法，这也是目前的首选方案。然而，编程I/O仍然是软件与设备交互所必需的一种事务模型。 |
 
-![](images/part01_b53605b8d37744d231a8c79cc0b82a013b286a518fe76391d30056b3ae2c76eb.jpg)
-Figure 1-6: PCI Transaction Models
+<img src="images/part01_b53605b8d37744d231a8c79cc0b82a013b286a518fe76391d30056b3ae2c76eb.jpg" width="700" alt="">
+Figure 1-6: PCI Transaction Models | 图1-6：PCI事务模型
 
 ## Direct Memory Access (DMA) | 直接存储器访问 (DMA)
 
@@ -16084,8 +16084,8 @@ When a PCI master initiates a transaction to access a target device and the targ
 </tr>
 </table>
 
-![](images/part01_eb09c497d409916d80fddfa7593b59ef25bea7a1f6d93ebe7dce9fbf1e4e2690.jpg)
-Figure 1-7: PCI Transaction Retry Mechanism
+<img src="images/part01_eb09c497d409916d80fddfa7593b59ef25bea7a1f6d93ebe7dce9fbf1e4e2690.jpg" width="700" alt="">
+Figure 1-7: PCI Transaction Retry Mechanism | 图1-7：PCI事务重试机制
 
 <table>
 <tr>
@@ -16098,8 +16098,8 @@ Consider the following example in which the North bridge initiates a memory read
 </tr>
 </table>
 
-![Figure 1-8](images/part01_57885615fcb97ee162e046ed435021dc9d41ba0e249019fa0f203f7d58acac8b.jpg)
-Figure 1-8: PCI Transaction Disconnect Mechanism
+<img src="images/part01_57885615fcb97ee162e046ed435021dc9d41ba0e249019fa0f203f7d58acac8b.jpg" width="700" alt="Figure 1-8">
+Figure 1-8: PCI Transaction Disconnect Mechanism | 图1-8：PCI事务断开机制
 
 
 ## PCI Disconnect Protocol | PCI断开协议
@@ -16155,8 +16155,8 @@ PCI 设备可以选择性地在事务期间检测并报告地址阶段和数据�
 </tr>
 </table>
 
-Figure 1-9: PCI Error Handling
-![](images/part01_d101166c59da15ec294149d007b126d8c7247e132432f4912b28f3933e6bebf5.jpg)
+Figure 1-9: PCI Error Handling | 图1-9：PCI错误处理
+<img src="images/part01_d101166c59da15ec294149d007b126d8c7247e132432f4912b28f3933e6bebf5.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -16177,8 +16177,8 @@ In older machines, both PERR# and SERR# were connected to the error logic in the
 </tr>
 </table>
 
-![](images/part01_ba5280d1c80b10db8e5de47fcc4cb402f8ebf11c400b61b21e5340c3957ac9a1.jpg)
-Figure 1-10: Address Space Mapping
+<img src="images/part01_ba5280d1c80b10db8e5de47fcc4cb402f8ebf11c400b61b21e5340c3957ac9a1.jpg" width="700" alt="">
+Figure 1-10: Address Space Mapping | 图1-10：地址空间映射
 
 
 ## PCI Address Space Map | PCI 地址空间映射
@@ -16239,7 +16239,7 @@ Step 2: The CPU generates either an IO read or IO write to the Data Port at loca
 </tr>
 </table>
 
-Figure 1-11: Configuration Address Register
+Figure 1-11: Configuration Address Register | 图1-11：配置地址寄存器
 
 <table><tr><td></td><td>0CFBh</td><td>0CFAh</td><td>0CF9h</td><td>0CF8h</td></tr><tr><td>31 30</td><td>24 23</td><td>16 15</td><td>11 10</td><td>7 2 1 0</td></tr><tr><td></td><td>Reserved</td><td>Bus Number</td><td>Device Number</td><td>Function Number Doubleword 0 0</td></tr></table>
 
@@ -16266,11 +16266,11 @@ PCI 功能按其头标区类型分为两个基本类别。Type 1 头标区标识
 
 ## PCI Express Technology
 
-Figure 1-12: PCI Configuration Header Type 1 (Bridge)
-![](images/part01_49ec424c8231f6eea5fe09595e7566fb632679ad3d8c022202afb6802ede09e4.jpg)
+Figure 1-12: PCI Configuration Header Type 1 (Bridge) | 图1-12：PCI配置头类型1（桥）
+<img src="images/part01_49ec424c8231f6eea5fe09595e7566fb632679ad3d8c022202afb6802ede09e4.jpg" width="700" alt="">
 
-Figure 1-13: PCI Configuration Header Type 0 (not a Bridge)
-![](images/part01_309be0dd78c13eadc99f0fc99ddc29a43992e836e8477fe20addadeaf737607c.jpg)
+Figure 1-13: PCI Configuration Header Type 0 (not a Bridge) | 图1-13：PCI配置头类型0（非桥）
+<img src="images/part01_309be0dd78c13eadc99f0fc99ddc29a43992e836e8477fe20addadeaf737607c.jpg" width="700" alt="">
 
 
 ## PCI Express Technology | PCI Express 技术
@@ -16288,8 +16288,8 @@ Details of the configuration register space and the enumeration process are desc
 
 ## Higher-bandwidth PCI
 
-Figure 1-14: 66 MHz PCI Bus Based Platform
-![](images/part01_c4555b2f52ea498bae7de7abf87991fb4cc699ab803ee995cbde06f458ff2eff.jpg)
+Figure 1-14: 66 MHz PCI Bus Based Platform | 图1-14：基于66 MHz PCI总线的平台
+<img src="images/part01_c4555b2f52ea498bae7de7abf87991fb4cc699ab803ee995cbde06f458ff2eff.jpg" width="700" alt="">
 
 
 ## Higher-bandwidth PCI | 更高带宽的 PCI
@@ -16400,14 +16400,14 @@ bridge supports two PCI‐X buses that can run at frequencies up to 133MHz. The 
 </tr>
 </table>
 
-Figure 1‐15: 66 MHz/133 MHz PCI‐X Bus Based Platform
-![](images/part01_a40997bda98b7cd989a078ecea9d743fc2192a6741c26da9f07640cfd23056b7.jpg)
+Figure 1‐15: 66 MHz/133 MHz PCI‐X Bus Based Platform | 图1‐15：基于66 MHz/133 MHz PCI-X总线的平台
+<img src="images/part01_a40997bda98b7cd989a078ecea9d743fc2192a6741c26da9f07640cfd23056b7.jpg" width="700" alt="">
 
 ## PCI-X Transactions | PCI-X 事务
 
 
-![](images/part01_f418f43ac089b0da6d6f61dfc3aa3208ae33692a9564e237bc3afeb13c9c9acb.jpg)
-Figure 1‐16: Example PCI‐X Burst Memory Read Bus Cycle
+<img src="images/part01_f418f43ac089b0da6d6f61dfc3aa3208ae33692a9564e237bc3afeb13c9c9acb.jpg" width="700" alt="">
+Figure 1‐16: Example PCI‐X Burst Memory Read Bus Cycle | 图1‐16：PCI-X突发存储器读总线周期示例
 
 <table>
 <tr>
@@ -16468,8 +16468,8 @@ These protocol enhancements made to the PCI-X bus architecture described so far 
 </tr>
 </table>
 
-Figure 1-17: PCI-X Split Transaction Protocol
-![](images/part01_dc7f761323804fc0c82434c3eccdcf462bec5a73be437a83471925c51f403fe5.jpg)
+Figure 1-17: PCI-X Split Transaction Protocol | 图1-17：PCI-X分离事务协议
+<img src="images/part01_dc7f761323804fc0c82434c3eccdcf462bec5a73be437a83471925c51f403fe5.jpg" width="700" alt="">
 
 ## Message Signaled Interrupts | 消息信号中断 (MSI)
 
@@ -16542,8 +16542,8 @@ An issue that becomes clear when trying to migrate a bus like PCI to higher spee
 </tr>
 </table>
 
-![](images/part01_f13965b6aab47f4a646b6ae1c28b7e323cf21f21e8d71e09a970c5ce86320ba9.jpg)
-Figure 1‐18: Inherent Problems in a Parallel Design
+<img src="images/part01_f13965b6aab47f4a646b6ae1c28b7e323cf21f21e8d71e09a970c5ce86320ba9.jpg" width="700" alt="">
+Figure 1‐18: Inherent Problems in a Parallel Design | 图1‐18：并行设计中的固有问题
 
 <table>
 <tr>
@@ -16593,8 +16593,8 @@ It's important to note again that the very high-speed signal timing eliminates t
 </tr>
 </table>
 
-![](images/part01_3911a74a375e86d594f70fe7f7dcceff4c54b74d9cc5d0a6662b8e40e7940217.jpg)
-Figure 1-19: Source-Synchronous Clocking Model
+<img src="images/part01_3911a74a375e86d594f70fe7f7dcceff4c54b74d9cc5d0a6662b8e40e7940217.jpg" width="700" alt="">
+Figure 1-19: Source-Synchronous Clocking Model | 图1-19：源同步时钟模型
 
 <table>
 <tr>

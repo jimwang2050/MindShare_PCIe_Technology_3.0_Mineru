@@ -102,8 +102,8 @@ Transmitters Check Credits — Before it can send a TLP, a transmitter checks th
 </tr>
 </table>
 
-Figure 6‑1: Location of Flow Control Logic
-![](images/part02_d786ec1d97b435b78e33846a3f858379e154d1569a2efa911540f1625bbbb97f.jpg)
+Figure 6‑1: Location of Flow Control Logic | 图6‑1：流控逻辑位置
+<img src="images/part02_d786ec1d97b435b78e33846a3f858379e154d1569a2efa911540f1625bbbb97f.jpg" width="700" alt="">
 
 ## Flow Control Buffers and Credits | 流控缓冲与信用
 
@@ -177,8 +177,8 @@ Some transactions, like read requests, consist of a header only while others, li
 </tr>
 </table>
 
-![](images/part02_023566aa0c210732f66c53481330a405e826915412ed7bde9caf6d1ade7a21a4.jpg)
-Figure 6-2: Flow Control Buffer Organization
+<img src="images/part02_023566aa0c210732f66c53481330a405e826915412ed7bde9caf6d1ade7a21a4.jpg" width="700" alt="">
+Figure 6-2: Flow Control Buffer Organization | 图6-2：流控缓冲组织
 
 ## Flow Control Credits | 流控信用量
 
@@ -259,11 +259,11 @@ The specification defines the minimum number of credits that can be reported for
 </tr>
 </table>
 
-Table 6‑1: Required Minimum Flow Control Advertisements
+Table 6‑1: Required Minimum Flow Control Advertisements | 表6‑1：所需最小流控通告
 
 <table><tr><td>Credit Type</td><td>Minimum Advertisement</td></tr><tr><td>Posted Request Header (PH)</td><td>1 unit. Credit Value = one 4DW HDR + Digest = 5DW.</td></tr><tr><td>Posted Request Data (PD)</td><td>Largest possible setting of the Max_Payload_Size in credits. Example: If the largest Max_Payload_Size value supported is 1024 bytes, the smallest permitted initial credit value would be 040h.</td></tr><tr><td>Non-Posted Request HDR (NPH)</td><td>1 unit. Credit Value = one 4 DW HDR + Digest = 5DW.</td></tr><tr><td>Non-Posted Request Data (NPD)</td><td>1 unit. Credit Value = 4DW.2 unit. Receivers supporting AtomicOp routing or AtomicOp Completer capability have credit value of 02h</td></tr><tr><td>Completion HDR (CPLH)</td><td>1 unit. Credit Value = one 3DW HDR + Digest = 4DW; for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's for Root Complex with no peer-to-peer support and Endpoints.</td></tr><tr><td>Completion Data (CPLD)</td><td>n unit. Value of largest possible setting of Max_Payload_Size or size of largest Read Request (which ever is smaller) divided by FC Unit Size (4DW); for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's; for Root Complex with no peer-to-peer support and Endpoints.</td></tr></table>
 
-Table 6‑2: Maximum Flow Control Advertisements
+Table 6‑2: Maximum Flow Control Advertisements | 表6‑2：最大流控通告
 
 <table><tr><td>Credit Type</td><td>Maximum Advertisement</td></tr><tr><td>Posted Request Header (PH)</td><td>128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td>Posted Request Data (PD)</td><td>2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytes</td></tr><tr><td>Non-Posted Request HDR (NPH)</td><td>128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td>Non-Posted Request Data (NPD)</td><td>The author's could not find a precise value for the maximum number of credits for Non-Posted Data. The maximum number of credits listed for Data is 2048. However, a more reasonable approach might use the Non-Posted header limit of 128 credits, because Non-Posted Data is always associated with Non-Posted Headers.</td></tr><tr><td>Completion HDR (CPLH)</td><td>128 units. 128 credits @ 5 DWs = 2,560 bytes. This in the limit for ports that do not originate transactions (e.g., Root Complex with peer-to-peer support and Switches).Infinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr><tr><td>Completion Data (CPLD)</td><td>2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by a device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytesInfinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr></table>
 
@@ -323,9 +323,9 @@ Non-posted Write requests and return of Completion Status
 |---|---|
 | Prior to sending any transactions, flow control initialization is needed. In fact, TLPs cannot be sent across the Link until Flow Control Initialization is performed successfully. Initialization occurs on every Link in the system and involves a handshake between the devices at each end of a link. This process begins as soon as the Physical Layer link training has completed. The Link Layer knows the Physical Layer is ready when it observes the LinkUp signal is active, as illustrated in Figure 6-3. | 在发送任何事务之前，需要进行流控初始化。实际上，在流控初始化成功完成之前，TLP无法通过链路发送。初始化在系统中的每条链路上进行，涉及链路两端设备之间的握手。一旦物理层链路训练完成，该过程即开始。当数据链路层观察到LinkUp信号有效时，就知道物理层已就绪，如图6-3所示。 |
 
-Figure 6-3: Physical Layer Reports That It's Ready
+Figure 6-3: Physical Layer Reports That It's Ready | 图6-3：物理层报告就绪
 
-![](images/part02_54e12e01aa03e4379dcd32828df148c16b032beeb09488f10af286ed8439b988.jpg)
+<img src="images/part02_54e12e01aa03e4379dcd32828df148c16b032beeb09488f10af286ed8439b988.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -338,8 +338,8 @@ Figure 6-3: Physical Layer Reports That It's Ready
 |---|---|
 | The flow control initialization process involves the Link Layer's DLCMSM (Data Link Control and Management State Machine). As shown in Figure 6-4 on page 223, a reset puts the state machine into the DL_Inactive state. While in the DL_Inactive state, DL_Down is signaled to both the Link and Transaction Layers. Meanwhile, it waits to see LinkUp from the Physical Layer to indicate that the LTSSM has finished its work and the Physical Layer is ready. That causes a transition to the DL_Init sub-state, which contains two stages that handle flow control initialization: FC_INIT1 and FC_INIT2. | 流控初始化过程涉及数据链路层的DLCMSM（数据链路控制与管理状态机）。如第223页图6-4所示，复位使状态机进入DL_Inactive状态。在DL_Inactive状态期间，DL_Down被通知给链路层和事务层。同时，它等待来自物理层的LinkUp信号，以指示LTSSM已完成其工作且物理层已就绪。这导致转换到DL_Init子状态，该子状态包含处理流控初始化的两个阶段：FC_INIT1和FC_INIT2。 |
 
-Figure 6-4: The Data Link Control & Management State Machine
-![](images/part02_de91fb109446b91494463626952bd896773d600785c8df5647b5802d71a90c52.jpg)
+Figure 6-4: The Data Link Control & Management State Machine | 图6-4：数据链路控制与管理状态机
+<img src="images/part02_de91fb109446b91494463626952bd896773d600785c8df5647b5802d71a90c52.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -347,11 +347,11 @@ Figure 6-4: The Data Link Control & Management State Machine
 | During the FC\_INIT1 state, devices continuously send a sequence of 3 InitFC1 Flow Control DLLPs advertising their receiver buffer sizes (see Figure 6‐5). According to the spec, the packets must be sent in this order: Posted, Nonposted, and Completions as illustrated in Figure 6‐6 on page 225. The specification strongly encourages that these be repeated frequently to make it easier for the receiving device to see them, especially if there are no TLPs or DLLPs to send. | 在 FC\_INIT1 状态下，设备持续发送由 3 个 InitFC1 流控 DLLP 组成的序列，通告其接收缓冲区大小（见图 6‐5）。根据规范，这些报文必须按以下顺序发送：Posted、Nonposted 和 Completions，如第 225 页图 6‐6 所示。规范强烈建议频繁重复发送这些序列，以便接收设备更容易识别到它们，尤其是在没有 TLP 或 DLLP 需要发送时。 |
 | Each device should also receive this sequence from its neighbor so it can register the buffer sizes. Once a device has sent its own values and received the complete sequence enough times to be confident that the values were seen correctly, it's ready to exit FC\_INIT1. To do that, it records the received values in its transmit counters, sets an internal flag (FL1), and changes to the FC\_INIT2 state to begin the second initialization step. | 每个设备还应从其链路对端接收该序列，以便记录对方的缓冲区大小。一旦设备发送了自身的值，并足够多次地接收到完整的序列以确保对方已正确收到这些值，即可退出 FC\_INIT1。为此，设备将接收到的值记录到其发送计数器中，设置一个内部标志（FL1），然后切换到 FC\_INIT2 状态以开始第二步初始化。 |
 
-Figure 6‐5: INIT1 Flow Control DLLP Format and Contents
-![](images/part02_fb0decb7bc207d371ce9d41477d9f4a1d69d6ba5a1e511e0d94f1144e96e0030.jpg)
+Figure 6‐5: INIT1 Flow Control DLLP Format and Contents | 图6‐5：INIT1流控DLLP格式和内容
+<img src="images/part02_fb0decb7bc207d371ce9d41477d9f4a1d69d6ba5a1e511e0d94f1144e96e0030.jpg" width="700" alt="">
 
-Figure 6‐6: Devices Send InitFC1 in the DL\_Init State
-![](images/part02_bc4eb68d4c7fee927910e66a26a61152bd73805f2283f3c38706cbea17131594.jpg)
+Figure 6‐6: Devices Send InitFC1 in the DL\_Init State | 图6‐6：设备在DL_Init状态下发送InitFC1
+<img src="images/part02_bc4eb68d4c7fee927910e66a26a61152bd73805f2283f3c38706cbea17131594.jpg" width="700" alt="">
 
 ## FC_Init2 Details | FC_Init2 详情
 
@@ -374,8 +374,8 @@ Why is this second initialization step needed? The simple answer is that neighbo
 </tr>
 </table>
 
-Figure 6-7: FC Values Registered - Send InitFC2s, Report DL_Up
-![](images/part02_5cd25435ccd57025b05bd860a7062084b0cb9f679e3881614c49a8de9c6fdea8.jpg)
+Figure 6-7: FC Values Registered - Send InitFC2s, Report DL_Up | 图6-7：注册FC值 - 发送InitFC2，报告DL_Up
+<img src="images/part02_5cd25435ccd57025b05bd860a7062084b0cb9f679e3881614c49a8de9c6fdea8.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -432,9 +432,9 @@ The specification defines the latency between sending FC_INIT DLLPs as follows:
 | Figure 6‑8 illustrates the elements used for managing flow control. The diagram shows transactions flowing in a single direction across a Link, and another set of these elements supports transfers in the opposite direction. The primary function of each element is listed below. While these Flow Control elements are duplicated for all six receive buffers, for simplicity this example only deals with non‑posted header flow control. | 图6-8展示了用于管理流控的元素。该图显示了事务在链路上单向流动的情况，另一组相同的元素则支持相反方向的传输。每个元素的主要功能如下所列。虽然这些流控元素对所有六个接收缓冲区都是重复的，但为简化起见，本示例仅涉及非发布请求头的流控。 |
 | One final element associated with managing flow control is the Flow Control Update DLLP. This is the only Flow Control packet that is used during normal transmission. The format of the FC Update packet is illustrated in Figure 6‑9 on page 229. | 与管理流控相关的最后一个元素是流控更新DLLP。这是在正常传输过程中使用的唯一流控报文。FC更新报文的格式如图6-9（第229页）所示。 |
 
-Figure 6‑8: Flow Control Elements
+Figure 6‑8: Flow Control Elements | 图6‑8：流控元素
 
-![](images/part02_42362f326051b32a1b6017a8abb20f54beafb43cc3ee1623bfd8213166cccb9a.jpg)
+<img src="images/part02_42362f326051b32a1b6017a8abb20f54beafb43cc3ee1623bfd8213166cccb9a.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -460,8 +460,8 @@ $$
 | Credit Allocated — tracks the total Flow Control credits that have been allocated (made available). It's initialized by hardware to reflect the size of the associated Flow Control buffer. The buffer fills as transactions arrive but then they are eventually removed from the buffer by the core logic at the receiver. When they are removed, the number of Flow Control credits is added to the CREDIT_ALLOCATED counter. Thus the counter tracks the number of credits currently available. | Credit Allocated（已分配信用）——跟踪已分配（已提供）的流控信用总数。由硬件初始化以反映关联流控缓冲区的大小。当事务到达时缓冲区被填充，但随后接收端的核心逻辑会将它们从缓冲区中移除。当它们被移除时，流控信用数被加到CREDIT_ALLOCATED计数器上。因此该计数器跟踪当前可用的信用数。 |
 | Credits Received counter (optional) — tracks the total credits of all TLPs received into the Flow Control buffer. When flow control is functioning properly, the CREDITS_RECEIVED count should be equal to or less than the CREDIT_ALLOCATED count. If this test ever becomes false, a flow control buffer overflow has occurred and an error is detected. The spec recommends that this optional mechanism be implemented and notes that a failure here will be considered a fatal error. | Credits Received计数器（可选）——跟踪接收到流控缓冲区中的所有TLP的信用总数。当流控正常工作时，CREDITS_RECEIVED计数值应等于或小于CREDIT_ALLOCATED计数值。若该检查结果为假，则发生了流控缓冲区溢出并检测到错误。规范建议实现该可选机制，并指出此处失效将被视为致命错误(fatal error)。 |
 
-Figure 6‐9: Types and Format of Flow Control DLLPs
-![](images/part02_0faa0be1ab74190a28a3d4d08f3049c677e1a521ac64dd64196c85f12e87983d.jpg)
+Figure 6‐9: Types and Format of Flow Control DLLPs | 图6‐9：流控DLLP的类型和格式
+<img src="images/part02_0faa0be1ab74190a28a3d4d08f3049c677e1a521ac64dd64196c85f12e87983d.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -493,11 +493,11 @@ Figure 6‐9: Types and Format of Flow Control DLLPs
 | Is result <= 80h? Yes. If the subtraction result is equal to or less than half the max value, which is tracked with a modulo 256 counter (128), then we know there is sufficient space in the receiver buffer and this packet can be sent. The decision to use only half the counter value avoids a potential count alias problem. See "Stage 3 — Counters Roll Over" on page 234. | 结果是否 <= 80h？是。如果减法结果小于或等于最大值的一半（使用模256计数器即128），则可知接收端缓冲区有足够的空间，可以发送该报文。仅使用计数器值的一半来决策，可避免潜在的计数别名问题。参见第234页的"阶段3 — 计数器翻转"。 |
 | ```txt CL 01100111 (67) CR 10011001 add 2's complement of 67 00000000 = 00h<=80h (true, send transaction ``` | ```txt CL 01100111 (67) CR 10011001 add 2's complement of 67 00000000 = 00h<=80h (true, send transaction ``` |
 
-Figure 6‑10: Flow Control Elements Following Initialization
-![](images/part02_1f759c9b27bbd0e2884aa9a1040b8ae21035a87de9f175b3f8f7e80ae05801a3.jpg)
+Figure 6‑10: Flow Control Elements Following Initialization | 图6‑10：初始化后的流控元素
+<img src="images/part02_1f759c9b27bbd0e2884aa9a1040b8ae21035a87de9f175b3f8f7e80ae05801a3.jpg" width="700" alt="">
 
-Figure 6‑11: Flow Control Elements After First TLP Sent
-![](images/part02_6668b06389284668f5eecd9f411a0c42da98c92d5f80af28055c956a31c8b258.jpg)
+Figure 6‑11: Flow Control Elements After First TLP Sent | 图6‑11：发送首个TLP后的流控元素
+<img src="images/part02_6668b06389284668f5eecd9f411a0c42da98c92d5f80af28055c956a31c8b258.jpg" width="700" alt="">
 
 ## Stage 2 — Flow Control Buffer Fills Up / 阶段2 — 流控缓冲器填满
 
@@ -508,8 +508,8 @@ Figure 6‑11: Flow Control Elements After First TLP Sent
 | ```txt<br>CR 10011001 (add 2's complement of 67h)<br>11111111 = FFh<=80h (not true; don't send packet)<br>``` | ```txt<br>CR 10011001 (add 2's complement of 67h)<br>11111111 = FFh<=80h (not true; don't send packet)<br>``` |
 | This channel is blocked until an Update Flow Control DLLP is received with a new CREDIT\_LIMIT value of 67h or greater. When the new valued is loaded into the CL register the transmitter credit check will pass the test and a TLP can be sent. | 该通道被阻塞，直到收到一个带有新的CREDIT\_LIMIT值（67h或更大）的更新流控DLLP。当新值被加载到CL寄存器后，发送方的信用量检查将可通过测试，并可以发送TLP。 |
 
-Figure 6‐12: Flow Control Elements with Flow Control Buffer Filled
-![](images/part02_10baf780e45f50c4249a7205fecbcc84862daf9d230eb799fffc64c5c8fe4d79.jpg)
+Figure 6‐12: Flow Control Elements with Flow Control Buffer Filled | 图6‐12：流控缓冲已满时的流控元素
+<img src="images/part02_10baf780e45f50c4249a7205fecbcc84862daf9d230eb799fffc64c5c8fe4d79.jpg" width="700" alt="">
 
 ## Stage 3 — Counters Roll Over / 阶段3 — 计数器回绕
 
@@ -517,8 +517,8 @@ Figure 6‐12: Flow Control Elements with Flow Control Buffer Filled
 |---|---|
 | Since the Credit Limit (CL) and Credits Required (CR) counts only increment upward, they eventually roll over back to zero. When CL rolls over and CR has not, the credit check (CL‐CR) results in a small CL value and a large CR value. However, what might appear to be a problem is not when using unsigned arithmetic. As described in the previous examples the results are handled correctly when performing 2's complement subtraction. Figure 6‐13 on page 235 shows the CL and CR counts before and after CL rollover along with the 2's complement results. | 由于信用额度(CL)和所需信用量(CR)计数只递增，它们最终会回绕到零。当CL回绕而CR尚未回绕时，信用量检查(CL-CR)会得到小的CL值和大的CR值。然而，在使用无符号算术时，看似问题的情况实际上并非问题。如前例所述，执行2的补码减法时，结果会被正确处理。图6‐13（第235页）显示了CL回绕前后CL和CR的计数值以及2的补码结果。 |
 
-Figure 6‐13: Flow Control Rollover Problem
-![](images/part02_d7bbf66f20b0b0bc1d8c682e68c8ffe25f57b3d5de1d761943c1c05b36f70a67.jpg)
+Figure 6‐13: Flow Control Rollover Problem | 图6‐13：流控翻转问题
+<img src="images/part02_d7bbf66f20b0b0bc1d8c682e68c8ffe25f57b3d5de1d761943c1c05b36f70a67.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
@@ -529,8 +529,8 @@ Figure 6‐13: Flow Control Rollover Problem
 | $$(C A - C R) \text { mod } 2 ^ {[ F i e l d S i z e ]} > 2 ^ {[ F i e l d S i z e ]} / 2$$ | $$(C A - C R) \text { mod } 2 ^ {[ F i e l d S i z e ]} > 2 ^ {[ F i e l d S i z e ]} / 2$$ |
 | If it does evaluate true, then more credits have been sent to the FC buffer than were available and an overflow has occurred. Note that the 1.0a version of the specification defines the equation as ≥ rather than > as shown above. That appears to be an error, because when CA = CR no overflow condition exists. | 如果确实评估为真，则表明发送到FC缓冲区的信用量超过了可用信用量，发生了溢出。注意，1.0a版本的规范将公式定义为≥而不是上面所示的>。这似乎是一个错误，因为当CA=CR时不存在溢出条件。 |
 
-Figure 6-14: Buffer Overflow Error Check  
-![](images/part02_f45bdc971482dde76bcd7a9e7664cc934a2f2f347dbf1add5a50520ad4d8af58.jpg)
+Figure 6-14: Buffer Overflow Error Check | 图6-14：缓冲溢出错误检查  
+<img src="images/part02_f45bdc971482dde76bcd7a9e7664cc934a2f2f347dbf1add5a50520ad4d8af58.jpg" width="700" alt="">
 
 ## Flow Control Updates / 流控更新
 
@@ -540,8 +540,8 @@ Figure 6-14: Buffer Overflow Error Check
 | An interesting note here is that the update reports the actual value of the Credits Allocated register. It would have worked to report just the change in the register, as perhaps "+3 credits on NP Headers" for example, but that represents a potential problem. To understand the risk, consider what would happen if the DLLP containing that increment information was lost for some reason. There is no replay mechanism for DLLPs; if an error occurs the packet is simply dropped. In this case, the increment information would be lost without a means of recovering it. | 这里有一个值得注意的要点：更新报告的是 Credits Allocated 寄存器的实际值。仅报告寄存器的变化量（例如"NP 头标 +3 信用量"）本也可行，但这存在潜在问题。为了理解其中的风险，请考虑如果包含该增量信息的 DLLP 因某种原因丢失会发生什么。DLLP 没有重播机制；如果发生错误，该报文会被直接丢弃。在这种情况下，增量信息将丢失且无法恢复。 |
 | If, on the other hand, the actual value of the register is reported instead and the DLLP fails, the next DLLP that succeeds will get the counters back in synchronization. In that case some time might be wasted if the transmitter is waiting on the FC credits before it can send the next TLP, but no information is lost. | 反之，如果改为报告寄存器的实际值，并且 DLLP 传输失败，那么下一个成功传输的 DLLP 将使计数器重新同步。在这种情况下，如果发送方正在等待 FC 信用量才能发送下一个 TLP，则可能会浪费一些时间，但不会丢失任何信息。 |
 
-Figure 6-15: Flow Control Update Example
-![](images/part02_715844a16965a4275f298ac264d83094f3578ec1e5b01a5fe0ed5151beeff20b.jpg)
+Figure 6-15: Flow Control Update Example | 图6-15：流控更新示例
+<img src="images/part02_715844a16965a4275f298ac264d83094f3578ec1e5b01a5fe0ed5151beeff20b.jpg" width="700" alt="">
 
 ## FC_Update DLLP 格式与内容
 
@@ -549,8 +549,8 @@ Figure 6-15: Flow Control Update Example
 |---|---|
 | Recall that Flow Control update packets, like the Flow Control initialization packets, contain two credit fields, one for header and one for data, as shown in Figure 6‐16 on page 239. The receiver’s credit values reported in the HdrFC and DataFC fields may have been updated many times or not at all since the last update packet was sent. | 回想一下，流控更新报文（Flow Control update packets）与流控初始化报文一样，包含两个信用量字段，一个用于头标，一个用于数据，如第239页的图6‐16所示。自上次发送更新报文以来，接收方在 HdrFC 和 DataFC 字段中报告的信用量值可能已更新多次，也可能根本未更新。 |
 
-Figure 6‐16: Update Flow Control Packet Format and Contents
-![](images/part02_fde64227c5b68060559c40261e02f5492aa43e27e574a0e5eef46bd81625d69e.jpg)
+Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更新流控数据包格式和内容
+<img src="images/part02_fde64227c5b68060559c40261e02f5492aa43e27e574a0e5eef46bd81625d69e.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -604,15 +604,15 @@ $$
 |---|---|
 | The relationship defined by the formula shows that the frequency of update packet delivery decreases as the Linkwidth increases and suggests a timer that triggers scheduling of update packets. Note that this formula does not account for delays associated with the receiver or transmitter being in the L0s power management state. | 公式定义的关系表明，更新包交付频率随着链路宽度增加而降低，并暗示存在一个触发更新包调度的定时器。请注意，该公式未考虑接收器或发射器处于L0s电源管理状态所带来的延迟。 |
 
-Table 6‑3: Gen1 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times)
+Table 6‑3: Gen1 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6‑3：Gen1未调整的AckNak_LATENCY_TIMER值（符号时间）
 
 <table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>237UF=1.4</td><td>128UF=1.4</td><td>73UF=1.4</td><td>67UF=2.5</td><td>58UF=3.0</td><td>48UF=3.0</td><td>33UF=3.0</td></tr><tr><td>256 Bytes</td><td>416FC=1.4</td><td>217FC=1.4</td><td>118UF=1.4</td><td>107UF=2.5</td><td>90UF=3.0</td><td>72UF=3.0</td><td>45UF=3.0</td></tr><tr><td>512 Bytes</td><td>559UF=1.0</td><td>289UF=1.0</td><td>154UF=1.0</td><td>86UF=1.0</td><td>109UF=2.0</td><td>86UF=2.0</td><td>52UF=2.0</td></tr><tr><td>1024 Bytes</td><td>1071UF=1.0</td><td>545UF=1.0</td><td>282UF=1.0</td><td>150UF=1.0</td><td>194UF=2.0</td><td>150UF=2.0</td><td>84UF=2.0</td></tr><tr><td>2048 Bytes</td><td>2095UF=1.0</td><td>1057UF=1.0</td><td>538UF=1.0</td><td>278UF=1.0</td><td>365UF=2.0</td><td>278UF=2.0</td><td>148UF=2.0</td></tr><tr><td>4096 Bytes</td><td>4143UF=1.0</td><td>2081UF=1.0</td><td>1050UF=1.0</td><td>534UF=1.0</td><td>706UF=2.0</td><td>534UF=2.0</td><td>276UF=2.0</td></tr></table>
 
-Table 6‑4: Gen2 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times)
+Table 6‑4: Gen2 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6‑4：Gen2未调整的AckNak_LATENCY_TIMER值（符号时间）
 
 <table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>288UF=1.4</td><td>179UF=1.4</td><td>124UF=1.4</td><td>118UF=2.5</td><td>109UF=3.0</td><td>99UF=3.0</td><td>84UF=3.0</td></tr><tr><td>256 Bytes</td><td>467FC=1.4</td><td>268FC=1.4</td><td>169UF=1.4</td><td>158UF=2.5</td><td>141UF=3.0</td><td>123UF=3.0</td><td>96UF=3.0</td></tr><tr><td>512 Bytes</td><td>610UF=1.0</td><td>340UF=1.0</td><td>205UF=1.0</td><td>137UF=1.0</td><td>160UF=2.0</td><td>137UF=2.0</td><td>103UF=2.0</td></tr><tr><td>1024 Bytes</td><td>1122UF=1.0</td><td>596UF=1.0</td><td>333UF=1.0</td><td>201UF=1.0</td><td>245UF=2.0</td><td>201UF=2.0</td><td>135UF=2.0</td></tr><tr><td>2048 Bytes</td><td>2146UF=1.0</td><td>1108UF=1.0</td><td>589UF=1.0</td><td>329UF=1.0</td><td>416UF=2.0</td><td>329UF=2.0</td><td>199UF=2.0</td></tr><tr><td>4096 Bytes</td><td>4194UF=1.0</td><td>2132UF=1.0</td><td>1101UF=1.0</td><td>585UF=1.0</td><td>757UF=2.0</td><td>585UF=2.0</td><td>327UF=2.0</td></tr></table>
 
-Table 6‑5: Gen3 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times)
+Table 6‑5: Gen3 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6‑5：Gen3未调整的AckNak_LATENCY_TIMER值（符号时间）
 
 <table><tr><td>Max Payload</td><td>x1 Link</td><td>x2 Link</td><td>x4 Link</td><td>x8 Link</td><td>x12 Link</td><td>x16 Link</td><td>x32 Link</td></tr><tr><td>128 Bytes</td><td>333UF=1.4</td><td>224UF=1.4</td><td>169UF=1.4</td><td>163UF=2.5</td><td>154UF=3.0</td><td>144UF=3.0</td><td>129UF=3.0</td></tr><tr><td>256 Bytes</td><td>512FC=1.4</td><td>313FC=1.4</td><td>214UF=1.4</td><td>203UF=2.5</td><td>186UF=3.0</td><td>168UF=3.0</td><td>141UF=3.0</td></tr><tr><td>512 Bytes</td><td>655UF=1.0</td><td>385UF=1.0</td><td>250UF=1.0</td><td>182UF=1.0</td><td>205UF=2.0</td><td>182UF=2.0</td><td>148UF=2.0</td></tr><tr><td>1024 Bytes</td><td>1167UF=1.0</td><td>641UF=1.0</td><td>378UF=1.0</td><td>246UF=1.0</td><td>290UF=2.0</td><td>246UF=2.0</td><td>180UF=2.0</td></tr><tr><td>2048 Bytes</td><td>2191UF=1.0</td><td>1153UF=1.0</td><td>643UF=1.0</td><td>374UF=1.0</td><td>461UF=2.0</td><td>374UF=2.0</td><td>244UF=2.0</td></tr><tr><td>4096 Bytes</td><td>4239UF=1.0</td><td>2177UF=1.0</td><td>1146UF=1.0</td><td>630UF=1.0</td><td>802UF=2.0</td><td>630UF=2.0</td><td>372UF=2.0</td></tr></table>
 

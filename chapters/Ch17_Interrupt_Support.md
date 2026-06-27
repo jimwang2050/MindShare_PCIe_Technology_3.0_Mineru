@@ -16,9 +16,9 @@
 |---|---|
 | Software controls the Hot Plug events through the Slot Control register, shown in Figure 19-6 on page 868. This register permits software to enable various Hot Plug features and control hot plug operations. It's also used to enable interrupt generation as well as enabling the sources of Hot-Plug events that can result in interrupt generation. | 软件通过槽位控制寄存器（Slot Control Register）控制热插拔事件，如图19-6（第868页）所示。该寄存器允许软件启用各种热插拔特性并控制热插拔操作。它还用于启用中断生成以及使能可能导致中断产生的热插拔事件源。 |
 
-Figure 19-6: Slot Control Register
+Figure 19-6: Slot Control Register | 图19-6：插槽控制寄存器
 
-![](images/part06_dacd864be890f81c21feacf778a636f8c02b23140f6e06c9e47ef47e4631d8a8.jpg)
+<img src="images/part06_dacd864be890f81c21feacf778a636f8c02b23140f6e06c9e47ef47e4631d8a8.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -32,8 +32,8 @@ Figure 19-6: Slot Control Register
 | ## Slot Status and Events Management | ## 插槽状态与事件管理 |
 | The Hot Plug Controller monitors a variety of events and reports these events to the Hot Plug System Driver. Software can use the "detected" bits to determine which event has occurred, while the status bit identifies that nature of the change. The changed bits must be cleared by software in order to detect a subsequent change. Note that whether these events get reported to the system (via a system interrupt) is determined by the related enable bits in the Slot Control Register. | 热插拔控制器监控各种事件并将这些事件报告给热插拔系统驱动程序。软件可以使用"已检测"位来确定哪个事件已发生，而状态位则标识变化的性质。必须由软件清除已变化的位，以便检测后续变化。请注意，这些事件是否（通过系统中断）报告给系统，由插槽控制寄存器中的相关使能位决定。 |
 
-Figure 19-7: Slot Status Register
-![](images/part06_2da48a0c81595333327c720fe91c8b5f20f2ab51643622a418d401db8b659646.jpg)
+Figure 19-7: Slot Status Register | 图19-7：插槽状态寄存器
+<img src="images/part06_2da48a0c81595333327c720fe91c8b5f20f2ab51643622a418d401db8b659646.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -49,8 +49,8 @@ Figure 19-7: Slot Status Register
 | • The Link transitions from non‑DL\_UP to DL\_Up status (unless the Slot Capabilities register has not yet been initialized). | • 链路从非DL\_UP状态转换为DL\_Up状态（除非插槽能力寄存器尚未初始化）。 |
 | The message updates the Captured Slot Power Limit Value and Scale registers with the values in the message, making this information readily available to its device driver. | 该消息使用消息中的值更新已捕获插槽功率限制值和比例寄存器，使该信息对其设备驱动程序随时可用。 |
 
-Figure 19‐8: Device Capabilities Register
-![](images/part06_18dafd3cc01b482cf41996c4ab0b902c82e2fcb102eb4354ae9747ceec387f24.jpg)
+Figure 19‐8: Device Capabilities Register | 图19‐8：设备能力寄存器
+<img src="images/part06_18dafd3cc01b482cf41996c4ab0b902c82e2fcb102eb4354ae9747ceec387f24.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -92,7 +92,7 @@ Figure 19‐8: Device Capabilities Register
 |----|----|
 | This section discusses the hot-plug software elements and the information passed between them. For a review of the software elements and their relationships to each other, refer to Table 19-1 on page 852. Communications between the Hot-Plug Service within the OS and the Hot-Plug System Driver is in the form of requests. The spec doesn't define the exact format of these requests, but does define the basic request types and their content. Each request type issued to the Hot-Plug System Driver by the Hot-Plug Service is referred to as a primitive. They are listed and described in Table 19-8 on page 875. | 本节讨论热插拔软件元素及其之间传递的信息。关于软件元素及其相互关系的回顾，请参见第852页的表19-1。操作系统内的热插拔服务与热插拔系统驱动程序之间的通信采用请求的形式。规范未定义这些请求的确切格式，但定义了基本的请求类型及其内容。热插拔服务向热插拔系统驱动程序发出的每种请求类型被称为一个原语。这些原语在第875页的表19-8中列出并描述。 |
 
-Table 19-8: The Primitives / 表19-8: 原语
+Table 19-8: The Primitives / 表19-8: 原语 | 表19-8：原语
 
 <table>
 <tr><td>Primitive / 原语</td><td>Parameters / 参数</td><td>Description / 描述</td></tr>
@@ -134,8 +134,8 @@ Table 19-8: The Primitives / 表19-8: 原语
 | • Number and type of slots in the system. | • 系统中插槽的数量和类型。 |
 | Firmware may also allocate power to PCIe devices that support the power budgeting capability register set, such as a hot-plug device used during boot time. The Power Budgeting Capability register, shown in Figure 19-9 on page 878, contains a System Allocated bit that is hardware initialized (usually by firmware) to notify the power budget manager that power for this device has already been included in the system power allocation. If so, the Power Budget Manager still needs to read and save the power information for the hot-plug devices that were allocated in case they are later removed during runtime. | 固件也可以为支持电源预算能力寄存器集的 PCIe 设备分配功率，例如启动时使用的热插拔设备。电源预算能力寄存器（见第 878 页图 19-9）包含一个系统已分配位，该位由硬件初始化（通常由固件完成），用于通知电源预算管理器该设备的功率已包含在系统功率分配中。即便如此，电源预算管理器仍需读取并保存已分配的热插拔设备的电源信息，以防这些设备在运行时被移除。 |
 
-Figure 19-9: Power Budget Registers  
-![](images/part06_abbbd8c40de06aa7a17d6149a2705b8d10c79c45639f6bfd3ebbafef28d3c9ff.jpg)
+Figure 19-9: Power Budget Registers | 图19-9：功耗预算寄存器  
+<img src="images/part06_abbbd8c40de06aa7a17d6149a2705b8d10c79c45639f6bfd3ebbafef28d3c9ff.jpg" width="700" alt="">
 
 ## The Power Budget Manager
 
@@ -171,9 +171,9 @@ Figure 19-9: Power Budget Registers
 | These devices must not consume more than the lowest power specified by the form factor spec. Once power budgeting software allocates additional power via the Set_Slot_Power_Limit message, the device can consume the power that has been specified, but not until it has been configured and enabled. | 这些设备不得消耗超过外形规格规定的最低功率。一旦电源预算软件通过Set_Slot_Power_Limit报文分配了额外功率，设备可以消耗已指定的功率，但必须在其被配置和使能之后才能这样做。 |
 | Device Driver—The device's software driver is responsible for verifying that sufficient power is available for proper device operation prior to enabling it. If the power is lower than that required by the device, the device driver is responsible for reporting this to a higher software authority. | 设备驱动程序——设备的软件驱动程序负责在使能设备之前验证是否有足够的功率用于设备的正常运行。如果功率低于设备所需，设备驱动程序负责将此情况报告给更高级别的软件。 |
 
-Figure 19‐10: Elements Involved in Power Budget
+Figure 19‐10: Elements Involved in Power Budget | 图19‐10：参与功耗预算的元素
 
-![](images/part06_cb26416291d868d26023d5fdbfffc729877a51bfdf311fa537a693fbdaf06f1e.jpg)
+<img src="images/part06_cb26416291d868d26023d5fdbfffc729877a51bfdf311fa537a693fbdaf06f1e.jpg" width="700" alt="">
 
 ## Slot Power Limit Control
 
@@ -195,8 +195,8 @@ Figure 19‐10: Elements Involved in Power Budget
 | In addition to the base CEM spec, two more specs have been defined for higher‑powered devices. First is the PCIe x16 Graphics 150W‑ATX Spec 1.0, which defines a video card that's able to draw 75W from the card connector and another 75W from a separate 3‑pin ATX power connector. The second is the PCIe 225W/300W High Power CEM Spec 1.0, which extends this by adding another 3‑pin power connector to achieve 225W, or a 4‑pin ATX connector that brings the total to 300W. | 除了基础CEM规范外，还为高功率设备定义了另外两个规范。第一个是PCIe x16 Graphics 150W‑ATX Spec 1.0，该规范定义了可从显卡连接器吸取75W、并从独立的3引脚ATX电源连接器再吸取75W的显卡。第二个是PCIe 225W/300W High Power CEM Spec 1.0，它通过增加另一个3引脚电源连接器达到225W，或者使用4引脚ATX连接器使总功率达到300W。 |
 | When the Slot Power registers are written by power budget software, the expansion port sends a Set\_Slot\_Power\_Limit message to the expansion device. This procedure is illustrated in Figure 19‑11 on page 882. | 当功率预算软件写入槽位功率寄存器时，扩展端口向扩展设备发送Set\_Slot\_Power\_Limit消息。该过程如图19‑11（第882页）所示。 |
 
-Figure 19‑11: Slot Power Limit Sequence
-![](images/part06_b2e7c599f5e3f95cfca0c52a41057585c65d055b77f7611e526de18f548448a5.jpg)
+Figure 19‑11: Slot Power Limit Sequence | 图19‑11：插槽功耗限制序列
+<img src="images/part06_b2e7c599f5e3f95cfca0c52a41057585c65d055b77f7611e526de18f548448a5.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -232,12 +232,12 @@ Figure 19‑11: Slot Power Limit Sequence
 | These registers are not required for devices implemented on the system board or on expansion devices that do not support hot plug. Figure 19-12 on page 884 illustrates the power budget capabilities register set and shows the data select and data field that provide the method for accessing the power budget information. | 对于实现于系统板上的设备或不支持热插拔的扩展设备，不要求这些寄存器。第884页的图19-12展示了电源预算能力寄存器集，并示出了提供访问电源预算信息方法的数据选择字段和数据字段。 |
 | The power budget information is maintained within a table that consists of one or more 32-bit entries. Each table entry contains power budget information for the different operating modes supported by the device. Each table entry is selected via the data select field, and the selected entry is then read from the data field. The index values start at zero and are implemented in sequential order. When a selected index returns all zeros in the data field, the end of the power budget table has been located. Figure 19-13 on page 885 illustrates the format and types of information available from the data field. | 电源预算信息保存在一个由一个或多个32位条目组成的表中。每个表条目包含设备所支持的不同操作模式的电源预算信息。每个表条目通过数据选择字段选择，然后从数据字段读取所选条目。索引值从零开始并以顺序方式实现。当所选索引在数据字段中返回全零时，表示已到达电源预算表的末尾。第885页的图19-13示出了数据字段中可用的信息格式和类型。 |
 
-Figure 19-12: Power Budget Capability Registers
+Figure 19-12: Power Budget Capability Registers | 图19-12：功耗预算能力寄存器
 
 <table><tr><td colspan="2">PCIe Extended Capability Header</td><td>Offset</td></tr><tr><td>RsvdP</td><td>Data Select Register</td><td>00h</td></tr><tr><td colspan="2">Data Register</td><td>04h</td></tr><tr><td>RsvdP</td><td>Power Budget Capability Register</td><td>08h</td></tr></table>
 
-Figure 19-13: Power Budget Data Field Format and Definition  
-![](images/part06_2a8d5061705d00ef97c93cf25fd41331fa4b24e9a58d97da1ad0740078d4f4c9.jpg)
+Figure 19-13: Power Budget Data Field Format and Definition | 图19-13：功耗预算数据字段格式和定义  
+<img src="images/part06_2a8d5061705d00ef97c93cf25fd41331fa4b24e9a58d97da1ad0740078d4f4c9.jpg" width="700" alt="">
 
 | EN | ZH |
 |-----|-----|
@@ -273,16 +273,16 @@ Figure 19-13: Power Budget Data Field Format and Definition
 |---|---|
 | The Multi‑casting capability allows a Posted Write TLP to be routed to more than one destination at the same time, allowing for things like automatically making redundant copies of data or supporting multi‑headed graphics. As shown in Figure 20‑1 on page 888, a TLP sourced from one Endpoint can be routed to multiple destinations based solely on its address. In this example, data is sent to the video port for display while redundant copies of it are automatically routed to storage. There are other ways this activity could be supported, of course, but this is very efficient in terms of Link usage since it doesn't require a recipient to re‑send the packet to secondary locations. | 多播（Multi‑casting）能力允许一个 Posted Write TLP 同时路由到多个目的地，从而实现诸如自动创建数据冗余副本或支持多头图形等功能。如第 888 页图 20‑1 所示，源自一个端点的 TLP 可仅基于其地址路由到多个目的地。在此示例中，数据被发送到视频端口进行显示，同时其冗余副本被自动路由到存储设备。当然，也可以通过其他方式支持此活动，但这种方式在链路利用率方面非常高效，因为它不需要接收者将数据包重新发送到次要位置。 |
 
-Figure 20‑1: Multicast System Example
-![](images/part06_c5b66a4706e3fd9144b74bc07b66e788abd7a2a5ad128535a1ee6bb81d80dc84.jpg)
+Figure 20‑1: Multicast System Example | 图20‑1：多播系统示例
+<img src="images/part06_c5b66a4706e3fd9144b74bc07b66e788abd7a2a5ad128535a1ee6bb81d80dc84.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | This mechanism is only supported for posted, address‑routed Requests, such as Memory Writes, that contain data to be delivered and an address that can be decoded to show which Ports should receive it. Non‑posted Requests will not be treated as Multicast even if their addresses fall within the MultiCast address range. Those will be treated as unicast TLPs just as they normally would. | 此机制仅支持带数据的、地址路由的 Posted Request，例如 Memory Write，其包含待传送的数据和一个可解码以指示哪些端口应接收该数据的地址。Non‑posted Request 即使其地址落在多播地址范围内，也不会被视为多播处理，而将像通常一样被视为单播 TLP。 |
 | The setup for Multicast operation involves programming a new register block for each routing element and Function that will be involved, called the Multicast Capability structure. The contents of this block are shown in Figure 20‑2 on page 889, where it can be seen that they define addresses and also MCGs (MultiCast Group numbers) that explain whether a Function should send or receive copies of an incoming TLP or whether a Port should forward them. Let's describe these registers next and discuss how they're used to create Multicast operations in a system. | 多播操作的设置涉及为每个参与的路由元件和 Function 编程一个新的寄存器块，称为多播能力结构（Multicast Capability structure）。该块的内容如第 889 页图 20‑2 所示，其定义了地址以及 MCG（多播组编号），用以说明一个 Function 应发送还是接收入站 TLP 的副本，或者一个端口是否应转发它们。接下来让我们描述这些寄存器，并讨论如何在系统中利用它们创建多播操作。 |
 
-Figure 20‑2: Multicast Capability Registers
-![](images/part06_42362d1a7be73eba81745721c9bac8e9a5e97fac7aab87c3928bcf8aad990e93.jpg)
+Figure 20‑2: Multicast Capability Registers | 图20‑2：多播能力寄存器
+<img src="images/part06_42362d1a7be73eba81745721c9bac8e9a5e97fac7aab87c3928bcf8aad990e93.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -295,8 +295,8 @@ Figure 20‑2: Multicast Capability Registers
 |---|---|
 | This register, shown in detail in Figure 20-3 on page 890, contains several fields. The MC_Max_Group value defines how many Multicast Groups this Function has been designed to support minus one, so that a value of zero means one group is supported. The Window Size Requested, which is only valid for Endpoints and reserved in Switches and Root Ports, represents the address size needed for this purpose as a power of two. | 该寄存器（详见第890页图20-3）包含多个字段。MC_Max_Group 值定义了该功能设计支持的多播组数量减一，因此值为零表示支持一个组。Window Size Requested（请求的窗口大小）仅对端点有效，在交换机和根端口中为保留字段，它以2的幂次方表示为此目的所需的地址大小。 |
 
-Figure 20-3: Multicast Capability Register
-![](images/part06_acd9d0fc86bfc589e7e16139f3306df457c9dc9f54cfd05e2675e116ee8c870e.jpg)
+Figure 20-3: Multicast Capability Register | 图20-3：多播能力寄存器
+<img src="images/part06_acd9d0fc86bfc589e7e16139f3306df457c9dc9f54cfd05e2675e116ee8c870e.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -308,24 +308,24 @@ Figure 20-3: Multicast Capability Register
 |---|---|
 | This register, shown in Figure 20‐4 on page 890, contains the MC\_Num\_Group that is programmed with the number of Multicast Groups configured by software for use by this Function. The default number is zero, and the spec notes that programming a value here that is greater than the max value defined in the MC\_Max\_Group register will result in undefined behavior. The MC\_Enable bit is used to enable the Multicast mechanism for this component. | 该寄存器如图20-4（第890页）所示，包含MC\_Num\_Group字段，该字段由软件编程设置供此功能使用的多播组数量。默认值为零，规格说明指出，在此处编程的值大于MC\_Max\_Group寄存器中定义的最大值将导致未定义行为。MC\_Enable位用于使能该组件的多播机制。 |
 
-Figure 20‐4: Multicast Control Register
+Figure 20‐4: Multicast Control Register | 图20‐4：多播控制寄存器
 
-![](images/part06_486605100e9b5168197b06888191506149a26f486f353e24016131575dea7b88.jpg)
+<img src="images/part06_486605100e9b5168197b06888191506149a26f486f353e24016131575dea7b88.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | ## Multicast Base Address | ## 多播基址 |
 | The base address register, shown in Figure 20‐5 on page 891, contains the 64‐bit starting address of the Multicast Address range for this component. The Multi‐Cast Index Position register indicates the bit position within the address where the MultiCast Group (MCG) number is to be found. When the address of an incoming TLP falls within the MultiCast address range starting at this Base Address, the logic will offset into the address itself by the number of bit locations given in the Index Position and interpret the next bits (up to 6 bits, allowing up to 64 groups) as the MCG number for that TLP. The MCG number, in turn, will indicate whether the Port should forward a copy of this TLP. | 基址寄存器（如图20‐5所示，见第891页）包含该组件的多播地址范围的64位起始地址。多播索引位置寄存器指示地址中用于定位多播组（MCG）编号的位位置。当入站TLP的地址落在从该基址开始的多播地址范围内时，逻辑将根据索引位置给出的位数量偏移到地址中，并将接下来的位（最多6位，允许最多64个组）解释为该TLP的MCG编号。而MCG编号则指示端口是否应转发此TLP的副本。 |
 
-Figure 20‐5: Multicast Base Address Register  
-![](images/part06_21c71727a30fb0a924fcceb103c2b76a35374e0512b4bcb9db3d80ef662a68c0.jpg)
+Figure 20‐5: Multicast Base Address Register | 图20‐5：多播基地址寄存器  
+<img src="images/part06_21c71727a30fb0a924fcceb103c2b76a35374e0512b4bcb9db3d80ef662a68c0.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | An example of locating the MCG within the address is shown in Figure 20‐6 on page 892. Here the Index Position value is 24, so the MCG is found in address bits 25 to 30. Interestingly, since the base address doesn't define the lower 12 bits of the address, the MC Index Position must be 12 or greater to be valid. If it's less than 12 and the MC_Enable bit is set, the component's behavior will be undefined. | 在地址中定位MCG的示例如图20‐6所示（见第892页）。此处索引位置值为24，因此MCG位于地址的位25到位30。值得注意的是，由于基址未定义地址的低12位，多播索引位置必须为12或更大才有效。如果小于12且MC_Enable位被置位，则组件的行为将是未定义的。 |
 
-Figure 20‐6: Position of Multicast Group Number  
-![](images/part06_4ccac63a6dc07af3a9e95e75ac305222e1c8f8e2e31c72bc9052989df0b2373c.jpg)
+Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位置  
+<img src="images/part06_4ccac63a6dc07af3a9e95e75ac305222e1c8f8e2e31c72bc9052989df0b2373c.jpg" width="700" alt="">
 
 ## MC Receive
 
@@ -359,9 +359,9 @@ Figure 20‐6: Position of Multicast Group Number
 | • MC_Num_Group = 5 (Meaning software only configured 6 of the available multicast windows). | • MC_Num_Group = 5（表示软件仅配置了可用多播窗口中的6个） |
 | Based on those register settings, the image in Figure 20-7 on page 894 illustrates the result. The multicast window range is shown starting at 2GB and ranging as high as 2GB + 8 \* (the window size). However, only 6 are enabled by software, so the actual multicast address range is from 2GB to 2GB + 24KB. The windows are all the same size and correspond to the MCGs: MCG 0 is the first window, 1 is the next window, and so on. | 基于这些寄存器设置，第894页的图20-7展示了结果。如图所示，多播窗口范围起始于2GB，最高可达2GB + 8 ×（窗口大小）。然而，软件仅使能了6个窗口，因此实际的多播地址范围为2GB至2GB + 24KB。所有窗口大小相同，并与MCG相对应：MCG 0对应第一个窗口，MCG 1对应下一个窗口，以此类推。 |
 
-Figure 20-7: Multicast Address Example
+Figure 20-7: Multicast Address Example | 图20-7：多播地址示例
 
-![](images/part06_320c178813e84518c1c5157347f88b8fcc8536071c4de2cae5c35250d19a195f.jpg)
+<img src="images/part06_320c178813e84518c1c5157347f88b8fcc8536071c4de2cae5c35250d19a195f.jpg" width="700" alt="">
 
 ## MC Overlay BAR
 
@@ -370,7 +370,7 @@ Figure 20-7: Multicast Address Example
 | This last set of registers are required for Switch and Root Ports that implement Multicasting, but they're not implemented in Endpoints. The motivation for this BAR is that it allows two special cases. First, a Port can forward TLPs downstream if they hit in a multicast window even if the Endpoint wasn't designed for multicasting. Second, a Port can forward multicast TLPs upstream to system memory. In both cases, this is accomplished by replacing part of the Request's address with an address that will be recognized by the target. Doing so allows a single BAR in a component to serve as a target for both unicast and multicast writes even if it wasn't designed with multicast capability. | 最后一组寄存器对于实现了多播（Multicasting）的交换机和根端口是必需的，但它们在端点中未实现。引入此BAR的动机在于它允许两种特殊情况。第一，端口可以在TLP命中多播窗口时将其向下游转发，即使端点并非为多播而设计。第二，端口可以将多播TLP向上游转发到系统内存。在这两种情况下，这都是通过将请求地址的一部分替换为目标可识别的地址来实现的。这样做允许组件中的单个BAR充当单播和多播写入的目标，即使它并非为多播能力而设计。 |
 | As shown in Figure 20‑8 on page 895, this register block consists of an address that will be overlaid onto the outgoing TLP, and a 6‑bit Overlay Size indicator. The size referred to here is simply the number of bits from the original 64‑bit address that will be retained, while all the others will be replaced by the Overlay BAR bits. The spec mistakenly refers to this in at least one place as the size in bytes, but in other places it's made clear that it is a bit number. Note that the overlay size value must be 6 or higher to enable the overlay operation. If the size is given as 5 or lower, no overlay will take place and the address is unchanged. | 如图20‑8（第895页）所示，该寄存器块包含一个将被覆盖到传出TLP上的地址，以及一个6位的覆盖大小（Overlay Size）指示符。此处所述的大小是指原始64位地址中将被保留的位数，而所有其他位将被覆盖BAR位替换。规范至少在有一处错误地将其称为以字节为单位的大小，但在其他位置明确说明它是一个位数。请注意，覆盖大小值必须为6或更高才能启用覆盖操作。如果大小指定为5或更小，则不会发生覆盖，地址保持不变。 |
 
-Figure 20‑8: Multicast Overlay BAR
+Figure 20‑8: Multicast Overlay BAR | 图20‑8：多播覆盖BAR
 
 <table><tr><td>31</td><td>6</td><td>5</td><td>0</td></tr><tr><td colspan="2">MC_Overlay_BAR [31:6]</td><td colspan="2">MC_Overlay_Size</td></tr><tr><td colspan="4">MC_Overlay_BAR [63:32]</td></tr></table>
 
@@ -382,8 +382,8 @@ Figure 20‑8: Multicast Overlay BAR
 | The overlay case creates the unusual situation with the ECRC value that was mentioned earlier in the description of the Multicast Capability register. If the TLP whose address is being changed by the overlay includes an ECRC, that value would be rendered incorrect by this change. Switches and Root Ports optional support regenerating the ECRC based on the new address so that it still serves its purpose going forward. If the routing agent does not support it, the ECRC is simply dropped and the TD header bit is forced to zero to avoid any confusion. | 覆盖情况会造成之前在多播能力寄存器描述中提到的ECRC值的异常情况。如果地址被覆盖更改的TLP包含ECRC，则该值将因地址更改而变得不正确。交换机和根端口可选支持基于新地址重新生成ECRC，使其在后续传输中仍能发挥其作用。如果路由代理不支持此功能，则直接丢弃ECRC，并将TD头比特强制清零以避免混淆。 |
 | A potential problem can arise with ECRC regeneration. If the incoming TLP already had an error but the ECRC value is regenerated because the address was modified, that would inadvertently hide the original error. To avoid that, the routing agent must verify the original ECRC first. If it finds an error, it must force a bad ECRC on the outgoing TLP by inverting the calculated ECRC value before appending it to ensure that the target will see it as an error condition. | ECRC重新生成可能会引发一个潜在问题。如果传入的TLP已经存在错误，但因地址被修改而重新生成了ECRC值，这将会无意中掩盖原始错误。为避免这种情况，路由代理必须首先验证原始ECRC。如果发现错误，它必须在传出TLP上强制生成错误的ECRC——即先计算ECRC值再将其取反后附加——以确保目标端会将其视为错误条件。 |
 
-Figure 20‐9: Overlay Example  
-![](images/part06_3af4c1d47650cddd0b1761270bc8fa5f79b127fb5db8e071e584b3e1215d2d11.jpg)
+Figure 20‐9: Overlay Example | 图20‐9：覆盖示例  
+<img src="images/part06_3af4c1d47650cddd0b1761270bc8fa5f79b127fb5db8e071e584b3e1215d2d11.jpg" width="700" alt="">
 
 ## Routing Multicast TLPs / 路由多播TLP
 
@@ -421,9 +421,9 @@ Figure 20‐9: Overlay Example
 | AtomicOp Completers can be identified by the presence of the three new bits in the Device Capabilities 2 register, as shown in Figure 20‐10 on page 899. Bit 6 of this register also identifies whether routing elements are capable of routing AtomicOps. | AtomicOp完成者可以通过设备能力2（Device Capabilities 2）寄存器中存在的三个新位来识别，如图20-10（第899页）所示。该寄存器的位6还标识路由元素是否能够路由AtomicOps。 |
 | Legacy PCI does not comprehend AtomicOps, of course, and there is no straight‐forward way to translate them into PCI commands. For that reason, PCIe‐to‐PCI bridges do not support AtomicOps. If atomic access is needed on that bus it would have to be done with the legacy locked protocol and the spec states that Locked Transactions and AtomicOps can operate concurrently on the same platform. | 传统PCI当然不理解AtomicOps，也没有直接的方法将它们转换为PCI命令。因此，PCIe到PCI桥不支持AtomicOps。如果在该总线上需要原子访问，则必须使用传统的锁定协议来完成，并且规范指出锁定事务（Locked Transactions）和AtomicOps可以在同一平台上并发操作。 |
 
-Figure 20‐10: Device Capabilities 2 Register  
+Figure 20‐10: Device Capabilities 2 Register | 图20‐10：设备能力2寄存器  
 
-![](images/part06_5ea886ba02e700de4ac83c59057e10b297a07386eda717bb64d426f9baf96ef3.jpg)
+<img src="images/part06_5ea886ba02e700de4ac83c59057e10b297a07386eda717bb64d426f9baf96ef3.jpg" width="700" alt="">
 
 ## TPH (TLP Processing Hints)
 
@@ -503,8 +503,8 @@ Device Write to Host Read. To help clarify the motivation for TPH, consider the 
 </tr>
 </table>
 
-Figure 20‐11: TPH Example  
-![](images/part06_46f8af8067dccb7f406e6b5f6312245c03cd2ee05a769589ed46a667c24b857d.jpg)
+Figure 20‐11: TPH Example | 图20‐11：TPH示例  
+<img src="images/part06_46f8af8067dccb7f406e6b5f6312245c03cd2ee05a769589ed46a667c24b857d.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -572,8 +572,8 @@ This is a simple Device Write to Host Read (DWHR) example to illustrate the conc
 </tr>
 </table>
 
-Figure 20‐12: TPH Example with System Cache  
-![](images/part06_dc3acfa9fc127750cf49c912aa35a41135e7784dd6ba7e02af40a4f6c0852658.jpg)
+Figure 20‐12: TPH Example with System Cache | 图20‐12：带系统缓存的TPH示例  
+<img src="images/part06_dc3acfa9fc127750cf49c912aa35a41135e7784dd6ba7e02af40a4f6c0852658.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -586,8 +586,8 @@ Host Write to Device Read. To illustrate the concept going the other way (called
 </tr>
 </table>
 
-Figure 20‐13: TPH Usage for TLPs to Endpoint  
-![](images/part06_8bdff8cf16b9c4b579a1b72f34cfe9194b15ca2028f765db20af4086de418717.jpg)
+Figure 20‐13: TPH Usage for TLPs to Endpoint | 图20‐13：TPH在到端点的TLP中的使用  
+<img src="images/part06_8bdff8cf16b9c4b579a1b72f34cfe9194b15ca2028f765db20af4086de418717.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -605,7 +605,7 @@ Device to Device. One last example is illustrated in Figure 20‐14 on page 904,
 | ## PCI Express Technology | ## PCI Express 技术 |
 | Figure 20‐14: TPH Usage Between Endpoints | 图 20-14：端点间的 TPH 使用 |
 
-![](images/part06_8c20700aad3cc2dcfc4a16364e83d6b49443149cd7f4ff649f6836e6dd77f06f.jpg)
+<img src="images/part06_8c20700aad3cc2dcfc4a16364e83d6b49443149cd7f4ff649f6836e6dd77f06f.jpg" width="700" alt="">
 
 ## TPH Header Bits / TPH头部比特位
 
@@ -616,11 +616,11 @@ Device to Device. One last example is illustrated in Figure 20‐14 on page 904,
 | The next level of information is the Steering Tag byte that provides system‑specific information regarding the best place to cache this TLP. Interestingly, the location of this byte in the header varies depending on the Request type. For Posted Memory Writes the Tag field is repurposed to be the Steering Tag (no completion will be returned so the Tag isn’t needed), while for Memory Reads the two Byte Enable fields are repurposed for it (byte enables are not needed for pre‑fetchable reads). The meaning of the bits is implementation specific but they need to uniquely identify the location of the desired cache in the system. | 下一级信息是导向标签（Steering Tag）字节，它提供关于缓存此TLP的最佳位置的系统特定信息。有趣的是，该字节在头部中的位置因请求类型而异。对于推送内存写请求（Posted Memory Writes），标签字段被重新用作导向标签（不会返回完成报文，因此不需要标签）；而对于内存读请求（Memory Reads），两个字节使能字段被重新用于此目的（预取读不需要字节使能）。这些比特位的含义是具体实现相关的，但它们必须唯一地标识系统中目标缓存的位置。 |
 | Two formats for TPH are described in the spec and this level of hint information (TH + PH + 8‑bit Steering Tag), called Baseline TPH, is the first and is required of all Requests that provide TPH. The second format uses TLP Prefixes to extend the Steering Tags (see "TLP Prefixes" on page 908 for more detail). | 规范描述了两种TPH格式。这种提示信息级别（TH + PH + 8位导向标签）称为基线TPH（Baseline TPH），是第一种格式，所有提供TPH的请求都必须支持。第二种格式使用TLP前缀来扩展导向标签（更多详情请参见第908页的"TLP前缀"）。 |
 
-Figure 20‐15: TPH Header Bits
+Figure 20‐15: TPH Header Bits | 图20‐15：TPH头部位
 
 <table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="4">+1</td><td colspan="4">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>F</td><td>TH</td><td>T</td><td>EP</td><td>Attr</td><td>AT</td></tr><tr><td>Byte 4</td><td colspan="8">Requester ID</td><td colspan="3">Tag</td><td>Last DW BE</td></tr><tr><td>Byte 8</td><td colspan="12">Address [63:32]</td></tr><tr><td>Byte 12</td><td colspan="12">Address [31:2]</td></tr></table>
 
-Table 20‐1: PH Encoding Table
+Table 20‐1: PH Encoding Table | 表20‐1：PH编码表
 
 <table><tr><td>PH [1:0]</td><td>Processing Hint</td><td>Usage Model</td></tr><tr><td>00b</td><td>Bi-directional data structure</td><td>Indicates frequent read/write access by Host and device.</td></tr><tr><td>01b</td><td>Requester</td><td>D*D* (device-to-device transfers). Indicates frequent read/write access by device. The asterisk means either device could be reading or writing.</td></tr><tr><td>10b</td><td>Target</td><td>DWHR, HWDR (device-to-host or host-to-device transfers). Indicates frequent read/write access by Host.</td></tr><tr><td>11b</td><td>Target with Priority</td><td>Same as Target but with additional temporal re-use priority information. Indicates frequent read/write access by Host and high temporal locality for accessed data.</td></tr></table>
 
@@ -630,7 +630,7 @@ Table 20‐1: PH Encoding Table
 |---|---|
 | These values are programmed by software into a table to be used during normal operation. The spec recommends that the table be located in the TPH Requester Capability structure, shown in Figure 20-16 on page 906, but it can alternatively be built into the MSI-X table instead. Only one or the other of these table locations can be used for a given Function. The location is given in the ST Table Location field [10:9] of the Requester Capability register, shown in Figure 20-17 on page 907. The encoding of these 2 bits is shown in Table 20-2 on page 907. | 这些值由软件编程到一张表中，在正常操作期间使用。规范建议将该表置于 TPH 请求者能力结构中（见第 906 页图 20-16），但也可以将其内建于 MSI-X 表中。对于给定的功能，只能使用这两种表位置之一。该位置由请求者能力寄存器（见第 907 页图 20-17）中 ST 表位置字段 [10:9] 给出。这 2 位的编码见第 907 页表 20-2。 |
 
-Figure 20-16: TPH Requester Capability Structure
+Figure 20-16: TPH Requester Capability Structure | 图20-16：TPH请求者能力结构
 
 <table><tr><td>PCI Express Capabilities Register</td><td>Next Cap Pointer</td><td>PCI Express Cap ID (17h)</td></tr><tr><td colspan="3">TPH Requester Capability Register</td></tr><tr><td colspan="3">TPH Requester Control Register</td></tr><tr><td colspan="3">TPH ST Table (optional)(Sized by number of ST entries)</td></tr></table>
 
@@ -638,8 +638,8 @@ Figure 20-16: TPH Requester Capability Structure
 |---|---|
 | ## Chapter 20: Updates for Spec Revision 2.1 | ## 第20章：规范修订版 2.1 的更新 |
 
-Figure 20‐17: TPH Capability and Control Registers
-![](images/part06_f2751ae1b9737f137986eecb5a887722e61077b755c3fb05ded33d3f0e06e0dd.jpg)
+Figure 20‐17: TPH Capability and Control Registers | 图20‐17：TPH能力和控制寄存器
+<img src="images/part06_f2751ae1b9737f137986eecb5a887722e61077b755c3fb05ded33d3f0e06e0dd.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -657,7 +657,7 @@ Figure 20‐17: TPH Capability and Control Registers
 | Device-Specific — uses a device-specific method to offset into the ST Table in the TPH Capability structure because the ST values are located there. This is the recommended implementation, although how a given Request is associated with a particular ST entry is outside the scope of the spec. (ST Mode Select value = 010b.) | Device-Specific — 使用设备特定的方法作为 ST 表的偏移量以访问 TPH Capability 结构中的 ST 表，因为 ST 值位于该处。这是推荐的实现方式，但特定请求如何与特定 ST 条目相关联不在规范范围内。（ST Mode Select 值 = 010b。） |
 | • All other ST Mode Select encodings are reserved for future use. | • 所有其他 ST Mode Select 编码保留供将来使用。 |
 
-Figure 20-18: TPH Capability ST Table
+Figure 20-18: TPH Capability ST Table | 图20-18：TPH能力ST表
 
 <table><tr><td>ST Upper Entry (1)</td><td>ST Lower Entry (1)</td><td>ST Upper Entry (0)</td><td>ST Lower Entry (0)</td></tr><tr><td>ST Upper Entry (3)</td><td>ST Lower Entry (3)</td><td>ST Upper Entry (2)</td><td>ST Lower Entry (2)</td></tr><tr><td>ST Upper Entry(Table Size)</td><td>ST Lower Entry(Table Size)</td><td>ST Upper Entry(Table Size - 1)</td><td>ST Lower Entry(Table Size - 1)</td></tr></table>
 
@@ -667,7 +667,7 @@ Figure 20-18: TPH Capability ST Table
 |---|---|
 | The Steering Tag bits can be extended with the addition of optional TLP Prefixes if needed. When one or more Prefixes are given with the TLP, the header reports it by setting the most significant bit in the Format field, as shown in Figure 20-19 on page 909. | Steering Tag位可通过添加可选的TLP前缀进行扩展。当一个或多个前缀随TLP一起给出时，头部通过设置Format字段中的最高有效位来报告该情况，如第909页图20-19所示。 |
 
-Figure 20-19: TPH Prefix Indication
+Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 
 <table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td>Byte 0</td><td>Fmt1</td><td>0</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TDP</td><td>Attr</td><td>AT</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="9">Requester ID</td><td colspan="3">Tag</td><td>Last DWBE</td><td>1st DWBE</td></tr><tr><td>Byte 8</td><td colspan="14">Address [63:32]</td></tr><tr><td>Byte 12</td><td colspan="13">Address [31:2]</td><td>PH</td></tr></table>
 

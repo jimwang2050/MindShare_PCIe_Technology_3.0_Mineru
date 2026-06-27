@@ -37,8 +37,8 @@ The mapping example in Figure 4-1 is only showing MMIO and IO space being claime
 </tr>
 </table>
 
-![](images/xxx.jpg)
-Figure 4-1: MMIO Types Claimed by PCIe Devices
+<img src="images/xxx.jpg" width="700" alt="">
+Figure 4-1: MMIO Types Claimed by PCIe Devices | 图4-1：PCIe设备声明的MMIO类型
 
 
 ## Prefetchable vs. Non-prefetchable Memory Space | 可预取内存空间与不可预取内存空间
@@ -97,8 +97,8 @@ Making this distinction was more important for PCI than it is for PCIe because t
 ## Chapter 4: Address Space & Transaction Routing | 第4章：地址空间与事务路由
 
 
-![](images/part02_ff238d8cb4d6de759075adb4d19f3f6e7aaf994543232b6497dd0bd93541edef.jpg)
-Figure 4-1: Generic Memory And IO Address Maps
+<img src="images/part02_ff238d8cb4d6de759075adb4d19f3f6e7aaf994543232b6497dd0bd93541edef.jpg" width="700" alt="">
+Figure 4-1: Generic Memory And IO Address Maps | 图4-1：通用存储器和IO地址映射
 
 ## Base Address Registers (BARs) | 基址寄存器 (BAR)
 
@@ -163,8 +163,8 @@ Not all BARs have to be implemented. If a device does not need all the BARs to m
 </tr>
 </table>
 
-Figure 4‐2: BARs in Configuration Space
-![](images/part02_0754b36296a00a43f0467a2571863dc6744e5c61e356c6ed1820fa1e873af09d.jpg)
+Figure 4‐2: BARs in Configuration Space | 图4‐2：配置空间中的BAR
+<img src="images/part02_0754b36296a00a43f0467a2571863dc6744e5c61e356c6ed1820fa1e873af09d.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -177,8 +177,8 @@ Once the BARs have been programmed, the internal registers or local memory withi
 </tr>
 </table>
 
-Figure 4‐3: PCI Express Devices And Type 0 And Type 1 Header Use
-![](images/part02_880d7b01ffbe102c74937fdb9de0855f5ef6606ba36a5ca59c0258f40509fd4c.jpg)
+Figure 4‐3: PCI Express Devices And Type 0 And Type 1 Header Use | 图4‐3：PCI Express设备与Type 0和Type 1头的使用
+<img src="images/part02_880d7b01ffbe102c74937fdb9de0855f5ef6606ba36a5ca59c0258f40509fd4c.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -239,12 +239,12 @@ At this point the configuration of BAR0 is complete. Once software enables memor
 </tr>
 </table>
 
-Table 4-1: Results of Reading the BAR after Writing All 1s To It
+Table 4-1: Results of Reading the BAR after Writing All 1s To It | 表4-1：写入全1后读取BAR的结果
 
 <table><tr><td>BAR Bits</td><td>Meaning</td></tr><tr><td>0</td><td>Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td>2:1</td><td>Read as 00b indicating the target only supports decoding a 32-bit address</td></tr><tr><td>3</td><td>Read as 0b, indicating request is for non-prefetchable memory (meaning reads do have side-effects); NP-MMIO</td></tr><tr><td>11:4</td><td>Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td>31:12</td><td>Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Since bit 12 is the least significant bit that could be written, the memory size requested is  $2^{12} = 4KB$ .</td></tr></table>
 
-Figure 4-4: 32-Bit Non-Prefetchable Memory BAR Set Up
-![](images/part02_c2d206df7d7c6b9fd1b3f40d41fdb0917bc4fef31eb4396435b8ddcf02c672e5.jpg)
+Figure 4-4: 32-Bit Non-Prefetchable Memory BAR Set Up | 图4-4：32位非预取存储器BAR设置
+<img src="images/part02_c2d206df7d7c6b9fd1b3f40d41fdb0917bc4fef31eb4396435b8ddcf02c672e5.jpg" width="700" alt="">
 
 ## BAR Example 2: 64-bit Memory Address Space Request | BAR 示例 2: 64 位存储器地址空间请求
 
@@ -299,10 +299,10 @@ At this point, the configuration of the BAR pair (BAR1 & BAR2) is complete. Once
 </tr>
 </table>
 
-Figure 4-5: 64-Bit Prefetchable Memory BAR Set Up
-![](images/part02_fb829876472623d44b981cc4e53ef1c96d7e11dd42612871eca008f1974bc0e4.jpg)
+Figure 4-5: 64-Bit Prefetchable Memory BAR Set Up | 图4-5：64位可预取存储器BAR设置
+<img src="images/part02_fb829876472623d44b981cc4e53ef1c96d7e11dd42612871eca008f1974bc0e4.jpg" width="700" alt="">
 
-Table 4-2: Results Of Reading the BAR Pair after Writing All 1s To Both
+Table 4-2: Results Of Reading the BAR Pair after Writing All 1s To Both | 表4-2：写入全1后读取BAR对的结果
 
 <table><tr><td>BAR</td><td>BAR Bits</td><td>Meaning</td></tr><tr><td>Lower</td><td>0</td><td>Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td>Lower</td><td>2:1</td><td>Read as 10b indicating the target supports a 64-bit address decoder, and that the next sequential BAR contains the upper 32 bits of the address information.</td></tr><tr><td>Lower</td><td>3</td><td>Read as 1b, indicating request is for prefetchable memory (meaning reads do not have side-effects); P-MMIO</td></tr><tr><td>Lower</td><td>25:4</td><td>Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td>Lower</td><td>31:26</td><td>Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Note that because bit 26 was the least significant writable bit, the memory address space request size is $2^{26}$, or 64MB.</td></tr><tr><td>Upper</td><td>31:0</td><td>Read as all 1s. These bits will be used as the upper 32 bits of the 64-bit start address programmed by system software.</td></tr></table>
 
@@ -351,10 +351,10 @@ At this point, the configuration of BAR3 is complete. Once software enables IO a
 </tr>
 </table>
 
-Figure 4‑6: IO BAR Set Up
-![](images/part02_003b2db033194e03040a960e27cf1abbdb191136b23a53a655620e2ca61d33eb.jpg)
+Figure 4‑6: IO BAR Set Up | 图4‑6：IO BAR设置
+<img src="images/part02_003b2db033194e03040a960e27cf1abbdb191136b23a53a655620e2ca61d33eb.jpg" width="700" alt="">
 
-Table 4‑3: Results Of Reading the IO BAR after Writing All 1s To It
+Table 4‑3: Results Of Reading the IO BAR after Writing All 1s To It | 表4‑3：写入全1后读取IO BAR的结果
 
 <table><tr><td>BAR Bits</td><td>Meaning</td></tr><tr><td>0</td><td>Read as 1b, indicating an IO request. Since this is an IO request, bit 1 is reserved.</td></tr><tr><td>1</td><td>Reserved. Hard-coded to 0b.</td></tr><tr><td>7:2</td><td>Read as 0s Indicates size of the request (these bits are hard-coded to 0)</td></tr><tr><td>31:8</td><td>Read as 1s because software has not yet programmed the upper bits with a start address for the block. Note that because bit 8 was the least significant writable bit, the IO request size is $2^{8}$, or 256 bytes.</td></tr></table>
 
@@ -500,8 +500,8 @@ The Base and Limit registers of every bridge upstream of the endpoint will need 
 </tr>
 </table>
 
-![](images/part02_a35e23b613320d5bdb8fbce1ad4b754276b9d32ad4bee523d66c3e94362fdbd8.jpg)
-Figure 4-7: Example Topology for Setting Up Base and Limit Values
+<img src="images/part02_a35e23b613320d5bdb8fbce1ad4b754276b9d32ad4bee523d66c3e94362fdbd8.jpg" width="700" alt="">
+Figure 4-7: Example Topology for Setting Up Base and Limit Values | 图4-7：设置基址和限制值的示例拓扑
 
 ## Prefetchable Range (P-MMIO) | 可预取范围 (P-MMIO)
 
@@ -516,11 +516,11 @@ Type 1 头中有两对可预取存储器基址/上限寄存器。可预取存储
 </tr>
 </table>
 
-Figure 4-8: Example Prefetchable Memory Base/Limit Register Values
+Figure 4-8: Example Prefetchable Memory Base/Limit Register Values | 图4-8：可预取存储器基址/限制寄存器值示例
 
 <table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>Rev ID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
 
-![](images/part02_85465c6b3a80c51edb75d9f4ed61ee62e089c610bea78ae06cd89b5276746731.jpg)
+<img src="images/part02_85465c6b3a80c51edb75d9f4ed61ee62e089c610bea78ae06cd89b5276746731.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -533,7 +533,7 @@ Chapter 4: Address Space &amp; Transaction Routing
 </tr>
 </table>
 
-Table 4-4: Example Prefetchable Memory Base/Limit Register Meanings
+Table 4-4: Example Prefetchable Memory Base/Limit Register Meanings | 表4-4：可预取存储器基址/限制寄存器含义示例
 
 <table><tr><td>Register</td><td>Value</td><td>Use</td></tr><tr><td>Prefetchable Memory Base</td><td>4001h</td><td>The upper 12 bits of this register hold the upper 12 bits of the 32-bit BASE address (bits [31:20]). The lower 20 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 1MB boundary.The lower 4 bits of this register indicate whether a 64-bit address decoder is supported in the bridge, meaning the Upper Base/Limit Registers are used.</td></tr><tr><td>Prefetchable Memory Limit</td><td>43F1h</td><td>Similarly, the upper 12 bits of this register hold the upper 12 bits of the 32-bit LIMIT address (bits [31:20]). The lower 20 bits of the limit address are all implied to be all Fs.The lower 4 bits of this register have the same meaning as the lower 4 bits of the base register.</td></tr><tr><td>Prefetchable Memory Base Upper 32 Bits</td><td>00000002h</td><td>Holds the upper 32 bits of the 64-bit BASE address for Prefetchable Memory downstream of this port.</td></tr><tr><td>Prefetchable Memory Limit Upper 32 Bits</td><td>00000002h</td><td>Holds the upper 32 bits of the 64-bit LIMIT address for Prefetchable Memory downstream of this port.</td></tr></table>
 
@@ -550,16 +550,16 @@ Unlike the prefetchable memory range, the non-prefetchable memory range can only
 </tr>
 </table>
 
-Figure 4-9: Example Non-Prefetchable Memory Base/Limit Register Values
+Figure 4-9: Example Non-Prefetchable Memory Base/Limit Register Values | 图4-9：非预取存储器基址/限制寄存器值示例
 Type 1 Header
 
 <table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>Rev ID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
 
-![](images/part02_b5ee420b6ebab86a49bcce4a1dabefa73c1033141db7c92cc24041fcaeb9a66c.jpg)
+<img src="images/part02_b5ee420b6ebab86a49bcce4a1dabefa73c1033141db7c92cc24041fcaeb9a66c.jpg" width="700" alt="">
 
 Non-Prefetchable Memory Range: F900\_0000h - F90F\_FFFFh
 
-Table 4-5: Example Non-Prefetchable Memory Base/Limit Register Meanings
+Table 4-5: Example Non-Prefetchable Memory Base/Limit Register Meanings | 表4-5：非预取存储器基址/限制寄存器含义示例
 
 <table><tr><td>Register</td><td>Value</td><td>Use</td></tr><tr><td>(Non-Prefetchable) Memory Base</td><td>F900h</td><td>The upper 12 bits of this register hold the upper 12 bits of the 32-bit BASE address (bits [31:20]). The lower 20 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 1MB boundary.The lower 4 bits of this register must be 0s.</td></tr><tr><td>(Non-Prefetchable) Memory Limit</td><td>F900h</td><td>Similarly, the upper 12 bits of this register hold the upper 12 bits of the 32-bit LIMIT address (bits [31:20]). The lower 20 bits of the limit address are all implied to be all Fs.The lower 4 bits of this register must be 0s.</td></tr></table>
 
@@ -596,13 +596,13 @@ Like with the prefetchable memory range, Type 1 headers have two pairs of IO bas
 </tr>
 </table>
 
-Figure 4-10: Example IO Base/Limit Register Values
+Figure 4-10: Example IO Base/Limit Register Values | 图4-10：IO基址/限制寄存器值示例
 
 <table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>RevID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
 
-![](images/part02_38a387246db1e2abb691885e5a75d06270c47bffec7d92eb9c23ededa1be4c6a.jpg)
+<img src="images/part02_38a387246db1e2abb691885e5a75d06270c47bffec7d92eb9c23ededa1be4c6a.jpg" width="700" alt="">
 
-Table 4-6: Example IO Base/Limit Register Meanings
+Table 4-6: Example IO Base/Limit Register Meanings | 表4-6：IO基址/限制寄存器含义示例
 
 <table><tr><td>Register</td><td>Value</td><td>Use</td></tr><tr><td>IO Base</td><td>40h</td><td>The upper 4 bits of this register hold the upper 4 bits of the 16-bit BASE address (bits [15:12]). The lower 12 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 4KB boundary. The lower 4 bits of this register indicate whether a 32-bit IO address decoder is supported in the bridge, meaning the Upper Base/ Limit Registers are used.</td></tr><tr><td>IO Limit</td><td>40h</td><td>Similarly, the upper 4 bits of this register hold the upper 4 bits of the 16-bit LIMIT address (bits [15:12]). The lower 12 bits of the limit address are all implied to be all Fs. The lower 4 bits of this register have the same meaning as the lower 4 bits of the base regis- ter.</td></tr><tr><td>IO Base Upper 16 Bits</td><td>0000h</td><td>Holds the upper 16 bits of the 32-bit BASE address for IO downstream of this port.</td></tr><tr><td>IO Limit Upper 16 Bits</td><td>0000h</td><td>Holds the upper 16 bits of the 32-bit LIMIT address for IO downstream of this port.</td></tr></table>
 
@@ -646,8 +646,8 @@ This method of invalidating base and limit registers is valid for all three base
 </tr>
 </table>
 
-Figure 4-11: Final Example Address Routing Setup
-![](images/part02_1fb4688cc0829b4d5235f0affa8ed10db0ed46cd85a1abccb1a22d7b7d7b1db3.jpg)
+Figure 4-11: Final Example Address Routing Setup | 图4-11：最终示例地址路由设置
+<img src="images/part02_1fb4688cc0829b4d5235f0affa8ed10db0ed46cd85a1abccb1a22d7b7d7b1db3.jpg" width="700" alt="">
 
 
 ## Sanity Check: Registers Used For Address Routing | 正确性检查：用于地址路由的寄存器
@@ -708,8 +708,8 @@ The purpose of setting up the BARs and Base/Limit registers as described in the 
 </tr>
 </table>
 
-Figure 4‐12: Multi‐Port PCIe Devices Have Routing Responsibilities
-![](images/part02_b4840c3bc05898076b5ecfd8382467f308afe9b0354e12a5aa7cce3cc0ed8f92.jpg)
+Figure 4‐12: Multi‐Port PCIe Devices Have Routing Responsibilities | 图4‐12：多端口PCIe设备具有路由职责
+<img src="images/part02_b4840c3bc05898076b5ecfd8382467f308afe9b0354e12a5aa7cce3cc0ed8f92.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -803,7 +803,7 @@ TLP可以基于地址（存储器或IO）进行路由，也可以基于ID（即�
 </tr>
 </table>
 
-Table 4‑7: PCI Express TLP Types And Routing Methods
+Table 4‑7: PCI Express TLP Types And Routing Methods | 表4‑7：PCI Express TLP类型和路由方法
 
 <table><tr><td>TLP Type</td><td>Routing Method Used</td></tr><tr><td>Memory Read [Lock], Memory Write, AtomicOp</td><td>Address Routing</td></tr><tr><td>IO Read and Write</td><td>Address Routing</td></tr><tr><td>Configuration Read and Write</td><td>ID Routing</td></tr><tr><td>Message, Message With Data</td><td>Address Routing, ID Routing, or Implicit routing</td></tr><tr><td>Completion, Completion With Data</td><td>ID Routing</td></tr></table>
 
@@ -868,8 +868,8 @@ Like most other serial technologies, PCI Express uses the split transaction prot
 </tr>
 </table>
 
-Figure 4-13: PCI Express Transaction Request And Completion TLPs
-![](images/part02_48a5a16bee00019f3f488013bb72a9c97e7ed8508405f635e2c1b6704b7bfa42.jpg)
+Figure 4-13: PCI Express Transaction Request And Completion TLPs | 图4-13：PCI Express事务请求和完成TLP
+<img src="images/part02_48a5a16bee00019f3f488013bb72a9c97e7ed8508405f635e2c1b6704b7bfa42.jpg" width="700" alt="">
 
 ## Posted versus Non-Posted | Posted 与非 Posted 事务
 
@@ -900,7 +900,7 @@ In summary, non-posted transactions require a completion. Posted transactions do
 </tr>
 </table>
 
-Table 4-8: Posted and Non-Posted Transactions
+Table 4-8: Posted and Non-Posted Transactions | 表4-8：投递和非投递事务
 
 <table><tr><td>Request</td><td>How Request Is Handled</td></tr><tr><td>Memory Write</td><td>All memory write requests are posted. No completions are expected or sent.</td></tr><tr><td>Memory Read Memory Read Lock</td><td>All memory read requests are non-posted. A completion with data (made of one or more TLPs) will be returned by the Completer to deliver both the requested data and the status of the memory read. In the event of an error, a completion without data will be returned reporting the status.</td></tr><tr><td>AtomicOp</td><td>All AtomicOp requests are non-posted. A completion with data will be returned by the Completer containing the original value of the target location.</td></tr></table>
 
@@ -915,7 +915,7 @@ Chapter 4: Address Space &amp; Transaction Routing
 </tr>
 </table>
 
-Table 4-8: Posted and Non-Posted Transactions (Continued)
+Table 4-8: Posted and Non-Posted Transactions (Continued) | 表4-8：投递和非投递事务（续）
 
 <table><tr><td>Request</td><td>How Request Is Handled</td></tr><tr><td>IO ReadIO Write</td><td>All IO requests are non-posted. A completion without data will be returned for writes or failed reads, and a completion with data will be returned for successful reads.</td></tr><tr><td>Configuration ReadConfiguration Write</td><td>All configuration requests are non-posted. A completion without data will be returned for writes and failed reads, while a completion with data will be returned for successful reads.</td></tr><tr><td>Message</td><td>All messages are posted. The routing method depends on the Message type, but they&#x27;re all considered posted requests.</td></tr></table>
 
@@ -943,8 +943,8 @@ As shown in Figure 4-14 on page 152, each TLP contains a three or four doublewor
 </tr>
 </table>
 
-![](images/part02_fec46d2d1fd69f8fd6b71b51ac36f4f1abfbb4b8e904d4b9e043ef0ce0204668.jpg)
-Figure 4-14: Transaction Layer Packet Generic 3DW And 4DW Headers
+<img src="images/part02_fec46d2d1fd69f8fd6b71b51ac36f4f1abfbb4b8e904d4b9e043ef0ce0204668.jpg" width="700" alt="">
+Figure 4-14: Transaction Layer Packet Generic 3DW And 4DW Headers | 图4-14：事务层数据包通用3DW和4DW头
 
 <table>
 <tr>
@@ -976,7 +976,7 @@ Table 4-9 on page 153 below summarizes the encodings used in TLP header Format a
 </tr>
 </table>
 
-Table 4-9: TLP Header Format and Type Field Encodings
+Table 4-9: TLP Header Format and Type Field Encodings | 表4-9：TLP头格式与类型字段编码
 
 <table><tr><td>TLP</td><td>FMT[2:0]</td><td>TYPE [4:0]</td></tr><tr><td>Memory Read Request (MRd)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0000</td></tr><tr><td>Memory Read Lock Request (MRdLk)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0001</td></tr><tr><td>Memory Write Request (MWr)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 0000</td></tr><tr><td>IO Read Request (IORd)</td><td>000 = 3DW, no data</td><td>00010</td></tr><tr><td>IO Write Request (IOWr)</td><td>010 = 3DW, w/data</td><td>0 0010</td></tr><tr><td>Config Type 0 Read Request (CfgRd0)</td><td>000 = 3DW, no data</td><td>0 0100</td></tr><tr><td>Config Type 0 Write Request (CfgWr0)</td><td>010 = 3DW, w/data</td><td>0 0100</td></tr><tr><td>Config Type 1 Read Request (CfgRd1)</td><td>000 = 3DW, no data</td><td>0 0101</td></tr><tr><td>Config Type 1 Write Request (CfgWr1)</td><td>010 = 3DW, w/data</td><td>0 0101</td></tr><tr><td>Message Request (Msg)</td><td>001 = 4DW, no data</td><td>1 0RRR* (for RRR, see routing subfield in "Message Type Field Summary" on page 164)</td></tr><tr><td>Message Request w/Data (MsgD)</td><td>011 = 4DW, w/data</td><td>1 0RRR* (for RRR, see routing subfield in "Message Type Field Summary" on page 164)</td></tr><tr><td>Completion (Cpl)</td><td>000 = 3DW, no data</td><td>0 1010</td></tr><tr><td>Completion W/Data (CplD)</td><td>010 = 3DW, w/ data</td><td>0 1010</td></tr><tr><td>Completion-Locked (CplLk)</td><td>000 = 3DW, no data</td><td>0 1011</td></tr><tr><td>Completion w/Data (CplDLk)</td><td>010 = 3DW, w/ data</td><td>0 1011</td></tr><tr><td>Fetch and Add AtomicOp Request (FetchAdd)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1100</td></tr><tr><td>Unconditional Swap AtomicOp Request (Swap)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1101</td></tr><tr><td>Compare and Swap AtomicOp Request (CAS)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1110</td></tr><tr><td>Local TLP Prefix (LPrfx)</td><td>100 = 1DW</td><td>0 LLLL</td></tr><tr><td>End-to-End TLP Prefix (EPrfx)</td><td>100 = 1DW</td><td>1 EEEE</td></tr></table>
 
@@ -1099,11 +1099,11 @@ If the Type field in a received TLP indicates ID routing is to be used, then the
 </tr>
 </table>
 
-Figure 4-15: 3DW TLP Header - ID Routing Fields
-![](images/part02_a3eae75f4c57834d4b43ecc60db67b8feedf07b5daeead859131dec27b5446e6.jpg)
+Figure 4-15: 3DW TLP Header - ID Routing Fields | 图4-15：3DW TLP头 - ID路由字段
+<img src="images/part02_a3eae75f4c57834d4b43ecc60db67b8feedf07b5daeead859131dec27b5446e6.jpg" width="700" alt="">
 
-Figure 4-16: 4DW TLP Header - ID Routing Fields
-![](images/part02_c5e73cb93b4421601309081f14e7dd41039673423275cf68bf670983767ecc47.jpg)
+Figure 4-16: 4DW TLP Header - ID Routing Fields | 图4-16：4DW TLP头 - ID路由字段
+<img src="images/part02_c5e73cb93b4421601309081f14e7dd41039673423275cf68bf670983767ecc47.jpg" width="700" alt="">
 
 ## Endpoints: One Check | 端点：单一检查
 
@@ -1172,8 +1172,8 @@ In this section, it is important to remember that each port on a switch is a Bri
 </tr>
 </table>
 
-Figure 4-17: Switch Checks Routing Of An Inbound TLP Using ID Routing
-![](images/part02_fc6f79f8ca30a0eaee36c18c935ef53ffbdba2126190699e50eddded332a2037.jpg)
+Figure 4-17: Switch Checks Routing Of An Inbound TLP Using ID Routing | 图4-17：交换机使用ID路由检查入站TLP的路由
+<img src="images/part02_fc6f79f8ca30a0eaee36c18c935ef53ffbdba2126190699e50eddded332a2037.jpg" width="700" alt="">
 
 ## Address Routing | 地址路由
 
@@ -1217,11 +1217,11 @@ TLPs with 64‑Bit Address — For 64‑bit memory requests, a 4DW header is use
 </tr>
 </table>
 
-Figure 4‑18: 3DW TLP Header — Address Routing Fields
-![](images/part02_35aa75f79ed03d1081d34cf95b053c7f1e1f7022db9fd9fe908c90f87e7ad67a.jpg)
+Figure 4‑18: 3DW TLP Header — Address Routing Fields | 图4‑18：3DW TLP头 — 地址路由字段
+<img src="images/part02_35aa75f79ed03d1081d34cf95b053c7f1e1f7022db9fd9fe908c90f87e7ad67a.jpg" width="700" alt="">
 
-Figure 4‑19: 4DW TLP Header — Address Routing Fields
-![](images/part02_5c852f5678febf67f3fc428e4d27a5319701cb83d0df73f869d7b9b4793005e2.jpg)
+Figure 4‑19: 4DW TLP Header — Address Routing Fields | 图4‑19：4DW TLP头 — 地址路由字段
+<img src="images/part02_5c852f5678febf67f3fc428e4d27a5319701cb83d0df73f869d7b9b4793005e2.jpg" width="700" alt="">
 
 ## Endpoint Address Checking | 端点地址检查
 
@@ -1247,8 +1247,8 @@ Chapter 4: Address Space & Transaction Routing
 </tr>
 </table>
 
-Figure 4-20: Endpoint Checks Incoming TLP Address
-![](images/part02_1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg)
+Figure 4-20: Endpoint Checks Incoming TLP Address | 图4-20：端点检查入站TLP地址
+<img src="images/part02_1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg" width="700" alt="">
 
 ## Switch Routing | 交换机路由
 
@@ -1264,8 +1264,8 @@ If an incoming TLP uses address routing, a Switch Port first checks to see if th
 </tr>
 </table>
 
-![](images/part02_47521d33eb88e6a8aa297bb7e9520c2500d1748e9639be55d27495f09b5b3353.jpg)
-Figure 4-21: Switch Checks Routing Of An Inbound TLP Using Address
+<img src="images/part02_47521d33eb88e6a8aa297bb7e9520c2500d1748e9639be55d27495f09b5b3353.jpg" width="700" alt="">
+Figure 4-21: Switch Checks Routing Of An Inbound TLP Using Address | 图4-21：交换机使用地址检查入站TLP的路由
 
 <table>
 <tr>
@@ -1469,8 +1469,8 @@ Slot Power Limit settings
 </tr>
 </table>
 
-![](images/part02_180e1d6d4c7b49cebf8eda3097555e2eb146e70d55ac049bbc4ae3669523c4b5.jpg)
-Figure 4-22: 4DW Message TLP Header - Implicit Routing Fields
+<img src="images/part02_180e1d6d4c7b49cebf8eda3097555e2eb146e70d55ac049bbc4ae3669523c4b5.jpg" width="700" alt="">
+Figure 4-22: 4DW Message TLP Header - Implicit Routing Fields | 图4-22：4DW消息TLP头 - 隐式路由字段
 
 
 ## Key TLP Header Fields in Implicit Routing | 隐式路由中的关键 TLP 头字段
@@ -1507,7 +1507,7 @@ For address routing, bytes 8-15 contain up to a 64-bit address, and for ID routi
 </tr>
 </table>
 
-Table 4-10: Message Request Header Type Field Usage
+Table 4-10: Message Request Header Type Field Usage | 表4-10：消息请求头类型字段用法
 
 <table><tr><td>Type Field Bits</td><td>Description</td></tr><tr><td>Bit 4:3</td><td>Defines the type of transaction: $10b = \text{Message TLP}$ </td></tr><tr><td>Bit 2:0</td><td>Message Routing Subfield R[2:0] $\bullet$  000b = Implicit - Route to the Root Complex $\bullet$  001b = Route by Address (bytes 8-15 of header contain address) $\bullet$  010b = Route by ID (bytes 8-9 of header contain ID) $\bullet$  011b = Implicit - Broadcast downstream $\bullet$  100b = Implicit - Local: terminate at receiver $\bullet$  101b = Implicit - Gather &amp; route to the Root Complex $\bullet$  110b - 111b = Reserved: terminate at receiver</td></tr></table>
 
@@ -1703,8 +1703,8 @@ With the exception of the Logical Idle symbols and Physical Layer packets called
 </tr>
 </table>
 
-Figure 5‐1: TLP And DLLP Packets
-![](images/part02_c95d2324c799f59c2437e1a433388a586089185e3661fa7dacda8c2af34d8ef6.jpg)
+Figure 5‐1: TLP And DLLP Packets | 图5‐1：TLP和DLLP数据包
+<img src="images/part02_c95d2324c799f59c2437e1a433388a586089185e3661fa7dacda8c2af34d8ef6.jpg" width="700" alt="">
 
 ## Motivation for a Packet-Based Protocol | 采用基于数据包协议的动机
 
@@ -1907,8 +1907,8 @@ The list numbers correspond to the numbers in Figure 5-2 on page 173.
 </tr>
 </table>
 
-Figure 5-2: PCIe TLP Assembly/Disassembly
-![](images/part02_9975e4bc5a3afd16b56b819f3cae3190ba51c80a39c9d42a9bc457fc722ea5f4.jpg)
+Figure 5-2: PCIe TLP Assembly/Disassembly | 图5-2：PCIe TLP组装/拆解
+<img src="images/part02_9975e4bc5a3afd16b56b819f3cae3190ba51c80a39c9d42a9bc457fc722ea5f4.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -1971,7 +1971,7 @@ The basic usage of each field in a Transaction Layer Packet is defined in Table 
 </tr>
 </table>
 
-Table 5-1: TLP Header Type Field Defines Transaction Variant
+Table 5-1: TLP Header Type Field Defines Transaction Variant | 表5-1：TLP头类型字段定义事务变体
 
 <table><tr><td>TLP Component</td><td>Protocol Layer</td><td>Component Use</td></tr><tr><td>Header</td><td>Transaction Layer</td><td>3 or 4DW (12 or 16 bytes) in size. Format varies with type, but Header defines parameters, including:Transaction typeTarget address, ID, etc.Transfer size (if any), Byte EnablesAttributesTraffic Class</td></tr><tr><td>Data</td><td>Transaction Layer</td><td>Optional 1-1024 DW Payload, which is qualified with Byte Enables or byte-aligned start and end addresses. Note that a length of zero can&#x27;t be specified, but a zero-length read (useful in some cases) can be approximated by specifying a length of 1 DW and Byte Enables of all zero. The resulting data from the Completer will be undefined but the Requester doesn&#x27;t use it, so the result is the same.</td></tr><tr><td>Digest/ECRC</td><td>Transaction Layer</td><td>Optional. When present, ECRC is always 1 DW in size.</td></tr></table>
 
@@ -2006,8 +2006,8 @@ Header format differences associated with specific transaction types are covered
 </tr>
 </table>
 
-![](images/part02_86de3a251a1f2d00f0f15727ca8579b021fdfe1bcfc1111e0c0d75e2bd01a7df.jpg)
-Figure 5-3: Generic TLP Header Fields
+<img src="images/part02_86de3a251a1f2d00f0f15727ca8579b021fdfe1bcfc1111e0c0d75e2bd01a7df.jpg" width="700" alt="">
+Figure 5-3: Generic TLP Header Fields | 图5-3：通用TLP头字段
 
 ## Generic Header Field Summary | 通用头字段汇总
 
@@ -2022,7 +2022,7 @@ Table 5-2 on page 176 summarizes the size and use of each of the generic TLP hea
 </tr>
 <tr>
 <td width="50%">
-Table 5-2: Generic Header Field Summary
+Table 5-2: Generic Header Field Summary | 表5-2：通用头字段摘要
 </td>
 <td width="50%" style="background-color:#e8e8e8">
 表5-2：通用头字段汇总
@@ -2064,7 +2064,7 @@ Table 5-3 on page 179 summarizes the encodings used in TLP header Type and Forma
 </tr>
 </table>
 
-Table 5-3: TLP Header Type and Format Field Encodings
+Table 5-3: TLP Header Type and Format Field Encodings | 表5-3：TLP头类型和格式字段编码
 
 <table><tr><td>TLP</td><td>FMT[2:0]</td><td>TYPE [4:0]</td></tr><tr><td>Memory Read Request (MRd)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0000</td></tr><tr><td>Memory Read Lock Request (MRdLk)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0001</td></tr><tr><td>Memory Write Request (MWr)</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 0000</td></tr><tr><td>IO Read Request (IORd)</td><td>000 = 3DW, no data</td><td>0 0010</td></tr><tr><td>IO Write Request (IOWr)</td><td>010 = 3DW, w/ data</td><td>0 0010</td></tr><tr><td>Config Type 0 Read Request (CfgRd0)</td><td>000 = 3DW, no data</td><td>0 0100</td></tr><tr><td>Config Type 0 Write Request (CfgWr0)</td><td>010 = 3DW, w/ data</td><td>0 0100</td></tr><tr><td>Config Type 1 Read Request (CfgRd1)</td><td>000 = 3DW, no data</td><td>0 0101</td></tr><tr><td>Config Type 1 Write Request (CfgWr1)</td><td>010 = 3DW, w/ data</td><td>0 0101</td></tr><tr><td>Message Request (Msg)</td><td>001 = 4DW, no data</td><td>1 0 rrr*(see routing field)</td></tr><tr><td>Message Request W/Data (MsgD)</td><td>011 = 4DW, w/ data</td><td>1 0rrr*(see routing field)</td></tr><tr><td>Completion (Cpl)</td><td>000 = 3DW, no data</td><td>0 1010</td></tr><tr><td>Completion W/Data (CplD)</td><td>010 = 3DW, w/ data</td><td>0 1010</td></tr><tr><td>Completion-Locked (CplLk)</td><td>000 = 3DW, no data</td><td>0 1011</td></tr><tr><td>Completion W/Data (CplDLk)</td><td>010 = 3DW, w/ data</td><td>0 1011</td></tr><tr><td>Fetch and Add AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1100</td></tr><tr><td>Unconditional Swap AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1101</td></tr><tr><td>Compare and Swap AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1110</td></tr><tr><td>Local TLP Prefix</td><td>100 = TLP Prefix</td><td> $0L_3L_2L_1L_0$ </td></tr><tr><td>End-to-End TLP Prefix</td><td>100 = TLP Prefix</td><td> $1E_3E_2E_1E_0$ </td></tr></table>
 
@@ -2227,8 +2227,8 @@ Byte Enable Example. An example of byte enable use in this case is illustrated i
 </tr>
 </table>
 
-Figure 5-4: Using First DW and Last DW Byte Enable Fields
-![](images/part02_6866d40c7ae466d43b498249907df37be5b233a907f7c511faebe3237f726984.jpg)
+Figure 5-4: Using First DW and Last DW Byte Enable Fields | 图5-4：使用首DW和末DW字节使能字段
+<img src="images/part02_6866d40c7ae466d43b498249907df37be5b233a907f7c511faebe3237f726984.jpg" width="700" alt="">
 
 ## Transaction Descriptor Fields | 事务描述符字段
 
@@ -2243,7 +2243,7 @@ As transactions move between requester and completer, it's necessary to uniquely
 </tr>
 </table>
 
-Figure 5-5: Transaction Descriptor Fields
+Figure 5-5: Transaction Descriptor Fields | 图5-5：事务描述符字段
 
 <table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TD</td><td>EP</td><td>Attr</td><td>AT</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="8">Completer ID</td><td colspan="2">Cmpl Status</td><td>BCM</td><td colspan="3">Byte Count</td></tr><tr><td>Byte 8</td><td colspan="8">Requester ID</td><td colspan="4">Tag</td><td>R</td><td>Lower Addr</td></tr></table>
 
@@ -2391,8 +2391,8 @@ While the spec discourages the use of IO transactions, allowance is made for Leg
 </tr>
 </table>
 
-Figure 5-6: System IO Map
-![](images/part02_6e6817b2254ebb975f278610668a2f09f3d6eb0c14374f26db535bad26c54eb4.jpg)
+Figure 5-6: System IO Map | 图5-6：系统IO映射
+<img src="images/part02_6e6817b2254ebb975f278610668a2f09f3d6eb0c14374f26db535bad26c54eb4.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -2405,8 +2405,8 @@ IO 请求包头格式。图 5-7（第 185 页）显示了一个 3 DW 的 IO 请�
 </tr>
 </table>
 
-Figure 5-7: 3DW IO Request Header Format
-![](images/part02_ec3566d8277fa448d856eb8d8b0127bafc6605dac2584e6c1f5197148ad9f4f7.jpg)
+Figure 5-7: 3DW IO Request Header Format | 图5-7：3DW IO请求头格式
+<img src="images/part02_ec3566d8277fa448d856eb8d8b0127bafc6605dac2584e6c1f5197148ad9f4f7.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -2419,7 +2419,7 @@ IO 请求包头字段。IO 请求包头中每个字段的位置和用途在表 5
 </tr>
 </table>
 
-Table 5-4: IO Request Header Fields
+Table 5-4: IO Request Header Fields | 表5-4：IO请求头字段
 
 <table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Format for IO requests:000b = IO Read (3DW without data)010b = IO Write (3DW with data)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>Packet type is 00010b for IO requests</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>Traffic Class for IO requests is always zero, ensuring that these packets will never interfere with any high-priority packets.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>ID-based Ordering doesn't apply for IO requests and this bit is reserved.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>TLP processing Hints don't apply to IO requests and this bit is reserved.</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>Indicates the presence of a digest field (ECRC) at the end of the TLP.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>Indicates whether the data payload (if present) is poisoned.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Relaxed Ordering and No Snoop bits don't apply for IO requests and are always zero.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type doesn't apply for IO requests and these bits must be zero.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Indicates data payload size in DW. For IO requests, this field is always just 1 since no more than 4 bytes can be transferred. The First DW Byte Enables qualify which bytes are used.</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Requester's "return address" for corresponding Completion.Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>These bits identify the specific requests from the requester. A unique tag value is assigned to each outgoing Request. By default, only bits 4:0 are used, but the Extended Tag and Phantom Functions options can extend that to 11 bits, permitting up to 2048 outstanding requests to be in progress simultaneously.</td></tr><tr><td>Last DW BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>These bits must be 0000b because IO requests can only be one DW in size.</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>These bits qualify the bytes in the one-DW payload. For IO requests, any bit combination is valid (including all zeros).</td></tr><tr><td>Address [31:2]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0Byte 10 Bit 7:0Byte 11 Bit 7:2</td><td>The upper 30 bits of the 32-bit start address for the IO transfer. The lower two bits of the 32 bit address are reserved (00b), forcing a DW-aligned start address.</td></tr></table>
 
@@ -2436,8 +2436,8 @@ PCI Express存储器事务包括两类：读请求及其对应的完成报文，
 </tr>
 </table>
 
-Figure 5-8: 3DW And 4DW Memory Request Header Formats
-![](images/part02_93481f62478e88c776bdd0b5bb56579eec265c6153ca3401d6c0b38f7ea618ab.jpg)
+Figure 5-8: 3DW And 4DW Memory Request Header Formats | 图5-8：3DW和4DW存储器请求头格式
+<img src="images/part02_93481f62478e88c776bdd0b5bb56579eec265c6153ca3401d6c0b38f7ea618ab.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -2450,14 +2450,14 @@ Memory Request Header Fields. The location and use of each field in a 4DW memory
 </tr>
 </table>
 
-Table 5-5: 4DW Memory Request Header Fields
+Table 5-5: 4DW Memory Request Header Fields | 表5-5：4DW存储器请求头字段
 
 <table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Formats:000b = Memory Read (3DW w/o data)010b = Memory Write (3DW w/ data)001b = Memory Read (4DW w/o data)011b = Memory Write (4DW w/ data)1xxb = TLP Prefix has been added to the beginning of the packet. See "TPH (TLP Processing Hints)" on page 899 for more on this.</td></tr><tr><td>Type[4:0]</td><td>Byte 0 Bit 4:0</td><td>TLP packet Type field:00000b = Memory Read or Write00001b = Memory Read Locked Type field is used with Fmt [1:0] field to specify transaction type, header size, and whether data payload is present.</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>These bits encode the traffic class to be applied to a Request and to any associated Completion.000b = Traffic Class 0 (Default).111b = Traffic Class 7See"Traffic Class (TC)" on page 247 for more on this.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>Indicates whether ID-based Ordering is to be used for this TLP. To learn more, see "ID Based Ordering (IDO)" on page 301.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>Indicates whether TLP Hints have been included. See "TPH (TLP Processing Hints)" on page 899 for a discussion on these hints.</td></tr></table>
 
 ## PCI Express Technology | PCI Express 技术
 
 
-Table 5-5: 4DW Memory Request Header Fields (Continued)
+Table 5-5: 4DW Memory Request Header Fields (Continued) | 表5-5：4DW存储器请求头字段（续）
 
 <table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>If 1, the optional TLP Digest field is included with this TLP.Some rules:The presence of the Digest field must be checked by all receivers (using this bit)TLPs with TD = 1 but no Digest field are treated as Malformed.If the TD bit is set, recipient must perform the ECRC check if enabled.If a Receiver doesn't support the optional ECRC checking, it must ignore the digest field.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>If 1, the data accompanying this packet should be considered to have an error although the transaction is allowed to complete normally.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Bit 5 = Relaxed ordering.When set = 1, PCI-X relaxed ordering is enabled for this TLP. Otherwise, strict PCI ordering is used.Bit 4 = No Snoop.If 1, system hardware is not required to cause processor cache snoop for coherency for this TLP. Otherwise, cache snooping is required.</td></tr><tr><td>Address Type [1:0]</td><td>Byte 2 Bit 3:2</td><td>This field supports address translation for virtualized systems. The translation protocol is described in a separate spec called Address Translation Services, where it can be seen that the field encodes as:00 = Default/Untranslated01 = Translation Request10 = Translated11 = Reserved</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>TLP data payload transfer size, in DW. Maximum size is 1024 DW (4KB), encoded as:00 0000 0001b = 1DW00 0000 0010b = 2DW..11 1111 1111b = 1023 DW00 0000 0000b = 1024 DW</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies a Requester's return address for a completion:Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>These identify each outstanding request issued by the Requester. By default only bits 4:0 are used, allowing up to 32 requests to be in progress at a time. If the Extended Tag bit in the Control Register is set, then all 8 bits may be used (256 tags).</td></tr><tr><td>Last BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>These qualify bytes within the last DW of data transferred.</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>These qualify bytes within the first DW of the data payload.</td></tr><tr><td>Address [63:32]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0Byte 10 Bit 7:0Byte 11 Bit 7:0</td><td>The upper 32 bits of the 64-bit start address for the memory transfer.</td></tr><tr><td>Address [31:2]</td><td>Byte 12 Bit 7:0Byte 13 Bit 7:0Byte 14 Bit 7:0Byte 15 Bit 7:2</td><td>The lower 32 bits of the 64 bit start address for the memory transfer. The lower two bits of the address are reserved, forcing a DW-aligned start address.</td></tr></table>
 
@@ -2541,8 +2541,8 @@ PCI Express 使用 Type 0 和 Type 1 两种配置请求，方式与 PCI 相同�
 </tr>
 </table>
 
-Figure 5‐9: 3DW Configuration Request And Header Format
-![](images/part02_5807124a29434194ad38ae629fb7a39f2a557405c60e04e616a162a37d27fdd8.jpg)
+Figure 5‐9: 3DW Configuration Request And Header Format | 图5‐9：3DW配置请求和头格式
+<img src="images/part02_5807124a29434194ad38ae629fb7a39f2a557405c60e04e616a162a37d27fdd8.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -2563,7 +2563,7 @@ Definitions Of Configuration Request Header Fields. Table 5‐6 on page 194 desc
 </tr>
 </table>
 
-Table 5‐6: Configuration Request Header Fields
+Table 5‐6: Configuration Request Header Fields | 表5‐6：配置请求头字段
 
 <table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Always a 3DW header000b = configuration read (no data)010b = configuration write (with data)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>00100b = Type 0 Config Request00101b = Type 1 Config Request</td></tr><tr><td>TC [2:0](Transfer Class)</td><td>Byte 1 Bit 6:4</td><td>Traffic Class must be zero for Configuration requests, ensuring that these packets will never interfere with any high-priority packets.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td rowspan="2">These bits are reserved and must be zero for Config Requests.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>Indicates the presence of a digest field (1 DW) at the end of the TLP.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>Indicates that data payload is poisoned.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Relaxed Ordering and No Snoop bits are both always = 0 in configuration requests.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type is reserved for config requests and must be zero.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Data payload size in DW is always = 1 for configuration requests. Byte Enables qualify bytes within the DW and any combination is legal.</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Requester's return address for a completion:Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>These bits identify outstanding request issued by the requester. By default, only bits 4:0 are used (32 outstanding transactions at a time), but if the Extended Tag bit in the Control Register is set = 1, then all 8 bits may be used (256 tags).</td></tr><tr><td>Last BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>These qualify bytes in the last data DW transferred. Since config requests can only be one DW in size, these bits must be zero.</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>These high-true bits qualify bytes in the first data DW transferred. For config requests, any bit combination is valid (including none active).</td></tr><tr><td>Completer ID [15:0]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0</td><td>Identifies the completer being accessed with this configuration cycle.Byte 8, 7:0 = Bus NumberByte 9, 7:3 = Device NumberByte 9, 2:0 = Function Number</td></tr><tr><td>Ext Register Number[3:0](Extended Register Number)</td><td>Byte 10 Bit 3:0</td><td>These provide the upper 4 bits of DW space for accessing the extended config space. They're combined with Register Number to create the 10-bit address needed to access the 1024 DW (4096 byte) space. For PCI-compatible config space, this field must be zero.</td></tr><tr><td>Register Number [5:0]</td><td>Byte 11 Bit 7:0</td><td>As the lower 8 bits of configuration DW space, these specify the register number. The two lowest bits are always zero, forcing DW-aligned accesses.</td></tr></table>
 
@@ -2600,8 +2600,8 @@ Many fields in the Completion use the same values as the associated request, inc
 </tr>
 </table>
 
-Figure 5-10: 3DW Completion Header Format
-![](images/part02_a6cddfbfaf4ca7c4ab4647260c51d133a2bd27b3074d97b8c5923f662039ce02.jpg)
+Figure 5-10: 3DW Completion Header Format | 图5-10：3DW完成头格式
+<img src="images/part02_a6cddfbfaf4ca7c4ab4647260c51d133a2bd27b3074d97b8c5923f662039ce02.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -2614,7 +2614,7 @@ Definitions Of Completion Header Fields. Table 5-7 on page 197 describes the loc
 </tr>
 </table>
 
-Table 5-7: Completion Header Fields
+Table 5-7: Completion Header Fields | 表5-7：完成头字段
 
 <table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0] (Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Format (always a 3DW header)000b = Completion without data (Cpl)010b = Completion with data (CplD)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>Packet type is 01010b for Completions.</td></tr></table>
 
@@ -2629,6 +2629,6 @@ PCI Express 技术
 </tr>
 </table>
 
-Table 5-7: Completion Header Fields (Continued)
+Table 5-7: Completion Header Fields (Continued) | 表5-7：完成头字段（续）
 
 <table><tr><td>Field Name</td><td>HeaderByte/Bit</td><td>Function</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>Completions must use the same value here as the corresponding Request.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>Indicates whether ID-based Ordering is to be used for this TLP. To learn more, see "ID Based Ordering (IDO)" on page 301.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>Reserved for Completions.</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>If = 1, indicates the presence of a digest field at the end of the TLP.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>If = 1, indicates the data payload is poisoned.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Completions must use the same values here as the corresponding Request.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type is reserved for Completions and must be zero, but Receivers are not required or even encouraged to check this.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Indicates data payload size in DW. For Completions, this field reflects the size of the data payload associated with this completion.</td></tr><tr><td>Completer ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Completer to support debugging problems.Byte 4 7:0 = Completer Bus #Byte 5 7:3 = Completer Dev #Byte 5 2:0 = Completer Function #</td></tr></table>

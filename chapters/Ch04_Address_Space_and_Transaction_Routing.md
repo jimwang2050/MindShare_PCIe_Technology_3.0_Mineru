@@ -37,7 +37,7 @@ The mapping example in Figure 4-1 is only showing MMIO and IO space being claime
 </tr>
 </table>
 
-<img src="images/xxx.jpg" width="700" alt="">
+<img src="images/part02_1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg" width="700" alt="">
 Figure 4-1: MMIO Types Claimed by PCIe Devices | 图4-1：PCIe设备声明的MMIO类型
 
 

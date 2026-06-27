@@ -189,8 +189,7 @@ The mapping example in Figure 4-1 is only showing MMIO and IO space being claime
 </tr>
 </table>
 
-Figure 4-1: MMIO Types Claimed by PCIe Devices | 图4-1：PCIe设备声明的MMIO类型
-<img src="images/part02_1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg" width="700" alt="">
+<!-- 错误的 Figure 4-1 已移除，正确图片在下文 -->
 
 
 ## Prefetchable vs. Non-prefetchable Memory Space | 可预取内存空间与不可预取内存空间
@@ -542,7 +541,7 @@ All BARs must be evaluated, even if software finds a BAR that is not being used.
 </tr>
 </table>
 
-## Resizable BARs | 可调整大小的 BAR
+## 20.5.2 Resizable BARs | 20.5.2 可调整大小的 BAR
 
 <table>
 <tr>

@@ -12,7 +12,7 @@
 | Finally, the bottom trace shows the result of summing all three inputs to arrive at the final signal that is actually launched onto the wire. In the illustration, this is overlaid with the single-ended output waveform from Figure 13-23 on page 477 to show that it approximates a real capture fairly well. Some voltage calculations are shown from our previous example to demonstrate how the resulting voltages are obtained. | 最后，底部轨迹显示了对所有三个输入求和的结果，得到最终实际发送到线上的信号。在图中，该结果与第477页图13-23中的单端输出波形叠加，以显示它与实际捕获的信号相当接近。通过前面示例中的一些电压计算，展示了如何得到最终的电压值。 |
 
 Figure 13-24: Tx 3-Tap Equalizer Output | 图13-24：发送3抽头均衡器输出
-<img src="../images/part04_2dae28f76ac39460f5a753008e94809f56d86f47ba3c1fc069ab9a128ad1d49b.jpg" width="700" alt="">
+<img src="images/part04_2dae28f76ac39460f5a753008e94809f56d86f47ba3c1fc069ab9a128ad1d49b.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -32,7 +32,7 @@ Figure 13-24: Tx 3-Tap Equalizer Output | 图13-24：发送3抽头均衡器输�
 
 Figure 13-25: Example Beacon Signal | 图13-25：信标信号示例
 
-<img src="../images/part04_ff0f279a7f95be0c34cd718d7cb7b5d14f2e619c5cf3b9327597a56ec4ab8c59.jpg" width="700" alt="">
+<img src="images/part04_ff0f279a7f95be0c34cd718d7cb7b5d14f2e619c5cf3b9327597a56ec4ab8c59.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -82,7 +82,7 @@ Figure 13-25: Example Beacon Signal | 图13-25：信标信号示例
 
 Figure 13-26: Transmitter Eye Diagram / 图13-26：发送器眼图 | 图13-26：发送器眼图
 
-<img src="../images/part04_35fd99127f41b9f6d8803140be8efab3a1baa300cb2d0206c6b8e10a2de93c0d.jpg" width="700" alt="">
+<img src="images/part04_35fd99127f41b9f6d8803140be8efab3a1baa300cb2d0206c6b8e10a2de93c0d.jpg" width="700" alt="">
 
 ## Effects of Jitter
 
@@ -98,10 +98,9 @@ Figure 13-26: Transmitter Eye Diagram / 图13-26：发送器眼图 | 图13-26：
 | Figure 13-28 on page 488 shows a screen capture of a bad Eye Diagram at 2.5 GT/s. Since this is captured without de-emphasis, the traces should all stay outside the Minimum Eye area, shown on the screen by the trapezoid shape in the middle. This example illustrates that jitter can affect both edge arrival times and voltage levels, causing some trace instances to encroach on the keep-out area of the diagram. | 第488页的图13-28显示了2.5 GT/s下不良眼图的屏幕截图。由于这是在未使用去加重的情况下捕获的，所有迹线都应保持在最小眼区（屏幕上由中间的梯形形状显示）之外。此示例说明抖动会影响边沿到达时间和电压电平，导致某些迹线实例侵入眼图的禁止区域。 |
 
 Figure 13-27: Rx Normal Eye (No De-emphasis) | 图13-27：接收器正常眼图（无去加重）
-<img src="../images/part04_8d0c538247b2ffc272b578afef4434747486405844500d67ad67aac87b23ecef.jpg" width="700" alt="">
-
 Figure 13-28: Rx Bad Eye (No De-emphasis) | 图13-28：接收器不良眼图（无去加重）
-<img src="../images/part04_027c9ce14b004e824d0b75bfeab94e4ed5e63f68bb429944bd775c6feffd9e1d.jpg" width="700" alt="">
+<img src="images/part04_8d0c538247b2ffc272b578afef4434747486405844500d67ad67aac87b23ecef.jpg" width="700" alt="">
+<img src="images/part04_027c9ce14b004e824d0b75bfeab94e4ed5e63f68bb429944bd775c6feffd9e1d.jpg" width="700" alt="">
 
 ## Transmitter Driver Characteristics
 
@@ -172,17 +171,16 @@ Table 13-3: Transmitter Specs | 表13-3：发送器规格
 | One form of receiver equalization would be a circuit like the one shown in Figure 13‑29 on page 494, which is a Discrete Time Linear Equalizer (DLE). This is simply an FIR filter, similar to the one used by the transmitter, to provide wave shaping as a means of compensating for channel distortion. One difference is that it uses a Sample and Hold (S & H) circuit on the front end to hold the analog input voltage at a sampled value for a time period, rather than allowing it to constantly change. The spec doesn't mention DLE, and the reasons may include its higher cost and power compared to CTLE. As with the transmitter FIR, more taps provide better wave shaping but add cost, so only a small number are practical. | 一种接收均衡形式是如图13-29（第494页）所示的电路，即离散时间线性均衡器 (DLE)。这本质上就是一个FIR滤波器，类似于发送端使用的滤波器，提供波形整形以补偿信道失真。一个区别在于其前端使用采样保持 (S&H) 电路，将模拟输入电压保持在一个采样值一段时间，而不是让其不断变化。规范未提及DLE，原因可能包括与CTLE相比其成本和功耗更高。与发送端FIR一样，更多抽头提供更好的波形整形但增加成本，因此只有少量抽头是实用的。 |
 
 Figure 13‑29: Rx Discrete‑Time Linear Equalizer (DLE) | 图13‑29：接收器离散时间线性均衡器（DLE）
-<img src="../images/part04_c702b47508b601c71b3f7f61b6c315bc3f9ff31e40de151ccf0aaff6f734418f.jpg" width="700" alt="">
+<img src="images/part04_c702b47508b601c71b3f7f61b6c315bc3f9ff31e40de151ccf0aaff6f734418f.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | In contrast, CTLE is not limited to discrete time intervals and improves the signal over a longer time interval. A simple RC network can serve as an example of a CTLE high‑pass filter, as shown in Figure 13‑30 on page 494. This serves to reduce the low-frequency distortion caused by the channel without boosting the noise in the high-frequency range of interest and cleans the signal for use at the next stage. Figure 13‑31 on page 495 illustrates the attenuation effect of CTLE high‑pass filter on the received low frequency component of a signal e.g. continuous 1s or continuous 0s. | 相比之下，CTLE不限于离散时间间隔，而是在更长的时间间隔内改善信号。一个简单的RC网络可作为CTLE高通滤波器的示例，如图13-30（第494页）所示。这用于降低信道引起的低频失真，而不会放大感兴趣的高频范围内的噪声，并清洁信号以供下一级使用。图13-31（第495页）展示了CTLE高通滤波器对接收信号低频分量（例如连续1或连续0）的衰减效果。 |
 
 Figure 13‑30: Rx Continuous‑Time Linear Equalizer (CTLE) | 图13‑30：接收器连续时间线性均衡器（CTLE）
-<img src="../images/part04_f813dfbed967f4287746445e3f1742c1008635ec058518617be5b5b3e6c9ae02.jpg" width="700" alt="">
-
 Figure 13‑31: Effect of Rx Continuous‑Time Linear Equalizer (CTLE) on Received Signal | 图13‑31：接收器连续时间线性均衡器（CTLE）对接收信号的影响
-<img src="../images/part04_1e21ae0db97ebef6422691de04636d52d52c044446e97840bd35eb970af0da34.jpg" width="700" alt="">
+<img src="images/part04_f813dfbed967f4287746445e3f1742c1008635ec058518617be5b5b3e6c9ae02.jpg" width="700" alt="">
+<img src="images/part04_1e21ae0db97ebef6422691de04636d52d52c044446e97840bd35eb970af0da34.jpg" width="700" alt="">
 
 ## Decision Feedback Equalization (DFE)
 
@@ -191,12 +189,12 @@ Figure 13‑31: Effect of Rx Continuous‑Time Linear Equalizer (CTLE) on Receiv
 | An example one‑tap DFE circuit like the one described in the spec is shown in Figure 13‑32 on page 495, where it can be seen that the received signal is summed with the feedback value and then fed into a data "slicer." A slicer is an A/D circuit that takes the analog‑looking input and converts it into a clean, fullswing digital signal for internal use. It makes its best guess and decides whether the input is a positive or negative value and outputs either +1 or -1. This decision is sent into an FIR filter with only one tap, which is just a delayed version weighted according to a coefficient setting. The output of this filter is then fed back and summed with the received signal for use as the new input to the data slicer. | 一个如规范所述的单抽头DFE电路示例如图13-32（第495页）所示，可以看到接收信号与反馈值相加后送入数据"切片器"。切片器是一种模数转换电路，它将模拟输入转换为干净的全摆幅数字信号供内部使用。它进行最佳猜测并判断输入为正还是负，输出+1或-1。该判决送入仅有一个抽头的FIR滤波器，该滤波器只是根据系数设置加权的延迟版本。该滤波器的输出随后被反馈并与接收信号相加，用作数据切片器的新输入。 |
 
 Figure 13‑32: Rx 1‑Tap DFE | 图13‑32：接收器1抽头DFE
-<img src="../images/part04_3746f4cf9354ab65b51cb1b33169de7c244238112e3f1837f2cb969d315ebaae.jpg" width="700" alt="">
+<img src="images/part04_3746f4cf9354ab65b51cb1b33169de7c244238112e3f1837f2cb969d315ebaae.jpg" width="700" alt="">
 
 ## PCI Express Technology
 
 Figure 13‐33: Rx 2‐Tap DFE | 图13‐33：接收器2抽头DFE  
-<img src="../images/part04_45f57f826e75b4a352ed2efa36b23babf0f157acd88549162f912e795adb3707.jpg" width="700" alt="">
+<img src="images/part04_45f57f826e75b4a352ed2efa36b23babf0f157acd88549162f912e795adb3707.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -218,7 +216,7 @@ Figure 13‑34 on page 499 also illustrates some of the parameters listed in the
 <table><tr><td>Item</td><td>2.5 GT/s.</td><td>5.0 GT/s.</td><td>8.0 GT/s</td><td>Units</td><td>Notes</td></tr><tr><td>UI</td><td>399.88(min)400.12(max)</td><td>199.94(min)200.06(max)</td><td>124.9625(min)125.0375(max)</td><td>ps</td><td>Unit Interval = bit time.</td></tr><tr><td> $T_{RX-EYE}$ </td><td>0.4(min)</td><td colspan="2">Indirectly specified</td><td>UI</td><td>Minimum eye width for a BER or  $10^{-12}$ . At higher rates and long channels the eye is effectively closed, making external measurement impractical.</td></tr><tr><td> $V_{RX-EYE}$ </td><td>300</td><td>120 (CC)100 (DC)</td><td>Not specified</td><td>mVpp diff</td><td>CC = common clocked, DC = data clocked</td></tr><tr><td> $V_{RX-DIFF-PP-CC}$ </td><td>175(min)1200(max)</td><td>120 (min)1200(max)</td><td>Indirectly specified</td><td>mV</td><td>Peak-to-peak differential voltage sensitivity of common-clocked Receiver.</td></tr><tr><td> $V_{RX-DIFF-PP-DC}$ </td><td>175(min)1200(max)</td><td>100 (min)1200(max)</td><td>Indirectly specified</td><td>mV</td><td>Peak-to-peak differential voltage sensitivity of data-clocked Receiver.</td></tr><tr><td> $V_{RX-IDLE-DET-DIFFp-p}$ </td><td colspan="3">65 (min) 175 (max)</td><td>mV</td><td>Electrical Idle detect threshold at the Receiver pins.</td></tr><tr><td> $Z_{RX-DIFF-DC}$ </td><td>80(min)120(max)</td><td colspan="2">Covered by  $RL_{RX-DIFF}$ </td><td>Ω</td><td>At higher frequencies impedance can no longer be represented by a lumped-sum value and must be described in more detail.</td></tr><tr><td> $Z_{RX--DC}$  $L_{RX-SKEW}$ </td><td>40(min)60(max)20</td><td>40 (min)60 (max)8</td><td>Bounded by  $RL_{RX-CM}$ 6</td><td>Ωns</td><td>DC impedance needed for Receiver Detect.Max Lane-to-Lane skew that a Receiver must be able to correct.</td></tr><tr><td> $RL_{RX--DIFF}$ </td><td>10 (min)</td><td>10 (min) for 0.05 - 1.25 GHz, 8 (min) for &gt;1.25 - 2.5 GHz</td><td>10 (min) for 0.05 - 1.25 GHz, 8 (min) for &gt;1.25 - 2.5 GHz, 5 (min) for &gt;2.5 - 4.0 GHz</td><td>dB</td><td>Rx package + Si differential return loss</td></tr><tr><td> $RL_{RX--CM}$ </td><td>6 (min)</td><td>6 (min)</td><td>6 (min) for 0.05 - 2.5 GHz, 5 (min) for &gt;2.5 - 4 GHz</td><td>dB</td><td>Common mode Rx return loss</td></tr></table>
 
 Figure 13‐34: 2.5 GT/s Receiver Eye Diagram | 图13‐34：2.5 GT/s接收器眼图
-<img src="../images/part04_0e1ba6929133847821c08dee65ad266dcebb572cf122864a25e701280aa45626.jpg" width="700" alt="">
+<img src="images/part04_0e1ba6929133847821c08dee65ad266dcebb572cf122864a25e701280aa45626.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -232,7 +230,7 @@ Figure 13‐34: 2.5 GT/s Receiver Eye Diagram | 图13‐34：2.5 GT/s接收器�
 | Low impedance termination at transmitter | 发送器处的低阻抗端接 |
 
 Figure 13‐35: L0 Full‐On Link State | 图13‐35：L0全开链路状态
-<img src="../images/part04_04ca904080265fa3cc2c4f7e7bf528cd7c9356ae251927c45db7feece47dd87b.jpg" width="700" alt="">
+<img src="images/part04_04ca904080265fa3cc2c4f7e7bf528cd7c9356ae251927c45db7feece47dd87b.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -240,7 +238,7 @@ Figure 13‐35: L0 Full‐On Link State | 图13‐35：L0全开链路状态
 | Figure 13-36: L0s Low Power Link State | 图13-36：L0s 低功耗链路状态 |
 |  |  |
 
-<img src="../images/part04_ac61d8de5e074f1846181f411164ce86ea06762b51712353f1c49a536f91edb0.jpg" width="700" alt="">
+<img src="images/part04_ac61d8de5e074f1846181f411164ce86ea06762b51712353f1c49a536f91edb0.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -253,7 +251,7 @@ Figure 13‐35: L0 Full‐On Link State | 图13‐35：L0全开链路状态
 | High or Low impedance termination at transmitter | 发送器端的高阻抗或低阻抗端接 |
 | Figure 13-37: L1 Low Power Link State | 图13-37：L1 低功耗链路状态 |
 
-<img src="../images/part04_f2eb75222b779ea3d269cc91f966c543e5c51e741130c7b285d27e610d68294b.jpg" width="700" alt="">
+<img src="images/part04_f2eb75222b779ea3d269cc91f966c543e5c51e741130c7b285d27e610d68294b.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -271,12 +269,12 @@ Figure 13‐35: L0 Full‐On Link State | 图13‐35：L0全开链路状态
 |---|---|
 | Figure 13-38: L2 Low Power Link State | 图 13-38：L2 低功耗链路状态 |
 
-<img src="../images/part04_833b5ab235c94147cdc803ca5d0eb4f006314efe6f22754f541e72e299253dc2.jpg" width="700" alt="">
+<img src="images/part04_833b5ab235c94147cdc803ca5d0eb4f006314efe6f22754f541e72e299253dc2.jpg" width="700" alt="">
 
 ## PCI Express Technology
 
 Figure 13‐39: L3 Link Off State | 图13‐39：L3链路关闭状态
-<img src="../images/part04_f054908ce754c55d01c13c20ac60bd3326718258ee0fa4b349f2e6f460517870.jpg" width="700" alt="">
+<img src="images/part04_f054908ce754c55d01c13c20ac60bd3326718258ee0fa4b349f2e6f460517870.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -321,7 +319,7 @@ Figure 13‐39: L3 Link Off State | 图13‐39：L3链路关闭状态
 | Link initialization and training is a hardware-based (not software) process controlled by the Physical Layer. The process configures and initializes a device's link and port so that normal packet traffic proceeds on the link. | 链路初始化和训练是由物理层控制的基于硬件（而非软件）的过程。该过程配置并初始化设备的链路和端口，使得正常的数据包流量可以在链路上进行。 |
 
 Figure 14-1: Link Training and Status State Machine Location | 图14-1：链路训练与状态状态机位置
-<img src="../images/part04_6c565491849d7c55e40c1aded6e39efad28960ca17fe012972cb72aab6144366.jpg" width="700" alt="">
+<img src="images/part04_6c565491849d7c55e40c1aded6e39efad28960ca17fe012972cb72aab6144366.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -334,14 +332,14 @@ Figure 14-1: Link Training and Status State Machine Location | 图14-1：链路�
 | • Lane Reversal: The Lanes on a multi-Lane device's port are numbered sequentially beginning with Lane 0. Normally, Lane 0 of one device's port connects to Lane 0 of the neighbor's port, Lane 1 to Lane 1, and so on. However, sometimes it's desirable to be able to logically reverse the Lane numbers to simplify routing and allow the Lanes to be wired directly without having to crisscross (see Figure 14-2 on page 508). As long as one device supports the optional Lane Reversal feature, this will work. The situation is detected during Link training and one device must internally reverse its Lane numbering. Since the spec doesn't require support for this, board designers will need to verify that at least one of the connected devices supports this feature before wiring the Lanes in reverse order. | • 通道反转：多通道设备端口上的通道从通道0开始顺序编号。通常，一个设备端口的通道0连接到相邻设备端口的通道0，通道1连接到通道1，以此类推。然而，有时希望对通道号进行逻辑反转以简化布线，使得通道可以直接连接而无需交叉走线（参见第508页的图14-2）。只要有一个设备支持可选的通道反转功能，这就可以实现。这种情况在链路训练期间被检测到，其中一个设备必须在内部反转其通道编号。由于规范不强制要求支持此功能，板卡设计人员在按相反顺序布线通道之前，需要验证至少有一个连接的设备支持此功能。 |
 
 Figure 14-2: Lane Reversal Example (Support Optional) | 图14-2：通道反转示例（支持可选）
-<img src="../images/part04_f53b1a0a6bbfeb708543e2e0077d4e9bf0279ea9e48ef9ac852da846d0360bbf.jpg" width="700" alt="">
+<img src="images/part04_f53b1a0a6bbfeb708543e2e0077d4e9bf0279ea9e48ef9ac852da846d0360bbf.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | • Polarity Inversion: The D+ and D- differential pair terminals for two devices may also be reversed as needed to make board layout and routing easier. Every Receiver Lane must independently check for this and automatically correct it as needed during training, as illustrated in Figure 14-3 on page 509. To do this, the Receiver looks at Symbols 6 to 15 of the incoming TS1s or TS2s. If a D21.5 is received instead of a D10.2 in a TS1, or a D26.5 instead of the D5.2 expected for a TS2, then the polarity of that lane is inverted and must be corrected. Unlike Lane reversal, support for this feature is mandatory. | • 极性反转：两个设备的D+和D-差分对端子也可以根据需要反转，以简化板卡布局和布线。每条接收器通道都必须独立检查此情况并在训练期间自动纠正，如图14-3（第509页）所示。为此，接收器检查输入TS1或TS2的符号6到15。如果在TS1中收到的是D21.5而不是D10.2，或在TS2中收到的是D26.5而不是预期的D5.2，则说明该通道的极性被反转了，必须进行纠正。与通道反转不同，对此功能的支持是强制性的。 |
 
 Figure 14-3: Polarity Inversion Example (Support Required) | 图14-3：极性反转示例（支持必须）
-<img src="../images/part04_13175af827a79e4fba54d58c874db3bd4122bfb038d55b1a2c05a59c544cf1ec.jpg" width="700" alt="">
+<img src="images/part04_13175af827a79e4fba54d58c874db3bd4122bfb038d55b1a2c05a59c544cf1ec.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -361,7 +359,7 @@ Figure 14-3: Polarity Inversion Example (Support Required) | 图14-3：极性反
 | ## PCI Express Technology | ## PCI Express 技术 |
 | Figure 14-4: TS1 and TS2 Ordered Sets When In Gen1 or Gen2 Mode | 图 14-4：Gen1 或 Gen2 模式下的 TS1 和 TS2 有序集 |
 
-<img src="../images/part04_57e057794582a6c9676ac73d61efdccea7dfe00ed5de9cb09e21638614c81958.jpg" width="700" alt="">
+<img src="images/part04_57e057794582a6c9676ac73d61efdccea7dfe00ed5de9cb09e21638614c81958.jpg" width="700" alt="">
 
 ## TS1 and TS2 Ordered Sets
 
@@ -372,7 +370,7 @@ Figure 14-3: Polarity Inversion Example (Support Required) | 图14-3：极性反
 | To make the descriptions a little shorter and easier to read, the term "Gen1" will be used to indicated data rate of 2.5 GT/s, "Gen2" to indicated data rate of 5.0 GT/s and "Gen3" to indicate data rates of 8.0 GT/s. Also, note that the PAD character used in the Link and Lane numbers is represented by the K23.7 character for the lower data rates, but as the data byte F7h for Gen3. In our discussion the distinction between the types of PAD is not interesting and will simply be implied. | 为使描述更简洁易读，术语"Gen1"用于指示2.5 GT/s的数据速率，"Gen2"用于指示5.0 GT/s的数据速率，"Gen3"用于指示8.0 GT/s的数据速率。另外，请注意链路(Link)和通道(Lane)编号中使用的PAD字符在较低数据速率下由K23.7字符表示，但在Gen3下由数据字节F7h表示。在我们的讨论中，PAD类型之间的区别并不重要，因此将直接隐含使用。 |
 
 Figure 14-5: TS1 and TS2 Ordered Set Block When In Gen3 Mode of Operation | 图14-5：Gen3操作模式下的TS1和TS2有序集块
-<img src="../images/part04_ec532d7b7636f92b99afed980969918b0764fd30d72320bf68debd76b97955aa.jpg" width="700" alt="">
+<img src="images/part04_ec532d7b7636f92b99afed980969918b0764fd30d72320bf68debd76b97955aa.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -441,7 +439,7 @@ Table 14-2: Summary of TS2 Ordered Set Contents | 表14-2：TS2有序集内容�
 
 Figure 14-6: Link Training and Status State Machine (LTSSM) | 图14-6：链路训练与状态状态机（LTSSM）
 
-<img src="../images/part04_16d89a4062d3329f72b93b848b81954f33411189b29123d32829d60f2fbb1b0e.jpg" width="700" alt="">
+<img src="images/part04_16d89a4062d3329f72b93b848b81954f33411189b29123d32829d60f2fbb1b0e.jpg" width="700" alt="">
 
 ## Overview of LTSSM States
 ## LTSSM 状态概述
@@ -486,7 +484,7 @@ Figure 14-6: Link Training and Status State Machine (LTSSM) | 图14-6：链路�
 | Every device must perform initial link training at the base rate of 2.5 GT/s. Figure 14-7 highlights the states involved in the initial training sequence. Devices capable of operating at 5.0 or 8.0 GT/s must transition to the Recovery state to change the speed to the higher rate chosen. | 每个设备必须以 2.5 GT/s 的基本速率执行初始链路训练。图 14-7 标明了初始训练序列中涉及的状态。能够以 5.0 或 8.0 GT/s 运行的设备必须转换到 Recovery 状态，以便将速度更改为所选的更高速率。 |
 
 Figure 14-7: States Involved in Initial Link Training at 2.5 Gb/s | 图14-7：2.5 Gb/s初始链路训练涉及的状态  
-<img src="../images/part04_ebb692c1b6290ffe950c1fa08e6555372c7967a57bc2dd89b9b9657b02848a47.jpg" width="700" alt="">
+<img src="images/part04_ebb692c1b6290ffe950c1fa08e6555372c7967a57bc2dd89b9b9657b02848a47.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -499,7 +497,7 @@ Figure 14-7: States Involved in Initial Link Training at 2.5 Gb/s | 图14-7：2.
 | Figure 14‐8 represents the two substates and transitions associated with the Detect state. The actions associated with the Detect state are performed by each transmitter in the process of detecting the presence of a receiver at the opposite end of the link. Because there are only two substates and because they are fairly simple, we will move directly to the substate discussions. | 图14-8展示了与Detect状态相关的两个子状态及其转换。Detect状态所关联的动作由每个发送端在执行链路对端接收端检测过程中执行。由于仅有两个子状态且较为简单，我们将直接进入子状态讨论。 |
 
 Figure 14‐8: Detect State Machine | 图14‐8：检测状态机  
-<img src="../images/part04_6d5149945b87cb3c7b4d6231dc3788d390a6bd556878dcb83fad9fdd72b9b11e.jpg" width="700" alt="">
+<img src="images/part04_6d5149945b87cb3c7b4d6231dc3788d390a6bd556878dcb83fad9fdd72b9b11e.jpg" width="700" alt="">
 
 ## Detailed Detect Substate | 详细检测子状态详解
 
@@ -560,7 +558,7 @@ Figure 14‐8: Detect State Machine | 图14‐8：检测状态机
 
 Figure 14-9: Polling State Machine | 图14-9：轮询状态机
 
-<img src="../images/part04_95a8fc0f7ab76d5827d81e1aecf89147be9b5bdf086a5e7a9ffaa68bf5bf72da.jpg" width="700" alt="">
+<img src="images/part04_95a8fc0f7ab76d5827d81e1aecf89147be9b5bdf086a5e7a9ffaa68bf5bf72da.jpg" width="700" alt="">
 
 ## Detailed Polling Substates
 
@@ -627,7 +625,7 @@ Figure 14-9: Polling State Machine | 图14-9：轮询状态机
 | As a historical aside, the substates of Polling have changed since the 1.0 version of the spec was released. At that time it was thought that when other speeds became available it would make sense to change to the highest available rate as soon as possible in this state. However, the advent of higher rates coincided with the realization that it would be advantageous to be able to change speeds both higher and lower during runtime for power management reasons. Going through the Polling state involves clearing a number of Link values and that makes it an unattractive path for runtime use, so the rate change stage was moved out of this state into the Recovery state. See Figure 14-10 on page 528. | 作为历史背景，Polling的子状态自1.0版规范发布以来已发生变化。当时认为，当其他速率可用时，在此状态下尽快切换到最高可用速率是有意义的。然而，更高速率的出现伴随着人们认识到，出于电源管理的原因，能够在运行期间将速率升高和降低都是有利的。经过Polling状态需要清除许多Link值，这使其成为运行期间使用的不具吸引力的路径，因此速率变更阶段被移出此状态，进入了Recovery状态。参见第528页的图14-10。 |
 
 Figure 14-10: Polling State Machine with Legacy Speed Change | 图14-10：带传统速度变更的轮询状态机
-<img src="../images/part04_22fed785d97b3e6ac99ad3f5395018155fe627b09704c92b9726d76c9beb3385.jpg" width="700" alt="">
+<img src="images/part04_22fed785d97b3e6ac99ad3f5395018155fe627b09704c92b9726d76c9beb3385.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -702,7 +700,7 @@ Table 14-7: Sequence of Compliance Tx Settings | 表14-7：合规发送器设置
 <table><tr><td>Setting Number</td><td>Data Rate</td><td>De-emphasis</td><td>Tx Preset Encoding</td></tr><tr><td>1</td><td>2.5</td><td>-3.5</td><td>n/a</td></tr><tr><td>2</td><td>5.0</td><td>-3.5</td><td>n/a</td></tr><tr><td>3</td><td>5.0</td><td>-6.0</td><td>n/a</td></tr><tr><td>4</td><td>8.0</td><td>n/a</td><td>0000b</td></tr><tr><td>5</td><td>8.0</td><td>n/a</td><td>0001b</td></tr><tr><td>6</td><td>8.0</td><td>n/a</td><td>0010b</td></tr><tr><td>7</td><td>8.0</td><td>n/a</td><td>0011b</td></tr><tr><td>8</td><td>8.0</td><td>n/a</td><td>0100b</td></tr><tr><td>9</td><td>8.0</td><td>n/a</td><td>0101b</td></tr><tr><td>10</td><td>8.0</td><td>n/a</td><td>0110b</td></tr><tr><td>11</td><td>8.0</td><td>n/a</td><td>0111b</td></tr><tr><td>12</td><td>8.0</td><td>n/a</td><td>1000b</td></tr><tr><td>13</td><td>8.0</td><td>n/a</td><td>1001b</td></tr><tr><td>14</td><td>8.0</td><td>n/a</td><td>1010b</td></tr></table>
 
 Figure 14-11: Link Control 2 Register | 图14-11：链路控制2寄存器
-<img src="../images/part04_c30234ca8342839e5b52c4c17658ec690161c8daa17051057ac9c61c52b81913.jpg" width="700" alt="">
+<img src="images/part04_c30234ca8342839e5b52c4c17658ec690161c8daa17051057ac9c61c52b81913.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -759,7 +757,7 @@ Figure 14-11: Link Control 2 Register | 图14-11：链路控制2寄存器
 | If the Enter Compliance bit in the Link Control 2 register is cleared (0b) and the device is directed to exit this substate. | 如果 Link Control 2 寄存器中的 Enter Compliance 位被清除 (0b) 且设备被指示退出此子状态。 |
 
 Figure 14-12: Link Control 2 Register's "Enter Compliance" Bit | 图14-12：链路控制2寄存器的"进入合规"位
-<img src="../images/part04_e05288ca922639a1f7783062ac80d7ab5a8499fdde6bc88bb5345c76000fe2cc.jpg" width="700" alt="">
+<img src="images/part04_e05288ca922639a1f7783062ac80d7ab5a8499fdde6bc88bb5345c76000fe2cc.jpg" width="700" alt="">
 
 ## Configuration State / 配置状态
 
@@ -785,7 +783,7 @@ Figure 14-12: Link Control 2 Register's "Enter Compliance" Bit | 图14-12：链�
 
 Figure 14-13: Link and Lane Number Encoding in TS1/TS2 | 图14-13：TS1/TS2中的链路和通道号编码
 
-<img src="../images/part04_5984fd9fb54ef8709f8596861731f62194dfb96957460c8f0a31a5ed9e8bae80.jpg" width="700" alt="">
+<img src="images/part04_5984fd9fb54ef8709f8596861731f62194dfb96957460c8f0a31a5ed9e8bae80.jpg" width="700" alt="">
 
 ## Designing Devices with Links that can be Merged
 
@@ -795,7 +793,7 @@ Figure 14-13: Link and Lane Number Encoding in TS1/TS2 | 图14-13：TS1/TS2中�
 | As seen on the left side of the figure, the switch internally consists of one upstream logical bridge and four downstream logical bridges. One bridge is required for each Port, so supporting 4 Downstream Ports requires 4 downstream bridges. However, if the Ports are combined as shown on the right side of the diagram, then some of the bridges simply go unused. During Link Training, the LTSSM of each Downstream Port determines which of the supported connection options is actually implemented. | 如图左侧所示，交换机内部由一个上游逻辑桥和四个下游逻辑桥组成。每个端口需要一个桥，因此支持4个下游端口需要4个下游桥。然而，如果端口如图右侧所示进行组合，那么一些桥就直接闲置了。在链路训练期间，每个下游端口的LTSSM确定实际实现哪个支持的连接选项。 |
 
 Figure 14-14: Combining Lanes to Form Wider Links (Link Merging) | 图14-14：合并通道以形成更宽链路（链路合并）
-<img src="../images/part04_b5324084d1ddae51962c85c1a8c4845f46c6d6c4d2a0237410bf36ab1da636b3.jpg" width="700" alt="">
+<img src="images/part04_b5324084d1ddae51962c85c1a8c4845f46c6d6c4d2a0237410bf36ab1da636b3.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -815,7 +813,7 @@ Figure 14-14: Combining Lanes to Form Wider Links (Link Merging) | 图14-14：�
 ## Link Number Negotiation.
 
 Figure 14-15: Example 1 - Steps 1 and 2 | 图14-15：示例1 - 步骤1和2  
-<img src="../images/part04_84d680176a1351ec6f3b06c2557b201fe04b95f4cb1d202cc3a0d4be07bec288.jpg" width="700" alt="">
+<img src="images/part04_84d680176a1351ec6f3b06c2557b201fe04b95f4cb1d202cc3a0d4be07bec288.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -830,7 +828,7 @@ Figure 14-15: Example 1 - Steps 1 and 2 | 图14-15：示例1 - 步骤1和2
 | 4. In response to seeing non-PAD Lane numbers coming in, the Upstream Port will verify that the incoming Lane numbers match the Lane numbers they are received on. In this example, the Lanes of the Downstream and Upstream Ports are connected correctly. Because all the Lane numbers match, the Upstream Port advertises its Lane numbers in the TS1s it is sending as well. When the Downstream Port sees non-PAD Lane numbers in response, it compares the incoming numbers to the values it's sending. If they match, all is well but, if not, then other steps will need to be taken. If some but not all Lane numbers match, then the Link width may be adjusted accordingly. If the Lanes are reversed, then the optional Lane Reversal feature will be needed. Because it's optional, it's possible that the Lanes have been reversed but neither device is capable of correcting it. This would be a dramatic board design error because it is possible the Link cannot be configured for operation in this case. | 4. 作为对收到非PAD通道编号的响应，上游端口将验证传入的通道编号与其接收所在的通道编号是否匹配。在此示例中，下游端口和上游端口的通道连接正确。由于所有通道编号均匹配，上游端口在其发送的TS1中也通告其通道编号。当下游端口在响应中看到非PAD通道编号时，它将传入的编号与自己发送的值进行比较。如果匹配，则一切正常；若不匹配，则需采取其他步骤。如果部分通道编号匹配而非全部，则链路宽度可相应调整。如果通道接反，则需要可选的通道反转功能。由于该功能为可选，有可能通道已被接反但两端设备均无法纠正。这将是一个严重的板级设计错误，因为在这种情况下链路可能无法配置为正常工作。 |
 
 Figure 14-16: Example 1 - Steps 3 and 4 | 图14-16：示例1 - 步骤3和4
-<img src="../images/part04_6bc77784b59eb03ea60cc02fcfe5613afa32eb8abe763c736458baf4da59faac.jpg" width="700" alt="">
+<img src="images/part04_6bc77784b59eb03ea60cc02fcfe5613afa32eb8abe763c736458baf4da59faac.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -840,7 +838,7 @@ Figure 14-16: Example 1 - Steps 3 and 4 | 图14-16：示例1 - 步骤3和4
 | 7. Once a Port receives at least 8 TS2s and transmits at least 16, it sends some logical idle data and then transitions to L0. | 7. 一旦端口接收到至少8个TS2并发送至少16个TS2，它将发送一些逻辑空闲数据，然后转换到L0。 |
 
 Figure 14-17: Example 1 - Steps 5 and 6 | 图14-17：示例1 - 步骤5和6
-<img src="../images/part04_217bd464bad7fc897242df2140ff52a18e1e4477fae3b71f66d41f63565965f8.jpg" width="700" alt="">
+<img src="images/part04_217bd464bad7fc897242df2140ff52a18e1e4477fae3b71f66d41f63565965f8.jpg" width="700" alt="">
 
 ## Link Configuration Example 2
 
@@ -860,14 +858,14 @@ Figure 14-17: Example 1 - Steps 5 and 6 | 图14-17：示例1 - 步骤5和6
 | 1. In this example method, the Downstream Port begins by advertising a unique Link number on each Lane. Lane 0 advertises a Link number of N, Lane 1 advertises a Link number of N+1, etc. as shown in Figure 14-18 on page 546. These Link numbers are just examples, and they do not have to be sequential. Also, it is important to remember that the Downstream Port does not know what it is connected to and it is this process where the Port is trying to determine the connections for each Lane. | 1. 在此示例方法中，下游端口首先在每个通道上通告一个唯一的链路编号。如图 14-18（第 546 页）所示，通道 0 通告链路编号 N，通道 1 通告链路编号 N+1，以此类推。这些链路编号仅为示例，不必是连续的。此外，务必记住，下游端口并不知道其连接的对象，而此过程正是该端口试图确定每个通道的连接关系。 |
 
 Figure 14-18: Example 2 - Step 1 | 图14-18：示例2 - 步骤1
-<img src="../images/part04_9a6350a7869347d4979917531b203b9dbe0b0f166ac1b74f31f010d20028a559.jpg" width="700" alt="">
+<img src="images/part04_9a6350a7869347d4979917531b203b9dbe0b0f166ac1b74f31f010d20028a559.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | 2. Upon receiving the returned TS1s, the Downstream Port recognizes two things: all four Lanes are working and they are connected to two different Upstream Ports. This means there will actually be two Downstream Ports. Each Downstream Port will have its own Lane 0 and Lane 1 as shown in Figure 14-20 on page 548. | 2. 在接收到返回的 TS1 序列后，下游端口识别出两件事：所有四个通道均正常工作，且它们连接到两个不同的上游端口。这意味着实际上将存在两个下游端口。如图 14-20（第 548 页）所示，每个下游端口将拥有自己的通道 0 和通道 1。 |
 
 Figure 14-19: Example 2 - Step 2 | 图14-19：示例2 - 步骤2
-<img src="../images/part04_e547ce030a8455572140afff25f7808b5bc362e25798c65a9d22f1013b9bfa35.jpg" width="700" alt="">
+<img src="images/part04_e547ce030a8455572140afff25f7808b5bc362e25798c65a9d22f1013b9bfa35.jpg" width="700" alt="">
 
 ## Lane Number Negotiation.
 ## 通道编号协商
@@ -879,7 +877,7 @@ Figure 14-19: Example 2 - Step 2 | 图14-19：示例2 - 步骤2
 | Lane Reversal can optionally be handled by either Port. If the Upstream Port detects this case and supports Lane Reversal, it simply makes the Lane assignment change internally and returns TS1s with the proper Lane numbers. As a result, the Downstream Port is unaware that there was ever an issue. If the Upstream Port is unable to handle Lane Reversal though, then the Downstream Port will see the incoming Lane numbers in reverse order. If it supports Lane Reversal, it will then correct the numbering and begin sending TS2s with the new Lane numbers. | 通道反转可选地由任一端口处理。如果上游端口检测到这种情况且支持通道反转，它只需在内部进行通道分配更改，并返回带有正确通道编号的TS1。结果，下游端口完全不知道曾经存在问题。但是，如果上游端口无法处理通道反转，则下游端口将看到传入的通道编号为逆序。如果下游端口支持通道反转，它将纠正编号并开始发送带有新通道编号的TS2。 |
 
 Figure 14-20: Example 2 - Steps 3, 4 and 5 | 图14-20：示例2 - 步骤3、4和5
-<img src="../images/part04_5b679e290e93fe5b8a26063d3e4cb2f10ab607da9cf60952f71794ec28b9e70f.jpg" width="700" alt="">
+<img src="images/part04_5b679e290e93fe5b8a26063d3e4cb2f10ab607da9cf60952f71794ec28b9e70f.jpg" width="700" alt="">
 Confirming Link and Lane Numbers.
 
 | EN | ZH |
@@ -906,7 +904,7 @@ Confirming Link and Lane Numbers.
 | 10. Lanes 0, 1 and 3 all received the TS1s with the non-PAD Link number, so those Lanes send TS1s back to the Downstream Port. However, Lane 2 of the Upstream Port did not successfully receive the TS1s with the non-PAD Link number, so its Transmitter continues sending TS1s with PAD in the Link and Lane number fields as shown in Figure 14-21 on page 550. | 10. 通道0、1和3均接收到带有非PAD链路编号的TS1序列，因此这些通道向下行端口回送TS1序列。然而，上行端口的通道2未能成功接收到带有非PAD链路编号的TS1序列，因此其发送器继续在链路编号和通道编号字段中发送带有PAD的TS1序列，如图14-21（第550页）所示。 |
 
 Figure 14-21: Example 3 - Steps 1 and 2 | 图14-21：示例3 - 步骤1和2
-<img src="../images/part04_5b38f53f0c3175607265933bd725a231a64c0c1cc16b0d746b122cda0cf4d6c4.jpg" width="700" alt="">
+<img src="images/part04_5b38f53f0c3175607265933bd725a231a64c0c1cc16b0d746b122cda0cf4d6c4.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -915,7 +913,7 @@ Figure 14-21: Example 3 - Steps 1 and 2 | 图14-21：示例3 - 步骤1和2
 | 12. When the Upstream Port receives the TS1s on Lanes 0 and 1 with the advertised Lane numbers and it sees that Lane 3 has gone back to receiving PAD TS1s, it advertises its Lane number for Lanes 0 and 1 but all the other Lanes start (or continue) sending TS1s with PAD set in both the Lane and Link number fields as shown in Figure 14-22 on page 551. | 12. 当上游端口在通道0和1上接收到带有已通告通道编号的TS1，并且看到通道3已恢复接收PAD TS1时，它为通道0和1通告其通道编号，但所有其他通道开始（或继续）发送TS1，其通道编号和链路编号字段均设置为PAD，如图14-22（第551页）所示。 |
 
 Figure 14-22: Example 3 - Steps 3 and 4 | 图14-22：示例3 - 步骤3和4
-<img src="../images/part04_31320d62f2984e147efd93cfb3e11691d41e8884e09b8562d255d9b9778cb0d3.jpg" width="700" alt="">
+<img src="images/part04_31320d62f2984e147efd93cfb3e11691d41e8884e09b8562d255d9b9778cb0d3.jpg" width="700" alt="">
 
 ## Confirming Link and Lane Numbers.
 
@@ -925,7 +923,7 @@ Figure 14-22: Example 3 - Steps 3 and 4 | 图14-22：示例3 - 步骤3和4
 | 14. Upon receiving TS2s with the same Link and Lane numbers on Lanes 0 and 1, the Upstream Port also indicates its readiness to leave the Configuration state and proceed to L0 by sending TS2s back on these Lanes. The other Lanes continue sending TS1s with PAD for both the Link and Lane numbers. This is shown in Figure 14‐23 on page 552. | 14. 在通道0和1上接收到带有相同链路号和通道号的TS2后，上游端口也通过在这些通道上回送TS2，表明其已准备好离开Configuration状态并进入L0。其他通道继续发送链路号和通道号均为PAD的TS1。如图14-23（第552页）所示。 |
 
 Figure 14‐23: Example 3 - Steps 5 and 6 | 图14‐23：示例3 - 步骤5和6  
-<img src="../images/part04_b37ab187f24ad8b780e0aaeb37525218d8efe5813592d383790e939e566a8d25.jpg" width="700" alt="">
+<img src="images/part04_b37ab187f24ad8b780e0aaeb37525218d8efe5813592d383790e939e566a8d25.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -938,7 +936,7 @@ Figure 14‐23: Example 3 - Steps 5 and 6 | 图14‐23：示例3 - 步骤5和6
 | A detailed explanation of each substate is presented here to cover all the substates of Configuration, as shown in Figure 14‑24 on page 553. The Configuration Substates should be easier to follow, given the Link Training examples discussed previously. | 以下详细介绍每个子状态，以涵盖 Configuration 的所有子状态，如第 553 页图 14‑24 所示。结合之前讨论的链路训练示例，Configuration 子状态应更易于理解。 |
 
 Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
-<img src="../images/part04_c9ef7b0a677f0c38a595326c5d1799533e33273f537d9a422101a0372295de57.jpg" width="700" alt="">
+<img src="images/part04_c9ef7b0a677f0c38a595326c5d1799533e33273f537d9a422101a0372295de57.jpg" width="700" alt="">
 
 ## Configuration.Linkwidth.Start
 
@@ -1344,11 +1342,10 @@ Exit to "Detect State"
 
 Figure 14-25: Link Control Register / 图 14-25：链路控制寄存器 | 图14-25：链路控制寄存器
 
-<img src="../images/part04_44c0cab83471c6024237d9675e5a51064c7e2d6f9dfe7a3d535010e8e31edc15.jpg" width="700" alt="">
-
 Figure 14-26: Link Control 2 Register / 图 14-26：链路控制 2 寄存器 | 图14-26：链路控制 2 寄存器
+<img src="images/part04_44c0cab83471c6024237d9675e5a51064c7e2d6f9dfe7a3d535010e8e31edc15.jpg" width="700" alt="">
 
-<img src="../images/part04_5014dc740006b67e51aa3637040af85b3fa6d21a7c09b3761221c594009a14ba.jpg" width="700" alt="">
+<img src="images/part04_5014dc740006b67e51aa3637040af85b3fa6d21a7c09b3761221c594009a14ba.jpg" width="700" alt="">
 
 ## Link Width Change
 
@@ -1402,7 +1399,7 @@ Figure 14-26: Link Control 2 Register / 图 14-26：链路控制 2 寄存器 | �
 
 Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 
-<img src="../images/part04_7f93bf39ed3fbee43f08a28ed68667ea01f9a6d7281207adae327cb4a2b7fc34.jpg" width="700" alt="">
+<img src="images/part04_7f93bf39ed3fbee43f08a28ed68667ea01f9a6d7281207adae327cb4a2b7fc34.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -1482,7 +1479,7 @@ Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 
 Figure 14-28: EC Field in TS1s and TS2s for 8.0 GT/s | 图14-28：8.0 GT/s的TS1和TS2中的EC字段
 
-<img src="../images/part04_fcbd844711b17941e438837b327bbae759eeea9f058f08ec37a7fc3e2f890680.jpg" width="700" alt="">
+<img src="images/part04_fcbd844711b17941e438837b327bbae759eeea9f058f08ec37a7fc3e2f890680.jpg" width="700" alt="">
 
 | English | 中文 |
 | --- | --- |
@@ -1490,7 +1487,7 @@ Figure 14-28: EC Field in TS1s and TS2s for 8.0 GT/s | 图14-28：8.0 GT/s的TS1
 | When the Downstream Port is ready to change from a lower rate to the 8.0 GT/s rate, it enters the Recovery.RcvrCfg sub‑state and sends Tx Presets and Rx Hints to the Upstream Port using EQ TS2s as described in "TS1 and TS2 Ordered Sets" on page 510. (Note that this phase is skipped if the Link is already running at 8.0 GT/s.) The Downstream Port (DSP) sends Tx Preset values based on the contents of its Equalization Control register shown in Figure 14‑29 on page 579. One thing this highlights is that there can be different equalization values for each Lane. The Downstream Port will use the DSP values for its own Transmitter and optionally for its Receiver, and send the USP values to the Upstream Port for it to use when going to the higher speed. | 当下行端口准备从较低速率变更到 8.0 GT/s 速率时，它进入 Recovery.RcvrCfg 子状态，并使用 EQ TS2（如第 510 页"TS1 和 TS2 有序集"所述）向上行端口发送 Tx Preset 和 Rx Hint。（注意：如果链路已在 8.0 GT/s 运行，则跳过此阶段。）下行端口 (DSP) 根据其均衡控制寄存器（如图 14‑29 第 579 页所示）的内容发送 Tx Preset 值。这突显的一点是，每个通道可以有不同的均衡值。下行端口将 DSP 值用于其自身的发送器，并可选择用于其接收器，同时将 USP 值发送给上行端口，供其在切换到更高速度时使用。 |
 
 Figure 14‑29: Equalization Control Registers | 图14‑29：均衡控制寄存器
-<img src="../images/part04_792792a499cfa866d1005b3ce7243edbfa308b1deae3dd8e60913ce5795f5677.jpg" width="700" alt="">
+<img src="images/part04_792792a499cfa866d1005b3ce7243edbfa308b1deae3dd8e60913ce5795f5677.jpg" width="700" alt="">
 
 Table 14‑8: Tx Preset Encodings | 表14‑8：发送器预置编码
 
@@ -1506,7 +1503,7 @@ Table 14‑9: Rx Preset Hint Encodings | 表14‑9：接收器预置提示编码
 | Meanwhile, the Upstream Port starts in Phase 0, as illustrated in Figure 14‑30 on page 581, and sends TS1s that echo the preset values it received earlier from the EQ TS1s and EQ TS2s. It will use those requested Tx presets if they're supported, and will optionally use the Rx Hints. The USP is allowed to wait 500ns before evaluating the incoming signal but, once it's able to recognize two TS1s in a row it's ready for the next step. This means the signal quality meets the minimum BER of 10^-4 (e.g., Bit Error Ratio of less than one error in 10,000 bits). Subsequently the USP sets EC=01b in its TS1s thereby moving to Phase 1 and handing control of the next step to the DSP. | 同时，如图 14‑30（第 581 页）所示，上行端口从阶段 0 开始，发送反映其先前从 EQ TS1 和 EQ TS2 接收到的预设值的 TS1。如果这些请求的 Tx Preset 受支持，它将使用它们，并可选择使用 Rx Hint。USP 允许在评估输入信号前等待 500ns，但一旦它能够连续识别出两个 TS1，即准备好进入下一步。这意味着信号质量满足最低 BER 为 10^-4（例如，误码率低于万分之一）。随后，USP 在其 TS1 中设置 EC=01b，从而进入阶段 1，将下一步的控制权交给 DSP。 |
 
 Figure 14‑30: Equalization Process: Starting Point | 图14‑30：均衡过程：起始点
-<img src="../images/part04_ae889707d3c2e25b81afb4b3ac00fafd5cca2dba1c4949e0f00a08558ffbdcef.jpg" width="700" alt="">
+<img src="images/part04_ae889707d3c2e25b81afb4b3ac00fafd5cca2dba1c4949e0f00a08558ffbdcef.jpg" width="700" alt="">
 
 ## Phase 1 / 阶段一
 
@@ -1530,7 +1527,7 @@ Figure 14‑30: Equalization Process: Starting Point | 图14‑30：均衡过程
 
 Figure 14-31: Equalization Process: Initiating Phase 2 | 图14-31：均衡过程：启动阶段2
 
-<img src="../images/part04_fe8dd6e27bebbc0c0a22d6ffa8269a19bb45f757923ef531d5a6656e4591ff14.jpg" width="700" alt="">
+<img src="images/part04_fe8dd6e27bebbc0c0a22d6ffa8269a19bb45f757923ef531d5a6656e4591ff14.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -1539,7 +1536,7 @@ Figure 14-31: Equalization Process: Initiating Phase 2 | 图14-31：均衡过程
 | Tx Preset: The Tx presets are a coarse‐grained adjustment to the Transmitter settings that are intended to get it into the right ballpark for the current signaling environment. The Upstream Port sets this value, and sets the "Use Preset" indicator (bit 7 of Symbol 6) to tell the Downstream Port's Transmitter to use it. If the Use Preset bit is not set, then it's understood that the presets should stay as they are and that the coefficient values should be changed instead. The Tx coefficients are considered as fine‐grained adjustments. | Tx预设(Tx Preset)：Tx预设是对发送器设置进行粗粒度调整，旨在使其进入当前信号环境的合适范围。上游端口设置此值，并设置"使用预设"(Use Preset)指示位(符号6的位7)，以指示下游端口的发送器使用该预设。如果未设置使用预设位，则理解为预设应保持不变，而应改变系数值。Tx系数被视为细粒度调整。 |
 
 Figure 14‐32: Equalization Coefficients Exchanged | 图14‐32：交换的均衡系数
-<img src="../images/part04_735d4e3e2070ebada9b664da66b89507fbc7112159a8e837c7446af4703c5ec8.jpg" width="700" alt="">
+<img src="images/part04_735d4e3e2070ebada9b664da66b89507fbc7112159a8e837c7446af4703c5ec8.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -1550,10 +1547,10 @@ Figure 14‐32: Equalization Coefficients Exchanged | 图14‐32：交换的均�
 | — Once the signal meets the quality standard needed, the Upstream Port indicates that it's ready to move to the next phase by changing EC = 11b. | — 一旦信号达到所需质量标准，上游端口通过将EC更改为11b来表示已准备好进入下一阶段。 |
 
 Figure 14‐33: 3‐Tap Transmitter Equalization | 图14‐33：3抽头发送器均衡
-<img src="../images/part04_61485b72cf64c26b78859cc135793b82626d3bee30d4ac064c09d88ade8ca8c8.jpg" width="700" alt="">
+<img src="images/part04_61485b72cf64c26b78859cc135793b82626d3bee30d4ac064c09d88ade8ca8c8.jpg" width="700" alt="">
 
 Figure 14‐34: Equalization Process: Adjustments During Phase 2 | 图14‐34：均衡过程：阶段2期间的调整
-<img src="../images/part04_e06efc17c929adf601f4d3dccaf7529265a50c3a37a68062719803aa43426369.jpg" width="700" alt="">
+<img src="images/part04_e06efc17c929adf601f4d3dccaf7529265a50c3a37a68062719803aa43426369.jpg" width="700" alt="">
 
 ## Phase 3
 
@@ -1562,7 +1559,7 @@ Figure 14‐34: Equalization Process: Adjustments During Phase 2 | 图14‐34：
 | The Downstream port responds by sending EC = 11b and can now do the same signal evaluation process for the Upstream Port's Transmitter. It sends TS1s that request a new setting the same way: if the Use Preset bit is set, new presets are defined, otherwise new coefficients are being given. This is sent continuously for 1μs or until the request has been evaluated for its result, whichever is later. That evaluation must wait 500ns plus the round trip time through the outgoing logic and back in to the receive logic. Different equalization settings can be tested until one is found that achieves the desired signal quality. At that point the Downstream Port exits the equalization process by setting EC = 00b. | 下游端口通过发送 EC = 11b 进行响应，现在可以对上游端口的发送器执行相同的信号评估过程。它发送 TS1s 来请求新的设置，方式相同：如果设置了使用预设位（Use Preset），则定义新的预设值，否则给出新的系数。此过程持续发送 1μs，或者直到请求的结果被评估完成，以两者中较晚者为准。该评估必须等待 500ns 加上通过输出逻辑再返回接收逻辑的往返时间。可以测试不同的均衡设置，直到找到能够达到所需信号质量的设置为止。此时，下游端口通过设置 EC = 00b 退出均衡过程。 |
 
 Figure 14-35: Equalization Process: Adjustments During Phase 3 | 图14-35：均衡过程：阶段3期间的调整
-<img src="../images/part04_e1a2d690ca935d7af2d6b804541cc582467e614f78e60644504a7055f59907a1.jpg" width="700" alt="">
+<img src="images/part04_e1a2d690ca935d7af2d6b804541cc582467e614f78e60644504a7055f59907a1.jpg" width="700" alt="">
 
 ## Equalization Notes
 
@@ -1608,10 +1605,9 @@ Figure 14-35: Equalization Process: Adjustments During Phase 3 | 图14-35：均�
 | The Perform Equalization bit of the Link Control 3 register is also cleared to 0b as is the internal variable start\_equalization\_w\_preset. The equalization\_done\_8GT\_data\_rate variable is set to 1b. | Link Control 3 寄存器的 Perform Equalization 位也被清零为 0b，内部变量 start\_equalization\_w\_preset 同样清零。变量 equalization\_done\_8GT\_data\_rate 被置为 1b。 |
 
 Figure 14-36: Link Status 2 Register | 图14-36：链路状态2寄存器
-<img src="../images/part04_513f92f64be318cfc17af304b437c97be73d06d6e2be5b928b5f5dfdaad69f95.jpg" width="700" alt="">
-
 Figure 14-37: Link Control 3 Register | 图14-37：链路控制3寄存器
-<img src="../images/part04_6da1f9e40b166d0c47ad5b23686fd53ac546a344278b27f54d175e48b48600b0.jpg" width="700" alt="">
+<img src="images/part04_513f92f64be318cfc17af304b437c97be73d06d6e2be5b928b5f5dfdaad69f95.jpg" width="700" alt="">
+<img src="images/part04_6da1f9e40b166d0c47ad5b23686fd53ac546a344278b27f54d175e48b48600b0.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -1644,7 +1640,7 @@ Figure 14-37: Link Control 3 Register | 图14-37：链路控制3寄存器
 | If after 32 ms, the transition to Phase 3 has not happened, the Port should clear the successful\_speed\_negotiation flag, set the Equalization Complete status bit and exit to the Recovery.Speed substate. | 若32毫秒后仍未转换至阶段3，端口应清除successful\_speed\_negotiation标志，设置均衡完成状态位，并退出至Recovery.Speed子状态。 |
 
 Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系数值
-<img src="../images/part04_44e7dc9812b6b91b0aa32122041950a0b9bcbf219db718b207600833d7af09eb.jpg" width="700" alt="">
+<img src="images/part04_44e7dc9812b6b91b0aa32122041950a0b9bcbf219db718b207600833d7af09eb.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -1759,7 +1755,7 @@ Table 14-10: Conditions for Inferring Electrical Idle | 表14-10：推断电气�
 
 Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 
-<img src="../images/part04_7b321793affb64cdb5301d4d972f5e7f2370bf0952367751176f5a3862ea710e.jpg" width="700" alt="">
+<img src="images/part04_7b321793affb64cdb5301d4d972f5e7f2370bf0952367751176f5a3862ea710e.jpg" width="700" alt="">
 
 ## Exit to "Detailed Recovery Substates"
 
@@ -1891,7 +1887,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 | The L0s state has different substates for the Transmitter and the Receiver. The Transmitter substates will be described first. As shown in Figure 14-40 on page 603 the transmitter state machine associated with L0s state is a simple one. | L0s 状态对发送器和接收器有不同的子状态。首先描述发送器子状态。如第603页图14-40所示，与L0s状态关联的发送器状态机是一个简单的状态机。 |
 
 Figure 14-40: L0s Tx State Machine | 图14-40：L0s发送状态机  
-<img src="../images/part04_0ff5145e322f8af17fddc922ca228fea90c1bdf0763426ca97e2cca4402d26ec.jpg" width="700" alt="">
+<img src="images/part04_0ff5145e322f8af17fddc922ca228fea90c1bdf0763426ca97e2cca4402d26ec.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -1937,7 +1933,7 @@ Figure 14-40: L0s Tx State Machine | 图14-40：L0s发送状态机
 | Figure 14-41 on page 605 shows the Receiver L0s state machine. A Receiver is required to implement L0s support if the ASPM Support field in the Link Capability register shows it to be supported, and is allowed to implement it even if that support is not indicated. | 第605页的图14-41展示了接收器L0s状态机。如果链路能力寄存器中的ASPM支持字段指示支持L0s，则接收器必须实现L0s支持；即使未指示支持，也允许接收器实现它。 |
 
 Figure 14-41: L0s Receiver State Machine | 图14-41：L0s接收器状态机
-<img src="../images/part04_7c23735240bc83ac92840728b91d1469f8126ab40f97909352f65fa45dc895bb.jpg" width="700" alt="">
+<img src="images/part04_7c23735240bc83ac92840728b91d1469f8126ab40f97909352f65fa45dc895bb.jpg" width="700" alt="">
 
 ## Rx\_L0s.Entry.
 
@@ -1980,7 +1976,7 @@ Figure 14-41: L0s Receiver State Machine | 图14-41：L0s接收器状态机
 | Since going to Electrical Idle can indicate a desire by the Link partner to enter L0s, L1 or L2, differentiating which should be the next state is handled by having both partners agree beforehand when they're going to enter L1. A handshake informs them that the partner is ready and it's therefore safe to proceed. For more detail on how this works, see the section called "Introduction to Link Power Management" on page 733. Figure 14-42 on page 608 shows the L1 state machine, which is described in the following sections. | 由于进入电气空闲可能表示链路伙伴希望进入L0s、L1或L2，因此通过让双方提前就何时进入L1达成一致来处理如何区分下一个状态。一次握手通知它们伙伴已准备好，因此可以安全地继续。有关此工作机制的更多细节，请参见第733页的"链路电源管理介绍"一节。第608页的图14-42显示了L1状态机，后续章节将对其进行描述。 |
 
 Figure 14-42: L1 State Machine | 图14-42：L1状态机
-<img src="../images/part04_6f30c2db516a3e08b178ba9a4c35d344fccbaa96d5bf108b36a14fbb4fd78887.jpg" width="700" alt="">
+<img src="images/part04_6f30c2db516a3e08b178ba9a4c35d344fccbaa96d5bf108b36a14fbb4fd78887.jpg" width="700" alt="">
 
 ## L1.Entry
 
@@ -2026,7 +2022,7 @@ Figure 14-42: L1 State Machine | 图14-42：L1状态机
 | A Transmitter going to Electrical Idle could indicate a desire to enter any of the low-power Link states (L0s, L1 or L2), so a means of differentiating them is needed. For L2, this is handled by having the Link partners agree beforehand that they're going to enter L2 by using a handshake sequence to ensure that they're both ready. For more detail on how this works, see the section called "Introduction to Link Power Management" on page 733. Figure 14-43 on page 611 shows the L2 entry and Exit state machine, which is described in the following text. | 发送器进入电气空闲可能表示希望进入任一低功耗链路状态（L0s、L1或L2），因此需要一种区分它们的方法。对于L2，这通过让链路双方事先通过握手序列达成一致，确认它们都已准备好进入L2来处理。有关其工作原理的更多详情，请参阅第733页的"链路电源管理简介"一节。第611页的图14-43显示了L2进入和退出状态机，下文将对此进行描述。 |
 
 Figure 14-43: L2 State Machine | 图14-43：L2状态机
-<img src="../images/part04_9f716f449f59e138815b0638c2433cc9e17262dae997923efae115db291cfd33.jpg" width="700" alt="">
+<img src="images/part04_9f716f449f59e138815b0638c2433cc9e17262dae997923efae115db291cfd33.jpg" width="700" alt="">
 
 ## L2.Idle
 
@@ -2093,7 +2089,7 @@ Figure 14-43: L2 State Machine | 图14-43：L2状态机
 | The Loopback state is exited when the Loopback master transmits an EIOS and the receiver detects Electrical Idle. The Loopback state machine is shown in Figure 14-44 on page 614 and described in the following text. | 当环回主控发送EIOS且接收方检测到电气空闲时，环回状态退出。环回状态机如图14-44（第614页）所示，并在下文中描述。 |
 
 Figure 14-44: Loopback State Machine | 图14-44：回环状态机
-<img src="../images/part04_b6d22928ccd9e9a3c47120aa6b895c9912dca6b975ba62044cb19f7eda5398a1.jpg" width="700" alt="">
+<img src="images/part04_b6d22928ccd9e9a3c47120aa6b895c9912dca6b975ba62044cb19f7eda5398a1.jpg" width="700" alt="">
 
 ## Loopback.Entry
 
@@ -2188,7 +2184,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 | By way of review, the LTSSM states are illustrated in Figure 14‑45 on page 620 to make it easier to recall the flow of states. Although according to the Gen1 specification, speed change was indicated to be performed in the Polling state, the subsequent Gen2 spec moved this function to the Recovery state. | 回顾一下，LTSSM状态如图14‑45（第620页）所示，以便更容易回忆状态流转。尽管根据Gen1规范，速度变化被指示在Polling状态下执行，但后续的Gen2规范将此功能移到了Recovery状态。 |
 
 Figure 14‑45: LTSSM Overview | 图14‑45：LTSSM概述  
-<img src="../images/part04_51bee243b2815200fd78ea55bdec08d7d7ca22d8f31e5b24244e5480fc82abe8.jpg" width="700" alt="">
+<img src="images/part04_51bee243b2815200fd78ea55bdec08d7d7ca22d8f31e5b24244e5480fc82abe8.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -2196,10 +2192,9 @@ Figure 14‑45: LTSSM Overview | 图14‑45：LTSSM概述
 | The meaning of bit 6 depends on whether the Port is facing upstream or downstream and also on what LTSSM state the Port is in. However, for the speed change case the options are reduced because it’s only meaningful coming from the Upstream Port and just indicates whether or not the speed change is an autonomous event. “Autonomous” means that the Port is requesting this change for its own hardware‑specific reasons and not because of a reliability issue. Bit 7 is used by the Upstream Port to request a speed change. These values are very similar in the TS2s, although bit 6 has another meaning now related to autonomous Link width changes that we’ll discuss later. | 位6的含义取决于端口是面向上游还是下游，以及端口处于何种LTSSM状态。然而，对于速度变化的情况，选项有所减少，因为该位仅从上游端口发出时才有意义，并且仅指示速度变化是否为自主事件。"自主"意味着端口因其自身的硬件特定原因而请求此变化，并非因为可靠性问题。位7由上游端口用于请求速度变化。在TS2中这些值非常相似，不过位6现在具有了另一种含义，与自主链路宽度变化相关，我们将在后面讨论。 |
 
 Figure 14‑46: TS1 Contents | 图14‑46：TS1内容  
-<img src="../images/part04_9b7988b56ff4dff94d17548f1859adb8289242fed6017d61237296f4174e59c9.jpg" width="700" alt="">
-
 Figure 14‑47: TS2 Contents | 图14‑47：TS2内容  
-<img src="../images/part04_94dec8511a35e47c80217138349453dd4b30e40b89a02fa345e8aae3f099a5cf.jpg" width="700" alt="">
+<img src="images/part04_9b7988b56ff4dff94d17548f1859adb8289242fed6017d61237296f4174e59c9.jpg" width="700" alt="">
+<img src="images/part04_94dec8511a35e47c80217138349453dd4b30e40b89a02fa345e8aae3f099a5cf.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -2208,7 +2203,7 @@ Figure 14‑47: TS2 Contents | 图14‑47：TS2内容
 
 Figure 14-48: Recovery Sub-States | 图14-48：恢复子状态
 
-<img src="../images/part04_1742885cab5dd69747eada616eb042ee798016458e67276d46b2e075ad0e4730.jpg" width="700" alt="">
+<img src="images/part04_1742885cab5dd69747eada616eb042ee798016458e67276d46b2e075ad0e4730.jpg" width="700" alt="">
 
 ## Speed Change Example / 速率变更示例
 
@@ -2218,14 +2213,14 @@ Figure 14-48: Recovery Sub-States | 图14-48：恢复子状态
 | The Endpoint in this example, which can only have an Upstream Port, is shown connected to a Root Complex, which can only have Downstream Ports. Only the Upstream Port can initiate the speed change process, and it does so because its Directed Speed Change flag was set earlier based on some hardware‑specific conditions. To start the sequence, it changes its LTSSM to the Recovery state, enters the Recovery.RcvrLock substate and sends TS1s with the Speed Change bit set and listing the speeds that it will support, as shown in Figure 14‑49 on page 623. When the Downstream Port sees the incoming TS1s, it also changes to the Recovery state and begins sending TS1s back. Since the Speed Change bit was set in the incoming TS1s, that will set the Directed Speed Change flag in the Root Port and the outgoing TS1s will also have that bit set. The speed that the Link will attempt to use will be the highest commonly‑supported speed so, if a Device wants to use a lower speed it would simply not list the higher speeds as being supported at this time. | 本例中的端点（只能拥有上游端口）显示为连接到一个根复合体（只能拥有下游端口）。只有上游端口可以发起速率变更过程，它之所以这样做，是因为其定向速率变更标志先前已基于某些硬件特定条件被设置。为了启动该序列，它将其LTSSM变更到恢复状态，进入Recovery.RcvrLock子状态，并发送设置了速率变更位并列出它将支持的速率的TS1序列，如图14-49（第623页）所示。当下游端口看到传入的TS1序列时，它也变更到恢复状态并开始回送TS1序列。由于传入的TS1序列中设置了速率变更位，这将设置根端口中的定向速率变更标志，并且发出的TS1序列也将设置该位。链路将尝试使用的速率将是最高共同支持的速率，因此，如果设备想要使用较低的速率，它只需在此刻不列出较高速率作为支持即可。 |
 
 Figure 14‑49: Speed Change ‑ Initiated | 图14‑49：速度变更 - 已发起
-<img src="../images/part04_c103179f670bfe58aaee97dc94fe7fdab89492a3b5869662da79d7a7ec432d8d.jpg" width="700" alt="">
+<img src="images/part04_c103179f670bfe58aaee97dc94fe7fdab89492a3b5869662da79d7a7ec432d8d.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
 | When the Upstream Port detects the TS1s coming back, its state machine changes to the Recovery.RcvrCfg substate and it begins to send TS2s that still have the Speed Change bit set, as illustrated in Figure 14‑50 on page 624. These TS2s will now also have the Autonomous Change bit set if this change was not caused by a reliability problem on the Link. When the Downstream Port sees incoming TS2s, it also changes to the Recovery.RcvrCfg substate and returns TS2s with the Speed Change bit set. However, the Autonomous Change bit is reserved in the TS2s for Downstream Ports during Recovery. | 当上游端口检测到返回的TS1序列时，其状态机变更到Recovery.RcvrCfg子状态，并开始发送仍设置了速率变更位的TS2序列，如图14-50（第624页）所示。如果此次变更不是由链路上的可靠性问题引起的，这些TS2序列还将设置自主变更位。当下游端口看到传入的TS2序列时，它也变更到Recovery.RcvrCfg子状态，并返回设置了速率变更位的TS2序列。但是，在恢复期间，对于下游端口，TS2序列中的自主变更位是保留的。 |
 
 Figure 14‑50: Speed Change ‑ Part 2 | 图14‑50：速度变更 - 第2部分
-<img src="../images/part04_989541ca1c692502b03c52aa3a3d0821a769f50c08cad5aad2126e32f92caaa9.jpg" width="700" alt="">
+<img src="images/part04_989541ca1c692502b03c52aa3a3d0821a769f50c08cad5aad2126e32f92caaa9.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -2233,16 +2228,13 @@ Figure 14‑50: Speed Change ‑ Part 2 | 图14‑50：速度变更 - 第2部分
 | The status bits for Link bandwidth changes are found in the Link Status register, shown in Figure 14‑52 on page 625. Status changes can also be used to generate an interrupt to notify software of these events if the device is capable and has been enabled to do so. This capability is reported by the Link Bandwidth Notification Capable bit, shown in Figure 14‑53 on page 626, and enabled by the Interrupt Enable bits in the Link Control register, as shown in Figure 14‑54 on page 626. Note that there are two cases: autonomous and bandwidth management. Autonomous means the change was not caused by a reliability problem, while bandwidth management means it was. | 链路带宽变更的状态位位于链路状态寄存器中，如图14-52（第625页）所示。如果设备具有此能力并已被使能，状态变更也可用于生成中断以通知软件这些事件。该能力由链路带宽通知能力位报告（如图14-53（第626页）所示），并由链路控制寄存器中的中断使能位（如图14-54（第626页）所示）使能。注意有两种情况：自主变更和带宽管理。自主意味着变更不是由可靠性问题引起的，而带宽管理则意味着是由可靠性问题引起的。 |
 
 Figure 14‑51: Speed Change ‑ Part 3 | 图14‑51：速度变更 - 第3部分
-<img src="../images/part04_d1ed61204b2ada1efb1552ffbe3dc3c18cd0a464c1b8fbb6b349b85faab83815.jpg" width="700" alt="">
-
 Figure 14‑52: Bandwidth Change Status Bits | 图14‑52：带宽变更状态位
-<img src="../images/part04_29f6d5d291d5e4f8b9e00f0e9a6f9d058b853e4198b409c96a23026e2c7f1541.jpg" width="700" alt="">
-
+<img src="images/part04_d1ed61204b2ada1efb1552ffbe3dc3c18cd0a464c1b8fbb6b349b85faab83815.jpg" width="700" alt="">
 Figure 14‑53: Bandwidth Notification Capability | 图14‑53：带宽通知能力
-<img src="../images/part04_5c5c3262af0b76c1359891593df0c34181e5367077ebb07db82305a49134c571.jpg" width="700" alt="">
-
+<img src="images/part04_29f6d5d291d5e4f8b9e00f0e9a6f9d058b853e4198b409c96a23026e2c7f1541.jpg" width="700" alt="">
 Figure 14‑54: Bandwidth Change Notification Bits | 图14‑54：带宽变更通知位
-<img src="../images/part04_6cfd21308db68bee7430425f3436423d09aa3f3eb1ebfc8abdd899dc074a5518.jpg" width="700" alt="">
+<img src="images/part04_5c5c3262af0b76c1359891593df0c34181e5367077ebb07db82305a49134c571.jpg" width="700" alt="">
+<img src="images/part04_6cfd21308db68bee7430425f3436423d09aa3f3eb1ebfc8abdd899dc074a5518.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -2250,7 +2242,7 @@ Figure 14‑54: Bandwidth Change Notification Bits | 图14‑54：带宽变更�
 | If a speed change has fails for some reason, a component is not allowed to try that speed or a higher one for at least 200 ms after returning to L0 or until the Link neighbor advertises support for a higher speed, whichever comes first. | 如果速率变更因某种原因失败，则在返回L0后至少200毫秒内，或直到链路邻居通告支持更高速率之前（以先到者为准），组件不允许尝试该速率或更高速率。 |
 
 Figure 14‑55: Speed Change Finish | 图14‑55：速度变更完成
-<img src="../images/part04_f3f99ef6849effd42191e1f395a8bfd3da5c9ff972027268c86f41c82996508d.jpg" width="700" alt="">
+<img src="images/part04_f3f99ef6849effd42191e1f395a8bfd3da5c9ff972027268c86f41c82996508d.jpg" width="700" alt="">
 
 ## Software Control of Speed Changes / 速度变化的软件控制
 
@@ -2269,10 +2261,10 @@ Figure 14‑55: Speed Change Finish | 图14‑55：速度变更完成
 | Finally, the speed change mechanism can be disabled by setting the Hardware Autonomous Speed Disable bit. | 最后，可以通过设置硬件自主速度禁用位（Hardware Autonomous Speed Disable bit）来禁用速度更改机制。 |
 
 Figure 14‐56: Link Control 2 Register | 图14‐56：链路控制2寄存器  
-<img src="../images/part04_e13f23a1e855c60618fc606dd1337b61cf42f7da5c35774bf51f8549f48daceb.jpg" width="700" alt="">
+<img src="images/part04_e13f23a1e855c60618fc606dd1337b61cf42f7da5c35774bf51f8549f48daceb.jpg" width="700" alt="">
 
 Figure 14‐57: Link Control Register | 图14‐57：链路控制寄存器  
-<img src="../images/part04_9e7b02353d034f09e0e211c5ea7267444cc5f24554c8516ff6fa0eba0fa473ee.jpg" width="700" alt="">
+<img src="images/part04_9e7b02353d034f09e0e211c5ea7267444cc5f24554c8516ff6fa0eba0fa473ee.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -2280,7 +2272,7 @@ Figure 14‐57: Link Control Register | 图14‐57：链路控制寄存器
 | The same basic operation for changing the Link speed can also be used to change the Link width, although the sequence is a little more complicated because more LTSSM steps are involved. One thing that's important for software to note before enabling Link width changes is whether the Link neighbor supports recovering from a narrow Link back to a wide Link (called Upconfiguring the Link). Devices report this ability in bit 6 of the Rate ID field of the TS2s they send during training, as shown in Figure 14‐58 on page 630. If a component doesn't support this, that would mean that changing to a narrower Link width would be a one‐way event and would only be suitable for the case of a reliability problem on the Link. | 更改链路速度所用的相同基本操作也可用于更改链路宽度，但由于涉及更多LTSSM步骤，其顺序稍显复杂。在启用链路宽度更改之前，软件需要注意的一个重要问题是链路对端是否支持从窄链路恢复回宽链路（称为向上配置链路）。设备在训练期间发送的TS2的速率ID字段的位6中报告此能力，如第630页图14‑58所示。如果组件不支持此功能，则意味着更改为较窄链路宽度将是单向事件，仅适用于链路上存在可靠性问题的情况。 |
 
 Figure 14‐58: TS2 Contents | 图14‐58：TS2内容  
-<img src="../images/part04_a9c1001708af13e5fd2e902cce898de58d96eaec61e10a581598b65807e21846.jpg" width="700" alt="">
+<img src="images/part04_a9c1001708af13e5fd2e902cce898de58d96eaec61e10a581598b65807e21846.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -2288,13 +2280,11 @@ Figure 14‐58: TS2 Contents | 图14‐58：TS2内容
 | Consider the example in Figure 14‑59 on page 631 of a Root Port connected to an Endpoint (Gigabit Ethernet Device). Only the Upstream Port will initiate this change, and it begins by going to the Recovery state as before. This time, though, the Speed Change bit is not set. To sort out what the new Link width will be, the Upstream Port will need to tell the Downstream Port to transition from the Recovery state to the Configuration state before going back to L0, as shown in Figure 14‑60 on page 631. There are several substates in the Configuration state, and a simplified version of them is shown in Figure 14‑61 on page 632. We'll go through the sequence to be clear on how the steps work. | 考虑图14-59（第631页）中根端口连接端点（千兆以太网设备）的示例。只有上游端口会发起此变更，且与前文一样，它首先进入Recovery状态。但这一次，Speed Change位未被置位。为了确定新的链路宽度，上游端口需要通知下游端口从Recovery状态转换到Configuration状态，然后再返回L0，如图14-60（第631页）所示。Configuration状态包含多个子状态，其简化版本如图14-61（第632页）所示。我们将逐步说明整个过程，以清晰展示各步骤的工作方式。 |
 
 Figure 14‑59: Link Width Change Example | 图14‑59：链路宽度变更示例
-<img src="../images/part04_06cc89eacfe54e138b2b70cad78720444ef4a42aac8d891ac993f0f55eedfde2.jpg" width="700" alt="">
-
 Figure 14‑60: Link Width Change LTSSM Sequence | 图14‑60：链路宽度变更LTSSM序列
-<img src="../images/part04_15eba15949bcca0cea922baf858b72364fe7d4f18aa953a5f4ff72eaf690fbf6.jpg" width="700" alt="">
-
+<img src="images/part04_06cc89eacfe54e138b2b70cad78720444ef4a42aac8d891ac993f0f55eedfde2.jpg" width="700" alt="">
 Figure 14‑61: Simplified Configuration Substates | 图14‑61：简化配置子状态
-<img src="../images/part04_06f9234b11d203bc9976593b25f925a5e5e4ad83d7f9cdcb693218721aa46757.jpg" width="700" alt="">
+<img src="images/part04_15eba15949bcca0cea922baf858b72364fe7d4f18aa953a5f4ff72eaf690fbf6.jpg" width="700" alt="">
+<img src="images/part04_06f9234b11d203bc9976593b25f925a5e5e4ad83d7f9cdcb693218721aa46757.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|

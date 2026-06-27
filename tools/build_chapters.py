@@ -8,8 +8,7 @@ from pathlib import Path
 
 ROOT = Path("/Users/jianmingwang/Downloads/00_study/02_work/01_book/pcie_cxl/MindShare_PCIe_Technology_3.0_mineru_v2")
 TEMP_DIR = ROOT / "MindShare_PCI_Express_Technology_3.0_temp"
-OUT_DIR = ROOT / "chapters"
-OUT_DIR.mkdir(exist_ok=True)
+OUT_DIR = ROOT  # Write chapters to repo root, not chapters/ subdir
 
 # Chapter definitions: (name, start_chunk, end_chunk)
 CHAPTERS = [
@@ -67,17 +66,18 @@ def merge_chapter(name, start, end):
         print(f"  ⚠️  Empty: {len(empty)} chunks")
 
     if lines:
-        # Add chapter header comment
-        # Fix image paths: chapters/ is a subdirectory, images/ is at repo root
         import re
-        body_fixed = re.sub(
-            r'(<img\s+src=")images/',
-            r'\1../images/',
-            "\n\n".join(lines)
+        # Reorder: move <img> to be BELOW the preceding Figure caption
+        # Pattern: <img...>\nFigure X-Y:...  →  Figure X-Y:...\n<img...>
+        body = "\n\n".join(lines)
+        body = re.sub(
+            r'(<img[^>]*>)\s*\n\s*(Figure\s+\d+[‑-]\d+.*?)(?=\n|$)',
+            r'\2\n\1',
+            body
         )
         header = f"# {name}\n\n"
         out_path = OUT_DIR / f"{name}.md"
-        out_path.write_text(header + body_fixed, encoding="utf-8")
+        out_path.write_text(header + body, encoding="utf-8")
         size_kb = out_path.stat().st_size / 1024
         pct = available_chunks / total_chunks * 100
         status = "✅" if available_chunks == total_chunks else "⚠️"

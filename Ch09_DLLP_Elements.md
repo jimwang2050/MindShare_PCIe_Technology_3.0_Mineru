@@ -33,7 +33,7 @@
 | In performing these jobs, the Data Link Layer exchanges packets with its neighbor known as Data Link Layer Packets (DLLPs). DLLPs are communicated between the Data Link Layers of each device. Figure 9-1 on page 308 illustrates a DLLP exchanged between devices. | 在执行这些任务时，数据链路层与其对等层交换称为数据链路层报文（DLLP）的包。DLLP在各个设备的数据链路层之间进行通信。第308页的图9-1展示了设备之间交换的DLLP。 |
 
 Figure 9-1: Data Link Layer Sends A DLLP | 图9-1：数据链路层发送DLLP
-<img src="../images/part03_c46d5e7c504582fae8e8d0a0f82ecd87129121c996919ba721010b23121fec66.jpg" width="700" alt="">
+<img src="images/part03_c46d5e7c504582fae8e8d0a0f82ecd87129121c996919ba721010b23121fec66.jpg" width="700" alt="">
 
 ## DLLPs Are Local Traffic / DLLP 是本地流量
 
@@ -71,7 +71,7 @@ Figure 9-1: Data Link Layer Sends A DLLP | 图9-1：数据链路层发送DLLP
 Figure 9-2: Generic Data Link Layer Packet Format | 图9-2：通用数据链路层数据包格式
 图9-2：通用数据链路层数据包格式
 
-<img src="../images/part03_a0b69fd3472e6ba2599f0071c57184de764d0a48ad7a778898ed5ab9f89957f6.jpg" width="700" alt="">
+<img src="images/part03_a0b69fd3472e6ba2599f0071c57184de764d0a48ad7a778898ed5ab9f89957f6.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -100,7 +100,7 @@ Table 9-1: DLLP Types / 表9-1：DLLP类型 | 表9-1：DLLP类型
 | The format of the DLLP used by a device to Ack (acknowledge) or Nak (negatively acknowledge) the receipt of a TLP is illustrated in Figure 9‑3, and its fields are described in "Ack/Nak DLLP Fields" on page 313. For more discussion on how these are used to handle the Ack/Nak protocol, refer to Chapter 10, entitled "Ack/Nak Protocol," on page 317. | 设备用于确认（Ack）或否定确认（Nak）TLP 接收的 DLLP 格式如图 9‑3 所示，其字段在第 313 页的"Ack/Nak DLLP 字段"中描述。关于这些字段如何用于处理 Ack/Nak 协议的更多讨论，请参阅第 317 页第 10 章"Ack/Nak 协议"。 |
 
 Figure 9‑3: Ack Or Nak DLLP Format | 图9‑3：Ack或Nak DLLP格式  
-<img src="../images/part03_f17461775429bb7cd84d13bc3dec9d37f6e4a72b5bed76b2b4269047daa09460.jpg" width="700" alt="">
+<img src="images/part03_f17461775429bb7cd84d13bc3dec9d37f6e4a72b5bed76b2b4269047daa09460.jpg" width="700" alt="">
 
 Table 9‑2: Ack/Nak DLLP Fields | 表9‑2：Ack/Nak DLLP字段
 
@@ -113,7 +113,7 @@ Table 9‑2: Ack/Nak DLLP Fields | 表9‑2：Ack/Nak DLLP字段
 | Power management DLLP information is shown in Figure 9-4, and its fields are described in Table 9-3 on page 314. To learn more about the use of these packets in power management, refer to Chapter 16, entitled "Power Management," on page 703. | 电源管理DLLP信息如图9-4所示，其字段在314页的表9-3中描述。要了解更多关于这些报文在电源管理中的使用，请参阅703页的第16章"电源管理"。 |
 
 Figure 9-4: Power Management DLLP Format | 图9-4：电源管理DLLP格式
-<img src="../images/part03_183802acbcce55b0de64cd8c09e982d43c85c7db1a8912272e6fda8105e4b2b8.jpg" width="700" alt="">
+<img src="images/part03_183802acbcce55b0de64cd8c09e982d43c85c7db1a8912272e6fda8105e4b2b8.jpg" width="700" alt="">
 
 Table 9-3: Power Management DLLP Fields / 表9-3：电源管理DLLP字段 | 表9-3：电源管理DLLP字段
 
@@ -127,7 +127,7 @@ Table 9-3: Power Management DLLP Fields / 表9-3：电源管理DLLP字段 | 表9
 | The packet format for all three variants is illustrated in Figure 9‑5 on page 315, while Table 9‑4 on page 315 describes the fields contained in it. | 所有三种变体的报文格式如第 315 页的图 9-5 所示，而第 315 页的表 9-4 描述了其中包含的字段。 |
 
 Figure 9‑5: Flow Control DLLP Format | 图9‑5：流控DLLP格式  
-<img src="../images/part03_940c6bec3506e8ca08d228126a03402fb96c706db13e7d2a8f81e391e4f0ccde.jpg" width="700" alt="">
+<img src="images/part03_940c6bec3506e8ca08d228126a03402fb96c706db13e7d2a8f81e391e4f0ccde.jpg" width="700" alt="">
 
 Table 9‑4: Flow Control DLLP Fields | 表9‑4：流控DLLP字段
 

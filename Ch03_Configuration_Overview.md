@@ -3,8 +3,8 @@
 ## Chapter 3: Configuration Overview | 第3章：配置概览
 
 
-<img src="../images/part01_df2188df034fe579e0116e8395740a1fa34157f569381757ab46ce9c517acb04.jpg" width="700" alt="">
 Figure 3-5: Single-Root System | 图3-5：单根系统
+<img src="images/part01_df2188df034fe579e0116e8395740a1fa34157f569381757ab46ce9c517acb04.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -93,8 +93,8 @@ Configuration Address Port (CF8h), there is nothing to prevent thread B from ove
 </tr>
 </table>
 
-<img src="../images/part01_80b2221c6585811b98bd6ab6018000cfeac331007436eabe94f83b1266da2ab0.jpg" width="700" alt="">
 Figure 3-6: Multi-Root System | 图3-6：多根系统
+<img src="images/part01_80b2221c6585811b98bd6ab6018000cfeac331007436eabe94f83b1266da2ab0.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -233,10 +233,10 @@ If the target bus is not the Bridge's secondary bus but is within its range, the
 Figure 3‑8 illustrates the Type 1 configuration read and write request header formats. In both cases, the Type field = 00101, while the Fmt field indicates whether it's a read or a write.
 
 Figure 3‑8: Type 1 Configuration Read and Write Request Headers | 图3‑8：Type 1配置读写请求头
-<img src="../images/part01_24e4138903dec6df140f4f0d3ed47ef9fbc374a092e235a445c1eef35752b179.jpg" width="700" alt="">
+<img src="images/part01_24e4138903dec6df140f4f0d3ed47ef9fbc374a092e235a445c1eef35752b179.jpg" width="700" alt="">
 
 Type 1 Configuration Write
-<img src="../images/part01_958273e9e45665440ca04c47aa91bdfaebf56f5231278e0b51993edf9ab935f0.jpg" width="700" alt="">
+<img src="images/part01_958273e9e45665440ca04c47aa91bdfaebf56f5231278e0b51993edf9ab935f0.jpg" width="700" alt="">
 
 ## Example PCI-Compatible Configuration Access | PCI兼容配置访问示例
 
@@ -443,7 +443,7 @@ The processor initiates a 2-byte memory read starting from memory location E0400
 </table>
 
 Figure 3-9: Example Configuration Read Access | 图3-9：配置读访问示例
-<img src="../images/part01_6183db0fb346f4ad5206a8db80477ef129ddb2abdd67577940103dd254276398.jpg" width="700" alt="">
+<img src="images/part01_6183db0fb346f4ad5206a8db80477ef129ddb2abdd67577940103dd254276398.jpg" width="700" alt="">
 
 ## Enumeration - Discovering the Topology | 枚举——发现拓扑结构
 
@@ -459,7 +459,7 @@ After a system reset or power up, configuration software has to scan the PCIe fa
 </table>
 
 Figure 3‑10: Topology View At Startup | 图3‑10：启动时的拓扑视图
-<img src="../images/part01_9f2cdca296de31e313d92b2cb4456c47aee9cac3de2b778abd6c21db9055c214.jpg" width="700" alt="">
+<img src="images/part01_9f2cdca296de31e313d92b2cb4456c47aee9cac3de2b778abd6c21db9055c214.jpg" width="700" alt="">
 
 ## Discovering the Presence or Absence of a Function | 发现功能的存在或缺失
 
@@ -557,7 +557,7 @@ For configuration writes or any other configuration reads, the Root must automat
 </table>
 
 Figure 3-11: Root Control Register in PCIe Capability Block | 图3-11：PCIe能力块中的根控制寄存器
-<img src="../images/part01_1e0679bf290407041c39ac88a329b0c6c2b8ea60bc074e74a4d9c4cadb2f6775.jpg" width="700" alt="">
+<img src="images/part01_1e0679bf290407041c39ac88a329b0c6c2b8ea60bc074e74a4d9c4cadb2f6775.jpg" width="700" alt="">
 
 ## Determining if a Function is an Endpoint or Bridge | 确定一个功能是端点还是桥
 
@@ -605,7 +605,7 @@ In Figure 3‐1 on page 87, the Header Type field (DW3, byte 2) in each of the V
 </table>
 
 Figure 3‐12: Header Type Register | 图3‐12：头类型寄存器
-<img src="../images/part01_4cca124d94219f469a84324ad2aca0c48fd656ebcdf8d3a156154fee4d376a4b.jpg" width="700" alt="">
+<img src="images/part01_4cca124d94219f469a84324ad2aca0c48fd656ebcdf8d3a156154fee4d376a4b.jpg" width="700" alt="">
 
 ## Single Root Enumeration Example | 单根枚举示例
 
@@ -1188,8 +1188,8 @@ The final values encoded into each bridge's Primary, Secondary and Subordinate B
 ## Chapter 3: Configuration Overview | 第3章：配置概览
 
 
-<img src="../images/part01_ba8ec777f8414269c7aa05643d501d98ab993c0f8f9b86cb070bc88ce59a52fe.jpg" width="700" alt="">
 Figure 3-13: Single-Root System | 图3-13：单根系统
+<img src="images/part01_ba8ec777f8414269c7aa05643d501d98ab993c0f8f9b86cb070bc88ce59a52fe.jpg" width="700" alt="">
 
 ## Multi-Root Enumeration Example | 多根枚举示例
 
@@ -1358,8 +1358,8 @@ PCI Express 技术
 </tr>
 </table>
 
-<img src="../images/part01_408f3ac19546207d17f6f4c156cbb8353e48f6edb0c445b19408ecd71553afa4.jpg" width="700" alt="">
 Figure 3-14: Multi-Root System | 图3-14：多根系统
+<img src="images/part01_408f3ac19546207d17f6f4c156cbb8353e48f6edb0c445b19408ecd71553afa4.jpg" width="700" alt="">
 
 ## Hot-Plug Considerations
 
@@ -1495,7 +1495,7 @@ Visit www.mindshare.com/arbor to download a free trial version of MindShare Arbo
 </table>
 
 Figure 3-15: Partial Screenshot of MindShare Arbor | 图3-15：MindShare Arbor部分截图
-<img src="../images/part01_b0ca2c62ae14c919634d74e0b2b5be6e6744951088f639bc2cbea5a1df809847.jpg" width="700" alt="">
+<img src="images/part01_b0ca2c62ae14c919634d74e0b2b5be6e6744951088f639bc2cbea5a1df809847.jpg" width="700" alt="">
 
 ## MindShare Arbor Feature List | MindShare Arbor 功能列表
 

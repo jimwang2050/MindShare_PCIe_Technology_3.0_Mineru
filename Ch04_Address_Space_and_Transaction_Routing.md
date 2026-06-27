@@ -37,8 +37,8 @@ The mapping example in Figure 4-1 is only showing MMIO and IO space being claime
 </tr>
 </table>
 
-<img src="../images/part02_1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg" width="700" alt="">
 Figure 4-1: MMIO Types Claimed by PCIe Devices | 图4-1：PCIe设备声明的MMIO类型
+<img src="images/part02_1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg" width="700" alt="">
 
 
 ## Prefetchable vs. Non-prefetchable Memory Space | 可预取内存空间与不可预取内存空间
@@ -97,8 +97,8 @@ Making this distinction was more important for PCI than it is for PCIe because t
 ## Chapter 4: Address Space & Transaction Routing | 第4章：地址空间与事务路由
 
 
-<img src="../images/part02_ff238d8cb4d6de759075adb4d19f3f6e7aaf994543232b6497dd0bd93541edef.jpg" width="700" alt="">
 Figure 4-1: Generic Memory And IO Address Maps | 图4-1：通用存储器和IO地址映射
+<img src="images/part02_ff238d8cb4d6de759075adb4d19f3f6e7aaf994543232b6497dd0bd93541edef.jpg" width="700" alt="">
 
 ## Base Address Registers (BARs) | 基址寄存器 (BAR)
 
@@ -164,7 +164,7 @@ Not all BARs have to be implemented. If a device does not need all the BARs to m
 </table>
 
 Figure 4‐2: BARs in Configuration Space | 图4‐2：配置空间中的BAR
-<img src="../images/part02_0754b36296a00a43f0467a2571863dc6744e5c61e356c6ed1820fa1e873af09d.jpg" width="700" alt="">
+<img src="images/part02_0754b36296a00a43f0467a2571863dc6744e5c61e356c6ed1820fa1e873af09d.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -178,7 +178,7 @@ Once the BARs have been programmed, the internal registers or local memory withi
 </table>
 
 Figure 4‐3: PCI Express Devices And Type 0 And Type 1 Header Use | 图4‐3：PCI Express设备与Type 0和Type 1头的使用
-<img src="../images/part02_880d7b01ffbe102c74937fdb9de0855f5ef6606ba36a5ca59c0258f40509fd4c.jpg" width="700" alt="">
+<img src="images/part02_880d7b01ffbe102c74937fdb9de0855f5ef6606ba36a5ca59c0258f40509fd4c.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -244,7 +244,7 @@ Table 4-1: Results of Reading the BAR after Writing All 1s To It | 表4-1：写�
 <table><tr><td>BAR Bits</td><td>Meaning</td></tr><tr><td>0</td><td>Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td>2:1</td><td>Read as 00b indicating the target only supports decoding a 32-bit address</td></tr><tr><td>3</td><td>Read as 0b, indicating request is for non-prefetchable memory (meaning reads do have side-effects); NP-MMIO</td></tr><tr><td>11:4</td><td>Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td>31:12</td><td>Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Since bit 12 is the least significant bit that could be written, the memory size requested is  $2^{12} = 4KB$ .</td></tr></table>
 
 Figure 4-4: 32-Bit Non-Prefetchable Memory BAR Set Up | 图4-4：32位非预取存储器BAR设置
-<img src="../images/part02_c2d206df7d7c6b9fd1b3f40d41fdb0917bc4fef31eb4396435b8ddcf02c672e5.jpg" width="700" alt="">
+<img src="images/part02_c2d206df7d7c6b9fd1b3f40d41fdb0917bc4fef31eb4396435b8ddcf02c672e5.jpg" width="700" alt="">
 
 ## BAR Example 2: 64-bit Memory Address Space Request | BAR 示例 2: 64 位存储器地址空间请求
 
@@ -300,7 +300,7 @@ At this point, the configuration of the BAR pair (BAR1 & BAR2) is complete. Once
 </table>
 
 Figure 4-5: 64-Bit Prefetchable Memory BAR Set Up | 图4-5：64位可预取存储器BAR设置
-<img src="../images/part02_fb829876472623d44b981cc4e53ef1c96d7e11dd42612871eca008f1974bc0e4.jpg" width="700" alt="">
+<img src="images/part02_fb829876472623d44b981cc4e53ef1c96d7e11dd42612871eca008f1974bc0e4.jpg" width="700" alt="">
 
 Table 4-2: Results Of Reading the BAR Pair after Writing All 1s To Both | 表4-2：写入全1后读取BAR对的结果
 
@@ -352,7 +352,7 @@ At this point, the configuration of BAR3 is complete. Once software enables IO a
 </table>
 
 Figure 4‑6: IO BAR Set Up | 图4‑6：IO BAR设置
-<img src="../images/part02_003b2db033194e03040a960e27cf1abbdb191136b23a53a655620e2ca61d33eb.jpg" width="700" alt="">
+<img src="images/part02_003b2db033194e03040a960e27cf1abbdb191136b23a53a655620e2ca61d33eb.jpg" width="700" alt="">
 
 Table 4‑3: Results Of Reading the IO BAR after Writing All 1s To It | 表4‑3：写入全1后读取IO BAR的结果
 
@@ -500,8 +500,8 @@ The Base and Limit registers of every bridge upstream of the endpoint will need 
 </tr>
 </table>
 
-<img src="../images/part02_a35e23b613320d5bdb8fbce1ad4b754276b9d32ad4bee523d66c3e94362fdbd8.jpg" width="700" alt="">
 Figure 4-7: Example Topology for Setting Up Base and Limit Values | 图4-7：设置基址和限制值的示例拓扑
+<img src="images/part02_a35e23b613320d5bdb8fbce1ad4b754276b9d32ad4bee523d66c3e94362fdbd8.jpg" width="700" alt="">
 
 ## Prefetchable Range (P-MMIO) | 可预取范围 (P-MMIO)
 
@@ -520,7 +520,7 @@ Figure 4-8: Example Prefetchable Memory Base/Limit Register Values | 图4-8：�
 
 <table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>Rev ID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
 
-<img src="../images/part02_85465c6b3a80c51edb75d9f4ed61ee62e089c610bea78ae06cd89b5276746731.jpg" width="700" alt="">
+<img src="images/part02_85465c6b3a80c51edb75d9f4ed61ee62e089c610bea78ae06cd89b5276746731.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -555,7 +555,7 @@ Type 1 Header
 
 <table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>Rev ID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
 
-<img src="../images/part02_b5ee420b6ebab86a49bcce4a1dabefa73c1033141db7c92cc24041fcaeb9a66c.jpg" width="700" alt="">
+<img src="images/part02_b5ee420b6ebab86a49bcce4a1dabefa73c1033141db7c92cc24041fcaeb9a66c.jpg" width="700" alt="">
 
 Non-Prefetchable Memory Range: F900\_0000h - F90F\_FFFFh
 
@@ -600,7 +600,7 @@ Figure 4-10: Example IO Base/Limit Register Values | 图4-10：IO基址/限制�
 
 <table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>RevID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
 
-<img src="../images/part02_38a387246db1e2abb691885e5a75d06270c47bffec7d92eb9c23ededa1be4c6a.jpg" width="700" alt="">
+<img src="images/part02_38a387246db1e2abb691885e5a75d06270c47bffec7d92eb9c23ededa1be4c6a.jpg" width="700" alt="">
 
 Table 4-6: Example IO Base/Limit Register Meanings | 表4-6：IO基址/限制寄存器含义示例
 
@@ -647,7 +647,7 @@ This method of invalidating base and limit registers is valid for all three base
 </table>
 
 Figure 4-11: Final Example Address Routing Setup | 图4-11：最终示例地址路由设置
-<img src="../images/part02_1fb4688cc0829b4d5235f0affa8ed10db0ed46cd85a1abccb1a22d7b7d7b1db3.jpg" width="700" alt="">
+<img src="images/part02_1fb4688cc0829b4d5235f0affa8ed10db0ed46cd85a1abccb1a22d7b7d7b1db3.jpg" width="700" alt="">
 
 
 ## Sanity Check: Registers Used For Address Routing | 正确性检查：用于地址路由的寄存器
@@ -709,7 +709,7 @@ The purpose of setting up the BARs and Base/Limit registers as described in the 
 </table>
 
 Figure 4‐12: Multi‐Port PCIe Devices Have Routing Responsibilities | 图4‐12：多端口PCIe设备具有路由职责
-<img src="../images/part02_b4840c3bc05898076b5ecfd8382467f308afe9b0354e12a5aa7cce3cc0ed8f92.jpg" width="700" alt="">
+<img src="images/part02_b4840c3bc05898076b5ecfd8382467f308afe9b0354e12a5aa7cce3cc0ed8f92.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -869,7 +869,7 @@ Like most other serial technologies, PCI Express uses the split transaction prot
 </table>
 
 Figure 4-13: PCI Express Transaction Request And Completion TLPs | 图4-13：PCI Express事务请求和完成TLP
-<img src="../images/part02_48a5a16bee00019f3f488013bb72a9c97e7ed8508405f635e2c1b6704b7bfa42.jpg" width="700" alt="">
+<img src="images/part02_48a5a16bee00019f3f488013bb72a9c97e7ed8508405f635e2c1b6704b7bfa42.jpg" width="700" alt="">
 
 ## Posted versus Non-Posted | Posted 与非 Posted 事务
 
@@ -943,8 +943,8 @@ As shown in Figure 4-14 on page 152, each TLP contains a three or four doublewor
 </tr>
 </table>
 
-<img src="../images/part02_fec46d2d1fd69f8fd6b71b51ac36f4f1abfbb4b8e904d4b9e043ef0ce0204668.jpg" width="700" alt="">
 Figure 4-14: Transaction Layer Packet Generic 3DW And 4DW Headers | 图4-14：事务层数据包通用3DW和4DW头
+<img src="images/part02_fec46d2d1fd69f8fd6b71b51ac36f4f1abfbb4b8e904d4b9e043ef0ce0204668.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -1100,10 +1100,9 @@ If the Type field in a received TLP indicates ID routing is to be used, then the
 </table>
 
 Figure 4-15: 3DW TLP Header - ID Routing Fields | 图4-15：3DW TLP头 - ID路由字段
-<img src="../images/part02_a3eae75f4c57834d4b43ecc60db67b8feedf07b5daeead859131dec27b5446e6.jpg" width="700" alt="">
-
 Figure 4-16: 4DW TLP Header - ID Routing Fields | 图4-16：4DW TLP头 - ID路由字段
-<img src="../images/part02_c5e73cb93b4421601309081f14e7dd41039673423275cf68bf670983767ecc47.jpg" width="700" alt="">
+<img src="images/part02_a3eae75f4c57834d4b43ecc60db67b8feedf07b5daeead859131dec27b5446e6.jpg" width="700" alt="">
+<img src="images/part02_c5e73cb93b4421601309081f14e7dd41039673423275cf68bf670983767ecc47.jpg" width="700" alt="">
 
 ## Endpoints: One Check | 端点：单一检查
 
@@ -1173,7 +1172,7 @@ In this section, it is important to remember that each port on a switch is a Bri
 </table>
 
 Figure 4-17: Switch Checks Routing Of An Inbound TLP Using ID Routing | 图4-17：交换机使用ID路由检查入站TLP的路由
-<img src="../images/part02_fc6f79f8ca30a0eaee36c18c935ef53ffbdba2126190699e50eddded332a2037.jpg" width="700" alt="">
+<img src="images/part02_fc6f79f8ca30a0eaee36c18c935ef53ffbdba2126190699e50eddded332a2037.jpg" width="700" alt="">
 
 ## Address Routing | 地址路由
 
@@ -1218,10 +1217,9 @@ TLPs with 64‑Bit Address — For 64‑bit memory requests, a 4DW header is use
 </table>
 
 Figure 4‑18: 3DW TLP Header — Address Routing Fields | 图4‑18：3DW TLP头 — 地址路由字段
-<img src="../images/part02_35aa75f79ed03d1081d34cf95b053c7f1e1f7022db9fd9fe908c90f87e7ad67a.jpg" width="700" alt="">
-
 Figure 4‑19: 4DW TLP Header — Address Routing Fields | 图4‑19：4DW TLP头 — 地址路由字段
-<img src="../images/part02_5c852f5678febf67f3fc428e4d27a5319701cb83d0df73f869d7b9b4793005e2.jpg" width="700" alt="">
+<img src="images/part02_35aa75f79ed03d1081d34cf95b053c7f1e1f7022db9fd9fe908c90f87e7ad67a.jpg" width="700" alt="">
+<img src="images/part02_5c852f5678febf67f3fc428e4d27a5319701cb83d0df73f869d7b9b4793005e2.jpg" width="700" alt="">
 
 ## Endpoint Address Checking | 端点地址检查
 
@@ -1248,7 +1246,7 @@ Chapter 4: Address Space & Transaction Routing
 </table>
 
 Figure 4-20: Endpoint Checks Incoming TLP Address | 图4-20：端点检查入站TLP地址
-<img src="../images/part02_1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg" width="700" alt="">
+<img src="images/part02_1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg" width="700" alt="">
 
 ## Switch Routing | 交换机路由
 
@@ -1264,8 +1262,8 @@ If an incoming TLP uses address routing, a Switch Port first checks to see if th
 </tr>
 </table>
 
-<img src="../images/part02_47521d33eb88e6a8aa297bb7e9520c2500d1748e9639be55d27495f09b5b3353.jpg" width="700" alt="">
 Figure 4-21: Switch Checks Routing Of An Inbound TLP Using Address | 图4-21：交换机使用地址检查入站TLP的路由
+<img src="images/part02_47521d33eb88e6a8aa297bb7e9520c2500d1748e9639be55d27495f09b5b3353.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -1469,8 +1467,8 @@ Slot Power Limit settings
 </tr>
 </table>
 
-<img src="../images/part02_180e1d6d4c7b49cebf8eda3097555e2eb146e70d55ac049bbc4ae3669523c4b5.jpg" width="700" alt="">
 Figure 4-22: 4DW Message TLP Header - Implicit Routing Fields | 图4-22：4DW消息TLP头 - 隐式路由字段
+<img src="images/part02_180e1d6d4c7b49cebf8eda3097555e2eb146e70d55ac049bbc4ae3669523c4b5.jpg" width="700" alt="">
 
 
 ## Key TLP Header Fields in Implicit Routing | 隐式路由中的关键 TLP 头字段
@@ -1704,7 +1702,7 @@ With the exception of the Logical Idle symbols and Physical Layer packets called
 </table>
 
 Figure 5‐1: TLP And DLLP Packets | 图5‐1：TLP和DLLP数据包
-<img src="../images/part02_c95d2324c799f59c2437e1a433388a586089185e3661fa7dacda8c2af34d8ef6.jpg" width="700" alt="">
+<img src="images/part02_c95d2324c799f59c2437e1a433388a586089185e3661fa7dacda8c2af34d8ef6.jpg" width="700" alt="">
 
 ## Motivation for a Packet-Based Protocol | 采用基于数据包协议的动机
 
@@ -1908,7 +1906,7 @@ The list numbers correspond to the numbers in Figure 5-2 on page 173.
 </table>
 
 Figure 5-2: PCIe TLP Assembly/Disassembly | 图5-2：PCIe TLP组装/拆解
-<img src="../images/part02_9975e4bc5a3afd16b56b819f3cae3190ba51c80a39c9d42a9bc457fc722ea5f4.jpg" width="700" alt="">
+<img src="images/part02_9975e4bc5a3afd16b56b819f3cae3190ba51c80a39c9d42a9bc457fc722ea5f4.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -2006,8 +2004,8 @@ Header format differences associated with specific transaction types are covered
 </tr>
 </table>
 
-<img src="../images/part02_86de3a251a1f2d00f0f15727ca8579b021fdfe1bcfc1111e0c0d75e2bd01a7df.jpg" width="700" alt="">
 Figure 5-3: Generic TLP Header Fields | 图5-3：通用TLP头字段
+<img src="images/part02_86de3a251a1f2d00f0f15727ca8579b021fdfe1bcfc1111e0c0d75e2bd01a7df.jpg" width="700" alt="">
 
 ## Generic Header Field Summary | 通用头字段汇总
 
@@ -2228,7 +2226,7 @@ Byte Enable Example. An example of byte enable use in this case is illustrated i
 </table>
 
 Figure 5-4: Using First DW and Last DW Byte Enable Fields | 图5-4：使用首DW和末DW字节使能字段
-<img src="../images/part02_6866d40c7ae466d43b498249907df37be5b233a907f7c511faebe3237f726984.jpg" width="700" alt="">
+<img src="images/part02_6866d40c7ae466d43b498249907df37be5b233a907f7c511faebe3237f726984.jpg" width="700" alt="">
 
 ## Transaction Descriptor Fields | 事务描述符字段
 
@@ -2392,7 +2390,7 @@ While the spec discourages the use of IO transactions, allowance is made for Leg
 </table>
 
 Figure 5-6: System IO Map | 图5-6：系统IO映射
-<img src="../images/part02_6e6817b2254ebb975f278610668a2f09f3d6eb0c14374f26db535bad26c54eb4.jpg" width="700" alt="">
+<img src="images/part02_6e6817b2254ebb975f278610668a2f09f3d6eb0c14374f26db535bad26c54eb4.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -2406,7 +2404,7 @@ IO 请求包头格式。图 5-7（第 185 页）显示了一个 3 DW 的 IO 请�
 </table>
 
 Figure 5-7: 3DW IO Request Header Format | 图5-7：3DW IO请求头格式
-<img src="../images/part02_ec3566d8277fa448d856eb8d8b0127bafc6605dac2584e6c1f5197148ad9f4f7.jpg" width="700" alt="">
+<img src="images/part02_ec3566d8277fa448d856eb8d8b0127bafc6605dac2584e6c1f5197148ad9f4f7.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -2437,7 +2435,7 @@ PCI Express存储器事务包括两类：读请求及其对应的完成报文，
 </table>
 
 Figure 5-8: 3DW And 4DW Memory Request Header Formats | 图5-8：3DW和4DW存储器请求头格式
-<img src="../images/part02_93481f62478e88c776bdd0b5bb56579eec265c6153ca3401d6c0b38f7ea618ab.jpg" width="700" alt="">
+<img src="images/part02_93481f62478e88c776bdd0b5bb56579eec265c6153ca3401d6c0b38f7ea618ab.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -2542,7 +2540,7 @@ PCI Express 使用 Type 0 和 Type 1 两种配置请求，方式与 PCI 相同�
 </table>
 
 Figure 5‐9: 3DW Configuration Request And Header Format | 图5‐9：3DW配置请求和头格式
-<img src="../images/part02_5807124a29434194ad38ae629fb7a39f2a557405c60e04e616a162a37d27fdd8.jpg" width="700" alt="">
+<img src="images/part02_5807124a29434194ad38ae629fb7a39f2a557405c60e04e616a162a37d27fdd8.jpg" width="700" alt="">
 
 <table>
 <tr>
@@ -2601,7 +2599,7 @@ Many fields in the Completion use the same values as the associated request, inc
 </table>
 
 Figure 5-10: 3DW Completion Header Format | 图5-10：3DW完成头格式
-<img src="../images/part02_a6cddfbfaf4ca7c4ab4647260c51d133a2bd27b3074d97b8c5923f662039ce02.jpg" width="700" alt="">
+<img src="images/part02_a6cddfbfaf4ca7c4ab4647260c51d133a2bd27b3074d97b8c5923f662039ce02.jpg" width="700" alt="">
 
 <table>
 <tr>

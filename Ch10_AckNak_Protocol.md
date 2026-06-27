@@ -25,7 +25,7 @@
 ## Goal: Reliable TLP Transport
 
 Figure 10-1: Data Link Layer | 图10-1：数据链路层  
-<img src="../images/part03_eb99ca8d66f48ed20039e0715931846d97a80f8b43cfdea3db16acbc3a4f5407.jpg" width="700" alt="">
+<img src="images/part03_eb99ca8d66f48ed20039e0715931846d97a80f8b43cfdea3db16acbc3a4f5407.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -34,7 +34,7 @@ Figure 10-1: Data Link Layer | 图10-1：数据链路层
 | The basic blocks in the Data Link Layer associated with the Ack/Nak protocol are shown in greater detail in Figure 10‐2 on page 319. Every TLP sent across the Link is checked at the receiver by evaluating the LCRC (first) and Sequence Number (second) in the packet. The receiving device notifies the transmitting device that a good TLP has been received by returning an Ack. Reception of an Ack at the transmitter means that the receiver has received at least one TLP successfully. On the other hand, reception of a Nak by the transmitter indicates that the receiver has received at least one TLP in error. In that case, the transmitter will re‐send the appropriate TLP(s) in hopes of a better result this time. This is sensible, because things that would cause a transmission error would likely be transient events and a replay will have a very good chance of solving the problem. | 与Ack/Nak协议相关的数据链路层基本模块如图10-2所示（见第319页），图中更详细地展示了这些模块。每条链路上发送的每个TLP在接收端通过检查数据包中的LCRC（首先）和序列号（其次）进行校验。接收设备通过返回Ack通知发送设备已成功收到一个TLP。发送端收到Ack表示接收端已至少成功接收了一个TLP。另一方面，发送端收到Nak表示接收端至少接收到了一个错误的TLP。此时，发送端将重新发送相应的TLP，以期本次获得更好的结果。这是合理的，因为导致传输错误的原因很可能是瞬时事件，重播有很大机会解决问题。 |
 
 Figure 10-2: Overview of the Ack/Nak Protocol | 图10-2：Ack/Nak协议概述  
-<img src="../images/part03_c71d9a4c63208b94d916ff92037be6f24d24fe2d59ae64b5f215b460d8b806e2.jpg" width="700" alt="">
+<img src="images/part03_c71d9a4c63208b94d916ff92037be6f24d24fe2d59ae64b5f215b460d8b806e2.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -50,7 +50,7 @@ Figure 10-2: Overview of the Ack/Nak Protocol | 图10-2：Ack/Nak协议概述
 
 Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
 
-<img src="../images/part03_2f3df67ccb6072a863a25d5e5b5b021e7e694e1654bf817841b7280e892206d1.jpg" width="700" alt="">
+<img src="images/part03_2f3df67ccb6072a863a25d5e5b5b021e7e694e1654bf817841b7280e892206d1.jpg" width="700" alt="">
 
 ## Transmitter Elements
 
@@ -85,7 +85,7 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
 
 Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10‐4：与Ack/Nak协议相关的发送器元素
 
-<img src="../images/part03_feef664f47d503359c07b241250bdb982a6bf448b0288a3740b15f2065df3853.jpg" width="700" alt="">
+<img src="images/part03_feef664f47d503359c07b241250bdb982a6bf448b0288a3740b15f2065df3853.jpg" width="700" alt="">
 
 ## REPLAY_TIMER Count / 重发定时器计数
 
@@ -123,7 +123,7 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
 | Figure 10-5 on page 325 illustrates the receiver Data Link Layer elements associated with processing of inbound TLPs and outbound Ack/Nak DLLPs. | 第325页的图10-5展示了与入站TLP和出站Ack/Nak DLLP处理相关的接收端数据链路层元素。 |
 
 Figure 10-5: Receiver Elements Associated with the Ack/Nak Protocol | 图10-5：与Ack/Nak协议相关的接收器元素  
-<img src="../images/part03_f9bf80710d103aef984e5fced491aadd3967fc94ccc2cce01dc308e7bbf4062e.jpg" width="700" alt="">
+<img src="images/part03_f9bf80710d103aef984e5fced491aadd3967fc94ccc2cce01dc308e7bbf4062e.jpg" width="700" alt="">
 
 ## LCRC Error Check
 
@@ -148,7 +148,7 @@ Figure 10-5: Receiver Elements Associated with the Ack/Nak Protocol | 图10-5：
 
 Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示例
 
-<img src="../images/part03_1eed93a787a204e6b1e0b6c8992f59b5d882810fc68dda8793cd55db4d8bf4ee.jpg" width="700" alt="">
+<img src="images/part03_1eed93a787a204e6b1e0b6c8992f59b5d882810fc68dda8793cd55db4d8bf4ee.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|-----|
@@ -232,7 +232,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 | 6. Once Device B receives TLPs 6 and 7 and its AckNak_LATENCY_TIMER expires again, it will send an Ack with a Sequence Number of 7 which will purge the last two TLPs in the Replay Buffer of Device A (according to this example). | 6. 一旦设备B收到TLP 6和TLP 7，并且其AckNak_LATENCY_TIMER再次超时，它将发送一个序列号为7的Ack，从而清除设备A重放缓冲区中的最后两个TLP（根据本示例）。 |
 
 Figure 10-8: Example 1 - Example of Ack | 图10-8：示例1 - Ack示例
-<img src="../images/part03_53d208a2661a2ae54305e58ed78cde00db7e56192da39d163bd53d3fc28f6ba1.jpg" width="700" alt="">
+<img src="images/part03_53d208a2661a2ae54305e58ed78cde00db7e56192da39d163bd53d3fc28f6ba1.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
@@ -243,7 +243,7 @@ Figure 10-8: Example 1 - Example of Ack | 图10-8：示例1 - Ack示例
 | 4. Device A successfully receives Ack 1, purges TLPs 4094, 4095, 0, and 1 from the Replay Buffer and resets the REPLAY_TIMER and REPLAY_NUM count. | 4. 设备A成功接收Ack 1，从重放缓冲区中清除TLP 4094、4095、0和1，并重置REPLAY_TIMER和REPLAY_NUM计数。 |
 
 Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 - 序列号翻转的Ack
-<img src="../images/part03_45745bb1c29492a91735a6b39ae67cbc2259b685b74308b1e3f2b78ffb3ab745.jpg" width="700" alt="">
+<img src="images/part03_45745bb1c29492a91735a6b39ae67cbc2259b685b74308b1e3f2b78ffb3ab745.jpg" width="700" alt="">
 
 ## Transmitter's Response to a Nak / 发送方对 Nak 的响应
 
@@ -277,7 +277,7 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
 | 7. Once Device B receives the replayed TLP 4095, it will clear the NAK\_SCHEDULED flag, increment the NEXT\_RCV\_SEQ count and start the AckNak\_LATENCY\_TIMER. | 7. 一旦设备B接收到重放的TLP 4095，它将清除NAK\_SCHEDULED标志，递增NEXT\_RCV\_SEQ计数，并启动AckNak\_LATENCY\_TIMER。 |
 
 Figure 10‐10: Example of a Nak | 图10‐10：Nak示例  
-<img src="../images/part03_b88375d17a336277c7f8c10ba6a3960290d0cda6ea472764f15d6ab28bffd741.jpg" width="700" alt="">  
+<img src="images/part03_b88375d17a336277c7f8c10ba6a3960290d0cda6ea472764f15d6ab28bffd741.jpg" width="700" alt="">  
 Repeated Replay of TLPs
 
 | EN | ZH |
@@ -340,7 +340,7 @@ Figure 10-11: Gen1 Unadjusted REPLAY\_TIMER Values | 图10-11：Gen1未调整的
 | TLPs received at the Physical Layer are checked for receiver errors (such as framing, disparity, and invalid symbols). If there are errors at this level, the TLP is discarded and the Link Layer may be informed by some design‐specific method so it can schedule a Nak and have the packet replayed. If the Link Layer is not informed, then eventually it will detect a Sequence Number violation and that will cause a Nak and a replay. | 物理层接收到的TLP会接受接收器错误检查（例如帧错误、不一致错误和无效符号）。如果此层级存在错误，TLP将被丢弃，并可通过某些设计特定方法通知数据链路层，以便其调度Nak并重放该报文。如果未通知数据链路层，则最终它会检测到序列号违例，这将导致Nak和重放。 |
 
 Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
-<img src="../images/part03_66323f024cc465cf777f9bd8f49be6daafba66ae2a5ddfbb2dee935846084e9b.jpg" width="700" alt="">
+<img src="images/part03_66323f024cc465cf777f9bd8f49be6daafba66ae2a5ddfbb2dee935846084e9b.jpg" width="700" alt="">
 
 ## TLP LCRC Check
 
@@ -437,7 +437,7 @@ Consider Figure 10-13 on page 346, showing how a lost TLP is detected and handle
 | 8. TLPs 1 and 2 arrive without error at Device B and are forwarded to the Transaction Layer. | 8. TLP 1和2无错误地到达设备B，并被转发到事务层。 |
 
 Figure 10-13: Handling Lost TLPs | 图10-13：丢失TLP的处理
-<img src="../images/part03_550592b528a721031674d51dc0fc0118f9beb66ed4d8e00e5f04468f0c0fce13.jpg" width="700" alt="">
+<img src="images/part03_550592b528a721031674d51dc0fc0118f9beb66ed4d8e00e5f04468f0c0fce13.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
@@ -451,7 +451,7 @@ Figure 10-13: Handling Lost TLPs | 图10-13：丢失TLP的处理
 | If Ack 2 is also lost or corrupted and no further Ack or Nak DLLPs are returned to Device A, its REPLAY_TIMER expires causing a replay of its entire buffer. Device B sees TLPs 4094, 4095, 0, 1 and 2 and considers them to be duplicates [their sequence numbers are earlier than NEXT_RCV_SEQ count (3)]. They are discarded and another Ack 2 would be returned to Device A because of the duplicate packets. | 如果Ack 2也丢失或损坏，且没有进一步的Ack或Nak DLLP返回给设备A，其REPLAY_TIMER超时将导致其整个缓冲区重放。设备B看到TLP 4094、4095、0、1和2，并将其视为重复报文[它们的序列号早于NEXT_RCV_SEQ计数(3)]。这些TLP被丢弃，并且由于重复报文，另一个Ack 2将返回给设备A。 |
 
 Figure 10‐14: Handling Bad Ack | 图10‐14：错误Ack的处理
-<img src="../images/part03_54f680dbb772b412b8024ffa44a44adb726f36b0766ae29a6578f19005d3c8ae.jpg" width="700" alt="">
+<img src="images/part03_54f680dbb772b412b8024ffa44a44adb726f36b0766ae29a6578f19005d3c8ae.jpg" width="700" alt="">
 
 ## Bad Nak
 
@@ -467,7 +467,7 @@ Figure 10‐14: Handling Bad Ack | 图10‐14：错误Ack的处理
 | 7. Once TLP 1 is successfully received by Device B, it will clear the NAK\_SCHEDULED flag, increment the NEXT\_RCV\_SEQ and restart the AckNak\_LATENCY\_TIMER because it has successfully received a TLP that it has not yet acknowledged. | 7. 一旦设备B成功接收TLP 1，它将清除NAK\_SCHEDULED标志，递增NEXT\_RCV\_SEQ，并重启AckNak\_LATENCY\_TIMER，因为它已成功接收到一个尚未确认的TLP。 |
 
 Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
-<img src="../images/part03_ac1639c87e799df7fa499a8d762b62782b08400a1baceb3f3d677ab7eb255448.jpg" width="700" alt="">
+<img src="images/part03_ac1639c87e799df7fa499a8d762b62782b08400a1baceb3f3d677ab7eb255448.jpg" width="700" alt="">
 
 ## Error Situations Handled by Ack/Nak
 
@@ -611,7 +611,7 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 
 Figure 10-16: Switch Cut-Through Mode Showing Error Handling | 图10-16：显示错误处理的交换机直通模式
 
-<img src="../images/part03_e4f8aa9d2501874accf28e75d5595f351ad737d415200a625d3b9809ba165f3a.jpg" width="700" alt="">
+<img src="images/part03_e4f8aa9d2501874accf28e75d5595f351ad737d415200a625d3b9809ba165f3a.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -649,7 +649,7 @@ Figure 10-16: Switch Cut-Through Mode Showing Error Handling | 图10-16：显示
 | The Physical Layer resides at the bottom of the interface between the external physical link and Data Link Layer. It converts outbound packets from the Data Link Layer into a serialized bit stream that is clocked onto all Lanes of the Link. This layer also recovers the bit stream from all Lanes of the Link at the receiver. The receive logic de‑serializes the bits back into a Symbol stream, re‑assembles the packets, and forwards TLPs and DLLPs up to the Data Link Layer. | 物理层位于外部物理链路与数据链路层之间的接口底部。它将来自数据链路层的出站包转换为串行化比特流，并在链路的所有通道上进行时钟同步传输。该层还在接收端从链路的所有通道中恢复比特流。接收逻辑将比特反串行化回符号流，重新组装报文，并将TLP和DLLP向上传递到数据链路层。 |
 
 Figure 11‐1: PCIe Port Layers | 图11‐1：PCIe端口层  
-<img src="../images/part03_1cdf4aaafebdcb2722ade98568b50daba0bc2fcaf66d07b8778a18993f196aac.jpg" width="700" alt="">
+<img src="images/part03_1cdf4aaafebdcb2722ade98568b50daba0bc2fcaf66d07b8778a18993f196aac.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
@@ -659,7 +659,7 @@ Figure 11‐1: PCIe Port Layers | 图11‐1：PCIe端口层
 | The Physical Layer is made up of two sub‑blocks: the Logical part and the Electrical part as shown in Figure 11‑2. Both contain independent transmit and receive logic, allowing dual‑simplex communication. | 物理层由两个子模块组成：逻辑部分和电气部分，如图11-2所示。两者均包含独立的发送和接收逻辑，可实现双工通信。 |
 
 Figure 11‐2: Logical and Electrical Sub‑Blocks of the Physical Layer | 图11‐2：物理层的逻辑和电子子块  
-<img src="../images/part03_f8693a966eff52ea73901be7bea7c33f9ce2c25847c61843bed958de6aa77bfc.jpg" width="700" alt="">
+<img src="images/part03_f8693a966eff52ea73901be7bea7c33f9ce2c25847c61843bed958de6aa77bfc.jpg" width="700" alt="">
 
 ## Observation
 
@@ -676,7 +676,7 @@ Figure 11‐2: Logical and Electrical Sub‑Blocks of the Physical Layer | 图11
 | Gen3 mode of operation, doesn't use control characters, so data patterns are used to make up the ordered sets that identify if transmitted bytes are associated with TLPs / DLLPs or Ordered Sets. A 2-bit Sync Header is inserted at the beginning of a 128 bit (16 byte) block of data. The Sync Header informs the receiver whether the received block is a Data Block (TLP or DLLP related bytes) or an Ordered Set Block. Since there are no control characters in Gen3 mode, the D/K# bit is not needed. | Gen3 操作模式不使用控制字符，而是使用数据模式构成 Ordered Set，以标识发送的字节是与 TLP/DLLP 相关联还是与 Ordered Set 相关联。在每个 128 位（16 字节）数据块的开始处插入一个 2 位同步头（Sync Header）。同步头告知接收方收到的块是数据块（TLP 或 DLLP 相关字节）还是 Ordered Set 块。由于 Gen3 模式中没有控制字符，因此不需要 D/K# 位。 |
 
 Figure 11-3: Physical Layer Transmit Details | 图11-3：物理层发送详情
-<img src="../images/part03_49dd79edac287dcebb3f480607ae981c2757c8266f681e738d764b9d66b794de.jpg" width="700" alt="">
+<img src="images/part03_49dd79edac287dcebb3f480607ae981c2757c8266f681e738d764b9d66b794de.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|

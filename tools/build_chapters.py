@@ -13,8 +13,8 @@ OUT_DIR = ROOT  # Write chapters to repo root, not chapters/ subdir
 # Chapter definitions: (name, start_chunk, end_chunk)
 CHAPTERS = [
     ("Ch01_Front_Matter_and_Introduction", 1, 86),
-    ("Ch02_PCIe_Architecture_Overview", 87, 152),
-    ("Ch03_Configuration_Overview", 153, 189),
+    ("Ch02_PCIe_Architecture_Overview", 87, 137),
+    ("Ch03_Configuration_Overview", 138, 189),
     ("Ch04_Address_Space_and_Transaction_Routing", 190, 276),
     ("Ch05_TLP_Elements", 277, 289),
     ("Ch06_Flow_Control", 290, 324),

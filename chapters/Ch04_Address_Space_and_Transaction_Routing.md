@@ -1,936 +1,847 @@
-## 第 4 章:地址空间与事务路由
+# Ch04_Address_Space_and_Transaction_Routing
 
-将地址空间同时映射到内存地址空间和 IO 地址空间。这样,新软件可以使用内存地址空间(MMIO)访问设备的内部位置,同时允许传统(旧版)软件继续工作,因为它仍可以使用 IO 地址空间访问设备的内部寄存器。
+## Chapter 4: Address Space & Transaction Routing
 
-不依赖传统软件或没有传统兼容性问题的较新设备通常仅通过内存地址空间(MMIO)映射内部寄存器/存储,不申请 IO 地址空间。事实上,PCI Express 规范实际上并不鼓励使用 IO 地址空间,指出它只是为了兼容传统原因而保留,并可能在规范的未来修订版中被弃用。
+| EN | ZH |
+|:---|:---|
+| address space as well as in IO address space. This allows new software to access the internal locations of a device using memory address space (MMIO), while allowing legacy (old) software to continue to function because it can still access the internal registers of devices using IO address space. | 地址空间以及IO地址空间中。这使得新软件可以使用存储器地址空间(MMIO)访问设备的内部存储位置，同时允许旧有(legacy)软件继续正常工作，因为它仍然可以使用IO地址空间访问设备的内部寄存器。 |
+| Newer devices that do not rely on legacy software or have legacy compatibility issues typically just map internal registers/storage through memory address space (MMIO), with no IO address space being requested. In fact, the PCI Express specification actually discourages the use of IO address space, indicating that it is only supported for legacy reasons and may be deprecated in a future revision of the spec. | 不依赖旧有软件或不存在旧有兼容性问题的新设备通常仅通过存储器地址空间(MMIO)映射内部寄存器/存储，而不请求任何IO地址空间。事实上，PCI Express规范实际上不鼓励使用IO地址空间，指出它仅出于旧有兼容性原因而受支持，并且可能在未来的规范修订版中被废弃。 |
+| A generic memory and IO map is shown in Figure 4-1 on page 125. The size of the memory map is a function of the range of addresses that the system can use (often dictated by the CPU addressable range). The size of the IO map in PCIe is limited to 32 bits (4GB), although in many computers using Intel-compatible (x86) processors, only the lower 16 bits (64KB) are used. PCIe can support memory addresses up to 64 bits in size. | 一个通用的存储器和IO映射图如图4-1(第125页)所示。存储器映射的大小取决于系统可使用的地址范围(通常由CPU可寻址范围决定)。PCIe中IO映射的大小限制为32位(4GB)，尽管在许多使用Intel兼容(x86)处理器的计算机中，仅使用低16位(64KB)。PCIe可支持高达64位的存储器地址。 |
+| The mapping example in Figure 4-1 is only showing MMIO and IO space being claimed by Endpoints, but that ability is not exclusive to Endpoints. It is very common for Switches and Root Complexes to also have device-specific registers accessed via MMIO and IO addresses. | 图4-1中的映射示例仅展示了端点(Endpoint)所声明的MMIO和IO空间，但该能力并非端点独有。交换机和根复合体也常常具有通过MMIO和IO地址访问的设备特定寄存器。 |
 
-通用的内存与 IO 地址映射如图 4-1(第 125 页)所示。内存映射的大小取决于系统可使用的地址范围(通常由 CPU 可寻址范围决定)。PCIe 中 IO 映射的大小限制为 32 位(4 GB),尽管在使用 Intel 兼容(x86)处理器的许多计算机中,实际仅使用低 16 位(64 KB)。PCIe 可支持最高 64 位的内存地址。
+![](images/xxx.jpg)
+Figure 4-1: MMIO Types Claimed by PCIe Devices
 
-图 4-1 中的映射示例仅显示了 Endpoint 申请 MMIO 和 IO 空间的能力,但该能力并非 Endpoint 独有。Switch 和 Root Complex 通常也具有通过 MMIO 和 IO 地址访问的设备特定寄存器。
+| EN | ZH |
+|:---|:---|
+| ## Prefetchable vs. Non-prefetchable Memory Space | ## 可预取内存空间与不可预取内存空间 |
+| Figure 4-1 shows two different types of MMIO being claimed by PCIe devices: Prefetchable MMIO (P-MMIO) and Non-Prefetchable MMIO (NP-MMIO). It's important to describe the distinction between prefetchable and non-prefetchable memory space. Prefetchable space has two very well defined attributes: | 图4-1展示了PCIe设备申请的两种不同类型的MMIO：可预取MMIO (P-MMIO) 和不可预取MMIO (NP-MMIO)。描述可预取与不可预取内存空间之间的区别非常重要。可预取空间具有两个非常明确的属性： |
+| - Reads do not have side effects | - 读取操作没有副作用 |
+| - Write merging is allowed | - 允许写合并 |
+| Defining a region of MMIO as prefetchable allows the data in that region to be speculatively fetched ahead in anticipation that a Requester might need more data in the near future than was actually requested. The reason it's safe to do this minor caching of the data is that reading the data doesn't change any state info at the target device. That is to say there are no side effects from the act of reading the location. For example, if a Requester asks to read 128 bytes from an address, the Completer might prefetch the next 128 bytes as well in an effort to improve performance by having it on hand when it's requested. However, if the Requester never asks for the extra data, the Completer will eventually have to discard it to free up the buffer space. If the act of reading the data changed the value at that address (or had some other side effect), it would be impossible to recover the discarded data. However, for prefetchable space, the read had no side effects, so it is always possible to go back and get it later since the original data would still be there. | 将一块MMIO区域定义为可预取，意味着该区域中的数据可以被推测性地提前读取，以应对请求者在不久的将来可能需要比实际请求更多的数据。这种小量数据缓存之所以是安全的，是因为读取数据不会改变目标设备中的任何状态信息。也就是说，读取该地址的操作没有任何副作用。例如，如果一个请求者请求从某个地址读取128字节，完成者可能会一并预取接下来的128字节，以便在后续请求时手头就有这些数据，从而提高性能。然而，如果请求者从未请求这些额外的数据，完成者最终将不得不丢弃它们以释放缓冲空间。如果读取数据的操作改变了该地址的值（或产生其他副作用），那么恢复被丢弃的数据将是不可能的。但是，对于可预取空间，读取没有副作用，因此总是可以在之后重新获取数据，因为原始数据仍然在那里。 |
+| You may be wondering what sort of memory space might have read side effects? One example would be a memory-mapped status register that was designed to automatically clear itself when read to save the programmer the extra step of explicitly clearing the bits after reading the status. | 你可能会问，什么样的内存空间会有读取副作用？一个例子是内存映射的状态寄存器，它被设计为读取时自动清零，以省去程序员在读取状态后还需显式清除相应位的额外步骤。 |
+| Making this distinction was more important for PCI than it is for PCIe because transactions in that bus protocol did not include a transfer size. That wasn't a problem when the devices exchanging data were on the same bus, because there was a real-time handshake to indicate when the requester was finished and did not need anymore data, therefore knowing the byte count wasn't so important. But when the transfer had to cross a bridge it wasn't as easy because for reads, the bridge would need to guess the byte count when gathering data on the other bus. Guessing wrong on the transfer size would add latency and reduce performance, so having permission to prefetch could be very helpful. That's why the notion of memory space being designated as prefetchable was helpful in PCI. Since PCIe requests do include a transfer size it's less interesting than it was, but it's carried forward for backward compatibility. | 这种区分在PCI中比在PCIe中更为重要，因为PCI总线协议中的事务不包含传输长度。当交换数据的设备在同一总线上时，这不是问题，因为存在实时握手信号来指示请求者何时完成且不再需要更多数据，因此知道字节数并不那么重要。但是当传输必须跨越桥时，情况就不那么简单了——对于读操作，桥在另一条总线上收集数据时需要猜测字节数。猜错传输长度会增加延迟并降低性能，因此获得预取权限可能非常有帮助。这就是在PCI中将内存空间指定为可预取这一概念之所以有用的原因。由于PCIe请求确实包含传输长度，这一概念不再像以前那样重要，但为了向后兼容而被保留下来。 |
 
-## 可预取与不可预取内存空间
+| EN | ZH |
+|:---|:---|
+| ## Chapter 4: Address Space & Transaction Routing | ## 第4章：地址空间与事务路由 |
 
-图 4-1 展示了 PCIe 设备所声明的两种不同类型的 MMIO:可预取 MMIO(P-MMIO)与不可预取 MMIO(NP-MMIO)。有必要说明可预取与不可预取内存空间之间的区别。可预取空间具有两个非常明确的属性:
-
-- 读操作没有副作用
-
-- 允许写合并
-
-将一段 MMIO 区域定义为可预取,允许以投机方式预先取出该区域中的数据,以预期 Requester 在不久的将来可能需要比实际请求更多的数据。这样做这种轻度数据缓存之所以是安全的,是因为读取数据不会改变目标设备的任何状态信息。也就是说,读取该位置的行为不会产生副作用。例如,如果 Requester 请求从某地址读取 128 字节,Completer 也可以预先取出紧随其后的 128 字节,以便在请求到达时立即可用,从而改善性能。然而,如果 Requester 始终不再请求这些额外数据,Completer 最终将不得不丢弃它们以释放缓冲区空间。如果读取数据的动作会改变该地址处的值(或者产生其他某种副作用),那么被丢弃的数据将无法再恢复。但是,对于可预取空间而言,读取操作没有副作用,因此始终可以稍后再回去读取,因为原始数据仍然存在。
-
-你也许会好奇,什么样的内存空间可能存在读取副作用呢?一个例子是内存映射的状态寄存器,它被设计为在读取时自动清除自身,以省去程序员在读取状态后显式清除相应位的额外步骤。
-
-对于 PCI 而言,做出这一区分比对于 PCIe 更为重要,因为该总线协议的事务并不包含传输大小。当交换数据的设备位于同一总线上时,这并不是一个问题,因为存在实时握手来指示请求方何时已完成且不再需要更多数据,因此字节数是否已知并不是那么重要。但是当传输必须跨越桥接器时,就没那么容易了,因为对于读操作,桥接器需要在另一侧总线上收集数据时猜测字节数。传输大小猜测错误会增加延迟并降低性能,因此获得预取权限会非常有帮助。这就是为什么在 PCI 中将内存空间指定为可预取是有意义的。由于 PCIe 请求确实包含传输大小,所以这种区分的意义已不如从前,但为了向后兼容,该特性被保留了下来。
-
-## 第 4 章:地址空间与事务路由
-
-图 4‐1:通用存储器与 IO 地址映射  
 ![](images/part02_ff238d8cb4d6de759075adb4d19f3f6e7aaf994543232b6497dd0bd93541edef.jpg)
+Figure 4-1: Generic Memory And IO Address Maps
 
+| EN | ZH |
+|:---|:---|
+| ## Base Address Registers (BARs) | ## 基址寄存器 (BAR) |
 
----
+## General
 
-## 基址寄存器 (BARs)
+| EN | ZH |
+|:---|:---|
+| Each device in a system may have different requirements in terms of the amount and type of address space needed. For example, one device may have 256 bytes worth of internal registers/storage that should be accessible through IO address space and another device may have 16KB of internal registers/storage that should be accessible through MMIO. | 系统中的每个设备对地址空间的数量和类型可能有不同的需求。例如，某个设备可能有256字节的内部寄存器/存储需要通过IO地址空间访问，而另一个设备可能有16KB的内部寄存器/存储需要通过MMIO访问。 |
+| PCI‐based devices are not allowed to decide on their own, which addresses should be used to access their internal locations, that is the job of system software (i.e. BIOS and OS kernel). So the devices must provide a way for system software to determine the address space needs of the device. Once software knows what the device's requirements are in terms of address space, then assuming the request can be fulfilled, software will simply allocate an available range of addresses, of the appropriate type (IO, NP‐MMIO or P‐MMIO), to that device. | 基于PCI的设备不允许自行决定应使用哪些地址来访问其内部位置，这是系统软件（即BIOS和操作系统内核）的工作。因此，设备必须提供一种方式，让系统软件能够确定设备的地址空间需求。一旦软件了解了设备在地址空间方面的需求，那么假设该请求可以被满足，软件将简单地分配一个适当类型（IO、NP-MMIO或P-MMIO）的可用地址范围给该设备。 |
+| This is all accomplished through the Base Address Registers (BARs) in the header of configuration space. As shown in Figure 4‐2 on page 127, a Type 0 header has six BARs available (each one being 32 bits in size), while a Type 1 header has only two BARs. Type 1 headers are found in all bridge devices, which means every switch port and root complex port has a Type 1 header. Type 0 headers are in non‐bridge devices like endpoints. An example of this can be seen in Figure 4‐3 on page 128. | 这一切都是通过配置空间头部中的基址寄存器（BAR）来实现的。如图4-2（第127页）所示，Type 0头部有六个可用的BAR（每个大小为32位），而Type 1头部只有两个BAR。Type 1头部存在于所有桥设备中，这意味着每个交换机端口和根复合体端口都有一个Type 1头部。Type 0头部位于非桥设备（如端点）中。有关示例请参见图4-3（第128页）。 |
+| System software must first determine the size and type of address space being requested by a device. The device designer knows the collective size of the internal registers/storage that should be accessible via IO or MMIO. The device designer also knows how the device will behave when those registers are accessed (i.e. do reads have side‐effects or not). This will determine whether prefetchable MMIO (reads have no side‐effects) or non‐prefetchable MMIO (reads do have side‐effects) should be requested. Knowing this information, the device designer hard‐codes the lower bits of the BARs to certain values indicating the type and size of the address space being requested. | 系统软件必须首先确定设备所请求的地址空间的大小和类型。设备设计者知道应通过IO或MMIO访问的内部寄存器/存储的总大小。设备设计者还知道访问这些寄存器时设备的行为（即读取是否有副作用）。这将决定应该请求可预取的MMIO（读取无副作用）还是不可预取的MMIO（读取有副作用）。了解了这些信息后，设备设计者将BAR的低位硬编码为特定值，以指示所请求的地址空间的类型和大小。 |
+| The upper bits of the BARs are writable by software. Once system software checks the lower bits of the BARs to determine the size and type of address space requested, system software will then write the base address of the address range being allocated to this device into the upper bits of the BAR. Since a single | BAR的高位可由软件写入。一旦系统软件检查BAR的低位以确定所请求的地址空间的大小和类型，系统软件随后将分配给该设备的地址范围的基地址写入BAR的高位。由于单个 |
+| Endpoint (Type 0 header) has six BARs, up to six different address space requests can be made. However, this is not common in the real world. Most devices will request 1‐3 different address ranges. | 端点（Type 0头部）有六个BAR，因此最多可以发出六个不同的地址空间请求。然而，这在现实世界中并不常见。大多数设备会请求1-3个不同的地址范围。 |
+| Not all BARs have to be implemented. If a device does not need all the BARs to map their internal registers, the extra BARs are hard‐coded with all 0's notifying software that these BARs are not implemented. | 并非所有BAR都必须实现。如果设备不需要所有的BAR来映射其内部寄存器，则多余的BAR被硬编码为全0，以通知软件这些BAR未实现。 |
 
-
----
-
-## 概述
-
-系统中的每个设备在所需地址空间的大小和类型方面可能有不同的要求。例如,某个设备可能有 256 字节的内部寄存器/存储空间,应通过 IO 地址空间访问;另一个设备可能有 16KB 的内部寄存器/存储空间,应通过 MMIO 访问。
-
-基于 PCI 的设备不被允许自行决定使用哪些地址来访问其内部位置,这是系统软件(即 BIOS 和 OS 内核)的工作。因此,设备必须为系统软件提供一种方式,以确定设备的地址空间需求。一旦软件知道了设备在地址空间方面的需求,那么在请求可以被满足的前提下,软件只需为该设备分配一个可用的、类型适当(IO、NP-MMIO 或 P-MMIO)的地址范围。
-
-上述功能全部通过配置空间包头中的基址寄存器(BAR)实现。如第 127 页的图 4-2 所示,Type 0 包头提供六个 BAR(每个 32 位),而 Type 1 包头仅有两个 BAR。Type 1 包头出现在所有桥设备中,这意味着每个交换机端口和根复合体端口都具有 Type 1 包头。Type 0 包头位于非桥设备中,例如端点。第 128 页的图 4-3 给出了示例。
-
-系统软件必须首先确定设备请求的地址空间的大小和类型。设备设计者清楚应通过 IO 或 MMIO 访问的内部寄存器/存储的总大小。设备设计者同样清楚当这些寄存器被访问时设备的行为(即读操作是否具有副作用)。这将决定应请求可预取 MMIO(读操作无副作用)还是不可预取 MMIO(读操作有副作用)。基于这些信息,设备设计者将 BAR 的低位硬编码为特定的值,以指示所请求地址空间的类型和大小。
-
-BAR 的高位可由软件写入。系统软件检查 BAR 的低位以确定所请求地址空间的大小和类型后,系统软件随后会将分配给该设备的地址范围的基地址写入 BAR 的高位。由于单个
-
-端点(Type 0 包头)具有六个 BAR,最多可以发起六个不同的地址空间请求。然而,这种情况在实际应用中并不常见。大多数设备会请求 1-3 个不同的地址范围。
-
-并非所有 BAR 都必须实现。如果某个设备不需要使用全部 BAR 来映射其内部寄存器,多余的 BAR 会被硬编码为全 0,以此通知软件这些 BAR 未实现。
-
-图 4-2:配置空间中的 BAR  
+Figure 4‐2: BARs in Configuration Space
 ![](images/part02_0754b36296a00a43f0467a2571863dc6744e5c61e356c6ed1820fa1e873af09d.jpg)
 
-一旦 BAR 被编程,设备内部的寄存器或本地存储器就可以通过编程到 BAR 中的地址范围来访问。任何时候,当设备看到某个请求的地址映射到其某个 BAR 时,它都会接受该请求,因为它就是目标设备。
+| EN | ZH |
+|:---|:---|
+| Once the BARs have been programmed, the internal registers or local memory within the device can be accessed via the address ranges programmed into the BARs. Anytime the device sees a request with an address that maps to one of its BARs, it will accept that request because it is the target. | 一旦BAR被编程完毕，设备内部的寄存器或本地存储器就可以通过编程到BAR中的地址范围来访问。每当设备看到一个地址映射到其某个BAR的请求时，它就会接受该请求，因为它是目标。 |
 
-图 4-3:PCI Express 设备及 Type 0 和 Type 1 包头的使用  
+Figure 4‐3: PCI Express Devices And Type 0 And Type 1 Header Use
 ![](images/part02_880d7b01ffbe102c74937fdb9de0855f5ef6606ba36a5ca59c0258f40509fd4c.jpg)
 
-## BAR 示例 1:32 位存储器地址空间请求
+| EN | ZH |
+|:---|:---|
+| BAR Example 1: 32-bit Memory Address Space Request | BAR 示例 1：32 位存储器地址空间请求 |
+| Figure 4-4 on page 130 shows the basic steps in setting up a BAR, which in this example, is requesting a 4KB block of non-prefetchable memory (NP-MMIO). In the figure, the BAR is shown at three points in the configuration process: | 第 130 页的图 4-4 展示了设置 BAR 的基本步骤，在本例中，该 BAR 请求一块 4KB 的不可预取存储器（NP-MMIO）空间。图中展示了 BAR 在配置过程中的三个时刻： |
+| 1. In (1) of Figure 4-4, we see the uninitialized state of the BAR. The device designer has fixed the lower bits to indicate the size and type, but the upper bits (which are read-write) are shown as Xs to indicate their value is not known. System software will first write all 1s to every BAR (using config writes) to set all writable bits. (Of course, the hard-coded lower bits are unaffected by any configuration writes.) The second view of the BAR, shown in (2) of Figure 4-4, shows how it looks after configuration software has written all 1's to it. | 1. 在图 4-4 的 (1) 中，我们看到 BAR 的未初始化状态。设备设计者已将低位固定以指示大小和类型，但高位（可读写位）用 X 表示，表明其值未知。系统软件首先会向每个 BAR 写入全 1（通过配置写操作）以设置所有可写位。（当然，硬编码的低位不受任何配置写操作的影响。）图 4-4 中的 (2) 展示了 BAR 的第二种视图，即配置软件向其写入全 1 后的状态。 |
+| Writing all 1s is done to determine what the least-significant writable bit is. This bit position indicates the size of the address space being requested. In this example, the least-significant writable bit is bit 12, so this BAR is requesting $2 ^ { 1 2 }$ (or 4KB) of address space. If the least significant writable bit would have been bit 20, then the BAR would have been requesting $2 ^ { 2 0 }$ (or 1MB) of address space. | 写入全 1 的目的是确定最低有效可写位是哪一位。该位的位置指明了所请求地址空间的大小。在本例中，最低有效可写位是第 12 位，因此该 BAR 请求 $2 ^ { 1 2 }$（即 4KB）的地址空间。如果最低有效可写位是第 20 位，那么该 BAR 就会请求 $2 ^ { 2 0 }$（即 1MB）的地址空间。 |
+| 2. After writing all 1s to the BARs, software turns around and reads the value of each BAR, starting with BAR0, to determine the type and size of the address space being requested. Table 4-1 on page 129 summarizes the results of the configuration read of BAR0 for this example. | 2. 在向 BAR 写入全 1 之后，软件回读每个 BAR 的值，从 BAR0 开始，以确定所请求地址空间的类型和大小。对于本例，第 129 页的表 4-1 总结了读取 BAR0 配置值的各项结果。 |
+| 3. The final step in this process is for system software to allocate an address range to BAR0 now that software knows the size and type of the address space being requested. The third view of the BAR, in (3) of Figure 4-4, shows how it looks after software has written the start address for the allocated block of addresses. In this example, the start address is F900_0000h. | 3. 此过程的最后一步是系统软件为 BAR0 分配一个地址范围，因为此时软件已经知道所请求地址空间的大小和类型。图 4-4 的 (3) 中 BAR 的第三种视图展示了软件写入已分配地址块的起始地址之后的状态。在本例中，起始地址为 F900_0000h。 |
+| At this point the configuration of BAR0 is complete. Once software enables memory address decoding in the Command register (offset 04h), this device will accept any memory requests it receives that fall within the range from F900_0000h - F900_0FFFh (4KB in size). | 至此，BAR0 的配置完成。一旦软件使能命令寄存器（偏移 04h）中的存储器地址解码，该设备将接受其接收到的任何落在 F900_0000h - F900_0FFFh（大小为 4KB）范围内的存储器请求。 |
 
-第 130 页的图 4-4 展示了设置 BAR 的基本步骤,在本例中,该 BAR 请求一段 4KB 的不可预取存储器 (NP-MMIO)。在图中,该 BAR 在配置过程中被展示了三个状态:
+Table 4-1: Results of Reading the BAR after Writing All 1s To It
 
-1. 在图 4-4 的 (1) 中,我们看到 BAR 的未初始化状态。设备设计者已将低位固定,以指示大小和类型,但高位(可读写的)显示为 X,表示其值未知。系统软件首先会对每个 BAR 写入全 1(通过配置写操作)以置位所有可写位。(当然,硬编码的低位不受任何配置写操作影响。)图 4-4 的 (2) 显示的 BAR 第二次视图展示了配置软件对其写入全 1 之后的状态。
+<table><tr><td>BAR Bits</td><td>Meaning</td></tr><tr><td>0</td><td>Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td>2:1</td><td>Read as 00b indicating the target only supports decoding a 32-bit address</td></tr><tr><td>3</td><td>Read as 0b, indicating request is for non-prefetchable memory (meaning reads do have side-effects); NP-MMIO</td></tr><tr><td>11:4</td><td>Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td>31:12</td><td>Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Since bit 12 is the least significant bit that could be written, the memory size requested is  $2^{12} = 4KB$ .</td></tr></table>
 
-写入全 1 的目的是确定最低有效可写位的位置。该位的位置指示了所请求地址空间的大小。在本例中,最低有效可写位是第 12 位,因此该 BAR 请求的地址空间大小为 $2^{12}$(即 4KB)。如果最低有效可写位是第 20 位,那么该 BAR 请求的地址空间大小就是 $2^{20}$(即 1MB)。
-
-2. 在对所有 BAR 写入全 1 之后,软件转而从 BAR0 开始读取每个 BAR 的值,以确定所请求地址空间的类型和大小。第 129 页的表 4-1 总结了本例中对 BAR0 进行配置读的结果。
-
-3. 此过程的最后一步是,既然软件已经知道了所请求地址空间的大小和类型,就由系统软件为 BAR0 分配一段地址范围。图 4-4 的 (3) 中显示的 BAR 第三次视图展示了软件写入了所分配地址块的起始地址之后的状态。在本例中,起始地址为 F900_0000h。
-
-至此 BAR0 的配置完成。一旦软件在 Command 寄存器(偏移 04h)中使能存储器地址译码,只要该设备收到的存储器请求落在从 F900_0000h - F900_0FFFh(大小为 4KB)的范围内,它都将予以接受。
-
-表 4-1:对 BAR 写入全 1 之后读取的结果
-
-<table><tr><td>BAR 位</td><td>含义</td></tr><tr><td>0</td><td>读出为 0b,表示这是一个存储器请求。由于这是存储器请求,位 3:1 也具有编码含义。</td></tr><tr><td>2:1</td><td>读出为 00b,表示目标仅支持 32 位地址译码</td></tr><tr><td>3</td><td>读出为 0b,表示请求的是不可预取存储器(意味着读操作具有副作用);NP-MMIO</td></tr><tr><td>11:4</td><td>读出为全 0,表示请求的大小(这些位被硬编码为 0)</td></tr><tr><td>31:12</td><td>读出为全 1,因为软件尚未用该地址块的起始地址编程这些高位。由于第 12 位是最低有效可写位,所以请求的存储器大小为 $2^{12} = 4KB$。</td></tr></table>
-
-图 4-4:32 位不可预取存储器 BAR 的建立
+Figure 4-4: 32-Bit Non-Prefetchable Memory BAR Set Up
 ![](images/part02_c2d206df7d7c6b9fd1b3f40d41fdb0917bc4fef31eb4396435b8ddcf02c672e5.jpg)
 
-## BAR 示例 2:64 位存储器地址空间请求
+| EN | ZH |
+|:---|:---|
+| ## BAR Example 2: 64-bit Memory Address Space Request | ## BAR 示例 2: 64 位存储器地址空间请求 |
+| In the previous example, we saw BAR0 being used to request non-prefetchable memory address space (NP-MMIO). In this example, as shown in Figure 4-5 on page 132, BAR1 and BAR2 are being used to request a 64MB block of prefetchable memory address space. Two sequential BARs are being used here because the device supports a 64-bit address for this request, meaning that software can allocate the requested address space above the 4GB address boundary if it wants to (but that is not a requirement). Since the address can be a 64-bit address, two sequential BARs must be used together. | 在上一个示例中，我们看到 BAR0 用于请求不可预取存储器地址空间 (NP-MMIO)。在本示例中，如图 4-5（第 132 页）所示，BAR1 和 BAR2 用于请求一个 64MB 的可预取存储器地址空间块。这里使用了两个连续的 BAR，因为该设备对此请求支持 64 位地址，这意味着软件可以将所请求的地址空间分配在 4GB 地址边界之上（但这并非强制要求）。由于地址可以是 64 位的，因此必须同时使用两个连续的 BAR。 |
+| As before, the BARs are shown at three points in the configuration process: | 与之前一样，BAR 在配置过程中的三个时间点展示： |
+| 1. In (1) of Figure 4-5, we see the uninitialized state of the BAR pair. The device designer has hard-coded the lower bits of the lower BAR (BAR1 in our example) to indicate the request type and size, while the bits of the upper BAR (BAR2) are all read-write. System software's first step was to write all 1s to every BAR. In (2) of Figure 4-5, we see the BARs after having all 1s written to them. | 1. 在图 4-5 的 (1) 中，我们看到 BAR 对的未初始化状态。设备设计者已将低位 BAR（本例中的 BAR1）的低位进行硬编码，以指示请求类型和大小，而高位 BAR (BAR2) 的所有位都是可读写的。系统软件的第一步是向每个 BAR 写入全 1。在图 4-5 的 (2) 中，我们看到写入全 1 之后的 BAR。 |
+| 2. As described in the previous example, system software already evaluated BAR0. So software's next step is to read the next BAR (BAR1) and evaluate it to see if the device is requesting additional address space. Once BAR1 is read, software realizes that more address space is being requested and this request is for prefetchable memory address space that can be allocated anywhere in the 64-bit address range. Since it supports a 64-bit address, the next sequential BAR (BAR2 in this case) is treated as the upper 32 bits of BAR1. So software now also reads in the contents of BAR2. However, software does not evaluate the lower bits of BAR2 in the same way it did for BAR1, because it knows BAR2 is simply the upper 32 bits of the 64-bit address request started in BAR1. Table 4-2 on page 132 summarizes the results of these configuration reads. | 2. 如上一个示例所述，系统软件已经评估了 BAR0。因此，软件的下一步是读取下一个 BAR (BAR1) 并评估它，以确定设备是否在请求额外的地址空间。一旦读取了 BAR1，软件就意识到正在请求更多的地址空间，而且该请求是针对可预取存储器地址空间的，可分配在 64 位地址范围内的任意位置。由于它支持 64 位地址，因此下一个连续 BAR（本例中的 BAR2）被视为 BAR1 的高 32 位。因此，软件现在也读取 BAR2 的内容。但是，软件不会像对 BAR1 那样评估 BAR2 的低位，因为它知道 BAR2 只是 BAR1 中开始的 64 位地址请求的高 32 位。第 132 页的表 4-2 总结了这些配置读取的结果。 |
+| 3. The final step in this process is for system software to allocate an address range to the BARs now that software knows the size and type of the address space being requested. The third view of the BARs in (3) of Figure 4-5 shows the result after software has used two configuration writes to program the 64-bit start address for the allocated range. In this example, bit 1 of the Upper BAR (address bit 33 in the BAR pair) is set and bit 30 of the Lower BAR (address bit 30 in the BAR pair) is set to indicate a start address of 2_4000_0000h. All other writable bits in both BARs are cleared. | 3. 此过程的最后一步是，在软件知道了所请求地址空间的大小和类型之后，由系统软件为 BAR 分配地址范围。图 4-5 中 (3) 的第三个 BAR 视图显示了软件使用两次配置写操作对所分配范围的 64 位起始地址进行编程之后的结果。在本例中，高位 BAR 的位 1（BAR 对中的地址位 33）被置位，低位 BAR 的位 30（BAR 对中的地址位 30）被置位，以指示起始地址为 2\_4000\_0000h。两个 BAR 中的所有其他可写位均被清零。 |
+| At this point, the configuration of the BAR pair (BAR1 & BAR2) is complete. Once software enables memory address decoding in the Command register (offset 04h), this device will accept any memory requests it receives that fall within the range from 2_4000_0000h-2_43FF_FFFFh (64MB in size). | 此时，BAR 对（BAR1 和 BAR2）的配置完成。一旦软件在命令寄存器（偏移量 04h）中启用存储器地址解码，该设备将接受其接收到的落在 2\_4000\_0000h 至 2\_43FF\_FFFFh 范围内（大小为 64MB）的任何存储器请求。 |
 
-在上一示例中,我们看到 BAR0 被用于请求非预取存储器地址空间(NP-MMIO)。在本示例中,如图 4-5(第 132 页)所示,BAR1 和 BAR2 被用于请求一块 64MB 的可预取存储器地址空间。这里使用了两个连续的 BAR,是因为该设备为此请求支持 64 位地址,这意味着软件可以根据需要将所请求的地址空间分配在 4GB 地址边界之上(但这不是必需的)。由于地址可以是 64 位地址,必须将两个连续的 BAR 配合使用。
-
-与之前一样,BAR 在配置过程的三个时间点被展示出来:
-
-1. 在图 4-5 的 (1) 中,我们看到 BAR 对的未初始化状态。设备设计者已将下方 BAR(本例中为 BAR1)的低位硬编码,以指示请求的类型和大小,而上方 BAR(BAR2)的各位都是可读写的。系统软件的第一步是向每个 BAR 写入全 1。在图 4-5 的 (2) 中,我们看到在向所有 BAR 写入全 1 之后它们的状态。
-
-2. 如上一示例所述,系统软件已经评估过 BAR0。因此软件的下一步是读取下一个 BAR(BAR1)并对其进行评估,以查看设备是否正在请求额外的地址空间。一旦读取 BAR1,软件便意识到正在请求更多的地址空间,并且该请求是针对可预取存储器地址空间的,该空间可以分配在 64 位地址范围内的任何位置。由于它支持 64 位地址,下一个连续的 BAR(本例中为 BAR2)被视为 BAR1 的高 32 位。因此软件现在也读取 BAR2 的内容。然而,软件不会像评估 BAR1 那样评估 BAR2 的低位,这是因为它知道 BAR2 仅是 BAR1 中开始的 64 位地址请求的高 32 位。表 4-2(第 132 页)汇总了这些配置读取的结果。
-
-3. 此过程的最后一步是,当软件知道了所请求地址空间的大小和类型之后,由系统软件为这些 BAR 分配一个地址范围。BAR 的第三种视图,在图 4-5 的 (3) 中显示了软件使用两次配置写入来为已分配范围编程 64 位起始地址之后的结果。在本示例中,上方 BAR 的第 1 位(BAR 对中的地址位 33)被置 1,下方 BAR 的第 30 位(BAR 对中的地址位 30)被置 1,以表示起始地址为 2\_4000\_0000h。这两个 BAR 中所有其他可写的位均被清零。
-
-至此,BAR 对(BAR1 和 BAR2)的配置完成。一旦软件在 Command 寄存器(偏移量 04h)中使能存储器地址解码,当该设备收到的任何存储器请求落在 2\_4000\_0000h - 2\_43FF\_FFFFh(大小为 64MB)的范围内时,它将予以接受。
-
-图 4-5:64 位可预取存储器 BAR 设置  
+Figure 4-5: 64-Bit Prefetchable Memory BAR Set Up
 ![](images/part02_fb829876472623d44b981cc4e53ef1c96d7e11dd42612871eca008f1974bc0e4.jpg)
 
-表 4-2:对两个 BAR 都写入全 1 后读取 BAR 对的结果
+Table 4-2: Results Of Reading the BAR Pair after Writing All 1s To Both
 
-<table><tr><td>BAR</td><td>BAR 位</td><td>含义</td></tr><tr><td>下方</td><td>0</td><td>读为 0b,表示这是一次存储器请求。由于这是存储器请求,位 3:1 也具有编码含义。</td></tr><tr><td>下方</td><td>2:1</td><td>读为 10b,表明目标支持 64 位地址解码器,并且下一个连续的 BAR 包含该地址信息的高 32 位。</td></tr><tr><td>下方</td><td>3</td><td>读为 1b,表示该请求是针对可预取存储器的(意味着读取操作没有副作用);P-MMIO</td></tr><tr><td>下方</td><td>25:4</td><td>读为全 0,表示该请求的大小(这些位被硬编码为 0)</td></tr><tr><td>下方</td><td>31:26</td><td>读为全 1,因为软件尚未对这些高位编程该块的起始地址。注意,由于位 26 是最低的可写位,因此存储器地址空间的请求大小为  $2^{26}$ ,即 64MB。</td></tr><tr><td>上方</td><td>31:0</td><td>读为全 1。这些位将作为由系统软件编程的 64 位起始地址的高 32 位使用。</td></tr></table>
+<table><tr><td>BAR</td><td>BAR Bits</td><td>Meaning</td></tr><tr><td>Lower</td><td>0</td><td>Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td>Lower</td><td>2:1</td><td>Read as 10b indicating the target supports a 64-bit address decoder, and that the next sequential BAR contains the upper 32 bits of the address information.</td></tr><tr><td>Lower</td><td>3</td><td>Read as 1b, indicating request is for prefetchable memory (meaning reads do not have side-effects); P-MMIO</td></tr><tr><td>Lower</td><td>25:4</td><td>Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td>Lower</td><td>31:26</td><td>Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Note that because bit 26 was the least significant writable bit, the memory address space request size is $2^{26}$, or 64MB.</td></tr><tr><td>Upper</td><td>31:0</td><td>Read as all 1s. These bits will be used as the upper 32 bits of the 64-bit start address programmed by system software.</td></tr></table>
 
----
+| EN | ZH |
+|:---|:---|
+| ## BAR Example 3: IO Address Space Request | ## BAR 示例 3：IO 地址空间请求 |
+| Continuing from the previous two examples, this same function is also requesting IO space, as shown in Figure 4‑6 on page 134. In the diagram, the requesting BAR (BAR3 in the example) is shown at three points in the configuration process: | 继续前面两个示例，同一个功能也在请求 IO 空间，如第 134 页的图 4‑6 所示。在图中，请求 BAR（本例中为 BAR3）在配置过程的三个时间点被展示： |
+| 1. In (1) of Figure 4‑6, we see the uninitialized state of the BAR. System software has previously written all 1s to every BAR and has evaluated BAR0, then BAR1 and BAR2. Now software is going to see if this device is requesting additional address space with BAR3. State (2) of Figure 4‑6 shows the state of the BAR3 after the write of all 1s. | 1. 在图 4‑6 的 (1) 中，我们看到 BAR 的未初始化状态。系统软件此前已向每一个 BAR 写入全 1，并已评估了 BAR0、BAR1 和 BAR2。现在软件将检查此设备是否通过 BAR3 请求额外的地址空间。图 4‑6 的状态 (2) 展示了写入全 1 后 BAR3 的状态。 |
+| 2. Software now reads in BAR3 to evaluate the size and type of the request. Table 4‑3 on page 134 summarizes the results of this configuration read. | 2. 软件现在读取 BAR3 以评估请求的大小和类型。第 134 页的表 4‑3 总结了此次配置读取的结果。 |
+| 3. Now that software knows this is a request for 256 bytes of IO address space, the final step is to program the BAR with the base address of the IO address range being allocated to this device, specifically this BAR. State (3) of Figure 4‑6 shows the state of the BAR after this step. In our example, the device start address is 16KB, so bit 14 is written resulting in a base address of 4000h; all other upper bits are cleared. | 3. 既然软件已知这是一个 256 字节 IO 地址空间的请求，最后一步是向 BAR 写入分配给此设备（具体为此 BAR）的 IO 地址范围的基址。图 4‑6 的状态 (3) 展示了此步骤之后 BAR 的状态。在我们的示例中，设备起始地址为 16KB，因此写入位 14，结果基址为 4000h；所有其他高位均被清零。 |
+| At this point, the configuration of BAR3 is complete. Once software enables IO address decoding in the Command register (offset 04h), the device will accept and respond to IO transactions within the range 4000h — 40FFh (256 bytes in size). | 至此，BAR3 的配置完成。一旦软件在命令寄存器（偏移 04h）中启用 IO 地址译码，设备将接受并响应 4000h — 40FFh 范围内（大小为 256 字节）的 IO 事务。 |
 
-## BAR 示例 3:IO 地址空间请求
-
-承接前面两个示例,该功能同样在请求 IO 空间,如图 4‐6(第 134 页)所示。在图中,正在请求的 BAR(本例中为 BAR3)在配置过程的三个位置被标出:
-
-1. 在图 4‐6 的 (1) 中,可以看到 BAR 的未初始化状态。系统软件此前已向每个 BAR 写入全 1,并依次评估了 BAR0、BAR1 和 BAR2。现在软件将检查此设备是否通过 BAR3 请求额外的地址空间。图 4‐6 的状态 (2) 展示了写入全 1 后 BAR3 的状态。
-
-2. 软件现在读入 BAR3 以评估请求的大小和类型。第 134 页的表 4‐3 总结了该次配置读取的结果。
-
-3. 既然软件已知这是一次针对 256 字节 IO 地址空间的请求,最后一步就是使用分配给该设备(具体来说就是此 BAR)的 IO 地址范围的基地址对该 BAR 进行编程。图 4‐6 的状态 (3) 展示了此步骤之后 BAR 的状态。在本例中,设备起始地址为 16KB,因此位 14 被写入,得到的基地址为 4000h;所有其他的高位均被清零。
-
-至此,BAR3 的配置完成。一旦软件在 Command 寄存器(偏移 04h)中使能 IO 地址译码,设备将接受并响应地址范围 4000h ‐ 40FFh(共 256 字节)内的 IO 事务。
-
-图 4‐6:IO BAR 的设置  
+Figure 4‑6: IO BAR Set Up
 ![](images/part02_003b2db033194e03040a960e27cf1abbdb191136b23a53a655620e2ca61d33eb.jpg)
 
-表 4‐3:向 IO BAR 写入全 1 后的读取结果
+Table 4‑3: Results Of Reading the IO BAR after Writing All 1s To It
 
-<table><tr><td>BAR 位</td><td>含义</td></tr><tr><td>0</td><td>读出为 1b,表示一次 IO 请求。由于这是一次 IO 请求,因此位 1 被保留。</td></tr><tr><td>1</td><td>保留。硬连线为 0b。</td></tr><tr><td>7:2</td><td>读出为 0,表示请求的大小(这些位硬连线为 0)</td></tr><tr><td>31:8</td><td>读出为 1,因为软件尚未使用该块的起始地址对高位进行编程。注意,由于位 8 是最低可写位,因此 IO 请求的大小为  $2^{8}$ ,即 256 字节。</td></tr></table>
+<table><tr><td>BAR Bits</td><td>Meaning</td></tr><tr><td>0</td><td>Read as 1b, indicating an IO request. Since this is an IO request, bit 1 is reserved.</td></tr><tr><td>1</td><td>Reserved. Hard-coded to 0b.</td></tr><tr><td>7:2</td><td>Read as 0s Indicates size of the request (these bits are hard-coded to 0)</td></tr><tr><td>31:8</td><td>Read as 1s because software has not yet programmed the upper bits with a start address for the block. Note that because bit 8 was the least significant writable bit, the IO request size is $2^{8}$, or 256 bytes.</td></tr></table>
 
+| EN | ZH |
+|:---|:---|
+| ## All BARs Must Be Evaluated Sequentially | ## 所有BAR必须按顺序评估 |
+| After going through the previous three examples, it becomes clear that software must evaluate BARs in a sequential fashion. | 通过前面三个示例，可以清楚地看到，软件必须按顺序依次评估各个BAR。 |
+| Most of the time, functions do not need all six BARs. Even in the examples we went through, only four of the six available BARs were used. If the function in our example did not need to request any additional address space, the device designer would hard-code all bits of BAR4 and BAR5 to 0s. So even though software writes those BARs with all 1s, the writes have no affect. After evaluating BAR3, software would move on to evaluating BAR4. Once it detected that none of the bits were set, software would know this BAR is not being used and move on to evaluating the next BAR. | 大多数情况下，功能不需要全部六个BAR。即使在我们所讨论的示例中，六个可用BAR中也只使用了四个。如果我们的示例功能不需要请求任何额外的地址空间，设备设计者会将BAR4和BAR5的所有位硬编码为0。因此，即使软件向这些BAR写入全1，写入操作也不会产生任何影响。在评估完BAR3之后，软件将继续评估BAR4。一旦检测到没有任何位被置位（即为0），软件就知道该BAR未被使用，并继续评估下一个BAR。 |
+| All BARs must be evaluated, even if software finds a BAR that is not being used. There are no rules in PCI or PCIe, that state that BAR0 must be the first BAR used for address space requests. If a device designer chooses to, they can use BAR4 for an address space request and hard-code BAR0, BAR1, BAR2, BAR3 and BAR5 to all 0s. This means software must evaluate every BAR in the header. | 即使软件发现某个BAR未被使用，也必须评估所有的BAR。PCI或PCIe规范中没有任何规则规定BAR0必须是用于地址空间请求的第一个BAR。如果设备设计者选择这样做，他们可以使用BAR4来请求地址空间，而将BAR0、BAR1、BAR2、BAR3和BAR5全部硬编码为0。这意味着软件必须评估头部中的每一个BAR。 |
 
----
+| EN | ZH |
+|:---|:---|
+| ## Resizable BARs | ## 可调整大小的 BAR |
+| The 2.1 version of the PCI Express specification added support for changing the size of the requested address space in the BARs by defining a new capability structure in extended config space. The new structure allows the function to advertise what address space sizes it can operate with and then have software enable one of the sizes based on the available system resources. For example, if a function would ideally like to have 2GB of prefetchable memory address space, but it could still operate with only 1GB, 512MB or 256MB of P‑MMIO, system software may only enable the function to request 256MB of address space if software would not be able to accommodate a request of a larger size. | PCI Express 规范 2.1 版通过在扩展配置空间中定义一种新的能力结构，增加了对改变 BAR 中请求地址空间大小的支持。这种新结构允许功能通告它能够以哪些地址空间大小进行操作，然后由软件根据可用的系统资源使能其中一种大小。例如，如果一个功能理想情况下希望拥有 2GB 的可预取存储器地址空间，但它仍可以仅用 1GB、512MB 或 256MB 的 P‑MMIO 进行操作，那么当系统软件无法满足更大容量的请求时，软件可以仅使能该功能请求 256MB 的地址空间。 |
 
-## 所有 BAR 必须按顺序评估
+| EN | ZH |
+|:---|:---|
+| ## Base and Limit Registers | ## 基址与界限寄存器 |
 
-在经历了前面三个示例之后,情况就变得很清楚:软件必须按顺序评估 BAR。
+## General
 
-大多数情况下,功能并不需要全部六个 BAR。即使在我们经历过的示例中,六个可用的 BAR 也只使用了四个。如果本示例中的功能不需要再请求额外的地址空间,设备设计人员会将 BAR4 和 BAR5 的所有位硬连线 (hard-code) 为 0。因此,即使软件向这些 BAR 写入全 1,这些写入也不会产生任何效果。在评估完 BAR3 之后,软件会继续评估 BAR4。一旦检测到没有任何位被置 1,软件就会知道此 BAR 未被使用,继而继续评估下一个 BAR。
+| EN | ZH |
+|:---|:---|
+| Once a function's BARs are programmed, the function knows what address range(s) it owns, which means that function will claim any transactions it sees that is targeting an address range it owns, an address range programmed into one of its BARs. | 一旦某个功能的 BAR 被编程设置好，该功能就知道它拥有哪些地址范围，这意味着该功能将认领它所看到的、目标是它所拥有的地址范围（即编程写入其某个 BAR 中的地址范围）的任何事务。 |
+| This is good, but it's important to realize that the only way that function is going to "see" the transactions it should claim is if the bridge(s) upstream of it, forward those transactions downstream to the appropriate link that the target function is connected to. | 这很好，但必须认识到：该功能要能"看到"它应认领的事务，唯一途径是其上游的桥（一个或多个）将这些事务向下游转发到目标功能所连接的对应链路上。 |
+| Therefore, each bridge (e.g. switch ports and root complex ports) needs to know what address ranges live beneath it so it can determine which requests should be forwarded from its primary interface (upstream side) to its secondary interface (downstream side). | 因此，每个桥（例如交换机端口和根复合体端口）都需要知道它下方存在哪些地址范围，以便能够确定哪些请求应从其主接口（上游侧）转发到其从接口（下游侧）。 |
+| If the request is targeting an address that is owned by a BAR in a function beneath the bridge, the request should be forwarded to the bridge's secondary interface. | 如果请求目标地址属于该桥下方某个功能中的 BAR 所拥有的地址，则该请求应被转发到该桥的从接口。 |
 
-所有 BAR 都必须被评估,即使软件发现某个 BAR 未被使用。PCI 或 PCIe 中没有任何规则规定 BAR0 必须是用于地址空间请求的第一个 BAR。如果设备设计人员愿意,他们可以使用 BAR4 来发出地址空间请求,并将 BAR0、BAR1、BAR2、BAR3 和 BAR5 都硬连线为全 0。这意味着软件必须评估包头中的每一个 BAR。
+| EN | ZH |
+|:---|:---|
+| It is the Base and Limit registers in the Type 1 headers that are programmed with the range of addresses that live beneath this bridge. | 正是 Type 1 头中的基址/界限寄存器被编程设置为该桥下方所存在的地址范围。 |
+| There are the three sets of Base and Limit registers found in each Type 1 header. | 每个 Type 1 头中都有三组基址/界限寄存器。 |
+| Three sets of registers are needed because there can be three separate address ranges living below a bridge: | 之所以需要三组寄存器，是因为桥下方可能存在三种不同的地址范围： |
 
-## 可调整大小的 BAR(Resizable BARs)
+- Prefetchable Memory space (P-MMIO)
+- Non-Prefetchable Memory space (NP-MMIO)
+- IO space (IO)
 
-PCI Express 规范 2.1 版本通过在扩展配置空间中定义一种新的能力结构,新增了对 BAR 中请求地址空间大小进行调整的支持。该新结构允许功能部件声明其能够使用的地址空间大小,然后由系统软件根据可用资源启用其中一种大小。例如,如果某功能部件理想情况下希望使用 2GB 的可预取内存地址空间,但也可以仅以 1GB、512MB 或 256MB 的 P-MMIO 运行,那么当系统软件无法容纳更大空间的请求时,系统软件可能只会允许该功能部件请求 256MB 的地址空间。
+| EN | ZH |
+|:---|:---|
+| To explain how these Base and Limit registers work, let's continue the example from the previous section and place that programmed function (an endpoint) beneath a switch as shown in Figure 4-7 on page 137. | 为了解释这些基址/界限寄存器是如何工作的，我们继续沿用上一节的示例，并将那个已编程的功能（一个端点）置于一个交换机下方，如图 4-7（第 137 页）所示。 |
+| The figure also lists the address ranges owned by the BARs of that function. | 该图还列出了该功能的 BAR 所拥有的地址范围。 |
 
-## Base and Limit 寄存器
+| EN | ZH |
+|:---|:---|
+| The Base and Limit registers of every bridge upstream of the endpoint will need to be programmed, but to start out, we're going to focus on the bridge that is connected to the endpoint (Port B). | 端点上游的每个桥的基址/界限寄存器都需要被编程设置，但作为开始，我们将重点讨论与端点相连的那个桥（端口 B）。 |
 
-## 概述
-
-一旦某个 Function 的 BAR 被编程完成,该 Function 就知道自己所拥有的地址范围,这意味着对于任何发往其所拥有地址范围(即编程在其某个 BAR 中的地址范围)的事务,该 Function 都会进行认领。这固然很好,但有一点很重要,必须认识到:该 Function 若要"看到"它应当认领的事务,其上游的 Bridge 必须将这些事务向下游转发到目标 Function 所连接的链路上。因此,每一个 Bridge(例如 Switch 端口和根复合体端口)都需要知道其下方有哪些地址范围,以便判断哪些请求应从其主接口(上游侧)转发到其次接口(下游侧)。如果请求所寻址的地址属于该 Bridge 下方某个 Function 的 BAR,则该请求应被转发到该 Bridge 的次接口。
-
-正是 Type 1 包头中的 Base 和 Limit 寄存器,用于记录位于该 Bridge 下方的地址范围。每个 Type 1 包头中存在三组 Base 和 Limit 寄存器。需要三组寄存器的原因是,一个 Bridge 下方可能存在三段相互独立的地址范围:
-
-• 可预取内存空间 (P‐MMIO)
-
-• 不可预取内存空间 (NP‐MMIO)
-
-• IO 空间 (IO)
-
-为了说明这些 Base 和 Limit 寄存器如何工作,我们继续沿用上一节的示例,并将那个已被编程的 Function(一个 Endpoint)置于 Switch 之下,如图 4‐7(第 137 页)所示。该图中还列出了该 Function 的 BAR 所拥有的地址范围。
-
-Endpoint 上游每一个 Bridge 的 Base 和 Limit 寄存器都需要被编程,但作为开始,我们将重点关注与 Endpoint 直接相连的那个 Bridge(端口 B)。
-
-图 4‐7:用于设置 Base 和 Limit 值的拓扑示例  
 ![](images/part02_a35e23b613320d5bdb8fbce1ad4b754276b9d32ad4bee523d66c3e94362fdbd8.jpg)
+Figure 4-7: Example Topology for Setting Up Base and Limit Values
 
+| EN | ZH |
+|:---|:---|
+| ## Prefetchable Range (P-MMIO) | ## 可预取范围 (P-MMIO) |
+| Type 1 headers have two pairs of prefetchable memory base/limit registers. The Prefetchable Memory Base/Limit registers store address info for the lower 32 bits of the prefetchable address range. If this bridge supports decoding 64-bit addresses, then the Prefetchable Memory Base/Limit Upper 32 Bits registers are also used and hold the upper 32 bits (bits [63:32]) of the address range. Figure 4-8 on page 138 shows the values software would program into these registers to indicate that the prefetchable address range of 2\_4000\_0000h - 2\_43FF\_FFFFh lives beneath that bridge (Port B). The meaning of each field in those registers is summarized in Table 4-4. | Type 1 头中有两对可预取存储器基址/上限寄存器。可预取存储器基址/上限寄存器存储可预取地址范围低 32 位的地址信息。如果该桥支持 64 位地址译码，则还需使用可预取存储器基址/上限高 32 位寄存器，它们保存地址范围的高 32 位 (位 [63:32])。第 138 页图 4-8 展示了软件为指示可预取地址范围 2\_4000\_0000h - 2\_43FF\_FFFFh 位于该桥 (端口 B) 下方时应写入这些寄存器的值。这些寄存器中各字段的含义汇总于表 4-4。 |
 
----
-
-## 预取地址范围 (P-MMIO)
-
-Type 1 报头 (Header) 拥有两对预取内存 Base/Limit 寄存器。Prefetchable Memory Base/Limit 寄存器用于存储预取地址范围低 32 位的地址信息。如果该桥 (Bridge) 支持 64 位地址解码,则还需要使用 Prefetchable Memory Base/Limit Upper 32 Bits 寄存器,用于保存地址范围的高 32 位(位 [63:32])。第 138 页的图 4-8 给出了软件为指示预取地址范围 2\_4000\_0000h – 2\_43FF\_FFFFh 位于该桥 (Port B) 之下时,应写入这些寄存器的值。这些寄存器中各字段的含义汇总于表 4-4。
-
-图 4-8:示例 Prefetchable Memory Base/Limit 寄存器值
+Figure 4-8: Example Prefetchable Memory Base/Limit Register Values
 
 <table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>Rev ID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
 
 ![](images/part02_85465c6b3a80c51edb75d9f4ed61ee62e089c610bea78ae06cd89b5276746731.jpg)
 
-## 第 4 章:地址空间与事务路由
+| EN | ZH |
+|:---|:---|
+| Chapter 4: Address Space &amp; Transaction Routing | 第4章：地址空间与事务路由 |
 
-表 4‐4:可预取存储器 Base/Limit 寄存器含义示例
+Table 4-4: Example Prefetchable Memory Base/Limit Register Meanings
 
-<table><tr><td>寄存器</td><td>值</td><td>用途</td></tr><tr><td>Prefetchable Memory Base</td><td>4001h</td><td>该寄存器的高 12 位保存 32 位 BASE 地址的高 12 位(位 [31:20])。基地址的低 20 位隐含为全 0,意味着基地址始终按 1MB 边界对齐。该寄存器的低 4 位指示桥是否支持 64 位地址解码,即是否使用 Upper Base/Limit 寄存器。</td></tr><tr><td>Prefetchable Memory Limit</td><td>43F1h</td><td>类似地,该寄存器的高 12 位保存 32 位 LIMIT 地址的高 12 位(位 [31:20])。Limit 地址的低 20 位隐含为全 F。该寄存器的低 4 位含义与 Base 寄存器的低 4 位相同。</td></tr><tr><td>Prefetchable Memory Base Upper 32 Bits</td><td>00000002h</td><td>保存该端口下游可预取存储器 64 位 BASE 地址的高 32 位。</td></tr><tr><td>Prefetchable Memory Limit Upper 32 Bits</td><td>00000002h</td><td>保存该端口下游可预取存储器 64 位 LIMIT 地址的高 32 位。</td></tr></table>
+<table><tr><td>Register</td><td>Value</td><td>Use</td></tr><tr><td>Prefetchable Memory Base</td><td>4001h</td><td>The upper 12 bits of this register hold the upper 12 bits of the 32-bit BASE address (bits [31:20]). The lower 20 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 1MB boundary.The lower 4 bits of this register indicate whether a 64-bit address decoder is supported in the bridge, meaning the Upper Base/Limit Registers are used.</td></tr><tr><td>Prefetchable Memory Limit</td><td>43F1h</td><td>Similarly, the upper 12 bits of this register hold the upper 12 bits of the 32-bit LIMIT address (bits [31:20]). The lower 20 bits of the limit address are all implied to be all Fs.The lower 4 bits of this register have the same meaning as the lower 4 bits of the base register.</td></tr><tr><td>Prefetchable Memory Base Upper 32 Bits</td><td>00000002h</td><td>Holds the upper 32 bits of the 64-bit BASE address for Prefetchable Memory downstream of this port.</td></tr><tr><td>Prefetchable Memory Limit Upper 32 Bits</td><td>00000002h</td><td>Holds the upper 32 bits of the 64-bit LIMIT address for Prefetchable Memory downstream of this port.</td></tr></table>
 
+| EN | ZH |
+|:---|:---|
+| ## Non-Prefetchable Range (NP-MMIO) | ## 不可预取范围 (NP-MMIO) |
+| Unlike the prefetchable memory range, the non-prefetchable memory range can only support 32-bit addresses. So there is only one register for the base and one register for the limit. Following the example in Figure 4-7, the Non-Prefetchable Memory Base/Limit registers of Port B would be programmed with the values shown in Figure 4-9 on page 140. The meaning of these values is summarized in Table 4-5. | 与可预取存储器范围不同，不可预取存储器范围仅支持32位地址。因此，基址和界限各只有一个寄存器。按照图4-7中的示例，Port B的不可预取存储器基址/界限寄存器将被编程为第140页图4-9所示的值。这些值的含义总结在表4-5中。 |
 
----
-
-## 非预取范围 (NP-MMIO)
-
-与可预取内存范围不同,非预取内存范围仅支持 32 位地址。因此,基址和上限各只有一个寄存器。按照图 4‐7 中的示例,Port B 的非预取内存基址/上限寄存器应按第 140 页图 4‐9 中所示的数值进行编程。这些数值的含义汇总在表 4‐5 中。
-
-图 4‐9:非预取内存基址/上限寄存器值示例
+Figure 4-9: Example Non-Prefetchable Memory Base/Limit Register Values
 Type 1 Header
 
-<table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</</></tr><tr><td colspan="3">Class Code</td><td>Rev ID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
+<table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>Rev ID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
 
 ![](images/part02_b5ee420b6ebab86a49bcce4a1dabefa73c1033141db7c92cc24041fcaeb9a66c.jpg)
 
-非预取内存范围:F900\_0000h - F90F\_FFFFh
+Non-Prefetchable Memory Range: F900\_0000h - F90F\_FFFFh
 
-表 4‐5:非预取内存基址/上限寄存器含义示例
+Table 4-5: Example Non-Prefetchable Memory Base/Limit Register Meanings
 
-<table><tr><td>寄存器</td><td>值</td><td>用途</td></tr><tr><td>(非预取)Memory Base</td><td>F900h</td><td>该寄存器的高 12 位保存 32 位 BASE 地址的高 12 位([31:20] 位)。基址的低 20 位隐含为全 0,意味着基址始终按 1MB 边界对齐。该寄存器的低 4 位必须为 0。</td></tr><tr><td>(非预取)Memory Limit</td><td>F900h</td><td>类似地,该寄存器的高 12 位保存 32 位 LIMIT 地址的高 12 位([31:20] 位)。上限地址的低 20 位隐含为全 F。该寄存器的低 4 位必须为 0。</td></tr></table>
+<table><tr><td>Register</td><td>Value</td><td>Use</td></tr><tr><td>(Non-Prefetchable) Memory Base</td><td>F900h</td><td>The upper 12 bits of this register hold the upper 12 bits of the 32-bit BASE address (bits [31:20]). The lower 20 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 1MB boundary.The lower 4 bits of this register must be 0s.</td></tr><tr><td>(Non-Prefetchable) Memory Limit</td><td>F900h</td><td>Similarly, the upper 12 bits of this register hold the upper 12 bits of the 32-bit LIMIT address (bits [31:20]). The lower 20 bits of the limit address are all implied to be all Fs.The lower 4 bits of this register must be 0s.</td></tr></table>
 
-本示例展示了一种值得关注的情况:在 Port B 的配置空间中编程的非预取地址范围(1MB)远大于其下游端点所拥有的 NP-MMIO 范围(4KB)。其原因在于,Type 1 Header 中的内存基址/上限寄存器只能用于指定 20 位及以上的地址位([31:20]),低 20 位地址位 [19:0] 是隐含的。因此,使用内存基址/上限寄存器所能指定的最小地址范围为 1MB。
+| EN | ZH |
+|:---|:---|
+| This example shows an interesting case where the non-prefetchable address range programmed in Port B's configuration space indicates a much larger range (1MB) than the NP-MMIO range (4KB) owned by the endpoint living downstream. This is because the memory base/limit registers in the Type 1 header, can only be used to specify address bits 20 and above ([31:20]). The lower 20 address bits, [19:0], are implied. So the smallest address range that can be specified with the memory base/limit registers is 1MB. | 此示例展示了一个有趣的情况：Port B配置空间中编程的不可预取地址范围所指示的范围(1MB)远大于下游端点拥有的NP-MMIO范围(4KB)。这是因为Type 1头中的存储器基址/界限寄存器仅可用于指定地址位20及以上([31:20])。低20位地址位[19:0]是隐式的。因此，使用存储器基址/界限寄存器可指定的最小地址范围为1MB。 |
+| In our example, the endpoint requested, and was granted, 4KB of NP-MMIO (F900\_0000h - F900\_0FFFh). Port B was programmed with values indicating 1MB, or 1024KB, of NP-MMIO lived downstream of that port (F900\_0000h - F90F\_FFFFh). This means 1020KB (F900\_1000h - F90F\_FFFFh) of memory address space is wasted. This address space CANNOT be allocated to another endpoint because the routing of the packets would not work. | 在我们的示例中，端点请求并获得了4KB的NP-MMIO (F900\_0000h - F900\_0FFFh)。Port B被编程的值指示该端口下游有1MB(即1024KB)的NP-MMIO (F900\_0000h - F90F\_FFFFh)。这意味着1020KB (F900\_1000h - F90F\_FFFFh)的存储器地址空间被浪费了。该地址空间不能分配给其他端点，因为报文的正确路由将无法工作。 |
 
-在我们的示例中,端点请求并被授予了 4KB 的 NP-MMIO(F900\_0000h - F900\_0FFFh)。Port B 被编程为表明该端口下游存在 1MB(即 1024KB)的 NP-MMIO(F900\_0000h - F90F\_FFFFh)。这意味着有 1020KB(F900\_1000h - F90F\_FFFFh)的内存地址空间被浪费。该地址空间不能分配给其他端点,因为报文的路由将无法正常工作。
+| EN | ZH |
+|:---|:---|
+| ## IO Range | ## IO 范围 |
 
----
+| EN | ZH |
+|:---|:---|
+| Like with the prefetchable memory range, Type 1 headers have two pairs of IO base/limit registers. The IO Base/Limit registers store address info for the lower 16 bits of the IO address range. If this bridge supports decoding 32‑bit IO addresses (which is rare in real‑world devices), then the IO Base/Limit Upper 16 Bits registers are also used and hold the upper 16 bits (bits [31:16]) of the IO address range. Following our example, Figure 4‑10 on page 142 shows the values software would program into these registers to indicate that the IO address range of 4000h ‑ 4FFFh lives beneath that bridge (Port B). The meaning of each field in those registers is summarized in Table 4‑6. | 与可预取存储器范围类似，Type 1 头拥有两对 IO 基址/上限寄存器。IO Base/Limit 寄存器存储 IO 地址范围低 16 位的地址信息。如果此桥支持解码 32 位 IO 地址（在实际设备中极少见），则还会使用 IO Base/Limit Upper 16 Bits 寄存器，用于存放 IO 地址范围的高 16 位（位 [31:16]）。沿用我们的示例，第 142 页的图 4-10 显示了软件应写入这些寄存器的值，以指示 IO 地址范围 4000h‑4FFFh 位于该桥（端口 B）的下游。这些寄存器中每个字段的含义汇总于表 4-6。 |
 
-## IO Range
-
-与可预取存储器范围一样,Type 1 Header (类型 1 包头) 也包含两对 IO Base/Limit 寄存器。IO Base/Limit 寄存器保存 IO 地址范围低 16 位的地址信息。如果该 Bridge (桥) 支持 32 位 IO 地址解码(在实际设备中较为少见),则还会使用 IO Base/Limit Upper 16 Bits 寄存器,用于保存 IO 地址范围的高 16 位(位 [31:16])。沿用上例,第 142 页的图 4-10 给出了软件为指示 4000h - 4FFFh 这一 IO 地址范围属于该 Bridge (Port B) 下游而向这些寄存器写入的值。这些寄存器中每个字段的含义汇总在表 4-6 中。
-
-图 4-10:IO Base/Limit 寄存器示例值
+Figure 4-10: Example IO Base/Limit Register Values
 
 <table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>RevID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
 
 ![](images/part02_38a387246db1e2abb691885e5a75d06270c47bffec7d92eb9c23ededa1be4c6a.jpg)
 
-表 4-6:IO Base/Limit 寄存器示例含义
+Table 4-6: Example IO Base/Limit Register Meanings
 
-<table><tr><td>Register</td><td>Value</td><td>Use</td></tr><tr><td>IO Base</td><td>40h</td><td>该寄存器的高 4 位保存 16 位 BASE 地址的高 4 位(位 [15:12])。基地址的低 12 位隐含为全 0,意味着基地址始终在 4KB 边界上对齐。该寄存器的低 4 位指示该 Bridge (桥) 是否支持 32 位 IO 地址解码器,即是否使用 Upper Base/Limit 寄存器。</td></tr><tr><td>IO Limit</td><td>40h</td><td>类似地,该寄存器的高 4 位保存 16 位 LIMIT 地址的高 4 位(位 [15:12])。Limit 地址的低 12 位隐含为全 F。该寄存器的低 4 位的含义与 Base 寄存器的低 4 位相同。</td></tr><tr><td>IO Base Upper 16 Bits</td><td>0000h</td><td>保存该端口下游 IO 的 32 位 BASE 地址的高 16 位。</td></tr><tr><td>IO Limit Upper 16 Bits</td><td>0000h</td><td>保存该端口下游 IO 的 32 位 LIMIT 地址的高 16 位。</td></tr></table>
+<table><tr><td>Register</td><td>Value</td><td>Use</td></tr><tr><td>IO Base</td><td>40h</td><td>The upper 4 bits of this register hold the upper 4 bits of the 16-bit BASE address (bits [15:12]). The lower 12 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 4KB boundary. The lower 4 bits of this register indicate whether a 32-bit IO address decoder is supported in the bridge, meaning the Upper Base/ Limit Registers are used.</td></tr><tr><td>IO Limit</td><td>40h</td><td>Similarly, the upper 4 bits of this register hold the upper 4 bits of the 16-bit LIMIT address (bits [15:12]). The lower 12 bits of the limit address are all implied to be all Fs. The lower 4 bits of this register have the same meaning as the lower 4 bits of the base regis- ter.</td></tr><tr><td>IO Base Upper 16 Bits</td><td>0000h</td><td>Holds the upper 16 bits of the 32-bit BASE address for IO downstream of this port.</td></tr><tr><td>IO Limit Upper 16 Bits</td><td>0000h</td><td>Holds the upper 16 bits of the 32-bit LIMIT address for IO downstream of this port.</td></tr></table>
 
-在该示例中,我们再次看到一种情况:编程到上游 Bridge (桥) 中的地址范围远大于下游 Function (功能) 实际拥有的地址范围。本例中的 Endpoint (端点) 拥有 256 字节的 IO 地址空间(具体为 4000h - 40FFh)。Port B 已被编程为指示下游存在 4KB IO 地址空间(地址 4000h - 4FFFh)。同样,这仅仅是 Type 1 Header (类型 1 包头) 的一种限制。对于 IO 地址空间,低 12 位(位 [11:0])为隐含值,因此可指定的最小 IO 地址范围是 4KB。该限制实际上比存储器范围的 1MB 最小窗口更为严重。在基于 x86(Intel 兼容)的系统中,处理器仅支持 16 位 IO 地址空间,而由于 Bridge (桥) 中只能指定 IO 地址范围的位 [15:12],这意味着系统中最多只能有 16 (2<sup>4</sup>) 个不同的 IO 地址范围。
+| EN | ZH |
+|:---|:---|
+| In this example, we see another situation where the address range programmed into the upstream bridge far exceeds the actual address range owned by the downstream function. The endpoint in our example owns 256 bytes of IO address space (specifically 4000h ‑ 40FFh). Port B has been programmed with values indicating that 4KB of IO address space lives downstream (addresses 4000h ‑ 4FFFh). Again, this is simply a limitation of Type 1 headers. For IO address space, the lower 12 bits (bits [11:0]) have implied values, so the smallest range of IO addresses that can be specified is 4KB. This limitation turns out to be more serious than the 1MB minimum window for memory ranges. In x86‑based (Intel compatible) systems, the processors only support 16 bits of IO address space, and since only bits [15:12] of the IO address range can be specified in a bridge, that means that there can be a maximum of 16 (2<sup>4</sup>) different IO address ranges in a system. | 在此示例中，我们看到了另一种情形：写入上游桥的地址范围远超下游功能模块实际拥有的地址范围。示例中的端点拥有 256 字节的 IO 地址空间（具体为 4000h‑40FFh）。端口 B 被编程的值表明下游存在 4KB 的 IO 地址空间（地址 4000h‑4FFFh）。这同样是 Type 1 头的一个局限性。对于 IO 地址空间，低 12 位（位 [11:0]）具有隐含值，因此可指定的最小 IO 地址范围是 4KB。这一局限性比存储器范围的最小 1MB 窗口更为严重。在基于 x86（Intel 兼容）的系统中，处理器仅支持 16 位的 IO 地址空间，并且由于在桥中只能指定 IO 地址范围的位 [15:12]，这意味着系统中最多只能有 16（2<sup>4</sup>）个不同的 IO 地址范围。 |
 
----
+## Unused Base and Limit Registers
 
-## 未使用的 Base 和 Limit 寄存器
+| EN | ZH |
+|:---|:---|
+| Not every PCIe device will use all three types of address space. In fact, the PCI Express specification actually discourages the use of IO address space, indicating that it is only supported for legacy reasons and may be deprecated in a future revision of the spec. | 并非每个PCIe设备都会使用全部三种类型的地址空间。事实上，PCI Express规范实际上不鼓励使用IO地址空间，并指出对其的支持仅仅出于遗留原因，且在规范的未来版本中可能会被弃用。 |
+| In the cases where an endpoint does not request all three types of address space, what are the base and limit registers of the bridges upstream of those devices programmed with? They can't be programmed with all 0s because the lower address bits would still be implied to be different (base = 0s; limit = Fs) which would represent a valid range. So to handle these cases, the limit register must be programmed with a higher address than the base. For example, if an endpoint does not request IO address space, then the bridge immediately upstream of that function would have its IO Base register programmed to 00h and its IO Limit register programmed with F0h. Since the limit address is higher than the base address, the bridge understands this is an invalid setting and takes it to mean that there are no functions downstream of it that own IO address space. | 当端点不请求全部三种类型的地址空间时，这些设备上游的桥的基址和界限寄存器会被编程为何值？它们不能全部编程为0，因为低位地址位仍会被隐含地解读为不同（基址 = 0；界限 = F），这将表示一个有效范围。因此，为处理这类情况，界限寄存器必须被编程为一个高于基址的地址。例如，若某个端点不请求IO地址空间，则该功能紧上游的桥的IO基址寄存器将被编程为00h，而IO界限寄存器将被编程为F0h。由于界限地址高于基址地址，该桥理解为这是一个无效的设置，并据此认为其下游没有任何功能拥有IO地址空间。 |
+| This method of invalidating base and limit registers is valid for all three base and limit pairs, not just for the IO base/limit registers. | 这种将基址和界限寄存器设为无效的方法对所有三对基址/界限寄存器均有效，而不仅限于IO基址/界限寄存器。 |
 
-并非每个 PCIe 设备都会使用全部三种地址空间。事实上,PCI Express 规范实际上并不鼓励使用 IO 地址空间,并指出它只是为了向后兼容而保留,可能在未来版本的规范中被废弃。
-
-在端点并未请求全部三种地址空间的情况下,其上游桥的 base 和 limit 寄存器应编程为何值?它们不能全部编程为 0,因为低地址位仍然会被隐含地认为不同(base = 0;limit = F),这会表示一个有效范围。因此,为了处理这些情况,limit 寄存器的值必须编程为高于 base 的地址。例如,如果某个端点没有请求 IO 地址空间,那么紧邻该功能上游的桥应将其 IO Base 寄存器编程为 00h,并将其 IO Limit 寄存器编程为 F0h。由于 limit 地址高于 base 地址,桥明白这是一个无效设置,并将其理解为:其下游不存在拥有 IO 地址空间的功能。
-
-这种使 base 和 limit 寄存器无效的方法对全部三对 base/limit 寄存器都有效,而不只针对 IO base/limit 寄存器。
-
-## Sanity Check: Registers Used For Address Routing
-
-为了确保你理解 BAR 和 Base/Limit 寄存器的设置规则与方法,请翻阅第 145 页的图 4‐11 以确认其含义。我们只是将示例系统加以扩展,把另一个 endpoint 以及交换机的一个端口(Port A)所请求的额外地址空间纳入其中。请注意,Type 1 报文头也包含 BAR(准确来说是两个),同样可以请求地址空间。桥中的 Base/Limit 寄存器**并不**包含该桥自身 BAR 所拥有的地址。Base/Limit 寄存器仅表示位于该桥下游的地址。
-
-Figure 4‐11: Final Example Address Routing Setup  
+Figure 4-11: Final Example Address Routing Setup
 ![](images/part02_1fb4688cc0829b4d5235f0affa8ed10db0ed46cd85a1abccb1a22d7b7d7b1db3.jpg)
 
-## TLP 路由基础
+| EN | ZH |
+|:---|:---|
+| ## Sanity Check: Registers Used For Address Routing | ## 正确性检查：用于地址路由的寄存器 |
+| To ensure that you understand the rules and methods for setting up BARs and Base/Limit registers, please look over Figure 4-11 on page 145 to make sure it makes sense. | 为确保你已理解设置 BAR 和 Base/Limit 寄存器的规则与方法，请仔细查看第 145 页的图 4-11 以确认其是否合理。 |
+| We have simply extended the example system to include additional address space requests from the other endpoint, as well as from one of the switch ports (Port A). | 我们只是扩展了示例系统，增加了来自另一个端点以及来自一个交换机端口（端口 A）的额外地址空间请求。 |
+| Remember that Type 1 headers also have BARs (two of them to be exact) and can request address space too. | 请记住，Type 1 头也拥有 BAR（确切地说是两个），也可以请求地址空间。 |
+| The Base/Limit registers in a bridge do NOT include the addresses owned by that same bridge's BARs. | 桥中的 Base/Limit 寄存器并不包含该桥自身 BAR 所拥有的地址。 |
+| The Base/Limit registers only represent the addresses that live downstream of that bridge. | Base/Limit 寄存器仅表示位于该桥下游的地址。 |
 
-如前文各节所述,设置 BAR 以及 Base/Limit 寄存器的目的是,确保发往某个功能的报文能够被正确路由,使该目标功能能够看到这些事务并将其认领(Claim)。在 PCI 这类共享总线架构中,所有报文对每个设备都是可见的。请求被路由仅发生在目标位于另一条总线上、且必须跨越某条桥的时候。由于 PCIe 链路(Link)是点对点的,因此要在设备之间递送事务就需要更多的路由动作。
+| EN | ZH |
+|:---|:---|
+| ## TLP Routing Basics | ## TLP 路由基础 |
+| The purpose of setting up the BARs and Base/Limit registers as described in the previous sections, is to ensure that traffic targeting a function will be routed correctly so the targeted function can see the transactions and claim them. In shared‐bus architectures like PCI, all the traffic is visible to every device. The only time routing of requests happens is when the target is on another bus and must cross a bridge. Since PCIe Links are point‐to‐point, more routing will be needed to deliver transactions between devices. | 如前几节所述，设置 BAR 和 Base/Limit 寄存器的目的，是确保以某个功能为目标的事务能被正确路由，使目标功能能够看到这些事务并将其认领。在 PCI 等共享总线架构中，所有事务对每个设备都是可见的。只有在目标位于另一条总线上且必须穿过桥片时，才会发生请求的路由。由于 PCIe 链路是点对点的，因此在设备之间传递事务将需要更多的路由。 |
 
-图 4-12:多端口 PCIe 设备承担路由职责  
+Figure 4‐12: Multi‐Port PCIe Devices Have Routing Responsibilities
 ![](images/part02_b4840c3bc05898076b5ecfd8382467f308afe9b0354e12a5aa7cce3cc0ed8f92.jpg)
 
-如图 4-12(第 146 页)所示,PCI Express 拓扑由若干独立的、点对点的链路构成,每条链路将一个设备与一个或多个相邻设备相连。当报文到达某个链路接口的入站侧(称为入端口,Ingress Port)时,该端口先检查错误,然后做出以下三种决定之一:
+| EN | ZH |
+|:---|:---|
+| As illustrated in Figure 4‐12 on page 146, a PCI Express topology consists of independent, point‐to‐point links connecting each device with one or more neighbors. As traffic arrives at the inbound side of a link interface (called the ingress port), the port checks for errors, then makes one of three decisions: | 如第 146 页图 4-12 所示，PCI Express 拓扑由独立的点对点链路组成，每条链路将一个设备与一个或多个相邻设备连接起来。当事务到达链路接口的入站侧（称为入口端口）时，该端口会检查错误，然后做出以下三种决定之一： |
+| 1. Accept the traffic and use it internally | 1. 接受该事务并在内部使用它 |
+| 2. Forward the traffic to the appropriate outbound (egress) port | 2. 将该事务转发到适当的出站（出口）端口 |
+| 3. Reject the traffic because it is neither the intended target, nor an interface to it (Note that there are other reasons why traffic may be rejected) | 3. 拒绝该事务，因为它既不是预期的目标，也不是通往该目标的接口（注意，事务被拒绝还可能有其他原因） |
 
-1. 接受该报文并在内部使用
+| EN | ZH |
+|:---|:---|
+| ## Receivers Check For Three Types of Traffic | ## 接收器检查三种类型的流量 |
+| Assuming a link is fully operational, the receiver interface of each device (ingress port) must detect and evaluate the arrival of the three types of link traffic: Ordered Sets, Data Link Layer Packets (DLLPs), and Transaction Layer Packets (TLPs). Ordered Sets and DLLPs are local to a link and thus are never routed to another link. TLPs can and do move from link to link, based on routing information contained in the packet headers. | 假定链路已完全正常工作，每个设备的接收器接口（入口端口）必须检测并评估三种链路流量的到达：有序集（Ordered Sets）、数据链路层包（DLLP）和事务层包（TLP）。有序集和DLLP仅限于本链路，因此绝不会被路由到另一条链路。TLP可以并且确实会根据包含在包头中的路由信息逐链路传递。 |
 
-2. 将该报文转发到相应的出站(出口)端口
+| EN | ZH |
+|:---|:---|
+| ## Routing Elements | ## 路由元素 |
+| Devices with multiple ports, like Root Complexes and Switches, can forward TLPs between the ports and are sometimes called Routing Agents or Routing Elements. They accept TLPs that target internal resources and forward TLPs between ingress and egress ports. | 具有多个端口的设备，如根复合体和交换机，可以在各端口之间转发 TLP，有时被称为路由代理或路由元素。它们接受以内部资源为目标的 TLP，并在入口端口和出口端口之间转发 TLP。 |
+| Interestingly, peer‐to‐peer routing support is required in Switches, but for a Root Complex it's optional. Peer‐to‐peer traffic is typically where one Endpoint sends packets that target another Endpoint. | 值得注意的是，对等路由支持在交换机中是必需的，但对于根复合体则是可选的。对等流量通常是指一个端点发送以另一个端点为目标的报文。 |
+| Endpoints have only one Link and never expect to see ingress traffic other than what is targeting them. They simply accept or reject incoming TLPs. | 端点仅有一条链路，并且除了以自身为目标的流量之外，从不期望看到其他入口流量。它们仅简单地接受或拒绝进入的 TLP。 |
 
-3. 拒绝该报文,因为它既不是预期的目标,也不是通往该目标的接口(注意,还存在其他拒绝报文的原因)
+| EN | ZH |
+|:---|:---|
+| ## Three Methods of TLP Routing | ## TLP 路由的三种方法 |
 
+| EN | ZH |
+|:---|:---|
+| ## General | ## 概述 |
+| TLPs can be routed based on address (either memory or IO), based on ID (meaning Bus, Device, Function number), or routed implicitly. The routing method used is based on the TLP type. Table 4‑7 on page 147 summarizes the TLP types and the routing methods used for each. | TLP可以基于地址（存储器或IO）进行路由，也可以基于ID（即总线号、设备号、功能号）进行路由，或者通过隐式方式进行路由。所使用的路由方法取决于TLP类型。第147页的表4-7总结了各种TLP类型及其所采用的路由方法。 |
 
----
+Table 4‑7: PCI Express TLP Types And Routing Methods
 
-## 接收器检测三种类型的流量
+<table><tr><td>TLP Type</td><td>Routing Method Used</td></tr><tr><td>Memory Read [Lock], Memory Write, AtomicOp</td><td>Address Routing</td></tr><tr><td>IO Read and Write</td><td>Address Routing</td></tr><tr><td>Configuration Read and Write</td><td>ID Routing</td></tr><tr><td>Message, Message With Data</td><td>Address Routing, ID Routing, or Implicit routing</td></tr><tr><td>Completion, Completion With Data</td><td>ID Routing</td></tr></table>
 
-假设链路已完全正常运行,每个设备(入口端口)的接收器接口必须检测并判断到达的三种链路流量:有序集 (Ordered Sets)、数据链路层报文 (DLLP) 和事务层报文 (TLP)。有序集和 DLLP 仅存在于本地链路上,因此永远不会路由到其他链路。TLP 则可以根据包头中包含的路由信息在各链路之间转发。
+| EN | ZH |
+|:---|:---|
+| Messages are the only TLP type that support more than one routing method. Most of the message TLPs defined in the PCI Express spec use implicit routing, however, the vendor‑defined messages could use address routing or ID routing if desired. | 消息报文是唯一支持多种路由方法的TLP类型。PCI Express规范中定义的大多数消息TLP使用隐式路由，然而，厂商定义的消息可以根据需要采用地址路由或ID路由。 |
 
-## 路由元素
+| EN | ZH |
+|:---|:---|
+| ## Purpose of Implicit Routing and Messages | ## 隐式路由和报文的目的 |
+| In implicit routing, neither address or ID routing information applies; instead, the packet is routed based on a code in the packet header indicating a destination with a known location in the topology, such as the Root Complex. This simplifies routing of messages in the cases where a type of implicit routing applies. | 在隐式路由中，地址路由或ID路由信息均不适用；取而代之的是，数据包根据其包头中的一个编码进行路由，该编码指明了目的地在拓扑中具有已知位置（例如根复合体）。在适用隐式路由的情况下，这简化了报文的路由。 |
+| Why Messages? Message transactions were not defined in PCI or PCI‑X, but were introduced with PCIe. The main reason for adding Messages as a packet type was to pursue the PCIe design goal to drastically reduce the number of sideband signals implemented in PCI (e.g. interrupt pins, error pins, power management signals, etc.). Consequently, most of the sideband signals were replaced with in‑band packets in the form of Message TLPs. | 为什么需要报文？报文事务在PCI或PCI‑X中并未定义，而是随PCIe引入的。将报文作为一种数据包类型添加的主要原因是追求PCIe的设计目标——大幅减少PCI中实现的边带信号数量（例如中断引脚、错误引脚、电源管理信号等）。因此，大多数边带信号被以报文TLP（Message TLP）形式的带内包所取代。 |
+| How Implicit Routing HelpsUsing in‑band messages in place of sideband signals requires a means of routing them to the proper recipient in a topology consisting of numerous point‑to‑point links. Implicit routing takes advantage of the fact that Switches and other routing elements understand the concept of upstream and downstream, and that the Root Complex is found at the top of the topology while Endpoints are found at the bottom. As a result, a Message can use a simple code to show that it should go to the Root Complex, for example, or to be sent to all devices downstream. This ability eliminates the need to define address ranges or ID lists specifically used as the target of different message transactions. | 隐式路由如何提供帮助：使用带内报文代替边带信号需要一种方法将它们路由到由众多点对点链路构成的拓扑中的适当接收方。隐式路由利用了这样一个事实：交换机和其他路由元件理解上行和下游的概念，并且根复合体位于拓扑的顶部，而端点位于底部。因此，报文可以简单地使用一个编码来表示它应去往根复合体，或者应被发送到下游的所有设备。这种能力消除了为不同报文事务专门定义目标地址范围或ID列表的需要。 |
+| The different types of implicit routing can be found in "Implicit Routing" on page 163. | 隐式路由的不同类型可参见第163页的"Implicit Routing"（隐式路由）部分。 |
 
-具有多个端口的设备,例如根复合体 (Root Complex) 和交换机 (Switch),可以在各端口之间转发 TLP,有时也被称为路由代理 (Routing Agents) 或路由元素 (Routing Elements)。它们既会接收发往自身内部资源的 TLP,也会在入口端口与出口端口之间转发 TLP。
+| EN | ZH |
+|:---|:---|
+| ## Split Transaction Protocol | ## 拆分事务协议 |
+| Like most other serial technologies, PCI Express uses the split transaction protocol which allows a target device to receive one or more requests and then respond to each request with a separate completion. This is a significant improvement over the PCI bus protocol that used wait-states or delayed transactions (retries) to deal with latencies in accessing targets. Instead of testing to see when the target becomes ready to do a long-latency transfer, the target initiates the response whenever it's ready. This results in at least two separate TLPs per transaction - the Request and the Completion (as will be discussed later, a single read request may result in multiple completion TLPs being sent back). Figure 4-13 on page 149 illustrates the Request-Completion components of a split transaction. This example shows software reading data from an Endpoint. | 与大多数其他串行技术一样，PCI Express采用拆分事务协议，该协议允许目标设备接收一个或多个请求，然后以单独的完成报文对每个请求进行响应。这相比PCI总线协议是一个重大改进，后者使用等待状态或延迟事务（重试）来处理访问目标设备时的延迟。拆分事务协议无需测试目标设备何时准备好进行长延迟传输，而是由目标设备在准备就绪时随时发起响应。这导致每项事务至少产生两个独立的TLP——请求TLP和完成TLP（如后续所述，单个读请求可能导致发回多个完成TLP）。第149页的图4-13展示了一个拆分事务的请求-完成组成部分。此示例展示了软件从端点读取数据的过程。 |
 
-值得一提的是,交换机 (Switch) 必须支持对等 (peer-to-peer) 路由,而对于根复合体 (Root Complex) 来说,这一支持是可选的。对等 (peer-to-peer) 流量通常是指一个端点 (Endpoint) 发送目的地址为另一个端点 (Endpoint) 的报文。
-
-端点 (Endpoint) 只有一条链路 (Link),除了目的地为其自身的流量之外,不会收到任何入口流量。它们仅简单地接受或拒绝传入的 TLP。
-
-## TLP 路由的三种方法
-
----
-
-## 概述
-
-TLP 可以基于地址(存储器或 IO)进行路由,基于 ID(即 Bus、Device、Function 编号)进行路由,或者采用隐式路由。所使用的路由方法取决于 TLP 类型。第 147 页的表 4‐7 汇总了 TLP 类型及其各自使用的路由方法。
-
-表 4‐7:PCI Express TLP 类型与路由方法
-
-<table><tr><td>TLP 类型</td><td>所用路由方法</td></tr><tr><td>Memory Read [Lock]、Memory Write、AtomicOp</td><td>地址路由</td></tr><tr><td>IO Read 和 Write</td><td>地址路由</td></tr><tr><td>Configuration Read 和 Write</td><td>ID 路由</td></tr><tr><td>Message、Message With Data</td><td>地址路由、ID 路由或隐式路由</td></tr><tr><td>Completion、Completion With Data</td><td>ID 路由</td></tr></table>
-
-Message 是唯一支持多于一种路由方法的 TLP 类型。PCI Express 规范中定义的大多数 Message TLP 都使用隐式路由,然而,厂商自定义的 Message 如果需要的话可以使用地址路由或 ID 路由。
-
-## 隐式路由与消息报文的目的
-
-在隐式路由中,既不使用地址路由信息,也不使用 ID 路由信息;报文根据其包头中的一个代码进行路由,该代码指明了拓扑中位置已知的目标(例如根复合体)。这种方式在适用某种隐式路由的情形下简化了消息报文的路由。
-
-为什么需要消息报文?消息事务在 PCI 或 PCI-X 中并未定义,而是由 PCIe 引入。将消息报文作为一种报文类型引入,主要目的是为了实现 PCIe 的设计目标:大幅减少在 PCI 中实现的各种边带信号(例如中断引脚、错误引脚、电源管理信号等)。因此,大多数边带信号都被以消息报文形式出现的带内报文所取代。
-
-隐式路由的作用 使用带内消息报文替代边带信号,需要在由大量点对点链路构成的拓扑中,提供一种将其路由到正确接收方的机制。隐式路由利用了这样一个事实:交换机 (Switch) 和其他路由元素都理解上游与下游的概念,并且根复合体 (Root Complex) 位于拓扑的顶端,而终端设备 (Endpoint) 位于底端。因此,消息报文可以使用一个简单的代码来表明它应当发往根复合体,或者向下游所有设备广播。这种能力消除了针对不同消息事务单独定义目标地址范围或 ID 列表的需要。
-
-各种隐式路由类型可参见第 163 页"隐式路由"一节。
-
-## 分离事务协议 (Split Transaction Protocol)
-
-与大多数其他串行技术一样,PCI Express 使用分离事务协议 (Split Transaction Protocol),允许目标设备接收一个或多个请求,然后针对每个请求以单独的完成报文 (Completion) 进行响应。这是相对于 PCI 总线协议的一项重大改进——后者使用等待状态 (wait‐state) 或延迟事务 (delayed transaction, 即重试) 来处理访问目标设备的延迟。PCI Express 目标设备无需反复轮询以确认何时准备好进行长延迟传输,而是可以在任何就绪时刻主动发起响应。每个事务至少需要两个独立的 TLP——一个是请求 (Request),一个是完成报文 (Completion)(如后文所述,单个读请求可能会导致回送多个完成报文 TLP)。图 4‐13(第 149 页)展示了分离事务的 Request‐Completion 组成部分。本示例展示的是软件从端点 (Endpoint) 读取数据的过程。
-
-Figure 4‐13: PCI Express Transaction Request And Completion TLPs  
+Figure 4-13: PCI Express Transaction Request And Completion TLPs
 ![](images/part02_48a5a16bee00019f3f488013bb72a9c97e7ed8508405f635e2c1b6704b7bfa42.jpg)
 
+| EN | ZH |
+|:---|:---|
+| ## Posted versus Non-Posted | ## Posted 与非 Posted 事务 |
+| To mitigate the penalty of the Request-Completion latency, memory write transactions are posted, meaning the transaction is considered completed from the Requester's perspective as soon as the request leaves the Requester. If helpful, you can associate the term "posting" with the postal system, where posting a memory write is analogous to posting a letter in the mail. Once you've placed a letter in the postal box you put your faith in the system to deliver it and don't wait for verification of delivery. This approach can be much faster than waiting for the entire Request-Completion transit, but -- as in all posting schemes -- uncertainty exists concerning when (and if) the transaction completed successfully at the ultimate recipient. | 为减轻请求-完成延迟带来的性能损失，存储器写事务采用 posted 方式，即从事务请求者的角度看，一旦请求离开请求者，事务即视为完成。若有助于理解，可以将"posting"一词与邮政系统联系起来——posted 存储器写操作类似于寄信。一旦你将信件投入邮箱，便寄望于系统将其送达，而不会等待送达确认。这种方式比等待整个请求-完成往返要快得多，但与所有 posting 机制一样，存在不确定性——即事务何时（以及是否）在最终接收方成功完成。 |
+| In PCIe, the small amount of uncertainty involved by making all memory writes posted is considered acceptable in exchange for the performance gained. By contrast, writes to IO and configuration space almost always affect device behavior and have a timeliness associated with them. Consequently, it is important to know when (and if) those write requests completed. Because of this, IO writes and configuration writes are always non-posted and a completion will always be returned to report the status of the operation. | 在 PCIe 中，将所有存储器写操作设为 posted 所带来的少量不确定性，在换取的性能提升面前被认为是可接受的。相比之下，对 IO 和配置空间的写入几乎总是会影响设备行为，并且具有时效性要求。因此，了解这些写请求何时（以及是否）完成非常重要。正因如此，IO 写和配置写始终是 non-posted 的，并且始终会返回一个完成报文来报告操作的状态。 |
+| In summary, non-posted transactions require a completion. Posted transactions do not require, and should never receive, a completion. Table 4-8 on page 150 lists which PCIe transactions are posted and non-posted. | 总之，non-posted 事务需要一个完成报文。Posted 事务不需要，并且绝不应收到完成报文。第 150 页的表 4-8 列出了哪些 PCIe 事务是 posted 的，哪些是 non-posted 的。 |
 
----
-
-## Posted 与 Non-Posted
-
-为了缓解请求 (Request) - 完成报文 (Completion) 延迟带来的性能损失,内存写事务采用 Posted 方式,即从 Requester 的角度来看,该事务在请求离开 Requester 时即被视为已经完成。如果有助于理解,可以将 "posting"(投递)一词与邮政系统类比:投递一封内存写请求类似于将信件投入邮筒。一旦将信件投入邮筒,你就只能信任系统会去投递它,而不会等待投递确认。这种方式可能比等待整个 Request-Completion 来回要快得多,但——正如所有投递方案一样——关于事务何时(以及是否)在最终接收端成功完成,仍然存在不确定性。
-
-在 PCIe 中,虽然将所有内存写设为 Posted 会带来少量不确定性,但考虑到由此换得的性能收益,这种做法被认为是可接受的。相比之下,对 IO 和配置空间的写入几乎总是会影响设备行为,并且具有较强的时间敏感性。因此,了解这些写请求何时(以及是否)完成是很重要的。正因为如此,IO 写和配置写始终是 Non-Posted 的,并且总会返回一个完成报文以报告操作状态。
-
-综上,Non-Posted 事务需要返回完成报文,而 Posted 事务不需要、并且不应接收到完成报文。第 150 页的表 4-8 列出了 PCIe 中哪些事务是 Posted 的,哪些是 Non-Posted 的。
-
-表 4-8:Posted 与 Non-Posted 事务
+Table 4-8: Posted and Non-Posted Transactions
 
 <table><tr><td>Request</td><td>How Request Is Handled</td></tr><tr><td>Memory Write</td><td>All memory write requests are posted. No completions are expected or sent.</td></tr><tr><td>Memory Read Memory Read Lock</td><td>All memory read requests are non-posted. A completion with data (made of one or more TLPs) will be returned by the Completer to deliver both the requested data and the status of the memory read. In the event of an error, a completion without data will be returned reporting the status.</td></tr><tr><td>AtomicOp</td><td>All AtomicOp requests are non-posted. A completion with data will be returned by the Completer containing the original value of the target location.</td></tr></table>
 
-## 第 4 章:地址空间与事务路由
+| EN | ZH |
+|:---|:---|
+| Chapter 4: Address Space &amp; Transaction Routing | 第4章：地址空间与事务路由 |
 
-表 4‐8:Posted 与 Non‐Posted 事务(续)
+Table 4-8: Posted and Non-Posted Transactions (Continued)
 
-<table><tr><td>请求 (Request)</td><td>请求的处理方式</td></tr><tr><td>IO 读 IO 写</td><td>所有 IO 请求都是 Non‐Posted 的。写操作或失败的读操作将返回一个不带数据的完成报文,成功的读操作将返回一个带数据的完成报文。</td></tr><tr><td>Configuration 读 Configuration 写</td><td>所有 Configuration 请求都是 Non‐Posted 的。写操作和失败的读操作将返回一个不带数据的完成报文,而成功的读操作将返回一个带数据的完成报文。</td></tr><tr><td>消息 (Message)</td><td>所有消息都是 Posted 的。路由方式取决于消息类型,但它们都被视为 Posted 请求。</td></tr></table>
+<table><tr><td>Request</td><td>How Request Is Handled</td></tr><tr><td>IO ReadIO Write</td><td>All IO requests are non-posted. A completion without data will be returned for writes or failed reads, and a completion with data will be returned for successful reads.</td></tr><tr><td>Configuration ReadConfiguration Write</td><td>All configuration requests are non-posted. A completion without data will be returned for writes and failed reads, while a completion with data will be returned for successful reads.</td></tr><tr><td>Message</td><td>All messages are posted. The routing method depends on the Message type, but they&#x27;re all considered posted requests.</td></tr></table>
 
-## Header 字段定义报文格式与类型
+| EN | ZH |
+|:---|:---|
+| Header Fields Define Packet Format and Type | 包头字段定义了数据包的格式与类型 |
 
-## 概述
+| EN | ZH |
+|:---|:---|
+| ## General | ## 概述 |
+| As shown in Figure 4-14 on page 152, each TLP contains a three or four doubleword (12 or 16 byte) header. This includes Format and Type fields that define the content of the rest of the header and indicate the routing method to be used for the TLP as it traverses the topology. | 如第152页图4-14所示，每个TLP包含一个三双字或四双字（12或16字节）的包头。包头中包含格式（Format）和类型（Type）字段，这些字段定义了包头其余部分的内容，并指示该TLP在穿越拓扑时所使用的路由方法。 |
 
-如图 4-14 所示(第 152 页),每个 TLP 包含一个三或四个双字(12 或 16 字节)的包头。其中包括 Format 和 Type 字段,它们定义了包头其余部分的内容,并指示 TLP 在穿越拓扑时所使用的路由方法。
-
-图 4-14:事务层包通用 3DW 和 4DW 包头  
 ![](images/part02_fec46d2d1fd69f8fd6b71b51ac36f4f1abfbb4b8e904d4b9e043ef0ce0204668.jpg)
+Figure 4-14: Transaction Layer Packet Generic 3DW And 4DW Headers
 
----
+| EN | ZH |
+|:---|:---|
+| Chapter 4: Address Space and Transaction Routing | 第4章：地址空间与事务路由 |
 
-## 第 4 章:地址空间与事务路由
+| EN | ZH |
+|:---|:---|
+| Header Format/Type Field Encodings | 头标格式/类型字段编码 |
+| Table 4-9 on page 153 below summarizes the encodings used in TLP header Format and Type fields. | 下面第153页的表4-9总结了TLP头标中格式(Format)和类型(Type)字段所使用的编码。 |
 
+Table 4-9: TLP Header Format and Type Field Encodings
 
----
+<table><tr><td>TLP</td><td>FMT[2:0]</td><td>TYPE [4:0]</td></tr><tr><td>Memory Read Request (MRd)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0000</td></tr><tr><td>Memory Read Lock Request (MRdLk)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0001</td></tr><tr><td>Memory Write Request (MWr)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 0000</td></tr><tr><td>IO Read Request (IORd)</td><td>000 = 3DW, no data</td><td>00010</td></tr><tr><td>IO Write Request (IOWr)</td><td>010 = 3DW, w/data</td><td>0 0010</td></tr><tr><td>Config Type 0 Read Request (CfgRd0)</td><td>000 = 3DW, no data</td><td>0 0100</td></tr><tr><td>Config Type 0 Write Request (CfgWr0)</td><td>010 = 3DW, w/data</td><td>0 0100</td></tr><tr><td>Config Type 1 Read Request (CfgRd1)</td><td>000 = 3DW, no data</td><td>0 0101</td></tr><tr><td>Config Type 1 Write Request (CfgWr1)</td><td>010 = 3DW, w/data</td><td>0 0101</td></tr><tr><td>Message Request (Msg)</td><td>001 = 4DW, no data</td><td>1 0RRR* (for RRR, see routing subfield in "Message Type Field Summary" on page 164)</td></tr><tr><td>Message Request w/Data (MsgD)</td><td>011 = 4DW, w/data</td><td>1 0RRR* (for RRR, see routing subfield in "Message Type Field Summary" on page 164)</td></tr><tr><td>Completion (Cpl)</td><td>000 = 3DW, no data</td><td>0 1010</td></tr><tr><td>Completion W/Data (CplD)</td><td>010 = 3DW, w/ data</td><td>0 1010</td></tr><tr><td>Completion-Locked (CplLk)</td><td>000 = 3DW, no data</td><td>0 1011</td></tr><tr><td>Completion w/Data (CplDLk)</td><td>010 = 3DW, w/ data</td><td>0 1011</td></tr><tr><td>Fetch and Add AtomicOp Request (FetchAdd)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1100</td></tr><tr><td>Unconditional Swap AtomicOp Request (Swap)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1101</td></tr><tr><td>Compare and Swap AtomicOp Request (CAS)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1110</td></tr><tr><td>Local TLP Prefix (LPrfx)</td><td>100 = 1DW</td><td>0 LLLL</td></tr><tr><td>End-to-End TLP Prefix (EPrfx)</td><td>100 = 1DW</td><td>1 EEEE</td></tr></table>
 
-## Header Format/Type Field Encodings
+| EN | ZH |
+|:---|:---|
+| ## TLP Header Overview | ## TLP 头部概述 |
+| When TLPs are received at an ingress port, they are first checked for errors at the Physical and Data Link Layers. If there are no errors, the TLP is examined at the Transaction Layer to learn which routing method is to be used. The basic steps are: | 当 TLP 在入口端口被接收时，首先在物理层和数据链路层检查其是否存在错误。如果没有错误，则在事务层检查该 TLP，以确定应使用哪种路由方法。基本步骤如下： |
+| 1. Format and Type fields determine the header size, format and type of the packet. | 1. 格式与类型字段决定了包的头部大小、格式和类型。 |
+| 2. Depending on the routing method associated with the packet type, the device determines whether it's the intended recipient. If so, it will accept (consume) the TLP, but if not, it will forward the TLP to the appropriate egress port — subject to the rules for ordering and flow control for that egress port. | 2. 根据与该包类型相关联的路由方法，设备判断自身是否为目标接收方。如果是，则接受（消费）该 TLP；如果不是，则将 TLP 转发到相应的出口端口——但需遵循该出口端口的排序和流控规则。 |
+| 3. If this device is not the intended recipient nor is it in the path to the intended recipient, it will generally reject the packet as an Unsupported Request (UR). | 3. 如果该设备既不是目标接收方，也不位于通往目标接收方的路径上，则通常将以不支持的请求 (UR) 拒绝该包。 |
 
-Table 4‐9 on page 153 below summarizes the encodings used in TLP header Format and Type fields.
+| EN | ZH |
+|:---|:---|
+| ## Applying Routing Mechanisms | ## 应用路由机制 |
+| Once the system addresses have been configured and transactions are enabled, devices examine incoming TLPs and use the corresponding configuration fields to route the packet. The following sections describe the basic features/functionality of each routing mechanism used in routing TLPs through the PCI Express fabric. | 一旦系统地址配置完成且事务使能后，设备检查传入的TLP并使用相应的配置字段来路由数据包。以下各节描述了在通过PCI Express架构路由TLP时使用的每种路由机制的基本特性/功能。 |
 
-Table 4‐9: TLP Header Format and Type Field Encodings
+| EN | ZH |
+|:---|:---|
+| ## ID Routing | ## ID 路由 |
+| ID routing is used to target the logical position - Bus Number, Device Number, Function Number (typically referred to as BDF), of a Function within the topology. It's compatible with routing methods used in the PCI and PCI-X protocols for configuration transactions. In PCIe, it is still used for routing configuration packets and is also used to route completions and some messages. | ID 路由用于定位拓扑中某个功能（Function）的逻辑位置——即总线号（Bus Number）、设备号（Device Number）、功能号（Function Number）（通常合称为 BDF）。它与 PCI 和 PCI-X 协议中用于配置事务的路由方法兼容。在 PCIe 中，ID 路由仍然用于路由配置包，同时也用于路由完成报文和某些消息。 |
 
-<table><tr><td>TLP</td><td>FMT[2:0]</td><td>TYPE [4:0]</td></tr><tr><td>Memory Read Request (MRd)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0000</td></tr><tr><td>Memory Read Lock Request (MRdLk)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0001</td></tr><tr><td>Memory Write Request (MWr)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 0000</td></tr><tr><td>IO Read Request (IORd)</td><td>000 = 3DW, no data</td><td>00010</td></tr><tr><td>IO Write Request (IOWr)</td><td>010 = 3DW, w/data</td><td>0 0010</td></tr><tr><td>Config Type 0 Read Request (CfgRd0)</td><td>000 = 3DW, no data</td><td>0 0100</td></tr><tr><td>Config Type 0 Write Request (CfgWr0)</td><td>010 = 3DW, w/data</td><td>0 0100</td></tr><tr><td>Config Type 1 Read Request (CfgRd1)</td><td>000 = 3DW, no data</td><td>0 0101</td></tr><tr><td>Config Type 1 Write Request (CfgWr1)</td><td>010 = 3DW, w/data</td><td>0 0101</td></tr><tr><td>Message Request (Msg)</td><td>001 = 4DW, no data</td><td>1 0RRR* (for RRR, see routing subfield in “Message Type Field Summary” on page 164)</td></tr><tr><td>Message Request w/Data (MsgD)</td><td>011 = 4DW, w/data</td><td>1 0RRR* (for RRR, see routing subfield in “Message Type Field Summary” on page 164)</td></tr><tr><td>Completion (Cpl)</td><td>000 = 3DW, no data</td><td>0 1010</td></tr><tr><td>Completion W/Data (CplD)</td><td>010 = 3DW, w/ data</td><td>0 1010</td></tr><tr><td>Completion-Locked (CplLk)</td><td>000 = 3DW, no data</td><td>0 1011</td></tr><tr><td>Completion w/Data (CplDLk)</td><td>010 = 3DW, w/ data</td><td>0 1011</td></tr><tr><td>Fetch and Add AtomicOp Request (FetchAdd)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1100</td></tr><tr><td>Unconditional Swap AtomicOp Request (Swap)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1101</td></tr><tr><td>Compare and Swap AtomicOp Request (CAS)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1110</td></tr><tr><td>Local TLP Prefix (LPrfx)</td><td>100 = 1DW</td><td>0 LLLL</td></tr><tr><td>End-to-End TLP Prefix (EPrfx)</td><td>100 = 1DW</td><td>1 EEEE</td></tr></table>
+| EN | ZH |
+|:---|:---|
+| **Bus Number, Device Number, Function Number Limits** | **总线号、设备号、功能号限制** |
+| PCI Express supports the same topology limits as PCI and PCI‑X: | PCI Express支持与PCI和PCI‑X相同的拓扑限制： |
+| 1. Eight bits are used to give the bus number, so a maximum of 256 busses are possible in a system. This includes internal busses created by Switches. | 1. 使用8位表示总线号，因此系统中最多可有256条总线。这包括交换机创建的内部总线。 |
+| 2. Five bits give the device number, so a maximum of 32 devices are possible per bus. An older PCI bus or an internal bus in a switch or root complex may host more than one downstream device. However, external PCIe links are always point‑to‑point and there's only one downstream device on the link. The device number for an external link is forced by the downstream port to always be Device 0, so every external Endpoint will always be Device 0 (unless using Alternative Routing‑ID Interpretation (ARI), in which case, there are no device numbers; more about ARI can be found in the section on "IDO (ID‑based Ordering)" on page 909). | 2. 使用5位表示设备号，因此每条总线上最多可有32个设备。较旧的PCI总线或交换机或根复合体中的内部总线可以承载多个下游设备。然而，外部PCIe链路始终是点对点的，链路上只有一个下游设备。下游端口强制将外部链路的设备号始终设为设备0，因此每个外部端点将始终是设备0（除非使用替代路由ID解释（ARI），在这种情况下没有设备号；关于ARI的更多信息可以在第909页的"IDO（基于ID的排序）"一节中找到）。 |
+| 3. Three bits give the function number, so a maximum of 8 internal functions is possible per device. | 3. 使用3位表示功能号，因此每个设备最多可有8个内部功能。 |
 
-## TLP 包头概述
+| EN | ZH |
+|:---|:---|
+| ## Key TLP Header Fields in ID Routing | ## ID 路由中的关键 TLP 头部字段 |
+| If the Type field in a received TLP indicates ID routing is to be used, then the ID fields in the header (Bus, Device, Function) are used to perform the routing check. There are two cases: ID routing with a 3DW header and ID routing with a 4DW header (only possible in messages). Figure 4-15 on page 156 illustrates a TLP using ID routing and the 3DW header, while Figure 4-16 on page 156 shows the 4DW header for ID routing. | 如果接收到的 TLP 中的类型字段指示应使用 ID 路由，则头部中的 ID 字段（总线号、设备号、功能号）将被用于执行路由检查。存在两种情况：使用 3DW 头部的 ID 路由和使用 4DW 头部的 ID 路由（仅在消息中可行）。第 156 页的图 4-15 展示了使用 ID 路由和 3DW 头部的 TLP，而第 156 页的图 4-16 展示了 ID 路由的 4DW 头部。 |
 
-当 TLP 在入口端口被接收时,会首先在物理层和数据链路层进行错误检查。若没有错误,则在事务层检查该 TLP,以确定应使用哪种路由方式。基本步骤如下:
-
-1. Format 字段和 Type 字段确定包头的大小、格式以及 TLP 的类型。
-
-2. 设备根据与该 TLP 类型相关联的路由方式,判断自身是否为预期接收方。如果是,则接受(消费)该 TLP;如果不是,则将其转发到相应的出口端口——但需遵守该出口端口的排序规则和流控规则。
-
-3. 如果该设备既不是预期接收方,也不在通往预期接收方的路径上,则通常会将其作为不支持的请求(Unsupported Request, UR)拒绝。
-
-
----
-
-## 应用路由机制
-
-一旦系统地址被配置好且事务被使能,设备会检查收到的 TLP,并使用相应的配置字段对报文进行路由。后续章节将描述在 PCI Express 交换结构中路由 TLP 时所使用的各种路由机制的基本特性与功能。
-
----
-
-## ID 路由 (ID Routing)
-
-ID 路由用于在拓扑中定位 Function 的逻辑位置 —— 即 Bus Number、Device Number、Function Number(通常称为 BDF)。它与 PCI 和 PCI‐X 协议中用于配置事务的路由方式兼容。在 PCIe 中,它仍然用于路由配置报文,同时也被用于路由完成报文和部分消息报文。
-
-
----
-
-## 总线号、设备号、功能号限制
-
-PCI Express 支持与 PCI 和 PCI‐X 相同的拓扑限制:
-
-1. 总线号使用 8 位,因此一个系统中最多可以有 256 条总线。这包括由交换机 (Switch) 创建的内部总线。
-
-2. 设备号使用 5 位,因此每条总线上最多可以有 32 个设备。较旧的 PCI 总线或交换机 (Switch) 或根复合体 (Root Complex) 中的内部总线可以承载多个下游设备。然而,外部 PCIe 链路 (Link) 始终是点对点的,链路上只有一个下游设备。外部链路的设备号由下游端口 (Downstream Port) 强制规定为始终为设备 0,因此每个外部端点 (Endpoint) 将始终是设备 0(除非使用 ARI (替代路由 ID 解释),在这种情况下,没有设备号;关于 ARI 的更多内容,请参见第 909 页 "IDO (基于 ID 的排序)" 一节)。
-
-3. 功能号使用 3 位,因此每个设备最多可以有 8 个内部功能。
-
----
-
-## ID 路由中的关键 TLP 包头字段
-
-如果接收到的 TLP 中 Type 字段指示使用 ID 路由,则包头中的 ID 字段(Bus、Device、Function)将用于执行路由检查。这里有两种情况:使用 3DW 包头的 ID 路由和使用 4DW 包头的 ID 路由(仅在消息中可能出现)。第 156 页的图 4‐15 给出了采用 ID 路由与 3DW 包头的 TLP 示例,第 156 页的图 4‐16 则给出了 ID 路由对应的 4DW 包头示例。
-
-图 4‐15:3DW TLP 包头 — ID 路由字段
+Figure 4-15: 3DW TLP Header - ID Routing Fields
 ![](images/part02_a3eae75f4c57834d4b43ecc60db67b8feedf07b5daeead859131dec27b5446e6.jpg)
 
-图 4‐16:4DW TLP 包头 — ID 路由字段
+Figure 4-16: 4DW TLP Header - ID Routing Fields
 ![](images/part02_c5e73cb93b4421601309081f14e7dd41039673423275cf68bf670983767ecc47.jpg)
 
+| EN | ZH |
+|:---|:---|
+| ## Endpoints: One Check | ## 端点：单一检查 |
+| For ID routing, an Endpoint simply checks the ID field in the packet header against its own BDF. Each function "captures" its own Bus and Device Number every time a Type 0 configuration write is seen on its link from bytes 8-9 in the TLP Header. Where the captured Bus and Device Number information should be stored is not specified, only that functions must save it. The saved Bus and | 对于 ID 路由，端点只需将数据包头中的 ID 字段与自身的 BDF 进行比对。每当在其链路上检测到 Type 0 配置写操作时，每个功能都会从 TLP 头的第 8-9 字节中"捕获"其自身的总线号和设备号。捕获到的总线号和设备号信息应存储在何处并未明确规定，只要求功能必须保存这些信息。已保存的总线和 |
 
----
+| EN | ZH |
+|:---|:---|
+| Chapter 4: Address Space & Transaction Routing | 第4章：地址空间与事务路由 |
+| Device numbers are used as the Requester ID in TLP requests that this Endpoint initiates so the Completer of that request can include the Requester ID value in the completion packet(s). The Requester ID in a completion packet is used to route the completion. | 设备号用作该端点发起的TLP请求中的请求者ID，以便该请求的完成者能够在完成报文中包含请求者ID值。完成报文中的请求者ID用于路由该完成报文。 |
 
-## 端点:一次检查
+| EN | ZH |
+|:---|:---|
+| Switches (Bridges): Two Checks Per Port | 交换机（桥）：每端口两次检查 |
+| For an ID-routed TLP, a switch port first checks to see whether it is the intended target by comparing the target ID in the TLP Header against its own BDF, as shown by (1) in Figure 4-17 on page 158. As was true for an Endpoint, each switch port captures its own Bus and Device number every time a configuration write (Type 0) is detected on its Upstream Port. If the target ID field in the TLP agrees with the ID of the switch port, it consumes the packet. If the ID field doesn't match, it then checks to see if the TLP is targeting a device below this switch port. It does this by checking the Secondary and Subordinate Bus Number registers to see if the target Bus Number in the TLP is within this range (inclusive). If so, then the TLP should be forwarded downstream. This check is indicated by (2) in Figure 4-17 on page 158. If the packet was moving downstream (arrived on the Upstream Port) and doesn't match the BDF of the Upstream Port or fall within the Secondary-Subordinate bus range, it will be handled as an Unsupported Request on the Upstream Port. | 对于ID路由的TLP，交换机端口首先通过将TLP头中的目标ID与自己的BDF进行比较，来检查自身是否为目标，如图4-17第158页中的(1)所示。与端点一样，每当在其上游端口上检测到配置写（类型0）时，每个交换机端口都会捕获自己的总线和设备号。如果TLP中的目标ID字段与交换机端口的ID一致，则该端口消费此包。如果ID字段不匹配，则接下来检查该TLP是否以本交换机端口下游的设备为目标。通过检查Secondary Bus Number和Subordinate Bus Number寄存器，看TLP中的目标总线号是否在此范围内（含边界）。如果是，则该TLP应向下游转发。此检查如图4-17第158页中的(2)所示。如果包是向下游移动的（到达上游端口），且既不匹配上游端口的BDF，也不在Secondary-Subordinate总线范围内，则它将在上游端口上作为不支持的请求（Unsupported Request）处理。 |
+| If the Upstream Port determines that a TLP it received is for one of the devices beneath it (because the target bus number was within the range of its Secondary-Subordinate bus number range), then it forwards it downstream and all the downstream ports of the switch perform the same checks. Each downstream port checks to see if the TLP is targeting them. If so, the targeted port will consume the TLP and the other ports ignore it. If not, all downstream ports check to see if the TLP is targeting a device beneath their port. The one port that returns true on that check will forward the TLP to its Secondary Bus and the other downstream ports ignore the TLP. | 如果上游端口确定其接收到的TLP是发往其下游的某个设备（因为目标总线号在其Secondary-Subordinate总线号范围内），则将TLP向下游转发，交换机的所有下游端口执行相同的检查。每个下游端口检查该TLP是否以自己为目标。如果是，目标端口消费该TLP，其他端口忽略。如果不是，所有下游端口检查该TLP是否以其端口下游的设备为目标。对该检查返回真的那个端口将TLP转发到其Secondary Bus，其他下游端口忽略该TLP。 |
+| In this section, it is important to remember that each port on a switch is a Bridge, and thus has its own configuration space with a Type 1 Header. Even though Figure 4-17 on page 158 only shows a single Type 1 Header, in reality, each port (each P2P Bridge) has its own Type 1 Header and performs the same two checks on TLPs when they are seen by that port. | 在本节中，重要的是要记住，交换机上的每个端口都是一个桥（Bridge），因此拥有自己的配置空间，带有类型1头（Type 1 Header）。尽管图4-17第158页只显示了一个Type 1 Header，但实际上，每个端口（每个P2P桥）都有自己的Type 1 Header，并在该端口看到TLP时对其执行相同的两次检查。 |
 
-对于 ID 路由,端点只需将包头中的 ID 字段与自身的 BDF 进行比对即可。每个功能在其链路上每次看到 Type 0 配置写时,都会"捕获"来自 TLP 包头第 8-9 字节的总线号和设备号。规范并未规定应将所捕获的总线号和设备号信息存储在哪里,只要求功能必须将其保存。所保存的总线号和
-
-## 第 4 章:地址空间与事务路由
-
-设备号 (Device Number) 作为该端点 (Endpoint) 发起的 TLP 请求中的请求者 ID (Requester ID),以便该请求的完成者 (Completer) 能够在完成报文 (Completion) 中包含请求者 ID 字段的值。完成报文中的请求者 ID 用于路由该完成报文。
-
-## 交换机(桥):每个端口进行两次检查
-
-对于采用 ID 路由的 TLP,交换机端口首先通过将 TLP 包头 (Header) 中的目标 ID 与自身的 BDF 进行比较,以判断自身是否就是预期的目标接收方,如第 158 页图 4-17 中的 (1) 所示。与端点 (Endpoint) 一样,每当在上游端口 (Upstream Port) 上检测到一次配置写 (Type 0) 时,每个交换机端口都会捕获自身的总线号和设备号。如果 TLP 中的目标 ID 字段与该交换机端口的 ID 相符,则该端口消费该报文。如果 ID 字段不匹配,则接着检查该 TLP 是否是定向到本交换机端口下方的设备。它通过检查 Secondary 与 Subordinate Bus Number 寄存器,判断 TLP 中的目标总线号是否落在该范围(含端点)内。如果是,则该 TLP 应被向下游转发。该检查在第 158 页图 4-17 中以 (2) 表示。如果该报文是向下游流动的(即到达上游端口),并且既不匹配上游端口的 BDF,也不落在 Secondary-Subordinate 总线号范围内,则将在上游端口上作为不支持的请求 (Unsupported Request) 处理。
-
-如果上游端口判定其接收到的 TLP 是定向到它下方某个设备的(因为目标总线号落在其 Secondary-Subordinate 总线号范围内),则它将该 TLP 向下游转发,交换机的所有下游端口都会执行同样的检查。每个下游端口都检查 TLP 是否以自身为目标。如果是,则被寻址的端口消费该 TLP,其余端口忽略该报文。如果不是,则所有下游端口均检查 TLP 是否定向到它们各自端口下方的设备。在该检查中返回 true 的那个端口会将 TLP 转发到它的 Secondary Bus,而其余下游端口则忽略该 TLP。
-
-在本节中,重要的是要记住交换机上的每个端口都是一个桥 (Bridge),因此具有自己的配置空间,配置空间带有 Type 1 包头。尽管第 158 页的图 4-17 只显示了一个 Type 1 包头,但实际上,每个端口(即每个 P2P 桥)都有自己的 Type 1 包头,并在该端口看到 TLP 时执行同样的两次检查。
-
-Figure 4-17: Switch Checks Routing Of An Inbound TLP Using ID Routing  
+Figure 4-17: Switch Checks Routing Of An Inbound TLP Using ID Routing
 ![](images/part02_fc6f79f8ca30a0eaee36c18c935ef53ffbdba2126190699e50eddded332a2037.jpg)
 
+| EN | ZH |
+|:---|:---|
+| ## Address Routing | ## 地址路由 |
+| TLPs that use address routing refer to the same memory (system memory and memory‑mapped IO) and IO address maps that PCI and PCI‑X transactions do. Memory requests targeting an address below 4GB (i.e. a 32‑bit address) must use a 3DW header, and requests targeting an address above 4GB (i.e. a 64‑bit address) must use a 4DW header. IO requests are restricted to 32‑bit addresses and are only implemented to support legacy functionality. | 使用地址路由的TLP参照与PCI和PCI‑X事务相同的存储器（系统存储器和存储器映射IO）及IO地址映射。目标地址低于4GB（即32位地址）的存储器请求必须使用3DW包头，目标地址高于4GB（即64位地址）的请求必须使用4DW包头。IO请求仅限于32位地址，且仅为实现传统功能而保留。 |
 
----
+| EN | ZH |
+|:---|:---|
+| ## Key TLP Header Fields in Address Routing | ## 地址路由中的关键 TLP 头标字段 |
+| When the Type field indicates address routing is to be used for a TLP, then the Address Fields in the header are used to perform the routing check. These can be 32‑bit addresses or 64‑bit addresses. | 当 Type 字段指示某个 TLP 应使用地址路由时，则头标中的地址字段用于执行路由检查。这些地址可以是 32 位地址或 64 位地址。 |
+| TLPs with 32‑Bit Address — For IO or 32‑bit memory requests, a 3DW header is used as shown in Figure 4‑18. The memory‑mapped registers targeted with these TLPs will therefore reside below the 4GB memory or IO address boundary. | 32 位地址 TLP —— 对于 IO 或 32 位存储器请求，使用 3DW 头标，如图 4-18 所示。因此，这些 TLP 所寻址的内存映射寄存器将位于 4GB 存储器或 IO 地址边界以下。 |
+| TLPs with 64‑Bit Address — For 64‑bit memory requests, a 4DW header is used as shown in Figure 4‑19 on page 160. The memory‑mapped registers targeted with these TLPs are able to reside above the 4GB memory boundary. | 64 位地址 TLP —— 对于 64 位存储器请求，使用 4DW 头标，如第 160 页图 4-19 所示。这些 TLP 所寻址的内存映射寄存器可以位于 4GB 存储器边界以上。 |
 
-## 地址路由
-
-采用地址路由的 TLP 所引用的存储空间(系统内存和内存映射 IO)以及 IO 地址映射,与 PCI 和 PCI‐X 事务使用的地址映射相同。目标地址低于 4GB(即 32 位地址)的内存请求必须使用 3DW 包头;目标地址高于 4GB(即 64 位地址)的内存请求必须使用 4DW 包头。IO 请求被限制为 32 位地址,仅用于支持旧有功能。
-
----
-
-## 地址路由中关键的 TLP 包头字段
-
-当 Type 字段指示某条 TLP 使用地址路由时,包头中的地址字段用于执行路由检查。这些地址可以是 32 位地址,也可以是 64 位地址。
-
-**32 位地址的 TLP** 对于 IO 或 32 位内存请求,使用 3DW 包头,如图 4‐18 所示。因此,由这些 TLP 寻址的内存映射寄存器将位于 4GB 内存或 IO 地址边界以下。
-
-**64 位地址的 TLP** 对于 64 位内存请求,使用 4DW 包头,如图 4‐19(第 160 页)所示。由这些 TLP 寻址的内存映射寄存器能够位于 4GB 内存边界以上。
-
-图 4‐18:3DW TLP 包头 ‐ 地址路由字段
+Figure 4‑18: 3DW TLP Header — Address Routing Fields
 ![](images/part02_35aa75f79ed03d1081d34cf95b053c7f1e1f7022db9fd9fe908c90f87e7ad67a.jpg)
 
-图 4‐19:4DW TLP 包头 ‐ 地址路由字段
+Figure 4‑19: 4DW TLP Header — Address Routing Fields
 ![](images/part02_5c852f5678febf67f3fc428e4d27a5319701cb83d0df73f869d7b9b4793005e2.jpg)
 
-## Endpoint Address Checking
+| EN | ZH |
+|:---|:---|
+| ## Endpoint Address Checking | ## 端点地址检查 |
+| If an Endpoint receives a TLP that uses address routing then it checks the address in the header against each of its implemented Base Address Registers (BARs) in its configuration header, as shown in Figure 4-20. Since Endpoints only have one link interface, it will either accept the packet or reject it. The Endpoint will accept the packet if the target address in the TLP matches one of the ranges programmed into its BARs. More info on how the BARs are used can be found in section "Base Address Registers (BARs)" on page 126. | 如果端点接收到一个采用地址路由的 TLP，则它会将包头中的地址与其配置头中实现的每一个基址寄存器 (BAR) 进行比对，如图 4-20 所示。由于端点只有一个链路接口，它要么接受该包，要么拒绝该包。如果 TLP 中的目标地址与端点的 BAR 中所编程的某一地址范围相匹配，则该端点将接受此包。关于 BAR 如何使用的更多信息，请参见第 126 页的"基址寄存器 (BAR)"一节。 |
 
-如果 Endpoint 接收到一个采用地址路由的 TLP,则会将包头中的地址与其 Configuration (配置) 头中每个已实现的 Base Address Register (BAR) 进行比较检查,如图 4-20 所示。由于 Endpoint 仅有一个链路接口,因此它要么接受该报文,要么拒绝该报文。当 TLP 中的目标地址与其某个 BAR 所编程的地址范围匹配时,Endpoint 将接受该报文。关于 BAR 使用方式的更多信息,可参见第 126 页的 "Base Address Registers (BARs)" 一节。
+| EN | ZH |
+|:---|:---|
+| Chapter 4: Address Space & Transaction Routing | 第4章：地址空间与事务路由 |
 
-## Chapter 4: Address Space & Transaction Routing
+Figure 4-20: Endpoint Checks Incoming TLP Address
+![](images/part02_1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg)
 
-Figure 4‐20: 端点检查传入的 TLP 地址
-![端点检查传入的 TLP 地址](images/part02_1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg)
+| EN | ZH |
+|:---|:---|
+| ## Switch Routing | ## 交换机路由 |
 
+| EN | ZH |
+|:---|:---|
+| If an incoming TLP uses address routing, a Switch Port first checks to see if the address is local within the Port itself by comparing the address in the packet header against its two BARs in its Type 1 configuration header, as shown in Step 1 of Figure 4-21 on page 162. If it matches one of these BARs, the switch port is the target of the TLP and consumes the packet. If not, the port then checks its Base/Limit register pairs to see if the TLP is targeting a function beneath (downstream of) this bridge. If the Request targets IO space, it will check the IO Base and Limit registers, as shown in Step 2a. However, if the Request targets memory space, it will check the Nonprefetchable Memory Base/Limit registers and the Prefetchable Memory Base/Limit registers, as indicated by Step 2b in Figure 4-21 on page 162. More info on how the Base/Limit register pairs are evaluated can be found in section "Base and Limit Registers" on page 136. | 如果传入的TLP采用地址路由,则交换机端口首先通过将数据包头中的地址与其Type 1配置头中的两个BAR进行比较,来检查该地址是否在端口自身本地范围内,如第162页图4-21中的步骤1所示。如果地址与这两个BAR之一匹配,则该交换机端口即为TLP的目标并且会接收该数据包。如果不匹配,则该端口随后检查其Base/Limit寄存器对,以判断该TLP是否以本桥下游(之下的)某个功能为目标。如果请求以IO空间为目标,则会检查IO Base和IO Limit寄存器,如步骤2a所示。然而,如果请求以存储器空间为目标,则会检查不可预取存储器Base/Limit寄存器和可预取存储器Base/Limit寄存器,如第162页图4-21中的步骤2b所示。关于如何评估Base/Limit寄存器对的更多信息,请参见第136页"Base and Limit Registers"一节。 |
 
----
-
-## Switch 路由
-
-如果传入的 TLP 使用地址路由,Switch 端口首先通过将包头中的地址与其 Type 1 配置头中的两个 BAR 进行比较,以查看该地址是否在该端口本地范围内,如图 4-21 第 162 页的步骤 1 所示。如果与其中一个 BAR 匹配,则该 Switch 端口就是 TLP 的目标,并消费该报文。如果不匹配,则该端口随后检查其 Base/Limit 寄存器对,以查看 TLP 是否以该桥下游的某个功能为目标。如果请求(Request)以 IO 空间为目标,它将检查 IO Base 和 Limit 寄存器,如步骤 2a 所示。但是,如果请求以存储器空间为目标,则它将检查 Nonprefetchable Memory Base/Limit 寄存器和 Prefetchable Memory Base/Limit 寄存器,如第 162 页图 4-21 中的步骤 2b 所示。有关如何评估 Base/Limit 寄存器对的更多信息,请参阅第 136 页的 "Base and Limit Registers" 一节。
-
-Figure 4‐21: Switch Checks Routing Of An Inbound TLP Using Address  
 ![](images/part02_47521d33eb88e6a8aa297bb7e9520c2500d1748e9639be55d27495f09b5b3353.jpg)
+Figure 4-21: Switch Checks Routing Of An Inbound TLP Using Address
 
-要理解 Switch 中基于地址的 TLP 的路由,最好记住每个 Switch 端口都是其自己的桥。下面是该桥(Switch 端口)在收到基于地址的 TLP 时所采取的步骤:
+| EN | ZH |
+|:---|:---|
+| To understand routing of address-based TLPs in switches, it is good to remember that each switch port is its own bridge. Below are the steps that a bridge (switch port) takes upon receiving an address-based TLP: | 要理解交换机中基于地址的TLP路由,有必要记住每个交换机端口自身就是一个桥。下面是桥(交换机端口)在接收到基于地址的TLP时所执行的步骤: |
 
+| EN | ZH |
+|:---|:---|
+| ## Downstream Traveling TLPs (Received on Primary Interface) | ## 下游传输的TLP（在主接口上接收） |
+| 1. IF the target address in the TLP matches one of the BARs, then this bridge (switch port) consumes the TLP because it is the target of the TLP. | 1. 如果TLP中的目标地址与某个BAR匹配，则该桥（交换机端口）将消费该TLP，因为它是该TLP的目标。 |
+| 2. IF the target address in the TLP falls in the range of one of its Base/Limit register sets, the packet will be forwarded to the secondary interface (downstream). | 2. 如果TLP中的目标地址落在其某个基址/限制寄存器组的范围内，则该包将被转发到辅助接口（下游）。 |
+| 3. ELSE the TLP will be handled as an Unsupported Request on the primary interface. (This is true if no other bridges on the primary interface claim the TLP either.) | 3. 否则，该TLP将在主接口上作为不支持的请求处理。（如果主接口上没有其他桥也声明该TLP，则确实如此。） |
 
----
+| EN | ZH |
+|:---|:---|
+| ## Upstream Traveling TLPs (Received on Secondary Interface) | ## 向上游传输的 TLP（在次级接口上接收） |
+| 1. IF the target address in the TLP matches one of the BARs, then this bridge (switch port) consumes the TLP because it is the target of the TLP. | 1. 如果 TLP 中的目标地址与某个 BAR 匹配，则该桥（交换机端口）将消费该 TLP，因为它是该 TLP 的目标。 |
+| 2. IF the target address in the TLP falls in the range of one of its Base/Limit register sets, the TLP will be handled as an Unsupported Request on the secondary interface. (This is true unless this port is the upstream port of the switch. In these cases, the packet may be a peer-to-peer transaction and will be forwarded downstream on a different downstream port than the one it was received on.) | 2. 如果 TLP 中的目标地址落在其某个基址/限址寄存器的范围内，则该 TLP 将在次级接口上作为不支持的请求（Unsupported Request）处理。（除非该端口是交换机的上游端口，否则此规则成立。在后一种情况下，该包可能是一个对等传输事务，并将在不同于接收端口的下游端口上向下游转发。） |
+| 3. ELSE the TLP will be forwarded to the primary interface (upstream) given that the TLP address is not for this bridge and is not for any function beneath this bridge. | 3. 否则，如果 TLP 地址既不是针对该桥，也不是针对该桥下游的任何功能，则该 TLP 将被转发到主接口（上游）。 |
 
-## 下行传输的 TLP(在主接口上接收)
+| EN | ZH |
+|:---|:---|
+|  |  |
+| ## Multicast Capabilities | ## 组播能力 |
+| The 2.1 version of the PCI Express specification added support for specifying a range of addresses that provide multicast functionality. | PCI Express 规范的 2.1 版本增加了对指定一个地址范围以提供组播功能的支持。 |
+| Any packets received that fall within the address range specified as the multicast range are routed/accepted according to the multicast rules. | 任何接收到的、落在被指定为组播范围的地址区间内的数据包，将根据组播规则进行路由/接受。 |
+| This address range might not be reserved in a function's BARs and might not be within a bridge's Base/Limit register pair, but would still need to be accepted/forwarded appropriately. | 该地址范围可能不会在某个功能的 BAR 中预留，也可能不在某个桥的 Base/Limit 寄存器对所覆盖的范围内，但仍需被适当地接受/转发。 |
+| More info can be found on the multicast functionality in the section on "Multicast Capability Registers" on page 889. | 关于组播功能的更多信息，请参阅第 889 页的"组播能力寄存器"(Multicast Capability Registers) 一节。 |
 
-1. 如果 TLP 中的目标地址与某个 BAR 匹配,则该桥(交换机端口)将消费此 TLP,因为它就是该 TLP 的目标。
+| EN | ZH |
+|:---|:---|
+| ## Implicit Routing | ## 隐式路由 |
+| Implicit routing, used in some message packets, is based on the awareness of routing elements that the topology has upstream and downstream directions and a single Root Complex at the top. This allows some simple routing methods without the need to assign a target address or ID. Since the Root Complex generally integrates power management, interrupt, and error handling logic, it is either the source or recipient of most PCI Express messages. | 隐式路由用于某些消息包中，它基于路由元件对拓扑结构具有上行和下行方向以及顶端单一根复合体的认知。这使得一些简单的路由方法无需分配目标地址或ID。由于根复合体通常集成了电源管理、中断和错误处理逻辑，因此它是大多数PCI Express消息的源端或接收端。 |
 
-2. 如果 TLP 中的目标地址落在其某一组 Base/Limit 寄存器的地址范围内,则该报文将被转发到 secondary 接口(下行)。
+| EN | ZH |
+|:---|:---|
+| **Only for Messages** | **仅适用于消息** |
+| Some messages use address or ID routing rather than implicit routing, and for them, the routing mechanisms are applied in the same way as described in the those sections. However, most messages use implicit routing. The purpose of implicit routing is to mimic side‑band signal behavior since a design goal for PCIe was to eliminate as many side‑band signals from PCI as possible. These side‑band signals in PCI were typically either the host notifying all devices of an event or devices notifying the host of an event. In PCIe, we have Message TLPs to convey these events. The types of events that PCIe has defined messages for are: | 某些消息使用地址路由或ID路由而非隐式路由，对于这些消息，路由机制的应用方式与前述章节中描述的相同。然而，大多数消息使用隐式路由。隐式路由的目的是模拟边带信号行为，因为PCIe的一个设计目标是尽可能消除PCI中的边带信号。PCI中的这些边带信号通常是主机通知所有设备某个事件，或设备通知主机某个事件。在PCIe中，我们使用消息TLP来传递这些事件。PCIe已为其定义消息的事件类型包括： |
+| Power Management | 电源管理 |
+| INTx legacy interrupt signaling | INTx传统中断信令 |
+| Error signaling | 错误信令 |
+| Locked Transaction support | 锁定事务支持 |
+| Hot Plug signaling | 热插拔信令 |
+| Vendor‑specific signaling | 厂商特定信令 |
+| Slot Power Limit settings | 插槽功率限制设置 |
 
-3. 否则(ELSE),该 TLP 将在主接口上作为不支持的请求 (Unsupported Request) 处理。(如果主接口上没有其他桥声明接收该 TLP,则同样适用此规则。)
-
-
----
-
-## 上行传输的 TLP(在次级接口上接收)
-
-1. 如果 TLP 中的目标地址与某个 BAR 匹配,则该桥(交换机端口)将消费此 TLP,因为它是该 TLP 的目标。
-
-2. 如果 TLP 中的目标地址落在其某个 Base/Limit 寄存器组的地址范围内,则此 TLP 将在次级接口上作为不支持的请求 (Unsupported Request) 处理。(除非此端口是交换机的上游端口;在这种情况下,该报文可能是一笔对等 (peer‐to‐peer) 事务,并将被转发到与接收端口不同的某个下游端口上的下游方向。)
-
-3. 否则,只要 TLP 的目标地址不属于本桥,也不属于本桥下挂的任何一个功能,该 TLP 将被转发到主接口(上游方向)。
-
-
----
-
-## 组播功能
-
-PCI Express 规范的 2.1 版本新增了对指定一段地址范围以提供组播功能的支持。任何接收到的、落在指定为组播地址范围内的报文,都会按照组播规则进行路由/接收。该地址范围可能未在某个功能的 BAR 中预留,也可能不在桥的 Base/Limit 寄存器对范围内,但仍需要被正确地接收/转发。有关组播功能的更多信息,可参阅第 889 页“组播功能寄存器(Multicast Capability Registers)”一节。
-
----
-
-## Implicit Routing (隐式路由)
-
-Implicit routing, used in some message packets, is based on the awareness of routing elements that the topology has upstream and downstream directions and a single Root Complex at the top. This allows some simple routing methods without the need to assign a target address or ID. Since the Root Complex generally integrates power management, interrupt, and error handling logic, it is either the source or recipient of most PCI Express messages.
-
-
----
-
-## Only for Messages
-
-部分报文使用地址或 ID 路由而非隐式路由,对于这些报文,路由机制的应用方式与前述章节中描述的相同。然而,大多数报文采用隐式路由。隐式路由的目的在于模拟边带信号(side-band signal)的行为,因为 PCIe 的一个设计目标是尽可能消除 PCI 中原有的众多边带信号。PCI 中的这些边带信号通常用于:主机通知所有设备某事件的发生,或设备通知主机某事件的发生。在 PCIe 中,我们使用 Message TLP 来传递这些事件。PCIe 已为以下类型的事件定义了报文:
-
-- 电源管理 (Power Management)
-
-- INTx 传统中断信号
-
-- 错误信号 (Error)
-
-- 锁定事务 (Locked Transaction) 支持
-
-- 热插拔 (Hot-Plug) 信号
-
-- 厂商自定义信号
-
-- 插槽电源限制 (Slot Power Limit) 设置
-
----
-
-## 隐式路由中的关键 TLP 包头字段
-
-对于隐式路由,包头中的路由子字段用于确定报文的目的地。164 页的图 4-22 展示了使用隐式路由的报文 TLP。
-
-图 4-22:4DW 报文 TLP 包头 - 隐式路由字段
 ![](images/part02_180e1d6d4c7b49cebf8eda3097555e2eb146e70d55ac049bbc4ae3669523c4b5.jpg)
+Figure 4-22: 4DW Message TLP Header - Implicit Routing Fields
 
+| EN | ZH |
+|:---|:---|
+| ## Key TLP Header Fields in Implicit Routing | ## 隐式路由中的关键 TLP 头字段 |
+| For implicit routing, the routing sub-field in the header is used to determine the message destination. Figure 4-22 on page 164 illustrates a message TLP using implicit routing. | 对于隐式路由，头中的路由子字段用于确定报文目的地。第 164 页的图 4-22 展示了一个使用隐式路由的报文 TLP。 |
 
----
+| EN | ZH |
+|:---|:---|
+| ## Message Type Field Summary | ## 消息类型字段总结 |
+| Table 4-10 on page 165 shows how the TLP header Type field for Messages is interpreted. As shown, the upper two bits indicate the packet is a Message while the lower three bits specify the routing method to apply. Note that Message TLPs always use a 4DW header regardless of the routing option selected. | 第165页表4-10展示了消息的TLP头Type字段是如何解析的。如图所示，高两位表示该报文为消息，而低三位指定要应用的路由方法。注意，无论选择哪种路由选项，消息TLP始终使用4DW头。 |
+| For address routing, bytes 8-15 contain up to a 64-bit address, and for ID routing, bytes 8 and 9 contain the target BDF. | 对于地址路由，字节8-15包含最多64位的地址；对于ID路由，字节8和9包含目标BDF。 |
 
-## Message Type 字段汇总
+Table 4-10: Message Request Header Type Field Usage
 
-第 165 页的表 4‐10 展示了 Message 的 TLP Header Type 字段如何被解读。如表所示,高两位表明该报文为 Message,而低三位指定所采用的路由方法。需要注意的是,无论选择何种路由选项,Message TLP 始终使用 4DW Header。
+<table><tr><td>Type Field Bits</td><td>Description</td></tr><tr><td>Bit 4:3</td><td>Defines the type of transaction: $10b = \text{Message TLP}$ </td></tr><tr><td>Bit 2:0</td><td>Message Routing Subfield R[2:0] $\bullet$  000b = Implicit - Route to the Root Complex $\bullet$  001b = Route by Address (bytes 8-15 of header contain address) $\bullet$  010b = Route by ID (bytes 8-9 of header contain ID) $\bullet$  011b = Implicit - Broadcast downstream $\bullet$  100b = Implicit - Local: terminate at receiver $\bullet$  101b = Implicit - Gather &amp; route to the Root Complex $\bullet$  110b - 111b = Reserved: terminate at receiver</td></tr></table>
 
-对于地址路由,字节 8~15 包含最多 64 位的地址;对于 ID 路由,字节 8 和字节 9 包含目标的 BDF。
+| EN | ZH |
+|:---|:---|
+| ## Endpoint Handling | ## 端点处理 |
+| For implicit routing, an Endpoint simply checks whether the routing sub‑field is appropriate for it. For example, an Endpoint will accept a Broadcast Message or a Message that terminates at the receiver; but not Messages that implicitly target the Root Complex. | 对于隐式路由，端点只需检查路由子字段是否适用于它。例如，端点将接受广播消息或终止于接收方的消息；但不接受隐式目标为根复合体（Root Complex）的消息。 |
 
-表 4‐10:Message Request Header Type 字段使用说明
+| EN | ZH |
+|:---|:---|
+| ## Switch Handling | ## 交换机处理 |
+| Routing elements like Switches consider the port on which the TLP arrived on and whether the routing sub‐field code is appropriate for it. For example: | 诸如交换机之类的路由元素会考虑TLP到达的端口，以及其路由子字段编码是否适用于该端口。例如： |
+| 1. A Switch Upstream Port may legitimately receive a Broadcast Message. It will duplicate that and forward it to all its Downstream Ports. An implicitly routed Broadcast Message received on a Downstream Port of a Switch (meaning the message was traveling upstream) would be an error that would be handled as a Malformed TLP. | 1. 交换机的上游端口可以合法接收广播消息。它将复制该消息并将其转发到其所有下游端口。在交换机的下游端口上接收到的隐式路由广播消息（意味着该消息正在向上游方向传输）将被视为错误，并作为畸形TLP处理。 |
+| 2. A Switch may receive implicitly routed Messages for the Root Complex on Downstream Ports and will forward these to its Upstream Port because the location of the Root Complex is understood to be upstream. It would not accept Messages received on its Upstream Port (meaning the message was traveling downstream) that are implicitly routed to the Root Complex. | 2. 交换机可以在下游端口上接收隐式路由到根复合体的消息，并将这些消息转发到其上游端口，因为根复合体的位置被理解为在上游方向。它不会接受在其上游端口上接收到的隐式路由到根复合体的消息（意味着该消息正在向下游方向传输）。 |
 
-<table><tr><td>Type 字段位</td><td>说明</td></tr><tr><td>Bit 4:3</td><td>定义事务类型:$10b = \text{Message TLP}$ </td></tr><tr><td>Bit 2:0</td><td>Message Routing 子字段 R[2:0] $\bullet$  000b = Implicit — 路由至 Root Complex $\bullet$  001b = Route by Address(Header 字节 8‐15 包含地址) $\bullet$  010b = Route by ID(Header 字节 8‐9 包含 ID) $\bullet$  011b = Implicit — 向下游广播 $\bullet$  100b = Implicit — 本地:在接收端终结 $\bullet$  101b = Implicit — Gather 并路由至 Root Complex $\bullet$  110b - 111b = 保留:在接收端终结</td></tr></table>
+| EN | ZH |
+|:---|:---|
+| ## PCI Express Technology | ## PCI Express 技术 |
+| 3. If an implicitly routed Message indicates it should terminate at the receiver, then the receiving switch port will consume the message rather than forward it. | 3. 如果一个隐式路由的消息指示它应当在接收端处终止，那么接收端的交换机端口将消费（consume）该消息，而不是将其转发出去。 |
+| 4. For messages routed using address or ID routing, a Switch will simply perform normal address or ID checks in deciding whether to accept or forward it. | 4. 对于使用地址路由或 ID 路由的消息，交换机将仅执行常规的地址或 ID 检查以决定是接受还是转发该消息。 |
 
+| EN | ZH |
+|:---|:---|
+| DLLPs and Ordered Sets Are Not Routed | DLLP 与有序集不进行路由 |
+| DLLP and Ordered Set traffic is not routed from ingress ports to egress ports of switches or root complexes. These packets move from port to port across a link from Physical Layer to Physical Layer. | DLLP 和有序集的流量不会从交换机或根复合体的入口端口路由到出口端口。这些报文从一个端口到另一个端口，跨链路从物理层到物理层进行传输。 |
+| DLLPs originate at the Data Link Layer of a PCI Express port, pass through the Physical Layer, exit the port, traverse the Link and arrive at the neighboring port. At this port, the packet passes through the Physical Layer and ends up at the Data Link Layer where it is processed and consumed. DLLPs do not proceed further up the port to the Transaction Layer and hence are not routed. | DLLP 起源于 PCI Express 端口的数据链路层，经过物理层，离开端口，穿越链路，到达相邻端口。在该相邻端口，报文通过物理层，最终到达数据链路层，在那里被处理和消费。DLLP 不会继续向上到达端口的事务层，因此不被路由。 |
+| Similarly, Ordered-Set packets originate at the Physical Layer, exit the port, traverse the Link and arrive at the neighboring port. At this port, the packet arrives at the Physical Layer where it is processed and consumed. Ordered-Sets do not proceed further up the port to the Data Link Layer and Transaction Layer and hence are not routed. | 类似地，有序集报文起源于物理层，离开端口，穿越链路，到达相邻端口。在该相邻端口，报文到达物理层，在那里被处理和消费。有序集不会继续向上到达端口的数据链路层和事务层，因此不被路由。 |
+| As has been discussed in this chapter, only TLPs are routed through switches and root complexes. They originate at the Transaction Layer of a source port and end up at the Transaction Layer of a destination port. | 如本章所述，只有 TLP 会通过交换机和根复合体进行路由。它们起源于源端口的事务层，最终到达目的端口的事务层。 |
+| Part Two: | 第二部分： |
+| Transaction Layer | 事务层 |
 
----
+| EN | ZH |
+|:---|:---|
+| ## 5 TLP Elements | ## 5 TLP 元素 |
 
-## 端点处理
+| EN | ZH |
+|:---|:---|
+| The Previous Chapter | 上一章回顾 |
+| The previous chapter describes the purpose and methods of a function requesting address space (either memory address space or IO address space) through Base Address Registers (BARs) and how software must setup the Base/Limit registers in all bridges to route TLPs from a source port to the correct destination port. The general concepts of TLP routing in PCI Express are also discussed, including address-based routing, ID-based routing and implicit routing. | 上一章描述了功能（function）通过基址寄存器（BAR）请求地址空间（存储器地址空间或IO地址空间）的目的与方法，以及软件必须如何配置所有桥中的Base/Limit寄存器，以将TLP从源端口路由到正确的目标端口。还讨论了PCI Express中TLP路由的一般概念，包括基于地址的路由、基于ID的路由和隐式路由。 |
 
-对于隐式路由,端点 (Endpoint) 只需检查其路由子字段是否与自身相匹配。例如,端点会接受广播报文 (Broadcast Message) 或在接收方终止的报文;但不会接受隐式指向根复合体 (Root Complex) 的报文。
+| EN | ZH |
+|:---|:---|
+| ## This Chapter | ## 本章内容 |
+| Information moves between PCI Express devices in packets. The three major classes of packets are Transaction Layer Packets (TLPs), Data Link Layer Packets (DLLPs) and Ordered Sets. This chapter describes the use, format, and definition of the variety of TLPs and the details of their related fields. DLLPs are described separately in Chapter 9, entitled "DLLP Elements," on page 307. | PCI Express 设备之间的信息以包（packet）的形式进行传输。三大类包分别是：事务层包（TLP）、数据链路层包（DLLP）和有序集（Ordered Set）。本章将描述各种 TLP 的用途、格式和定义，以及其相关字段的详细说明。DLLP 将在第 9 章"数据链路层包元素"（第 307 页）中单独描述。 |
 
----
+| EN | ZH |
+|:---|:---|
+| ## The Next Chapter | ## 下一章 |
+| The next chapter discusses the purposes and detailed operation of the Flow Control Protocol. Flow control is designed to ensure that transmitters never send Transaction Layer Packets (TLPs) that a receiver can't accept. This prevents receive buffer over-runs and eliminates the need for PCI-style inefficiencies like disconnects, retries, and wait-states. | 下一章将讨论流控(Flow Control)协议的用途与详细操作。流控的设计目的是确保发送端绝不会发送接收端无法接收的事务层包(TLP)。这避免了接收缓冲区溢出，并消除了PCI风格的低效机制，例如断开连接、重试和等待状态。|
 
-## Switch 的处理
+| EN | ZH |
+|:---|:---|
+| ## Introduction to Packet-Based Protocol | ## 基于数据包协议的介绍 |
 
-像交换机（Switch）这样的路由元素会考虑 TLP 所到达的端口以及路由子字段编码是否与之匹配。例如：
+| EN | ZH |
+|:---|:---|
+| ## General | ## 概述 |
+| Unlike parallel buses, serial transport buses like PCIe use no control signals to identify what's happening on the Link at a given time. Instead, the bit stream they send must have an expected size and a recognizable format to make it possible for the receiver to understand the content. In addition, PCIe does not use any immediate handshake for the packet while it is being transmitted. | 与并行总线不同，像 PCIe 这样的串行传输总线不使用控制信号来标识链路上在给定时刻发生了什么。相反，它们发送的比特流必须具有预期的尺寸和可识别的格式，以便接收方能够理解其内容。此外，PCIe 在数据包传输过程中不使用任何即时握手。 |
+| With the exception of the Logical Idle symbols and Physical Layer packets called Ordered Sets, information moves across an active PCIe Link in fundamental chunks called packets that are comprised of symbols. The two major classes of packets exchanged are the high‐level Transaction Layer Packets (TLPs), and low‐level Link maintenance packets called Data Link Layer Packets (DLLPs). The packets and their flow are illustrated in Figure 5‐1 on page 170. Ordered Sets are packets too, however, they are not framed with a start and end symbol like TLPs and DLLPs are. They are also not byte striped like TLPs and DLLPs are. Ordered Set packets are instead replicated on all Lanes of a Link. | 除了逻辑空闲（Logical Idle）符号和称为有序集（Ordered Sets）的物理层数据包之外，信息在一条活跃的 PCIe 链路上是以由符号组成的基本数据块——称为数据包——的形式传输的。所交换的两大类数据包分别是高层的事务层包（TLP）和低层的链路维护包，称为数据链路层包（DLLP）。这些数据包及其流向如图 5‐1（第 170 页）所示。有序集也是数据包，然而，它们不像 TLP 和 DLLP 那样以起始和结束符号进行帧界定，也不像 TLP 和 DLLP 那样进行字节拆分（byte striped）。有序集数据包是在链路的所有通道上复制发送的。 |
 
-1. 交换机的上游端口（Upstream Port）可以合法地接收一条广播消息（Broadcast Message）。它会复制该消息并将其转发到其所有下游端口（Downstream Port）。如果一条隐式路由的广播消息在交换机的下游端口上被接收（意味着该消息原本是向上游传输的），则属于错误，应作为畸形 TLP（Malformed TLP）处理。
-
-2. 交换机可以在其下游端口上接收隐式路由到根复合体（Root Complex）的消息，并将其转发到上游端口，因为根复合体的位置被理解为在上游方向。它不会接受在其上游端口接收的（意味着该消息原本是向下游传输的）隐式路由到根复合体的消息。
-
----
-
-## PCI Express Technology
-
-3. 如果某个隐式路由的 Message 报文指示应在接收端终止,则接收端的交换机端口会消费该报文,而不是将其转发。
-
-4. 对于使用地址或 ID 路由的报文,Switch 只需执行常规的地址或 ID 检查,据此决定是接受还是转发该报文。
-
----
-
-## DLLP 和有序集不被路由
-
-DLLP 和有序集流量不会从交换机或根复合体的入口端口路由到出口端口。这些数据包通过链路在端口之间逐段传输,从物理层传送到物理层。
-
-DLLP 在 PCI Express 端口的数据链路层产生,经过物理层,离开端口,穿越链路,到达相邻端口。在该端口,数据包经过物理层后到达数据链路层,在该层被处理和消耗。DLLP 不会继续向上传递到端口的事务层,因此不会被路由。
-
-类似地,有序集数据包在物理层产生,离开端口,穿越链路,到达相邻端口。在该端口,数据包到达物理层,在该层被处理和消耗。有序集不会继续向上传递到端口的数据链路层和事务层,因此也不会被路由。
-
-正如本章所述,只有 TLP 才会通过交换机和根复合体进行路由。它们在源端口的事务层产生,并最终到达目的端口的事务层。
-
-第二部分:
-
-事务层
-
----
-
-## 5 TLP 组成元素
-
-
----
-
-## 上一章
-
-上一章介绍了功能( Function )通过基地址寄存器( Base Address Registers, BAR )请求地址空间( 内存地址空间或 IO 地址空间 )的目的与方法,以及软件应如何设置所有桥的 Base/Limit 寄存器,以便将 TLP 从源端口路由到正确的目标端口。本章还讨论了 PCI Express 中 TLP 路由的一般概念,包括基于地址的路由、基于 ID 的路由和隐式路由。
-
-## 本章概述
-
-PCI Express 设备之间以数据包的形式传输信息。数据包主要分为三大类:事务层数据包 (Transaction Layer Packets, TLPs)、数据链路层数据包 (Data Link Layer Packets, DLLPs) 以及有序集合 (Ordered Sets)。本章将介绍各类 TLP 的用途、格式与定义,并详细说明其相关字段。DLLP 将在第 9 章"ʺDLLP Elementsʺ"(第 307 页)中单独介绍。
-
----
-
-## 下一章
-
-下一章将讨论流控 (Flow Control) 协议的目的与详细操作机制。流控 (Flow Control) 旨在确保发送器永远不会发出接收器 (Receiver) 无法接受的 TLP。这可以避免接收缓冲区溢出,并消除 PCI 风格中诸如断开连接、重传 (Retry) 以及等待周期等低效机制。
-
-## 基于包协议简介
-
-
----
-
-## 概述
-
-与并行总线不同,像 PCIe 这样的串行传输总线不使用控制信号来标识在某一时刻链路上发生了什么。取而代之的是,它们所发送的比特流必须具有预期的长度和可识别的格式,以便接收器能够理解其内容。此外,PCIe 在数据包传输过程中不使用任何即时的握手交互。
-
-除了逻辑空闲 (Logical Idle) 符号和被称为有序集合 (Ordered Sets) 的物理层数据包外,信息在一条活跃的 PCIe 链路上以称为数据包 (Packets) 的基本块来传递,这些数据包由符号 (Symbols) 构成。所交换的两大类数据包分别是高层的事务层数据包 (TLP, Transaction Layer Packets) 和低层的链路维护数据包,即数据链路层数据包 (DLLP, Data Link Layer Packets)。这些数据包及其流向在第 170 页的图 5-1 中给出。有序集合也是数据包,但与 TLP 和 DLLP 不同,它们并不使用起始和结束符号进行定界。它们也不像 TLP 和 DLLP 那样按字节拆分到多通道 (Lanes) 上。有序集合数据包会在链路 (Link) 的所有通道上复制发送。
-
-图 5-1:TLP 与 DLLP 数据包  
+Figure 5‐1: TLP And DLLP Packets
 ![](images/part02_c95d2324c799f59c2437e1a433388a586089185e3661fa7dacda8c2af34d8ef6.jpg)
 
+| EN | ZH |
+|:---|:---|
+| ## Motivation for a Packet-Based Protocol | ## 采用基于数据包协议的动机 |
+| There are three distinct advantages to using a packet‑based protocol especially when it comes to data integrity: | 采用基于数据包的协议具有三个显著的优势，尤其是在数据完整性方面： |
 
----
+| EN | ZH |
+|:---|:---|
+| ## 1. Packet Formats Are Well Defined | ## 1. 数据包格式定义明确 |
+| Earlier buses like PCI allow transfers of indeterminate size, making identification of payload boundaries impossible until the end of the transfer. In addition, either device is able to terminate the transfer before it completes, making it difficult for the sender to calculate and send a checksum or CRC covering an entire payload. Instead, PCI uses a simple parity scheme and checks it on each data phase. | PCI 等早期的总线允许传输不定长的数据，这使得在传输结束之前无法识别有效载荷边界。此外，任意一方设备都可以在传输完成之前终止传输，这使得发送方难以计算和发送覆盖整个有效载荷的校验和或 CRC。因此，PCI 采用简单的奇偶校验方案，并在每个数据阶段对其进行检查。 |
+| By comparison, PCIe packets have a known size and format. The packet header at the beginning indicates the packet type and contains the required and optional fields. The size of the header fields is fixed except for the address, which can be 32 bits or 64 bits in size. Once a transfer commences, the recipient can't pause or terminate it early. This structured format allows including information in the TLPs to aid in reliable delivery, including framing symbols, CRC, and a packet Sequence Number. | 相比之下，PCIe 数据包具有已知的大小和格式。开头的数据包头指示了数据包类型，并包含必需字段和可选字段。除了地址可以是 32 位或 64 位大小外，各个头字段的大小是固定的。一旦传输开始，接收方不能暂停或提前终止传输。这种结构化的格式允许在 TLP 中包含有助于可靠传输的信息，包括帧符号、CRC 和数据包序列号。 |
 
-## Motivation for a Packet-Based Protocol
+| EN | ZH |
+|:---|:---|
+| ## 2. Framing Symbols Define Packet Boundaries | ## 2. 成帧符号定义包边界 |
+| When using 8b/10b encoding in Gen1 and Gen2 mode of operation, each TLP and DLLP packet sent is framed by Start and End control symbols, clearly defining the packet boundaries for the receiver. This is a big improvement over PCI and PCI‑X, where the assertion and de‑assertion of the single FRAME# signal indicates the beginning and end of a transaction. A glitch on that signal (or any of the other control signals) could cause a target to misconstrue bus events. A PCIe receiver must properly decode a complete 10‑bit symbol before concluding Link activity is beginning or ending, so unexpected or unrecognized symbols are more easily recognized and handled as errors. | 在 Gen1 和 Gen2 工作模式下使用 8b/10b 编码时，每个 TLP 和 DLLP 包的发送都由起始（Start）和结束（End）控制符号进行成帧，为接收方清晰地定义了包边界。这相比 PCI 和 PCI‑X 是一个重大改进，后者依靠单一 FRAME# 信号的置位和撤销来指示事务的开始和结束。该信号（或任何其他控制信号）上的毛刺可能导致目标设备错误理解总线事件。PCIe 接收方必须正确解码完整的 10 位符号后才能断定链路活动正在开始或结束，因此意外或无法识别的符号更容易被识别并作为错误处理。 |
+| For the 128b/130b encoding used in Gen3, control characters are no longer employed and there are no framing symbols as such. For more on the differences between Gen3 encoding and the earlier versions, see Chapter 12, entitled "Physical Layer — Logical (Gen3)," on page 407. | 对于 Gen3 中使用的 128b/130b 编码，不再使用控制字符，因此没有所谓的成帧符号。有关 Gen3 编码与早期版本之间差异的更多信息，请参阅第 12 章"物理层 — 逻辑层（Gen3）"，第 407 页。 |
 
-There are three distinct advantages to using a packet‐based protocol especially when it comes to data integrity:
+| EN | ZH |
+|:---|:---|
+| ## 3. CRC Protects Entire Packet | ## 3. CRC 保护整个包 |
+| Unlike the side-band parity signals used by PCI during the address and data phases of a transaction, the in-band CRC value of PCIe verifies error-free delivery of the entire packet. TLP packets also have a Sequence Number appended to them by the transmitter's Data Link Layer so that if an error is detected at the Receiver, the problem packet can be automatically resent. The transmitter maintains a copy of each TLP sent in a Retry Buffer until it has been acknowledged by the receiver. This TLP acknowledgement mechanism, called the Ack/Nak Protocol, (and described in Chapter 10, entitled "Ack/Nak Protocol," on page 317) forms the basis of Link-level TLP error detection and correction. This Ack/Nak Protocol error recovery mechanism allows for a timely resolution of the problem at the place or Link where the problem occurred, but requires a local hardware solution to support it. | 与 PCI 在事务的地址和数据阶段使用的边带奇偶校验信号不同，PCIe 的带内 CRC 值对整个包的无差错传输进行验证。TLP 包还由发送方的数据链路层附加了一个序列号，这样若在接收方检测到错误，问题包即可自动重发。发送方将每个已发送 TLP 的副本保存于重试缓冲中，直到收到接收方的确认。此 TLP 确认机制称为 Ack/Nak 协议（在第 10 章"Ack/Nak 协议"中描述，见第 317 页），构成了链路级 TLP 错误检测与纠正的基础。该 Ack/Nak 协议错误恢复机制能够在问题发生的具体位置（即发生问题的链路）及时解决问题，但需要本地硬件方案来支撑。 |
 
+| EN | ZH |
+|:---|:---|
+| Transaction Layer Packet (TLP) Details | 事务层包（TLP）详解 |
+| In PCI Express, high-level transactions originate in the device core of the transmitting device and terminate at the core of the receiving device. The Transaction Layer acts on these requests to assemble outbound TLPs in the Transmitter and interpret them at the Receiver. Along the way, the Data Link Layer and Physical Layer of each device also contribute to the final packet assembly. | 在 PCI Express 中，高层事务起源于发送端设备的设备核心，并终止于接收端设备的核心。事务层对这些请求进行处理，在发送端组装出站 TLP，并在接收端对其进行解析。在此过程中，每个设备的数据链路层和物理层也参与了最终的数据包组装。 |
 
----
+| EN | ZH |
+|:---|:---|
+| ## TLP Assembly And Disassembly | ## TLP 组装与拆解 |
+| The general flow of TLP assembly at the transmit side of a Link and disassembly at the receiver is shown in Figure 5-2 on page 173. | 链路发送端 TLP 组装与接收端 TLP 拆解的总体流程如图 5-2（第 173 页）所示。 |
+| Let's now walk through the steps from creation of a packet to its delivery to the core logic of the receiver. | 现在让我们逐步了解从数据包的创建到其递送至接收端核心逻辑的整个过程。 |
+| The key stages in Transaction Layer Packet assembly and disassembly are listed below. | 事务层包组装与拆解的关键阶段列举如下。 |
+| The list numbers correspond to the numbers in Figure 5-2 on page 173. | 列表编号与图 5-2（第 173 页）中的编号一一对应。 |
 
-## 1. 数据包格式定义清晰
+| EN | ZH |
+|:---|:---|
+| ## Transmitter: | ## 发送端： |
+| 1. The core logic of Device A sends a request to its PCIe interface. How this is accomplished is outside the scope of the spec or this book. The request includes: | 1. 设备A的核心逻辑向其PCIe接口发送一个请求。其实现方式超出了规范或本书的范围。该请求包括： |
+| --- Target address or ID (routing information) | --- 目标地址或ID (路由信息) |
+| --- Source information such as Requester ID and Tag | --- 源信息，如请求者ID和标签(Tag) |
+| --- Transaction type/packet type (Command to perform, such as a memory read.) | --- 事务类型/包类型 (要执行的命令，如存储器读) |
+| --- Data payload size (if any) along with data payload (if any) | --- 数据负载大小 (如有) 以及数据负载 (如有) |
+| --- Traffic Class (to assign packet priority) | --- 流量类(TC) (用于分配包优先级) |
+| --- Attributes of the Request (No Snoop, Relaxed Ordering, etc.) | --- 请求属性 (No Snoop、宽松排序等) |
+| 2. Based on that request, the Transaction Layer builds the TLP header, appends any data payload, and optionally calculates and appends the digest (End-to-End CRC, ECRC) if that's supported and has been enabled. At this point the TLP is placed into a Virtual Channel buffer. The Virtual Channel manages the sequence of TLPs according to the Transaction Ordering rules and also verifies that the receiver has enough flow control credits to accept a TLP before it can be passed down to the Data Link Layer. | 2. 基于该请求，事务层构建TLP头部，附加任何数据负载，并在支持且已使能的情况下可选地计算并附加摘要(端到端CRC，ECRC)。此时，TLP被放入虚通道(VC)缓冲中。虚通道根据事务排序规则管理TLP的序列，并验证接收端有足够的流控信用值来接受TLP，然后才能将其传递到数据链路层。 |
+| 3. When it arrives at the Data Link Layer, the TLP is assigned a Sequence Number and then a Link CRC is calculated based on the contents of the TLP and that Sequence Number. A copy of the resulting packet is saved in the Retry Buffer in case of transmission errors while it is also passed on to the Physical Layer. | 3. 当TLP到达数据链路层时，它被分配一个序列号，然后基于TLP的内容和该序列号计算链路CRC(LCRC)。生成的数据包副本被保存在重试缓冲(Retry Buffer)中，以防传输错误，同时它也被传递到物理层。 |
 
-早期的总线(如 PCI)允许大小不定的传输,导致在传输结束之前无法识别有效负载的边界。此外,任意一方设备都可以在传输完成之前终止传输,这使得发送方难以计算并发送覆盖整个有效负载的校验和或 CRC。PCI 转而采用了一种简单的奇偶校验方案,并在每个数据阶段都进行校验。
-
-相比之下,PCIe 数据包具有明确的尺寸和格式。位于起始位置的包头指明了数据包类型,并包含必需和可选字段。除地址字段可为 32 位或 64 位外,其余包头字段的大小都是固定的。一旦传输启动,接收方不能暂停或提前终止。这种结构化的格式便于在 TLP 中加入有助于可靠传输的信息,包括成帧符号、CRC 以及数据包序列号 (Sequence Number)。
-
-
----
-
-## 2. 帧定界符号界定报文边界
-
-在 Gen1 和 Gen2 工作模式使用 8b/10b 编码时,每个 TLP 和 DLLP 报文的发送都由 Start (起始) 和 End (结束) 控制符号进行定界,清晰地为接收器界定报文边界。这相对于 PCI 和 PCI-X 是一个巨大的改进——在后两者中,单一的 FRAME# 信号的置位与撤销用于指示一次事务的开始与结束。该信号(或任何其他控制信号)上的毛刺都可能导致目标设备误解总线事件。PCIe 接收器必须在判定链路 (Link) 活动开始或结束之前正确解码一个完整的 10 位符号,因此对于未预期或未识别的符号,可以更便捷地将其识别并作为错误处理。
-
-对于 Gen3 中使用的 128b/130b 编码,不再使用控制字符,也就没有所谓的帧定界符号。有关 Gen3 编码与早期版本之间差异的更多内容,请参阅第 407 页的第 12 章"物理层 — 逻辑 (Gen3)"。
-
-## 3. CRC 校验整个报文
-
-与 PCI 在事务的地址阶段和数据阶段使用边带奇偶校验信号不同,PCIe 的带内 CRC 值用于校验整个报文的无错传输。TLP 报文还会由发送器的数据链路层追加一个序列号,以便当接收器检测到错误时,问题报文可以被自动重发。发送器在重传缓冲区(Retry Buffer)中保存每一份已发送 TLP 的副本,直到收到接收器的确认。这种 TLP 确认机制称为 Ack/Nak 协议(详见第 10 章" Ack/Nak 协议",第 317 页),它构成了链路级 TLP 错误检测与纠正的基础。Ack/Nak 协议错误恢复机制允许在发生问题的链路位置及时解决问题,但需要本地硬件方案予以支持。
-
-## 事务层包 (TLP) 详细信息
-
-在 PCI Express 中，高层事务由发送设备的设备核发起，并在接收设备的核中终止。事务层 (Transaction Layer) 对这些请求进行操作，在发送器 (Transmitter) 一侧组装外发的 TLP，并在接收器 (Receiver) 一侧对它们进行解析。在此过程中，每个设备的数据链路层 (Data Link Layer) 和物理层 (Physical Layer) 也参与最终的包组装过程。
-
----
-
-## TLP 装配与拆解
-
-TLP 在链路 (Link) 发送侧的装配以及在接收侧的拆解,其总体流程如图 5‐2 (第 173 页) 所示。下面我们将从报文创建开始,逐步走过各个阶段,直到报文被送达接收方的核心逻辑。事务层包 (TLP) 装配与拆解的关键阶段如下所列。列表中的编号与图 5‐2 (第 173 页) 中的编号相对应。
-
-## 发送器(Transmitter):
-
-1. 设备 A 的核心逻辑向其 PCIe 接口发送一个请求。具体的实现方式不在规范或本书的讨论范围内。该请求包括:
-
-— 目标地址或 ID(路由信息)
-
-— 源信息,例如请求者 ID (Requester ID) 和 Tag 字段(标签)
-
-— 事务类型/报文类型(要执行的命令,例如内存读)
-
-— 数据有效负载大小(如果有)以及数据有效负载(如果有)
-
-— 流量类 (TC, Traffic Class,用于分配报文优先级)
-
-— 请求的属性(No Snoop、Relaxed Ordering 等)
-
-2. 基于该请求,事务层构建 TLP 包头,追加任何数据有效负载,并在支持且已启用的情况下,可选择性地计算并追加摘要(端到端 CRC, ECRC)。此时,TLP 被放入一个虚通道 (VC, Virtual Channel) 缓冲区中。虚通道根据事务排序 (Transaction Ordering) 规则管理 TLP 的顺序,并在 TLP 传递到数据链路层之前,验证接收方是否具有足够的流控 (Flow Control) 信用来接受该 TLP。
-
-3. 当 TLP 到达数据链路层时,它被分配一个序列号 (Sequence Number),然后根据 TLP 的内容和该序列号计算链路 CRC。生成报文的副本被保存在重传缓冲区 (Retry Buffer) 中,以防传输过程中出现错误,同时该报文也会被传递到物理层。
-
-Figure 5‐2: PCIe TLP 装配/拆解  
+Figure 5-2: PCIe TLP Assembly/Disassembly
 ![](images/part02_9975e4bc5a3afd16b56b819f3cae3190ba51c80a39c9d42a9bc457fc722ea5f4.jpg)
 
-4. 物理层执行多项操作以准备报文进行串行传输,包括字节拆分 (byte striping)、加扰 (scrambling)、编码 (encoding) 以及比特的串行化。对于 Gen1 和 Gen2 设备,在使用 8b/10b 编码时,控制字符 STP 和 END 被添加到报文的两端。最后,报文通过链路 (Link) 进行传输。在 Gen3 模式下,STP 令牌被添加到 TLP 的前端,但报文末端不添加 END。而 STP 令牌包含有关 TLP 报文大小的信息。
+| EN | ZH |
+|:---|:---|
+| 4. The Physical Layer does several things to prepare the packet for serial transmission, including byte striping, scrambling, encoding, and serializing the bits. For Gen1 and Gen2 devices, when using 8b/10b encoding, the control characters STP and END are added to either end of the packet. Finally, the packet is transmitted across the Link. In Gen3 mode, STP token is added to the front end of a TLP, but END is not added to the end of the packet. Rather the STP token contains information about TLP packet size. | 4. 物理层执行多项操作以准备数据包进行串行传输，包括字节拆分、加扰、编码和位序列化。对于Gen1和Gen2设备，当使用8b/10b编码时，控制字符STP和END被添加到数据包的两端。最后，数据包通过链路传输。在Gen3模式下，STP令牌被添加到TLP的前端，但END不被添加到数据包的末端。相反，STP令牌包含有关TLP数据包大小的信息。 |
 
-## 接收器(Receiver):
+| EN | ZH |
+|:---|:---|
+| ## Receiver: | ## 接收端： |
+| 5. At the Receiver (Device B in this example), everything done to prepare the packet for transmission must now be undone. The Physical Layer de‐serializes the bit stream, decodes the resulting symbols, and un‐stripes the bytes. | 5. 在接收端（本例中的设备B），为准备数据包发送所做的所有操作现在必须逆向进行。物理层对比特流进行解串行化，对得到的符号进行解码，并对字节进行逆拆分(un‑stripe)。 |
+| The control characters are removed here because they only have meaning at the Physical Layer, and then the packet is forwarded to the Data Link Layer. | 控制字符在此处被移除，因为它们仅在物理层具有含义，随后数据包被转发至数据链路层。 |
+| 6. The Data Link Layer calculates the CRC and compares it to the received CRC. If that matches, the Sequence Number is checked. If there are no errors, the CRC and Sequence Number are removed and the TLP is passed to the Transaction Layer of the receiver and notifies the sender of good reception by returning an Ack DLLP. In the event of an error a Nak will be returned instead, and the transmitter will re‐replay TLPs in its Retry Buffer. | 6. 数据链路层计算CRC并与接收到的CRC进行比较。如果两者匹配，则检查序列号。如果没有错误，则移除CRC和序列号，TLP被传递至接收端的事务层，并通过返回ACK DLLP通知发送端接收良好。若发生错误，则将返回Nak，发送端将重放其重试缓冲区中的TLP。 |
+| 7. At the Transaction Layer, the TLP is decoded and the information is passed to the core logic for appropriate action. If the receiving device is the final target of this packet, it checks for ECRC errors and reports any related ECRC error condition to the core logic should there be any. | 7. 在事务层，TLP被解码，信息被传递至核心逻辑以执行相应操作。如果接收设备是该数据包的最终目标，它会检查ECRC错误，并在存在任何相关ECRC错误条件时将其报告给核心逻辑。 |
 
-5. 在接收器(本例中的设备 B)端,所有为传输该报文所做的准备工作现在都必须被撤销。物理层将比特流解串行化,解码得到的符号,并对字节进行解除分条(stripe)处理。
+| EN | ZH |
+|:---|:---|
+| ## TLP Structure | ## TLP 结构 |
+| The basic usage of each field in a Transaction Layer Packet is defined in Table 5-1 on page 174. | 事务层包中各字段的基本用法在第174页的表5-1中定义。 |
 
-   控制字符在此处被移除,因为它们仅在物理层有意义,随后该报文被转发到数据链路层。
+Table 5-1: TLP Header Type Field Defines Transaction Variant
 
-6. 数据链路层计算 CRC 并将其与收到的 CRC 进行比较。如果匹配,则检查序列号。如果没有错误,则移除 CRC 和序列号,TLP 被传递给接收器的事务层,并通过返回一个 Ack DLLP 通知发送方已正确接收。如果出现错误,则返回 Nak,发送方将重传(Replay)其重传缓冲区(Retry Buffer)中的 TLP。
+<table><tr><td>TLP Component</td><td>Protocol Layer</td><td>Component Use</td></tr><tr><td>Header</td><td>Transaction Layer</td><td>3 or 4DW (12 or 16 bytes) in size. Format varies with type, but Header defines parameters, including:Transaction typeTarget address, ID, etc.Transfer size (if any), Byte EnablesAttributesTraffic Class</td></tr><tr><td>Data</td><td>Transaction Layer</td><td>Optional 1-1024 DW Payload, which is qualified with Byte Enables or byte-aligned start and end addresses. Note that a length of zero can&#x27;t be specified, but a zero-length read (useful in some cases) can be approximated by specifying a length of 1 DW and Byte Enables of all zero. The resulting data from the Completer will be undefined but the Requester doesn&#x27;t use it, so the result is the same.</td></tr><tr><td>Digest/ECRC</td><td>Transaction Layer</td><td>Optional. When present, ECRC is always 1 DW in size.</td></tr></table>
 
-7. 在事务层,TLP 被解码,信息被传递给核逻辑以执行相应操作。如果接收设备是该报文的最终目标,则它会检查 ECRC 错误,并在存在相关 ECRC 错误条件时向核逻辑上报。
+| EN | ZH |
+|:---|:---|
+| ## Generic TLP Header Format | ## 通用 TLP 头格式 |
 
----
+| EN | ZH |
+|:---|:---|
+| ## General | ## 概述 |
+| Figure 5-3 on page 175 illustrates the format and contents of a generic TLP 4DW header. | 第175页的图5-3展示了一个通用TLP 4DW头的格式和内容。 |
+| In this section, fields common to nearly all transactions are summarized. | 本节概述了几乎所有事务共有的字段。 |
+| Header format differences associated with specific transaction types are covered later. | 与特定事务类型相关的头格式差异将在后续章节中介绍。 |
 
-## TLP 结构 (TLP Structure)
-
-事务层包 (Transaction Layer Packet) 中每个字段的基本用法在第 174 页的表 5-1 中定义。
-
-表 5-1:TLP 包头 Type 字段定义事务变体 (TLP Header Type Field Defines Transaction Variant)
-
-<table><tr><td>TLP 组成部分 (TLP Component)</td><td>协议层 (Protocol Layer)</td><td>组成部分用途 (Component Use)</td></tr><tr><td>Header (包头)</td><td>事务层 (Transaction Layer)</td><td>大小为 3 或 4 DW(12 或 16 字节)。格式随类型而异,但 Header 定义了以下参数,包括:事务类型目标地址、ID 等传输大小(若有)、字节使能属性 (Attributes)流量类 (Traffic Class)</td></tr><tr><td>Data (数据)</td><td>事务层 (Transaction Layer)</td><td>可选的 1-1024 DW 有效载荷,由字节使能或按字节对齐的起始与结束地址加以限定。注意不能指定长度为 0,但零长度读操作(在某些场合下有用)可通过指定长度为 1 DW、字节使能全为 0 来近似实现。完成方 (Completer) 返回的数据是未定义的,但请求方 (Requester) 并不使用该数据,因此效果相同。</td></tr><tr><td>Digest/ECRC (摘要/端到端 CRC)</td><td>事务层 (Transaction Layer)</td><td>可选。出现时,ECRC 大小始终为 1 DW。</td></tr></table>
-
----
-
-## 通用 TLP 包头格式
-
-
----
-
-## 概述
-
-第 175 页的图 5‐3 展示了通用 TLP 4DW 包头 (Header) 的格式与内容。本节将概述几乎所有事务类型共有的字段。与特定事务类型相关的包头格式差异将在后续章节中介绍。
-
-图 5‐3:通用 TLP 包头字段  
 ![](images/part02_86de3a251a1f2d00f0f15727ca8579b021fdfe1bcfc1111e0c0d75e2bd01a7df.jpg)
+Figure 5-3: Generic TLP Header Fields
 
----
+| EN | ZH |
+|:---|:---|
+| ## Generic Header Field Summary | ## 通用头字段汇总 |
+| Table 5-2 on page 176 summarizes the size and use of each of the generic TLP header fields. Note that fields marked "R" in Figure 5-3 on page 175 are reserved and should be set to zero. | 第176页的表5-2汇总了各通用TLP头字段的大小和用途。请注意，第175页图5-3中标记为"R"的字段为保留字段，应设置为零。 |
+| Table 5-2: Generic Header Field Summary | 表5-2：通用头字段汇总 |
 
-## Generic Header Field Summary
+<table><tr><td>Header Field</td><td>Header Location</td><td>Field Use</td></tr><tr><td>Fmt[2:0] (Format)</td><td>Byte 0 Bit 7:5</td><td>These bits encode information about header size and whether a data payload will be part of the TLP:00b 3DW header, no data01b 4DW header, no data10b 3DW header, with data11b 4DW header, with dataAn address below 4GB must use a 3DW header. The spec states that receiver behavior is undefined if 4DW header is used for an address below 4GB with the upper 32 bits of the 64-bit address set to zero.</td></tr><tr><td>Type[4:0]</td><td>Byte 0 Bit 4:0</td><td>These bits encode the transaction variant used with this TLP. The Type field is used with Fmt [1:0] field to specify transaction type, header size, and whether data payload is present. See "Generic Header Field Details" on page 178 for details.</td></tr><tr><td>TC [2:0] (Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>These bits encode the traffic class to be applied to this TLP and to the completion associated with it (if any):000b = Traffic Class 0 (Default).111b = Traffic Class 7TC 0 is the default class, while TC 1-7 are used to provide differentiated services. See "Traffic Class (TC)" on page 247 for additional information.</td></tr><tr><td>Attr [2] (Attributes)</td><td>Byte 1 Bit 2</td><td>This third Attribute bit indicates whether ID-based Ordering is to be used for this TLP. To learn more, see "ID Based Ordering (IDO)" on page 301.</td></tr><tr><td>TH (TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>Indicates when TLP Hints have been included to give the system some idea about how best to handle this TLP. See "TPH (TLP Processing Hints)" on page 899 for a discussion on their usage.</td></tr><tr><td>TD (TLP Digest)</td><td>Byte 2 Bit 7</td><td>If TD = 1, the optional 4-byte TLP Digest has been included with this TLP as the ECRC value. Some rules:Presence of the Digest field must be checked by all receivers based on this bit.A TLP with TD = 1 but no Digest is handled as a Malformed TLP.If a device supports checking ECRC and TD=1, it must perform the ECRC check.If a device does not support checking ECRC (optional) at the ultimate destination, it must ignore the digest.For more on this topic see "CRC" on page 653 and "ECRC Generation and Checking" on page 657.</td></tr><tr><td>EP (Poisoned Data)</td><td>Byte 2 Bit 6</td><td>If EP = 1, the data accompanying this data should be considered invalid although the transaction is being allowed to complete normally. For more on poisoned packets, refer to "Data Poisoning" on page 660.</td></tr><tr><td>Attr [1:0] (Attributes)</td><td>Byte 2 Bit 5:4</td><td>Bit 5 = Relaxed ordering: When set to 1, PCI-X relaxed ordering is enabled for this TLP. If 0, then strict PCI ordering is used.Bit 4 = No Snoop: When set to 1, Requester is indicating that no host cache coherency issues exist for this TLP. System hardware can thus save time by skipping the normal processor cache snoop for this request. When 0, PCI -type cache snoop protection is required.</td></tr><tr><td>Address Type [1:0]</td><td>Byte 2 Bit 3:2</td><td>For Memory and Atomic Requests, this field supports address translation for virtualized systems. The translation protocol is described in a separate spec called Address Translation Services, where it can be seen that the field encodes as:00 = Default/Untranslated01 = Translation Request10 = Translated11 = Reserved</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>TLP data payload transfer size, in DW. Encoding:00 0000 0001b = 1DW00 0000 0010b = 2DW..11 1111 1111b = 1023 DW00 0000 0000b = 1024 DW</td></tr><tr><td>Last DW Byte Enables [3:0]</td><td>Byte 7 Bit 7:4</td><td>These four high-true bits map one-to-one to the bytes within the last double word of payload.Bit 7 = 1: Byte 3 in last DW is valid; otherwise notBit 6 = 1: Byte 2 in last DW is valid; otherwise notBit 5 = 1: Byte 1 in last DW is valid; otherwise notBit 4 = 1: Byte 0 in last DW is valid; otherwise not</td></tr><tr><td>First DW Byte Enables [3:0]</td><td>Byte 7 Bit 3:0</td><td>These four high-true bits map one-to-one to the bytes within the first double word of payload.Bit 3 = 1: Byte 3 in first DW is valid; otherwise notBit 2 = 1: Byte 2 in first DW is valid; otherwise notBit 1 = 1: Byte 1 in first DW is valid; otherwise notBit 0 = 1: Byte 0 in first DW is valid; otherwise not</td></tr></table>
 
-Table 5‐2 on page 176 summarizes the size and use of each of the generic TLP header fields. Note that fields marked “R” in Figure 5‐3 on page 175 are reserved and should be set to zero.
-
-Table 5‐2: Generic Header Field Summary
-
-<table><tr><td>Header Field</td><td>Header Location</td><td>Field Use</td></tr><tr><td>Fmt[2:0] (Format)</td><td>Byte 0 Bit 7:5</td><td>These bits encode information about header size and whether a data payload will be part of the TLP:00b 3DW header, no data01b 4DW header, no data10b 3DW header, with data11b 4DW header, with dataAn address below 4GB must use a 3DW header. The spec states that receiver behavior is undefined if 4DW header is used for an address below 4GB with the upper 32 bits of the 64-bit address set to zero.</td></tr><tr><td>Type[4:0]</td><td>Byte 0 Bit 4:0</td><td>These bits encode the transaction variant used with this TLP. The Type field is used with Fmt [1:0] field to specify transaction type, header size, and whether data payload is present. See “Generic Header Field Details” on page 178 for details.</td></tr><tr><td>TC [2:0] (Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>These bits encode the traffic class to be applied to this TLP and to the completion associated with it (if any):000b = Traffic Class 0 (Default).111b = Traffic Class 7TC 0 is the default class, while TC 1-7 are used to provide differentiated services. See “Traffic Class (TC)” on page 247 for additional information.</td></tr><tr><td>Attr [2] (Attributes)</td><td>Byte 1 Bit 2</td><td>This third Attribute bit indicates whether ID-based Ordering is to be used for this TLP. To learn more, see “ID Based Ordering (IDO)” on page 301.</td></tr><tr><td>TH (TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>Indicates when TLP Hints have been included to give the system some idea about how best to handle this TLP. See “TPH (TLP Processing Hints)” on page 899 for a discussion on their usage.</td></tr><tr><td>TD (TLP Digest)</td><td>Byte 2 Bit 7</td><td>If TD = 1, the optional 4-byte TLP Digest has been included with this TLP as the ECRC value. Some rules:Presence of the Digest field must be checked by all receivers based on this bit.A TLP with TD = 1 but no Digest is handled as a Malformed TLP.If a device supports checking ECRC and TD=1, it must perform the ECRC check.If a device does not support checking ECRC (optional) at the ultimate destination, it must ignore the digest.For more on this topic see “CRC” on page 653 and “ECRC Generation and Checking” on page 657.</td></tr><tr><td>EP (Poisoned Data)</td><td>Byte 2 Bit 6</td><td>If EP = 1, the data accompanying this data should be considered invalid although the transaction is being allowed to complete normally. For more on poisoned packets, refer to “Data Poisoning” on page 660.</td></tr><tr><td>Attr [1:0] (Attributes)</td><td>Byte 2 Bit 5:4</td><td>Bit 5 = Relaxed ordering: When set to 1, PCI-X relaxed ordering is enabled for this TLP. If 0, then strict PCI ordering is used.Bit 4 = No Snoop: When set to 1, Requester is indicating that no host cache coherency issues exist for this TLP. System hardware can thus save time by skipping the normal processor cache snoop for this request. When 0, PCI -type cache snoop protection is required.</td></tr><tr><td>Address Type [1:0]</td><td>Byte 2 Bit 3:2</td><td>For Memory and Atomic Requests, this field supports address translation for virtualized systems. The translation protocol is described in a separate spec called Address Translation Services, where it can be seen that the field encodes as:00 = Default/Untranslated01 = Translation Request10 = Translated11 = Reserved</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>TLP data payload transfer size, in DW. Encoding:00 0000 0001b = 1DW00 0000 0010b = 2DW..11 1111 1111b = 1023 DW00 0000 0000b = 1024 DW</td></tr><tr><td>Last DW Byte Enables [3:0]</td><td>Byte 7 Bit 7:4</td><td>These four high-true bits map one-to-one to the bytes within the last double word of payload.Bit 7 = 1: Byte 3 in last DW is valid; otherwise notBit 6 = 1: Byte 2 in last DW is valid; otherwise notBit 5 = 1: Byte 1 in last DW is valid; otherwise notBit 4 = 1: Byte 0 in last DW is valid; otherwise not</td></tr><tr><td>First DW Byte Enables [3:0]</td><td>Byte 7 Bit 3:0</td><td>These four high-true bits map one-to-one to the bytes within the first double word of payload.Bit 3 = 1: Byte 3 in first DW is valid; otherwise notBit 2 = 1: Byte 2 in first DW is valid; otherwise notBit 1 = 1: Byte 1 in first DW is valid; otherwise notBit 0 = 1: Byte 0 in first DW is valid; otherwise not</td></tr></table>
-
-## 通用包头字段详解
-
-在以下各节中,我们将详细描述 TLP 包头中各字段的细节,这些字段在第 175 页的图 5-3 中已给出。
-
-
----
+| EN | ZH |
+|:---|:---|
+| Generic Header Field Details | 通用头字段详解 |
+| In the following sections, we describe details of each TLP Header field depicted in Figure 5‑3 on page 175. | 在以下各节中，我们将描述图5-3（第175页）中所示的每个TLP头字段的详细信息。 |
 
 ## Header Type/Format Field Encodings
 
-Table 5‐3 on page 179 summarizes the encodings used in TLP header Type and Format (Fmt) fields.
+| EN | ZH |
+|:---|:---|
+| Table 5-3 on page 179 summarizes the encodings used in TLP header Type and Format (Fmt) fields. | 第179页的表5-3总结了TLP头部类型和格式（Fmt）字段中使用的编码。 |
 
-Table 5‐3: TLP Header Type and Format Field Encodings
-
-<table><tr><td>TLP</td><td>FMT[2:0]</td><td>TYPE [4:0]</td></tr><tr><td>Memory Read Request (MRd)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0000</td></tr><tr><td>Memory Read Lock Request (MRdLk)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0001</td></tr><tr><td>Memory Write Request (MWr)</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 0000</td></tr><tr><td>IO Read Request (IORd)</td><td>000 = 3DW, no data</td><td>0 0010</td></tr><tr><td>IO Write Request (IOWr)</td><td>010 = 3DW, w/ data</td><td>0 0010</td></tr><tr><td>Config Type 0 Read Request (CfgRd0)</td><td>000 = 3DW, no data</td><td>0 0100</td></tr><tr><td>Config Type 0 Write Request (CfgWr0)</td><td>010 = 3DW, w/ data</td><td>0 0100</td></tr><tr><td>Config Type 1 Read Request (CfgRd1)</td><td>000 = 3DW, no data</td><td>0 0101</td></tr><tr><td>Config Type 1 Write Request (CfgWr1)</td><td>010 = 3DW, w/ data</td><td>0 0101</td></tr><tr><td>Message Request (Msg)</td><td>001 = 4DW, no data</td><td>1 0 rrr*(see routing field)</td></tr><tr><td>Message Request W/Data (MsgD)</td><td>011 = 4DW, w/ data</td><td>1 0rrr*(see routing field)</td></tr><tr><td>Completion (Cpl)</td><td>000 = 3DW, no data</td><td>0 1010</td></tr><tr><td>Completion W/Data (CplD)</td><td>010 = 3DW, w/ data</td><td>0 1010</td></tr><tr><td>Completion-Locked (CplLk)</td><td>000 = 3DW, no data</td><td>0 1011</td></tr><tr><td>Completion W/Data (CplDLk)</td><td>010 = 3DW, w/ data</td><td>0 1011</td></tr><tr><td>Fetch and Add AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1100</td></tr><tr><td>Unconditional Swap AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1101</td></tr><tr><td>Compare and Swap AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1110</td></tr><tr><td>Local TLP Prefix</td><td>100 = TLP Prefix</td><td> $0L_3L_2L_1L_0$ </td></tr><tr><td>End-to-End TLP Prefix</td><td>100 = TLP Prefix</td><td> $1E_3E_2E_1E_0$ </td></tr></table>
-
----
-
-## Header Type/Format 字段编码
-
-第 179 页的表 5‐3 汇总了 TLP Header 中 Type 字段 (类型) 与 Fmt 字段 (格式) 字段所使用的编码。
-
-表 5‐3:TLP Header Type 字段 (类型) 与 Fmt 字段 (格式) 字段编码
+Table 5-3: TLP Header Type and Format Field Encodings
 
 <table><tr><td>TLP</td><td>FMT[2:0]</td><td>TYPE [4:0]</td></tr><tr><td>Memory Read Request (MRd)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0000</td></tr><tr><td>Memory Read Lock Request (MRdLk)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0001</td></tr><tr><td>Memory Write Request (MWr)</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 0000</td></tr><tr><td>IO Read Request (IORd)</td><td>000 = 3DW, no data</td><td>0 0010</td></tr><tr><td>IO Write Request (IOWr)</td><td>010 = 3DW, w/ data</td><td>0 0010</td></tr><tr><td>Config Type 0 Read Request (CfgRd0)</td><td>000 = 3DW, no data</td><td>0 0100</td></tr><tr><td>Config Type 0 Write Request (CfgWr0)</td><td>010 = 3DW, w/ data</td><td>0 0100</td></tr><tr><td>Config Type 1 Read Request (CfgRd1)</td><td>000 = 3DW, no data</td><td>0 0101</td></tr><tr><td>Config Type 1 Write Request (CfgWr1)</td><td>010 = 3DW, w/ data</td><td>0 0101</td></tr><tr><td>Message Request (Msg)</td><td>001 = 4DW, no data</td><td>1 0 rrr*(see routing field)</td></tr><tr><td>Message Request W/Data (MsgD)</td><td>011 = 4DW, w/ data</td><td>1 0rrr*(see routing field)</td></tr><tr><td>Completion (Cpl)</td><td>000 = 3DW, no data</td><td>0 1010</td></tr><tr><td>Completion W/Data (CplD)</td><td>010 = 3DW, w/ data</td><td>0 1010</td></tr><tr><td>Completion-Locked (CplLk)</td><td>000 = 3DW, no data</td><td>0 1011</td></tr><tr><td>Completion W/Data (CplDLk)</td><td>010 = 3DW, w/ data</td><td>0 1011</td></tr><tr><td>Fetch and Add AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1100</td></tr><tr><td>Unconditional Swap AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1101</td></tr><tr><td>Compare and Swap AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1110</td></tr><tr><td>Local TLP Prefix</td><td>100 = TLP Prefix</td><td> $0L_3L_2L_1L_0$ </td></tr><tr><td>End-to-End TLP Prefix</td><td>100 = TLP Prefix</td><td> $1E_3E_2E_1E_0$ </td></tr></table>
 
----
+## Digest / ECRC Field
 
-## Digest / ECRC 字段
+| EN | ZH |
+|:---|:---|
+| The TLP Digest bit reports the presence of the End-to-End CRC (ECRC). If this optional feature is supported and enabled by software, devices calculate and apply an ECRC for all TLPs they originate. Note that using ECRC requires devices to include the optional Advanced Error Reporting registers, since the capability and control registers for it are located there. | TLP Digest位指示端到端CRC（ECRC）的存在。如果该可选功能被支持且由软件启用，设备将计算并为其发起的所有TLP应用ECRC。请注意，使用ECRC要求设备包含可选的高级错误报告寄存器，因为其能力和控制寄存器位于该处。 |
+| ECRC Generation and Checking. ECRC covers all fields that do not change as the TLP is forwarded across the fabric. However, there are two bits that can legally change as a packet makes its way across a topology: | ECRC生成与检查。ECRC覆盖TLP在结构内转发时不会发生变化的所有字段。然而，有两个位在数据包穿越拓扑时可以合法地改变： |
+| Bit 0 of the Type field -- changes when a configuration transaction is forwarded across a bridge and changes from a type 1 to a type 0 configuration transaction because it has reached the targeted bus. This is accomplished by changing bit 0 of the type field. | Type字段的位0 -- 当配置事务通过桥转发时发生变化，从类型1配置事务变为类型0配置事务，因为它已到达目标总线。这是通过改变类型字段的位0来实现的。 |
+| Error/Poisoned (EP) bit -- this can change as a TLP traverses the fabric if the data associated with the packet is seen as corrupted. This is an optional feature referred to as error forwarding. | 错误/毒化（EP）位 -- 如果与数据包关联的数据被视为已损坏，该位在TLP穿越结构时可以改变。这是一个称为错误转发的可选功能。 |
+| Who Checks ECRC? The intended target of an ECRC is the ultimate recipient of the TLP. Checking the LCRC verifies no transmission errors across a given Link, but that gets recalculated for the packet at the egress port of a routing element (Switch or Root Complex) before being forwarded to the next Link, which could mask an internal error in the routing element. To protect against that, the ECRC is carried forward unchanged on its journey between the Requester and Completer. When the target device checks the ECRC, any error possibilities along the way have a high probability of being detected. | 谁检查ECRC？ECRC的目标是TLP的最终接收者。检查LCRC可以验证给定链路上没有传输错误，但该LCRC会在路由元件（交换机或根复合体）的出口端口为数据包重新计算，然后才转发到下一个链路，这可能会掩盖路由元件中的内部错误。为防止这种情况，ECRC在请求者和完成者之间的传输过程中保持不变。当目标设备检查ECRC时，沿途的任何错误可能性都有很高的概率被检测到。 |
+| The spec makes two statements regarding a Switch's role in ECRC checking: | 规范就交换机在ECRC检查中的角色做出了两点声明： |
+| A Switch that supports ECRC checking performs this check on TLPs destined to a location within the Switch itself. "On all other TLPs a Switch must preserve the ECRC (forward it untouched) as an integral part of the TLP." | 支持ECRC检查的交换机对目的地为交换机内部位置的TLP执行此检查。"对于所有其他TLP，交换机必须保持ECRC不变（原封不动地转发），作为TLP的组成部分。" |
+| "Note that a Switch may perform ECRC checking on TLPs passing through the Switch. ECRC Errors detected by the Switch are reported in the same way any other device would report them, but do not alter the TLPs passage through the Switch." | "请注意，交换机可以对通过交换机的TLP执行ECRC检查。交换机检测到的ECRC错误将以与其他任何设备报告错误相同的方式进行报告，但不会改变TLP通过交换机的路径。" |
 
-TLP Digest 位用于报告 End-to-End CRC (ECRC) 是否存在。如果支持并由软件启用了该可选功能,则设备会为它们发出的所有 TLP 计算并附加 ECRC。请注意,使用 ECRC 要求设备包含可选的 Advanced Error Reporting 寄存器,因为相关的 capability 和 control 寄存器就位于该处。
+| EN | ZH |
+|:---|:---|
+| ## Using Byte Enables | ## 使用字节使能 |
+| General. Like PCI, PCIe needs a mechanism to reconcile its DW-aligned addresses with the need, at times, for transfer sizes or starting/ending addresses that are not DW aligned. Toward this end, PCI Express makes use of the two Byte Enable fields introduced earlier in Figure 5-3 on page 175 and in Table 5-2 on page 176. The First DW Byte Enable field and the Last DW Byte Enable fields allow the Requester to qualify the bytes of interest within the first and last double words transferred. | 概述。与 PCI 类似，PCIe 需要一种机制来协调其双字（DW）对齐的地址与有时所需的非双字对齐的传输大小或起始/结束地址之间的矛盾。为此，PCI Express 利用了此前在图 5-3（第 175 页）和表 5-2（第 176 页）中介绍的两个字节使能（Byte Enable）字段。第一个双字字节使能（First DW Byte Enable）字段和最后一个双字字节使能（Last DW Byte Enable）字段允许请求者限定所传输的第一个和最后一个双字中感兴趣的字节。 |
 
-ECRC 的生成与校验。ECRC 覆盖 TLP 在整个 Fabric 中转发时不会发生变化的所有字段。然而,报文在拓扑中传输时,存在两个合法可能发生变化的位:
+## Byte Enable Rules
 
-Type 字段的 bit 0 —— 当配置事务跨越桥转发并因到达目标总线而从 type 1 变为 type 0 配置事务时,该位会发生变化。这一过程通过修改 Type 字段的 bit 0 来完成。
+| EN | ZH |
+|:---|:---|
+| 1. Byte enable bits are high true. A value of 0 indicates the corresponding byte in the data payload should not be used by the Completer. A value of 1 indicates it should. | 1. 字节使能位为高有效。值为0表示完成者不应使用数据载荷中的对应字节。值为1表示应使用。 |
+| 2. If the valid data is all within a single double word, the Last DW Byte enable field must be = 0000b. | 2. 如果有效数据全部在单个双字内，则Last DW字节使能字段必须为0000b。 |
+| 3. If the header Length field indicates a transfer is more than 1DW, the First DW Byte Enable must have at least one bit enabled. | 3. 如果头部Length字段指示传输超过1DW，则First DW字节使能必须至少有一个位被使能。 |
+| 4. If the Length field indicates a transfer of 3DW or more, then the First DW Byte Enable field and the Last DW Byte Enable field must have contiguous bits set. In these cases, the Byte Enables are only being used to give the byte offset of the effective starting and ending address from the DW-aligned address. | 4. 如果Length字段指示传输为3DW或更多，则First DW字节使能字段和Last DW字节使能字段必须设置连续的位。在这些情况下，字节使能仅用于从DW对齐地址给出有效起始和结束地址的字节偏移。 |
+| 5. Discontinuous byte enable bit patterns in the First DW Byte enable field are allowed if the transfer is 1DW. | 5. 如果传输为1DW，则允许First DW字节使能字段中出现不连续的字节使能位模式。 |
+| 6. Discontinuous byte enable bit patterns in both the First and Second DW Byte enable fields are allowed if the transfer is between one and two DWs. | 6. 如果传输在1到2个DW之间，则允许First和Second DW字节使能字段中都出现不连续的字节使能位模式。 |
+| 7. A write request with a transfer length of 1DW and no byte enables set is legal, but has no effect on the Completer. | 7. 传输长度为1DW且没有设置字节使能的写请求是合法的，但对完成者没有影响。 |
+| 8. If a read request of 1 DW has no byte enables set, the completer returns a 1DW data payload of undefined data. This may be used as a Flush mechanism that takes advantage of transaction ordering rules to force all previously posted writes out to memory before the completion is returned. | 8. 如果1DW的读请求没有设置字节使能，完成者返回一个包含未定义数据的1DW数据载荷。这可用作一种Flush机制，利用事务排序规则，在返回完成之前强制将所有先前发布的写操作写入内存。 |
+| Byte Enable Example. An example of byte enable use in this case is illustrated in Figure 5-4 on page 182. Note that the transfer length must extend from the first DW with any valid byte enabled to the last DW with any valid bytes enabled. Because the transfer is more than 2DW, the byte enables may only be used to specify the start address location (2d) and end address location (34d) of the transfer. | 字节使能示例。图5-4（第182页）展示了该情况下字节使能使用的示例。请注意，传输长度必须从第一个有任何有效字节使能的DW延伸到最后一个有任何有效字节使能的DW。由于传输超过2DW，字节使能只能用于指定传输的起始地址位置（2d）和结束地址位置（34d）。 |
 
-Error/Poisoned (EP) 位 —— 如果报文所携带的数据被识别为已损坏,该位可能在 TLP 穿越 Fabric 时发生变化。这是一项被称为 error forwarding 的可选功能。
-
-由谁校验 ECRC?ECRC 的预期目标是 TLP 的最终接收方。LCRC 的校验只能确认报文在某一给定链路上没有发生传输错误,但报文在路由元素(Switch 或 Root Complex)的出口端口处会被重新计算,然后才转发到下一条链路,这可能会掩盖路由元素内部的错误。为了防止这种情况,ECRC 在 Requester 和 Completer 之间一路保持不变地传递。当目标设备校验 ECRC 时,沿途任何可能的错误都有很高的概率被检出。
-
-规范就 Switch 在 ECRC 校验中所扮演的角色给出了两点说明:
-
-支持 ECRC 校验的 Switch 会对发往 Switch 内部位置的 TLP 执行该校验。"对于所有其他 TLP,Switch 必须保留 ECRC(原样转发),将其作为 TLP 的不可分割的一部分。"
-
-"请注意,Switch 可以对穿越 Switch 的 TLP 执行 ECRC 校验。由 Switch 检测到的 ECRC 错误会以与其他设备相同的方式上报,但不会影响该 TLP 穿越 Switch 的过程。"
-
----
-
-## 使用字节使能 (Byte Enable)
-
-概述。与 PCI 类似,PCIe 需要一种机制来协调其 DW 对齐的地址与偶尔出现的非 DW 对齐的传输大小或起始/结束地址。为此,PCI Express 使用了前面在第 175 页的图 5‐3 和第 176 页的表 5‐2 中介绍的两个 Byte Enable 字段。First DW Byte Enable 字段和 Last DW Byte Enable 字段允许 Requester (请求端) 指定所传输的第一个和最后一个双字中感兴趣的那些字节。
-
-## 字节使能规则
-
-1. 字节使能位高电平有效。值为 0 表示完成报文不应使用数据负载中的对应字节;值为 1 表示应使用该字节。
-
-2. 若有效数据全部位于单个 DW(Double Word)内,则 Last DW Byte Enable 字段必须 = 0000b。
-
-3. 若包头 Length 字段表明传输长度超过 1DW,则 First DW Byte Enable 必须至少使能一位。
-
-4. 若 Length 字段表明传输长度为 3DW 或以上,则 First DW Byte Enable 字段和 Last DW Byte Enable 字段必须设置为连续位。这种情况下,字节使能仅用于给出相对于 DW 对齐地址的有效起始地址和结束地址的字节偏移。
-
-5. 若传输长度为 1DW,则允许 First DW Byte Enable 字段使用不连续的字节使能位图样。
-
-6. 若传输长度介于一个 DW 与两个 DW 之间,则允许 First DW 和 Second DW Byte Enable 字段同时使用不连续的字节使能位图样。
-
-7. 传输长度为 1DW 且所有字节使能均未置位的写请求是合法的,但对完成方没有任何效果。
-
-8. 若 1DW 读请求的所有字节使能均未置位,则完成方返回 1DW 内容未定义的数据负载。该机制可作为一种 Flush(刷新)手段,利用事务排序规则,在完成报文返回之前强制将所有先前已 Post 的写操作刷出到内存。
-
-字节使能示例。 该用例下的字节使能使用示例如 Figure 5‐4(第 182 页)所示。注意,传输长度必须从首个使能了任何有效字节的 DW 延伸至最后一个使能了任何有效字节的 DW。由于该传输超过 2DW,字节使能只能用于指定传输的起始地址位置(2d)与结束地址位置(34d)。
-
-Figure 5‐4: 使用 First DW 与 Last DW 字节使能字段  
+Figure 5-4: Using First DW and Last DW Byte Enable Fields
 ![](images/part02_6866d40c7ae466d43b498249907df37be5b233a907f7c511faebe3237f726984.jpg)
 
----
+| EN | ZH |
+|:---|:---|
+| ## Transaction Descriptor Fields | ## 事务描述符字段 |
+| As transactions move between requester and completer, it's necessary to uniquely identify a transaction, since many split transactions may be queued up from the same Requester at any instant. To help with this, the spec defines several important header fields that form a unique Transaction Descriptor, as illustrated in Figure 5-5. | 当事务在请求方与完成方之间传输时，必须唯一标识每个事务，因为在任意时刻，同一个请求方可能有多个已拆分的排队事务。为此，规范定义了若干重要的包头字段，这些字段共同组成一个唯一的事务描述符，如图 5-5 所示。 |
 
-## Transaction Descriptor 字段 (事务描述符)
-
-由于事务在请求者和完成者之间传输时,任何时刻同一 Requester (请求者) 都可能有多个分离事务被排队,因此有必要对每个事务进行唯一标识。为此,规范定义了若干重要的包头字段,共同构成唯一的 Transaction Descriptor (事务描述符),如图 5-5 所示。
-
-图 5-5:Transaction Descriptor (事务描述符) 字段
+Figure 5-5: Transaction Descriptor Fields
 
 <table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TD</td><td>EP</td><td>Attr</td><td>AT</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="8">Completer ID</td><td colspan="2">Cmpl Status</td><td>BCM</td><td colspan="3">Byte Count</td></tr><tr><td>Byte 8</td><td colspan="8">Requester ID</td><td colspan="4">Tag</td><td>R</td><td>Lower Addr</td></tr></table>
 
-虽然 Transaction Descriptor (事务描述符) 字段在包头中并不位于相邻位置,但它们共同描述了事务的关键属性,包括:
+| EN | ZH |
+|:---|:---|
+| While the Transaction Descriptor fields are not in adjacent header locations, collectively they describe key transaction attributes, including: | 尽管事务描述符字段并非位于包头中连续的相邻位置，但它们共同描述了事务的关键属性，包括： |
+| Transaction ID. The combination of the Requester ID (Bus, Device, and Function Number of the Requester) and the Tag field of the TLP. | 事务 ID。由请求方 ID（请求方的总线号、设备号和功能号）与 TLP 的 Tag 字段组合而成。 |
+| Traffic Class. The Traffic Class (TC) is added by the requester based on the core logic request and travels unmodified through the topology to the Completer. On every Link, the TC is mapped to one of the Virtual Channels. | 流量类。流量类 (TC) 由请求方根据核心逻辑请求添加，并原封不动地通过拓扑结构传递至完成方。在每条链路上，TC 被映射到其中一个虚通道。 |
+| Transaction Attributes. The ID-based Ordering, Relaxed Ordering, and No Snoop bits also travel with the Request packet to the Completer. | 事务属性。基于 ID 的排序、宽松排序和 No Snoop 位也随请求包一起传递至完成方。 |
 
-Transaction ID (事务 ID)。由 Requester ID (请求者 ID,即 Requester 的 Bus、Device 和 Function 编号) 与 TLP 的 Tag 字段组合而成。
+| EN | ZH |
+|:---|:---|
+| ## Additional Rules For TLPs With Data Payloads | ## 带有数据载荷的TLP的附加规则 |
+| The following rules apply when a TLP includes a data payload. | 当TLP包含数据载荷时，适用以下规则。 |
+| 1. The Length field refers only to the data payload. | 1. Length字段仅指数据载荷。 |
+| 2. The first byte of data in the payload (immediately after the header) is always associated with the lowest (start) address. | 2. 载荷中的第一个数据字节（紧接在包头之后）始终与最低（起始）地址相关联。 |
+| 3. The Length field always represents an integral number of DWs transferred. Partial DWs are qualified using First and Last Byte Enable fields. | 3. Length字段始终表示传输的DW的整数个数。部分DW通过首字节使能和末字节使能字段来限定。 |
+| 4. The spec states that, when multiple transactions are returned by a completer in response to a single memory request, each intermediate transaction must end on naturally-aligned 64- or 128-byte address boundaries for a Root Complex. This is controlled by a configuration bit called the Read Completion Boundary (RCB). All other devices follow the PCI-X protocol and break such transactions at naturally-aligned 128-byte boundaries. This makes buffer management simpler in bridges. | 4. 规范指出，当完成器响应单个存储器请求而返回多个事务时，对于根复合体，每个中间事务必须在自然对齐的64字节或128字节地址边界处结束。这由一个称为读完成边界（RCB）的配置位控制。所有其他设备遵循PCI-X协议，并在自然对齐的128字节边界处拆分此类事务。这使得桥接器中的缓冲管理更加简单。 |
+| 5. The Length field is reserved when sending Message Requests unless the message is the version with data (MsgD). | 5. 发送消息请求时，Length字段为保留字段，除非该消息是带数据版本的消息（MsgD）。 |
+| 6. The TLP data payload must not exceed the current value in the Max\_Payload\_Size field of the Device Control Register. Only write transactions have data payloads, so this restriction doesn't apply to read requests. A receiver is required to check for violations of the Max\_Payload\_Size limit during writes, and violations are treated as Malformed TLPs. | 6. TLP数据载荷不得超过设备控制寄存器中Max\_Payload\_Size字段的当前值。只有写事务具有数据载荷，因此此限制不适用于读请求。接收器必须检查写操作期间是否违反Max\_Payload\_Size限制，违规将被视为畸形TLP。 |
+| 7. Receivers also must check for discrepancies between the value in the Length field and the actual amount of data transferred in a TLP. This type of violation is also treated as a Malformed TLP. | 7. 接收器还必须检查Length字段中的值与TLP中实际传输的数据量之间的差异。此类违规同样被视为畸形TLP。 |
+| 8. Requests must not mix combinations of start address and transfer length that would cause a memory access to cross a 4KB boundary. While checking for this is optional, if seen it's treated as a Malformed TLP. | 8. 请求不得使用会导致存储器访问跨越4KB边界的起始地址和传输长度的组合。虽然对此的检查是可选的，但一旦发现，则将其视为畸形TLP。 |
 
-Traffic Class (流量类,TC)。Traffic Class (流量类,TC) 由 Requester 根据内核逻辑请求添加,在通过拓扑到达 Completer 的过程中保持不变。在每条 Link (链路) 上,TC 会被映射到某一个 Virtual Channel (虚通道) 上。
+| EN | ZH |
+|:---|:---|
+| Specific TLP Formats: Request &amp; Completion TLPs | 具体的TLP格式：请求与完成TLP |
+| In this section, the format of 3DW and 4DW headers used to accomplish specific transaction types are described. Many of the generic fields described previously apply, but an emphasis is placed on the fields which are handled differently with specific transaction types. Detailed description of TLP Header format are described in sections following for TLP types: 1) IO Request, 2) Memory Requests, 3) Configuration Requests, 4) Completions and 5) Message Requests. | 本节描述了用于实现特定事务类型的3DW和4DW头格式。前述许多通用字段同样适用，但重点放在了在特定事务类型中处理方式有所不同的字段上。后续章节将对以下TLP类型的头格式进行详细描述：1) IO请求，2) 存储器请求，3) 配置请求，4) 完成报文，以及5) 消息请求。 |
 
-Transaction Attributes (事务属性)。基于 ID 的 Ordering (定序)、Relaxed Ordering (宽松定序) 和 No Snoop (无监听) 等位也随 Request (请求) 包一起传送到 Completer。
+## IO Requests / IO 请求
 
----
+| EN | ZH |
+|:---|:---|
+| While the spec discourages the use of IO transactions, allowance is made for Legacy devices and for software that may need to rely on a compatible device residing in the system IO map rather than the memory map. While the IO transactions can technically access a 32-bit IO range, in reality many systems (and CPUs) restrict IO access to the lower 16 bits (64KB) of this range. Figure 5-6 on page 185 depicts the system IO map and the 16- and 32-bit address boundaries. Devices that don't identify themselves as Legacy devices are not permitted to request IO address space in their configuration Base Address Registers. | 虽然规范不鼓励使用 IO 事务，但为遗留设备和可能需要依赖驻留在系统 IO 映射（而非存储器映射）中的兼容设备的软件保留了允许。虽然 IO 事务在技术上可以访问 32 位 IO 范围，但实际上许多系统（和 CPU）将 IO 访问限制在该范围的低 16 位（64KB）内。图 5-6（第 185 页）描述了系统 IO 映射以及 16 位和 32 位地址边界。未将自己标识为遗留设备的设备不允许在其配置基址寄存器中请求 IO 地址空间。 |
 
-## 带数据负载 TLP 的附加规则
+Figure 5-6: System IO Map
+![](images/part02_6e6817b2254ebb975f278610668a2f09f3d6eb0c14374f26db535bad26c54eb4.jpg)
 
-下列规则适用于包含数据负载的 TLP。
+| EN | ZH |
+|:---|:---|
+| IO Request Header Format. A 3 DW IO request header is shown in Figure 5-7 on page 185 and each of the fields is described in the section that follows. | IO 请求包头格式。图 5-7（第 185 页）显示了一个 3 DW 的 IO 请求包头，每个字段将在后续章节中描述。 |
 
-1. Length 字段仅指数据负载。
-
-2. 负载中的第一个数据字节(紧跟包头之后)始终与最低(起始)地址相关联。
-
-3. Length 字段始终表示所传输的整数字(DW)数。部分 DW 的限定通过 First DW Byte Enable 和 Last DW Byte Enable 字段完成。
-
-4. 规范规定,当 Completer 响应单个内存请求返回多个事务时,对于 Root Complex,每个中间事务必须以自然对齐的 64 字节或 128 字节地址边界结束。此行为由一个称为 Read Completion Boundary (RCB) 的配置位控制。其他所有设备遵循 PCI-X 协议,在自然对齐的 128 字节边界处拆分此类事务。这使得桥接器中的缓冲区管理更为简单。
-
-5. 发送 Message 请求时,Length 字段保留(除非该消息是带数据的版本,即 MsgD)。
-
-6. TLP 数据负载不得超过 Device Control 寄存器中 Max_Payload_Size 字段的当前值。只有写事务带有数据负载,因此此限制不适用于读请求。接收器需在写操作期间检查是否违反 Max_Payload_Size 限制,违规将被视为 Malformed TLP。
-
-7. 接收器还必须检查 Length 字段值与 TLP 中实际传输的数据量之间的不一致。此类违规同样被视为 Malformed TLP。
-
-8. 请求不得混合使用起始地址与传输长度的组合,以避免导致内存访问跨越 4KB 边界。对此类情况的检查虽为可选项,但一旦发现,将视为 Malformed TLP。
-
----
-
-## 特定 TLP 格式:请求与完成报文 TLP
-
-本节描述用于实现特定事务类型的 3DW 和 4DW 包头格式。先前介绍的许多通用字段依然适用,但本节重点关注在特定事务类型中处理方式不同的字段。TLP 包头格式的详细说明将在后续章节中按以下 TLP 类型分别描述:1) IO 请求 (IO Request)、2) 内存请求 (Memory Request)、3) 配置请求 (Configuration Request)、4) 完成报文 (Completion) 以及 5) 消息请求 (Message Request)。
-
-
----
-
-## IO Requests
-
-虽然规范不鼓励使用 IO 事务,但仍为 Legacy 设备和需要依赖驻留在系统 IO 映射而非内存映射中的兼容设备的软件保留了使用空间。虽然 IO 事务在技术上可以访问 32 位 IO 范围,但实际上许多系统(以及 CPU)将 IO 访问限制在该范围的低 16 位(64KB)。第 185 页的图 5-6 展示了系统 IO 映射以及 16 位和 32 位地址边界。未将自身标识为 Legacy 设备的设备不允许在其配置基地址寄存器中请求 IO 地址空间。
-
-图 5-6:系统 IO 映射  
-![](images/part02_6e6817b2254ebb975f278610668a2f09f3d6eb0c14374f26db535bad26c54eb4.jpg)  
-IO 请求包头格式。第 185 页的图 5-7 展示了 3 DW 的 IO 请求包头,后续章节将介绍每个字段。
-
-图 5-7:3DW IO 请求包头格式  
+Figure 5-7: 3DW IO Request Header Format
 ![](images/part02_ec3566d8277fa448d856eb8d8b0127bafc6605dac2584e6c1f5197148ad9f4f7.jpg)
 
-IO 请求包头字段。第 186 页的表 5-4 描述了 IO 请求包头中每个字段的位置和用途。
+| EN | ZH |
+|:---|:---|
+| IO Request Header Fields. The location and use of each field in an IO request header is described in Table 5-4 on page 186. | IO 请求包头字段。IO 请求包头中每个字段的位置和用途在表 5-4（第 186 页）中描述。 |
 
-表 5-4:IO 请求包头字段
+Table 5-4: IO Request Header Fields
 
-<table><tr><td>字段名称</td><td>包头字节/位</td><td>功能</td></tr><tr><td>Fmt [2:0](Format)(格式)</td><td>Byte 0 Bit 7:5</td><td>IO 请求的报文格式:000b = IO 读 (3DW without data)010b = IO 写 (3DW with data)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>IO 请求的报文类型为 00010b</td></tr><tr><td>TC [2:0](Traffic Class)(流量类)</td><td>Byte 1 Bit 6:4</td><td>IO 请求的流量类始终为零,以确保这些报文永远不会干扰任何高优先级报文。</td></tr><tr><td>Attr [2](Attributes)(属性)</td><td>Byte 1 Bit 2</td><td>ID-based Ordering 不适用于 IO 请求,该位为保留位。</td></tr><tr><td>TH(TLP Processing Hints)(TLP 处理提示)</td><td>Byte 1 Bit 0</td><td>TLP 处理提示不适用于 IO 请求,该位为保留位。</td></tr><tr><td>TD(TLP Digest)(TLP 摘要)</td><td>Byte 2 Bit 7</td><td>指示 TLP 末端是否存在摘要字段(ECRC)。</td></tr><tr><td>EP(Poisoned Data)(中毒数据)</td><td>Byte 2 Bit 6</td><td>指示数据有效负载(如果存在)是否被中毒。</td></tr><tr><td>Attr [1:0](Attributes)(属性)</td><td>Byte 2 Bit 5:4</td><td>Relaxed Ordering 和 No Snoop 位不适用于 IO 请求,始终为零。</td></tr><tr><td>AT [1:0](Address Type)(地址类型)</td><td>Byte 2 Bit 3:2</td><td>地址类型不适用于 IO 请求,这些位必须为零。</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>指示以 DW 为单位的数据有效负载大小。对于 IO 请求,该字段始终为 1,因为传输不能超过 4 字节。First DW Byte Enables 用于限定使用哪些字节。</td></tr><tr><td>Requester ID [15:0](请求者 ID)</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>标识请求者的“返回地址”以用于相应的完成报文。Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0](标签字段)</td><td>Byte 6 Bit 7:0</td><td>这些位标识来自请求者的特定请求。每个发出的请求分配一个唯一的 Tag 值。默认情况下仅使用位 4:0,但 Extended Tag 和 Phantom Functions 选项可将其扩展至 11 位,从而允许同时有最多 2048 个未完成请求在执行中。</td></tr><tr><td>Last DW BE [3:0](Last DW Byte Enables)(最后一个 DW 字节使能)</td><td>Byte 7 Bit 7:4</td><td>这些位必须为 0000b,因为 IO 请求只能是一个 DW 大小。</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)(第一个 DW 字节使能)</td><td>Byte 7 Bit 3:0</td><td>这些位限定单 DW 有效负载中的字节。对于 IO 请求,任何位组合均有效(包括全零)。</td></tr><tr><td>Address [31:2]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0Byte 10 Bit 7:0Byte 11 Bit 7:2</td><td>IO 传输的 32 位起始地址的高 30 位。32 位地址的低 2 位为保留位(00b),强制采用 DW 对齐的起始地址。</td></tr></table>
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Format for IO requests:000b = IO Read (3DW without data)010b = IO Write (3DW with data)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>Packet type is 00010b for IO requests</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>Traffic Class for IO requests is always zero, ensuring that these packets will never interfere with any high-priority packets.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>ID-based Ordering doesn't apply for IO requests and this bit is reserved.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>TLP processing Hints don't apply to IO requests and this bit is reserved.</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>Indicates the presence of a digest field (ECRC) at the end of the TLP.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>Indicates whether the data payload (if present) is poisoned.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Relaxed Ordering and No Snoop bits don't apply for IO requests and are always zero.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type doesn't apply for IO requests and these bits must be zero.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Indicates data payload size in DW. For IO requests, this field is always just 1 since no more than 4 bytes can be transferred. The First DW Byte Enables qualify which bytes are used.</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Requester's "return address" for corresponding Completion.Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>These bits identify the specific requests from the requester. A unique tag value is assigned to each outgoing Request. By default, only bits 4:0 are used, but the Extended Tag and Phantom Functions options can extend that to 11 bits, permitting up to 2048 outstanding requests to be in progress simultaneously.</td></tr><tr><td>Last DW BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>These bits must be 0000b because IO requests can only be one DW in size.</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>These bits qualify the bytes in the one-DW payload. For IO requests, any bit combination is valid (including all zeros).</td></tr><tr><td>Address [31:2]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0Byte 10 Bit 7:0Byte 11 Bit 7:2</td><td>The upper 30 bits of the 32-bit start address for the IO transfer. The lower two bits of the 32 bit address are reserved (00b), forcing a DW-aligned start address.</td></tr></table>
 
-## 内存请求
+| EN | ZH |
+|:---|:---|
+| ## Memory Requests | ## 存储器请求 |
+| PCI Express memory transactions include two classes: Read Requests with their corresponding Completions, and Write Requests. The system memory map shown in Figure 5-8 on page 188 depicts both a 3DW and 4DW memory request packet. Keep in mind a point that the spec reiterates several times: a memory transfer is never permitted to cross a 4KB address boundary. | PCI Express存储器事务包括两类：读请求及其对应的完成报文，以及写请求。第188页图5-8所示的系统存储器映射描绘了3DW和4DW存储器请求包。请牢记规范反复强调的一点：存储器传输绝不允许跨越4KB地址边界。 |
 
-PCI Express 内存事务包括两类:读请求及其对应的完成报文,以及写请求。第 188 页的图 5-8 所示的系统内存映射同时描绘了 3DW 和 4DW 内存请求报文。请记住一个规范中多次重复强调的关键点:内存传输绝不允许跨越 4KB 地址边界。
+Figure 5-8: 3DW And 4DW Memory Request Header Formats
+![](images/part02_93481f62478e88c776bdd0b5bb56579eec265c6153ca3401d6c0b38f7ea618ab.jpg)
 
-Figure 5‐8: 3DW 和 4DW 内存请求 Header 格式  
-![](images/part02_93481f62478e88c776bdd0b5bb56579eec265c6153ca3401d6c0b38f7ea618ab.jpg)  
-内存请求 Header 字段。4DW 内存请求 Header 中每个字段的位置与用途见第 189 页的表 5-5。需要注意的是,3DW Header 与 4DW Header 之间的区别仅在于起始地址字段的位置和大小。
+| EN | ZH |
+|:---|:---|
+| Memory Request Header Fields. The location and use of each field in a 4DW memory request header is listed in Table 5-5 on page 189. Note that the difference between a 3DW header and a 4DW header is simply the location and size of the starting Address field. | 存储器请求包头字段。表5-5（第189页）列出了4DW存储器请求包头中每个字段的位置和用途。请注意，3DW包头与4DW包头的区别仅在于起始地址字段的位置和大小。 |
 
-Table 5‐5: 4DW 内存请求 Header 字段
+Table 5-5: 4DW Memory Request Header Fields
 
-<table><tr><td>字段名</td><td>Header 字节/位</td><td>功能</td></tr><tr><td>Fmt [2:0](格式)</td><td>Byte 0 Bit 7:5</td><td>报文格式:000b = 内存读 (3DW 无数据)010b = 内存写 (3DW 带数据)001b = 内存读 (4DW 无数据)011b = 内存写 (4DW 带数据)1xxb = 报文起始处已添加 TLP Prefix。有关详情,请参阅第 899 页的 "TPH (TLP Processing Hints)"。</td></tr><tr><td>Type[4:0]</td><td>Byte 0 Bit 4:0</td><td>TLP 报文 Type 字段:00000b = 内存读或内存写00001b = 内存读锁定Type 字段与 Fmt [1:0] 字段配合使用,用于指定事务类型、Header 大小以及是否包含数据 Payload。</td></tr><tr><td>TC [2:0](流量类)</td><td>Byte 1 Bit 6:4</td><td>这些位对应用于该请求及其关联完成报文的流量类。000b = 流量类 0(默认)。111b = 流量类 7有关详情,请参阅第 247 页的 "Traffic Class (TC)"。</td></tr><tr><td>Attr [2](属性)</td><td>Byte 1 Bit 2</td><td>指示本 TLP 是否使用基于 ID 的排序。有关详情,请参阅第 301 页的 "ID Based Ordering (IDO)"。</td></tr><tr><td>TH(TLP 处理提示)</td><td>Byte 1 Bit 0</td><td>指示报文是否包含 TLP Hints。有关这些提示的讨论,请参阅第 899 页的 "TPH (TLP Processing Hints)"。</td></tr></table>
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Formats:000b = Memory Read (3DW w/o data)010b = Memory Write (3DW w/ data)001b = Memory Read (4DW w/o data)011b = Memory Write (4DW w/ data)1xxb = TLP Prefix has been added to the beginning of the packet. See "TPH (TLP Processing Hints)" on page 899 for more on this.</td></tr><tr><td>Type[4:0]</td><td>Byte 0 Bit 4:0</td><td>TLP packet Type field:00000b = Memory Read or Write00001b = Memory Read Locked Type field is used with Fmt [1:0] field to specify transaction type, header size, and whether data payload is present.</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>These bits encode the traffic class to be applied to a Request and to any associated Completion.000b = Traffic Class 0 (Default).111b = Traffic Class 7See"Traffic Class (TC)" on page 247 for more on this.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>Indicates whether ID-based Ordering is to be used for this TLP. To learn more, see "ID Based Ordering (IDO)" on page 301.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>Indicates whether TLP Hints have been included. See "TPH (TLP Processing Hints)" on page 899 for a discussion on these hints.</td></tr></table>
 
-## PCI Express Technology
+| EN | ZH |
+|:---|:---|
+| ## PCI Express Technology | ## PCI Express 技术 |
 
-表 5‐5:4DW Memory Request Header 字段(续)
+Table 5-5: 4DW Memory Request Header Fields (Continued)
 
-<table><tr><td>字段名称</td><td>包头字节/位</td><td>功能</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>若为 1,则本 TLP 包含可选的 TLP Digest 字段。一些规则:所有接收器都必须检查 Digest 字段是否存在(通过该位)。TD = 1 但无 Digest 字段的 TLP 视为 Malformed。若 TD 位置 1,则接收端在启用 ECRC 检查时必须执行 ECRC 检查。如果接收器不支持可选的 ECRC 检查,则必须忽略 Digest 字段。</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>若为 1,则表示该报文所携带的数据应被视为存在错误,但事务仍允许正常完成。</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Bit 5 = Relaxed ordering。当置 1 时,该 TLP 启用 PCI-X Relaxed Ordering;否则使用严格的 PCI 顺序。Bit 4 = No Snoop。若为 1,则系统硬件无须为该 TLP 触发处理器缓存监听以保证一致性;否则需要进行缓存监听。</td></tr><tr><td>Address Type [1:0]</td><td>Byte 2 Bit 3:2</td><td>该字段用于支持虚拟化系统中的地址转换。转换协议在单独的规范 Address Translation Services 中描述,可看出该字段编码方式为:00 = Default/Untranslated01 = Translation Request10 = Translated11 = Reserved</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>TLP 数据有效负载的传输大小,以 DW 为单位。最大为 1024 DW (4KB),编码方式为:00 0000 0001b = 1DW00 0000 0010b = 2DW..11 1111 1111b = 1023 DW00 0000 0000b = 1024 DW</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>标识请求者的 Completion 返回地址:Byte 4,7:0 = Bus NumberByte 5,7:3 = Device NumberByte 5,2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>标识请求者发出的每一个 outstanding 请求。默认仅使用 bit 4:0,允许同时有最多 32 个请求处于进行中。若 Control Register 中的 Extended Tag 位置 1,则可使用全部 8 位(256 个 Tag)。</td></tr><tr><td>Last BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>用于限定传输数据中最后一个 DW 内的字节。</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>用于限定数据有效负载中第一个 DW 内的字节。</td></tr><tr><td>Address [63:32]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0Byte 10 Bit 7:0Byte 11 Bit 7:0</td><td>64 位内存事务起始地址的高 32 位。</td></tr><tr><td>Address [31:2]</td><td>Byte 12 Bit 7:0Byte 13 Bit 7:0Byte 14 Bit 7:0Byte 15 Bit 7:2</td><td>64 位内存事务起始地址的低 32 位。地址的最低两位被保留,强制要求起始地址按 DW 对齐。</td></tr></table>
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>If 1, the optional TLP Digest field is included with this TLP.Some rules:The presence of the Digest field must be checked by all receivers (using this bit)TLPs with TD = 1 but no Digest field are treated as Malformed.If the TD bit is set, recipient must perform the ECRC check if enabled.If a Receiver doesn't support the optional ECRC checking, it must ignore the digest field.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>If 1, the data accompanying this packet should be considered to have an error although the transaction is allowed to complete normally.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Bit 5 = Relaxed ordering.When set = 1, PCI-X relaxed ordering is enabled for this TLP. Otherwise, strict PCI ordering is used.Bit 4 = No Snoop.If 1, system hardware is not required to cause processor cache snoop for coherency for this TLP. Otherwise, cache snooping is required.</td></tr><tr><td>Address Type [1:0]</td><td>Byte 2 Bit 3:2</td><td>This field supports address translation for virtualized systems. The translation protocol is described in a separate spec called Address Translation Services, where it can be seen that the field encodes as:00 = Default/Untranslated01 = Translation Request10 = Translated11 = Reserved</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>TLP data payload transfer size, in DW. Maximum size is 1024 DW (4KB), encoded as:00 0000 0001b = 1DW00 0000 0010b = 2DW..11 1111 1111b = 1023 DW00 0000 0000b = 1024 DW</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies a Requester's return address for a completion:Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>These identify each outstanding request issued by the Requester. By default only bits 4:0 are used, allowing up to 32 requests to be in progress at a time. If the Extended Tag bit in the Control Register is set, then all 8 bits may be used (256 tags).</td></tr><tr><td>Last BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>These qualify bytes within the last DW of data transferred.</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>These qualify bytes within the first DW of the data payload.</td></tr><tr><td>Address [63:32]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0Byte 10 Bit 7:0Byte 11 Bit 7:0</td><td>The upper 32 bits of the 64-bit start address for the memory transfer.</td></tr><tr><td>Address [31:2]</td><td>Byte 12 Bit 7:0Byte 13 Bit 7:0Byte 14 Bit 7:0Byte 15 Bit 7:2</td><td>The lower 32 bits of the 64 bit start address for the memory transfer. The lower two bits of the address are reserved, forcing a DW-aligned start address.</td></tr></table>
 
-Memory Request 注意事项。Memory Request 的特性包括:
+| EN | ZH |
+|:---|:---|
+| Memory Request Notes. Features of memory requests include: | 存储器请求注意事项。存储器请求的特性包括： |
+| 1. Memory data transfers are not permitted to cross a 4KB boundary. | 1. 存储器数据传输不允许跨越 4KB 边界。 |
+| 2. All memory-mapped writes are posted to improve performance. | 2. 所有存储器映射写操作均为 posted（异步提交）方式，以提高性能。 |
+| 3. Either 32- or 64-bit addressing may be used. | 3. 可使用 32 位或 64 位寻址。 |
+| 4. Data payload size is between 0 and 1024 DW (0-4KB). | 4. 数据有效载荷大小介于 0 至 1024 DW（0-4KB）之间。 |
+| 5. Quality of Service features may be used, including up to 8 Traffic Classes. | 5. 可使用服务质量（Quality of Service）特性，包括最多 8 个流量类（Traffic Class）。 |
+| 6. The No Snoop attribute can be used to relieve the system of the need to snoop processor caches when transactions target main memory. | 6. 当事务以主存储器为目标时，可使用 No Snoop 属性使系统无需监听处理器缓存以保持一致性。 |
+| 7. The Relaxed Ordering attribute may be used to allow devices in the packet's path to apply the relaxed ordering rules in hopes of improving performance. | 7. 可使用 Relaxed Ordering 属性，允许报文传输路径上的设备应用宽松排序规则，以期提高性能。 |
 
-1. Memory 数据传输不得跨越 4KB 边界。
+| EN | ZH |
+|:---|:---|
+| ## Configuration Requests | ## 配置请求 |
+| PCI Express uses both Type 0 and Type 1 configuration requests the same way PCI did to maintain backward compatibility. A Type 1 cycle propagates downstream until it reaches the bridge whose secondary bus matches the target bus. At that point, the configuration transaction is converted from Type 1 to Type 0 by the bridge. The bridge knows when to forward and convert configuration cycles based on the previously programmed bus number registers: Primary, Secondary, and Subordinate Bus Numbers. For more on this topic, refer to the section "Legacy PCI Mechanism" on page 91. | PCI Express 使用 Type 0 和 Type 1 两种配置请求，方式与 PCI 相同，以保持向后兼容性。Type 1 周期向下游传播，直到到达次级总线与目标总线匹配的桥。此时，配置事务由桥从 Type 1 转换为 Type 0。桥根据先前编程的总线号寄存器（主总线号、次级总线号和从属总线号）来决定何时转发和转换配置周期。有关此主题的更多信息，请参阅第 91 页的"传统 PCI 机制"一节。 |
 
-2. 所有 Memory Write 均采用 Posted 方式以提升性能。
-
-3. 可以使用 32 位或 64 位地址。
-
-4. 数据有效负载大小介于 0 到 1024 DW(0~4KB)之间。
-
-5. 可以使用 QoS 特性,包括最多 8 个 Traffic Class。
-
-6. No Snoop 属性可用于在事务访问主存时减轻系统对处理器缓存进行监听的需求。
-
-7. 可以使用 Relaxed Ordering 属性,以允许报文路径上的设备采用 Relaxed Ordering 规则,从而有望提升性能。
-
----
-
-## Configuration Requests(配置请求)
-
-PCI Express 使用与 PCI 相同的方式来使用 Type 0 和 Type 1 配置请求,以保持向后兼容性。Type 1 周期向下游传播,直到到达其 secondary bus 与目标总线相匹配的桥为止。此时,该桥把配置事务从 Type 1 转换为 Type 0。桥根据先前编程的总线号寄存器——Primary、Secondary 和 Subordinate Bus Number——来判断何时转发并转换配置周期。有关此主题的更多信息,请参阅第 91 页的"Legacy PCI Mechanism(传统 PCI 机制)"一节。
-
-图 5-9:3DW Configuration Request And Header Format(3DW 配置请求与包头格式)
+Figure 5‐9: 3DW Configuration Request And Header Format
 ![](images/part02_5807124a29434194ad38ae629fb7a39f2a557405c60e04e616a162a37d27fdd8.jpg)
 
-在第 193 页的图 5-9 中,展示了一个 Type 1 配置周期向下游传播,并由该总线的桥将其转换为 Type 0(通过改变 Type 字段的 bit 0 来实现)。请注意,与 PCI 不同的是,一条 Link(链路)下游只能驻留一个设备。因此,不需要 IDSEL 或其他硬件指示来告知设备它应当认领该 Type 0 周期;设备在其上游 Link 上看到的任何 Type 0 配置周期都将被视为针对该设备本身。
+| EN | ZH |
+|:---|:---|
+| In Figure 5‐9 on page 193, a Type 1 configuration cycle is shown making its way downstream, where it is converted to Type 0 by the bridge for that bus (accomplished by changing bit 0 of the Type field). Note that, unlike PCI, only one device can reside downstream on a Link. Consequently, no IDSEL or other hardware indication is needed to tell the device that it should claim the Type 0 cycle; any Type 0 configuration cycle a device sees on its Upstream Link will be understood as targeting that device. | 在第 193 页的图 5-9 中，展示了一个 Type 1 配置周期向下游行进的过程，在该总线的桥上被转换为 Type 0（通过更改 Type 字段的 bit 0 实现）。请注意，与 PCI 不同，链路下游只能驻留一个设备。因此，不需要 IDSEL 或其他硬件指示来告知设备应认领该 Type 0 周期；设备在其上游链路上看到的任何 Type 0 配置周期都将被理解为以该设备为目标。 |
+| Definitions Of Configuration Request Header Fields. Table 5‐6 on page 194 describes the location and use of each field in the configuration request header illustrated in Figure 5‐9 on page 193. | 配置请求头字段定义。第 194 页的表 5-6 描述了第 193 页图 5-9 所示的配置请求头中每个字段的位置和用途。 |
 
-Definitions Of Configuration Request Header Fields(配置请求包头字段定义)。第 194 页的表 5-6 描述了图 5-9 所示配置请求包头中每个字段的位置和用途。
+Table 5‐6: Configuration Request Header Fields
 
-表 5-6:Configuration Request Header Fields(配置请求包头字段)
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Always a 3DW header000b = configuration read (no data)010b = configuration write (with data)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>00100b = Type 0 Config Request00101b = Type 1 Config Request</td></tr><tr><td>TC [2:0](Transfer Class)</td><td>Byte 1 Bit 6:4</td><td>Traffic Class must be zero for Configuration requests, ensuring that these packets will never interfere with any high-priority packets.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td rowspan="2">These bits are reserved and must be zero for Config Requests.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>Indicates the presence of a digest field (1 DW) at the end of the TLP.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>Indicates that data payload is poisoned.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Relaxed Ordering and No Snoop bits are both always = 0 in configuration requests.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type is reserved for config requests and must be zero.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Data payload size in DW is always = 1 for configuration requests. Byte Enables qualify bytes within the DW and any combination is legal.</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Requester's return address for a completion:Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>These bits identify outstanding request issued by the requester. By default, only bits 4:0 are used (32 outstanding transactions at a time), but if the Extended Tag bit in the Control Register is set = 1, then all 8 bits may be used (256 tags).</td></tr><tr><td>Last BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>These qualify bytes in the last data DW transferred. Since config requests can only be one DW in size, these bits must be zero.</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>These high-true bits qualify bytes in the first data DW transferred. For config requests, any bit combination is valid (including none active).</td></tr><tr><td>Completer ID [15:0]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0</td><td>Identifies the completer being accessed with this configuration cycle.Byte 8, 7:0 = Bus NumberByte 9, 7:3 = Device NumberByte 9, 2:0 = Function Number</td></tr><tr><td>Ext Register Number[3:0](Extended Register Number)</td><td>Byte 10 Bit 3:0</td><td>These provide the upper 4 bits of DW space for accessing the extended config space. They're combined with Register Number to create the 10-bit address needed to access the 1024 DW (4096 byte) space. For PCI-compatible config space, this field must be zero.</td></tr><tr><td>Register Number [5:0]</td><td>Byte 11 Bit 7:0</td><td>As the lower 8 bits of configuration DW space, these specify the register number. The two lowest bits are always zero, forcing DW-aligned accesses.</td></tr></table>
 
-<table><tr><td>字段名称</td><td>包头字节/位</td><td>功能</td></tr><tr><td>Fmt [2:0](格式)</td><td>Byte 0 Bit 7:5</td><td>始终为 3DW 包头000b = configuration read(配置读,无数据)010b = configuration write(配置写,带数据)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>00100b = Type 0 配置请求00101b = Type 1 配置请求</td></tr><tr><td>TC [2:0](流量类)</td><td>Byte 1 Bit 6:4</td><td>配置请求的 Traffic Class 必须为零,以确保这些报文永远不会干扰任何高优先级报文。</td></tr><tr><td>Attr [2](属性)</td><td>Byte 1 Bit 2</td><td rowspan="2">这些位为保留位,配置请求中必须为零。</td></tr><tr><td>TH(TLP 处理提示)</td><td>Byte 1 Bit 0</td></tr><tr><td>TD(TLP 摘要)</td><td>Byte 2 Bit 7</td><td>指示在该 TLP 末尾是否存在摘要字段(1 DW)。</td></tr><tr><td>EP(Poisoned Data,中毒数据)</td><td>Byte 2 Bit 6</td><td>指示数据负载已被中毒。</td></tr><tr><td>Attr [1:0](属性)</td><td>Byte 2 Bit 5:4</td><td>配置请求中 Relaxed Ordering 与 No Snoop 位始终 = 0。</td></tr><tr><td>AT [1:0](地址类型)</td><td>Byte 2 Bit 3:2</td><td>Address Type 在配置请求中为保留,必须为零。</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>数据负载大小以 DW 为单位,配置请求始终 = 1。Byte Enables 对该 DW 内的字节进行限定,任意组合均合法。</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>标识请求者的完成报文返回地址:Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>这些位标识请求者发出的未完成请求。默认情况下仅使用 bit 4:0(同时 32 个未完成事务),但如果 Control Register 中的 Extended Tag 位被置 1,则可使用全部 8 位(256 个标签)。</td></tr><tr><td>Last BE [3:0](最后一个 DW 字节使能)</td><td>Byte 7 Bit 7:4</td><td>这些位对所传输最后一个数据 DW 中的字节进行限定。由于配置请求大小只能为一个 DW,这些位必须为零。</td></tr><tr><td>1st DW BE [3:0](第一个 DW 字节使能)</td><td>Byte 7 Bit 3:0</td><td>这些高有效位对所传输第一个数据 DW 中的字节进行限定。对于配置请求,任何位组合均有效(包括全部无效)。</td></tr><tr><td>Completer ID [15:0]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0</td><td>标识本次配置周期所访问的完成者。Byte 8, 7:0 = Bus NumberByte 9, 7:3 = Device NumberByte 9, 2:0 = Function Number</td></tr><tr><td>Ext Register Number[3:0](扩展寄存器号)</td><td>Byte 10 Bit 3:0</td><td>这些位提供用于访问扩展配置空间 DW 空间的高 4 位。它们与 Register Number 组合,形成访问 1024 DW(4096 字节)空间所需的 10 位地址。对于 PCI 兼容的配置空间,此字段必须为零。</td></tr><tr><td>Register Number [5:0]</td><td>Byte 11 Bit 7:0</td><td>作为配置 DW 空间的低 8 位,这些位指定寄存器号。最低两位始终为零,强制按 DW 对齐访问。</td></tr></table>
+| EN | ZH |
+|:---|:---|
+| Configuration Request Notes. Configuration requests always use the 3DW header format and are routed based on the target Bus, Device and Function numbers. All devices "capture" their Bus and Device Number from the target numbers in the Request whenever they receive a Type 0 configuration write cycle. The reason for that is because they'll need it later to use as their Requester ID when they send requests of their own in the future. | 配置请求注意事项。配置请求始终使用 3DW 头格式，并根据目标总线号、设备号和功能号进行路由。所有设备在收到 Type 0 配置写周期时，都会从请求中的目标号"捕获"其总线号和设备号。这样做的原因是，它们以后在发送自己的请求时，需要将其用作请求者 ID。 |
 
-Configuration Request Notes(配置请求注意事项)。配置请求始终使用 3DW 包头格式,并根据目标 Bus、Device 和 Function 号进行路由。所有设备在每次接收到 Type 0 配置写周期时,都会从请求中的目标编号"捕获"自己的 Bus 和 Device Number。这样做是因为它们日后在发送自己的请求时,需要使用这些编号作为自己的 Requester ID。
+| EN | ZH |
+|:---|:---|
+| ## Completions | ## 完成报文 |
 
----
+| EN | ZH |
+|:---|:---|
+| Completions are expected in response to non-posted Request, unless errors prevent them. For example Memory, IO, or Configuration Read requests usually result in Completions with data. On the other hand, IO or Configuration Write requests usually result in a completion without data that merely reports the status of the transaction. | 除非发生错误，否则非转发请求（non-posted Request）均会返回完成报文。例如，存储器读、IO读或配置读请求通常会返回带数据的完成报文。而IO写或配置写请求通常返回无数据的完成报文，仅报告事务的状态。 |
+| Many fields in the Completion use the same values as the associated request, including Traffic Class, Attribute bits, and the original Requester ID (used to route the completion back to the Requester). Figure 5-10 on page 197 shows a completion returned for a non-posted request, and the 3DW header format it uses. Completions also supply the Completer ID in the header. Completer ID is not interesting during normal operation, but knowing where the Completion came from could be useful for error diagnosis during system debug. | 完成报文中的许多字段使用与关联请求相同的值，包括流量类（Traffic Class）、属性位（Attribute bits）以及原始请求方ID（用于将完成报文路由回请求方）。图5-10（第197页）展示了一个针对非转发请求返回的完成报文及其所使用的3DW头格式。完成报文还会在头部提供完成方ID（Completer ID）。完成方ID在正常操作期间并不引人关注，但了解完成报文的来源对于系统调试期间的错误诊断可能很有用。 |
 
-## 完成报文 (Completions)
-
-除非发生错误导致无法返回,否则非发布的请求 (Request) 都应当收到对应的完成报文 (Completion)。例如,Memory 读、IO 读或 Configuration 读请求通常会返回带数据的完成报文;而 IO 写或 Configuration 写请求通常返回不带数据的完成报文,仅用于报告该事务 (transaction) 的状态。
-
-完成报文中的许多字段与对应的请求使用相同的取值,包括流量类 (Traffic Class, TC)、属性位以及原始的请求者 ID (Requester ID, 用于将完成报文路由回请求者)。第 197 页的图 5-10 展示了一个针对非发布请求返回的完成报文,以及它所使用的 3DW 包头 (Header) 格式。完成报文还在包头中提供了 Completer ID (完成者 ID)。在正常运行期间,Completer ID 并不重要,但在系统调试过程中,了解完成报文来自何处对错误诊断可能有所帮助。
-
-图 5-10:3DW 完成报文包头格式
+Figure 5-10: 3DW Completion Header Format
 ![](images/part02_a6cddfbfaf4ca7c4ab4647260c51d133a2bd27b3074d97b8c5923f662039ce02.jpg)
-完成报文包头字段定义。第 197 页的表 5-7 描述了完成报文包头中每个字段的位置和用途。
 
-表 5-7:完成报文包头字段
+| EN | ZH |
+|:---|:---|
+| Definitions Of Completion Header Fields. Table 5-7 on page 197 describes the location and use of each field in a completion header. | 完成报头字段定义。表5-7（第197页）描述了完成报头中各字段的位置和用途。 |
 
-<table><tr><td>字段名</td><td>包头字节/位</td><td>功能</td></tr><tr><td>Fmt [2:0] (Format 格式)</td><td>Byte 0 Bit 7:5</td><td>报文格式 (始终为 3DW 包头)000b = 不带数据的完成报文 (Cpl)010b = 带数据的完成报文 (CplD)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>报文类型,完成报文为 01010b。</td></tr></table>
+Table 5-7: Completion Header Fields
 
----
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0] (Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Format (always a 3DW header)000b = Completion without data (Cpl)010b = Completion with data (CplD)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>Packet type is 01010b for Completions.</td></tr></table>
 
-## PCI Express Technology
+| EN | ZH |
+|:---|:---|
+| PCI Express Technology | PCI Express 技术 |
 
-Table 5‐7: 完成报文头字段(续)
+Table 5-7: Completion Header Fields (Continued)
 
-<table><tr><td>字段名称</td><td>包头字节/位</td><td>功能</td></tr><tr><td>TC [2:0](流量类)</td><td>Byte 1 Bit 6:4</td><td>完成报文此处必须使用与对应请求(Request)相同的值。</td></tr><tr><td>Attr [2](属性)</td><td>Byte 1 Bit 2</td><td>指示此 TLP 是否使用基于 ID 的排序(IDO)。有关详细信息,请参阅第 301 页 "ID Based Ordering (IDO)"。</td></tr><tr><td>TH(TLP 处理提示)</td><td>Byte 1 Bit 0</td><td>完成报文保留。</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>若 = 1,表示 TLP 末尾存在摘要字段。</td></tr><tr><td>EP(中毒数据)</td><td>Byte 2 Bit 6</td><td>若 = 1,表示数据载荷已被中毒。</td></tr><tr><td>Attr [1:0](属性)</td><td>Byte 2 Bit 5:4</td><td>完成报文此处必须使用与对应请求(Request)相同的值。</td></tr><tr><td>AT [1:0](地址类型)</td><td>Byte 2 Bit 3:2</td><td>地址类型(Address Type)对完成报文保留,必须为零,但并不要求也不建议接收器对此进行检查。</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>指示数据载荷的大小(以 DW 为单位)。对完成报文而言,此字段反映与此完成报文相关联的数据载荷的大小。</td></tr><tr><td>Completer ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>标识完成方以支持问题调试。Byte 4 7:0 = Completer Bus #Byte 5 7:3 = Completer Dev #Byte 5 2:0 = Completer Function #</td></tr></table>
+<table><tr><td>Field Name</td><td>HeaderByte/Bit</td><td>Function</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>Completions must use the same value here as the corresponding Request.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>Indicates whether ID-based Ordering is to be used for this TLP. To learn more, see "ID Based Ordering (IDO)" on page 301.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>Reserved for Completions.</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>If = 1, indicates the presence of a digest field at the end of the TLP.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>If = 1, indicates the data payload is poisoned.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Completions must use the same values here as the corresponding Request.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type is reserved for Completions and must be zero, but Receivers are not required or even encouraged to check this.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Indicates data payload size in DW. For Completions, this field reflects the size of the data payload associated with this completion.</td></tr><tr><td>Completer ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Completer to support debugging problems.Byte 4 7:0 = Completer Bus #Byte 5 7:3 = Completer Dev #Byte 5 2:0 = Completer Function #</td></tr></table>

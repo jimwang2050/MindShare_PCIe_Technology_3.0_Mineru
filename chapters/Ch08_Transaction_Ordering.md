@@ -1,299 +1,190 @@
-# 事务排序
+# Ch08_Transaction_Ordering
 
-## 上一章
+| EN | ZH |
+|---|---|
+| # Transaction Ordering | # 事务排序 |
 
-上一章讨论了支持服务质量 (QoS) 的机制，并描述了控制穿越交换结构的不同包的时序与带宽的方法。这些机制包括为每个包分配优先级值的面向特定应用的软件，以及必须内置于每个设备中以实现对事务优先级进行管理的可选硬件。
+| EN | ZH |
+|---|---|
+| ## The Previous Chapter | ## 前一章 |
+| The previous chapter discusses the mechanisms that support Quality of Service and describes the means of controlling the timing and bandwidth of different packets traversing the fabric. These mechanisms include application-specific software that assigns a priority value to every packet, and optional hardware that must be built into each device to enable managing transaction priority. | 前一章讨论了支持服务质量（Quality of Service）的机制，并描述了控制穿越互连结构中不同数据包时序和带宽的方法。这些机制包括为每个数据包分配优先级值的应用特定软件，以及必须内置于每个设备中以实现事务优先级管理的可选硬件。 |
 
-## 本章
+| EN | ZH |
+|---|---|
+| ## This Chapter | ## 本章 |
+| This chapter discusses the ordering requirements for transactions in a PCI Express topology. These rules are inherited from PCI. The Producer/Consumer programming model motivated many of them, so its mechanism is described here. The original rules also took into consideration possible deadlock conditions that must be avoided. | 本章讨论PCI Express拓扑结构中事务的排序要求。这些规则继承自PCI。生产者/消费者编程模型是其中许多规则的动因，因此此处描述了其机制。原始规则还考虑了必须避免的可能死锁条件。 |
 
-本章讨论 PCI Express 拓扑中事务的排序要求。这些规则继承自 PCI。生产者/消费者 (Producer/Consumer) 编程模型是其中许多规则的动机来源，因此这里将描述其机制。原始规则还考虑了必须避免的可能的死锁条件。
+## The Next Chapter
 
-## 下一章
+| EN | ZH |
+|---|---|
+| The next chapter describes, Data Link Layer Packets (DLLPs). We describe the use, format, and definition of the DLLP packet types and the details of their related fields. DLLPs are used to support Ack/Nak protocol, power management, flow control mechanism and can be used for vender defined purposes. | 下一章描述数据链路层包(DLLP)。我们将介绍DLLP包类型的使用、格式和定义及其相关字段的详细信息。DLLP用于支持Ack/Nak协议、电源管理、流控机制，并可用于厂商自定义目的。 |
 
-下一章将描述数据链路层包 (DLLP)。我们将介绍 DLLP 包类型的用途、格式和定义，以及其相关字段的详细信息。DLLP 用于支持 ACK/Nak 协议、电源管理、流控机制，并可用于厂商自定义目的。
+## Introduction
 
 ## 引言
 
-与其他协议一样，PCI Express 对同一流量类 (TC) 中同时流经结构的事务施加了排序规则。不同 TC 的事务之间不存在排序关系。对同一 TC 的事务施加这些排序规则的原因包括：
+| EN | ZH |
+| --- | --- |
+| As with other protocols, PCI Express imposes ordering rules on transactions of the same traffic class (TC) moving through the fabric at the same time. Transactions with different TCs do not have ordering relationships. The reasons for these ordering rules related to transactions of the same TC include: | 与其他协议一样，PCI Express 对同时在同一结构中移动的相同流量类（TC）的事务施加了排序规则。不同 TC 的事务之间没有排序关系。与相同 TC 事务相关的这些排序规则的原因包括： |
+| • Maintaining compatibility with legacy buses (PCI, PCI‐X, and AGP). | • 保持与传统总线（PCI、PCI-X 和 AGP）的兼容性。 |
+| • Ensuring that the completion of transactions is deterministic and in the sequence intended by the programmer. | • 确保事务的完成是确定性的，并符合程序员预期的顺序。 |
 
-• 保持与旧有总线 (PCI、PCI‑X 和 AGP) 的兼容性。
+## PCI Express 3.0 Technology
 
-• 确保事务的完成是确定性的，并且符合程序员预期的顺序。
+| EN | ZH |
+|---|---|
+| ## PCI Express 3.0 Technology | ## PCI Express 3.0 技术 |
+| • Avoiding deadlock conditions. | • 避免死锁条件。 |
+| • Maximize performance and throughput by minimizing read latencies and managing read and write ordering. | • 通过最小化读取延迟和管理读写排序来最大化性能和吞吐量。 |
+| Implementation of the specific PCI/PCIe transaction ordering is based on the following features: | 特定 PCI/PCIe 事务排序的实现基于以下特性： |
+| 1. Producer/Consumer programming model on which the fundamental ordering rules are based. | 1. 生产者/消费者编程模型，基本排序规则基于该模型。 |
+| 2. Relaxed Ordering option that allows an exception to this when the Requester knows that a transaction does not have any dependencies on previous transactions. | 2. 宽松排序选项，当请求者知道某个事务不依赖于先前事务时，允许对此进行例外处理。 |
+| 3. ID Ordering option that allows a switches to permit requests from one device to move ahead of requests from another device because unrelated threads of execution are being performed by these two devices. | 3. ID 排序选项，允许交换机让一个设备的请求优先于另一个设备的请求，因为这两个设备正在执行不相关的执行线程。 |
+| 4. Means for avoiding deadlock conditions and supporting PCI legacy implementations. | 4. 用于避免死锁条件和支持 PCI 遗留实现的手段。 |
 
-## PCI Express 3.0 技术
+## Definitions / 定义
 
-• 避免死锁情况。
+| EN | ZH |
+|----|----|
+| There are three general models for ordering transactions in a traffic flow: | 在流量流中，事务排序有三种通用模型： |
+| 1. **Strong Ordering**: PCI Express requires strong ordering of transactions flowing through the fabric that have the same Traffic Class (TC) assignment. Transactions that have the same TC value assigned to them are mapped to a given VC, therefore the same rules apply to transactions within each VC. Consequently, when multiple TCs are assigned to the same VC all transactions are typically handled as a single TC, even though no ordering relationship exists between different TCs. | 1. **强排序(Strong Ordering)**：PCI Express要求对通过结构(Fabric)传输且具有相同流量类(Traffic Class, TC)分配的事务进行强排序。被分配相同TC值的事务被映射到给定VC(Virtual Channel)，因此相同的规则适用于每个VC内的事务。因此，当多个TC被分配到同一个VC时，所有事务通常被视为单个TC处理，即使不同TC之间不存在排序关系。 |
+| 2. **Weak Ordering**: Transactions stay in sequence unless reordering would be helpful. Maintaining the strong ordering relationship between transactions can result in all transactions being blocked due to dependencies associated with a given transaction model (e.g., The Producer/Consumer Model). Some of the blocked transactions very likely are not related to the dependencies and can safely be reordered ahead of blocking transactions. | 2. **弱排序(Weak Ordering)**：事务保持顺序，除非重新排序会有帮助。维持事务之间的强排序关系可能导致所有事务因给定事务模型（例如生产者/消费者模型，Producer/Consumer Model）的相关依赖而被阻塞。某些被阻塞的事务很可能与这些依赖无关，可以安全地重新排序到阻塞事务之前。 |
+| 3. **Relaxed Ordering**: Transactions can be reordered, but only under certain controlled conditions. The benefit is improved performance like the weak-ordered model, but only when specified by software so as to avoid problems with dependencies. The drawback is that only some transactions will be optimized for performance. There is some overhead for software to enable transactions for Relaxed Ordering (RO). | 3. **宽松排序(Relaxed Ordering)**：事务可以被重新排序，但仅在特定的受控条件下。其优点是像弱排序模型一样提升性能，但仅在软件指定时生效，以避免依赖问题。缺点是只有部分事务会得到性能优化，并且软件启用宽松排序(RO)会有一定的开销。 |
 
-• 通过最小化读延迟和管理读写排序来最大化性能和吞吐量。
+| EN | ZH |
+|---|---|
+| ## Simplified Ordering Rules | ## 简化排序规则 |
+| The 2.1 revision of the spec introduced a simplified version of the Ordering Table as shown in Table 8‑1 on page 289. The table can be segmented on a per topic basis as follows: | 2.1修订版规范引入了排序表的简化版本，如表8-1（第289页）所示。该表可按主题分类如下： |
+| • Producer/Consumer rules (page 290) | • 生产者/消费者规则（第290页） |
+| • Relaxed Ordering rules (page 296) | • 宽松排序规则（第296页） |
+| • Weak Ordering rules (page 299) | • 弱排序规则（第299页） |
+| • ID Ordering rules (page 301) | • ID排序规则（第301页） |
+| • Deadlock avoidance (page 303) | • 死锁避免（第303页） |
+| These sections provide details associated with the ordering models, operation, rationales, conditions and requirement. | 这些章节提供了与排序模型、操作、原理、条件和要求相关的详细信息。 |
 
-具体 PCI/PCIe 事务排序的实现基于以下特性：
+## Ordering Rules and Traffic Classes (TCs)
 
-1. 生产者/消费者编程模型，基本排序规则基于此模型。
+| EN | ZH |
+|---|---|
+| PCI Express ordering rules apply to transactions of the same Traffic Class (TC). Transactions moving through the fabric that have different TCs have no ordering requirement and are considered to be associated with unrelated applications. As a result, there is no transaction ordering related performance degradation associated with packets of different TCs. | PCI Express 排序规则适用于同一流量类（TC）的事务。在结构中传输且具有不同 TC 的事务之间没有排序要求，它们被视为与不相关的应用相关联。因此，不同 TC 的数据包之间不存在与事务排序相关的性能下降。 |
+| Packets that do share the same TC may experience performance degradation as they flow through the PCIe fabric. This is because switches and devices must support ordering rules that may require packets to be delayed or forwarded in front of packets previously sent. | 共享同一 TC 的数据包在流经 PCIe 结构时可能会经历性能下降。这是因为交换机和设备必须支持排序规则，这些规则可能要求数据包被延迟，或者被优先转发到先前已发送的数据包之前。 |
+| As discussed in Chapter 7, entitled "Quality of Service," on page 245, transactions of different TC may map to the same VC. The TC-to-VC mapping configuration determines which packets of a given TC map to a specific VC. Even though the transaction ordering rules apply only to packets of the same TC, it may be simpler to design endpoint devices/switches/root complexes that apply the transaction ordering rules to all packets within a VC even though multiple TCs are mapped to the same VC. | 如第 245 页第 7 章"服务质量"所述，不同 TC 的事务可以映射到同一 VC。TC 到 VC 的映射配置决定了给定 TC 的哪些数据包映射到特定的 VC。尽管事务排序规则仅适用于同一 TC 的数据包，但将端点设备/交换机/根复合体设计为对同一 VC 内的所有数据包应用事务排序规则可能更为简单，即使多个 TC 映射到同一 VC 也是如此。 |
+| As one would expect, there are no ordering relationships between packets that map to different VCs no matter their TC. | 正如所料，映射到不同 VC 的数据包之间无论其 TC 如何，都不存在排序关系。 |
 
-2. 宽松排序 (Relaxed Ordering) 选项，当请求方知道某个事务对先前事务没有任何依赖时，允许对此规则的例外。
+## Ordering Rules Based On Packet Type
 
-3. ID 排序 (ID Ordering) 选项，允许交换机放行来自一个设备的请求越过来自另一设备的请求，因为这两个设备正在执行不相关的执行线程。
+| EN | ZH |
+| --- | --- |
+| Ordering relationships defined by the PCIe spec are based on TLP type. TLPs are divided into three categories: 1) Posted, 2) Completion and 3) Non-Posted TLPs. | PCIe 规范定义的排序关系基于 TLP 类型。TLP 分为三类：1) Posted（发布），2) Completion（完成报文）和 3) Non-Posted（非发布）TLP。 |
+| The Posted category of TLPs include memory write requests (MWr) and Messages (Msg/MsgD). Completion category of TLPs include Cpl and CplD. Non-Posted category of TLPs include MRd, IORd, IOWr, CfgRd0, CfgRd1, CfgWr0 and CfgWr1. | Posted 类 TLP 包括存储器写请求 (MWr) 和消息 (Msg/MsgD)。Completion 类 TLP 包括 Cpl 和 CplD。Non-Posted 类 TLP 包括 MRd、IORd、IOWr、CfgRd0、CfgRd1、CfgWr0 和 CfgWr1。 |
+| The transaction ordering rules are described by a table in the following section "The Simplified Ordering Rules Table" on page 288. As you will notice, the table shows TLPs listed according to the three categories mentioned above with their ordering relationships defined. | 事务排序规则由下一节（第 288 页的 "简化排序规则表"）中的表格描述。您会注意到，该表根据上述三类列出 TLP，并定义了它们的排序关系。 |
 
-4. 避免死锁状况和支持 PCI 遗留实现的方法。
+## The Simplified Ordering Rules Table / 简化排序规则表
 
-## 定义
+| EN | ZH |
+|---|---|
+| The table is organized in a Row Pass Column fashion. All of the rules are summarized following the Simplified Ordering Table. Each rule or group of rules define the actions that are required. | 该表采用行可超越列的编排方式。所有规则均在简化排序表之后进行了总结。每一条或每一组规则定义了所需采取的操作。 |
+| In Table 8-1 on page 289, columns 2-5 represent transactions that have previously been delivered by a PCI Express device, while row A-D represents a new transaction that has just arrived. For outbound transactions, the table specifies whether a transaction represented in the row (A-D) is allowed to pass a previous transaction represented by the column (2-5). A 'No' entry means the transaction in the row is not allowed to pass the transaction in the column. A 'Yes' entry means the transaction in the row must be allowed to pass the transaction in the column to avoid a deadlock. A 'Yes/No' entry means a transaction in a row is allowed to pass the transaction in the column but is not required to do so. The entries in the following have the meaning. | 在第289页的表8-1中，第2至5列表示PCI Express设备先前已传送的事务，而行A至D表示刚刚到达的新事务。对于对外事务，该表规定了行(A-D)所代表的事务是否被允许超越列(2-5)所代表的先前事务。"No"表项表示行中的事务不允许超越列中的事务。"Yes"表项表示行中的事务必须被允许超越列中的事务，以避免死锁。"Yes/No"表项表示行中的事务被允许超越列中的事务，但并非必须这样做。以下各项具有相应的含义。 |
 
-事务流中事务的排序有三种通用模型：
+**Table 8-1: Simplified Ordering Rules Table**
+**表8-1：简化排序规则表**
 
-1. 强排序 (Strong Ordering): PCI Express 要求具有相同流量类 (Traffic Class, TC) 赋值的流经整个架构的事务必须采用强排序。具有相同 TC 值的事务被映射到给定的虚通道 (Virtual Channel, VC)，因此同样的规则适用于每个 VC 内的事务。从而，当多个 TC 被分配到同一个 VC 时，所有事务通常按单一 TC 来处理，即使在不同的 TC 之间不存在排序关系。
+<table><tr><td rowspan="2" colspan="2">Row pass Column? (Col 1)</td><td rowspan="2">Posted Request (Col 2)</td><td colspan="2">Non-Posted Request</td><td rowspan="2">Completion (Col 5)</td></tr><tr><td>Read Request (Col 3)</td><td>NPR with Data (Col 4)</td></tr><tr><td colspan="2">Posted Request (Row A)</td><td>a) No b) Y/N</td><td>Yes</td><td>Yes</td><td>a) Y/Nb) Yes</td></tr><tr><td rowspan="2">Non-Posted Request</td><td>Read Request (Row B)</td><td>a) No b) Y/N</td><td>Y/N</td><td>Y/N</td><td>Y/N</td></tr><tr><td>NPR with Data (Row C)</td><td>a) No b) Y/N</td><td>Y/N</td><td>Y/N</td><td>Y/N</td></tr><tr><td colspan="2">Completion (Row D)</td><td>a) No b) Y/N</td><td>Yes</td><td>Yes</td><td>a) Y/Nb) No</td></tr></table>
 
-2. 弱排序 (Weak Ordering): 事务保持顺序，除非重排序会带来益处。维持事务之间的强排序关系可能会导致所有事务因与特定事务模型（例如生产者/消费者模型）相关的依赖关系而被阻塞。一些被阻塞的事务很可能与这些依赖关系无关，可以安全地将其重排序到阻塞事务之前。
+| EN | ZH |
+|---|---|
+| • A2a, B2a, C2a, D2a — to enforce the Producer/Consumer model, a subsequent transaction is not allowed to pass a Posted Request. | • A2a、B2a、C2a、D2a——为了强制执行生产者/消费者模型，后续事务不允许超越Posted请求。 |
+| • A2, D2b — If RO is set, then a Read Completion is permitted to pass a previously queued Memory Write or Message Request. | • A2、D2b——如果设置了RO（宽松排序），则允许读完成超越先前排队的存储器写或消息请求。 |
+| A2b, B2b, C2b, D2b — if the optional IDO is being used, a subsequent transaction is allowed to pass a Posted Request, as long as their Requester IDs are different. | A2b、B2b、C2b、D2b——如果使用了可选的IDO（基于ID的排序），则只要其请求者ID不同，后续事务就被允许超越Posted请求。 |
+| • A3, A4 — A Memory Write or Message Request must be allowed to pass Non-Posted Requests to avoid deadlocks. | • A3、A4——存储器写或消息请求必须被允许超越Non-Posted请求，以避免死锁。 |
+| • A5a — Posted Request is permitted but not required to pass Completions. | • A5a——Posted请求被允许但非必须超越完成报文。 |
+| A5b — Deadlock avoidance case. In a PCIe-to-PCI/PCI-X bridge, for transactions going from PCIe to PCI or PCI-X, a Posted Request must be able to pass a Completion, or a deadlock may occur. | A5b——死锁避免情况。在PCIe到PCI/PCI-X桥中，对于从PCIe到PCI或PCI-X的事务，Posted请求必须能够超越完成报文，否则可能发生死锁。 |
+| • B3, B4, B5, C3, C4, C5, — These cases implement weak ordering without risking any ordering related problems. | • B3、B4、B5、C3、C4、C5——这些情况实现了弱排序，而不会带来任何排序相关问题的风险。 |
+| D3, D4 — Completions must be allowed to pass Read and I/O or Configuration Write Requests (Non-Posted Requests) to avoid deadlocks. | D3、D4——完成报文必须被允许超越读请求和I/O或配置写请求（Non-Posted请求），以避免死锁。 |
+| • D5a — Completions with different Transaction IDs may pass each other. | • D5a——具有不同事务ID的完成报文可以相互超越。 |
+| D5b — Completions with the same Transaction ID are not allowed to pass each other. This ensures that multiple completions for a single request will remain in ascending address order. | D5b——具有相同事务ID的完成报文不允许相互超越。这确保了对单个请求的多个完成报文将保持地址升序。 |
 
-3. 宽松排序 (Relaxed Ordering): 事务可以被重排序，但仅限于特定的受控条件下。其优势在于与弱排序模型类似地提升性能，但仅当由软件指定时才执行，以避免依赖关系带来的问题。缺点在于只有部分事务会针对性能进行优化。软件需付出一定开销来使能事务的宽松排序 (Relaxed Ordering, RO)。
+## 生产者/消费者模型 (Producer/Consumer Model)
 
-## 简化的排序规则
+| EN | ZH |
+|---|---|
+| This section describes the operation of the Producer/Consumer model and the associated ordering rules required for proper operation. Figure 8-1 on page 291 simply illustrates a sample topology. Subsequent examples of this topology describe the operation of the Producer/Consumer model with proper ordering, followed by an example of the model failing due to improper ordering. | 本节描述生产者/消费者模型的操作以及正确运行所需的关联排序规则。图8-1（第291页）简单展示了一个示例拓扑。基于该拓扑的后续示例描述了在正确排序下生产者/消费者模型的操作，随后给出了一个因排序不当而导致模型失败的示例。 |
+| The Producer/Consumer model is the common method for data delivery in PCI and PCIe. The model comprises five elements as depicted in Figure 8-1: | 生产者/消费者模型是PCI和PCIe中数据传输的常用方法。该模型包含如图8-1所示的五个要素： |
+| • Producer of data | • 数据生产者 |
+| • Memory data buffer | • 内存数据缓冲区 |
+| • Flag semaphore indicating data has been send by the Producer | • 标志信号量，指示生产者已发送数据 |
+| • Consumer of data | • 数据消费者 |
+| • Status semaphore indicating Consumer has read data | • 状态信号量，指示消费者已读取数据 |
+| The specification states that the Producer/Consumer model will work regardless of the arrangement of all the elements involved. In this example, the Flag and Status elements reside in the same physical device, but could be located in different devices. | 规范指出，无论所有相关元素的排列如何，生产者/消费者模型都能正常工作。在本示例中，Flag和Status元素位于同一物理设备中，但它们也可以位于不同的设备中。 |
 
-规范 2.1 修订版引入了简化版的排序表，如第 289 页的表 8-1 所示。该表可按主题拆分为以下几个部分：
+**Figure 8-1: Example Producer/Consumer Topology**
 
-- 生产者/消费者规则（第 290 页）
-
-- 宽松排序（Relaxed Ordering）规则（第 296 页）
-
-- 弱排序（Weak Ordering）规则（第 299 页）
-
-- ID 排序规则（第 301 页）
-
-- 死锁避免（第 303 页）
-
-以上各节详细描述了排序模型、操作、原理、条件及需求的相关内容。
-
-## 排序规则与流量类 (TC)
-
-PCI Express 排序规则适用于相同流量类 (TC) 的事务。通过互连架构传输的具有不同 TC 的事务之间没有排序要求，并且被认为与不相关的应用相关联。因此，不同 TC 的包之间不存在与事务排序相关的性能降级。
-
-共享相同 TC 的包在流经 PCIe 架构时则可能会遭遇性能降级。这是因为交换机和设备必须支持排序规则，这些规则可能要求包被延迟，或者被优先于之前发送的包进行转发。
-
-如第 7 章（标题为"服务质量"，第 245 页）所述，不同 TC 的事务可以映射到相同的 VC。TC 到 VC 的映射配置决定了给定 TC 的哪些包映射到特定的 VC。尽管事务排序规则仅适用于相同 TC 的包，但设计端点设备/交换机/根复合体时，将事务排序规则应用于 VC 内的所有包（即使多个 TC 映射到同一 VC）可能更加简单。
-
-正如预期的那样，映射到不同 VC 的包之间不存在排序关系，无论其 TC 如何。
-
-## 基于数据包类型的排序规则
-
-PCIe规范定义的排序关系基于TLP类型。TLP分为三类：1) Posted (有数据无完成), 2) Completion (完成报文), 3) Non-Posted (无数据需完成) TLP。
-
-Posted (有数据无完成) 类别TLP包括存储器写请求(MWr)和消息(Msg/MsgD)。Completion (完成报文) 类别TLP包括Cpl和CplD。Non-Posted (无数据需完成) 类别TLP包括MRd、IORd、IOWr、CfgRd0、CfgRd1、CfgWr0和CfgWr1。
-
-事务排序规则在下一节"简化的排序规则表"(第288页)中以表格形式描述。如您所见，该表格按上述三个类别列出TLP，并定义了它们之间的排序关系。
-
-## 简化排序规则表
-
-该表按"行通过列"（Row Pass Column）的方式组织。所有规则在简化排序表之后进行汇总。每条规则或每组规则定义了所需执行的操作。
-
-在表8-1（第289页）中，第2-5列表示PCI Express设备先前已交付的事务，而行A-D表示刚到达的新事务。对于出站事务，该表规定了行（A-D）所代表的事务是否允许超越列（2-5）所代表的先前事务。条目"否"（No）表示不允许行事务超越列事务。条目"是"（Yes）表示行事务必须允许超越列事务，以避免死锁。条目"是/否"（Yes/No）表示行事务允许超越列事务，但不强制要求这样做。下表中各条目的含义如下。
-
-表8-1: 简化排序规则表
-
-<table><tr><td rowspan="2" colspan="2">行是否允许超越列? (第1列)</td><td rowspan="2">Posted请求 (第2列)</td><td colspan="2">Non-Posted请求</td><td rowspan="2">完成报文 (第5列)</td></tr><tr><td>读请求 (第3列)</td><td>带数据的NPR (第4列)</td></tr><tr><td colspan="2">Posted请求 (行A)</td><td>a) 否 b) 是/否</td><td>是</td><td>是</td><td>a) 是/否<br>b) 是</td></tr><tr><td rowspan="2">Non-Posted请求</td><td>读请求 (行B)</td><td>a) 否 b) 是/否</td><td>是/否</td><td>是/否</td><td>是/否</td></tr><tr><td>带数据的NPR (行C)</td><td>a) 否 b) 是/否</td><td>是/否</td><td>是/否</td><td>是/否</td></tr><tr><td colspan="2">完成报文 (行D)</td><td>a) 否 b) 是/否</td><td>是</td><td>是</td><td>a) 是/否<br>b) 否</td></tr></table>
-
-- A2a, B2a, C2a, D2a — 为实现生产者/消费者（Producer/Consumer）模型，后续事务不允许超越Posted请求。
-
-- A2, D2b — 如果设置了RO（Relaxed Ordering，宽松排序），则允许读完成（Read Completion）超越之前排队的存储器写（Memory Write）或消息请求（Message Request）。
-
-- A2b, B2b, C2b, D2b — 如果使用了可选的IDO（ID-Based Ordering，基于ID的排序），则允许后续事务超越Posted请求，前提是它们的请求者ID（Requester ID）不同。
-
-- A3, A4 — 存储器写或消息请求必须允许超越Non-Posted请求，以避免死锁。
-
-- A5a — Posted请求允许但不强制要求超越完成报文。
-
-- A5b — 死锁避免场景。在PCIe到PCI/PCI-X的桥中，对于从PCIe发往PCI或PCI-X的事务，Posted请求必须能超越完成报文，否则可能发生死锁。
-
-- B3, B4, B5, C3, C4, C5 — 这些场景实现了弱排序（weak ordering），且不会引发任何与排序相关的问题。
-
-- D3, D4 — 完成报文必须允许超越读请求和I/O或配置写请求（Non-Posted请求），以避免死锁。
-
-- D5a — 具有不同事务ID（Transaction ID）的完成报文可以相互超越。
-
-- D5b — 具有相同事务ID的完成报文不允许相互超越。这确保了针对单个请求的多个完成报文将保持地址升序排列。
-
-## Producer/Consumer 模型
-
-本节介绍 Producer/Consumer (生产者/消费者) 模型的操作以及保证其正常运行所需的相关排序规则。第 291 页的图 8-1 仅展示了一个示例拓扑结构。该拓扑的后续示例将描述 Producer/Consumer 模型在正确排序下的操作，随后给出一个因排序不当而导致模型失败的示例。
-
-Producer/Consumer 模型是 PCI 和 PCIe 中数据传递的常用方法。如图 8-1 所示，该模型由五个要素组成：
-
-* 数据生产者 (Producer)
-* 存储器数据缓冲区
-* 标志信号量 (Flag semaphore)，指示生产者已发送数据
-* 数据消费者 (Consumer)
-* 状态信号量 (Status semaphore)，指示消费者已读取数据
-
-规范明确指出，无论所涉及的所有元素如何排列，Producer/Consumer 模型都应能正常工作。在本示例中，标志 (Flag) 和状态 (Status) 元素位于同一物理设备中，但它们也可以位于不同的设备中。
-
-图 8-1: Producer/Consumer 拓扑结构示例  
 ![](images/part02_5eda80caf08f99026b670ecf9b0512d6f0256d429817f55a48074adb20abd139.jpg)
 
-## 生产者/消费者序列 — 无错误情况
+## Producer/Consumer Sequence — No Errors
 
-在以下讨论中请参考第293页的图8-2。本例假设起始时标志(Flag)和状态(Status)元素均已清零。本例中这些信号量位于同一设备内。下面描述中以及第293页图8-2所示的有编号事件序列反映了本第1部分序列中的正确顺序。
+Refer to Figure 8-2 on page 293 during the following discussion. The example presumes that the Flag and Status element are cleared to start with. These semaphores are included within the same device in this example. The sequence of numbered events in the description below and depicted in Figure 8-2 on page 293 reflect the correct ordering in this Part 1 sequence.
 
-1. 在本例中，一个称为生产者的设备执行一次或多次面向内存中数据缓冲区的存储器写事务(Posted请求)。数据流经Posted缓冲区时可能发生一些延迟。
+1. In the example, a device called the Producer performs one or more Memory Write transactions (Posted Requests) targeting a Data Buffer in memory. Some delay can occur as the data flows through Posted buffers.
 
-2. 消费者通过发起存储器读事务(Non-Posted请求)周期性地检查标志，以确定生产者是否已交付数据。
+2. The Consumer periodically checks the Flag by initiating a Memory Read transaction (Non-Posted Request) to determine if data has been delivered by the Producer.
 
-3. 标志信号量被设备读取，一条存储器读完成报文返回给消费者，表明生产者尚未执行数据交付通知(标志 = 0)。
+3. The Flag semaphore is read by the device and a Memory Read Completion is returned to the Consumer, indicating that notification of data delivery has not been performed by the Producer (Flag = 0) yet.
 
-4. 生产者发送一条存储器写事务(Posted请求)将标志更新为1。
+4. The Producer sends a Memory Write Transaction (Posted Request) to update the Flag to 1.
 
-5. 消费者再次通过执行与步骤2相同的事务来检查标志。
+5. Once again, the Consumer checks the Flag by performing the same transaction performed in step 2.
 
-6. 当标志信号量本次被读取时，标志已设置为1，通过完成报文向消费者表明所有数据已被生产者交付到内存。
+6. When Flag semaphore is read this time, the Flag is set to 1, indicating to the Consumer, via the Completion, that all of the data has been delivered by the Producer to memory.
 
-7. 接下来，消费者执行一条存储器写事务(Posted请求)将标志信号量清零回零。
+7. Next, the Consumer performs a Memory Write transaction (Posted Request) to clear the Flag semaphore back to zero.
 
-第294页的图8-3继续本第2部分序列中的示例。
+Figure 8-3 on page 294 continues the example in this Part 2 sequence.
 
-8. 生产者有更多数据要发送，通过发起存储器读事务(Non-Posted请求)周期性地检查状态信号量。
+8. The Producer, having more data to send, periodically checks the Status semaphore by initiating a Memory Read transaction (Non-Posted Request).
 
-9. 状态信号量被生产者读取，一条存储器读完成报文返回给生产者，表明消费者尚未读取内存缓冲区内容并更新状态(状态 = 0)。
+9. The Status semaphore is read by the Producer and a Memory Read Completion is returned to the Producer, indicating that the Consumer has not read the memory buffer contents and updated Status (Status = 0).
 
-10. 消费者知道内存缓冲区中有可用数据，执行一次或多次存储器读请求(Non-Posted请求)从缓冲区获取内容。
+10. The Consumer, knowing that the memory buffer has data available, performs one or more Memory Read Requests (Non-Posted Requests) to get the contents from the buffer.
 
-11. 内存内容被读取并返回给消费者。
+11. Memory contents are read and returned to the Consumer.
 
-12. 完成数据传输后，消费者发起一条存储器写请求(Posted请求)将状态信号量设置为1。
+12. Upon completing the data transfer, the Consumer initiates a Memory Write Request (Posted Request) to set the Status semaphore to a 1.
 
-13. 生产者再次通过发出存储器读请求(Non-Posted请求)来检查状态信号量。
+13. Once again, the Producer checks the Status semaphore by delivering a Memory Read Request (Non-Posted Request).
 
-14. 设备读取状态，本次其值为1。完成报文返回给生产者，由此表明数据可以发送到内存。
+14. The device reads the Status and this time it is set to 1. The Completion is returned to the Producer, thereby indicating data can be sent to Memory.
 
-15. 生产者发送一条存储器写将状态信号量清零为0。
+15. The Producer sends a Memory Write to Clear the Status semaphore to 0.
 
-16. 从步骤1开始的事件序列由生产者重复执行。
+16. The sequence of events starting with step 1. is repeated by the Producer.
 
-图8-2: 生产者/消费者序列示例 — 第1部分  
+## 生产者/消费者序列 — 无错误
+
+| EN | ZH |
+|---|---|
+| Refer to Figure 8-2 on page 293 during the following discussion. The example presumes that the Flag and Status element are cleared to start with. These semaphores are included within the same device in this example. The sequence of numbered events in the description below and depicted in Figure 8-2 on page 293 reflect the correct ordering in this Part 1 sequence. | 以下讨论请参考第293页的图8-2。本示例假定标志(Flag)和状态(Status)元素初始时已被清除。这些信号量位于同一设备内。下文描述中及图8-2所描绘的编号事件序列反映了本部分1序列的正确顺序。 |
+| 1. In the example, a device called the Producer performs one or more Memory Write transactions (Posted Requests) targeting a Data Buffer in memory. Some delay can occur as the data flows through Posted buffers. | 1. 在本示例中，一个称为生产者(Producer)的设备执行一次或多次指向存储器中数据缓冲器的存储器写事务（发布请求）。数据流经发布缓冲器时可能会产生一些延迟。 |
+| 2. The Consumer periodically checks the Flag by initiating a Memory Read transaction (Non-Posted Request) to determine if data has been delivered by the Producer. | 2. 消费者(Consumer)通过发起存储器读事务（非发布请求）周期性地检查标志，以确定生产者是否已交付数据。 |
+| 3. The Flag semaphore is read by the device and a Memory Read Completion is returned to the Consumer, indicating that notification of data delivery has not been performed by the Producer (Flag = 0) yet. | 3. 设备读取标志信号量，并向消费者返回存储器读完成报文，指示生产者尚未执行数据交付的通知（标志 = 0）。 |
+| 4. The Producer sends a Memory Write Transaction (Posted Request) to update the Flag to 1. | 4. 生产者发送存储器写事务（发布请求）将标志更新为1。 |
+| 5. Once again, the Consumer checks the Flag by performing the same transaction performed in step 2. | 5. 消费者再次执行与步骤2相同的事务来检查标志。 |
+| 6. When Flag semaphore is read this time, the Flag is set to 1, indicating to the Consumer, via the Completion, that all of the data has been delivered by the Producer to memory. | 6. 本次读取标志信号量时，标志被设置为1，通过完成报文向消费者指示生产者已将所有数据交付至存储器。 |
+| 7. Next, the Consumer performs a Memory Write transaction (Posted Request) to clear the Flag semaphore back to zero. | 7. 接下来，消费者执行存储器写事务（发布请求）将标志信号量清除回零。 |
+| Figure 8-3 on page 294 continues the example in this Part 2 sequence. | 第294页的图8-3在本部分2序列中继续该示例。 |
+| 8. The Producer, having more data to send, periodically checks the Status semaphore by initiating a Memory Read transaction (Non-Posted Request). | 8. 生产者有更多数据要发送，通过发起存储器读事务（非发布请求）周期性地检查状态信号量。 |
+| 9. The Status semaphore is read by the Producer and a Memory Read Completion is returned to the Producer, indicating that the Consumer has not read the memory buffer contents and updated Status (Status = 0). | 9. 生产者读取状态信号量，并向生产者返回存储器读完成报文，指示消费者尚未读取存储器缓冲器内容并更新状态（状态 = 0）。 |
+| 10. The Consumer, knowing that the memory buffer has data available, performs one or more Memory Read Requests (Non-Posted Requests) to get the contents from the buffer. | 10. 消费者得知存储器缓冲器中有数据可用，执行一次或多次存储器读请求（非发布请求）以从缓冲器获取内容。 |
+| 11. Memory contents are read and returned to the Consumer. | 11. 存储器内容被读取并返回给消费者。 |
+| 12. Upon completing the data transfer, the Consumer initiates a Memory Write Request (Posted Request) to set the Status semaphore to a 1. | 12. 完成数据传输后，消费者发起存储器写请求（发布请求）将状态信号量设置为1。 |
+| 13. Once again, the Producer checks the Status semaphore by delivering a Memory Read Request (Non-Posted Request). | 13. 生产者再次通过发送存储器读请求（非发布请求）检查状态信号量。 |
+| 14. The device reads the Status and this time it is set to 1. The Completion is returned to the Producer, thereby indicating data can be sent to Memory. | 14. 设备读取状态，本次状态被设置为1。完成报文返回给生产者，从而指示可以向存储器发送数据。 |
+| 15. The Producer sends a Memory Write to Clear the Status semaphore to 0. | 15. 生产者发送存储器写操作将状态信号量清除为0。 |
+| 16. The sequence of events starting with step 1. is repeated by the Producer. | 16. 生产者重复从步骤1开始的事件序列。 |
+
+Figure 8-2: Producer/Consumer Sequence Example — Part 1
 ![](images/part02_18c3d10494719e3f89351b1fca0e67124b2f0e9505a830ce4e2539dfcc615644.jpg)
 
-图8-3: 生产者/消费者序列示例 — 第2部分  
+Figure 8-3: Producer/Consumer Sequence Example — Part 2
 ![](images/part02_dcada6a33b479b3fd6bb6c856cb1f96518aad2ce1a3930a6089a7acf08c27b7a.jpg)
-
-## 生产者/消费者序列 — 错误
-
-前面的示例在没有讨论排序规则的情况下被正确处理;然而,竞争条件可能导致生产者/消费者序列失败这一点可能已经很明显。图8-4 (第296页)展示了一个简单序列,用于演示在不强制执行排序规则时可能出现的若干问题之一。在以下讨论中,请参考图8-4(第296页)。
-
-1. 生产者向内存缓冲区执行一次存储器写请求(Posted 请求)。假设存储器写数据暂时被阻塞在交换机上游端口的 Posted 流控缓冲区中。
-
-2. 生产者发送一次存储器写事务(Posted 请求),将 Flag 更新为 1。
-
-3. 消费者发起一次存储器读请求(Non-Posted 请求),以检查 Flag 是否已被置为 1。
-
-4. Flag 的内容通过一个完成报文返回给消费者。
-
-5. 知道数据已传送到内存后,消费者执行一次存储器读请求以获取数据。然而,消费者并不知道由于上游交换机端口与根复合体之间链路缺少流控信用,数据正暂时阻塞在 Posted 流控缓冲区中。因此,当完成报文返回给消费者时,消费者接收到的是旧数据。
-
-该问题可通过拓扑中虚拟 PCI 桥支持的排序规则来避免。在本示例中,当消费者在第3步和第4步执行存储器读事务时,上游交换机端口处的虚拟 PCI 桥不应允许 flag 的内容(完成报文4)在先前已 posted 的数据之前被转发。
-
-图8-4: 生产者/消费者序列(含错误)  
-![](images/part02_a72088233844632187a0ea871c366d5abe37f6c1cdba555c193f92a7afad17dc.jpg)
-
-## 宽松排序
-
-PCI Express 支持为 PCI-X 新增的宽松排序 (Relaxed Ordering, RO) 机制。RO 允许请求者与完成者之间路径上的交换机对某些事务进行重排序，前提是这样能提升性能。
-
-支持生产者/消费者模型的排序规则可能导致某些事务被阻塞，即使这些事务与任何生产者/消费者事务序列无关。为解决此问题，可将某事务的 RO 属性位设为 1，表明软件已验证该事务与其他事务无关，从而允许它被重排序到其他事务之前执行。例如，若一个 Posted 写因目标缓冲区空间不可用而被延迟，则所有后续事务都必须等待，直到该写操作最终完成并送达。如果软件已知某个后续事务与之前的事务无关，并通过设置 RO 位来表明这一点，那么该事务就可以被允许在写操作之前执行，而不会带来风险。
-
-RO 位（TLP 头中 dword 0 的字节 2 的 bit 5，如图 8-5 第 297 页所示）可由设备在其设备驱动程序已启用该功能的情况下使用。请求包随后可根据软件在请求发送包时的指示使用此属性。当交换机或根复合体看到该属性位置位的包时，它们有权对其进行重排序，但这并非强制性要求。
-
-图 8-5：32 位头中的宽松排序位
-
-<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="6">+1</td><td colspan="5">+2</td><td colspan="5">+3</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td></tr><tr><td>字节 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TD</td><td>EP</td><td>Attr</td><td>AT</td><td colspan="12">Length</td></tr><tr><td>字节 4</td><td colspan="8">Requester ID</td><td colspan="5">Tag</td><td colspan="2">Last DW BE</td><td colspan="9">1st DW BE</td></tr><tr><td>字节 8</td><td colspan="22">Address [31:2]</td><td colspan="2">R</td></tr></table>
-
-## RO 对存储器写操作和消息的影响
-
-交换机和根复合体必须遵守事务中 RO 位的设置。存储器写操作和消息都属于 posted 写操作，两者都接收至同一个 Posted 缓冲区，并且受相同的排序规则约束。当 RO 位置位时，交换机按如下方式处理这些事务：
-
-允许交换机将刚 posted 的存储器写事务重排到先前已 posted 的存储器写事务或消息事务之前。类似地，刚 posted 的消息事务可以排到先前已 posted 的存储器写事务或消息事务之前。交换机还必须原样转发 RO 位。PCI-X 桥将忽略 RO 位，因为它们始终按顺序转发写操作（允许它们乱序本就没有多大意义；如果某个写操作因某种原因被阻塞，下一个也同样会被阻塞）。另一个区别是，消息事务在 PCI-X 中也尚未定义。
-
-允许根复合体重排 posted 写事务（这很合理，因为根复合体可能写往不同的内存区域，因此，如果某一区域繁忙，它可以写往另一个区域）。此外，当接收到 RO 置位的写操作时，允许根复合体以任意地址顺序将每个字节写入内存。
-
-## RO 对存储器读事务的影响
-
-PCI Express 中的所有读事务均作为拆分事务处理。当设备发出一个 RO 位置位的存储器读请求时，完成端在一个或多个拆分完成报文中返回所请求的读数据，并使用与请求中相同的 RO 设置。此时交换机行为如下：
-
-1. 收到带 RO 的存储器读请求的交换机会按接收顺序转发该请求，且不得将其重排序到先前已 Posted 的存储器写事务之前。这保证了所有与读请求同方向传输的写事务均被推至读之前。这是前面所示生产者/消费者示例的一部分，软件可能依赖此刷新操作以保证正确运行。RO 位不得被交换机修改。
-
-2. 当完成端接收到该存储器读请求时，它获取所请求的数据并返回一个或多个同样设置了 RO 位的完成报文 (其值从原始请求复制)。
-
-3. 接收到这些完成报文的交换机允许将其重排序到先前已 Posted 且与完成报文同方向传输的存储器写之前。若写操作被阻塞 (例如，因流控原因)，则允许完成报文先于写操作通过。此情形下的宽松排序可提升读性能。表 8-2 总结了交换机允许的宽松排序行为。
-
-表 8-2: 因宽松排序而可被重排序的事务
-
-<table><tr><td>这些设置了 RO=1 的事务可越过</td><td>这些事务</td></tr><tr><td>存储器写请求</td><td>存储器写请求</td></tr><tr><td>消息请求</td><td>存储器写请求</td></tr><tr><td>存储器写请求</td><td>消息请求</td></tr><tr><td>消息请求</td><td>消息请求</td></tr><tr><td>读完成报文</td><td>存储器写请求</td></tr><tr><td>读完成报文</td><td>消息请求</td></tr></table>
-
-## 弱序
-
-当严格强制执行强排序规则时，可能会出现暂时的事务阻塞。在不违反生产者/消费者编程模型的前提下进行的修改可以消除某些阻塞条件并提高链路效率。实现弱序模型可以缓解这一问题。
-
-## 事务排序与流控
-
-将给定数量的VC缓冲区拆分为流控子缓冲区P、NP和CPL的动机在于，一旦TLP被解析或归类到各自的缓冲区后，这种拆分可以简化事务排序规则的处理过程。然后，事务排序处理逻辑在这三个子缓冲区之间或对每个子缓冲区应用排序规则。
-
-由于TLP被归类到各自的三个子缓冲区中以处理事务排序规则，因此有必要在链路两端相邻端口的每个虚通道子缓冲区（P、NP、CPL）之间定义流控机制。实际上，你可能还记得，在每个虚通道号的每个子缓冲区类别（P、NP、CPL）的Header（Hdr）和Data（D）子缓冲区之间，也存在独立的流控机制。
-
-## 事务阻塞
-
-强序可能导致这样一种情况：所有事务因为单个接收缓冲已满而全部被阻塞。例如，生产者/消费者模型的排序要求不可更改，但那些不属于该模型的事务的排序则可调整。为提升性能，我们来考虑一种弱序方案——即对事务排序施加最低限度要求的方案。
-
-该示例描述了与单个VC上单个方向事务交付相关的发送缓冲和接收缓冲。回想一下，每种事务类型（Posted (有数据无完成)、Non-Posted (无数据需完成)以及完成报文）在同一VC内均具有独立的流控。发送缓冲中的数字表示这些事务的发出顺序，而Non-Posted (无数据需完成)接收缓冲当前已满。考虑以下序列。
-
-1.  事务1（存储器读）是下一个要发送的事务，但没有足够的流控信用量，因此它必须等待。
-
-2.  事务2（Posted存储器写）是紧接其后的下一个事务。如果强制执行强序，则存储器写必须不能超越先前已排队的读事务。
-
-3.  这一限制同样适用于所有后续事务，其结果是所有事务都被阻塞，直到第一个事务完成。
-
-图 8-6：强序示例导致临时阻塞
-![](images/part02_e8811b5ac8d644c2dce538c058ff5a627396058f0007b69c72555023238b5922.jpg)
-
-## VC 缓冲区提供的优势
-
-事务排序是在虚通道（VC）缓冲区内管理的。这些缓冲区被分为Posted、Non-Posted和完成报文事务分组，并且每个分组的流控是独立管理的。这使得弱排序更有用，因为正如我们的例子所示，即使一个缓冲区已满，其他缓冲区仍然可能有可用空间。
-
-## 基于 ID 的排序 (IDO)
-
-优化排序和提升性能的另一个机会与流量流的性质有关。来自不同请求者的包之间极不可能存在依赖关系；毕竟，一个设备几乎无法根据排序来确定另一个设备何时完成了某些步骤，因为它们可能通过不同的路径访问其共享资源。基于这一认识，PCIe 规范的 2.1 修订版引入了所谓的基于 ID 的排序 (ID-based Ordering) 以提升性能。
-
-## 解决方案
-
-如果事务排序不考虑包的源端，则性能将受到损害，如图 8-7 (第 302 页) 所示。在图中，事务 1 传到了交换机的上游端口，但由于根端口 (Root port) 中该包类型的缓冲区已满 (表现为流控信用量不足)，事务 1 无法继续向前传输。按照规范术语，来自同一个请求者 (Requester) 的包称为一个 TLP 流 (TLP stream)。在本例中，事务 1 所示的路径可能包含多个 TLP，它们属于同一个 TLP 流。随后，事务 2 到达同一个出口端口，同样被阻塞而无法继续向前，因为它必须与事务 1 保持顺序。由于这些包来自不同的源端 (不同的 TLP 流)，这种延迟几乎肯定是不必要的；它们之间几乎不可能存在依赖关系，但常规排序模型并未将这一点考虑在内。为了获得更好的性能，我们需要另一种选项。
-
-解决方案很简单：如果包不属于同一个请求者 ID (Requester ID) (对于完成报文 (Completion) 包，则为完成者 ID (Completer ID))，则允许它们重新排序。这一可选能力使软件能够启用设备以使用 IDO，同时交换机端口可以识别出这些包属于不同的 TLP 流。具体操作是通过设置设备控制 2 寄存器 (Device Control 2 Register) 中的使能位来实现的。
-
-
----
-
-# 第 part03 部分 — `mindshare_part03_p0361-0540`
-
-图 8-7: 不同数据源不太可能存在依赖关系
-![](images/part03_cc2ae4b5ca0c81015f55ef02dfd40654f7dc4518c8dec1edfb6061a6b1b1fee2.jpg)
-
-## IDO 使用时机
-
-规范强烈建议，在安全可行的情况下尽可能同时使用IDO和RO。例如，当端点仅与一个其他实体（如根复合体）直接通信时，端点对所有TLP使用IDO应是安全的。另一方面，如果端点正在与多个代理通信，则使用IDO将是不安全的。规范中给出了一个故障示例：某设备首先执行DMA写操作至存储器，然后向另一个设备中的标志位进行点对点写操作。第二个设备收到该标志位后，也会向同一存储器区域发起DMA写操作。正常情况下，两次DMA操作将保持顺序，但使用IDO后这种顺序将无法保证，因为上游设备会将它们视为来自不同设备ID的请求。类似地，对涉及控制流量的数据包使用RO也是不安全的。
-
-对于完成者，如果启用了IDO，建议将其用于所有完成报文，除非有特定的理由不这样做。
-
-## 软件控制
-
-软件可以通过设置设备控制 2 寄存器 (Device Control 2 Register) 中的相应位来启用来自给定端口的请求或完成报文的 IDO 功能。与 RO 类似，这里没有能力指示位来让软件获知设备支持什么功能，而只有使能位，因此软件需要通过其他方式获知设备具备此能力。这些位用于启用相应包类型的 IDO 功能，但软件仍必须逐个决定每个包的 IDO 位是否置位。头部中新增了一个属性位，用于指示 TLP 是否正在使用 IDO，如图 8-8 (第 303 页) 所示。这引出了另一个相关问题：完成报文通常继承生成它的请求的所有属性位，但对于 IDO 来说可能并非如此，因为完成端 (Completer) 可以独立地启用该功能。换句话说，完成报文可以使用 IDO，即使发起它们的请求并未使用 IDO。
-
-图 8-8: 64 位头部中的 IDO 属性位
-![](images/part03_59fd33e90b521b00e969fee136e689ce6d92bb952b1754dbbdccdf10cdcd41fb.jpg)
-
-## 死锁避免
-
-由于PCI总线采用延迟事务，或者由于PCI Express存储器读请求可能因缺乏流控信用而被阻塞，可能会出现多种死锁场景。这些死锁避免规则已包含在PCI Express排序规则中，以确保无论拓扑结构如何都不会发生死锁。遵循排序规则可以防止由于未预见的拓扑结构（例如，两个PCI Express到PCI桥接器通过PCI Express结构互连）而产生边界条件时出现问题。有关作为PCI Express基础的这些场景的详细说明，请参阅MindShare出版的《PCI System Architecture》第四版（由Addison-Wesley出版）。
-
-## PCI Express 3.0 技术
-
-与死锁避免相关的排序规则。表8-1（第289页）列出了死锁避免排序规则，这些规则标识为条目A3、A4、D3、D4和A5b。请注意，避免死锁涉及这5种情况中的每一处"Yes"条目。如果由于第3列或第4列中标识的Non-Posted (无数据需完成) Request缓冲区缺乏流控信用而发生阻塞，则与行A相关联的Posted (有数据无完成) Requests或与行D相关联的完成报文(Completions)必须移动到在第3列或第4列中存在"Yes"条目的Non-Posted Requests之前。另请注意，A5b中的"Yes"条目仅适用于PCI Express到PCI或PCI-X桥。
-
-本质上，这条死锁避免规则可以概括为："后续到达的存储器写请求(Memory Write Requests)或完成报文(Completions)必须能够越过先前被阻塞的Non-Posted Requests，否则可能会导致死锁"。
-
-第三部分：
-
-数据链路层

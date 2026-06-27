@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Merge translated output_chunk*.md files into chapter markdown files.
+"""Merge bilingual output_chunk*.md files into chapter markdown files.
 
 Chapter boundaries determined from source chunk analysis.
+Output format: bilingual EN+ZH two-column tables.
 """
 from pathlib import Path
 
@@ -23,18 +24,30 @@ CHAPTERS = [
     ("Ch09_DLLP_Elements", 396, 411),
     ("Ch10_AckNak_Protocol", 412, 481),
     ("Ch11_Physical_Layer_Logical_Gen1_Gen2", 482, 569),
-    # Ch12: chunks 570-661 (partially translated; 570-608 done, 609+ pending)
+    ("Ch12_Physical_Layer_Logical_Gen3", 570, 661),
+    ("Ch13_Physical_Layer_Electrical", 662, 891),
+    ("Ch14_Link_Initialization_Training", 892, 1004),
+    ("Ch15_Error_Detection_Handling", 1005, 1088),
+    ("Ch16_Power_Management", 1089, 1187),
+    ("Ch17_Interrupt_Support", 1188, 1246),
+    ("Ch18_Optional_Features", 1247, 1287),
+    ("Ch19_Hot_Plug_Power_Budgeting", 1288, 1325),
+    ("Ch20_Updates_Spec_Rev_2.1", 1326, 1340),
+    ("Appendix", 1341, 1360),
 ]
 
 def merge_chapter(name, start, end):
     """Merge output chunks for a chapter."""
     lines = []
+    total_chunks = 0
+    available_chunks = 0
     missing = []
     empty = []
 
     for n in range(start, end + 1):
         chunk_id = f"chunk{n:04d}"
         out_file = TEMP_DIR / f"output_{chunk_id}.md"
+        total_chunks += 1
 
         if not out_file.exists():
             missing.append(chunk_id)
@@ -45,6 +58,7 @@ def merge_chapter(name, start, end):
             empty.append(chunk_id)
             continue
 
+        available_chunks += 1
         lines.append(text)
 
     if missing:
@@ -53,27 +67,34 @@ def merge_chapter(name, start, end):
         print(f"  ⚠️  Empty: {len(empty)} chunks")
 
     if lines:
+        # Add chapter header comment
+        header = f"# {name}\n\n"
+        body = "\n\n".join(lines)
         out_path = OUT_DIR / f"{name}.md"
-        out_path.write_text("\n\n".join(lines), encoding="utf-8")
+        out_path.write_text(header + body, encoding="utf-8")
         size_kb = out_path.stat().st_size / 1024
-        print(f"  ✅ {name}.md — {len(lines)} chunks merged, {size_kb:.1f} KB")
-        return True
+        pct = available_chunks / total_chunks * 100
+        status = "✅" if available_chunks == total_chunks else "⚠️"
+        print(f"  {status} {name}.md — {available_chunks}/{total_chunks} chunks ({pct:.0f}%), {size_kb:.1f} KB")
+        return available_chunks == total_chunks
     else:
         print(f"  ❌ {name} — NO content to merge!")
         return False
 
 def main():
-    print(f"Merging chapters from {TEMP_DIR}")
+    print(f"Merging bilingual chapters from {TEMP_DIR}")
     print(f"Output directory: {OUT_DIR}\n")
 
-    success = 0
+    results = []
     for name, start, end in CHAPTERS:
         print(f"[{name}] chunks {start}-{end}:")
-        if merge_chapter(name, start, end):
-            success += 1
+        complete = merge_chapter(name, start, end)
+        results.append((name, complete))
         print()
 
-    print(f"\n✅ {success}/{len(CHAPTERS)} chapters built successfully")
+    complete_count = sum(1 for _, c in results if c)
+    partial_count = sum(1 for _, c in results if not c)
+    print(f"\n✅ {complete_count} complete, ⚠️ {partial_count} partial/incomplete")
     print(f"Output: {OUT_DIR}")
 
 if __name__ == "__main__":

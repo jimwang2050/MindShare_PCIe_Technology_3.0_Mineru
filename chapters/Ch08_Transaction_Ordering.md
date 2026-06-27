@@ -188,3 +188,131 @@ Figure 8-2: Producer/Consumer Sequence Example — Part 1
 
 Figure 8-3: Producer/Consumer Sequence Example — Part 2
 ![](images/part02_dcada6a33b479b3fd6bb6c856cb1f96518aad2ce1a3930a6089a7acf08c27b7a.jpg)
+
+## Producer/Consumer Sequence — Errors | ## 生产者/消费者序列——错误
+
+| EN | ZH |
+| --- | --- |
+| The previous example was handled correctly without a discussion of the ordering rules; however it may have been apparent that race conditions can cause the Producer/Consumer sequence to fail. Figure 8-4 on page 296 illustrates a simple sequence to demonstrate one of several problems that can arise without ordering rules being enforced. Refer to Figure Figure 8-4 on page 296 during the following discussion. | 之前的例子在没有讨论排序规则的情况下被正确处理；然而，可能很明显的是，竞态条件可能导致生产者/消费者序列失败。第296页的图8-4展示了一个简单序列，用于说明在没有强制实施排序规则时可能出现的几个问题之一。在接下来的讨论中，请参考第296页的图8-4。 |
+| 1. Producer performs a Memory Write request (Posted Request) to the memory buffer. Let us assume that the memory write data is temporarily stuck in the Switch upstream port Posted Flow Control buffer. | 1. 生产者执行一次存储器写请求（发布请求）到存储器缓冲区。假设存储器写数据暂时卡在交换机上行端口的发布流控缓冲区中。 |
+| 2. The Producer sends a Memory Write Transaction (Posted Request) to update the Flag to 1. | 2. 生产者发送一次存储器写事务（发布请求）以将标志更新为1。 |
+| 3. The Consumer initiates a Memory Read Request (Non-Posted Request) to check if the Flag has been set to 1. | 3. 消费者发起一次存储器读请求（非发布请求）以检查标志是否已被设置为1。 |
+| 4. The contents of the Flag is returned to the Consumer via a Completion. | 4. 标志的内容通过完成报文返回给消费者。 |
+| 5. Knowing that data has been delivered to memory, the Consumer performs a memory read request to fetch the data. However, the Consumer is unaware that the data is temporarily stuck in a Posted Flow Control buffer due to lack of flow control credits associated with the link between the upstream switch port and the Root Complex. Consequently, the Consumer receives old data when the Completion is returned to the Consumer. | 5. 消费者知道数据已传送到存储器后，执行一次存储器读请求以获取数据。然而，消费者不知道的是，由于与上行交换机端口和根复合体之间的链路相关联的流控信用不足，数据暂时卡在发布流控缓冲区中。因此，当完成报文返回给消费者时，消费者接收到了旧数据。 |
+| The problem is avoided with ordering rules supported by virtual PCI bridges within the topology. In this example, when the Consumer performed the Memory Read transaction in steps 3 and 4, the Virtual PCI bridge at the upstream switch port should not allow the contents of the flag (Completion 4) to be forwarded ahead of the previously posted data. | 通过拓扑中虚拟PCI桥支持的排序规则可以避免该问题。在此示例中，当消费者在第3步和第4步执行存储器读事务时，上行交换机端口处的虚拟PCI桥不应允许标志的内容（完成报文4）在先前发布的数据之前被转发。 |
+
+Figure 8-4: Producer/Consumer Sequence with Error
+![](images/part02_a72088233844632187a0ea871c366d5abe37f6c1cdba555c193f92a7afad17dc.jpg)
+
+## Relaxed Ordering
+
+| EN | ZH |
+|---|---|
+| PCI Express supports the Relaxed Ordering (RO) mechanism added for PCI-X. RO allows switches in the path between the Requester and Completer to reorder some transactions when doing so would improve performance. | PCI Express 支持为 PCI-X 增加的宽松排序（Relaxed Ordering，RO）机制。RO 允许位于请求者（Requester）与完成者（Completer）路径上的交换机（Switch）在某些情况下重新排序事务，从而提升性能。 |
+| The ordering rules that support the Producer/Consumer model may result in transactions being blocked in cases when they're unrelated to any Producer/Consumer transaction sequence. To alleviate this problem, a transaction can have its RO attribute bit set, indicating that software verifies it to be unrelated to other transactions, and that allows it to be re-ordered ahead of other transactions. For example, if a posted write is delayed because the target's buffer space is unavailable, then all subsequent transactions must wait until that finally resolves and the write is delivered. If a subsequent transaction was known by software to be unrelated to previous ones and the RO bit was set to show that, then it could be allowed to go before the write without risking a problem. | 支持生产者/消费者（Producer/Consumer）模型的排序规则可能导致与任何生产者/消费者事务序列无关的事务被阻塞。为解决此问题，事务可设置其 RO 属性位，表示软件已验证其与其他事务无关，从而允许其被重新排序到其他事务之前。例如，如果 posted 写入因目标缓冲区空间不可用而延迟，则所有后续事务必须等待该问题最终解决且写入完成。如果软件确认某个后续事务与先前事务无关，且设置了 RO 位以表明此情况，则该事务可被允许在写入之前执行而不会引发问题。 |
+| The RO bit (bit 5 of byte 2 of dword 0 in the TLP header as shown in Figure 8-5 on page 297) may be used by the device if its device driver has enabled it to do so. Request packets are then allowed to use this attribute as directed by software when it requests that a packet be sent. When switches or the Root Complex see a packet with this attribute bit set, they have permission to reorder it although it's not required that they should. | RO 位（TLP 头中 dword 0 的 byte 2 的 bit 5，如第 297 页图 8-5 所示）可在设备驱动程序允许的情况下由设备使用。随后，请求包可按照软件的指示使用该属性。当交换机或根复合体（Root Complex）看到设置了此属性位的包时，它们有权对其重新排序，但并不要求必须执行。 |
+
+Figure 8-5: Relaxed Ordering Bit in a 32-bit Header
+
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="6">+1</td><td colspan="5">+2</td><td colspan="5">+3</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TD</td><td>ER</td><td>Attr</td><td>AT</td><td colspan="12">Length</td></tr><tr><td>Byte 4</td><td colspan="8">Requester ID</td><td colspan="5">Tag</td><td colspan="2">Last DW BE</td><td colspan="9">1st DW BE</td></tr><tr><td>Byte 8</td><td colspan="22">Address [31:2]</td><td colspan="2">R</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| ## RO Effects on Memory Writes and Messages | ## RO位对存储器写和消息的影响 |
+| Switches and Root Complexes must observe the setting of the RO bit in transactions. Memory writes and Messages are both posted writes, both are received into the same Posted buffer, and both are subject to the same ordering requirements. When the RO bit is set, switches handle these transactions as follows: | 交换机和根复合体必须关注事务中RO位的设置。存储器写和消息都是发布写，都被接收到同一个发布缓存中，并且都遵循相同的排序要求。当RO位被设置时，交换机按如下方式处理这些事务： |
+| Switches are permitted to reorder memory write transactions just posted ahead of previously posted memory write transactions or message transactions. Similarly, message transactions just posted may be ordered ahead of previously posted memory write or message transactions. Switches must also forward the RO bit unmodified. The RO bit is ignored by PCI-X bridges, which always forward writes in order (there would be little purpose in allowing them to go out of order anyway; if one is blocked for some reason, the next will be blocked, too). Another difference is that message transactions had not been defined for PCI-X, either. | 允许交换机将刚刚发布的存储器写事务重新排序到先前发布的存储器写事务或消息事务之前。类似地，刚刚发布的消息事务也可以排序到先前发布的存储器写或消息事务之前。交换机还必须保持不变地转发RO位。PCI-X桥接器忽略RO位，它们始终按顺序转发写（允许它们乱序也几乎没有意义；如果一个事务因某种原因被阻塞，下一个事务也会被阻塞）。另一个区别是，PCI-X也没有定义消息事务。 |
+| The Root Complex is permitted to reorder posted write transactions (here it makes sense because the Root could write to different areas of memory so, if one area is busy it can write to a different one). Also, when receiving writes with RO set, the Root is permitted to write each byte to memory in any address order. | 允许根复合体对发布写事务进行重新排序（这在此处是合理的，因为根复合体可以写入存储器的不同区域，因此如果一个区域繁忙，它可以写入另一个区域）。此外，当接收到设置了RO位的写事务时，允许根复合体以任意地址顺序将每个字节写入存储器。 |
+
+## RO Effects on Memory Read Transactions | RO对存储器读事务的影响
+
+| EN | ZH |
+|---|---|
+| All read transactions in PCI Express are handled as split transactions. When a device issues a memory read request with the RO bit set, the Completer returns the requested read data in a series of one or more split completion transactions, and uses the same RO setting as in the request. Switch behavior in this case is as follows: | PCI Express中的所有读事务都作为拆分事务处理。当设备发出设置了RO位的存储器读请求时，完成者以一个或多个拆分完成事务序列返回所请求的读数据，并使用与请求中相同的RO设置。此情况下的交换机行为如下： |
+| 1. A switch that receives a memory read with RO forwards the request in the order received, and must not reorder it ahead of memory write transactions that were previously posted. That guarantees that all write transactions moving in the direction of the read request are pushed ahead of the read. This is part of the Producer/Consumer example shown earlier, and software may depend on this flushing action for proper operation. The RO bit must not be modified by the switch. | 1. 收到带RO的存储器读的交换机按接收顺序转发该请求，并且不得将其重排序到先前已发布的存储器写事务之前。这保证了所有朝读请求方向移动的写事务都被推送到读之前。这是前面所示生产者/消费者示例的一部分，软件可以依赖此刷新操作来保证正确运行。RO位不得被交换机修改。 |
+| 2. When the Completer receives the memory read, it fetches the requested data and delivers one or more Completions that also have the RO bit set (its value is copied from the original request). | 2. 当完成者收到存储器读时，它获取所请求的数据并交付一个或多个完成报文，这些完成报文也设置了RO位（其值从原始请求复制而来）。 |
+| 3. A switch receiving the Completions is allowed to re-order them ahead of previously posted memory writes moving in the direction of the Completion. If the writes were blocked (for example, due to flow control), then the Completions will be allowed to go ahead of them. Relaxed ordering in this case improves read performance. Table 8-2 summarizes the relaxed ordering behavior allowed by switches. | 3. 收到完成报文的交换机被允许将它们重排序到先前已发布的、朝完成方向移动的存储器写之前。如果写事务被阻塞（例如，由于流控），则允许完成报文先行通过。此情况下的宽松排序提高了读性能。表8-2总结了交换机允许的宽松排序行为。 |
+
+Table 8-2: Transactions That Can Be Reordered Due to Relaxed Ordering | 表8-2：因宽松排序可被重排序的事务
+
+<table><tr><td>These Transactions with RO=1 Can Pass</td><td>These Transactions</td></tr><tr><td>Memory Write Request</td><td>Memory Write Request</td></tr><tr><td>Message Request</td><td>Memory Write Request</td></tr><tr><td>Memory Write Request</td><td>Message Request</td></tr><tr><td>Message Request</td><td>Message Request</td></tr><tr><td>Read Completion</td><td>Memory Write Request</td></tr><tr><td>Read Completion</td><td>Message Request</td></tr></table>
+
+## Weak Ordering (弱排序)
+
+| EN | ZH |
+|---|---|
+| Temporary transaction blocking can occur when strong ordering rules are rigorously enforced. Modifications that don't violate the Producer/Consumer programming model can eliminate some blocking conditions and improve link efficiency. Implementing the Weakly-Ordered model can alleviate this problem. | 当严格强制执行强排序规则时，可能会发生临时事务阻塞。不违反生产者/消费者编程模型的修改可以消除某些阻塞条件并提高链路效率。实现弱排序模型可以缓解此问题。 |
+
+| EN | ZH |
+|---|---|
+| ## Transaction Ordering and Flow Control | ## 事务排序与流控 |
+| The motivation behind splitting VC buffers of a given number into flow controlled sub‑buffers P, NP and CPL is because it simplifies processing of the transaction ordering rules once TLPs have been parsed or binned into their respective buffers. The transaction ordering processing logic then applies ordering rules between these three sub‑buffers or to each sub‑buffer. | 将给定数量的VC缓冲区分割为受流控的P、NP和CPL子缓冲区的动机在于，一旦TLP被解析并归类到各自缓冲区后，这简化了事务排序规则的处理过程。事务排序处理逻辑随后在三个子缓冲区之间或对每个子缓冲区应用排序规则。 |
+| Since TLPs are binned into their respective three sub‑buffers in order to process transaction ordering rules, it is necessary to define the flow control mechanism between each virtual channel sub‑buffer (P, NP, CPL) of neighboring ports at opposite ends of the Link. In fact, you may recall that there is an independent flow control mechanism between Header (Hdr) and Data (D) sub‑buffers of each sub‑buffer category (P, NP, CPL) of each virtual channel number. | 由于TLP被归类到各自对应的三个子缓冲区中以处理事务排序规则，因此有必要在链路两端相邻端口的每个虚通道子缓冲区（P、NP、CPL）之间定义流控机制。事实上，您可以回想一下，在每个虚通道编号的每个子缓冲区类别（P、NP、CPL）的Header（Hdr）与Data（D）子缓冲区之间也存在独立的流控机制。 |
+
+## Transaction Stalls / 事务阻塞
+
+| EN | ZH |
+|---|---|
+| Strong ordering can result in instances where all transactions are blocked due to a single full receive buffer. For example, the ordering requirements for the Producer/Consumer model cannot be changed, but ordering for transactions that aren't part of that model can. To improve performance, let's consider a weaklyordered scheme; one that puts the minimum requirements on transaction ordering. | 强排序可能导致所有事务因单个接收缓冲器（receive buffer）满而被阻塞的情况。例如，生产者/消费者（Producer/Consumer）模型的排序要求不能更改，但不属于该模型的事务的排序可以更改。为了提高性能，让我们考虑一种弱排序方案，即对事务排序施加最小要求的方案。 |
+| This example depicts transmit and receive buffers associated with the delivery of transactions in a single direction for a single VC. Recall that each of the transaction types (Posted, Non-Posted, and Completions) have independent flow control within the same VC. The numbers in the transmit buffers show the order in which these transactions were issued, and the non-posted receive buffer is currently full. Consider the following sequence. | 此示例描述了与单个虚通道（VC）的单方向事务传送相关联的发送缓冲器（transmit buffer）和接收缓冲器（receive buffer）。回想一下，每种事务类型（发布（Posted）、非发布（Non-Posted）和完成报文（Completions））在同一个VC内都有独立的流控（flow control）。发送缓冲器中的数字显示了这些事务发出的顺序，并且非发布接收缓冲器当前已满。考虑以下序列。 |
+| 1. Transaction 1 (memory read) is the next transaction to send, but there aren't enough flow control credits so it must wait. | 1. 事务1（存储器读取）是下一个要发送的事务，但没有足够的流控信用量（flow control credits），因此它必须等待。 |
+| 2. Transaction 2 (posted memory write) is the next subsequent transaction. If strong ordering is enforced, a memory write must not pass a previously queued read transaction. | 2. 事务2（发布存储器写）是下一个后续事务。如果强制实施强排序，则存储器写不能越过（pass）先前排队的读取事务。 |
+| 3. This restriction applies to all subsequent transactions, too, with the result that they're all stalled until the first one finishes. | 3. 此限制也适用于所有后续事务，导致它们全部被阻塞，直到第一个事务完成。 |
+
+Figure 8-6: Strongly Ordered Example Results in Temporary Stall
+![](images/part02_e8811b5ac8d644c2dce538c058ff5a627396058f0007b69c72555023238b5922.jpg)
+
+## VC Buffers Offer an Advantage
+
+| EN | ZH |
+|---|---|
+| Transaction ordering is managed within Virtual Channel buffers. These buffers are grouped into Posted, Non‐Posted, and Completion transactions, and flow control is managed independently for each group. That makes weak ordering more useful because, as in our example, even if one buffer was full, others could still have space available. | 事务排序在虚通道缓冲区内进行管理。这些缓冲区分为 Posted、Non-Posted 和 Completion 三类事务，每类的流控独立管理。这使得弱排序更为有用，因为如本例所示，即使一个缓冲区已满，其他缓冲区仍可能有可用空间。 |
+
+| EN | ZH |
+|---|---|
+| ## ID Based Ordering (IDO) | ## 基于ID的排序（IDO） |
+| Another opportunity for optimizing ordering and improving performance is related to the nature of traffic streams. Packets from different requesters are very unlikely to have dependencies; after all, one device could hardly know when the other had finished certain steps based on ordering because they could have different paths to their shared resource. Bearing this in mind, the 2.1 revision of the PCIe spec introduced what is called ID‑based Ordering to improve performance. | 优化排序和提升性能的另一个机会与流量流的性质有关。来自不同请求者的数据包极不可能存在依赖关系；毕竟，一个设备几乎无法知道另一个设备何时基于排序完成了某些步骤，因为它们到达共享资源的路径可能不同。考虑到这一点，PCIe规约的2.1修订版引入了所谓的基于ID的排序（ID-based Ordering）以提升性能。 |
+
+## The Solution
+
+| EN | ZH |
+|---|---|
+| If the packet source isn't taken into account for transaction ordering then performance can suffer, as shown in Figure 8-7 on page 302. In the illustration, transaction 1 makes it way to the upstream port of the switch but is blocked from further progress by a buffer-full condition for that packet type in the Root port (which would be indicated by insufficient Flow Control credits). To use the spec terminology, packets from the same Requester are called a TLP stream. In this example, the path shown for Transaction 1 might include several TLPs as part of a TLP stream. Transaction 2 then arrives at the same egress port and is also blocked from moving forward because it must stay in order with Transaction 1. Since the packets came from different sources, (different TLP streams) this delay is almost certainly unnecessary; it's very unlikely they could have dependencies between them, but the normal ordering model doesn't take this into account. To get improved performance, we need another option. | 如果在事务排序时不考虑数据包来源，则性能可能会受到影响，如图8-7（第302页）所示。在该图中，事务1到达交换机的上游端口，但因根端口中该数据包类型的缓冲区满条件（这通过流控信用不足来指示）而被阻塞无法继续前进。按照规范术语，来自同一请求者的数据包称为TLP流。在此示例中，事务1所经路径可能包含多个TLP，作为同一TLP流的一部分。随后事务2到达同一出口端口，也因必须与事务1保持顺序而被阻塞无法前进。由于这些数据包来自不同源（不同的TLP流），这种延迟几乎肯定是不必要的——它们之间极不可能存在依赖关系，但常规排序模型并未考虑这一点。为获得更优性能，我们需要另一种方案。 |
+| The solution is simple: allow packets to be reordered if they don't use the same Requester ID (or Completer ID, for Completion packets). This optional capability allows software to enable a device to use IDO and a switch port can recognize that the packets are part of different TLP streams. This is done by setting the enable bits in Device Control 2 Register. | 解决方案很简单：允许对不使用相同请求者ID（对于完成报文，则为完成者ID）的数据包进行重排序。这一可选能力允许软件使能设备使用IDO，并且交换机端口能够识别这些数据包属于不同的TLP流。这是通过设置设备控制2寄存器中的使能位来实现的。 |
+
+---
+
+# 第3部分 — `mindshare_part03_p0361-0540`
+
+Figure 8‐7: Different Sources are Unlikely to Have Dependencies
+![](images/part03_cc2ae4b5ca0c81015f55ef02dfd40654f7dc4518c8dec1edfb6061a6b1b1fee2.jpg)
+
+## When to use IDO
+
+| EN | ZH |
+|----|----|
+| The spec highly recommends that both IDO and RO be used whenever safely possible. For example, it should be safe for Endpoints to use IDO for all TLPs when communicating directly with only one other entity, such as the Root Complex. On the other hand, it would not be safe to use it if the Endpoint is communicating with multiple agents. An example failure case for this from the spec begins with one device doing a DMA write to memory and then doing a peer-to-peer write to a flag in another device. When the second device receives the flag, it also initiates a DMA write to the same area of memory. Normally, the two DMA operations would stay in order, but with IDO that ordering can't be guaranteed because upstream devices will see them as coming from different device IDs. Similarly, it would not be safe to use RO with packets that are involved in control traffic. | 规范强烈建议在安全可行的情况下同时使用IDO和RO。例如，当端点仅与单一实体（如根复合体）直接通信时，对所有TLP使用IDO应是安全的。另一方面，如果端点与多个代理通信，则使用IDO就不安全。规范中给出的一个失败案例始于一个设备对内存执行DMA写入，然后对另一个设备中的标志位执行对等写入。当第二个设备接收到该标志位时，它也会对同一内存区域发起DMA写入。正常情况下，这两个DMA操作会保持顺序，但使用IDO后无法保证该顺序，因为上游设备会将它们视为来自不同的设备ID。类似地，对涉及控制流量的报文使用RO也不安全。 |
+| For Completers, if IDO is enabled it's recommended that it be used for all Completions unless there is a specific reason not to do so. | 对于完成者，如果启用了IDO，建议对所有完成报文使用IDO，除非有特定原因不这样做。 |
+
+## Software Control / 软件控制
+
+| EN | ZH |
+|---|---|
+| Software can enable the use of IDO for Requests or Completions from a given port by setting the appropriate bits in its Device Control 2 Register. As with RO, there are no capability bits to let software find out what the device supports, just enable bits, so software would need to know by some other means that the device was capable of doing this. These bits enable the use of IDO for that packet type, but software must still decide whether each individual packet will have its IDO bit set. A new attribute bit in the header indicates whether a TLP is using IDO, as shown in Figure 8‐8 on page 303. This brings up another related point: Completions normally inherit all the attribute bits of the Request that generated them, but this may not be true for IDO, since this can be enabled independently by the Completer. In other words, Completions may use IDO even if the Request that initiated them did not. | 软件可通过设置端口的 Device Control 2 寄存器中的相应位，使能来自该端口的请求或完成报文使用 IDO。与 RO 类似，这里没有能力位让软件了解设备支持什么，只有使能位，因此软件需要通过其他方式获知设备具备此项能力。这些位用于使能该报文类型使用 IDO，但软件仍需决定每个单独的数据包是否设置其 IDO 位。头部中的一个新属性位指示 TLP 是否正在使用 IDO，如第 303 页的图 8‐8 所示。这引出了另一个相关要点：完成报文通常继承生成它们的请求的所有属性位，但对于 IDO 可能并非如此，因为完成者可以独立使能 IDO。换言之，即使发起请求未使用 IDO，完成报文也可以使用 IDO。 |
+
+Figure 8‐8: IDO Attribute in 64‐bit Header / 图 8‐8：64 位头部中的 IDO 属性
+
+![](images/part03_59fd33e90b521b00e969fee136e689ce6d92bb952b1754dbbdccdf10cdcd41fb.jpg)
+
+## Deadlock Avoidance
+
+| EN | ZH |
+| --- | --- |
+| Because the PCI bus employs delayed transactions or because PCI Express memory read request may be blocked due to lack of flow control credits, several deadlock scenarios can develop. These deadlock avoidance rules are included in PCI Express ordering to ensure that no deadlocks occur regardless of topology. Adhering to the ordering rules prevent problems when boundary conditions develop due to unanticipated topologies (e.g., two PCI Express to PCI bridges connected across the PCI Express fabric). Refer to the MindShare book entitled PCI System Architecture, Fourth Edition (published by Addison-Wesley) for a detailed explanation of the scenarios that are the basis for the PCI Express | 由于PCI总线采用延迟事务，或者PCI Express存储器读请求可能因缺乏流控信用而受阻，可能会产生几种死锁场景。这些死锁避免规则被纳入PCI Express排序规则中，以确保无论拓扑结构如何都不会发生死锁。遵守排序规则可防止因未预料到的拓扑结构（例如，两个PCI Express到PCI桥接器通过PCI Express结构相连）产生边界条件时出现问题。有关作为PCI Express排序规则基础的场景的详细说明，请参阅MindShare出版的《PCI系统架构》第四版（Addison-Wesley出版）一书。 |
+
+| EN | ZH |
+|----|----|
+| ## PCI Express 3.0 Technology | ## PCI Express 3.0 Technology |
+| ordering rules related to deadlock avoidance. Table 8-1 on page 289 lists the deadlock avoidance ordering rules which are identified as entries A3, A4, D3, D4 and A5b. Note that avoiding the deadlocks involves "Yes" entries in each of these 5 cases. If blocking occurs due to lack of flow control credits associated with the Non-Posted Request buffer identified in column 3 or 4, the Posted Requests associated with row A or the Completions associated with row D must be moved ahead of the Non-Posted Requests specified in the column 3 or 4 where the "Yes" entry exists. Note also that the "Yes" entry in A5b applies only to PCI Express to PCI or PCI-X Bridges. | 与死锁避免相关的排序规则。第289页的表8-1列出了死锁避免排序规则，标识为条目A3、A4、D3、D4和A5b。注意，避免死锁涉及这5种情况中的"是"条目。如果由于第3列或第4列中标识的非通告请求缓冲区缺少流控信用而导致阻塞，则必须将行A关联的通告请求或行D关联的完成报文移至存在"是"条目的第3列或第4列中所指定的非通告请求之前。另请注意，A5b中的"是"条目仅适用于PCI Express到PCI或PCI-X桥接器。 |
+| Essentially, this deadlock avoidance rule can be summarized as "later arriving Memory Write Requests or Completions must be allowed to pass earlier blocked Non-Posted Requests otherwise a deadlock could result". | 本质上，这一死锁避免规则可概括为"必须允许后到达的存储器写请求或完成报文超越先前被阻塞的非通告请求，否则可能导致死锁"。 |
+| Part Three: | 第三部分： |
+| Data Link Layer | 数据链路层 |

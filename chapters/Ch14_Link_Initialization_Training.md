@@ -1,0 +1,1210 @@
+# Ch14_Link_Initialization_Training
+
+## Chapter 14: Link Initialization & Training
+## 第14章：链路初始化和训练
+
+Figure 14‐62: Link Width Change ‐ Start
+
+![](images/part04_379a9f72ffb90841f4e84e1b757558b7ffecaa27bae1bd170b17171b79452997.jpg)
+
+| EN | ZH |
+|---|---|
+| Since a speed change is not requested, the next state is Recovery.Idle. In that state the Ports normally send the logical idle symbols (all zeros) and the Downstream Port does so, as shown in Figure 14‑63 on page 634. However, the Upstream Port was directed to change the Link width so it doesn't send the expected Idle symbols. Instead, it sends TS1s with PAD for both the Link and Lane numbers. The Downstream Port recognizes that a previously configured Lane now has a Lane number of PAD, and that causes it to transition to the first Configuration substate: Config.Linkwidth.Start. | 由于未请求速度变化，下一个状态是Recovery.Idle。在该状态下，端口通常发送逻辑空闲符号（全零），下游端口执行此操作，如图14‑63第634页所示。然而，上游端口被指示更改链路宽度，因此它不发送预期的空闲符号。相反，它发送带有PAD作为链路编号和通道编号的TS1。下游端口识别到之前配置的通道现在的通道编号为PAD，这导致其转换到第一个配置子状态：Config.Linkwidth.Start。 |
+
+Figure 14‐63: Link Width Change ‐ Recovery.Idle
+
+![](images/part04_84a96fa6a7d68f5d0a205a9da435b51534bfa69600287be894c6a482078c7f12.jpg)
+
+| EN | ZH |
+|---|---|
+| The Downstream Port now initiates the next step by sending TS1s that have the originally negotiated Link number but PAD on all the Lane numbers, as illustrated in Figure 14‑64 on page 635. The Upstream Port responds with matching TS1s on the Lanes it wants to have "active", but with PAD for both Link and Lane numbers on the Lanes it wishes to have inactive. When the Downstream Port sees this response, it transitions to the Config.Linkwidth.Accept substate. Note that the Autonomous Change bit is set for these TS1s. | 下游端口现在通过发送TS1来启动下一步，这些TS1具有原始协商的链路编号，但所有通道编号均为PAD，如图14‑64第635页所示。上游端口在其希望保持"活跃"的通道上用匹配的TS1响应，但在其希望保持非活跃的通道上使用PAD作为链路编号和通道编号。当下游端口看到此响应时，它转换到Config.Linkwidth.Accept子状态。注意，这些TS1的自主更改位已被设置。 |
+
+## Chapter 14: Link Initialization & Training / 第14章：链路初始化和训练
+
+Figure 14‐64: Marking Active Lanes  
+![](images/part04_b5ce4c1c1a8a626566d12daefbef7cd705cae53a7015b74dd5cc9936b1fb171a.jpg)
+
+| EN | ZH |
+|---|---|
+| The Root Port responds by changing its TS1s to show Lane numbers that are appropriate for the active Lanes, but PAD for the Link and Lane numbers of all the Lanes that were seen to be inactive. The Upstream Port responds with the same TS1s, as shown in Figure 14‑65 on page 636, and the state changes to Config.Lanenum.Accept. At this point, the Root Port updates the status bit to show that an autonomous change was detected and changes to the Config.Complete substate. | 根端口通过更改其TS1来响应：为活动通道显示适当的通道号，而对所有检测为非活动的通道，其链路号和通道号字段均填充为PAD。上游端口以相同的TS1响应，如图14‑65（第636页）所示，状态变为Config.Lanenum.Accept。此时，根端口更新状态位以指示检测到自主变化，并转换到Config.Complete子状态。 |
+
+Figure 14‐65: Response to Lane Number Changes  
+![](images/part04_fcf9128cc08788297ac83fc570ba78203861a97db2533249995c02ff1e549edb.jpg)
+
+| EN | ZH |
+|---|---|
+| In the next step, the Root Port begins to send TS2s on the active Lanes and puts the inactive Lanes into Electrical Idle. Recall that the TS2s report whether a component is "upconfigure capable" and in this example, both Link partners support this capability. The Endpoint sends back the same thing: TS2s on active Lanes and Electrical Idle on inactive Lanes. Seeing that, the Root Port's state machine changes to Config.Idle and it begins to send Logical Idle on the active Lanes. The Endpoint responds with the same thing and the Link state changes back to L0. The Link is now ready for normal operation, albeit with a reduced bandwidth for power conservation. | 下一步，根端口开始在活动通道上发送TS2，并将非活动通道置为电气空闲状态。回顾一下，TS2用于报告组件是否"具有向上配置能力"，在此示例中两个链路伙伴都支持该能力。端点返回相同的内容：在活动通道上发送TS2，在非活动通道上发送电气空闲。看到此情形后，根端口的状态机转换为Config.Idle，并开始在活动通道上发送逻辑空闲。端点以相同方式响应，链路状态回到L0。此时链路已准备好正常运行，只是为省电而带宽有所降低。 |
+
+## Chapter 14: Link Initialization & Training
+
+## 第14章：链路初始化和训练
+
+Figure 14‐66: Link Width Change ‐ Finish
+
+![](images/part04_f5ffb4cf6941206d8866c887af5c585f7b3ab5a8f2c3201ac6fbaaad05a28dbc.jpg)
+
+| EN | ZH |
+|---|---|
+| As was the case for dynamic speed changes, software can't initiate Link width changes, but it can disable this mechanism by setting the bit in the Link Control register shown in Figure 14‐67 on page 638. Unlike the speed change case, no software mechanism was defined to allow setting a particular Link width. | 与动态速率变更的情况一样，软件不能发起链路宽度变更，但可以通过设置第638页图14-67所示的链路控制寄存器中的位来禁用此机制。与速率变更情况不同，没有定义允许设置特定链路宽度的软件机制。 |
+
+Figure 14‐67: Link Control Register
+
+![](images/part04_b15e5f897dc783c1d4d5098487944205d2189e48c3a90688f6c02b82bdef4fec.jpg)
+
+| EN | ZH |
+|----|-----|
+| ## Related Configuration Registers | ## 相关配置寄存器 |
+| Many of the configuration registers that are relevant to Link Initialization and Training have been shown when their contents were described earlier, but it seems good to summarize them here. | 许多与链路初始化和训练相关的配置寄存器在前文描述其内容时已经展示过，但在此汇总一下似乎更为妥当。 |
+
+| EN | ZH |
+|---|---|
+| ## Link Capabilities Register | ## 链路能力寄存器 |
+| The Link Capabilities Register is pictured in Figure 14‑68 on page 639 and each bit field is described in the subsections that follow. | 链路能力寄存器如图14‑68（第639页）所示，每个位字段在后续小节中描述。 |
+
+Figure 14‑68: Link Capabilities Register  
+![](images/part04_afa90f0983cc76119465f9b200c174612342973e8654867fce74666c8a30466b.jpg)
+
+## Max Link Speed [3:0]
+
+| EN | ZH |
+|----|-----|
+| This indicates the maximum Link speed for this port, and is given as a pointer to a bit location in the Link Capabilities 2 register Supported Link Speeds Vector that corresponds to the max Link speed. Defined encodings are: | 该字段指示该端口所支持的最大链路速率，以指针形式指向链路能力2（Link Capabilities 2）寄存器中支持链路速率向量（Supported Link Speeds Vector）内对应最大链路速率的位位置。已定义的编码如下： |
+| 0001b - Supported Link Speeds Vector field bit 0 | 0001b - 支持链路速率向量字段位 0 |
+| 0010b - Supported Link Speeds Vector field bit 1 | 0010b - 支持链路速率向量字段位 1 |
+| 0011b - Supported Link Speeds Vector field bit 2 | 0011b - 支持链路速率向量字段位 2 |
+| 0100b - Supported Link Speeds Vector field bit 3 | 0100b - 支持链路速率向量字段位 3 |
+| 0101b - Supported Link Speeds Vector field bit 4 | 0101b - 支持链路速率向量字段位 4 |
+| 0110b - Supported Link Speeds Vector field bit 5 | 0110b - 支持链路速率向量字段位 5 |
+| 0111b - Supported Link Speeds Vector field bit 6 | 0111b - 支持链路速率向量字段位 6 |
+| All other encodings are reserved. Multi-function devices sharing an Upstream Port must report the same value in this field in all Functions. This register is Read Only. | 所有其他编码均为保留。共享同一上游端口（Upstream Port）的多功能设备必须在所有功能（Function）中对此字段报告相同的值。该寄存器为只读（Read Only）。 |
+
+| EN | ZH |
+|----|----|
+| ## Maximum Link Width[9:4] | ## 最大链路宽度[9:4] |
+| This field indicates the maximum width of the PCI Express Link. The values that are defined are: | 此字段指示PCI Express链路的最大宽度。定义的值为： |
+| • 00 0000b: Reserved<br>• 00 0001b: x1<br>• 00 0010b: x2<br>• 00 0100b: x4<br>• 00 1000b: x8<br>• 00 1100b: x12<br>• 01 0000b: x16<br>• 10 0000b: x32 | • 00 0000b：保留<br>• 00 0001b：x1<br>• 00 0010b：x2<br>• 00 0100b：x4<br>• 00 1000b：x8<br>• 00 1100b：x12<br>• 01 0000b：x16<br>• 10 0000b：x32 |
+| All other encodings are reserved. Multi‑function devices sharing an Upstream Port must report the same value in this field in all Functions. This register is Read Only. | 所有其他编码均为保留。共享同一上游端口的多功能设备必须在所有功能中报告此字段的相同值。此寄存器为只读。 |
+
+## Link Capabilities 2 Register
+## 链路能力2寄存器
+
+| EN | ZH |
+|---|---|
+| The Link Capabilities 2 Register is pictured in Figure 14-68 on page 639 and shows the Supported Link Speeds Vector to which the Max Link Speed field in the Link Capabilities register points. The values for this field are: | 链路能力2寄存器如图14-68（第639页）所示，它展示了支持的链路速率向量（Supported Link Speeds Vector），链路能力寄存器中的最大链路速率（Max Link Speed）字段即指向该向量。该字段的值如下： |
+| $\mathrm{Bit} 0 = 2.5 \mathrm{GT/s}$ | $\mathrm{位} 0 = 2.5 \mathrm{GT/s}$ |
+| Bit 1 = 5.0 GT/s | 位1 = 5.0 GT/s |
+| Bit 2 = 8.0 GT/s | 位2 = 8.0 GT/s |
+| Bits 6:3 RsvdP (reserved and preserved). | 位6:3 RsvdP（保留且需保持）。 |
+
+Figure 14-69: Link Capabilities 2 Register  
+![](images/part04_598b20f379dd62ef72fe25c3a73da71ca119728f7d55f6e16788a0efad2ea0be.jpg)
+
+| EN | ZH |
+|----|----|
+| ## Link Status Register | ## 链路状态寄存器 |
+| The Link Status Register is pictured in Figure 14‐39 on page 597. | 链路状态寄存器如图14‑39所示（第597页）。 |
+
+## Current Link Speed[3:0]:
+
+| EN | ZH |
+|---|---|
+| This read-only field indicates the current Link speed. The speed will always be 2.5 GT/s when the Link first trains to L0. After that, if a higher commonly-supported speed is available, the LTSSM will go to Recovery and attempt to change to that speed. The values in this field are the same as the Max Link Speed encodings shown in the Link Capabilities register: | 该只读字段指示当前链路速度。当链路首次训练至L0时，速度始终为2.5 GT/s。此后，若存在双方均支持的更高速度可用，LTSSM将进入Recovery状态并尝试切换至该速度。本字段的编码值与链路能力寄存器中最大链路速度（Max Link Speed）编码相同： |
+| • 0001b - Supported Link Speeds Vector field bit 0 | • 0001b - 支持的链路速度向量字段位0 |
+| • 0010b - Supported Link Speeds Vector field bit 1 | • 0010b - 支持的链路速度向量字段位1 |
+| • 0011b - Supported Link Speeds Vector field bit 2 | • 0011b - 支持的链路速度向量字段位2 |
+| • 0100b - Supported Link Speeds Vector field bit 3 | • 0100b - 支持的链路速度向量字段位3 |
+| • 0101b - Supported Link Speeds Vector field bit 4 | • 0101b - 支持的链路速度向量字段位4 |
+| • 0110b - Supported Link Speeds Vector field bit 5 | • 0110b - 支持的链路速度向量字段位5 |
+| • 0111b - Supported Link Speeds Vector field bit 6 | • 0111b - 支持的链路速度向量字段位6 |
+| All other encodings are reserved. | 所有其他编码保留。 |
+| Note that the value of this field is undefined when the Link is not up (LinkUp = 0b). | 请注意，当链路未建立（LinkUp = 0b）时，本字段的值未定义。 |
+
+## Negotiated Link Width[9:4]
+
+| EN | ZH |
+|---|---|
+| This field indicates the result of link width negotiation. There are seven possible widths, all other encodings are reserved. The defined encodings are: | 该字段指示链路宽度协商的结果。共有七种可能的宽度，所有其他编码值均为保留。已定义的编码如下： |
+| • 00 0001b: for x1. | • 00 0001b：表示 x1 |
+| • 00 0010b for x2. | • 00 0010b：表示 x2 |
+| • 00 0100b for x4. | • 00 0100b：表示 x4 |
+| • 00 1000b for x8. | • 00 1000b：表示 x8 |
+| • 00 1100b for x12. | • 00 1100b：表示 x12 |
+| • 01 0000b for x16. | • 01 0000b：表示 x16 |
+| • 10 0000b for x32. | • 10 0000b：表示 x32 |
+| All other encodings are reserved. Note that the value of this field is undefined when the Link is not up (LinkUp = 0b). | 所有其他编码值均为保留。注意，当链路未建立（LinkUp = 0b）时，该字段的值未定义。 |
+
+## Undefined[10]
+
+| EN | ZH |
+|---|---|
+| Currently undefined, this bit was previously set by hardware in earlier spec versions when a Link Training Error had occurred. It was cleared when the LTSSM successfully entered L0. The spec states that software can write any value to this bit but must ignore any value read from it. | 当前未定义。在早期版本规范中，当发生链路训练错误（Link Training Error）时，硬件曾设置此位。当LTSSM成功进入L0时，该位被清除。规范指出，软件可向此位写入任意值，但必须忽略从该位读出的任何值。 |
+
+## Link Training[11]
+
+| EN | ZH |
+|---|---|
+| This read-only bit indicates that the LTSSM is in the process of training. Technically, it means the LTSSM is either in the Configuration or Recovery state, or that the Retrain Link bit has been written to 1b but Link training has not yet begun. This bit is cleared by hardware when the LTSSM exits the Configuration or Recovery state. Since this must be visible to software while Link Training is in progress, it only has meaning for Ports that are facing downstream. Consequently, this bit is not applicable and reserved for Endpoints, bridge Upstream Ports and Switch Upstream Ports. For them, this bit must be hardwired to 0b. | 此只读位指示LTSSM正在训练过程中。从技术上讲，这意味着LTSSM处于Configuration或Recovery状态，或者Retrain Link位已被写入1b但链路训练尚未开始。当LTSSM退出Configuration或Recovery状态时，硬件会清除此位。由于链路训练进行期间必须对软件可见，因此该位仅对面向下游的端口有意义。因此，此位不适用于Endpoints、桥接器上游端口和Switch上游端口，并为其保留。对于它们，此位必须硬连线为0b。 |
+
+Figure 14-70: Link Status Register
+
+![](images/part04_50d9fe180365da56b62b941a4d1fa0a59b0091ea97d625f29aad2423d65cf1ba.jpg)
+
+## Link Control Register
+
+| EN | ZH |
+|----|----|
+| The Link Control Register is pictured in Figure 14-71 on page 644, and there are three fields in it that are interesting for us here. | 链路控制寄存器如图14-71（第644页）所示，其中有三个字段值得我们关注。 |
+
+## Link Disable
+
+| EN | ZH |
+| --- | --- |
+| When set to one, the link is disabled. Intuitively, this bit isn't applicable and is reserved for Endpoints, bridge Upstream Ports, and Switch Upstream Ports because it must be accessible by software even when the Link is disabled. | 当置1时，链路被禁用。直观上，该位不适用，并对端点、桥上游端口和交换机上游端口保留，因为即使链路被禁用，软件也必须能访问该位。 |
+| When this bit is written, any read immediately reflects the value written, regardless of the Link state. | 当写入该位时，任何读取都会立即反映所写入的值，无论链路状态如何。 |
+| After clearing this bit, software must be careful to honor the timing requirements regarding the first Configuration Read after a Conventional Reset (see "Reset Exit" on page 846). | 清除该位后，软件必须注意遵守传统复位后首次配置读取的时序要求（参见第846页"复位退出"）。 |
+
+## Retrain Link
+
+| EN | ZH |
+|---|---|
+| This bit allows software to initiate Link re‑training whenever it is deemed necessary, as for error recovery. The bit is not applicable to and is reserved for Endpoint devices and Upstream Ports of Bridges and Switches. When set to 1b, this directs the LTSSM to the Recovery state before the completion of the Configuration write Request is returned. | 该位允许软件在认为必要时（如错误恢复）启动链路重训练。该位不适用于端点设备以及桥与交换机的上游端口，并为它们保留。当设置为1b时，这会指示LTSSM在返回配置写入请求完成之前进入恢复状态。 |
+
+| EN | ZH |
+|---|---|
+| ## Extended Synch | ## 扩展同步 |
+| As it affects training, this bit is used to greatly extend the time spent in two situations, for the purpose of assisting slower external test or analysis hardware to synchronize with the Link before it resumes normal communication. One of these is when exiting L0s, where setting this bit forces the transmission of 4096 FTSs prior to entering L0. The other case is in the Recovery state prior to entering Recovery.RcvrCfg, where it forces the transmission of 1024 TS1s. | 由于该位影响训练过程，因此用于在两种情况下大幅延长所花费的时间，以帮助较慢的外部测试或分析硬件在链路恢复正常通信之前与之同步。第一种情况是退出 L0s 时，设置该位将强制在进入 L0 之前发送 4096 个 FTS。另一种情况是在进入 Recovery.RcvrCfg 之前的 Recovery 状态中，该位强制发送 1024 个 TS1。 |
+
+Figure 14‐71: Link Control Register
+![](images/part04_a330083a9fc90f888ee30b6331590876daadcba6b37f63dba555111a6ded97b3.jpg)
+
+| EN | ZH |
+|---|---|
+| Part Five: | 第五部分： |
+| Additional System Topics | 附加系统主题 |
+
+# 15 Error Detection and Handling
+
+| EN | ZH |
+| --- | --- |
+| # 15 Error Detection and Handling | # 15 错误检测与处理 |
+
+| EN | ZH |
+|---|---|
+| ## The Previous Chapter | ## 上一章 |
+| This chapter describes the operation of the Link Training and Status State Machine (LTSSM) of the Physical Layer. The initialization process of the Link is described from Power-On or Reset until the Link reaches fully-operational L0 state during which normal packet traffic occurs. In addition, the Link power management states L0s, L1, L2, and L3 are discussed along with the state transitions. The Recovery state, during which bit lock, symbol lock or block lock are re-established is described. Link speed and width change for Link bandwidth management is also discussed. | 本章描述物理层中链路训练与状态状态机（LTSSM）的操作。描述了链路从上电或复位直到达到完全运行状态L0（在此期间进行正常报文传输）的初始化过程。此外，还讨论了链路电源管理状态L0s、L1、L2和L3及其状态转换。描述了恢复状态（Recovery state），在该状态下重新建立位锁定、符号锁定或块锁定。还讨论了用于链路带宽管理的链路速度和宽度变化。 |
+
+## This Chapter
+
+| EN | ZH |
+|---|---|
+| Although care is always taken to minimize errors they can't be eliminated, so detecting and reporting them is an important consideration. This chapter discusses error types that occur in a PCIe Port or Link, how they are detected, reported, and options for handling them. Since PCIe is designed to be backward compatible with PCI error reporting, a review of the PCI approach to error handling is included as background information. Then we focus on PCIe error handling of correctable, non‐fatal and fatal errors. | 尽管始终注意尽量减少错误，但错误无法完全消除，因此检测和报告错误是一个重要的考虑因素。本章讨论 PCIe 端口或链路上发生的错误类型、如何检测和报告这些错误，以及处理它们的选项。由于 PCIe 设计为向后兼容 PCI 错误报告，因此作为背景信息，回顾了 PCI 的错误处理方法。然后我们重点讨论 PCIe 对可纠正、非致命和致命错误的处理。 |
+
+| EN | ZH |
+|----|----|
+| ## The Next Chapter | ## 下一章 |
+| The next chapter provides an overall context for the discussion of system power management and a detailed description of PCIe power management, which is compatible with the PCI Bus PM Interface Spec and the Advanced Configuration and Power Interface (ACPI). PCIe defines extensions to the PCI-PM spec that focus primarily on Link Power and event management. | 下一章将提供讨论系统电源管理的整体背景，并详细描述PCIe电源管理，它与PCI总线PM接口规范（PCI Bus PM Interface Spec）和高级配置与电源接口（ACPI）兼容。PCIe定义了PCI-PM规范的扩展，主要侧重于链路电源和事件管理。 |
+
+## Background / 背景
+
+| EN | ZH |
+|---|---|
+| Software backward compatibility with PCI is an important feature of PCIe, and that's accomplished by retaining the PCI configuration registers that were already in place. PCI verified the correct parity on each transmission phase of the bus to check for errors. Detected errors were recorded in the Status register and could optionally be reported with either of two side‑band signals: PERR# (Parity Error) for a potentially recoverable parity fault during data transmission, and SERR# (System Error) for a more serious problem that was usually not recoverable. These two types can be categorized as follows: | 与PCI的软件向后兼容性是PCIe的一项重要特性，这是通过保留原有的PCI配置寄存器来实现的。PCI在每个总线传输阶段校验奇偶位的正确性以检查错误。检测到的错误记录在状态寄存器中，并可选择通过两个边带信号之一报告：PERR#（奇偶错误）用于数据传输期间可能可恢复的奇偶故障，SERR#（系统错误）用于通常不可恢复的更严重问题。这两种类型可分类如下： |
+| • Ordinary data parity errors — reported via PERR# | • 普通数据奇偶错误 — 通过PERR#报告 |
+| Data parity errors during multi‑task transactions (special cycles) — reported via SERR# | 多任务事务（特殊周期）期间的数据奇偶错误 — 通过SERR#报告 |
+| • Address and command parity errors — reported via SERR# | • 地址和命令奇偶错误 — 通过SERR#报告 |
+| • Other types of errors (device‑specific) — reported via SERR# | • 其他类型的错误（设备特定） — 通过SERR#报告 |
+| How the errors should be handled was outside the scope of the PCI spec and might include hardware support or device‑specific software. As an example, a data parity error on a read from memory might be recovered in hardware by detecting the condition and simply repeating the Request. That would be a safe step if the memory contents weren't changed by the failed operation. | 错误的处理方式不在PCI规范范围内，可能包括硬件支持或设备特定软件。例如，从内存读取时发生的数据奇偶错误，可以通过硬件检测到该状况并直接重发请求来恢复。如果失败操作未改变内存内容，这将是一个安全的步骤。 |
+| As shown in Figure 15‑1 on page 649, both error pins were typically connected to the chipset and used to signal the CPU in a consumer PC. These machines were very cost sensitive, so they didn't usually have the budget for much in the way of error handling. Consequently, the resulting error reporting signal chosen was the NMI (Non‑Maskable Interrupt) signal from the chipset to the processor that indicated significant system trouble requiring immediate attention. Most consumer PCs didn't include an error handler for this condition, so the system would simply be stopped to avoid corruption and the BSOD (Blue Screen Of Death) would inform the operator. An example of an SERR# condition would be an address parity mismatch seen during the command phase of a transaction. This is a potentially destructive case because the wrong target might respond. If that happened and SERR# reported it, recovery would be difficult and would probably require significant software overhead. (To learn more about PCI error handling, refer to MindShare's book PCI System Architecture.) | 如图15‑1（第649页）所示，这两个错误引脚通常连接到芯片组，用于向消费级PC中的CPU发出信号。这类机器对成本非常敏感，因此通常没有足够的预算来支持复杂的错误处理。结果，最终选择的错误报告信号是从芯片组到处理器的NMI（不可屏蔽中断）信号，指示需要立即处理的重大系统故障。大多数消费级PC未包含针对此状况的错误处理程序，因此系统会直接停止以避免数据损坏，并通过BSOD（蓝屏死机）通知操作员。SERR#条件的一个示例是在事务的命令阶段检测到地址奇偶不匹配。这是一种潜在的破坏性情况，因为错误的设备可能会响应。如果发生这种情况并通过SERR#报告，恢复将非常困难，且可能需要大量的软件开销。（欲了解更多关于PCI错误处理的内容，请参阅MindShare的《PCI系统体系结构》一书。） |
+| PCI‑X uses the same two error reporting signals but defines specific error handling requirements depending on whether device‑specific error handling software is present. If such a handler is not present, then all parity errors are reported with SERR#. | PCI‑X使用相同的两个错误报告信号，但根据是否存在设备特定的错误处理软件来定义具体的错误处理要求。如果不存在此类处理程序，则所有奇偶错误均通过SERR#报告。 |
+
+Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理
+![](images/part04_96e292268e2b753cbc405dcf86fd1c1a976ad96315393e11aa968938fe54fbff.jpg)
+
+| EN | ZH |
+|---|---|
+| PCI‑X 2.0 uses source‑synchronous clocking to achieve faster data rates (up to 4GB/s). This bus targeted high‑end enterprise systems because it was generally too expensive for consumer machines. Since these high‑performance systems also require high availability, the spec writers chose to improve the error handling by adding Error‑Correcting Code (ECC) support. ECC allows more robust error detection and enables correction of single‑bit errors on the fly. ECC is very helpful in minimizing the impact of transmission errors. (To learn more about PCI‑X error handling, see MindShare's book PCI‑X System Architecture.) | PCI‑X 2.0采用源同步时钟技术以实现更高的数据速率（最高4GB/s）。该总线面向高端企业级系统，因为其对消费级机器来说通常过于昂贵。由于这些高性能系统还需要高可用性，规范制定者选择通过添加ECC（纠错码）支持来改进错误处理。ECC允许更强大的错误检测，并能够实时纠正单比特错误。ECC在最小化传输错误的影响方面非常有帮助。（欲了解更多关于PCI‑X错误处理的内容，请参阅MindShare的《PCI‑X系统体系结构》一书。） |
+| PCIe maintains backward compatibility with these legacy mechanisms by using the error status bits in the legacy configuration registers to record error events in PCIe that are analogous to those of PCI. That lets legacy software see PCIe error events in terms that it understands, and allows it to operate with PCIe hardware. See "PCI‑Compatible Error Reporting Mechanisms" on page 674 for the details of these registers. | PCIe通过使用传统配置寄存器中的错误状态位来记录与PCI类似的PCIe错误事件，从而保持与这些传统机制的向后兼容性。这使得传统软件能够以它理解的方式查看PCIe错误事件，并允许其与PCIe硬件协同工作。有关这些寄存器的详细信息，请参见第674页的"PCI兼容错误报告机制"。 |
+
+## PCIe Error Definitions
+
+| EN | ZH |
+|---|---|
+| The spec uses four general terms regarding errors, defined here: | 本规范使用了四个与错误相关的通用术语，定义如下： |
+| 1. **Error Detection** - the process of determining that an error exists. Errors are discovered by an agent as a result of a local problem, such as receiving a bad packet, or because it received a packet signaling an error from another device (like a poisoned packet). | 1. **错误检测** -- 确定错误存在的过程。错误由某个代理（agent）因本地问题而发现，例如收到一个坏包，或者因为收到另一个设备发来的指示错误的包（如毒化包）。 |
+| 2. **Error Logging** - setting the appropriate bits in the architected registers based on the error detected as an aid for error-handling software. | 2. **错误记录** -- 根据检测到的错误，在架构化的寄存器中设置相应的位，以辅助错误处理软件。 |
+| 3. **Error Reporting** - notifying the system that an error condition exists. This can take the form of an error Message being delivered to the Root Complex, assuming the device is enabled to send error messages. The Root, in turn, can send an interrupt to the system when it receives an error Message. | 3. **错误上报** -- 通知系统存在错误状况。其形式可以是将错误消息（Error Message）递交给根复合体（Root Complex），前提是该设备已使能发送错误消息。根复合体收到错误消息后，可向系统发送中断。 |
+| 4. **Error Signaling** - the process of one agent notifying another of an error condition by sending an error Message, or sending a Completion with a UR (Unsupported Request) or CA (Completer Abort) status, or poisoning a TLP (also known as error forwarding). | 4. **错误信令** -- 一个代理通过发送错误消息、或发送带有 UR（不支持请求）或 CA（完成者中止）状态的完成报文（Completion）、或毒化 TLP（也称为错误转发）来通知另一个代理错误状况的过程。 |
+
+## PCIe Error Reporting / PCIe 错误报告
+
+| EN | ZH |
+|---|---|
+| Two error reporting levels are defined for PCIe. The first is a Baseline capability required for all devices. This includes support for legacy error reporting as well as basic support for reporting PCIe errors. The second is an optional Advanced Error Reporting Capability that adds a new set of configuration registers and tracks many more details about which errors have occurred, how serious they are and in some cases, can even record information about the packet that caused the error. | PCIe 定义了两个错误报告级别。第一个是所有设备都必须具备的基线能力（Baseline capability），包括对传统错误报告的支持以及 PCIe 错误报告的基本支持。第二个是可选的增强错误报告能力（Advanced Error Reporting Capability），它增加了一组新的配置寄存器，跟踪更多关于已发生错误的详细信息、错误的严重程度，并且在某些情况下，甚至可以记录导致该错误的数据包信息。 |
+
+## Baseline Error Reporting / 基线错误报告
+
+| EN | ZH |
+|---|---|
+| Two sets of configuration registers are required in all devices in support of Baseline error reporting. These are described in detail in "Baseline Error Detection and Handling" on page 674 and are summarized here: | 所有设备都需要两组配置寄存器来支持基线错误报告。这些寄存器在第674页的"基线错误检测与处理"中有详细描述，此处进行总结： |
+| PCI-compatible Registers — these are the same registers used by PCI and provide backward compatibility for existing PCI-compatible software. To make this work, PCIe errors are mapped to PCI-compatible errors, making them visible to the legacy software. | PCI兼容寄存器——这些是与PCI相同的寄存器，为现有的PCI兼容软件提供向后兼容性。为此，PCIe错误被映射为PCI兼容错误，使其对遗留软件可见。 |
+| PCI Express Capability Registers — these registers will only be useful to newer software that is aware of PCIe, but they provide more error information specifically for PCIe software. | PCI Express能力寄存器——这些寄存器仅对识别PCIe的新软件有用，但它们为PCIe软件提供了更具体的错误信息。 |
+
+## Advanced Error Reporting (AER)
+
+| EN | ZH |
+|----|----|
+| This optional error reporting mechanism includes a new and dedicated set of configuration registers that give error handling software more information to work with in diagnosing and recovering from problems. | 这种可选的错误报告机制包含一组新的专用配置寄存器，为错误处理软件提供更多信息，用于诊断和恢复问题。 |
+| The AER registers are mapped into the extended configuration space and provide much more information about the nature of any errors. | AER 寄存器映射到扩展配置空间中，并提供关于任何错误本质的更多详细信息。 |
+| See "Advanced Error Reporting (AER)" on page 685 for a detailed description of these registers. | 参见第685页的"Advanced Error Reporting (AER)"以获取这些寄存器的详细描述。 |
+
+## Error Classes / 错误分类
+
+| EN | ZH |
+|---|---|
+| Errors fall into two general categories based on whether hardware is able to fix the problem or not, Correctable and Uncorrectable. The Uncorrectable category is further subdivided based on whether software can fix the problem, Non‑fatal and Fatal. | 根据硬件能否修复问题，错误分为两大类：可校正（Correctable）和不可校正（Uncorrectable）。不可校正类别又根据软件能否修复问题进一步细分为非致命（Non‑fatal）和致命（Fatal）。 |
+| • Correctable errors — automatically handled by hardware | • 可校正错误 — 由硬件自动处理 |
+| • Uncorrectable errors | • 不可校正错误 |
+| • Non‑fatal — handled by device‑specific software; Link is still operational and recovery without data loss may be possible | • 非致命 — 由设备特定软件处理；链路仍可运行，可能可以在不丢失数据的情况下恢复 |
+| • Fatal — handled by system software; Link or Device is not working properly and recovery without data loss is unlikely | • 致命 — 由系统软件处理；链路或设备工作不正常，不太可能在不丢失数据的情况下恢复 |
+| Based on these classes, error handling software can be partitioned into separate handlers to perform the actions required. Such actions might range from simply monitoring the frequency of Correctable errors to resetting the entire system in the event of a Fatal error. Regardless of the type of error, software may arrange for the system to be notified of all errors to allow tracking and logging them. | 基于这些分类，错误处理软件可以划分为独立的处理程序来执行所需操作。这些操作的范围可以从简单地监视可校正错误的频率，到在发生致命错误时重置整个系统。无论错误类型如何，软件都可以安排系统获知所有错误，以便对其进行跟踪和记录。 |
+
+| EN | ZH |
+|---|---|
+| ## Correctable Errors | ## 可校正错误 |
+| Correctable errors are, by definition, automatically corrected in hardware. They may impact performance by adding latency and consuming bandwidth, but if all goes well, recovery is automatic and fast because it doesn't depend on software intervention, and no information is lost in the process. These errors aren't required to be reported to software, but doing so could allow software to track error trends that might indicate that some devices are showing signs of imminent failure. | 可校正错误，顾名思义，由硬件自动校正。它们可能因增加延迟和消耗带宽而影响性能，但如果一切正常，恢复过程自动且快速，因其不依赖软件干预，且过程中不会丢失任何信息。此类错误无需向软件报告，但报告可让软件追踪错误趋势，从而发现某些设备可能即将出现故障的迹象。 |
+
+## Uncorrectable Errors
+
+| EN | ZH |
+| --- | --- |
+| Errors that can't be automatically corrected in hardware are called Uncorrectable, and these are either Non-fatal or Fatal in severity. | 无法在硬件中自动纠正的错误称为不可纠正错误，其严重性分为非致命或致命。 |
+
+## Non-fatal Uncorrectable Errors / 非致命不可校正错误
+
+| EN | ZH |
+|---|---|
+| Non-fatal errors indicate that information has been lost but the cause was likely something other than the integrity of a Link or Device. A packet failed somewhere, but the Link continues to function correctly and other packets are unaffected. Since the Link is still working, recovery of the lost information may be possible, but will depend on implementation-specific software to handle it. An example of this error type would be a Completion timeout, in which a Request was sent but no Completion was returned within the allowed time. Somewhere there was an issue, but it could be something as simple as a random bit error within a Switch that caused the Completion to be routed incorrectly. An attempt at recovery for this case could be as simple as re-issuing the Request. | 非致命错误表示信息已丢失，但其原因很可能与链路或设备的完整性无关。某个数据包在某处传输失败，但链路仍能正常工作，其他数据包不受影响。由于链路仍在运行，丢失的信息有可能恢复，但这将依赖于特定实现的软件来处理。此类错误的一个示例是完成报文超时，即已发送请求但在允许时间内未收到完成报文。链路中某处出现了问题，但可能仅仅是交换机内部的一个随机比特错误导致完成报文被错误路由。针对这种情况的恢复尝试可以简单到只需重新发送请求即可。 |
+
+## Fatal Uncorrectable Errors
+
+| EN | ZH |
+|---|---|
+| Fatal errors indicate that a Link or Device has had an operational failure, causing data loss that is unlikely to be recovered. | 致命错误表示链路或设备发生了操作故障，导致数据丢失且不太可能恢复。 |
+| For these cases, resetting at least the failed Link or Device will probably be the first step in any recovery process because it's clearly not operational for some reason. | 对于这些情况，至少复位出故障的链路或设备很可能是任何恢复过程中的第一步，因为它显然由于某种原因无法正常运行。 |
+| The spec also invites implementation-specific approaches, in which software may attempt to limit the effects of the failure, but it doesn't define any particular actions that should be taken. | 规范也允许实现特有的方法，其中软件可以尝试限制故障的影响，但并未定义任何应采取的具体操作。 |
+| An example of this type of error would be a receiver buffer overflow, in which case information has been lost because flow control tracking counters have gotten out of sync with each other. | 这类错误的一个例子是接收缓冲器溢出，此时由于流控跟踪计数器彼此不同步而导致信息丢失。 |
+| Since there's no mechanism to fix this, a reset of this Link will usually be required. | 由于没有机制可以修复此问题，通常需要对该链路进行复位。 |
+
+## PCIe Error Checking Mechanisms
+## PCIe 错误检测机制
+
+| EN | ZH |
+|---|---|
+| The scope of PCIe error checking focuses on errors associated with the Link and packet delivery, as shown in Figure 15-2 on page 653. Errors that don't pertain to Link transmission are not reported through PCIe error-handling mechanisms and would need proprietary methods to report them, such as device-specific interrupts. Each layer of the interface includes error checking capabilities, and these are summarized in the sections that follow. | PCIe 错误检测的范围集中于与链路（Link）和报文投递相关的错误，如图 15-2（第 653 页）所示。与链路传输无关的错误不会通过 PCIe 错误处理机制报告，而需要通过专用方法（例如设备特定中断）来报告。接口的每一层都包含错误检测能力，后续章节将对此进行总结。 |
+
+Figure 15-2: Scope of PCI Express Error Checking and Reporting
+
+![](images/part04_b3a4038ca9c8fa86d1d30586735f40af9d66c5eae30dfb3fe380768aef69184a.jpg)
+
+## CRC
+
+| EN | ZH |
+|---|---|
+| Before diving into error handling as it relates to the layers, it will help to first discuss the concept of CRC (Cyclic Redundancy Check) because it's an integral part of PCIe error checking. A CRC code is calculated by the transmitter based on the contents of the packet and adds it to the packet for transmission. The CRC name is derived from the fact that this check code (calculated from the packet to check for errors) is redundant (adds no information to the packet), and is derived from cyclic codes. Although a CRC doesn't supply enough information to do automatic error correction the way ECC (Error Correcting Code) can, it does provide robust error detection. CRCs are also commonly used in serial transports because they're good at detecting a string of incorrect bits. | 在深入探讨各层相关的错误处理之前，先讨论CRC（循环冗余校验）的概念会有所帮助，因为它是PCIe错误检查中不可或缺的一部分。发送器根据报文内容计算出CRC码，并将其附加到报文中进行传输。CRC的名称源于以下事实：这种校验码（根据报文计算以检查错误）是冗余的（不向报文添加任何信息），并且源自循环码。虽然CRC不能像ECC（纠错码）那样提供足够的信息来自动纠错，但它确实提供了强大的错误检测能力。CRC也常用于串行传输，因为它们擅长检测一连串的错误比特。 |
+| CRCs have two different usage cases in PCIe. One is the mandatory LCRC (Link CRC) generated and checked in the Data Link Layer for every TLP that goes across a Link. It's intended to detect transmission errors on the Link. | CRC在PCIe中有两种不同的使用场景。一种是强制性的LCRC（链路CRC），在数据链路层中为每条链路上传输的每个TLP生成并校验，旨在检测链路上的传输错误。 |
+| The second is the optional ECRC (End-to-end CRC) that's generated in the Transaction Layer of the sender and checked in the Transaction Layer of the ultimate target of the packet. This is intended to detect errors that might otherwise be silent, such as when a TLP passes through an intermediate agent like a Switch, as shown in Figure 15-3 on page 654. In this illustration, the packet arrived safely on the downstream port of the Switch but while it was being stored or processed within the Switch a bit error occurred. The LCRC only protects TLPs while on the Link. Once the Data Link Layer of the Ingress Port checks the LCRC, it removes it from the packet because a new LCRC will be calculated (which will include the new Sequence Number) at the Egress Port. This means that the packet is unprotected while inside the Switch. This is the purpose of having an ECRC. It is calculated at the originating device and is not removed or recalculated by intermediate devices. So if the target device is checking the ECRC and sees a mismatch, then there must have been an error somewhere along the way even though no LCRC error was seen. Note that using the ECRC requires the presence of the optional Advanced Error Reporting registers, since they contain the bits to enable this functionality. | 第二种是可选的ECRC（端到端CRC），它在发送端的事务层中生成，并在报文的最终目标的事务层中校验。这旨在检测那些原本可能静默发生的错误，例如当TLP经过像交换机这样的中间代理时，如图15-3（第654页）所示。在此示例中，报文安全到达交换机的下游端口，但在交换机内部存储或处理过程中发生了比特错误。LCRC仅在链路上保护TLP。一旦入口端口的数据链路层校验了LCRC，就会将其从报文中移除，因为出口端口将计算一个新的LCRC（其中将包含新的序列号）。这意味着报文在交换机内部不受保护。这就是使用ECRC的目的。它由源端设备计算，中间设备不会移除或重新计算它。因此，如果目标设备正在校验ECRC并发现不匹配，则说明沿途某处一定发生了错误，即使没有发现LCRC错误。请注意，使用ECRC需要具备可选的增强错误报告寄存器，因为这些寄存器包含启用此功能的比特位。 |
+
+Figure 15-3: ECRC Usage Example
+
+![](images/part04_870b5b2ce8bbec3520fd4c2cb37ffa9c41f496ae7632c6c1779d4b2eca554b60.jpg)
+
+## Error Checks by Layer
+
+| EN | ZH |
+| --- | --- |
+| Different aspects of an incoming packet are checked in the different layers at the Receiver. Some error checking is listed as optional. For those cases, if the error occurs but the designer has chosen not to implement that form of checking, it will not be detected. | 接收端的不同层会对入站数据包的各个方面进行检查。部分错误检查被列为可选。对于这些情况，如果错误发生但设计者选择未实现该检查形式，则错误将不会被检测到。 |
+
+## Physical Layer Errors / 物理层错误
+
+| EN | ZH |
+|---|---|
+| A packet arriving at the Receiver arrives at the Physical Layer first. There are a few things that must be checked at this level and others that may optionally be checked. Link training also takes place at this layer, and a variety of problems may arise during that process but those and other details of the Physical Layer are covered in Chapter 14, entitled "Link Initialization & Training," on page 505. In summary, though, Physical Layer errors, also called Receiver Errors or Link Errors, include the following cases: | 到达接收端的数据包首先进入物理层。在该层有一些项目必须检查，另一些项目则可以（可选）检查。链路训练也在该层进行，在此过程中可能出现各种问题，但这些内容以及物理层的其他细节将在第14章"链路初始化和训练"（第505页）中介绍。总而言之，物理层错误（也称为接收端错误或链路错误）包括以下情况： |
+| • When using 8b/10b, checking for decode violations (checking required) | • 使用8b/10b时，检查解码违规（必须检查） |
+| • Framing violations (optional for 8b/10b, required for 128b/130b) | • 组帧违规（8b/10b为可选，128b/130b为必须） |
+| • Elastic buffer errors (checking optional) | • 弹性缓冲错误（可选检查） |
+| • Loss of symbol lock or Lane deskew (checking optional) | • 符号锁丢失或通道去偏移（可选检查） |
+| If a TLP was in progress when a Receiver Error was detected, it is discarded. To resolve the error, the Data Link Layer is signaled to send a NAK if one isn't already pending. | 如果在检测到接收端错误时有一个TLP正在传输中，则该TLP将被丢弃。为解决该错误，数据链路层会被通知发送一个NAK（如果尚无待处理的NAK）。 |
+
+## Data Link Layer Errors
+
+| EN | ZH |
+| --- | --- |
+| After the Physical Layer, incoming packets go next into the Data Link Layer, where they are checked for several possible problems. The details of these conditions can be found in Chapter 10, entitled "Ack/Nak Protocol," on page 317. In summary, the errors are: | 在物理层之后，入站数据包接下来进入数据链路层，在此处检查若干可能的问题。这些情况的详细信息请参见第317页第10章"Ack/Nak协议"。总结而言，错误包括： |
+| • LCRC failure for TLPs | • TLP的LCRC失败 |
+| • Sequence Number violation for TLPs | • TLP的序列号违规 |
+| • 16-bit CRC failure for DLLPs | • DLLP的16位CRC失败 |
+| • Link Layer Protocol errors | • 链路层协议错误 |
+| As with the Physical Layer, if a TLP was in progress when an error is seen, the TLP is discarded and a NAK is scheduled if one isn't already pending. | 与物理层一样，若在TLP传输过程中检测到错误，则该TLP被丢弃，并且若没有尚未完成的NAK，则会调度一个NAK。 |
+| There are some Data Link Layer errors to watch for at the transmitter, too, including REPLAY_TIMER expiring and the REPLAY_NUM counter rolling over. A timeout is handled by replaying the contents of the Replay Buffer and | 在发送端也有一些数据链路层错误需要注意，包括REPLAY_TIMER超时和REPLAY_NUM计数器回绕。超时通过重放重放缓冲区的内容来处理，并且 |
+
+| EN | ZH |
+| --- | --- |
+| ## PCI Express Technology | ## PCI Express 技术 |
+| incrementing the REPLAY\_NUM counter. The timer and counter are reset whenever an ACK or NAK arrives at the transmitter that indicates forward progress has been made (meaning it results in clearing one or more TLPs from the Replay Buffer). But if an Ack or Nak isn't received quickly enough, the timeout condition is seen which will result in a replay. | 递增 REPLAY\_NUM 计数器。每当有表明正向进度已取得（即导致一个或多个 TLP 从重放缓冲中被清除）的 ACK 或 NAK 到达发送器时，定时器和计数器都会被复位。但如果未能足够快地收到 Ack 或 Nak，就会观察到超时条件，从而导致重放。 |
+
+| EN | ZH |
+|---|---|
+| ## Transaction Layer Errors | ## 事务层错误 |
+| Lastly, if incoming TLPs pass all the checks at the Physical and Data Link Layers, they will finally reach the Transaction Layer, where they are checked for: | 最后，如果入站 TLP 通过了物理层和数据链路层的所有检查，它们最终将到达事务层，并在该层检查以下内容： |
+| • ECRC failure (checking optional) | • ECRC 失败（可选检查） |
+| • Malformed TLP (error in packet format) | • 畸形 TLP（报文格式错误） |
+| • Flow Control Protocol violation | • 流控协议违规 |
+| • Unsupported Requests | • 不支持的请求 |
+| • Data Corruption (poisoned packet) | • 数据损坏（中毒报文） |
+| • Completer Abort (checking optional) | • 完成者中止（可选检查） |
+| • Receiver Overflow (checking optional) | • 接收者溢出（可选检查） |
+| As with the Data Link Layer, there are some error checks at the transmitter Transaction Layer, too, such as: | 与数据链路层类似，发送端事务层也有若干错误检查，例如： |
+| • Completion Timeouts | • 完成报文超时 |
+| • Unexpected Completion (Completion does not match pending Request) | • 意外完成（完成报文与挂起的请求不匹配） |
+
+## Error Pollution
+
+| EN | ZH |
+|---|---|
+| A problem can arise if a device sees several problems for the same transaction. This could result in several errors getting reported (referred to as "Error Pollution"). To avoid this, reported errors are limited to only the most significant one. For example, if a TLP has a Receiver Error at the Physical Layer, it would certainly be found to have errors at the Data Link Layer and Transaction Layers, too, but reporting them all would just add confusion. What is most relevant is reporting the first error that was seen. Consequently, if an error is seen in the Physical Layer, there's no reason to forward the packet to the higher layers. Similarly, if an error is seen in the Data Link Layer, then the packet won't be forwarded to the Transaction Layer. Offending packets at one level are not forwarded to the next level but are dropped. | 如果一个设备对同一事务看到多个问题，则可能产生问题。这可能导致报告多个错误（称为"错误污染"）。为避免此情况，报告的错误仅限于最重要的一个。例如，如果一个TLP在物理层存在接收器错误，那么它在数据链路层和事务层也肯定会被发现存在错误，但报告所有错误只会增加混乱。最相关的是报告第一个被发现的错误。因此，如果物理层发现错误，则没有理由将数据包转发到更高层。类似地，如果数据链路层发现错误，则数据包不会被转发到事务层。某一层的有问题数据包不会被转发到下一层，而是被丢弃。 |
+| Still, multiple errors may be seen for the same packet at the Transaction Layer. Only the most significant one should be reported in the order of priority as defined by the spec. Transaction Layer error priority from highest to lowest is: | 尽管如此，在事务层仍可能对同一数据包看到多个错误。应按规范定义的优先级顺序仅报告最重要的一个。事务层错误优先级从高到低为： |
+| • Uncorrectable Internal Error | • 不可纠正内部错误 |
+| • Receiver Buffer Overflow | • 接收器缓冲区溢出 |
+| • Flow Control Protocol Error | • 流控协议错误 |
+| • ECRC Check Failed | • ECRC检查失败 |
+| • Malformed TLP | • 格式错误TLP |
+| • AtomicOp Egress Blocked | • AtomicOp出口被阻塞 |
+| • TLP Prefix Blocked | • TLP前缀被阻塞 |
+| • ACS (Access Control Services) Violation | • ACS（访问控制服务）违例 |
+| • MC (Multi‑cast) Blocked TLP | • MC（多播）阻塞TLP |
+| • UR (Unsupported Request), CA (Completer Abort), or Unexpected Completion | • UR（不支持请求）、CA（完成者中止）或意外完成 |
+| • Poisoned TLP Received | • 接收中毒TLP |
+| As an example, a TLP might experience an ECRC fault caused by a corrupted header. Since something was corrupted within the packet, it might also be seen as Malformed or possibly as an Unsupported Request. The ECRC fault is the highest priority, since it means that the header contents may have been corrupted, and due to this, there is no point in reporting errors that depend on those contents. | 例如，一个TLP可能遇到由损坏的头部引起的ECRC错误。由于数据包内某些内容已损坏，它也可能被视为格式错误或可能被视为不支持请求。ECRC错误具有最高优先级，因为它意味着头部内容可能已损坏，因此报告依赖于这些内容的错误没有意义。 |
+
+## Sources of PCI Express Errors
+
+| EN | ZH |
+|---|---|
+| Rather than consider all of the error conditions individually, it will be helpful to group them into common areas. | 与其逐一考虑所有错误条件，不如将它们归为常见类别更为有益。 |
+
+## ECRC Generation and Checking (ECRC生成和校验)
+
+| EN | ZH |
+|---|---|
+| As mentioned earlier, ECRC generation and checking requires the optional Advanced Error Reporting configuration register structure to be present, as shown in Figure 15-4 on page 658. Configuration software checks for this capability register to determine whether ECRCs are supported in a Function. If it is, a write to the Error Capability and Control register can be used to enable it. | 如前所述，ECRC生成和校验需要可选的进阶错误报告配置寄存器结构存在，如图15-4第658页所示。配置软件检查该能力寄存器以确定某个功能是否支持ECRC。如果支持，可通过写入错误能力和控制寄存器来启用它。 |
+
+**Figure 15-4: Location of Error-Related Configuration Registers**
+![](images/part04_b94c6d345755f326e484b323f2ea936134bf9cacb5793f7b29cada81aee881fa.jpg)
+
+| EN | ZH |
+|---|---|
+| A device enabled to generate ECRCs originates a TLP (Request or Completion), computes the 32-bit ECRC based on the header and data portions of the packet and adds it to the end of the packet. The ECRC is called "end-to-end" because the intent is that it will be generated at the TLP's origin and never stripped off or regenerated by any intermediate device along its path. Switches in the path between the originating and receiving devices are allowed to check and report ECRC errors but aren't required to do so. Whether or not there is an error, a Switch must still forward the packet unaltered so that the ultimate target device can evaluate the ECRC and take appropriate steps. If a Switch is acting as the originator or recipient of the TLP it can participate like an ordinary device in ECRC generation and checking. For more on the topic of how a Switch is allowed to report such errors, see "Advisory Non-Fatal Errors" on page 670. | 启用ECRC生成的设备发起一个TLP（请求或完成报文），基于报文头部和数据部分计算32位ECRC，并将其附加到报文末尾。ECRC被称为"端到端"CRC，因为其意图是在TLP的源端生成，并且沿途的任何中间设备都不会剥离或重新生成它。位于源设备和接收设备路径之间的交换机可以检查并报告ECRC错误，但并非必须如此。无论是否有错误，交换机必须保持报文不变地转发，以便最终目标设备能够评估ECRC并采取适当措施。如果交换机充当TLP的发起方或接收方，它可以像普通设备一样参与ECRC生成和校验。有关交换机如何报告此类错误的更多信息，请参见第670页的"建议性非致命错误"。 |
+
+## TLP Digest / TLP 摘要
+
+| EN | ZH |
+|---|---|
+| If the optional ECRC capability is enabled, a special bit called TD (TLP Digest) is set in the header to indicate that it's present at the end of the packet (the ECRC is also called the Digest). The TD bit in the packet header is shown in Figure 15-5 on page 659. The spec emphasizes that this bit must be treated with special care when forwarding a TLP because if it's missing but the ECRC is present, or vice-versa, then the packet will be considered Malformed. | 如果启用了可选的 ECRC 能力，则在报头中设置一个称为 TD（TLP 摘要）的特殊位，以指示其在数据包尾部存在（ECRC 也称为摘要）。数据包报头中的 TD 位如图 15-5（第 659 页）所示。规范强调，在转发 TLP 时必须特别小心处理该位，因为如果该位缺失但 ECRC 存在，或者反之，则数据包将被视为畸形数据包。 |
+
+Figure 15-5: TLP Digest Bit in a Completion Header
+
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="4">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>THD</td><td>EDP</td><td>Attr</td><td>AT</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="13">Bytes 4-7 Vary with Type Field</td></tr><tr><td>Byte 8</td><td colspan="13">Bytes 8-11 Vary with Type Field</td></tr><tr><td>Byte 12</td><td colspan="13">Bytes 12-15 Vary with Type Field</td></tr></table>
+
+## Variant Bits Not Included in ECRC Mechanism / ECRC 机制中不包含的变体比特
+
+| English | 中文 |
+|---|---|
+| The ECRC is calculated based on the contents of the header and data. Since these are not expected to change, the result should be the same when the check is performed at the receiver. However, it turns out that two header bits can legally change while the packet is in flight: bit 0 of the Type field, and the EP bit. Bit 0 of the Type field can change in Configuration Requests for the simple reason that the Request will be Type 1 until it has reached its destination bus, and then it will become Type 0. That involves changing bit 0 of the Type field. The EP bit can also be legally changed by intermediate devices if they detect a data error. For example, if a Switch forwards a TLP but it suffers an internal error of some kind that corrupts the data, setting the EP bit as it goes out the Egress Port is one way to report the error (known as error forwarding or data poisoning). | ECRC 基于头部和数据的内容进行计算。由于这些内容预期不会改变，因此在接收端执行校验时结果应该相同。然而，有两个头部比特在报文传输过程中可以合法更改：Type 字段的 bit 0 和 EP 比特。Type 字段的 bit 0 可以在配置请求中更改，原因很简单：在请求到达其目标总线之前为 Type 1，到达后将变为 Type 0。这涉及更改 Type 字段的 bit 0。如果中间设备检测到数据错误，EP 比特也可以被合法更改。例如，如果交换机转发一个 TLP 但遇到某种内部错误导致数据损坏，在从出口端口发出时设置 EP 比特是报告该错误的一种方式（称为错误转发或数据中毒）。 |
+| Since these two bits can change while the packet is in flight they are called "variant bits" and cannot be used in the generation or checking of ECRC. Instead, their values are always assumed to be 1b for ECRC generation and checking instead of using the actual values. That way the ECRC doesn't depend on them and will be correctly evaluated. | 由于这两个比特在报文传输过程中可能改变，它们被称为"变体比特"，不能用于 ECRC 的生成或校验。相反，在 ECRC 生成和校验时，始终假定它们的值为 1b，而不使用实际值。这样 ECRC 就不依赖于它们，从而能被正确计算。 |
+
+| English | 中文 |
+|---------|------|
+| ## PCI Express Technology | ## PCI Express 技术 |
+| The actions taken when an ECRC error is detected are beyond the scope of the spec, but the possible choices will depend on whether the error is found in a Request or a Completion. | 检测到 ECRC 错误时所采取的动作超出了规范的范围，但可能的选择将取决于错误是在请求中还是在完成报文中发现。 |
+| ECRC in Request — Completers that detect an ECRC error must set the ECRC error status bit. They may also choose not to return a Completion for this Request, resulting in a Completion timeout at the Requester, whose software might then choose to reschedule the Request. | 请求中的 ECRC — 检测到 ECRC 错误的完成者必须设置 ECRC 错误状态位。它们也可以选择不为此请求返回完成报文，导致请求者处发生完成超时，请求者的软件随后可能会选择重新调度该请求。 |
+| ECRC in Completion — Requesters that detect an ECRC error must set the ECRC error status bit. Besides the standard error reporting mechanism, they may also choose to report the error to their device driver with a Function-specific interrupt. As before, the software might decide to reschedule the failed Request. | 完成报文中的 ECRC — 检测到 ECRC 错误的请求者必须设置 ECRC 错误状态位。除了标准错误报告机制外，它们也可以选择通过功能特定中断向设备驱动程序报告该错误。如前所述，软件可能会决定重新调度失败的请求。 |
+| In either case, an Uncorrectable Non-fatal error Message may be sent to the system. If so, the device driver would probably be accessed to check the status bits in the Uncorrectable Error Status Register and learn the nature of the error. If possible, the failed Request may be rescheduled, but other steps might be needed. | 无论哪种情况，都可能会向系统发送不可纠正非致命错误消息。如果是这样，可能会访问设备驱动程序以检查不可纠正错误状态寄存器中的状态位，了解错误的性质。如果可能，失败的请求可以重新调度，但可能还需要其他步骤。 |
+
+## Data Poisoning
+
+| EN | ZH |
+|---|---|
+| Data poisoning, also called Error Forwarding, provides an optional way for a device to indicate that the data associated with a TLP is corrupted. In these cases, the EP (Error Poisoned) bit in the packet header is set to indicate the error. The EP bit is shown in Figure 15-6 on page 660. | 数据毒化（也称为错误转发）为设备提供了一种可选方式，用于指示与TLP相关的数据已损坏。在这些情况下，包头中的EP（错误毒化）位被置位以指示错误。EP位如第660页图15-6所示。 |
+
+Figure 15-6: The Error/Poisoned Bit in a Completion Header
+
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="6">+1</td><td colspan="6">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TDP</td><td>Attr</td><td>AT</td><td colspan="5">Length</td></tr><tr><td>Byte 4</td><td colspan="16">Bytes 4-7 Vary with Type Field</td></tr><tr><td>Byte 8</td><td colspan="16">Bytes 8-11 Vary with Type Field</td></tr><tr><td>Byte 12</td><td colspan="16">Bytes 12-15 Vary with Type Field</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| Anytime data is transferred, such as in write Requests or Completions with data, corruption of that data could happen which needs to be reported to the target device. In each of these cases, the packet can be forwarded to the recipient but marked as having bad data by the EP bit in the header. The thoughtful reader may wonder why one might want to send data that is already known to be bad. As it happens, there are some cases where it's useful: | 每当传输数据时，例如在写请求或带数据的完成报文中，数据可能会发生损坏，这需要向目标设备报告。在这些情况下，报文可以转发给接收者，但通过头部的EP位标记为包含错误数据。细心的读者可能会问，为什么有人想要发送已知已损坏的数据。事实上，在某些情况下这是有用的： |
+| **1.** If a Request results in a Completion returned with data, but that data encountered an error as it was gathered from the target (like a parity or ECC failure in memory), then what is the best way to report it? One approach would be not to send the Completion at all but, if the error isn't reported in some other way, the system only sees a Completion timeout at the Requester. That response isn't very helpful because any number of problems might result in that outcome. | **1.** 如果一个请求导致返回带数据的完成报文，但该数据在从目标收集时遇到错误（例如存储器中的奇偶校验或ECC错误），那么最佳报告方式是什么？一种方法是根本不发送完成报文，但如果没有通过其他方式报告错误，系统在请求者处只能看到完成超时。这种响应没有太大帮助，因为多种问题都可能导致该结果。 |
+| If, on the other hand, the Completion is delivered with the poisoned bit set, then at least the Requester can see that the round-trip path to the Completer must have been working correctly. Therefore, the problem must have occurred internally to the Completer or else in a Switch that was in the path. What steps will be taken will be implementation specific, but more is known about what must have gone wrong than if the Completion simply timed out. | 另一方面，如果完成报文被送达时毒化位已置位，那么至少请求者可以看到到完成者的往返路径必定是正常工作的。因此，问题一定发生在完成者内部或路径中的交换机内。将采取什么步骤取决于具体实现，但与完成报文仅超时相比，可以了解到更多关于出错原因的信息。 |
+| **2.** It can be used to report an intermediate problem. If a data payload is corrupted while passing through a Switch, the packet can still be forwarded with the EP bit set to indicate the problem. | **2.** 它可以用于报告中间问题。如果数据有效负载在通过交换机时损坏，报文仍可转发，同时EP位置位以指示该问题。 |
+| **3.** It may be that the target device can accept the data with errors. As an example, an audio output device needs to receive a timely data stream to work well. If incoming data has an error, the consequences are small (glitch in the audio output) and the time to recover would be long enough to cause a noticeable delay, so it can be better to take it as is rather than attempting recovery of the data. | **3.** 目标设备可能可以接收含错误的数据。例如，音频输出设备需要及时接收数据流才能正常工作。如果输入数据有错误，后果很小（音频输出中出现短暂干扰），而恢复所需的时间足以导致明显的延迟，因此直接接收数据可能比尝试恢复更好。 |
+| **4.** A target device might have a means of correcting the data. The data might be directly recoverable, or the target might have a means of re-creating parts of it, or have some other means of working around the problem. | **4.** 目标设备可能具有纠正数据的方法。数据可能可以直接恢复，或者目标可能具有重新创建部分数据的方法，或具有其他绕过该问题的方法。 |
+| The spec states that data poisoning applies only to the data payload associated with a packet (such as Memory, Configuration, or I/O writes and Completions) and never to the contents of the TLP header. Consequently, a receiver's behavior is undefined if it sees a poisoned packet (EP=1) with no payload (like a poisoned memory read). Poisoning can only be done at the Transaction Layer of a device; the Data Link Layer does not examine or affect the contents of the TLP header. | 规范规定，数据毒化仅适用于与报文相关的数据有效负载（例如存储器、配置或I/O写请求和完成报文），绝不适用于TLP头部的内容。因此，如果接收者看到没有有效负载的毒化报文（EP=1）（例如毒化的存储器读请求），其行为是未定义的。毒化只能在设备的事务层进行；数据链路层不检查也不影响TLP头部的内容。 |
+| Error forwarding support is stated to be optional for transmitters, and the absence of such a statement for receivers implies that it's not optional for them. | 错误转发支持对发送端来说被声明为可选的，而对于接收端没有此类声明，这意味着对它们来说不是可选的。 |
+
+---
+
+# Part part05 — `mindshare_part05_p0721-0900`
+
+| EN | ZH |
+|---|---|
+| If a transmitter supports it, it's enabled with the Parity Error Response bit in the legacy Command register. That's because a Poisoned packet is roughly analogous to a parity error in PCI, since that's how PCI reports bad data. Receipt of a poisoned packet may be reported to the system with an error Message if enabled and, if the optional Advanced Error Reporting registers are present, will also set the Poisoned TLP status bit. | 如果发送方支持此功能，则通过传统命令寄存器(Command register)中的奇偶校验错误响应位(Parity Error Response)启用。这是因为毒化包(Poisoned packet)大致类似于PCI中的奇偶校验错误，因为PCI正是通过这种方式报告错误数据的。如果已使能，接收到毒化包可通过错误消息报告给系统，并且如果存在可选的高级错误报告(Advanced Error Reporting)寄存器，还会设置毒化TLP状态位(Poisoned TLP status bit)。 |
+| As one might expect, poisoned writes to control locations are not allowed to modify the contents in the target. Examples given in the spec are Configuration writes, IO or memory writes to control registers, and AtomicOps. Switches that receive poisoned packets must forward them unchanged to the destination port although, if they've been enabled to do so, they must report this packet as an error to help software determine where the error happened. Completers that receive a poisoned non-posted Request are expected to return a Completion with a status of UR (Unsupported Request). | 正如所料，对控制位置的毒化写操作不允许修改目标中的内容。规范中给出的示例包括配置写(Configuration writes)、对控制寄存器的IO或存储器写以及AtomicOps。接收到毒化包的交换机(Switch)必须将其原封不动地转发到目标端口，但如果已使能，它们必须将此包作为错误报告，以帮助软件确定错误发生的位置。接收到毒化非发布请求(non-posted Request)的完成者(Completer)应返回状态为UR(不支持请求)的完成报文(Completion)。 |
+
+## Split Transaction Errors
+
+Figure 15‐7: Completion Status Field within the Completion Header
+
+| EN | ZH |
+| --- | --- |
+| A variety of failures can occur during a split transaction associated with nonposted requests. PCIe defines a status field within the Completion header that allows the Completer to report some errors back to the Requester. Figure 15‐7 on page 662 illustrates the location of this field in a completion header and Table 15‐1 on page 663 gives the possible values. As the table shows, only four encodings are defined, two of which represent error conditions. | 在与非 posted 请求相关的拆分事务过程中可能发生多种故障。PCIe 在完成报文头部定义了一个状态字段，允许完成者将某些错误报告回请求者。第662页的图15-7展示了该字段在完成报文头部中的位置，第663页的表15-1给出了可能的取值。如表所示，仅定义了四种编码，其中两种表示错误条件。 |
+
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td>Byte 0</td><td>Fmt0 x 0</td><td>Type0 1 0 1 0</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TE</td><td>P</td><td>Att</td><td>AT0 0</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="11">Completer ID</td><td>Compl Status</td><td colspan="2">Byte Count</td></tr><tr><td>Byte 8</td><td colspan="8">Requester ID</td><td colspan="4">Tag</td><td>R</td><td>Lower Address</td></tr></table>
+
+Table 15‐1: Completion Code and Description
+
+<table><tr><td>Status Code</td><td>Completion Status Definition</td></tr><tr><td>000b</td><td>Successful Completion (SC)</td></tr><tr><td>001b</td><td>Unsupported Request (UR) - error</td></tr><tr><td>010b</td><td>Configuration Request Retry Status (CRS)</td></tr><tr><td>011b</td><td>Completer Abort (CA) - error</td></tr><tr><td>100b - 111b</td><td>Reserved</td></tr></table>
+
+## Unsupported Request (UR) Status
+
+| EN | ZH |
+|---|---|
+| If a receiver doesn't support a Request, it returns a Completion with UR status. The spec defines a number of conditions that could result in a UR status. Some examples are: | 如果接收方不支持某请求，则返回带有UR状态的完成报文。规范定义了多种可能导致UR状态的条件。示例如下： |
+| Request type not supported (example: IO Request to native Endpoint or MRdLk to native Endpoint) | 不支持的请求类型（例如：对本机端点发起IO请求或MRdLk请求） |
+| Message with unsupported or undefined message code | 带有不支持或未定义消息码的消息 |
+| Request does not reference address space mapped to the device | 请求未引用映射到该设备的地址空间 |
+| Request address isn't mapped within a Switch Port's address range | 请求地址未映射到交换机端口地址范围内 |
+| Poisoned write Request (EP=1) targets an I/O or Memory-mapped control space in the Completer. Such Requests must not be allowed to modify the location and are instead discarded by the Completer and reported with a Completion having a UR status. | 带毒写入请求(EP=1)目标为完成者的I/O或存储器映射控制空间。此类请求不得允许修改该位置，而是由完成者丢弃，并通过带有UR状态的完成报文报告。 |
+| A downstream Root or Switch Port receives a configuration Request targeting a device on its Secondary Bus that doesn't exist (e.g. a device with a non‑zero device number, unless ARI is enabled). The Port must terminate the Request and return a Completion with UR status because the downstream Device number is required to be zero (unless ARI, Alternative Routing‑ID Interpretation, is enabled). | 下游根或交换机端口收到目标为其二级总线上的不存在设备（例如，设备号非零的设备，除非启用ARI）的配置请求。该端口必须终止该请求并返回带有UR状态的完成报文，因为下游设备号必须为零（除非启用ARI，即备用路由ID解释）。 |
+| Type 1 configuration Request is received at an Endpoint. | 端点上收到类型1配置请求。 |
+| Completion using a reserved Completion Status field encoding must be interpreted as UR. | 使用保留的完成状态字段编码的完成报文必须被解释为UR。 |
+| A function in the D1, D2, or D3hot power management state receives a Request other than a configuration Request or Message. | 处于D1、D2或D3hot电源管理状态的功能收到除配置请求或消息外的请求。 |
+| A TLP without the No Snoop bit set in its header is routed to a port that has the Reject Snoop Transactions bit set in its VC Resource Capability register. | 头部中未设置No Snoop位的TLP被路由到其VC资源能力寄存器中设置了拒绝侦听事务位的端口。 |
+
+| EN | ZH |
+|---|---|
+| ## Completer Abort (CA) Status | ## 完成方终止（CA）状态 |
+| Several circumstances can occur that could result in a Completer returning this CA status to the Requester. Some examples are: | 若干情况可能导致完成方（Completer）向请求方（Requester）返回此CA状态。以下是一些示例： |
+| Completer receives a Request that it cannot complete without violating its programming rules. For example, some Functions may be designed to only allow accesses to some registers in a complete and aligned manner (e.g. a 4-byte register may require a 4-byte aligned access). Any attempt to access one of these registers in a partial or misaligned fashion (e.g. reading only two bytes of a 4-byte register) would fail. Such restrictions are not violations of the spec, but rather legal constraints associated with the programming interface for this Function. Access to such a Function is based on the expectation that the device driver understands how to access its Function. | 完成方收到一个请求，若完成该请求将违反其编程规则。例如，某些功能（Function）可能被设计为只允许以完整且对齐的方式访问某些寄存器（例如，4字节寄存器可能需要4字节对齐访问）。任何以部分或非对齐方式访问这些寄存器的尝试（例如，仅读取4字节寄存器中的两个字节）都将失败。此类限制并非违反规范，而是与该功能编程接口相关的合法约束。对此类功能的访问基于如下预期：设备驱动程序应了解如何访问其功能。 |
+| Completer receives a Request that it cannot process because of some permanent error condition in the device. For example, a wireless LAN card that won't accept new packets because it can't transmit or receive over its radio until an approved antenna is attached. | 完成方收到一个请求，但由于设备中的某种永久错误条件而无法处理。例如，无线局域网卡在未连接经核准的天线之前无法通过其无线电进行发送或接收，因此不会接受新的数据包。 |
+| Completer receives a Request for which it detects an ACS (Access Control Services) error. An example of this would be a Root Port that implements the ACS registers and has ACS Translation Blocking enabled. If a memory Request is seen on that Port with anything other than the default value in the AT field, it will be an ACS violation. | 完成方收到一个请求并检测到ACS（访问控制服务）错误。例如，实现了ACS寄存器且启用了ACS转换阻止（ACS Translation Blocking）的根端口（Root Port）。如果在该端口上看到存储器请求的AT字段包含非默认值，则将构成ACS违规。 |
+| PCIe-to-PCI Bridge may receive a Request that targets the PCI bus. PCI allows the target device to signal a target abort if it can't complete the Request due to some permanent condition or violation of the Function's programming rules. In response, the bridge would return a Completion with CA status. | PCIe到PCI桥（PCIe-to-PCI Bridge）可能收到发往PCI总线的请求。PCI允许目标设备在因某种永久条件或违反功能编程规则而无法完成请求时发出目标终止信号。作为响应，该桥将返回带有CA状态的完成报文。 |
+| A Completer that aborts a Request may report the error to the Root with a Nonfatal Error Message and, if the Request requires a Completion, the status would be CA. | 终止请求的完成方可通过非致命错误消息（Nonfatal Error Message）向根（Root）报告该错误，并且如果该请求需要完成报文，则状态将为CA。 |
+
+## Unexpected Completion
+
+| EN | ZH |
+|---|---|
+| When a Requester receives a Completion, it uses the transaction descriptor (Requester ID and Tag) to match it with an earlier Request. In rare circumstances, the transaction descriptor may not match any previous Request. This might happen because the Completion was mis‐routed on its journey back to the intended Requester. An Advisory Non‐fatal Error Message can be sent by the device that receives the unexpected Completion, but it’s expected that the correct Requester will eventually timeout and take the appropriate action, so that error Message would be a low priority. | 当请求者收到完成报文时，它使用事务描述符（请求者ID和标签）将其与先前的请求进行匹配。在罕见情况下，事务描述符可能不与任何先前的请求匹配。这种情况可能发生，因为完成报文在返回给预期请求者的途中被路由错误。接收到意外完成报文的设备可以发送 advisory 非致命错误消息，但预期正确的请求者最终会超时并采取适当措施，因此该错误消息优先级较低。 |
+
+| EN | ZH |
+|---|---|
+| ## Completion Timeout | ## 完成超时 |
+| For the case of a pending Request that never receives the Completion it's expecting, the spec defines a Completion timeout mechanism. The spec clearly intends this to detect when a Completion has no reasonable chance of returning; it should be longer than any normal expected latencies. | 针对未决请求始终未收到所期望的完成报文的情况，规范定义了完成超时机制。规范明确意在检测完成报文无合理返回可能的情形；该超时值应长于所有正常预期延迟。 |
+| The Completion timeout timer must be implemented by all devices that initiate Requests that expect Completions, except for devices that only initiate configuration transactions. Note also that every Request waiting for Completions is timed independently, and so there must be a way to track time for each outstanding transaction. The 1.x and 2.0 versions of the spec defined the permissible range of the timeout value as follows: | 所有发起期望接收完成报文的请求的设备都必须实现完成超时定时器，但仅发起配置事务的设备除外。另请注意，每个等待完成报文的请求被独立计时，因此必须有一种方式来跟踪每个未完成事务的时间。规范1.x和2.0版本定义了超时值的允许范围如下： |
+| It is strongly recommended that a device not timeout earlier than 10ms after sending a Request; however, if the device requires greater granularity a timeout can occur as early as 50μs. | 强烈建议设备在发送请求后不早于10ms发生超时；然而，如果设备需要更高的粒度，超时可以早至50μs发生。 |
+| • Devices must time‐out no later than 50ms. | • 设备的超时不得晚于50ms。 |
+| Beginning with the 2.1 spec revision, the Device Control Register 2 was added to the PCI Express Capability Block to allow software visibility and control of the timeout values, as shown in Figure 15‐8 on page 665. | 从2.1规范修订版开始，PCI Express能力块中增加了设备控制寄存器2，以允许软件查看和控制超时值，如第665页图15-8所示。 |
+
+Figure 15‐8: Device Control Register 2  
+![](images/part05_0a1bd1c9ba791086d46869ce7f9fceb31a588f2ed4e9abb0948e8d22c9873a41.jpg)
+
+| If Requests need multiple Completions to return the requested data, a single Completion won't stop the timer. Instead, the timer continues to run until all the data has been returned regardless of how many Completions are needed. If only part of the data has been returned when the timeout occurs, the Requester may discard or keep that data. | 如果请求需要多个完成报文来返回所请求的数据，单个完成报文不会停止定时器。相反，定时器会持续运行，直到所有数据返回完毕，无论需要多少个完成报文。如果在超时时仅返回了部分数据，请求者可以丢弃或保留该数据。 |
+
+| EN | ZH |
+| --- | --- |
+| ## Link Flow Control Related Errors | ## 链路流控相关错误 |
+| Prior to forwarding the packet to the Data Link Layer for transmission, the Transaction Layer must check Flow Control (FC) credits to ensure that the receive buffers of the Link neighbor have sufficient room to hold it. Flow Control violations may occur, and they are considered uncorrectable. Protocol violations related to Flow Control can be detected by and associated with the port receiving the Flow Control information. Some examples are given here: | 在将报文转发至数据链路层进行传输之前，事务层必须检查流控（FC）信用量，以确保链路对端的接收缓冲区有足够的空间容纳该报文。流控违规可能发生，且被视为不可纠正错误。与流控相关的协议违规可由接收流控信息的端口检测并与该端口关联。下面给出一些示例： |
+| Link partner fails to advertise at least the minimum number of FC credits defined by the spec during FC initialization for any Virtual Channel. | 在任意虚通道的流控初始化期间，链路伙伴未能通告规范所定义的最少流控信用量数目。 |
+| Link partner advertises more than the allowed maximum number of FC credits (up to 2047 unused credits for data payload and 127 unused credits for headers). | 链路伙伴通告超过允许的最大流控信用量数目（数据载荷最多2047个未用信用量，报文头最多127个未用信用量）。 |
+| Receipt of FC updates containing non-zero values in credit fields that were initially advertised as infinite. | 接收到在最初被通告为无限的信用量字段中包含非零值的流控更新。 |
+| A receive buffer overflow, resulting in lost data. This check is optional but a detected violation is considered to be a Fatal error. | 接收缓冲区溢出，导致数据丢失。此检查为可选，但检测到的违规被视为致命错误。 |
+
+## Malformed TLP
+
+| EN | ZH |
+|---|---|
+| TLPs arriving in the Transaction Layer are checked for violations of the packet formatting rules. A violation in the packet format is considered a Fatal error because it means the transmitter has made a grievous mistake in protocol, such as failing to properly maintain its counters, and the result is that it's no longer performing as expected. Some examples of a packet being considered malformed (badly formed) include the following: | 到达事务层的TLP将接受检查，以确认是否存在违反报文格式规则的情况。报文格式违规被视为致命错误，因为这意味着发送方在协议方面犯了严重错误（例如未能正确维护其计数器），导致其不再按预期运行。被视为畸形（格式错误）的报文示例如下： |
+| • Data payload exceeds Max payload size. | • 数据载荷超过最大载荷大小。 |
+| • Data length does not match length specified in the header. | • 数据长度与报头中指定的长度不匹配。 |
+| Memory start address and length combine to cause a transaction to cross a naturally-aligned 4KB boundary. | 存储器起始地址与长度组合导致事务跨越自然对齐的4KB边界。 |
+| TLP Digest (TD field) indication doesn't correspond with packet size (ECRC is unexpectedly missing or present). | TLP摘要（TD字段）指示与报文大小不对应（ECRC意外缺失或存在）。 |
+| • Byte Enable violation. | • 字节使能违规。 |
+| • Undefined Type field values. | • 未定义的Type字段值。 |
+| • Completion that violates the Read Completion Boundary (RCB) value. | • 违反读完成边界（RCB）值的完成报文。 |
+| Completion with status of Configuration Request Retry Status in response to a Request other than a configuration Request. | 针对非配置请求的请求返回状态为"配置请求重试状态"的完成报文。 |
+| Traffic Class field contains a value not assigned to an enabled Virtual Channel (this is also known as TC Filtering). | 流量类字段包含未分配到已使能虚通道的值（这也称为TC过滤）。 |
+| • I/O and Configuration Request violations (checking optional) — examples: TC field, Attr[1:0], and the AT field must all be zero, while the Length field must have a value of one. | • I/O和配置请求违规（检查为可选项）——示例：TC字段、Attr[1:0]和AT字段必须全部为零，而Length字段的值必须为1。 |
+| • Interrupt emulation messages sent downstream (checking optional). | • 向下游发送的中断仿真消息（检查为可选项）。 |
+| • TLP received with a TLP Prefix error: | • 收到的TLP存在TLP前缀错误： |
+| — TLP Prefix but no TLP Header | — 有TLP前缀但无TLP报头 |
+| — End-to-End TLP Prefixes preceding Local Prefixes | — 端到端TLP前缀位于本地前缀之前 |
+| — Local TLP Prefix type not supported | — 不支持的本地TLP前缀类型 |
+| — More than 4 End-to-End TLP Prefixes | — 超过4个端到端TLP前缀 |
+| — More End-to-End TLP Prefixes than are supported | — 端到端TLP前缀数量超过支持的数量 |
+| • Transaction type requiring use of TC0 has a different TC value: | • 需要使用TC0的事务类型具有不同的TC值： |
+| — I/O Read or Write Requests and corresponding Completions | — I/O读或写请求及对应的完成报文 |
+| — Configuration Read or Write Requests and corresponding Completions | — 配置读或写请求及对应的完成报文 |
+| — Error Messages | — 错误消息 |
+| — INTx messages | — INTx消息 |
+| — Power Management messages | — 电源管理消息 |
+| — Unlock messages | — Unlock消息 |
+| — Slot Power messages | — 槽位电源消息 |
+| — LTR messages | — LTR消息 |
+| — OBFF messages | — OBFF消息 |
+| • AtomicOp operand doesn't match an architected value. | • AtomicOp操作数与架构规定的值不匹配。 |
+| • AtomicOp address isn't naturally aligned with operand size. | • AtomicOp地址未与操作数大小自然对齐。 |
+| • Routing is incorrect for transaction type (e.g., transactions requiring routing to Root Complex detected moving away from Root Complex). | • 路由对于事务类型不正确（例如，检测到需要路由到根复合体的事务正远离根复合体方向移动）。 |
+
+| EN | ZH |
+|----|----|
+| ## Internal Errors | ## 内部错误 |
+
+## The Problem
+
+| EN | ZH |
+|---|---|
+| The first versions of the PCIe spec did not include a mechanism for reporting errors within a device that were unrelated to transactions on the interface itself. For Endpoints this wasn't really a problem because they have a vendor-specific device driver associated with them that can detect and report internal errors. | PCIe规范的早期版本未包含用于报告设备内部与接口事务无关错误的机制。对于Endpoint（端点）而言，这并非真正的问题，因为它们有与之关联的厂商专用设备驱动程序，可检测并报告内部错误。 |
+| However, Switches are considered system resources that are managed by the OS, and typically don't have software to help with internal error detection. | 然而，Switch（交换机）被视为由操作系统管理的系统资源，通常没有软件辅助进行内部错误检测。 |
+| In high-end systems, the ability to contain errors is important, so Switch vendors created proprietary means of handling internal errors. | 在高端系统中，错误遏制能力至关重要，因此Switch厂商创建了专有方法来处理内部错误。 |
+| Unfortunately, since different vendor solutions were incompatible with each other, the end result was that they were seldom used. | 遗憾的是，由于不同厂商的解决方案互不兼容，最终导致它们很少被使用。 |
+
+| EN | ZH |
+| :-- | :-- |
+| ## PCI Express Technology | ## PCI Express 技术 |
+
+## The Solution / 解决方案
+
+| EN | ZH |
+|---|---|
+| To alleviate this situation, a standardized internal error reporting option was added with the 2.1 spec version. The definition of what constitutes an internal error is beyond the scope of the spec, but they can be reported as either Corrected or Uncorrectable Internal Errors. | 为缓解此情况，2.1 规范版本增加了一项标准化的内部错误报告选项。什么构成内部错误的定义超出了规范的范围，但此类错误可以作为已纠正内部错误（Corrected Internal Error）或不可纠正内部错误（Uncorrectable Internal Error）进行报告。 |
+| A Corrected Internal Error means an error was masked or worked around by the hardware with no loss of information or improper behavior. An example would be an ECC error on an internal memory location that was corrected automatically. On the other hand, an Uncorrectable Internal Error means improper operation has resulted with potential data loss, such as a parity error on an internal memory location. Reporting internal errors is optional and, if it is used, the AER (Advanced Error Reporting) registers must be present to support it. | 已纠正内部错误意味着硬件已屏蔽或绕过了某个错误，未造成信息丢失或不当行为。例如，内部存储器位置上发生的ECC错误被自动纠正。另一方面，不可纠正内部错误意味着不当操作已导致潜在的数据丢失，例如内部存储器位置上的奇偶校验错误。报告内部错误是可选的，如果使用此功能，则必须存在AER（高级错误报告，Advanced Error Reporting）寄存器来支持它。 |
+
+## How Errors are Reported
+
+| EN | ZH |
+|----|----|
+| ## How Errors are Reported | ## 错误如何被报告 |
+
+## Introduction
+
+| EN | ZH |
+|---|---|
+| PCI Express includes three methods of reporting errors, as shown below. The first two, Completions and poisoned packets, were covered earlier, so our next topic will be the error Messages. | PCI Express 包含三种错误报告方法，如下所示。前两种——完成报文和中毒报文——已在前面讨论过，因此我们的下一个主题将是错误消息。 |
+| • Completions — Completion Status reports errors back to the Requester | • 完成报文（Completions）——完成状态将错误报告回请求者 |
+| • Poisoned Packet — reports bad data in a TLP to the receiver | • 中毒报文（Poisoned Packet）——将 TLP 中的错误数据报告给接收者 |
+| • Error Message — reports errors to the host (software) | • 错误消息（Error Message）——将错误报告给主机（软件） |
+
+## Error Messages / 错误消息
+
+| EN | ZH |
+|---|---|
+| PCIe eliminated the sideband signals from PCI and replaced them with Error Messages. These Messages provide information that could not be conveyed with the PERR# and SERR# signals, such as identifying the detecting Function and indicating the severity of the error. | PCIe 取消了 PCI 中的边带信号，并将其替换为错误消息。这些消息能够提供 PERR# 和 SERR# 信号无法传达的信息，例如标识检测到错误的 Function 以及指示错误的严重性。 |
+| Figure 15‐9 illustrates the Error Message format. Note that they're routed to the Root Complex for handling. | 图 15-9 展示了错误消息的格式。注意它们被路由到 Root Complex 进行处理。 |
+| The Message Code defines the type of Message being signaled. Not surprisingly, the spec defines three types of error Messages, as shown in Table 15‐2. | Message Code 定义了所发送消息的类型。不出所料，规范定义了三种类型的错误消息，如表 15-2 所示。 |
+
+| ## Chapter 15: Error Detection and Handling | ## 第15章：错误检测与处理 |
+
+| Table 15‑2: Error Message Codes and Description | 表15‑2：错误消息代码及描述 |
+
+<table><tr><td>Message Code</td><td>Name</td><td>Description</td></tr><tr><td>30h</td><td>ERR_COR</td><td>Device detected a correctable error. This is automatically corrected by hardware and doesn't require software attention. However, it can be helpful to report them anyway so software can watch for trends like an increasing number of correctable errors.</td></tr><tr><td>31h</td><td>ERR_NONFATAL</td><td>Indicates an uncorrectable Non-Fatal error. No hardware correction mechanism was available but the Link is still working reliably. Software attention will be required to resolve the problem.</td></tr><tr><td>33h</td><td>ERR_FATAL</td><td>Indicates an uncorrectable Fatal error. No hardware correction mechanism was available and Link operation has failed in some important respect. Software attention will be required and a reset of at least one device will probably be required to resolve this issue.</td></tr></table>
+
+Figure 15‑9: Error Message Format
+![](images/part05_e11eb268e769b90e8b17d0d88202503e7f8b022dc2be7bae5d0d235cb4cd29eb.jpg)
+
+| EN | ZH |
+|-----|-----|
+| ## PCI Express Technology | ## PCI Express 技术 |
+
+## Advisory Non-Fatal Errors
+
+| EN | ZH |
+|---|---|
+| Since we've just seen that both types of Uncorrectable errors will need software attention, it sounds counter-intuitive to say that there are cases where it's preferable that a device not report Non-Fatal errors it detects, but there are. These cases are predominantly based on the role of the detecting agent (Requester, Completer, or Intermediate device) and the type of error. The problem is that multiple devices might report an error caused by the same event and, on some platforms, sending one of the Non-Fatal Error Messages (ERR_NONFATAL) can prevent software from properly handling the error. For example, if an Endpoint reports an error, its device driver will be called to service the situation. However, if a Switch reports an error first for the same transaction, system software might be called to investigate and might not understand what the driver was trying to accomplish or what would be the optimal response. | 既然我们已经看到两种类型的不可纠正错误都需要软件干预，那么说在某些情况下设备最好不报告其检测到的非致命错误似乎有违直觉，但实际情况确实如此。这些情况主要取决于检测代理的角色（请求者、完成者或中间设备）以及错误的类型。问题在于，多个设备可能因为同一事件报告错误，而在某些平台上，发送非致命错误消息（ERR_NONFATAL）之一可能会妨碍软件正确处理该错误。例如，如果端点报告错误，将调用其设备驱动程序来处理该情况。然而，如果交换机首先针对同一事务报告错误，则可能会调用系统软件进行调查，而系统软件可能不了解驱动程序试图完成什么操作，也不清楚最佳响应是什么。 |
+| That example illustrates that some detecting agents aren't the best ones to determine the ultimate disposition of the error and shouldn't send an uncorrectable message. Instead, such an agent can signal an advisory notification to software with ERR_COR. This avoids confusion about the source of the uncorrectable error but still gives software a little more information about what happened. Eventually, the appropriate detecting agent will send the ERR_NONFATAL message whenever it sees the error. Beginning with the 1.1 spec revision, a new field was added in the PCI Express Device Capabilities register to indicate support for this capability as shown in Figure 15-10 on page 670. This bit must be set for every agent that is compliant with the 1.1 spec or later. | 该示例说明，某些检测代理并非确定错误最终处置的最佳角色，不应发送不可纠正消息。相反，此类代理可以通过 ERR_COR 向软件发送通告性通知。这避免了关于不可纠正错误来源的混淆，同时仍向软件提供关于所发生事件的更多信息。最终，当适当的检测代理发现该错误时，它会发送 ERR_NONFATAL 消息。从 1.1 规范修订版开始，在 PCI Express 设备能力寄存器中新增了一个字段，用于指示对该能力的支持，如第 670 页图 15-10 所示。每个符合 1.1 规范或更高版本的代理必须置位该位。 |
+
+Figure 15-10: Device Capabilities Register
+![](images/part05_2f22259e258dd5db345684099efb359e2ca311c7b373f2eecce5ca0ac02a9cab.jpg)
+
+| EN | ZH |
+|---|---|
+| In spite of the reasons just described, software might want to stop operation as soon as some advisory errors are seen by an intermediate device. Since newer devices will always perform role-based error reporting, an override mechanism is needed. To handle this case, software can escalate the severity of the advisory errors from Non-Fatal to Fatal in the AER (Advanced Error Reporting) registers. Since there is no "advisory fatal" case, the error will now be reported as a Fatal Error (ERR_FATAL), if enabled, regardless of the role of the device. | 尽管有上述理由，但软件可能希望在中间设备一看到某些通告性错误时就停止操作。由于较新的设备始终执行基于角色的错误报告，因此需要一种覆盖机制。为处理此情况，软件可以在 AER（高级错误报告）寄存器中将通告性错误的严重性从非致命升级为致命。由于不存在"通告性致命"的情况，如果使能，则该错误现在将报告为致命错误（ERR_FATAL），而与设备的角色无关。 |
+
+## Advisory Non-Fatal Cases
+
+| EN | ZH |
+|---|---|
+| The spec lists five situations for which an advisory message (ERR\_COR) is preferred over a ERR\_NONFATAL message. In each of these cases, the detecting agent will handle the error as an Advisory Non‐Fatal Error. This means that a Non‐Fatal condition will be handled by sending an ERR\_COR, assuming the agent has AER registers and has enabled ERR\_COR. If it doesn't have AER registers or ERR\_COR was not enabled, it sends no Error Message. The five cases are as follows: | 规范列出了五种情况，在这些情况下建议使用通告消息（ERR\_COR）而非 ERR\_NONFATAL 消息。在每种情况下，检测到错误的代理将把该错误作为建议性非致命错误（Advisory Non-Fatal Error）处理。这意味着非致命条件将通过发送 ERR\_COR 来处理，前提是该代理拥有 AER 寄存器且已启用 ERR\_COR。如果它没有 AER 寄存器或 ERR\_COR 未启用，则不会发送任何错误消息。这五种情况如下： |
+| 1. Completer sent a Completion with UR or CA Status. The expectation in this case is that the Requester will have a mechanism to handle the error when it sees the offending Completion and will be the best agent to send whatever Error Messages are needed. A ERR\_NONFATAL message from the Completer would just be confusing, so it must be handled as Advisory Non‐Fatal (ERR\_COR). | 1. 完成者发送了带有 UR 或 CA 状态的完成报文。这种情况下的期望是，请求者在看到有问题的完成报文时将具有处理该错误的机制，并且将是发送所需任何错误消息的最佳代理。来自完成者的 ERR\_NONFATAL 消息只会造成混淆，因此必须将其作为建议性非致命错误（ERR\_COR）处理。 |
+| Curiously, there is no PCIe mechanism for the Requester to report that it received a Completion with this status. Instead, a design‐specific method like an interrupt will be needed to get device driver attention. An important example of this happens when the Root Complex receives a Completion with UR or CA status in response to a Configuration Read Request. On some platforms the response is to return all 1's to software for this case, to support backward compatibility with PCI enumeration (configuration probing) software. | 值得注意的是，PCIe 没有提供让请求者报告其收到带有此类状态的完成报文的机制。相反，需要采用设计特定的方法（如中断）来引起设备驱动程序的注意。一个重要示例是当根复合体收到响应配置读取请求而返回的带有 UR 或 CA 状态的完成报文时。在某些平台上，针对这种情况的响应是向软件返回全 1，以支持与 PCI 枚举（配置探测）软件的向后兼容性。 |
+| 2. Intermediate device detected an error. This case comes up in systems that employ Switches because a detecting agent may not be the final destination for a TLP. As an example of this, consider Figure 15‐11 on page 672, showing a poisoned packet delivered through an intermediate Switch. The TLP is seen as a Non‐Fatal error by the Switch but it can only signal an ERR\_COR message instead (as long as it's enabled to do so). | 2. 中间设备检测到错误。这种情况出现在使用交换机的系统中，因为检测到错误的代理可能不是 TLP 的最终目的地。例如，考虑第 672 页的图 15-11，该图显示了一个通过中间交换机传递的投毒数据包。该 TLP 被交换机视为非致命错误，但它只能发出 ERR\_COR 消息（只要它被启用这样做）。 |
+| To explore this concept a little more, why wouldn't we want the Switch to report ERR\_NONFATAL? One reason is seen by looking at error tracking in the AER registers. Figure 15‐12 on page 672 shows the AER registers that track the Source ID (BDF of the sending device) of Error Messages coming into a Root Port and we can see that there's only one space available for uncorrectable errors. If multiple uncorrectable errors are seen, that fact will be noted but only the first source ID will be saved since it is considered to be the probable cause of subsequent errors. It's important, therefore, that uncorrectable errors come from the most appropriate device to report them. It's worth noting that it's still helpful for intermediate devices to report ERR\_COR, because it allows software to determine where the error was first detected. | 为了进一步探讨这个概念，为什么我们不希望交换机报告 ERR\_NONFATAL？原因之一可以从 AER 寄存器中的错误跟踪看出。第 672 页的图 15-12 显示了跟踪进入根端口的错误消息的源 ID（发送设备的 BDF）的 AER 寄存器，我们可以看到只有一个空间可用于不可纠正错误。如果看到多个不可纠正错误，该事实将被记录下来，但只会保存第一个源 ID，因为它被认为是后续错误的可能原因。因此，不可纠正错误必须来自最合适的设备进行报告，这一点很重要。值得注意的是，中间设备报告 ERR\_COR 仍然是有帮助的，因为它允许软件确定错误最初是在哪里检测到的。 |
+
+Figure 15‐11: Role‐Based Error Reporting Example
+![](images/part05_2c00dfb36d735c35d15d174682d65773a2e7d4aadc206301f321f292e64c448c.jpg)
+
+Figure 15‐12: Advanced Source ID Register
+
+<table><tr><td colspan="2">Error Source Identification Register of the AER Capability Structure</td></tr><tr><td>31</td><td>0</td></tr><tr><td>ERR_FATAL/NONFATAL Source ID (ROS)</td><td>ERR_COR Source ID (ROS)</td></tr><tr><td colspan="2">ROS: Read-Only and Sticky</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| As another example, 1.0a devices that have the UR Reporting Enable bit cleared but don't have the Role‐Based Error Reporting capability are unable to report any error Messages when a UR error is detected (for posted or non‐posted Requests). In contrast, a 1.1‐compliant or later Completer that has the SERR# Enable bit set will send an ERR\_NONFATAL or ERR\_FATAL message for bad posted Requests, even if the Unsupported Request Reporting Enable bit is clear, so as to avoid silent data corruption. But it won't send an error Message for non‐posted Requests received, so as to support the PCI‐compatible configuration method of probing with configuration reads. It's recommended that software keep the UR Error Reporting Enable bit clear for devices that are not capable of Role‐Based Error Reporting, but set it for those that are. That way, UR errors are reported on bad posted requests, but not for bad non‐posted requests like configuration probing transactions, and backward compatibility with older software is maintained. | 另一个例子是，1.0a 设备如果清除了 UR 报告使能位但不具备基于角色的错误报告能力，则在检测到 UR 错误时（对于 Posted 或 Non-Posted 请求）无法报告任何错误消息。相比之下，符合 1.1 或更高版本的完成者如果设置了 SERR# 使能位，则会为错误的 Posted 请求发送 ERR\_NONFATAL 或 ERR\_FATAL 消息，即使未支持请求报告使能位被清除，以避免静默数据损坏。但它不会为接收到的 Non-Posted 请求发送错误消息，以支持通过配置读取进行探测的 PCI 兼容配置方法。建议软件对于不具备基于角色的错误报告能力的设备保持 UR 错误报告使能位为清除状态，但对于具备该能力的设备则设置该位。这样，UR 错误会在错误的 Posted 请求上报告，但不会在错误的 Non-Posted 请求（如配置探测事务）上报告，从而保持了与旧软件的向后兼容性。 |
+| The spec also mentions that poisoned TLPs sent to the Root will be handled in the same way if the Root is acting as an intermediate agent, but there is one exception: If the Root doesn't support Error Forwarding, it will be unable to communicate the poisoned error with the TLP and must report this as a Non‐Fatal error instead. | 规范还提到，如果根复合体充当中间代理，发送到根的投毒 TLP 将以相同方式处理，但有一个例外：如果根不支持错误转发（Error Forwarding），它将无法通过 TLP 传达投毒错误，而必须将其报告为非致命错误。 |
+| 3. Destination device received a poisoned TLP. Normally, Endpoints would report the Non‐Fatal error in this case, but there's an exception to this rule: If the ultimate destination device is able to handle the poisoned data in a way that allows for continued operation, it must treat this case as an Advisory Non‐Fatal Error instead. | 3. 目标设备接收到投毒 TLP。通常，端点在这种情况下会报告非致命错误，但此规则有一个例外：如果最终目标设备能够以允许继续运行的方式处理投毒数据，则必须将此情况作为建议性非致命错误处理。 |
+| An example of this behavior might be an audio device that receives streaming data that has been poisoned. In this situation, the data may be accepted even though it's known to be corrupted because pausing the audio flow long enough to get software attention and take remedial action would be a worse alternative than allowing a glitch in the sound output. | 这种行为的一个示例可能是音频设备接收到已被投毒的流式数据。在这种情况下，即使数据已知已损坏，也可能被接受，因为暂停音频流足够长时间以引起软件注意并采取补救措施，相比于允许声音输出中出现短暂故障而言，是更糟糕的选择。 |
+| 4. Requester experienced a Completion Timeout. This is a similar case to the previous one; if the Requester has a means of continuing operation in spite of the problem then it must treat this as an Advisory Non‐Fatal Error. A simple work‐around for the Requester in this case would simply be to send the request again and hope for better results this time. Clearly, this would only make sense if the previous request did not cause any side effects, but Requesters are permitted to do this as often as they like (although the spec says the number of retries must be finite). | 4. 请求者遇到完成超时。这与前一种情况类似；如果请求者有办法在出现问题的情况下继续运行，则必须将其作为建议性非致命错误处理。这种情况下，请求者的一种简单变通方法是重新发送请求并希望这次得到更好的结果。显然，这仅在前一次请求未引起任何副作用时才有意义，但请求者被允许任意多次这样做（尽管规范规定重试次数必须是有限的）。 |
+| 5. Unexpected completion received. This must be handled as an Advisory Non‐Fatal Error. The reason is that it was probably caused by a mis‐routed Completion and the original Requester will eventually report a Completion timeout. To allow that other Requester to attempt a retry of the failed request, it's important that the one that sees the Unexpected Completion not send an Non‐Fatal message. | 5. 收到意外完成报文。这必须作为建议性非致命错误处理。原因在于它可能是由路由错误的完成报文引起的，而原始请求者最终将报告完成超时。为了允许另一个请求者尝试重试失败的请求，看到意外完成报文的设备不发送非致命消息这一点很重要。 |
+
+## Baseline Error Detection and Handling
+
+## 基线错误检测与处理
+
+| EN | ZH |
+|---|---|
+| This section defines the required support for detecting and reporting PCI Express errors. Compliant devices must include: | 本节定义了检测和报告PCI Express错误所需的支持。符合规范的设备必须包含： |
+| PCI-Compatible support — required to honor PCI-compatible error control and status fields for older software that has no awareness of PCI Express. | PCI兼容支持——对于不了解PCI Express的旧版软件，要求遵循PCI兼容的错误控制和状态字段。 |
+| PCI Express Error reporting — uses standard PCIe structures to for error control and status which can be used by newer software that does have knowledge of PCI Express. | PCI Express错误报告——使用标准PCIe结构进行错误控制和状态，可供了解PCI Express的新版软件使用。 |
+
+| EN | ZH |
+|----|----|
+| ## PCI-Compatible Error Reporting Mechanisms | ## PCI兼容的错误报告机制 |
+
+| EN | ZH |
+|---|---|
+| ## General | ## 概述 |
+| PCI Express errors are mapped into the original PCI configuration register bits for backward compatibility, allowing error status and control to be accessible to PCI‑compliant software. To understand the features available from the PCI‑compatible point of view, consider the error‑related bits of the Command and Status registers located within the Configuration header. Some of the field definitions have been modified to reflect the related PCIe error conditions and reporting mechanisms. The PCI Express errors tracked by the PCI‑compatible registers are: | 为保持向后兼容，PCI Express 错误被映射到原始 PCI 配置寄存器位中，使得符合 PCI 规范的软件能够访问错误状态和控制信息。要从 PCI 兼容的角度理解可用特性，请考虑配置头部中命令寄存器和状态寄存器的错误相关位。部分字段定义已修改，以反映相关的 PCIe 错误条件和报告机制。PCI 兼容寄存器所跟踪的 PCI Express 错误包括： |
+| • Transaction Poisoning/Error Forwarding (synonymous to data parity error in PCI) | • 事务投毒/错误转发（等同于 PCI 中的数据奇偶校验错误） |
+| Completer Abort (CA) detected by a Completer (synonymous to Target Abort in PCI) | 完成者检测到的完成者中止（CA）（等同于 PCI 中的目标中止） |
+| Unsupported Request (UR) detected by a Completer (synonymous to Master Abort in PCI) | 完成者检测到的不支持请求（UR）（等同于 PCI 中的主控中止） |
+| As mentioned earlier, the PCI mechanism for reporting errors is the assertion of PERR# (data parity errors) and SERR# (unrecoverable errors). The PCI Express mechanisms for reporting these events are the Completion Status values in Completions and Error Messages to the Root. | 如前所述，PCI 报告错误的机制是断言 PERR#（数据奇偶校验错误）和 SERR#（不可恢复错误）。PCI Express 报告这些事件的机制是完成报文中的完成状态值和发送到根复合体的错误消息。 |
+
+| EN | ZH |
+|---|---|
+| ## Legacy Command and Status Registers | ## 传统命令与状态寄存器 |
+| Figure 15‑13 on page 675 illustrates the Command register and the location of the error‑related fields. These bits are set to enable baseline error reporting under control of PCI‑compatible software. Table 15‑3 defines the specific effects of each bit. | 第675页的图15‑13展示了命令寄存器及其错误相关字段的位置。在PCI兼容软件的控制下，设置这些位以启用基本错误报告。表15‑3定义了每个位的具体作用。 |
+
+Figure 15‑13: Command Register in Configuration Header  
+![](images/part05_9e93f29eb4b0065ff7915b6e90439640890e37dc10dc9b509f6a9f3a5b159835.jpg)
+
+Table 15‑3: Error‑Related Fields in Command Register
+
+<table><tr><td>Name</td><td>Description</td></tr><tr><td>SERR# Enable</td><td>Setting this bit enables sending ERR_FATAL and ERR_NONFATAL error messages to the Root Complex. These are considered roughly analogous to asserting the System Error (SERR#) signal in PCI. For Type 1 headers (bridges), this bit controls the forwarding of ERR_FATAL and ERR_NONFATAL error messages from the secondary interface to the primary interface.This field has no affect over ERR_COR messages.</td></tr><tr><td>Parity Error Response</td><td>Setting this bit enables logging of poisoned TLPs in the Master Data Parity Error bit in the Status register. Poisoned packets indicate bad data and are roughly analogous to a PCI parity error.</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| Figure 15‑14 on page 676 illustrates the Configuration Status register and the location of the error‑related bit fields. Table 15‑4 on page 677 defines the circumstances under which each bit is set and the actions taken by the device when error reporting is enabled. | 第676页的图15‑14展示了配置状态寄存器及其错误相关位字段的位置。第677页的表15‑4定义了每个位被置位的情况以及启用错误报告时设备采取的动作。 |
+
+Figure 15‑14: Status Register in Configuration Header  
+![](images/part05_11d4ebecdc54900b539192e588ef221c3e1590519f25dac8687a400569d7b5f0.jpg)
+
+Table 15‑4: Error‑Related Fields in Status Register
+
+<table><tr><td>Error-Related Bit</td><td>Description</td></tr><tr><td>Detected Parity Error</td><td>Set by the port that receives a poisoned TLP. This status bit is updated regardless of the state of the Parity Error Response bit.</td></tr><tr><td>Signalled System Error</td><td>Set by a port that has reported an Uncorrectable Error with ERR_FATAL or ERR_NONFATAL and the SERR# enable bit in the Command register was set.</td></tr><tr><td>Received Master Abort</td><td>Set by a Requester that receives a Completion with status of UR (Unsupported Request). This is considered analogous to a PCI master abort because the target did not "claim the transaction".</td></tr><tr><td>Received Target Abort</td><td>Set by a Requester that receives a Completion with status of CA (Completer Abort). This is analogous to a PCI target abort in that the target has had a programming violation or internal error condition.</td></tr><tr><td>Signaled Target Abort</td><td>Set by the Completer that handled a request (either posted or non-posted) as a Completer Abort. If it was a non-posted request, then a Completion with a Completion Status of CA is sent.</td></tr><tr><td>Master Data Parity Error</td><td>For Type 0 headers (e.g., Endpoints), this bit is set if the Parity Error Response bit in the Command register is set AND it either initiates a poisoned request OR receives a poisoned completion.For Type 1 headers (e.g., Switches and Root Ports), this bit is set if the Parity Error Response bit in the Command register is set AND it either initiates a poisoned request heading upstream OR receives a poisoned completion heading downstream.</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| ## Baseline Error Handling | ## 基线错误处理 |
+| The Baseline capability requires the use of the PCI Express Capability structure. These registers include error detection and handling fields that provide finer granularity regarding the nature of an error and whether to report it or not than what is possible with just PCI-compatible error handling. | 基线能力需要使用PCI Express能力结构。与仅支持PCI兼容的错误处理相比，这些寄存器包含的错误检测和处理字段能提供更细粒度的错误性质判断及是否报告错误的信息。 |
+| Figure 15-15 on page 678 illustrates the PCI Express Capability structure. Some of these registers provide support for:<br>• Enabling/disabling error reporting (Error Message Generation)<br>• Providing error status<br>• Providing link training status and initiating link re-training | 第678页的图15-15展示了PCI Express能力结构。其中一些寄存器提供以下支持：<br>• 启用/禁用错误报告（错误消息生成）<br>• 提供错误状态<br>• 提供链路训练状态并启动链路重新训练 |
+
+Figure 15-15: PCI Express Capability Structure
+
+<table><tr><td rowspan="15"></td><td>PCI Express Capabilities Register</td><td>Next Cap Pointer</td><td>PCI Express Cap ID</td></tr><tr><td colspan="3">Device Capabilities Register</td></tr><tr><td>Device Status</td><td colspan="2">Device Control</td></tr><tr><td colspan="3">Link Capabilities</td></tr><tr><td>Link Status</td><td colspan="2">Link Control</td></tr><tr><td colspan="3">Slot Capabilities</td></tr><tr><td>Slot Status</td><td colspan="2">Slot Control</td></tr><tr><td>Root Capability</td><td colspan="2">Root Control</td></tr><tr><td colspan="3">Root Status</td></tr><tr><td colspan="3">Device Capabilities 2</td></tr><tr><td>Device Status 2</td><td colspan="2">Device Control 2</td></tr><tr><td colspan="3">Link Capabilities 2</td></tr><tr><td>Link Status 2</td><td colspan="2">Link Control 2</td></tr><tr><td colspan="3">Slot Capabilities 2</td></tr><tr><td>Slot Status 2</td><td colspan="2">Slot Control 2</td></tr></table>
+
+## Enabling/Disabling Error Reporting
+
+| EN | ZH |
+|---|---|
+| The Device Control registers allow software to enable generation of three different Error Messages for four error events, and Device Status registers allow it to see which error has been detected. The four error cases are: | 设备控制寄存器允许软件针对四种错误事件启用三种不同错误消息的生成，设备状态寄存器则允许软件查看已检测到哪种错误。四种错误情况分别是： |
+| • Correctable Errors | • 可校正错误 |
+| • Non-Fatal Errors | • 非致命错误 |
+| • Fatal Errors | • 致命错误 |
+| • Unsupported Request Errors | • 不支持请求错误 |
+| Note that the only specific error identified here is the Unsupported Request. Although an Unsupported Request is technically a subset of Non-Fatal errors, and, when reported, is even signaled with an ERR\_NONFATAL message, it has its own enable and status bits. That's because during system enumeration Unsupported Requests are going to happen (whenever an attempt it made to read config space from a Function that doesn't actually exist in the system) but they must not be reported as errors. The enumeration software may have very limited error-handling capability and if it was required to stop and service an error it might fail. Therefore, the software doesn't want error messages generated for the UR case during that time, but does want to know about any other Non-Fatal errors that may be detected. (See the section titled "Discovering the Presence or Absence of a Function" on page 105 for more details on Unsupported Requests during enumeration.) | 注意，此处唯一明确指出的特定错误是不支持请求(UR)。虽然不支持请求在技术上属于非致命错误的子集，并且在报告时甚至通过ERR\_NONFATAL消息发出信号，但它拥有自己独立的使能位和状态位。这是因为在系统枚举期间，不支持请求必然会发生（每当尝试从系统中实际不存在的功能读取配置空间时），但这些错误不得作为错误上报。枚举软件的纠错能力可能非常有限，如果要求它停下来处理错误，可能会失败。因此，在此期间软件不希望针对UR情况生成错误消息，但确实希望了解可能检测到的任何其他非致命错误。（有关枚举期间不支持请求的更多详细信息，请参见第105页的"发现功能存在与否"一节。） |
+| Table 15-5 on page 679 lists each error type and its associated error classification. | 第679页的表15-5列出了每种错误类型及其关联的错误分类。 |
+
+Table 15-5: Default Classification of Errors
+
+<table><tr><td>Classification &amp; Severity</td><td>Name of Error</td><td>Layer Detected</td></tr><tr><td>Correctable</td><td>Receiver Error</td><td>Physical</td></tr><tr><td>Correctable</td><td>Bad TLP</td><td>Link</td></tr><tr><td>Correctable</td><td>Bad DLLP</td><td>Link</td></tr><tr><td>Correctable</td><td>Replay Number Rollover</td><td>Link</td></tr><tr><td>Correctable</td><td>Replay Timer Timeout</td><td>Link</td></tr><tr><td>Correctable</td><td>Advisory Non-Fatal Error</td><td>Transaction</td></tr><tr><td>Correctable</td><td>Corrected Internal Error</td><td></td></tr><tr><td>Correctable</td><td>Header Log Overflow</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>Poisoned TLP Received</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>ECRC Check Failed</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>Unsupported Request</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>Completion Timeout</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>Completer Abort</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>Unexpected Completion</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>ACS Violation</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>MC Blocked TLP</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>AtomicOps Egress Blocked</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>TLP Prefix Blocked</td><td>Transaction</td></tr><tr><td>Uncorrectable - Fatal</td><td>Uncorrectable Internal Error (optional)</td><td></td></tr><tr><td>Uncorrectable - Fatal</td><td>Surprise Down (optional)</td><td>Link</td></tr><tr><td>Uncorrectable - Fatal</td><td>Receiver Overflow (optional)</td><td>Transaction</td></tr><tr><td>Uncorrectable - Fatal</td><td>DLL Protocol Error</td><td>Link</td></tr><tr><td>Uncorrectable - Fatal</td><td>Receiver Overflow</td><td>Transaction</td></tr><tr><td>Uncorrectable - Fatal</td><td>Flow Control Protocol Error</td><td>Transaction</td></tr><tr><td>Uncorrectable - Fatal</td><td>Malformed TLP</td><td>Transaction</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| Device Control Register. Setting bits in the Device Control Register, shown in Figure 15-16 on page 681, enables sending the corresponding Error Messages to report errors. Unsupported Request errors are specified as Non-Fatal errors and are reported via a Non-Fatal Error Message, but only when the UR Reporting Enable bit is set. | 设备控制寄存器。设置第681页图15-16所示的设备控制寄存器中的相应位，可启用发送对应错误消息以报告错误。不支持请求错误被指定为非致命错误，并通过非致命错误消息报告，但仅在UR报告使能位被置位时才会如此。 |
+| In order for a Function to actually send an error message, either the corresponding enable bit in the Device Control register needs to be set, or for Fatal and Non-Fatal errors, the SERR# Enable should be set. For Uncorrectable Errors, if either the SERR# Enable bit in the Command Register is set OR the corresponding enable bit in the Device Control register is set, the appropriate error message will be sent (ERR\_FATAL or ERR\_NONFATAL). | 为了使功能实际发送错误消息，需要设置设备控制寄存器中相应的使能位，或者对于致命和非致命错误，应设置SERR#使能。对于不可校正错误，如果命令寄存器中的SERR#使能位被置位，或者设备控制寄存器中的相应使能位被置位，则相应的错误消息将被发送（ERR\_FATAL或ERR\_NONFATAL）。 |
+| For Correctable Errors, a Function will only send the ERR\_COR message if the Correctable Error Reporting Enable bit in the Device Control register is set. There is no control to enable ERR\_COR messages from the PCI-Compatible mechanisms, which makes sense because in PCI, there was no concept of correctable errors. | 对于可校正错误，功能仅当设备控制寄存器中的可校正错误报告使能位被置位时才会发送ERR\_COR消息。PCI兼容机制中没有使能ERR\_COR消息的控制，这合乎情理，因为在PCI中并无可校正错误的概念。 |
+
+Figure 15-16: Device Control Register Fields Related to Error Handling
+![](images/part05_abff4ac07a5df4cd7836288008ac1d84d2871f591788eb322dd86aecfb722f95.jpg)
+
+| EN | ZH |
+|---|---|
+| Device Status Register. An error status bit is set in the Device Status register, shown in Figure 15-17 on page 682, anytime an error associated with its classification is detected, regardless of the setting of the error reporting enable bits in the Device Control Register. Because Unsupported Request errors are considered Non-Fatal Errors, when these errors occur both the Non-Fatal Error Detected status bit and the Unsupported Request Detected status bit will be set. Like several other status bits, these are "Sticky" (their values are not cleared by a reset event so they'll be available for diagnosing problems even if a reset was needed to get the Link working well enough to read the status). | 设备状态寄存器。每当检测到与其分类相关的错误时，无论设备控制寄存器中错误报告使能位的设置如何，都会在第682页图15-17所示的设备状态寄存器中设置错误状态位。由于不支持请求错误被视为非致命错误，因此当这些错误发生时，非致命错误检测状态位和不支持请求检测状态位都会被置位。与其他几个状态位一样，这些位是"粘性"的（它们的值不会因复位事件而清除，因此即使需要复位以使链路正常工作到足以读取状态，这些位仍可用于诊断问题）。 |
+
+Figure 15-17: Device Status Register Bit Fields Related to Error Handling
+![](images/part05_e083e9eeaccd11de4dd047af2bd1e5d6cb1b117b33a5e02a4c0393428a564ec6.jpg)
+
+## Root's Response to Error Message
+
+| EN | ZH |
+|----|----|
+| When an Error Message is received by the Root, the action it takes is determined in part by the settings in the Root Control Register. Figure 15-18 depicts this register and highlights the three fields that specify whether a received Error Message should be reported as System Error. In some x86-based systems, it's likely that an NMI (Non-Maskable Interrupt) will be signaled if the error is enabled to trigger a System Error. | 当根复合体接收到错误消息时，其采取的动作部分由根控制寄存器中的设置决定。图15-18描绘了该寄存器，并高亮显示了三个字段，用于指定接收到的错误消息是否应作为系统错误上报。在某些基于x86的系统中，如果错误被使能触发系统错误，则很可能会发出NMI（不可屏蔽中断）信号。 |
+| Other options for reporting Error Messages are not configurable via standard registers. The most likely scenario is that an interrupt will be signaled to the processor that will call an Error Handler, which may log the error and attempt to clear the problem. | 其他错误消息上报选项不可通过标准寄存器配置。最可能的情形是向处理器发送一个中断信号，该中断将调用错误处理程序，错误处理程序可以记录错误并尝试清除问题。 |
+
+Figure 15-18: Root Control Register
+![](images/part05_ec3b70c0fd56ccddf65794ac6a697ad2817f7c013417adc7e2d50d884952ad91.jpg)
+
+## Link Errors / 链路错误
+
+| EN | ZH |
+|---|---|
+| Link failures are typically detected in the Physical Layer and communicated to the Data Link Layer. For a downstream device, if the link has incurred a Fatal error and is not operating correctly, it can't report the error to the host. For these cases, the error must be reported by the upstream device. If software can isolate errors to a given link, one step in handling an uncorrectable error (or to prevent future uncorrectable errors) is to retrain the Link. The Link Control Register includes a bit that allows software to force the Link to retrain, as shown inFigure 15‐19 on page 684. If that solves the problem, operation resumes with little downtime. | 链路错误通常由物理层检测到，并通知给数据链路层。对于下游设备，如果链路发生了致命错误且无法正常操作，则无法向主机报告该错误。在这种情况下，必须由上游设备报告该错误。如果软件能够将错误隔离到特定链路，则处理不可校正错误（或防止将来出现不可校正错误）的一个步骤是重新训练链路。链路控制寄存器包含一个比特位，允许软件强制链路重新训练，如第684页的图15-19所示。如果这能解决问题，则操作在短暂中断后即可恢复。 |
+
+Figure 15‐19: Link Control Register - Force Link Retraining
+![](images/part05_649269efb1ad663f08776f64ac1035728e1474145075826ddd7c6ee86ff01e77.jpg)
+
+| EN | ZH |
+|---|---|
+| Having once requested retraining, software can poll the Link Training bit in the Link Status Register to see when training has completed. Figure 15-20 highlights this status bits. When this bit is 1b, the Link is still in the retraining process (or has yet to start retraining). Hardware will clear this bit once the Physical Layer reports the Link as active meaning the training process has completed successfully. | 一旦请求了重新训练，软件可以轮询链路状态寄存器中的链路训练比特位，以查看训练何时完成。图15-20突出显示了该状态位。当该比特位为1b时，链路仍在重新训练过程中（或尚未开始重新训练）。一旦物理层报告链路为活动状态（表示训练过程已成功完成），硬件将清除此比特位。 |
+
+Figure 15‐20: Link Training Status in the Link Status Register
+![](images/part05_2404d9ebc3b66d9636d0b1c6e35adff571985ee6f8d5d75184fbc5254a67d268.jpg)
+
+## Advanced Error Reporting (AER)
+
+| EN | ZH |
+|---|---|
+| The Advanced Error Reporting Structure illustrated in Figure 15‐21 on page 686 allows for much more sophisticated error handling. These registers provide several additional features: | 第686页图15-21所示的高级错误报告结构（Advanced Error Reporting Structure）支持更复杂的错误处理。这些寄存器提供了以下几个额外特性： |
+| • Better granularity in logging the actual type of error that occurred | • 更精细地记录所发生错误的具体类型 |
+| • Control to specify the severity of each uncorrectable error type | • 控制指定每种不可校正错误类型的严重级别 |
+| • Support for logging the header of packets that had errors | • 支持记录发生错误的报文头 |
+| Standardizing control for the Root to report received Error Messages with an interrupt | 标准化控制根复合体通过中断报告接收到的错误消息 |
+| • Identifying the source of the error in the PCIe topology | • 在PCIe拓扑中标识错误的来源 |
+| • Ability to mask reporting individual types of errors | • 能够屏蔽对单个错误类型的报告 |
+
+Figure 15‐21: Advanced Error Capability Structure
+![](images/part05_53271136b5979d9972192df4bd28d93beb6206a26070506137990ca9379a68fa.jpg)
+
+## Advanced Error Capability and Control / 高级错误能力与控制
+
+| EN | ZH |
+|---|---|
+| Let's begin our discussion of AER by looking at the Advanced Error Capability and Control register. End-to-End CRC (ECRC) generation and checking requires AER, and this register, shown in Figure 15-22 on page 687, reports whether this device supports it. If so, configuration software can enable (and force) its use by setting the appropriate bits. | 我们首先查看高级错误能力与控制寄存器来开始对 AER 的讨论。端到端 CRC（ECRC）的生成和校验需要 AER，该寄存器（见第 687 页图 15-22）报告本设备是否支持该功能。如果支持，配置软件可通过设置相应位来启用（并强制）其使用。 |
+| The five low-order bits of this register contain the First Error Pointer, set by hardware when the Uncorrectable Error status bits are updated. There are 32 status bits and the First Error Pointer indicates which of the unmasked, Uncorrectable Errors was detected first, meaning which status bit was set when all the other status bits were still 0. The first error is the most interesting because the others may have been caused by the first one. | 该寄存器的低 5 位包含首个错误指针，由硬件在更新不可校正错误状态位时设置。共有 32 个状态位，首个错误指针指示哪个未屏蔽的不可校正错误最先被检测到，即当所有其他状态位仍为 0 时哪一个状态位被置位。首个错误最为重要，因为其他错误可能是由第一个错误引发的。 |
+
+Figure 15-22: The Advanced Error Capability and Control Register / 图 15-22：高级错误能力与控制寄存器
+
+![](images/part05_3ca4697d7f886bae3af8ad5f7601442b96b2173d624af06ceb2f44d7f4ef4be8.jpg)
+
+| EN | ZH |
+|---|---|
+| Beginning with the 2.1 spec revision, this capability was enhanced to allow tracking multiple errors. For that reason, if multiple error status bits have been set and cleared, the meaning really becomes more like an "Oldest Error Pointer" instead. The pointer is updated by hardware when the corresponding status bit is cleared by software, at which time it points to whichever error was detected next (see Figure 15-25 on page 691 for the list of uncorrectable errors). Interestingly, the next error may be the same one again if that error had been detected multiple times, with the result that the updated pointer still indicates the same value. | 从 2.1 规范修订版开始，该能力得以增强，允许跟踪多个错误。因此，如果多个错误状态位已被置位和清除，其含义实际上更像是一个"最旧错误指针"。当软件清除相应状态位时，硬件会更新该指针，此时指针指向下一个被检测到的错误（不可校正错误列表见第 691 页图 15-25）。有趣的是，如果同一错误被多次检测到，下一个错误可能仍是同一个，结果更新后的指针仍然指向相同的值。 |
+| Since multiple errors can be recorded in the Uncorrectable Status register, it would be very helpful to store multiple headers, too. Hardware must be designed to log at least one header, but is allowed to support more. If it does, the Multiple Header Recording Capable bit will be set and the Multiple Header Recording Enable bit can be used to enable storing more than one. Whenever the First Error Pointer indicates a status bit position that is not set or is not implemented, it means there are no more uncorrectable errors to service. | 由于不可校正状态寄存器中可以记录多个错误，因此同时存储多个报头也将非常有帮助。硬件必须设计为至少记录一个报头，但允许支持更多。如果支持，多报头记录能力位将被置位，并且可以使用多报头记录使能位来启用存储多个报头。每当首个错误指针指向一个未置位或未实现的状态位位置时，表示没有更多不可校正错误需要处理。 |
+
+## PCI Express Technology
+
+| EN | ZH |
+| --- | --- |
+| ## PCI Express Technology | ## PCI Express Technology |
+| The last bit in this register, TLP Prefix Log Present, indicates whether the TLP Prefix Log registers contain valid information for the uncorrectable error indicated by the First Error Pointer. | 该寄存器中的最后一位，即TLP前缀日志存在位，指示TLP前缀日志寄存器是否包含由首次错误指针所指示的不可纠正错误的有效信息。 |
+| The fields in this register and the other AER registers have various characteristics, which are abbreviated as follows: | 该寄存器及其他AER寄存器中的字段具有各种特性，其缩写如下： |
+| • RO — Read Only, set by hardware | • RO — 只读，由硬件设置 |
+| • ROS — Read Only and Sticky (see the next section on sticky bits) | • ROS — 只读且粘滞（参见下一节关于粘滞位的内容） |
+| • RsvdP — Reserved and Preserved. These bits must not be used for any purpose, but software must be careful to maintain whatever values they contain. | • RsvdP — 保留并保持。这些位不得用于任何目的，但软件必须注意保持它们所含的任何值。 |
+| • RsvdZ — Reserved and Zero. Bits that must not be used for any purpose and must always be written to zeros. | • RsvdZ — 保留并清零。这些位不得用于任何目的，且必须始终写入零。 |
+| • RWS — Readable, Writeable and Sticky | • RWS — 可读、可写且粘滞 |
+| • RW1CS — Readable, Write 1 to Clear, and Sticky | • RW1CS — 可读、写1清除且粘滞 |
+
+## Handling Sticky Bits / 粘滞位的处理
+
+| EN | ZH |
+|---|---|
+| Several AER register fields employ sticky bits, which means that a reset won't clear their contents. All other register fields are forced to default values on a reset, but these are not. | 多个AER寄存器字段使用了粘滞位（sticky bits），这意味着复位不会清除其内容。所有其他寄存器字段在复位时会被强制恢复为默认值，但这些字段不会。 |
+| This is a good idea because a Link may encounter a failure that can't be cleared without a reset. If the problem is in the downstream device of the failed Link, its register contents are unavailable until the Link is working again, which the reset will accomplish. But if the registers were cleared by the reset then the information is lost. | 这是合理的，因为链路可能会遇到不通过复位就无法清除的故障。如果问题出在故障链路的下游设备上，则其寄存器内容在链路恢复正常之前无法访问，而复位可以实现这一点。但如果寄存器被复位清除，信息就会丢失。 |
+| To solve this problem, sticky bits keep error status information available through a reset. Specifically, sticky bits will survive an FLR (Function Level Reset), a Hot Reset, and a Warm Reset because power is available to keep them active. They may even survive a Cold Reset if a secondary power source like $\mathrm { V _ { a u x } }$ is available to keep them active when the main power is shut off. | 为解决此问题，粘滞位可在复位期间保持错误状态信息可用。具体来说，粘滞位可以经受FLR（功能级复位）、热复位（Hot Reset）和暖复位（Warm Reset），因为有电源供电以保持其激活状态。如果主电源关闭时有诸如$\mathrm { V _ { a u x } }$这样的辅助电源可供使用以保持其激活状态，它们甚至可能经受冷复位（Cold Reset）。 |
+
+| EN | ZH |
+|---|---|
+| ## Advanced Correctable Error Handling | ## 高级可修正错误处理 |
+| Advanced Error Reporting provides the ability to record which specific correctable errors have been detected. These errors can be used to initiate a Correctable Error Message to the host system. Although system operation continues normally, reporting correctable errors can be useful because it allows system software to see which components are having trouble and to predict whether they may fail completely in the future. | 高级错误报告(Advanced Error Reporting)提供了记录已检测到哪些特定可修正错误的能力。这些错误可用于向主机系统发起可修正错误消息(Correctable Error Message)。尽管系统操作继续正常进行，但报告可修正错误仍很有用，因为它使系统软件能够查看哪些组件出现问题，并可预测这些组件未来是否可能完全失效。 |
+
+| EN | ZH |
+|---|---|
+| ## Advanced Correctable Error Status | ## 高级可校正错误状态 |
+| Correctable errors will automatically set the corresponding bit in the Advanced Correctable Error Status register, shown in Figure 15-23 on page 689, regardless of whether the error is reported with an Error Message. These bits are cleared by software writing a "1" to the bit position, hence the designation RW1CS. | 可校正错误将自动在高级可校正错误状态寄存器（如第689页图15-23所示）中设置相应位，无论该错误是否已通过错误消息上报。这些位由软件写入"1"来清除，因此标记为RW1CS。 |
+
+Figure 15-23: Advanced Correctable Error Status Register
+![](images/part05_7960ee47707fb6e463d1dba0e4c1a04eebec4e0a8914514f311ba3797bd88e6b.jpg)
+
+| EN | ZH |
+|---|---|
+| Receiver Error (optional) — Physical Layer detected an error in the incoming packet. The packet is discarded at the Physical Layer, any buffer space allocated to it is released, and the Link Layer is informed that a receive error occurred. | 接收器错误（可选）——物理层在入向报文中检测到错误。该报文在物理层被丢弃，为其分配的任何缓冲空间被释放，并通知链路层发生了接收错误。 |
+| Bad TLP — Data Link Layer detected a packet with a bad LCRC, an out-of-sequence Sequence Number or an incorrectly nullified packet. In each case, the Link Layer discards the packet and reports a Nak DLLP to the transmitter, triggering a TLP replay. | 错误TLP——数据链路层检测到具有错误LCRC、乱序序列号或错误无效化的报文。在每种情况下，数据链路层都会丢弃该报文并向发送端报告Nak DLLP，从而触发TLP重放。 |
+| Bad DLLP — Data Link Layer noticed an incoming DLLP had a 16-bit CRC failure so the packet is dropped. A subsequent DLLP of the same type is expected to make up for the information it contained. | 错误DLLP——数据链路层发现入向DLLP发生16位CRC校验失败，因此丢弃该报文。预期后续相同类型的DLLP将弥补其所包含的信息。 |
+| REPLAY_NUM Rollover — At the Data Link Layer, a set of TLPs have been sent without success (no Ack) four times in a row and this counter has rolled over back to zero. Hardware will automatically retrain the link in an attempt to clear the failure condition, then start the sequence again by replaying the contents of the Replay Buffer. | REPLAY_NUM翻转——在数据链路层，一组TLP连续四次发送未成功（无Ack），此计数器已翻转回零。硬件将自动重新训练链路以尝试清除故障状态，然后通过重放重放缓冲区的内容重新开始该序列。 |
+
+| EN | ZH |
+|---|---|
+| ## PCI Express Technology | ## PCI Express 技术 |
+| Replay Timer Timeout — At the Data Link Layer, transmitted TLPs have not received an acknowledgement (Ack or Nak) within the timeout period. Hardware automatically replays all unacknowledged TLPs, meaning all packets in the Replay Buffer. | 重放定时器超时 — 在数据链路层，已发送的TLP在超时时间内未收到确认（Ack或Nak）。硬件自动重放所有未确认的TLP，即重放缓冲区中的所有报文。 |
+| Advisory Non‐Fatal Error — Detection of these cases (see "Advisory Non‐Fatal Errors" on page 670) is logged in the corresponding Uncorrectable Error Status register and as a correctable error here. It may also generate a Correctable Error Message, if enabled. | 建议性非致命错误 — 这些情况的检测（参见第670页的"建议性非致命错误"）会记录在相应的不可校正错误状态寄存器中，并在此处作为可校正错误记录。如果启用，它还可生成可校正错误消息。 |
+| Corrected Internal Error (optional) — An error internal to the device was detected, but it was corrected or worked around without causing improper behavior. | 已校正内部错误（可选） — 检测到设备内部错误，但已校正或规避，未导致异常行为。 |
+| Header Log Overflow (optional) — The maximum number of headers that can be stored in the header log has been reached. The number is just one if the Multiple Header Recording Enable bit is not set in the Advanced Error Capability and Control register. | 头标日志溢出（可选） — 已达到头标日志可存储的最大头标数量。如果在高级错误能力和控制寄存器中未设置多头标记录使能位，则该数量仅为1。 |
+
+| EN | ZH |
+|---|---|
+| ## Advanced Correctable Error Masking | ## 高级可校正错误屏蔽 |
+| Correctable Error reporting is controlled collectively by the Correctable Error Enable bit in the Device Control register, but also individually by the Correctable Mask register, illustrated in Figure 15-24. The default state of the mask bits is cleared, meaning an ERR_COR message can be delivered when any correctable errors are detected if they've been enabled (meaning the Correctable Error Enable bit is set). However, software may choose to set bits in this mask register to prevent a message from being sent when those specific errors are detected. | 可校正错误的报告由设备控制寄存器中的可校正错误使能位统一控制，同时也受图15-24所示的可校正屏蔽寄存器的单独控制。屏蔽位的默认状态为清零，这意味着如果已使能（即可校正错误使能位被置位），则在检测到任何可校正错误时都可以发送ERR_COR消息。然而，软件可以选择设置该屏蔽寄存器中的位，以阻止在检测到这些特定错误时发送消息。 |
+
+Figure 15-24: Advanced Correctable Error Mask Register
+
+<table><tr><td rowspan="83">31</td><td rowspan="83">RsvdP</td><td>16</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td><td>1</td><td>0</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>RsvdP</td><td></td><td></td><td></td><td></td><td>RsvdP</td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="5"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="4"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="4"></td><td colspan="3"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="2"></td><td colspan="5"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td colspan="8"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td colspan="10"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td colspan="11"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td colspan="13"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td rowspan="22"></td><td rowspan="13"></td><td rowspan="13"></td><td rowspan="13"></td><td rowspan="13"></td><td rowspan="13"></td><td rowspan="13" colspan="7"></td></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr><td rowspan="6"></td><td rowspan="6"></td><td rowspan="6"></td></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr><td colspan="12">Header Log Overflow Mask</td></tr><tr><td colspan="12">Corrected Internal Error Mask</td></tr><tr><td colspan="12">Advisory Non-Fatal Error Mask</td></tr><tr><td colspan="12">Replay Timer Timeout Mask</td></tr><tr><td colspan="12">REPLAY_NUM Rollover Mask</td></tr><tr><td colspan="12">Bad DLLP Mask</td></tr><tr><td colspan="12">Bad TLP Mask</td></tr><tr><td colspan="12">Receiver Error Mask</td></tr><tr><td colspan="12">Note: all bits designated RWS</td></tr></table>
+
+| Note: all bits designated RWS | 注：所有位均标注为RWS |
+
+| EN | ZH |
+|---|---|
+| ## Advanced Uncorrectable Error Handling | ## 高级不可纠正错误处理 |
+| For uncorrectable errors, AER provides the ability to track which specific error has occurred, control whether it should be considered Fatal or Non‑Fatal, and choose whether it will result in an Uncorrectable Error Message being sent to the Root. | 对于不可纠正错误，AER提供了追踪具体发生的错误、控制该错误被视为致命还是非致命，以及选择是否导致向根发送不可纠正错误报文的能力。 |
+
+| English | 中文 |
+|---|---|
+| ## Advanced Uncorrectable Error Status | ## 高级不可校正错误状态 |
+| When an uncorrectable error occurs, the corresponding bit in this register is automatically set by hardware (see Figure 15‑25 on page 691) regardless of whether the error will be reported to the Root. If multiple errors occur, hardware will set the corresponding bit for each error and will record which one was first in the First Error Pointer field of the Advanced Error Capability and Control register. It may even happen that multiple instances of the same error are detected before the first one can be serviced. Hardware that is compliant with the 2.1 spec revision or later will be able to keep track of a design‑specific number of those cases. | 当发生不可校正错误时，无论该错误是否会被上报至根复合体，硬件都会自动设置此寄存器中的相应位（参见第691页图15‑25）。如果发生多个错误，硬件将为每个错误设置相应的位，并在高级错误能力与控制寄存器的首次错误指针字段中记录哪一个错误最先发生。甚至可能在第一个错误被处理之前，就检测到同一错误的多个实例。符合2.1或更高规范修订版的硬件将能够追踪特定设计数量的此类情况。 |
+
+Figure 15‑25: Advanced Uncorrectable Error Status Register
+![](images/part05_2d325879f3b2adccdfa8d1f522d7066d2e408a25116c19b52595181df82df21d.jpg)
+
+| English | 中文 |
+|---|---|
+| The following list describes each of the register bits from right to left: | 以下列表从右到左描述了每一个寄存器位： |
+| • Undefined — Previously, this first bit represented a link training failure at the Physical Layer, but that meaning was removed with the 1.1 revision of the spec. Software must now ignore any value in this bit but may write any value to it. This information was no longer needed because bit 5, Surprise Down Error, now includes the same information in a broader meaning: the Link is not communicating at the Physical Layer. | • 未定义 — 此前，这第一个位表示物理层的链路训练失败，但该含义已在1.1版规范修订中被移除。软件现在必须忽略该位的任何值，但可以向其写入任意值。该信息不再需要，因为位5（意外断开错误）现已包含相同的含义且范围更广：链路在物理层无法通信。 |
+| Data Link Protocol Errors — Caused by Data Link Layer protocol errors including the Ack/Nak retry mechanism. For example, a transmitter receives an Ack or Nak whose sequence number doesn't correspond to an unacknowledged TLP or to the ACK<sub>D</sub>_SEQ number. | 数据链路协议错误 — 由数据链路层协议错误引起，包括Ack/Nak重试机制。例如，发送端接收到一个Ack或Nak，但其序列号与未确认的TLP或ACK<sub>D</sub>_SEQ编号不匹配。 |
+| Surprise Down — If the Physical Layer reports LinkUp = 0b (Link is no longer communicating) unexpectedly, this will be seen as an error unless it was an allowed exception. For example, if the Link Disable bit has already been set, then it's expected that LinkUp will be cleared and this condition won't be an error. This bit is only valid for Downstream Ports, which makes sense because it won't be possible to read status from an Upstream Port if the Link isn't working. | 意外断开 — 如果物理层意外报告LinkUp = 0b（链路不再通信），这将被视为错误，除非是允许的异常情况。例如，如果链路禁用位已被置位，那么LinkUp被清除是预期的，这种情况不会被视为错误。该位仅对下游端口有效，这是合理的，因为如果链路不工作，将无法从上游端口读取状态。 |
+| • Poisoned TLP — TLP was seen that had the EP bit set. | • 中毒TLP — 检测到EP位被置位的TLP。 |
+| Flow Control Protocol Error (optional) — Errors associated with failures of the Flow Control mechanism. Example: receiver reports more than 2047 data credits. | 流控协议错误（可选） — 与流控机制失效相关的错误。例如：接收端报告超过2047个数据信用量。 |
+| • Completion Timeout — A Completion is not received within the required amount of time after a non‑posted request was sent. | • 完成超时 — 发送非转发请求后，在规定时间内未收到完成报文。 |
+| • Completer Abort (optional) — Completer cannot fulfill a Request due to problems with the Request or failure of the Completer. | • 完成方异常终止（可选） — 由于请求本身的问题或完成方故障，完成方无法满足请求。 |
+| • Unexpected Completion — Requester receives a Completion that doesn't match any Requests that are awaiting a Completion. | • 意外完成 — 请求方接收到与任何等待完成的请求都不匹配的完成报文。 |
+| Receiver Overflow (optional) — More TLPs have arrived than the Receive Buffer had room to accept, resulting in an overflow error. | 接收端溢出（可选） — 到达的TLP数量超过接收缓冲区的容量，导致溢出错误。 |
+| • Malformed TLP — Caused by errors associated with a received TLP header (see "Malformed TLP" on page 666). | • 畸形TLP — 由接收到的TLP头部相关错误引起（参见第666页"畸形TLP"）。 |
+| • ECRC Error (optional) — Caused by an ECRC check failure at the Receiver. | • ECRC错误（可选） — 由接收端ECRC校验失败引起。 |
+| Unsupported Request Error — Completer does not support the Request. Request is correctly formed and had no other errors, but cannot be fulfilled by the Completer, perhaps because it's an invalid command for this device. | 不支持请求错误 — 完成方不支持该请求。请求格式正确且无其他错误，但完成方无法满足，可能是因为该命令对此设备无效。 |
+| • ACS Violation — Access control error was seen in a received posted or nonposted request. | • ACS违例 — 在接收到的转发或非转发请求中检测到访问控制错误。 |
+| Uncorrectable Internal Error — An internal error detected in the device could not be corrected or worked around by the hardware itself. | 不可校正内部错误 — 设备中检测到的内部错误无法由硬件自身校正或规避。 |
+| MC Blocked TLP — A TLP designated for Multi‑Cast routing was blocked. For example, an Egress Port can be programmed to block any MC hits that arrive with untranslated addresses (see "Routing Multicast TLPs" on page 896). | MC阻塞TLP — 指定用于多播路由的TLP被阻塞。例如，出口端口可被编程为阻塞任何携带未翻译地址到达的多播命中（参见第896页"路由多播TLP"）。 |
+| • AtomicOp Egress Blocked — Egress Ports of routing elements can be programmed to block AtomicOps from being forwarded to agents that shouldn't see them (see "AtomicOps" on page 897). | • AtomicOp出口阻塞 — 路由元素的出口端口可被编程为阻止AtomicOps转发给不应看到它们的代理（参见第897页"AtomicOps"）。 |
+| TLP Prefix Blocked Error — Egress Ports of routing elements can be programmed not to forward TLPs containing End‑to‑End TLP Prefixes. If they then see one, they'll drop the TLP and report this error. For more on this, see "TPH (TLP Processing Hints)" on page 899. | TLP前缀阻塞错误 — 路由元素的出口端口可被编程为不转发包含端到端TLP前缀的TLP。如果随后检测到此类TLP，它们将丢弃该TLP并报告此错误。更多信息参见第899页"TPH（TLP处理提示）"。 |
+| Recall that the First Error Pointer in the Capability and Control Register indicates which unmasked uncorrectable error was the first to arrive since the pointer was last updated. Error handling software can read the pointer to find out which error to investigate first. As an example, if the pointer value is 18d, that means bit position 18 in the Uncorrectable Status register was first, which is a Malformed TLP. Once that error has been serviced, software writes a one to bit 18 in the status register to clear that event, which updates the First Error Pointer to the next‑most‑recent error. | 回顾一下，能力与控制寄存器中的首次错误指针指示自该指针上次更新以来，最先到达的未屏蔽不可校正错误是哪一个。错误处理软件可以读取该指针以确定应首先调查哪个错误。例如，如果指针值为18d，则表示不可校正状态寄存器中的第18位最先置位，即畸形TLP。一旦该错误被处理，软件向状态寄存器的第18位写入1以清除该事件，从而将首次错误指针更新为下一个最近发生的错误。 |
+
+| EN | ZH |
+|---|---|
+| ## Selecting Uncorrectable Error Severity | ## 选择不可校正错误的严重级别 |
+| Software can select whether or not uncorrectable errors should be considered Fatal in this register, allowing errors to be treated differently for different applications. For example, a Poisoned TLP will be a Non‐Fatal condition by default, and is treated as an Advisory Non‐Fatal error in some cases, as discussed earlier. But software can escalate it to Fatal by setting its severity bit to one and then it will no longer be an advisory case. The default severity values are illustrated in the individual bit fields of Figure 15‐26 on page 694 (1 = Fatal, 0 = Non‐Fatal). If they are enabled and not masked, those errors selected as Non‐Fatal will cause an ERR\_NONFATAL message to be sent to the Root Complex, and those selected as Fatal will cause an ERR\_FATAL message. | 软件可通过此寄存器选择不可校正错误是否应被视为致命（Fatal）错误，从而允许不同应用对错误进行不同处理。例如，中毒TLP默认情况下为非致命（Non‐Fatal）条件，如前所述，在某些情况下被视为通告性非致命（Advisory Non‐Fatal）错误。但软件可通过将其严重级别位置1将其升级为致命错误，之后它将不再属于通告性情况。默认严重级别值如图15‑26（第694页）的各个位域所示（1=致命，0=非致命）。如果这些错误被使能且未被屏蔽，则被选为非致命的错误将导致向根复合体发送ERR\_NONFATAL消息，而被选为致命的错误将导致发送ERR\_FATAL消息。 |
+
+Figure 15‐26: Advanced Uncorrectable Error Severity Register  
+![](images/part05_0e2f0674e287b0e486b4c1519f3a5c3585debd7ccc7cdb5f85a6ecbab3d887e7.jpg)
+
+## Uncorrectable Error Masking
+
+| EN | ZH |
+|---|---|
+| Software can mask out individual errors so they won't cause an error message to be sent by using the Advanced Uncorrectable Error Mask register, shown in Figure 15-27 on page 694. The default condition is to allow Error Messages for each type of error (all mask bits are cleared). | 软件可以通过使用高级不可校正错误屏蔽寄存器（Advanced Uncorrectable Error Mask Register，如图15-27所示，见第694页）来屏蔽个别错误，使其不会导致发送错误消息。默认条件允许每种错误类型的错误消息（所有屏蔽位均被清零）。 |
+
+Figure 15-27: Advanced Uncorrectable Error Mask Register  
+![](images/part05_ff290458a5e005e7caa1d32c4b68f085085b2a63ff7b51cff681bdff89b8e6c7.jpg)
+
+## Header Logging / 报头记录
+
+| EN | ZH |
+|---|---|
+| A 4DW portion of the Advanced Error Reporting structure is used for storing the header of a received TLP that incurs an unmasked, uncorrectable error. Since header logging is only useful when a TLP has been received with a problem that wasn't seen by the Physical or Data Link Layers, the number of possibilities is limited, as shown in Table 15‐6 on page 695. As mentioned earlier, when the optional AER capability is implemented, hardware is required to be able to log at least one header, though it may support logging more. | 高级错误报告结构中的4DW部分用于存储收到且发生了未屏蔽的不可校正错误的TLP的报头。由于报头记录仅当TLP在物理层或数据链路层未发现的情况下接收到问题时才有用，因此可能的情况数量有限，如第695页的表15‐6所示。如前所述，当实现了可选AER能力时，硬件必须能够记录至少一个报头，但它可以支持记录更多。 |
+| When the First Error Pointer is valid, the header log contains the header for the corresponding error if it was caused by an incoming TLP. Updating the Uncorrectable Error Status register will cause the Header Log registers to also update to the next value in sequence, meaning the next uncorrectable error that was detected. Since the hardware can only track a limited number of headers, it's important that software service uncorrectable errors quickly enough to avoid running out of header space. If the header log capacity is reached, that's a correctable error in itself (Header Log Overflow). This could happen if the number of supported log registers is exceeded or if the Multiple Header Log Enable bit is not set and the First Error Pointer is already valid when a new uncorrectable error is detected. | 当首个错误指针有效时，如果对应错误是由入站TLP引起的，则报头日志包含该错误的报头。更新不可校正错误状态寄存器将导致报头日志寄存器也依次更新为序列中的下一个值，即下一个检测到的不可校正错误。由于硬件只能跟踪有限数量的报头，软件必须足够快地处理不可校正错误，以避免报头空间耗尽。如果达到报头日志容量，这本身就是一个可校正错误（报头日志溢出）。当支持的日志寄存器数量被超出，或者当多个报头日志使能位未设置且检测到新的不可校正错误时首个错误指针已经有效，就可能发生这种情况。 |
+
+Table 15‐6: Errors That Can Use Header Log Registers / 表15‐6：可使用报头日志寄存器的错误
+
+<table><tr><td>Name of Error</td><td>Default Classification</td></tr><tr><td>Poisoned TLP Received</td><td>Uncorrectable - NonFatal</td></tr><tr><td>ECRC Check Failed</td><td>Uncorrectable - NonFatal</td></tr><tr><td>Unsupported Request</td><td>Uncorrectable - NonFatal</td></tr><tr><td>Completer Abort</td><td>Uncorrectable - NonFatal</td></tr><tr><td>Unexpected Completion</td><td>Uncorrectable - NonFatal</td></tr><tr><td>ACS Violation</td><td>Uncorrectable - NonFatal</td></tr><tr><td>Malformed TLP</td><td>Uncorrectable - Fatal</td></tr></table>
+
+## Root Complex Error Tracking and Reporting
+
+| EN | ZH |
+| --- | --- |
+| The Root Complex is the target of all error Messages from devices in a PCIe topology. Errors received by the Root update status registers and may be reported to the host system if enabled to do so. | 根复合体是PCIe拓扑中所有设备发出的错误消息的目标。根复合体接收到的错误会更新状态寄存器，并且如果启用，可能会向主机系统报告。 |
+
+## Root Complex Error Status Registers / 根复合体错误状态寄存器
+
+| EN | ZH |
+|---|---|
+| When the Root receives an error Message, it sets status bits within the Root Error Status register (Figure 15-28 on page 697). This register indicates the type of error received and whether multiple errors of the same type have been received. Note that an error detected in the Root Port itself will set these status bits, too, as if the port had sent itself an error message. The status bits are: | 当根复合体接收到错误消息时，它会在根错误状态寄存器（第697页图15-28）中设置状态位。该寄存器指示所接收错误的类型以及是否接收到相同类型的多个错误。请注意，在根端口自身检测到的错误也会设置这些状态位，就好像该端口向自己发送了一条错误消息一样。状态位包括： |
+| • ERR_COR Received | • ERR_COR 已接收 |
+| Multiple ERR_COR Received — received an ERR_COR message, or detected an unmasked Root Port correctable error with the ERR_COR Received bit already set. | 已接收多个 ERR_COR — 接收到 ERR_COR 消息，或者在 ERR_COR 已接收位已置位的情况下检测到未屏蔽的根端口可纠正错误。 |
+| • ERR_FATAL/NONFATAL Received | • ERR_FATAL/NONFATAL 已接收 |
+| Multiple ERR_FATAL/NONFATAL Received — received an ERR_FATAL or ERR_NONFATAL message or detected an unmasked Root Port uncorrectable error with the ERR_FATAL/NONFATAL Received bit already set. | 已接收多个 ERR_FATAL/NONFATAL — 接收到 ERR_FATAL 或 ERR_NONFATAL 消息，或者在 ERR_FATAL/NONFATAL 已接收位已置位的情况下检测到未屏蔽的根端口不可纠正错误。 |
+| It's possible for a system to implement separate software error handlers for Correctable, Non-Fatal, and Fatal errors, so this register includes bits to differentiate whether Uncorrectable errors were Fatal or Non-Fatal: | 系统可以为可纠正、非致命和致命错误实现独立的软件错误处理程序，因此该寄存器包含用于区分不可纠正错误是致命还是非致命的位： |
+| If the first Uncorrectable Error Message received is Fatal the "First Uncorrectable Fatal" bit is also set along with the "Fatal Error Message Received" bit. | 如果接收到的第一个不可纠正错误消息是致命的，则"首个不可纠正致命错误"位与"致命错误消息已接收"位同时置位。 |
+| If the first Uncorrectable Error Message received is Non-Fatal the "Nonfatal Error Message Received" bit is set. (If a subsequent Uncorrectable Error is Fatal, the "Fatal Error Message Received" bit will be set, but because the "First Uncorrectable Fatal" remains cleared, software knows that the first Uncorrectable Error was Non-Fatal). | 如果接收到的第一个不可纠正错误消息是非致命的，则"非致命错误消息已接收"位置位。（如果后续的不可纠正错误是致命的，"致命错误消息已接收"位将置位，但由于"首个不可纠正致命错误"位保持清零，软件知道第一个不可纠正错误是非致命的。） |
+| Finally, an interrupt may have been enabled (in the Root Error Command register) to be sent to the host system as a result of detecting one of these events. To support that, the 5-bit Interrupt Message Number in this register supplies the MSI or MSI-X vector number to be used, and there are 32 possibilities. For MSI, the number is the offset from the base data pattern. For MSI-X, it represents the table entry to be used, and must be one of the first 32 even if the agent supports more than 32. This read-only value is set by hardware and must be automatically updated if the number of MSI messages assigned to the device changes. | 最后，由于检测到这些事件之一，可能已在根错误命令寄存器中使能中断以发送到主机系统。为此，该寄存器中的5位中断消息编号提供了要使用的MSI或MSI-X向量编号，共有32种可能。对于MSI，该编号是相对于基数据模式的偏移量。对于MSI-X，它表示要使用的表项，并且必须是前32项之一，即使该设备支持超过32项。此只读值由硬件设置，并且如果分配给设备的MSI消息数量发生变化，必须自动更新。 |
+
+Figure 15-28: Root Error Status Register
+
+![](images/part05_d35345608e322454f06a0835b6b26735baac5198cafd982bac3908a2852b1497.jpg)
+
+## Advanced Source ID Register
+
+| EN | ZH |
+| --- | --- |
+| Software error handlers may need to read and clear status registers in the device that detected and reported the error. To facilitate this, the error Messages contain the ID (Bus:Dev:Func) of the first device reporting that error type. The Source ID register captures that ID from the Message for an incoming ERR\_FATAL/NONFATAL message if the ERR\_FATAL/NONFATAL bit isn't already set (meaning this is the first one). Similarly, the Source ID of the first received ERR\_COR message is captured, too, as shown in Figure 15-29 on page 698. | 软件错误处理程序可能需要读取并清除检测到并报告错误的设备中的状态寄存器。为此，错误消息中包含报告该错误类型的首个设备的ID（总线:设备:功能）。当接收到ERR\_FATAL/NONFATAL消息时，如果ERR\_FATAL/NONFATAL位尚未置位（即这是第一个错误），则Source ID寄存器会从该消息中捕获该ID。类似地，第一个接收到的ERR\_COR消息的Source ID也会被捕获，如图15-29第698页所示。 |
+
+Figure 15-29: Advanced Source ID Register
+
+<table><tr><td colspan="2">31</td><td>0</td></tr><tr><td>ERR_FATAL/NONFATAL Source ID(ROS)</td><td>ERR_COR Source ID(ROS)</td><td></td></tr><tr><td colspan="3">ROS: Read-Only and Sticky</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| ## Root Error Command Register | ## 根错误命令寄存器 |
+| The Root Complex has separate enable bits for each of the three error categories to control whether that error type will generate an interrupt to call an error handler as shown in Figure 15-30 on page 698. The interrupt that is generate will either be an MSI or MSI-X as discussed in "Root Complex Error Status Registers" on page 696. Once the interrupt is received, the called error handler would probably first read the Root Complex status registers to determine the nature of the error, and then go down to the source BDF of the error to read standard status register as well as possibly device-specific registers to determine what occurred and how it should be handled. | 根复合体为三种错误类别分别设有独立的使能位，用于控制该错误类型是否产生中断以调用错误处理程序，如图15-30（第698页）所示。所产生的中断可以是MSI或MSI-X，详见第696页的"Root Complex Error Status Registers"讨论。一旦接收到中断，被调用的错误处理程序通常应先读取根复合体状态寄存器以确定错误的性质，然后向下访问错误的源BDF，读取标准状态寄存器以及可能的设备特定寄存器，以确定发生了什么以及应如何处理。 |
+
+Figure 15-30: Advanced Root Error Command Register
+
+<table><tr><td rowspan="19">31</td><td colspan="5">RsvdP</td></tr><tr><td rowspan="14"></td><td>3</td><td>2</td><td>1</td><td>0</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td colspan="5">Fatal Error Reporting Enable</td></tr><tr><td colspan="5">Non-Fatal Error Reporting Enable</td></tr><tr><td colspan="5">Correctable Error Reporting Enable</td></tr><tr><td colspan="5">Note: all bits designated RW</td></tr></table>
+
+## Summary of Error Logging and Reporting / 错误记录与报告总结
+
+| EN | ZH |
+|---|---|
+| The spec includes the flow chart in Figure 15-31 on page 699 that shows the actions taken by a Function when an error is detected. The part inside the dashed line highlights the items that are added when the optional AER capability structure is present. | 规范在第699页的图15-31中包含了流程图，展示了当检测到错误时一个功能（Function）所采取的动作。虚线框内的部分突出了当可选的高级错误报告（AER）能力结构存在时新增的条目。 |
+
+Figure 15-31: Flow Chart of Error Handling Within a Function / 图15-31：功能内部错误处理的流程图
+
+![](images/part05_603ee5d0f57be894c341dd0ab8b232396b272d0c100611c6c978c1e030f0791d.jpg)
+
+## Example Flow of Software Error Investigation
+## 软件错误调查的示例流程
+
+| EN | ZH |
+|---|---|
+| Now that we know all the mechanisms defined in PCIe for detecting, logging and reporting errors, it is worthwhile to look at how software would find and use this information to determine how to handle a reported error. | 既然我们已经了解了 PCIe 中定义的所有用于错误检测、记录和报告的机制，那么值得探讨的是软件将如何查找并使用这些信息，以确定如何处理所报告的错误。 |
+
+## PCI Express Technology
+
+| EN | ZH |
+|---|---|
+| This example is going to assume that both the originating Function as well as the Root Port upstream of it both support AER. Without AER support, the standardized registers for error logging are very limited. | 本示例假设发起端功能（Function）及其上游的根端口（Root Port）均支持AER。若没有AER支持，用于错误记录的标准寄存器将非常有限。 |
+| The system used for this example is shown in Figure 15-32 on page 701. The Root Port has a BDF of 0:28:0 and was enabled to generate an interrupt when it receives either an ERR_FATAL or ERR_NONFATAL message. We are going to follow the steps of error handling software would take to determine what errors have occurred, where they occurred and what packets were they detected in. | 本示例使用的系统如图15-32（第701页）所示。根端口的BDF为0:28:0，并被使能在接收到ERR_FATAL或ERR_NONFATAL消息时产生中断。我们将按照错误处理软件通常采取的步骤，来确定发生了什么错误、错误发生在哪里以及是在哪些报文中检测到的。 |
+| The error handling software has been called because of an interrupt from Root Port 0:28:0. The steps below are just an example, but illustrate the process of error handling software gathering error information. | 由于来自根端口0:28:0的中断，错误处理软件被调用。以下步骤仅是一个示例，但展示了错误处理软件收集错误信息的过程。 |
+| 1. Software knows it was Root Port 0:28:0 that called the error handler based on the interrupt vector used. Since MSI or MSI-X interrupts are used to report errors, each Root Port will have their own unique set of interrupt vectors. | 1. 软件根据所用的中断向量知道是根端口0:28:0调用了错误处理程序。由于使用MSI或MSI-X中断来报告错误，每个根端口都有自己唯一的一组中断向量。 |
+| 2. The error handler reads the Root Error Status register of the AER structure on 0:28:0 to determine what types of error messages have been received by the Root Port. The value in that register is 0800_007Ch which indicates that this Root Port has not received any ERR_COR messages, but has received both ERR_FATAL and ERR_NONFATAL messages and the first uncorrectable error message that it received was an ERR_FATAL. | 2. 错误处理程序读取0:28:0上AER结构的根错误状态寄存器，以确定根端口已接收到的错误消息类型。该寄存器的值为0800_007Ch，表明该根端口尚未收到任何ERR_COR消息，但已收到ERR_FATAL和ERR_NONFATAL消息，并且其收到的第一个不可纠正错误消息是ERR_FATAL。 |
+| 3. The next step is to determine which BDF beneath this Root Port sent the first uncorrectable error. Software then reads the Source ID register of the Root Port and finds the value 0500_0000h, which indicates that the source BDF of the first uncorrectable error was 5:0:0. | 3. 下一步是确定该根端口下的哪个BDF发送了第一个不可纠正错误。软件随后读取根端口的源ID寄存器，发现值为0500_0000h，表明第一个不可纠正错误的源BDF为5:0:0。 |
+| 4. Now software knows that the first uncorrectable error received by Root Port 0:28:0 was a Fatal error that originated from BDF 5:0:0. With this information, software then goes and reads the Uncorrectable Error Status register on BDF 5:0:0 to see which specific uncorrectable errors have occurred on that BDF. The value returned from that read is 0004_1000h which means that this BDF has detected at least one Malformed TLP and at least one Poisoned TLP. But what the error handler really cares about is which one occurred first, because that's the one that should be handled first. | 4. 现在软件知道根端口0:28:0接收到的第一个不可纠正错误是源自BDF 5:0:0的致命错误（Fatal error）。有了这些信息，软件随后读取BDF 5:0:0上的不可纠正错误状态寄存器，查看该BDF上具体发生了哪些不可纠正错误。读回的值为0004_1000h，意味着该BDF至少检测到一个畸形TLP（Malformed TLP）和至少一个中毒TLP（Poisoned TLP）。但错误处理程序真正关心的是哪个错误先发生，因为应该先处理那个错误。 |
+| 5. To determine which of the multiple uncorrectable errors occurred first, software then reads the Advanced Error Capability and Control register of 5:0:0 and finds the value 0000_0012h which has a First Error Pointer value of 12h meaning that the first uncorrectable error was a Malformed TLP (bit 18d) and not the Poisoned TLP (bit 12d). | 5. 为确定多个不可纠正错误中哪个最先发生，软件随后读取5:0:0的高级错误能力与控制寄存器，发现值为0000_0012h，其首个错误指针（First Error Pointer）值为12h，意味着第一个不可纠正错误是畸形TLP（位18d），而非中毒TLP（位12d）。 |
+
+Figure 15-32: Error Investigation Example System
+
+![](images/part05_f593e2fb9f91661bb82eece17272589f73a280f332d1222697b56f5162fa06ba.jpg)
+
+| EN | ZH |
+|---|---|
+| ## PCI Express Technology | ## PCI Express 技术 |
+| 6. Now that the error handler knows that the first uncorrectable error at 5:0:0 was a Malformed TLP, it can check the Header Log register to see the header of the packet that was malformed, since this is one of the errors where a header is recorded. In reading the Header Log register it finds these four doublewords: | 6. 既然错误处理程序已知 5:0:0 上的第一个不可校正错误是格式错误 TLP（Malformed TLP），它就可以检查 Header Log 寄存器以查看被格式错误的报文的头部，因为这是记录头部的错误之一。读取 Header Log 寄存器时，它发现以下四个双字： |
+| — 6000\_8080h – 1st DW<br>— 0000\_04FFh – 2nd DW<br>— FB80\_1000h – 3rd DW<br>— 0000\_0001h – 4th DW | — 6000\_8080h – 第 1 个 DW<br>— 0000\_04FFh – 第 2 个 DW<br>— FB80\_1000h – 第 3 个 DW<br>— 0000\_0001h – 第 4 个 DW |
+| 7. The evaluation of those 4 DWs identifies the malformed packet as: Memory Write, 4DW header, TC=0, TD=1, EP=0, Attr=0, AT=0, Length=80h (128 DWs or 512 bytes), Requester ID=0:0:0, Tag=4, Byte Enables=FFh, Address=1\_FB80\_1000h. | 7. 对这 4 个 DW 的解析表明该格式错误的报文为：Memory Write，4DW 头部，TC=0，TD=1，EP=0，Attr=0，AT=0，长度=80h（128 DW 或 512 字节），Requester ID=0:0:0，Tag=4，Byte Enables=FFh，地址=1\_FB80\_1000h。 |
+| The header of the packet all looks correct and every field uses valid encodings, so software must dig a little deeper to discover why this was treated as a Malformed TLP. In this example, let's assume that after further inspection of config space on 5:0:0, software discovers that the Max Payload Size enabled for this Function is 256 bytes, but this packet contained 512 bytes. This is a condition that will be treated as a Malformed TLP by the target device, in this case 5:0:0. | 该报文的头部看起来全部正确，每个字段都使用了有效的编码，因此软件必须进一步深入挖掘以发现为何它被视为格式错误 TLP。在本例中，假设进一步检查 5:0:0 上的配置空间后，软件发现该 Function 启用的最大有效负载大小（Max Payload Size）为 256 字节，但该报文包含了 512 字节。这种情形会被目标设备（此处为 5:0:0）视为格式错误 TLP。 |
+| If you would like verify your knowledge of this error investigation process, go ahead and evaluate what the first uncorrectable error detected on 4:0:0 was. | 如果你想验证自己对这一错误调查过程的掌握程度，请继续评估 4:0:0 上检测到的第一个不可校正错误是什么。 |
+| If you're feeling adventurous and would like to check out this type of info on a real system, say your desktop or laptop, you can do so by downloading the MindShare Arbor software (www.mindshare.com/arbor). You can run this on an x86-based machine and it will scan your system and display every visible PCI-compatible device with its configuration space decoded for easy interpretation. | 如果你有探索精神，想在真实系统（比如台式机或笔记本电脑）上查看这类信息，可以下载 MindShare Arbor 软件（www.mindshare.com/arbor）。你可以将其运行在基于 x86 的机器上，它会扫描你的系统并显示每个可见的 PCI 兼容设备，其配置空间已被解码以便于解读。 |
+
+![](images/part05_bbd5aeea3cfd2a614c339461f753b0e7fac35b1260c4109ba6a60ac0954d1f0f.jpg)
+
+# 16 Power Management
+
+| EN | ZH |
+|---|---|
+| # 16 Power Management | # 16 电源管理 |
+
+## The Previous Chapter
+
+| EN | ZH |
+|---|---|
+| The previous chapter discusses error types that occur in a PCIe Port or Link, how they are detected, reported, and options for handling them. Since PCIe is designed to be backward compatible with PCI error reporting, a review of the PCI approach to error handling is included as background information. Then we focus on PCIe error handling of correctable, non-fatal and fatal errors. | 前一章讨论了 PCIe 端口或链路上发生的错误类型、如何检测和报告这些错误以及处理它们的选项。由于 PCIe 设计为向后兼容 PCI 错误报告机制，因此作为背景信息回顾了 PCI 的错误处理方法。随后重点介绍了 PCIe 对可校正错误、非致命错误和致命错误的处理。 |
+
+## This Chapter / 本章内容
+
+| English | 中文 |
+|---------|------|
+| This chapter provides an overall context for the discussion of system power management and a detailed description of PCIe power management, which is compatible with the PCI Bus PM Interface Spec and the Advanced Configuration and Power Interface (ACPI). | 本章为系统电源管理的讨论提供了总体背景，并给出了PCIe电源管理的详细描述。PCIe电源管理与PCI总线电源管理接口规范（PCI Bus PM Interface Spec）以及高级配置与电源接口（ACPI）兼容。 |
+| PCIe defines extensions to the PCI-PM spec that focus primarily on Link Power and event management. | PCIe定义了PCI-PM规范的扩展，主要侧重于链路电源（Link Power）和事件管理。 |
+| An overview of the OnNow Initiative, ACPI, and the involvement of the Windows OS is also provided. | 本章还提供了OnNow倡议、ACPI以及Windows操作系统参与情况的概述。 |
+
+## The Next Chapter
+
+| EN | ZH |
+| --- | --- |
+| The next chapter details the different ways that PCIe Functions can generate interrupts. The old PCI model used pins for this, but side‑band signals are undesirable in a serial model so support for the in‑band MSI (Message‑Signaled Interrupts) mechanism was made mandatory. The PCI INTx# pin operation can still be emulated in support of a legacy system using PCIe INTx messages. Both the PCI legacy INTx# method and the newer versions of MSI/MSI‑X are described. | 下一章详细说明 PCIe 功能 (Function) 产生中断的各种方式。旧的 PCI 模型使用引脚实现中断，但边带信号在串行模型中不可取，因此对带内 MSI（消息 signaled 中断）机制的支持成为必须。仍可通过 PCIe INTx 消息来模拟 PCI INTx# 引脚操作以支持传统系统。本章将描述 PCI 传统 INTx# 方式以及更新版本的 MSI/MSI‑X 两者。 |
+
+## Introduction
+
+## 引言
+
+| EN | ZH |
+| --- | --- |
+| PCI Express power management (PM) defines four major areas of support: | PCI Express 电源管理（PM）定义了四个主要支持领域： |
+| PCI‐Compatible PM. PCIe power management is hardware and software compatible with the PCI‐PM and ACPI specs. This support requires that all Functions include the PCI Power Management Capability registers, allowing software to transition a Function between PM states under software control through the use of Configuration requests. This was modified in the 2.1 spec revision with the addition of Dynamic Power Allocation (DPA), another set of registers that added several substates to the D0 power state to give software a finer‐grained PM mechanism. | PCI兼容电源管理。PCIe电源管理在硬件和软件上与PCI-PM和ACPI规范兼容。该支持要求所有功能包含PCI电源管理能力寄存器，允许软件通过配置请求在软件控制下对功能进行电源管理状态转换。在2.1规范修订版中对此进行了修改，增加了动态电源分配（DPA），这是一组额外的寄存器，为D0电源状态增加了若干子状态，为软件提供了更细粒度的电源管理机制。 |
+| Native PCIe Extensions. These define autonomous, hardware‐based Active State Power Management (ASPM) for the Link, as well as mechanisms for waking the system, a Message transaction to report Power Management Events (PME), and a method for calculating and reporting the low‐power‐to‐active‐state latency. | 原生PCIe扩展。这些扩展定义了链路上基于硬件的自主活动状态电源管理（ASPM），以及唤醒系统的机制、用于报告电源管理事件（PME）的消息事务，以及计算和报告低功耗到活动状态延迟的方法。 |
+| Bandwidth Management. The 2.1 spec revision added the ability for hardware to automatically change either the Link width or Link data rate or both to improve power consumption. This allows high performance when needed and keeps power usage low when lower performance is acceptable. Even though Bandwidth Management is considered a Power Management topic, we describe this capability in the section “Dynamic Bandwidth Changes” on page 618 in the “Link Initialization & Training” chapter because it involves the LTSSM. | 带宽管理。2.1规范修订版增加了硬件自动改变链路宽度或链路数据速率或两者以改善功耗的能力。这允许在需要时提供高性能，并在较低性能可接受时保持低功耗。尽管带宽管理被视为电源管理主题，但我们在《链路初始化与训练》章节第618页的"动态带宽变化"一节中描述此能力，因为它涉及LTSSM。 |
+| Event Timing Optimization. Peripheral devices that initiate bus master events or interrupts without regard to the system power state cause other system components to stay in high power states to service them, resulting in higher power consumption than would be necessary. This shortcoming was corrected in the 2.1 spec by adding two new mechanisms: Optimized Buffer Flush and Fill (OBFF), which lets the system inform peripherals about the current system power state, and Latency Tolerance Reporting (LTR), which allows devices to report the service delay they can tolerate at the moment. | 事件时序优化。不考虑系统电源状态而发起总线主控事件或中断的外设会导致其他系统组件保持在高功耗状态以服务它们，从而导致不必要的更高功耗。这一缺点在2.1规范中通过增加两种新机制得到纠正：优化缓冲区刷新与填充（OBFF），它允许系统将当前系统电源状态告知外设；以及延迟容忍度报告（LTR），它允许设备报告它们当前可以容忍的服务延迟。 |
+| This chapter is segmented into several major sections: | 本章分为几个主要部分： |
+| 1. The first part is a primer on power management in general and covers the role of system software in controlling power management features. This discussion only considers the Windows Operating System perspective since it’s the most common one for PCs, and other OSs are not described. | 1. 第一部分是电源管理的一般入门，涵盖了系统软件在控制电源管理特性中的作用。本讨论仅从Windows操作系统的角度考虑，因为它是PC中最常见的操作系统，其他操作系统不作描述。 |
+| 2. The second section, “Function Power Management” on page 713, discusses the method for putting Functions into their low‐power device states using the PCI‐PM capability registers. Note that some of the register definitions are modified or unused by PCIe Functions. | 2. 第二部分"功能电源管理"（第713页）讨论了使用PCI-PM能力寄存器将功能置入其低功耗设备状态的方法。注意，某些寄存器定义被PCIe功能修改或未使用。 |
+| 3. “Active State Power Management (ASPM)” on page 735 describes the hardware‐based autonomous Link power management. Software determines which level of ASPM to enable for the environment, possibly by reading the recovery latency values that will be incurred for that Function, but after that the timing of the power transitions is controlled by hardware. Software doesn’t control the transitions and is unable to see which power state the Link is in. | 3. "活动状态电源管理（ASPM）"（第735页）描述了基于硬件的自主链路电源管理。软件通过可能读取该功能将产生的恢复延迟值来确定为该环境启用哪一级别的ASPM，但此后电源转换的时序由硬件控制。软件不控制转换，也无法查看链路处于何种电源状态。 |
+| 4. “Software Initiated Link Power Management” on page 760 discusses the Link power management that is forced when software changes the power state of a device. | 4. "软件启动的链路电源管理"（第760页）讨论了当软件改变设备电源状态时强制进行的链路电源管理。 |
+| 5. “Link Wake Protocol and PME Generation” on page 768 describes how Devices may request that software return them to the active state so they can service an event. When power has been removed from a Device, auxiliary power must be present if it is to monitor events and signal a Wakeup to the system to get power restored and reactivate the Link. | 5. "链路唤醒协议与PME生成"（第768页）描述了设备如何请求软件将它们返回到活动状态，以便它们能够服务某个事件。当设备断电时，如果它要监视事件并向系统发送唤醒信号以恢复供电并重新激活链路，则必须有辅助电源。 |
+| 6. Finally, event‐timing features are described, including OBFF and LTR. | 6. 最后，描述了事件时序特性，包括OBFF和LTR。 |
+
+## Power Management Primer
+
+| EN | ZH |
+|---|---|
+| The PCI Bus PM Interface spec describes the power management registers required for PCIe. These permit the OS to manage the power environment of a Function directly. Rather than dive into a detailed description, let's start by describing where this capability fits in the overall context of the system. | PCI总线PM接口规范描述了PCIe所需的电源管理寄存器。这些寄存器允许操作系统直接管理Function的电源环境。与其深入详细描述，不如先说明该能力在系统整体上下文中的位置。 |
+
+| EN | ZH |
+| --- | --- |
+| ## Basics of PCI PM | ## PCI电源管理基础 |
+| This section provides an overview of how a Windows OS interacts with other major software and hardware elements to manage the power usage of individual devices and the system as a whole. Table 16-1 on page 706 introduces the major elements involved in this process and provides a very basic description of how they relate to each other. It should be noted that neither the PCI Power Management spec nor the ACPI spec dictate the PM policies that the OS uses. They do, however, define the registers (and some data structures) that are used to control the power usage of a Function. | 本节概述了Windows操作系统如何与其他主要软件和硬件元素交互，以管理单个设备和整个系统的电源使用。第706页的表16-1介绍了此过程中涉及的主要元素，并提供了它们之间如何相互关联的基本描述。需要注意的是，PCI电源管理规范和ACPI规范都不规定操作系统使用的电源管理策略。但它们确实定义了用于控制功能（Function）电源使用的寄存器（以及一些数据结构）。 |
+| Table 16-1: Major Software/Hardware Elements Involved In PC PM | 表16-1：PC电源管理（PC PM）中涉及的主要软硬件元素 |
+
+<table>
+<tr><td>Element</td><td>Responsibility</td></tr>
+<tr><td>OS</td><td>Directs overall system power management by sending requests to the ACPI Driver, device driver, and the PCI Express Bus Driver. Applications that are power conservation-aware interact with the OS to accomplish device power management.</td></tr>
+<tr><td>ACPI Driver</td><td>Manages configuration, power management, and thermal control of embedded system devices that don't adhere to an industry-standard spec. Examples of this include chipset-specific registers, system board-specific registers to control power planes, etc. The PM registers within PCIe Functions (embedded or otherwise) are defined by the PCI PM spec and are therefore not managed by the ACPI driver, but rather by the PCI Express Bus Driver (see entry in this table).</td></tr>
+<tr><td>Device Driver</td><td>The Class driver can work with any device that falls within the Class of devices that it was written to control. The fact that it's not written for a specific vendor means that it doesn't have bit-level knowledge of the device's interface. When it needs to issue a command to or check the status of the device, it issues a request to the Miniport driver supplied by the vendor of the specific device.The device driver also doesn't understand device characteristics that are peculiar to a specific bus implementation of that device type. As an example, it won't understand a PCIe Function's configuration register set. The PCI Express Bus Driver is the one to communicate with those registers.When it receives requests from the OS to control the power state of a PCIe device, it passes the request to the PCI Express Bus Driver.When a request to power down its device is received from the OS, the device driver saves the contents of its associated Function's device-specific registers (in other words, a context save) and then passes the request to the PCI Express Bus Driver to change the power state of the device.Conversely, when a request to re-power the device is received, the device driver passes the request to the PCI Express Bus Driver to change the power state of the device. After the PCI Express Bus Driver has re-powered the device, the device driver then restores the context to the Function's device-specific registers.</td></tr>
+<tr><td>Miniport Driver</td><td>Supplied by the vendor of a device, it receives requests from the Class driver and converts them into the proper series of accesses to the device's register set.</td></tr>
+<tr><td>PCI Express Bus Driver</td><td>This driver is generic to all PCI Express-compliant devices. It manages their power states and configuration registers, but does not have knowledge of a Function's device-specific register set (that knowledge is possessed by the Miniport Driver that the device driver uses to communicate with the device's register set). It receives requests from the device driver to change the state of the device's power management logic. For example:When a request to power down the device is received, this driver is responsible for saving the context of the Function's PCI Express configuration registers. It then disables the ability of the device to act as a Requester or respond as a target and writes to the Function's PM registers to change its state.Conversely, when the device must be re-powered, the PCI Express Bus Driver writes to the PCI Express Function's PM registers to change its state and then restores the Function's configuration registers to their original state.</td></tr>
+<tr><td>PCI Express PM registers within each Function's configuration space.</td><td>The location, format and usage of these registers is defined by the PCIe spec. The PCI Express Bus Driver understands this spec and therefore is the entity responsible for accessing a Function's PM registers when requested to do so by the Function's device driver.</td></tr>
+<tr><td>System Board power plane and bus clock control logic</td><td>The implementation and control of this logic is typically system board design-specific and is therefore controlled by the ACPI Driver (under OS direction).</td></tr>
+</table>
+
+## ACPI Spec Defines Overall PM
+
+| EN | ZH |
+|----|----|
+| The ACPI (Advanced Configuration and Power Interface) spec was first written several years ago as a joint effort by several companies to provide industry standards for OSPM (OS-level Power Management) in compute platforms. Power management at that time was being handled in proprietary ways on different platforms and that made it difficult for vendors to coordinate their efforts. In addition, platform-specific code wasn't always fully compatible with OS operations or aware of all the system conditions or policy considerations. ACPI helped in these areas by defining system power states, hardware registers and software interactions to accomplish OS-based power management. A detailed description of ACPI is beyond the scope of this book, but an introduction to the concepts and terminology will be helpful. | ACPI（高级配置与电源管理接口，Advanced Configuration and Power Interface）规范最初于多年前由多家公司联合制定，旨在为计算平台中的 OSPM（操作系统级电源管理，OS-level Power Management）提供行业标准。当时的电源管理在不同平台上以专有方式实现，这使得供应商难以协调各自的工作。此外，平台相关代码并不总是与操作系统操作完全兼容，也不总能感知所有系统条件或策略考量。ACPI 通过定义系统电源状态、硬件寄存器和软件交互来解决这些问题，从而实现基于操作系统的电源管理。对 ACPI 的详细描述超出了本书的范围，但对其概念和术语的介绍将有所助益。 |
+
+| EN | ZH |
+|---|---|
+| ## System PM States | ## 系统电源管理状态 |
+| Table 16-2 on page 708 defines the possible states of the overall system with reference to power consumption. The "Working", "Sleep", and "Soft Off" states are defined in the OnNow Design Initiative documents. | 第708页的表16-2定义了整个系统在功耗方面的可能状态。"工作"（Working）、"睡眠"（Sleep）和"软关机"（Soft Off）状态在OnNow设计倡议文档中定义。 |
+| Table 16-2: System PM States as Defined by the OnNow Design Initiative | 表16-2：由OnNow设计倡议定义的系统电源管理状态 |
+
+<table><tr><td>Power State</td><td>Description</td></tr><tr><td>Working (G0/S0)</td><td>The system is fully operational.</td></tr><tr><td>Sleeping (G1)</td><td>The system appears to be off and power consumption has been reduced. The amount of time it takes to return to the "Working" state is inversely proportional to the selected level of power conservation.S1 - caches flushed, CPU haltedS2 - same as S1 except that now CPU is powered off. Not commonly used because it's not much better than S3.S3 - (also called "Suspend to RAM" or "Standby") This is the same as S2 except that the system context is saved in memory and more of the system is shut down. When the system wakes up the CPU begins the full boot process but finds flags set in the CMOS memory that direct it to reload the context from RAM instead, and thus program execution can be resumed very quickly.S4 - (also called "Suspend to Disk" or "Hibernate") Similar to S3, except that now the system copies the system context to disk, and then removes power from the system, including main memory. This gives better power savings but the restart time will be longer because the context must be restored from the disk before resuming program execution.</td></tr><tr><td>Soft Off (G2/S5)</td><td>The system appears to be off and power consumption is minimal. It requires a full reboot to return to the "Working" state because the contents of memory have been lost, but there is still some power available to do the wakeup, such as by pressing the "Power" button on the system.</td></tr><tr><td>Mechanical Off (G3)</td><td>The system has been disconnected from all power sources and no power is available.</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| ## Device PM States | ## 设备电源管理状态 |
+| ACPI also defines the PM states at the device level, which are listed in Table 16-3 on page 709. Table 16-3 on page 709 presents the same information in a slightly different form. The registers that support these device states must be implemented for PCIe devices. | ACPI 也定义了设备级别的电源管理状态，列于第 709 页的表 16-3 中。第 709 页的表 16-3 以略有不同的形式呈现了相同的信息。支持这些设备状态的寄存器必须为 PCIe 设备实现。 |
+| Table 16-3: OnNow Definition of Device-Level PM States | 表 16-3：OnNow 设备级电源管理状态定义 |
+
+<table><tr><td>State</td><td>Description</td></tr><tr><td>D0</td><td>Mandatory. Device is fully operational and uses full power from the system. The 2.1 spec revision added another set of registers to support 32 substates under D0 referred to as Dynamic Power Allocation registers.</td></tr><tr><td>D1</td><td>Optional. Low-power state in which device context may or may not be lost. No definition for this state is given, but it would represent a lower power state than D0 and higher than D2</td></tr><tr><td>D2</td><td>Optional. Presumably a lower power state than D1 that attains greater power savings, but would incur a longer recovery delay and may cause Device to lose some context.</td></tr><tr><td>D3</td><td>Mandatory. Device is prepared for loss of power and context may be lost whether the power actually goes off or not. Recovery time will be longer than for D2, but power can be removed from the device gracefully in this state.</td></tr></table>
+
+## Definition of Device Context
+
+| EN | ZH |
+|---|---|
+| General. During normal operation, the operational state of a Device is constantly changing. A device driver may write or read its registers, or a local processor on the Device may execute code that affects its interaction with the system. The state of the device at a given instant in time includes: | 概述。在正常操作期间，设备的运行状态不断变化。设备驱动程序可以写入或读取其寄存器，或者设备上的本地处理器可以执行影响其与系统交互的代码。在给定时刻，设备的状态包括： |
+| - The contents of its configuration registers. | - 其配置寄存器的内容。 |
+| - The state of its local memory and IO registers. | - 其本地存储器和IO寄存器的状态。 |
+| If it contains a processor, then the current program pointer and contents of its other registers would be included. | 如果设备包含处理器，则还应包括当前程序指针及其它寄存器的内容。 |
+| This state information is referred to as the device context. Some or all of this may be lost if the Device PM state is changed to a more aggressive level. If the context information is not maintained, the Device won't operate correctly when it returns to the D0 (fully operational) state. | 这些状态信息统称为设备上下文。如果设备电源管理状态变更到更激进的节能等级，部分或全部上下文信息可能会丢失。如果上下文信息未能保持，设备在返回D0（完全工作）状态时将无法正确运行。 |
+| PME Context. If the OS enables a modem to wake the system for an incoming call and then powers down the system, the Device wake-up context will need to be retained locally during that time. The chipset retains enough power to allow it to monitor for these events. To support this feature, a PCIe modem must implement configuration registers including: | PME上下文。如果操作系统使能调制解调器在有来电时唤醒系统，然后关闭系统电源，则设备唤醒上下文在此期间需要在本地保持。芯片组保留足够的电力以监控这些事件。为支持此功能，PCIe调制解调器必须实现包含以下内容的配置寄存器： |
+| - PME Message capability. | - PME消息能力。 |
+| PME enable/disable control bit. | PME使能/禁用控制位。 |
+| PME status bit indicating whether the device has sent a PME message. | PME状态位，指示设备是否已发送PME消息。 |
+| One or more device-specific control bits that selectively enable or disable various device-specific events that can cause the device to send a PME message. | 一个或多个设备特定的控制位，用于选择性使能或禁用可能导致设备发送PME消息的各种设备特定事件。 |
+| Corresponding device-specific status bits that indicate why the device issued a PME message. | 相应的设备特定状态位，指示设备发出PME消息的原因。 |
+
+## Device-Class-Specific PM Specs
+
+| EN | ZH |
+|---|---|
+| Default Device Class Spec. As mentioned earlier, ACPI gives four possible device power states (D0 ‐ through ‐ D3). It also defines the minimum PM states that all device types must implement, as listed in Table 16‐4 on page 710. | 默认设备类规范。如前所述，ACPI 定义了四种可能的设备电源状态（D0 到 D3）。它还定义了所有设备类型必须实现的最低 PM 状态，如第 710 页的表 16-4 所示。 |
+
+Table 16‐4: Default Device Class PM States
+
+<table><tr><td>State</td><td>Description</td></tr><tr><td>D0</td><td>Device is on, is running at full power, and is fully operational.</td></tr><tr><td>D1</td><td>This optional state is only defined as being lower power than D0. It is not commonly used.</td></tr><tr><td>D2</td><td>This optional state is only defined as being lower power than D1. It is not commonly used.</td></tr><tr><td>D3</td><td>Device consumes the minimum possible power and main power may be turned off. The only requirement is that, while power is still on, the device must be able to service a configuration command to re-enter D0. Power can be removed from the device in this state, and the device will experience a hardware reset when power is restored.</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| Device Class‐Specific PM Specs. Above and beyond the power states mandated by the Default Device Class Spec, certain device classes may require the intermediate power states (D1 and/or D2) or exhibit certain common characteristics in a particular power state. | 设备类特定 PM 规范。除默认设备类规范规定的电源状态之外，某些设备类可能需要中间电源状态（D1 和/或 D2），或在特定电源状态下表现出某些共同特征。 |
+| The rules associated with a particular device class are found in the Device Class Power Management Specs available on Microsoft's Hardware Developers' web site. For example, Device Class Power Management Specs exist for the following classes:<br>‐ Audio<br>‐ Communications<br>‐ Display<br>‐ Input<br>‐ Network<br>‐ PC Card<br>‐ Storage | 与特定设备类相关的规则可在 Microsoft 硬件开发者网站上提供的设备类电源管理规范中找到。例如，以下设备类存在相应的设备类电源管理规范：<br>‐ 音频<br>‐ 通信<br>‐ 显示<br>‐ 输入<br>‐ 网络<br>‐ PC 卡<br>‐ 存储 |
+
+| EN | ZH |
+|---|---|
+| ## Power Management Policy Owner | ## 电源管理策略所有者 |
+| A Device's PM policy owner is defined as the software module that makes decisions regarding the PM state of a device. In a Windows environment, the policy owner is the class-specific driver associated with devices of that class. | 设备的PM（电源管理）策略所有者被定义为决定设备PM状态的软件模块。在Windows环境中，策略所有者是与该类设备相关联的类特定驱动程序。 |
+
+| EN | ZH |
+|----|----|
+| ## PCI Express Power Management vs. ACPI | ## PCI Express 电源管理与 ACPI |
+
+## PCI Express Bus Driver Accesses PM Registers
+
+| EN | ZH |
+|---|---|
+| As indicated in Table 16‑1 on page 706 and Figure 16‑1 on page 712, the PCI Express Bus Driver understands the location, format and usage of the PM configuration registers. It's called when the OS needs to change the power state of a PCIe device or determine its status and capabilities. Other examples include: | 如第706页表16-1和第712页图16-1所示，PCI Express总线驱动了解PM配置寄存器的位置、格式和用法。当操作系统需要更改PCIe设备的电源状态或确定其状态和能力时，会调用该驱动。其他示例包括： |
+| The IEEE 1394 Bus Driver, which understands how to use the PM registers defined in the 1394 Power Management spec. | IEEE 1394总线驱动，它了解如何使用1394电源管理规范中定义的PM寄存器。 |
+| • The USB Bus Driver, which understands how to use the PM registers defined in the USB Power Management spec. | • USB总线驱动，它了解如何使用USB电源管理规范中定义的PM寄存器。 |
+
+## ACPI Driver Controls Non-Standard Embedded Devices
+
+| EN | ZH |
+|---|---|
+| There are devices embedded on the system board whose register sets do not adhere to any particular industry standard spec. At boot time, the BIOS reports these devices to the OS via the ACPI tables, also referred to as the namespace. When the OS needs to communicate with any of these devices, it calls the ACPI Driver, which executes a handler called a Control Method associated with the device. The handler is also found in the ACPI tables and is written by the platform designer using a special interpretive language called ACPI Source Language, or ASL. The ASL code is then compiled into ACPI Machine Language, or AML. Note that AML is not a processor-specific machine language. It's a tokenized (i.e., compressed) version of the ASL source code. An ACPI Driver incorporates an AML token interpreter that allows it to "execute" a Control Method. | 系统板上有一些嵌入式设备，其寄存器集不遵循任何特定的行业标准规范。在引导时，BIOS 通过 ACPI 表（也称为命名空间）将这些设备报告给操作系统。当操作系统需要与这些设备中的任何一个通信时，它会调用 ACPI 驱动程序，该驱动程序执行一个与该设备关联的称为控制方法的处理程序。该处理程序同样位于 ACPI 表中，由平台设计者使用一种称为 ACPI 源语言（ASL）的特殊解释性语言编写。ASL 代码随后被编译成 ACPI 机器语言（AML）。请注意，AML 并非特定于处理器的机器语言，它是 ASL 源代码的令牌化（即压缩）版本。ACPI 驱动程序包含一个 AML 令牌解释器，使其能够"执行"控制方法。 |
+
+Figure 16‑1: Relationship of OS, Device Drivers, Bus Driver, PCI Express Registers, and ACPI
+
+![](images/part05_e56787bf2760fc9b36b2e7de2390ae6f3bfe29b4224b5e0c3b3fc8ce09b456b4.jpg)
+
+| EN | ZH |
+| --- | --- |
+| ## Function Power Management | ## 功能电源管理 |
+| PCI Express Functions are required to support power management, and several registers and related bit fields must be implemented as discussed below. | PCI Express 功能必须支持电源管理，且必须实现如下所述的若干寄存器及相关位域。 |
+
+| EN | ZH |
+|---|---|
+| ## The PM Capability Register Set | ## PM 能力寄存器集 |
+| The PCI-PM spec defines the Power Management Capability configuration registers. These registers were optional for PCI, but required for PCIe, and are located in the PCI-compatible configuration space with a Capability ID of 01h. Software can perform the following sequence to locate these registers: | PCI-PM 规范定义了电源管理能力配置寄存器。这些寄存器对于 PCI 是可选的，但对于 PCIe 是必需的，它们位于 PCI 兼容配置空间中，能力 ID 为 01h。软件可执行以下序列来定位这些寄存器： |
+| 1. Bit 4 of the Function's Configuration Status register should be set, indicating that the Capabilities Pointer in the first byte of dword 13d of the Function's configuration Header is valid. Reading the Capabilities Pointer register gives the offset to the first of the Function's linked list of capability registers. | 1. 功能的配置状态寄存器的位 4 应被置位，指示功能配置头中第 13d 双字的第一个字节中的能力指针有效。读取能力指针寄存器可获得该功能能力寄存器链表首项的偏移量。 |
+| 2. If the least significant byte of the dword at that offset contains Capability ID 01h (see Figure 16-2 on page 713), this is the PM register set. The byte immediately following the Capability ID byte is the Pointer to Next Capability field that gives the offset in configuration space of the next Capability (if there is one). A non-zero value is a valid pointer, while a value of 00h indicates the end of the linked list. A description of all the PM registers can be found in "Detailed Description of PCI-PM Registers" on page 724. | 2. 如果该偏移处双字的最低有效字节包含能力 ID 01h（参见第 713 页的图 16-2），则为 PM 寄存器集。紧跟在能力 ID 字节之后的字节是下一能力指针字段，给出下一个能力（如果有）在配置空间中的偏移量。非零值为有效指针，而 00h 表示链表结束。所有 PM 寄存器的描述可在第 724 页的"PCI-PM 寄存器详细描述"中找到。 |
+
+Figure 16-2: PCI Power Management Capability Register Set
+
+<table><tr><td colspan="2">Power Management Capabilities (PMC)</td><td>Pointer to Next Capability</td><td>Capability ID 01h</td></tr><tr><td>Data Register</td><td>Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2">Control/Status Register (PMCSR)</td></tr></table>
+
+## Device PM States / 设备电源管理状态
+
+| EN | ZH |
+|----|----|
+| Each PCI Express Function must support the full-on D0 state and the full-off D3 state, while D1 and D2 are optional. The sections that follow describe the possible PM states. | 每个 PCI Express 功能（Function）必须支持完全开启的 D0 状态和完全关闭的 D3 状态，而 D1 和 D2 为可选状态。后续章节将描述这些可能的电源管理（PM）状态。 |
+
+| EN | ZH |
+|---|---|
+| ## D0 State—Full On | ## D0状态—完全开启 |
+| Mandatory. In this state, no power conservation is in effect and the device is fully operational. All PCIe Functions must support the D0 state and there are technically two substates: D0 Uninitialized and D0 Active. ASPM hardware control can change the Link power while the Device is in this state. Table 16‐5 on page 714 summarizes the PM policies in the D0 state. | 强制要求。在此状态下，不进行任何功耗节约，设备完全可操作。所有PCIe Function必须支持D0状态，技术上存在两个子状态：D0未初始化（D0 Uninitialized）和D0活跃（D0 Active）。在此设备状态下，ASPM硬件控制可以改变链路功耗。第714页的表16-5总结了D0状态下的电源管理策略。 |
+| D0 Uninitialized. A Function enters D0 Uninitialized after a Fundamental Reset or, in some cases, when software transitions it from $\mathrm { D 3 } _ { \mathrm { h o t } }$ to D0. Usually, the registers are returned to their default state. In this state, the Function exhibits the following characteristics: | D0未初始化。Function在基本复位后进入D0未初始化状态，或者在某些情况下，当软件将其从$\mathrm { D 3 } _ { \mathrm { h o t } }$转换到D0时。通常，寄存器恢复到其默认状态。在此状态下，Function表现出以下特性： |
+| ‐ It only responds to configuration transactions. | ‐ 它仅响应配置事务。 |
+| Its Command register enable bits are all returned to their default states, meaning it cannot initiate transactions or act as the target of memory or IO transactions. | 其Command寄存器的使能位全部恢复到默认状态，意味着它不能发起事务，也不能作为存储器或IO事务的目标。 |
+| D0 Active. Once the Function has been configured and enabled by software, it is in the D0 Active state and is fully operational. | D0活跃。一旦Function被软件配置并使能，它就处于D0活跃状态，并且完全可操作。 |
+| Table 16‐5: D0 Power Management Policies | 表16-5：D0电源管理策略 |
+
+<table><tr><td>LinkPMState</td><td>FunctionPMState</td><td>Registers or State that must be valid</td><td>Power</td><td>Actions permitted to Function</td><td>Actions permitted by Function</td></tr><tr><td>L0</td><td>D0 un-initialized</td><td>PME context **</td><td>&lt; 10W</td><td>PCI Express config transactions.</td><td>None</td></tr><tr><td>L0L0s (required)*L1 (optional)*</td><td>D0 active</td><td>all</td><td>full</td><td>Any PCI Express transaction.</td><td>Any transaction, interrupt, or PME. **</td></tr><tr><td>L2/L3</td><td>D0 active</td><td colspan="4">N/A***</td></tr></table>
+
+\* Active State Power Management  
+\*\* If PME supported in this state.  
+\*\*\* This combination of Bus/Function PM states not allowed.

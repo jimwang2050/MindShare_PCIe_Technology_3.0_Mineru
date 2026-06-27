@@ -1361,13 +1361,13 @@ PCI Express 技术
 Figure 3-14: Multi-Root System | 图3-14：多根系统
 <img src="images/part01_408f3ac19546207d17f6f4c156cbb8353e48f6edb0c445b19408ecd71553afa4.jpg" width="700" alt="">
 
-## Hot-Plug Considerations
+## Hot-Plug Considerations | 热插拔考虑因素
 
 <table>
 <tr>
 <td width="50%">
 In a hot-plug environment, meaning one in which add-in cards can be added or removed during runtime, the situation illustrated by Bus number 8 in Figure 3-14 on page 116 can potentially cause trouble.
-</td>
+< | td>
 <td width="50%" style="background-color:#e8e8e8">
 在热插拔环境中，即插卡可以在运行时被添加或移除的环境中，图3-14（第116页）中总线号8所示的情况可能会引起麻烦。
 </td>

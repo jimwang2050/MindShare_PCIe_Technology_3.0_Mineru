@@ -164,13 +164,13 @@ Using The Byte Count Modified Bit. This bit is only set by PCI-X Completers, but
 </tr>
 </table>
 
-## Data Returned For Read Requests:
+## Data Returned For Read Requests: | 读请求返回的数据：
 
 <table>
 <tr>
 <td width="50%">
 A read request may require multiple completions to be fulfilled, but total data transfer must eventually equal the size of original request, or a Completion Timeout error will probably result.
-</td>
+< | td>
 <td width="50%" style="background-color:#e8e8e8">
 一个读请求可能需要多个完成报文才能完成，但总的数据传输量最终必须等于原始请求的大小，否则将可能导致完成超时错误。
 </td>
@@ -318,13 +318,13 @@ If CRS Software Visibility is enabled, software designed to support it will alwa
 </tr>
 </table>
 
-## Message Requests
+## Message Requests | 消息请求
 
 <table>
 <tr>
 <td width="50%">
 Message Requests replace many of the interrupt, error, and power management sideband signals used on PCI and PCI-X. All Message Requests use the 4DW header format, but not all of the fields are used in every Message type. Fields in bytes 8 through 15 are not defined for some Messages and are reserved for those cases. Messages are treated much like posted Memory Write transactions but their routing can be based on address, ID, and in some cases the routing can be implicit. The routing subfield (Byte 0, bits 2:0) in the packet header indicates which routing method is used and which additional header registers are defined. The general Message Request header format is shown in Figure 5-11 on page 203.
-</td>
+< | td>
 <td width="50%" style="background-color:#e8e8e8">
 消息请求取代了PCI和PCI-X上使用的许多中断、错误和电源管理边带信号。所有消息请求使用4DW头部格式，但并非所有字段在每个消息类型中都使用。对于某些消息，字节8至15的字段未被定义，在这些情况下为保留字段。消息的处理方式与发布的内存写事务非常相似，但其路由可以基于地址、ID，在某些情况下路由可以是隐式的。数据包头部的路由子字段（字节0，位2:0）指示使用哪种路由方法以及定义了哪些额外的头部寄存器。通用消息请求头部格式如图5-11所示（第203页）。
 </td>
@@ -681,13 +681,13 @@ PCI Express 技术
 </tr>
 </table>
 
-## Unlock Message Rules
+## Unlock Message Rules | 解锁消息规则
 
 <table>
 <tr>
 <td width="50%">
 1. They're required to use the default traffic class TC0. Receivers must check for this and handle violations as Malformed TLPs.
-</td>
+< | td>
 <td width="50%" style="background-color:#e8e8e8">
 1. 它们必须使用默认流量类别TC0。接收者必须检查此项，并将违规视为畸形TLP处理。
 </td>
@@ -941,13 +941,13 @@ PCI Express 技术
 </tr>
 </table>
 
-## OBFF Message Rules
+## OBFF Message Rules | OBFF 消息规则
 
 <table>
 <tr>
 <td width="50%">
 1. They're required to use the default traffic class TC0. Receivers must check for this and handle violations as Malformed TLPs.
-</td>
+< | td>
 <td width="50%" style="background-color:#e8e8e8">
 1. 它们必须使用默认流量类别TC0。接收者必须检查此项，并将违规视为畸形TLP处理。
 </td>

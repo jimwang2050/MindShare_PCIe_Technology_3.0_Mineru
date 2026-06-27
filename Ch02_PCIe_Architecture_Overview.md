@@ -88,13 +88,13 @@ Overcoming Problems. By way of review, there are a handful of problems that limi
 </tr>
 </table>
 
-## PCI Express Technology
+## PCI Express Technology | PCI Express 技术
 
 <table>
 <tr>
 <td width="50%">
 the difference in arrival times for all the signals needed on a given clock. Clearly, the data can't be latched until all the bits are ready and stable, so we end up waiting for the slowest one.
-</td>
+< | td>
 <td width="50%" style="background-color:#e8e8e8">
 给定时钟下所有信号到达时间的差异。显然，在所有比特位就绪并稳定之前，数据无法被锁存，因此我们最终不得不等待最慢的那一个。
 </td>
@@ -606,13 +606,13 @@ This is the core functionality of the device, such as a network interface or har
 </tr>
 </table>
 
-## Transaction Layer
+## Transaction Layer | 事务层
 
 <table>
 <tr>
 <td width="50%">
 In response to requests from the Software Layer, the Transaction Layer generates outbound packets. It also examines inbound packets and forwards the information contained in them up to the Software Layer. It supports the split transaction protocol for non-posted transactions and associates an inbound Completion with an outbound non-posted Request that was transmitted earlier. The transactions handled by this layer use TLPs (Transaction Layer Packets) and can be grouped into four request categories:
-</td>
+< | td>
 <td width="50%" style="background-color:#e8e8e8">
 响应软件层的请求，事务层生成出站数据包。它还检查入站数据包，并将其包含的信息转发给软件层。它支持非发布事务的拆分事务协议，并将入站完成与先前发送的出站非发布请求相关联。该层处理的事务使用TLP（事务层数据包），可分为四类请求：
 </td>
@@ -899,13 +899,13 @@ To illustrate the concept, consider Figure 2‐22 on page 71, in which a video c
 Figure 2‐22: QoS Example | 图2‐22：QoS示例
 <img src="images/part01_68913402a366d0cb0ac47ade82ed80c3126c8b2f21e71d0c60b67b3891f455ea.jpg" width="700" alt="">
 
-## Transaction Ordering
+## Transaction Ordering | 事务排序
 
 <table>
 <tr>
 <td width="50%">
 Within a VC, the packets normally all flow through in the same order in which they arrived, but there are exceptions to this general rule. PCI Express protocol inherits the PCI transaction-ordering model, including support for relaxed-ordering cases added with the PCI-X architecture. These ordering rules guarantee that packets using the same traffic class will be routed through the topology in the correct order, preventing potential deadlock or live-lock conditions. An interesting point to note is that, since ordering rules only apply within a VC and packets that use different TCs may not get mapped into the same VC, packets using different TCs are understood by software to have no ordering relationship. This ordering is maintained in the VCs within the transaction layer.
-</td>
+< | td>
 <td width="50%" style="background-color:#e8e8e8">
 在一个虚通道（VC）内，包通常按其到达的顺序进行传输，但这一通用规则存在例外情况。PCI Express 协议继承了 PCI 事务排序模型，包括对 PCI-X 架构中引入的宽松排序情况的支持。这些排序规则保证了使用相同流量类（TC）的包能够按正确的顺序通过拓扑结构进行路由，从而防止潜在的死锁或活锁状况。值得注意的一点是，由于排序规则仅在同一个 VC 内适用，而使用不同 TC 的包可能不会被映射到同一个 VC 中，因此软件将使用不同 TC 的包视为彼此之间没有排序关系。这种排序在事务层内的各个 VC 中得到维护。
 </td>
@@ -1206,13 +1206,13 @@ The physical sender and receiver on a Link are connected with an AC-coupled Link
 Figure 2-29: Physical Layer Electrical | 图2-29：物理层电气
 <img src="images/part01_f7a6ed1fb949a7e2d336cf74fcfd6bb7623029c1c62460d6f20f9fa133057f62.jpg" width="700" alt="">
 
-## Ordered Sets
+## Ordered Sets | 有序集
 
 <table>
 <tr>
 <td width="50%">
 The last type of traffic sent between devices uses only the Physical Layers. Although easily recognized by the receiver, this information is not technically in the form of a packet because it doesn't have Start and End characters, for example. Instead, it's organized into what are called Ordered Sets that originate at the Transmitter's Physical Layer and terminate at the Receiver's Physical Layer, as shown in Figure 2-30 on page 80.
-</td>
+< | td>
 <td width="50%" style="background-color:#e8e8e8">
 设备之间发送的最后一种类型的流量仅使用物理层。尽管接收器可以很容易地识别这些信息，但从技术上讲，它并不采用数据包的形式，因为它没有起始和结束字符。相反，它被组织成所谓的有序集（Ordered Sets），这些有序集起源于发送器的物理层并终止于接收器的物理层，如图2-30（第80页）所示。
 </td>

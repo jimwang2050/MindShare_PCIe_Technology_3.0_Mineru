@@ -57,11 +57,13 @@ English original text paragraph.
 ### 图片
 
 ```html
-<img src="images/xxx.jpg" width="700" alt="">
 Figure X-Y: English Description | 图X-Y：中文描述
+
+<img src="images/xxx.jpg" width="700" alt="">
 ```
 
-图片位于对应的 Figure 标题下方，图片路径相对于仓库根目录的 `images/` 文件夹。
+- Figure 标题在上，`<img>` 在下一行，中间空一行
+- 图片路径相对于仓库根目录 `images/`
 
 ### 技术术语保留
 
@@ -105,7 +107,61 @@ Figure X-Y: English Description | 图X-Y：中文描述
 └── book.md                          ← MinerU 合并原文
 ```
 
-## 📋 管线流程
+## 🖼️ 图片提取与处理策略
+
+### 数据来源
+
+本书图片有两种来源：
+
+| 来源 | 生成方式 | 数量 | 命名 | 特点 |
+|:---|:---|---:|:---|:---|
+| **MinerU 提取** | MinerU V4 自动从 PDF 提取内嵌图片 | 489 张 | `partXX_<sha256>.jpg` | 内容准确、文件名散列 |
+| **早期版截图** | 早期翻译项目从 PDF 截取的页面/图片 | 605 张 | `pageXXXX_imgX[_tight].png` | 含紧凑裁剪版（`_tight`） |
+
+### Figure 匹配策略
+
+由于 MinerU 提取是自动化的，部分图片与 Figure 标题的匹配存在以下问题：
+
+1. **装饰性图片被误标为 Figure**：PDF 中的背景图、装饰元素被 MinerU 提取并赋予了 Figure 标题
+2. **Figure 标题重复**：同一 Figure 编号被 MinerU 分配到多个 chunk 中
+3. **图片位置偏移**：图片在 chunk 中的位置与正文引用位置不完全对齐
+
+**处理原则**：
+- 以 PDF TOC 中的 List of Figures 为准确定正确的 Figure 标题
+- 每个 Figure 编号只保留一个正确的标题和配图
+- 错误的 Figure 标题和配图直接删除（正文引用保留）
+- 优先使用 MinerU 提取的 `images/` 图片；`figures_legacy/` 提供备用参考
+
+### Figure 格式
+
+```
+Figure X-Y: English Description | 图X-Y：中文描述
+                              ← 空行
+<img src="images/xxx.jpg" width="700" alt="">
+```
+
+- Figure 标题使用双语（EN | CN）
+- `<img>` 标签在标题下方，空一行分隔，确保 GitHub 渲染分行显示
+- 技术表格和代码块保留英文原样，独立于双语表格之外
+
+### 紧凑裁剪（Tight Crop）
+
+`figures_legacy/embedded/` 目录中包含 `_tight.png` 后缀的紧凑裁剪版图片。这些图片去除了周围空白区域，内容更紧凑。目前作为备用参考，未被自动引用。
+
+### 验证工具
+
+```bash
+# 审计图片留存率：对比源 chunks 与输出 chunks 的图片引用数
+python3 tools/audit_images.py
+
+# 检查 Figure/Table 标题是否双语化
+grep -c '| 图' chapters/*.md
+
+# 检查 <img> 标签格式
+grep -c '<img src=' chapters/*.md
+```
+
+## 章节编号策略
 
 ```mermaid
 graph LR

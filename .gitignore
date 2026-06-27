@@ -1,0 +1,13 @@
+# Translation temp files (large)
+MindShare_PCI_Express_Technology_3.0_temp/
+
+# Source images (large, 491 files)
+images/
+
+# Intermediate files
+book.md
+*.drawio
+*.excalidraw
+
+# OS files
+.DS_Store

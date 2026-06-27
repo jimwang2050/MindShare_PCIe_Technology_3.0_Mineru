@@ -1,733 +1,531 @@
 # Ch17_Interrupt_Support
 
-| ## Chapter 19: Hot Plug and Power Budgeting | ## 第19章：热插拔与功率预算 |
-| Table 19‑5: Slot Capability Register Fields and Descriptions (Continued) | 表19‑5：槽位能力寄存器字段及描述（续） |
-
-<table><tr><td>Bit(s)</td><td>Register Name and Description</td></tr><tr><td>5</td><td>Hot-Plug Surprise — indicates that it&#x27;s possible for the user to remove the card from the system without prior notification. This tells the OS to allow for such removal without affecting continued software operation.</td></tr><tr><td>6</td><td>Hot-Plug Capable — indicates that this slot supports hot plug operation.</td></tr><tr><td>14:7</td><td>Slot Power Limit Value — specifies the maximum power that can be supplied by this slot. This limit value is multiplied by the scale specified in the next field.</td></tr><tr><td>16:15</td><td>Slot Power Limit Scale — specifies the scaling factor for the Slot Power Limit Value.</td></tr><tr><td>17</td><td>ElectroMechanical Interlock Present — indicates that this is implemented for this slot</td></tr><tr><td>18</td><td>No Command Completed Support— indicates that this slot doesn&#x27;t generate software notification when a command has been completed. Earlier versions sometimes took a long time to execute hot-plug commands (for example, sometimes taking a second or more to communicate across an  $I^{2}C$  bus to turn the power on or off), and generated an interrupt when they were finally done. When set this bit means that this Port can accept writes to all fields in the Slot Control register without delay, so there&#x27;s no need for the notification.</td></tr><tr><td>31:19</td><td>Physical Slot Number — Indicates the physical slot number associated with this port. It must be hardware initialized to a number that is unique within the chassis. Note that software will need this number to relate the physical slot to the Logical Slot ID (Bus, Device, &amp; Function number for this device).</td></tr></table>
-
-| EN | ZH |
-|---|---|
-| ## Slot Power Limit Control | ## 插槽电源限制控制 |
-| The spec provides a method for software to limit the amount of power consumed by a card installed into an expansion slot or backplane implementation. The registers to support this feature are included in the Slot Capability register. | 规范提供了一种方法，使软件能够限制插入扩展插槽或背板实现中的插卡所消耗的功率。支持该功能的寄存器包含在插槽能力寄存器中。 |
-
-## 19.7.3 Slot Control | 19.7.3 插槽控制
-
-| EN | ZH |
-|---|---|
-| Software controls the Hot Plug events through the Slot Control register, shown in Figure 19-6 on page 868. This register permits software to enable various Hot Plug features and control hot plug operations. It's also used to enable interrupt generation as well as enabling the sources of Hot-Plug events that can result in interrupt generation. | 软件通过槽位控制寄存器（Slot Control Register）控制热插拔事件，如图19-6（第868页）所示。该寄存器允许软件启用各种热插拔特性并控制热插拔操作。它还用于启用中断生成以及使能可能导致中断产生的热插拔事件源。 |
-
-Figure 19-6: Slot Control Register | 图19-6：插槽控制寄存器
-
-<img src="images/part06_dacd864be890f81c21feacf778a636f8c02b23140f6e06c9e47ef47e4631d8a8.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| ## Chapter 19: Hot Plug and Power Budgeting | ## 第19章：热插拔与功率预算 |
-| Table 19‐6: Slot Control Register Fields and Descriptions | 表19‐6：插槽控制寄存器字段及描述 |
-
-<table><tr><td>Bit(s)</td><td>Register Name and Description</td></tr><tr><td>0</td><td>Attention Button Pressed Enable. When set, this bit enables the generation of a hot-plug interrupt (if enabled) or assertion of the Wake# message, when the attention button is pressed.</td></tr><tr><td>1</td><td>Power Fault Detected Enable. When set, enables generation of a hot-plug interrupt (if enabled) or Wake# message upon detection of a power fault.</td></tr><tr><td>2</td><td>MRL Sensor Changed Enable. When set, enables generation of a hot-plug interrupt or Wake# (if enabled) message upon detection of a MRL sensor changed event.</td></tr><tr><td>3</td><td>Presence Detect Changed Enable. When set this bit enables the generation of the hot-plug interrupt or a Wake message when the presence detect changed bit in the Slot Status register is set.</td></tr><tr><td>4</td><td>Command Completed Interrupt Enable. When set, enables a Hot- Plug interrupt to be generated that informs software that the hot-plug controller is ready to receive the next command.</td></tr><tr><td>5</td><td>Hot-Plug Interrupt Enable. When set, enables the generation of Hot-Plug interrupts.</td></tr><tr><td>7:6</td><td>Attention Indicator Control. Writes to the field control the state of the attention indicator and reads return the current state, as follows:00b = Reserved01b = On10b = Blink11b = Off</td></tr><tr><td>9:8</td><td>Power Indicator Control. Writes to the field control the state of the power indicator and reads return the current state, as follows:00b = Reserved01b = On10b = Blink11b = Off</td></tr><tr><td>10</td><td>Power Controller Control. Writes to the field switch main power to the slot and reads return the current state: 0b = Power On, 1b = Power Off</td></tr><tr><td>11</td><td>Electromechanical Interlock Control - If the interlock is implemented, writing a 1b to this bit toggles the state of it while writing a 0b has no effect. Reading this bit always returns a 0b.</td></tr><tr><td>12</td><td>Data Link Layer State Changed Enable - If the Data Link Layer Link Active Reporting capability is 1b, setting this bit enables software notification when the Data Link Layer Link Active bit changes. If the Data Link Layer Link Active Reporting capability is 0b, then this bit becomes read-only with a value of 0b.</td></tr></table>
-
-| EN | ZH |
-|---|---|
-| ## Slot Status and Events Management | ## 插槽状态与事件管理 |
-| The Hot Plug Controller monitors a variety of events and reports these events to the Hot Plug System Driver. Software can use the "detected" bits to determine which event has occurred, while the status bit identifies that nature of the change. The changed bits must be cleared by software in order to detect a subsequent change. Note that whether these events get reported to the system (via a system interrupt) is determined by the related enable bits in the Slot Control Register. | 热插拔控制器监控各种事件并将这些事件报告给热插拔系统驱动程序。软件可以使用"已检测"位来确定哪个事件已发生，而状态位则标识变化的性质。必须由软件清除已变化的位，以便检测后续变化。请注意，这些事件是否（通过系统中断）报告给系统，由插槽控制寄存器中的相关使能位决定。 |
-
-Figure 19-7: Slot Status Register | 图19-7：插槽状态寄存器
-
-<img src="images/part06_2da48a0c81595333327c720fe91c8b5f20f2ab51643622a418d401db8b659646.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| Table 19-7: Slot Status Register Fields and Descriptions | 表19-7：插槽状态寄存器字段与描述 |
-
-<table><tr><td>Bit Location</td><td>Register Name and Description</td></tr><tr><td>0</td><td>Attention Button Pressed — If the button is implemented, this bit is set when the Attention Button is pressed.</td></tr><tr><td>1</td><td>Power Fault Detected — If a Power Controller that supports power fault detection is implemented, this bit is set when it detects a power fault at this slot. The spec notes that it's possible for a power fault to be detected at any time, regardless of the Power Control setting or whether the slot is occupied.</td></tr><tr><td>2</td><td>MRL Sensor Changed — If an MRL Sensor is implemented, this is set when a MRL Sensor state change is detected. If no sensor is present this bit will always be zero.</td></tr><tr><td>3</td><td>Presence Detect Changed — set when a change has been detected in the Presence Detect State bit.</td></tr><tr><td>4</td><td>Command Completed — If the No Command Completed Support bit in the Slot Capabilities register is 0b, then this bit is set when a hot plug command has completed and the Hot Plug Controller is ready to accept another command. Technically, only this last meaning is guaranteed: the controller is ready to accept another command, regardless of whether the previous one has actually completed.</td></tr><tr><td>5</td><td>MRL Sensor State — when set, indicates the current state of the MRL sensor, if implemented: 0b = MRL Closed, 1b = MRL Open</td></tr><tr><td>6</td><td>Presence Detect State — this bit indicates the presence of a card in a slot and is required for all Downstream Ports that implement a slot. Its value is the logical "OR" of Physical Layer's Detection logic and any other side-band detect mechanism implemented for the slot (such as PRSNT1# and PRSNT2#). The big difference between them is that the pins require no power to physically detect the card and can thus report on it without needing the power restored, while using the Physical Layer Detect logic does need power.</td></tr><tr><td>7</td><td>Electromechanical Interlock Status —If an Electromechanical Interlock is implemented, this bit indicates whether it is engaged (1b) or disengaged (0b).</td></tr><tr><td>8</td><td>Data Link State Changed — This bit is set when the Data Link Layer Link Active bit in the Link Status register changes. In response to this event, software must read the Data Link Layer Link Active bit to determine whether the Link is active before sending configuration cycles to the hot plugged device.</td></tr></table>
-
-| EN | ZH |
-|-----|-----|
-| ## Add-in Card Capabilities | ## 插件卡能力 |
-| The Device Capability register, seen in Figure 19‐8 on page 873, also has fields relevant to add‐in cards that record the power reported by the Hot Plug Controller as being available to their slot. This information must be communicated automatically with a Set\_Slot\_Power\_Limit Message whenever either of these takes place: | 设备能力寄存器（参见图19‐8，第873页）也包含与插件卡相关的字段，用于记录热插拔控制器报告的其插槽可用功率。只要发生以下任一情况，此信息就必须通过 Set\_Slot\_Power\_Limit 消息自动通信： |
-| • A configuration write to the Slot Capabilities register changes the Slot Power Limit Value and Slot Power Limit Scale values. | • 对插槽能力寄存器的配置写入更改了插槽功率限制值和插槽功率限制比例值。 |
-| • The Link transitions from non‑DL\_UP to DL\_Up status (unless the Slot Capabilities register has not yet been initialized). | • 链路从非DL\_UP状态转换为DL\_Up状态（除非插槽能力寄存器尚未初始化）。 |
-| The message updates the Captured Slot Power Limit Value and Scale registers with the values in the message, making this information readily available to its device driver. | 该消息使用消息中的值更新已捕获插槽功率限制值和比例寄存器，使该信息对其设备驱动程序随时可用。 |
-
-Figure 19‐8: Device Capabilities Register | 图19‐8：设备能力寄存器
-<img src="images/part06_18dafd3cc01b482cf41996c4ab0b902c82e2fcb102eb4354ae9747ceec387f24.jpg" width="700" alt="">
+# 17 Interrupt Support
 
 | EN | ZH |
 |----|----|
-| ## Quiescing Card and Driver | ## 静止化卡与驱动程序 |
+| # 17 Interrupt Support | # 17 中断支持 |
+
+## The Previous Chapter | 上一章
+
+| EN | ZH |
+|----|----|
+| The previous chapter provides an overall context for the discussion of system power management and a detailed description of PCIe power management, which is compatible with the PCI Bus PM Interface Spec and the Advanced Configuration and Power Interface (ACPI) spec. PCIe defines extensions to the PCI-PM spec that focus primarily on Link Power and event management. An overview of the OnNow Initiative, ACPI, and the involvement of the Windows OS is also provided. | 上一章为系统电源管理的讨论提供了整体背景，并详细描述了PCIe电源管理，该规范与PCI总线电源管理接口规范(PCI Bus PM Interface Spec)以及高级配置与电源接口(ACPI)规范相兼容。PCIe定义了针对PCI-PM规范的扩展，这些扩展主要关注链路电源(Link Power)和事件管理。同时还概述了OnNow Initiative、ACPI以及Windows操作系统的参与。 |
+
+| EN | ZH |
+|----|----|
+| ## This Chapter | ## 本章 |
+| This chapter describes the different ways that PCIe Functions can generate interrupts. The old PCI model used pins for this, but sideband signals are undesirable in a serial model so support for the inband MSI (Message Signaled Interrupt) mechanism was made mandatory. The PCI INTx# pin operation can still be emulated using PCIe INTx messages for software backward compatibility reasons. Both the PCI legacy INTx# method and the newer versions of MSI/MSI-X are described. | 本章描述 PCIe 功能（Function）产生中断的不同方式。旧式 PCI 模型使用引脚来实现中断，但在串行模型中边带信号不受欢迎，因此强制要求支持带内 MSI（消息 signaled 中断）机制。出于软件向后兼容性的原因，PCI INTx# 引脚操作仍可通过 PCIe INTx 消息进行仿真。本章将介绍 PCI 传统 INTx# 方法以及较新版本的 MSI/MSI-X。 |
+
+## The Next Chapter | 下一章
+
+| EN | ZH |
+|----|----|
+| The next chapter describes three types of resets defined for PCIe: Fundamental reset (consisting of cold and warm reset), hot reset, and function-level reset (FLR). The use of a sideband reset PERST# signal to generate a system reset is discussed, and so is the inband TS1 based Hot Reset described. | 下一章描述PCIe定义的三种复位类型：基本复位（包括冷复位和暖复位）、热复位和功能级复位（FLR）。讨论了使用边带复位信号PERST#产生系统复位，以及基于带内TS1的热复位。 |
+
+## 17.1 Interrupt Support Background | 17.1 中断支持背景
+
+| EN | ZH |
+|---|---|
+| ## Interrupt Support Background | ## 中断支持背景 |
 
 ## General | 概述
 
 | EN | ZH |
 |---|---|
-| Prior to removing a card from the system, two things must occur: the device driver must stop accessing the card, and the card must stop initiating or responding to new Requests. How this is accomplished is OS-specific, but the following must take place: | 从系统中移除一个卡之前，必须完成两件事：设备驱动程序必须停止访问该卡，并且该卡必须停止发起或响应新的请求(Requests)。具体实现方式因操作系统而异，但必须完成以下操作： |
-| • The OS must stop issuing new requests to the device’s driver or instruct the driver to stop accepting new requests. | • 操作系统必须停止向设备驱动程序下发新的请求，或指示驱动程序停止接受新的请求。 |
-| • The driver must terminate or complete all outstanding requests. | • 驱动程序必须终止或完成所有未完成的请求(outstanding requests)。 |
-| • The card must be disabled from generating interrupts or Requests. | • 该卡必须被禁止产生中断(interrupts)或请求(Requests)。 |
-| When the OS commands the driver to quiesce itself and its device, the OS must not expect the device to remain in the system (in other words, it could be removed and not replaced with an identical card). | 当操作系统命令驱动程序使其自身及其设备静止(quiesce)时，操作系统不应期望该设备继续保留在系统中（换言之，该设备可能被移除，且不会用相同的卡替换）。 |
+| The PCI architecture supported interrupts from peripheral devices as a means of improving their performance and offloading the CPU from the need to poll devices to determine when they require servicing. PCIe inherits this support largely unchanged from PCI, allowing software backwards compatibility to PCI. We provide a background to system interrupt handling in this chapter, but the reader who wants more details on interrupts is encouraged to look into these references: | PCI架构支持来自外设的中断，以此提升设备性能，并减轻CPU轮询设备以判断其是否需要服务的负担。PCIe几乎未作改动地继承了PCI的这一支持，从而实现了软件对PCI的向后兼容。本章将提供系统中断处理的背景知识，但希望了解更多中断详情的读者，建议参考以下资料： |
+| • For PCI interrupt background, refer to the PCI spec rev 3.0 or to chapter 14 of MindShare's textbook: PCI System Architecture (www.mindshare.com). | • 有关PCI中断背景，请参阅PCI规范rev 3.0或MindShare教材《PCI System Architecture》（www.mindshare.com）第14章。 |
+| • To learn more about Local and IO APICs, refer to MindShare's textbook: x86 Instruction Set Architecture. | • 欲了解更多关于Local APIC和IO APIC的内容，请参阅MindShare教材《x86 Instruction Set Architecture》。 |
 
-## 19.8.1 Pausing a Driver (Optional) | 19.8.1 暂停驱动（可选）
-
-| EN | ZH |
-|---|---|
-| Optionally, an OS could implement a "Pause" capability to temporarily stop driver activity in the expectation that the same card will be reinserted. If the card is not reinstalled within a reasonable amount of time, however, the driver must be quiesced and then removed from memory. | 可选地，操作系统可实现"暂停"能力，以临时停止驱动程序活动，期望同一张卡将被重新插入。然而，如果卡未在合理时间内重新安装，则驱动程序必须静止，然后从内存中移除。 |
-| As an example, the currently‑installed card is failing or is being replaced with a later revision as an upgrade. If the operation is to appear seamless from a software and operational perspective, the driver would have to quiesce the device, save the current context (contents of registers, stack and instruction pointer of local micro‑controller, etc.) and turn off the power to the slot. The new card could then be installed and powered, and then, when its context is restored, it could resume normal operation where it left off. Of course, if the old card had failed, it may not be possible to simply resume operation. | 例如，当前安装的卡出现故障，或正在被替换为更新版本以进行升级。如果从软件和操作的角度来看该操作需显得无缝，则驱动程序必须静止设备，保存当前上下文（寄存器内容、本地微控制器的堆栈和指令指针等），并关闭插槽电源。然后可以安装新卡并上电，待其上下文恢复后，即可从中断处恢复正常运行。当然，如果旧卡已发生故障，则可能无法简单地恢复操作。 |
-
-## Quiescing a Driver That Controls Multiple Devices | 暂停控制多个设备的驱动
-
-| EN | ZH |
-|----|----|
-| If a driver controls multiple cards and it receives a command from the OS to quiesce its activity with respect to a specific card, it must only quiesce its activity with that card and the card itself. | 如果一个驱动程序控制多个卡，并且它收到来自操作系统的命令要求对某个特定卡静止其活动，则它必须仅静止与该卡相关的活动以及该卡本身。 |
-
-## Quiescing a Failed Card | 暂停故障卡
-## Quiescing a Failed Card | 使故障卡静止（Quiescing）
-
-| EN | ZH |
-|---|---|
-| If a card has failed, it may not be possible for the driver to complete requests previously issued to the card. In this case, the driver must detect the error, terminate the requests without completion, and attempt to reset the card. | 如果卡已故障，驱动程序可能无法完成先前发给该卡的请求。在这种情况下，驱动程序必须检测错误、终止请求（不完成它们），并尝试复位该卡。 |
-
-## 19.9 The Primitives | 19.9 原语
-
-| EN | ZH |
-|----|----|
-| This section discusses the hot-plug software elements and the information passed between them. For a review of the software elements and their relationships to each other, refer to Table 19-1 on page 852. Communications between the Hot-Plug Service within the OS and the Hot-Plug System Driver is in the form of requests. The spec doesn't define the exact format of these requests, but does define the basic request types and their content. Each request type issued to the Hot-Plug System Driver by the Hot-Plug Service is referred to as a primitive. They are listed and described in Table 19-8 on page 875. | 本节讨论热插拔软件元素及其之间传递的信息。关于软件元素及其相互关系的回顾，请参见第852页的表19-1。操作系统内的热插拔服务与热插拔系统驱动程序之间的通信采用请求的形式。规范未定义这些请求的确切格式，但定义了基本的请求类型及其内容。热插拔服务向热插拔系统驱动程序发出的每种请求类型被称为一个原语。这些原语在第875页的表19-8中列出并描述。 |
-
-Table 19-8: The Primitives / 表19-8: 原语 | 表19-8：原语
-
-<table>
-<tr><td>Primitive / 原语</td><td>Parameters / 参数</td><td>Description / 描述</td></tr>
-<tr><td rowspan="2">Query Hot-Plug System Driver / 查询热插拔系统驱动程序</td><td>Input: None / 输入: 无</td><td rowspan="2">Requests that the Hot-Plug System Driver return a set of Logical Slot IDs for the slots it controls. / 请求热插拔系统驱动程序返回其所控制插槽的一组逻辑插槽ID。</td></tr>
-<tr><td>Return: Set of Logical Slot IDs for slots controlled by this driver. / 返回: 该驱动程序所控制插槽的逻辑插槽ID集合。</td></tr>
-<tr><td rowspan="2">Set Slot Status / 设置插槽状态</td><td>Inputs: Logical Slot ID, New slot state (on or off), New Attention Indicator state, New Power Indicator state. / 输入: 逻辑插槽ID, 新插槽状态(开或关), 新注意力指示器状态, 新电源指示器状态。</td><td rowspan="2">This request is used to control the slots and the Attention Indicator associated with each slot. Good completion of a request is indicated by returning the Status Change Successful parameter. If a fault is incurred during an attempted status change, the Hot-Plug System Driver should return the appropriate fault message (see middle column). Unless otherwise specified, the card should be left in the off state. / 该请求用于控制插槽及与每个插槽关联的注意力指示器。请求成功完成通过返回"状态更改成功"参数来指示。如果在尝试状态更改期间发生故障，热插拔系统驱动程序应返回相应的故障消息(参见中间列)。除非另有指定，插卡应保持在关闭状态。</td></tr>
-<tr><td>Return: Request completion status: status change successful, fault—wrong frequency, fault—insufficient power, fault—insufficient configuration resources, fault—power fail, fault—general failure / 返回: 请求完成状态: 状态更改成功, 故障—频率错误, 故障—电源不足, 故障—配置资源不足, 故障—电源失效, 故障—一般性故障</td></tr>
-<tr><td rowspan="2">Query Slot Status / 查询插槽状态</td><td>Input: Logical Slot ID / 输入: 逻辑插槽ID</td><td rowspan="2">This request returns the state of the indicated slot (if a card is present). The Hot-Plug System Driver must return the Slot Power status information. / 该请求返回指定插槽的状态(是否有插卡存在)。热插拔系统驱动程序必须返回插槽电源状态信息。</td></tr>
-<tr><td>Return: Slot state (on or off), Card power requirements. / 返回: 插槽状态(开或关), 插卡电源需求。</td></tr>
-<tr><td rowspan="2">Async Notice of Slot Status Change / 插槽状态变更异步通知</td><td>Input: Logical Slot ID / 输入: 逻辑插槽ID</td><td rowspan="2">This is the only primitive (defined by the spec) that is issued to the Hot-Plug Service by the Hot-Plug System Driver. It is sent when the Driver detects an unsolicited change in the state of a slot. Examples would be a run-time power fault or a card installed in a previously-empty slot with no warning. / 这是(由规范定义的)唯一由热插拔系统驱动程序向热插拔服务发出的原语。当驱动程序检测到插槽状态发生非请求的变更时发送该原语。例如运行时电源故障或在无警告情况下插卡被安装到先前空的插槽中。</td></tr>
-<tr><td>Return: none / 返回: 无</td></tr>
-</table>
-
-## 19.10 Introduction to Power Budgeting | 19.10 电源预算简介
-
-| EN | ZH |
-|---|---|
-| The primary goal of the PCI Express power budgeting capability is to allocate power for PCI Express hot plug devices that are added to the system during runtime. This ensures that the system can allocate the proper amount of power and cooling for these devices. | PCI Express 电源预算（Power Budgeting）能力的主要目标是为运行期间添加到系统中的 PCI Express 热插拔设备分配电源。这确保了系统能够为这些设备分配适当的电力和冷却资源。 |
-| The spec states that "power budgeting capability is optional for PCI Express devices implemented in a form factor which does not require hot plug, or that are integrated on the system board." None of the form factor specs released at the time of this writing required support for hot plug or the power budgeting capability, but these change often. | 规范指出："对于采用无需热插拔的形态因素或集成在系统板上的 PCI Express 设备，电源预算能力是可选的。"截至本书撰写时发布的所有形态因素规范均未要求支持热插拔或电源预算能力，但这些规范经常变更。 |
-| System power budgeting is always required to support all system board devices and add-in cards. The new capability provides mechanisms for managing the budgeting process for a hot-plug card. Each form factor spec defines the min and max power for a given expansion slot. For example, the CEM spec limits the power an expansion card can consume prior to being fully enabled but, after it is enabled, it can consume the maximum amount of power specified for the slot. In the absence of the power budgeting capability registers, the system designer is responsible for guaranteeing that power has been budgeted correctly and that sufficient cooling is available to support any compliant card installed into the connector. | 系统电源预算始终是必需的，以支持所有系统板设备及附加卡。这一新能力提供了管理热插拔卡预算过程的机制。每种形态因素规范都定义了给定扩展插槽的最小和最大功耗。例如，CEM 规范限制了扩展卡在完全启用之前所能消耗的功率，但在启用之后，它可以消耗该插槽所规定的最大功率。在没有电源预算能力寄存器的情况下，系统设计人员负责确保电源已正确预算，并且有足够的冷却能力来支持安装到连接器中的任何兼容卡。 |
-| The spec defines the configuration registers to support the power budgeting process, but does not define the power budgeting methods and processes. The next section describes the hardware and software elements that would be involved in power budgeting, including the specified configuration registers. | 规范定义了支持电源预算过程的配置寄存器，但并未定义电源预算的方法和流程。下一节将描述参与电源预算的硬件和软件要素，包括所规定的配置寄存器。 |
-
-## 19.11 The Power Budgeting Elements | 19.11 功率预算要素
-
-| EN | ZH |
-|----|----|
-| Figure 19‐10 illustrates the concept of Power Budgeting for hot plug cards. The role of each element involved in the power budgeting, allocation, and reporting process is listed and described below: | 图19-10展示了热插拔卡的电源预算概念。参与电源预算、分配和报告过程的每个元素的作用如下所列和所述： |
-| • System Firmware for Power Management (used during boot time). | • 电源管理系统固件（在启动期间使用）。 |
-| • Power Budget Manager (used during run time). | • 电源预算管理器（在运行期间使用）。 |
-| • Expansion Ports (to which card slots are attached). | • 扩展端口（连接卡槽）。 |
-| • Add‐in Devices (Power Budget Capable). | • 附加设备（具有电源预算能力）。 |
-
-| English | 中文 |
-|---------|------|
-| ## System Firmware | ## 系统固件 |
-| Written by the platform designers the specific system, this is responsible for reporting system power information. The spec recommends the following power information be reported to the PCI Express power budget manager, which allocates and verifies power consumption and dissipation during runtime: | 系统固件由特定系统的平台设计者编写，负责报告系统电源信息。规范建议将以下电源信息报告给 PCI Express 电源预算管理器，该管理器在运行时分配和验证功耗与散耗： |
-| • Total system power available. | • 可用系统总功率。 |
-| • Power allocated to system devices by firmware | • 固件分配给系统设备的功率 |
-| • Number and type of slots in the system. | • 系统中插槽的数量和类型。 |
-| Firmware may also allocate power to PCIe devices that support the power budgeting capability register set, such as a hot-plug device used during boot time. The Power Budgeting Capability register, shown in Figure 19-9 on page 878, contains a System Allocated bit that is hardware initialized (usually by firmware) to notify the power budget manager that power for this device has already been included in the system power allocation. If so, the Power Budget Manager still needs to read and save the power information for the hot-plug devices that were allocated in case they are later removed during runtime. | 固件也可以为支持电源预算能力寄存器集的 PCIe 设备分配功率，例如启动时使用的热插拔设备。电源预算能力寄存器（见第 878 页图 19-9）包含一个系统已分配位，该位由硬件初始化（通常由固件完成），用于通知电源预算管理器该设备的功率已包含在系统功率分配中。即便如此，电源预算管理器仍需读取并保存已分配的热插拔设备的电源信息，以防这些设备在运行时被移除。 |
-
-Figure 19-9: Power Budget Registers | 图19-9：功耗预算寄存器  
-
-<img src="images/part06_abbbd8c40de06aa7a17d6149a2705b8d10c79c45639f6bfd3ebbafef28d3c9ff.jpg" width="700" alt="">
-
-## 19.11.2 The Power Budget Manager | 19.11.2 功率预算管理器
-
-| EN | ZH |
-|----|----|
-| This initializes when the OS installs and receives power-budget information from system firmware, although the spec does not define the method for delivering this information. This manager is responsible for allocating power for all PCI Express devices including: | 电源预算管理器在操作系统安装时初始化，并从系统固件接收电源预算信息，但规范未定义传递此信息的方法。该管理器负责为所有PCI Express设备分配电源，包括： |
-| PCI Express devices that have not already been allocated by the system (including embedded devices that support power budgeting). | 尚未由系统分配电源的PCI Express设备（包括支持电源预算的嵌入式设备）。 |
-| Hot-plugged devices installed at boot time. | 引导时安装的热插拔设备。 |
-| New devices added during runtime. | 运行期间新添加的设备。 |
-
-## 19.11.3 Expansion Ports | 19.11.3 扩展端口
-
-| EN | ZH |
-|---|---|
-| Figure 19-10 on page 880 illustrates a hot plug port that must have the Slot Power Limit and Slot Power Scale fields within the Slot Capabilities register implemented. The firmware or power budget manager must load these fields with a value that represents the maximum amount of power supported by this Port. When software writes to these fields the Port automatically delivers a Set_Slot_Power_Limit message to the device. These fields are also written when software configures a new card that has been added as a hot plug installation. | 第880页的Figure 19-10展示了一个热插拔端口，该端口必须在Slot Capabilities寄存器中实现Slot Power Limit和Slot Power Scale字段。固件或功率预算管理器必须将这些字段加载为表示该端口所支持的最大功率值。当软件写入这些字段时，端口会自动向设备发送一条Set_Slot_Power_Limit消息。当软件配置通过热插拔安装的新插卡时，也会写入这些字段。 |
-
-## Spec requirements: | 规范要求：
-## 规范要求：
-
-| EN | ZH |
-|---|---|
-| Any Downstream Port that has a slot attached (the Slot Implemented bit in its PCIe Capabilities register is set) must implement the Slot Capabilities register. | 任何连接了插槽的 Downstream Port（其 PCIe Capabilities 寄存器中的 Slot Implemented 位被置位）必须实现 Slot Capabilities 寄存器。 |
-| Software must initialize the Slot Power Limit Value and Scale fields of the Slot Capabilities register of the Downstream Port that is connected to an add-in slot. | 软件必须初始化连接到添加卡插槽的 Downstream Port 的 Slot Capabilities 寄存器中的 Slot Power Limit Value 和 Scale 字段。 |
-| • Upstream Ports must implement the Device Capabilities register. | • Upstream Port 必须实现 Device Capabilities 寄存器。 |
-| When a card is installed in a slot and software updates the power limit and scale values in the Downstream Port, that Port will automatically send the Set\_Slot\_Power\_Limit message to the Upstream Port on the installed card. | 当卡插入插槽且软件更新了 Downstream Port 中的功率限制和比例值后，该 Port 将自动向已安装卡上的 Upstream Port 发送 Set\_Slot\_Power\_Limit 消息。 |
-| • The recipient of the Message must use the data payload to limit its power usage for the entire card, unless the card will never exceed the lowest value specified in the corresponding electromechanical spec. | • 该消息的接收者必须使用数据载荷来限制整个卡的功耗，除非该卡永远不会超过相应机电规范中规定的最低值。 |
-
-## 19.11.4 Add-in Devices | 19.11.4 插件设备
-
-| EN | ZH |
-|---|---|
-| Expansion cards that support the power budgeting capability must include the Slot Power Limit Value and Slot Limit Scale fields within the Device Capabilities register, and the Power Budgeting Capability register set for reporting power-related information. | 支持电源预算功能的扩展卡必须在设备能力寄存器中包含槽位电源限制值和槽位限制比例字段，以及用于报告电源相关信息的电源预算能力寄存器集。 |
-| These devices must not consume more than the lowest power specified by the form factor spec. Once power budgeting software allocates additional power via the Set_Slot_Power_Limit message, the device can consume the power that has been specified, but not until it has been configured and enabled. | 这些设备不得消耗超过外形规格规定的最低功率。一旦电源预算软件通过Set_Slot_Power_Limit报文分配了额外功率，设备可以消耗已指定的功率，但必须在其被配置和使能之后才能这样做。 |
-| Device Driver—The device's software driver is responsible for verifying that sufficient power is available for proper device operation prior to enabling it. If the power is lower than that required by the device, the device driver is responsible for reporting this to a higher software authority. | 设备驱动程序——设备的软件驱动程序负责在使能设备之前验证是否有足够的功率用于设备的正常运行。如果功率低于设备所需，设备驱动程序负责将此情况报告给更高级别的软件。 |
-
-Figure 19‐10: Elements Involved in Power Budget | 图19‐10：参与功耗预算的元素
-
-<img src="images/part06_cb26416291d868d26023d5fdbfffc729877a51bfdf311fa537a693fbdaf06f1e.jpg" width="700" alt="">
-
-## 19.12 Slot Power Limit Control | 19.12 插槽功率限制控制
+## 17.1.1 Two Methods of Interrupt Delivery | 17.1.1 两种中断投递方式
 
 | EN | ZH |
 | --- | --- |
-| Software is responsible for determining the maximum power that an expansion device is allowed to consume. This allocation is based on the power partitioning within the system, thermal capabilities, etc. Knowledge of the system's power and thermal limits comes from system firmware. The firmware or power manager is responsible for reporting the power limits to each expansion port. | 软件负责确定扩展设备允许消耗的最大功率。此分配基于系统内的电源分区、热能力等。系统的电源和热限制信息来自系统固件。固件或电源管理器负责向每个扩展端口报告功率限制。 |
+| PCI used sideband interrupt wires that were routed to a central interrupt controller. This method worked well in simple, single-CPU systems, but had some shortcomings that motivated moving to a newer method called MSI (Message Signaled Interrupts) with an extension called MSI-X (eXtented). | PCI使用连接到中央中断控制器的边带中断线。这种方法在简单的单CPU系统中工作良好，但存在一些缺点，促使业界转向称为MSI（Message Signaled Interrupts）的新方法，以及其扩展MSI-X（eXtended MSI）。 |
+| Legacy PCI Interrupt Delivery — This original mechanism defined for the PCI bus consists of up to four signals per device or INTx# (INTA#, INTB#, INTC#, and INTD#) as shown in Figure 17-1 on page 795. In this model, the pins are shared by wire-ORing them together, and they'd eventually be connected to an input on the 8259 PIC (Programmable Interrupt Controller). When a pin is asserted, the PIC in turn asserts its interrupt request pin to the CPU as part of a process described in "The Legacy Model" on page 796. | 传统PCI中断投递 — 这是为PCI总线定义的原始机制，每个设备最多有四个信号或INTx#（INTA#、INTB#、INTC#和INTD#），如图17-1（第795页）所示。在该模型中，引脚通过线或（wire-OR）方式共享，最终连接到8259 PIC（可编程中断控制器）的输入。当某个引脚被断言时，PIC反过来向CPU断言其中断请求引脚，这是第796页"传统模型"所述过程的一部分。 |
+| PCIe supports this PCI interrupt functionality for backward compatibility, but a design goal for serial transports is to minimize the pin count. As a result, the INTx# signals were not implemented as sideband pins. Instead, a Function can generate an inband interrupt message packet to indicate the assertion or deassertion of a pin. These messages act as "virtual wires", and target the interrupt controller in the system (typically in the Root Complex), as shown in Figure 17-2 on page 796. This picture also illustrates how an older PCI device using the pins can work in a PCIe system; the bridge translates the assertion of a pin into an interrupt emulation message (INTx) going upstream to the Root Complex. The expectation is that PCIe devices would not normally need to use the INTx messages but, at the time of this writing, in practice they often do because system software has not been updated to support MSI. | PCIe为了向后兼容而支持这种PCI中断功能，但串行传输的一个设计目标是尽量减少引脚数量。因此，INTx#信号并未实现为边带引脚。相反，功能（Function）可以生成带内中断消息包来指示引脚的断言或取消断言。这些消息充当"虚拟线"，目标是系统中的中断控制器（通常在根复合体中），如图17-2（第796页）所示。该图还说明了使用引脚的旧式PCI设备如何在PCIe系统中工作；桥接器将引脚的断言转换为发往根复合体的上游中断仿真消息（INTx）。预期PCIe设备通常不需要使用INTx消息，但在撰写本文时，实践中它们经常使用，因为系统软件尚未更新以支持MSI。 |
 
-| EN | ZH |
-|---|---|
-| ## Expansion Port Delivers Slot Power Limit | ## 扩展端口提供槽位功率限制 |
-| Software writes to the Slot Power Limit Value and Slot Power Limit Scale fields of the Slot Capability register to specify the maximum power that can be consumed by the device. Software is required to specify a power value that reflects one of the maximum values defined by the spec. For example, revision 2.0 of the CEM spec defines power usage as listed in Table 19‑9. | 软件向槽位能力寄存器的槽位功率限制值（Slot Power Limit Value）和槽位功率限制比例（Slot Power Limit Scale）字段写入数据，以指定设备可消耗的最大功率。软件必须指定符合规范所定义最大值的功率值。例如，CEM规范2.0版本定义了表19‑9所列的功耗值。 |
-| An interesting note about these values is that a standard‑height x1 server card is limited to 10W after a reset and is only allowed to use the full 25W after it's been configured and enabled. Similarly, a x16 graphics card will be limited to 25W until configured and enabled to use the full 75W. | 关于这些值有一个有趣的说明：标准高度的x1服务器卡在复位后限制为10W，只有在完成配置和使能后才允许使用全部25W。类似地，x16显卡在配置并使能使用全部75W之前将被限制为25W。 |
-| Table 19‑9: Maximum Power Consumption for System Board Expansion Slots | 表19‑9：系统主板扩展槽位的最大功耗 |
+Figure 17-1: PCI Interrupt Delivery | 图17-1：PCI中断传递
 
-<table><tr><td></td><td colspan="2">X1 Link</td><td>X4/X8 Link</td><td colspan="2">X16 Link</td></tr><tr><td>Standard Height</td><td>10W (max - desktop)</td><td>25W (max - server)</td><td>25W (max)</td><td>25W (max - server)</td><td>75W (max - graphics card)</td></tr><tr><td>Low Profile Card</td><td colspan="2">10W (max)</td><td>25W (max)</td><td colspan="2">25W (max)</td></tr></table>
-
-| EN | ZH |
-|---|---|
-| In addition to the base CEM spec, two more specs have been defined for higher‑powered devices. First is the PCIe x16 Graphics 150W‑ATX Spec 1.0, which defines a video card that's able to draw 75W from the card connector and another 75W from a separate 3‑pin ATX power connector. The second is the PCIe 225W/300W High Power CEM Spec 1.0, which extends this by adding another 3‑pin power connector to achieve 225W, or a 4‑pin ATX connector that brings the total to 300W. | 除了基础CEM规范外，还为高功率设备定义了另外两个规范。第一个是PCIe x16 Graphics 150W‑ATX Spec 1.0，该规范定义了可从显卡连接器吸取75W、并从独立的3引脚ATX电源连接器再吸取75W的显卡。第二个是PCIe 225W/300W High Power CEM Spec 1.0，它通过增加另一个3引脚电源连接器达到225W，或者使用4引脚ATX连接器使总功率达到300W。 |
-| When the Slot Power registers are written by power budget software, the expansion port sends a Set\_Slot\_Power\_Limit message to the expansion device. This procedure is illustrated in Figure 19‑11 on page 882. | 当功率预算软件写入槽位功率寄存器时，扩展端口向扩展设备发送Set\_Slot\_Power\_Limit消息。该过程如图19‑11（第882页）所示。 |
-
-Figure 19‑11: Slot Power Limit Sequence | 图19‑11：插槽功耗限制序列
-
-<img src="images/part06_b2e7c599f5e3f95cfca0c52a41057585c65d055b77f7611e526de18f548448a5.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| 1. When Hot Plug software is notified of a card insertion request, Power and Clock are restored to the slot. | 1. 当热插拔软件收到卡插入请求通知时，电源和时钟恢复至该槽位。 |
-| 2. Hot Plug software calls configuration and power budgeting software to configure and allocate power to the device. | 2. 热插拔软件调用配置和功率预算软件来配置和分配设备功率。 |
-| 3. Power budget software may interrogate the card to determine it's power requirements and characteristics. | 3. 功率预算软件可以查询该卡以确定其功率需求和特性。 |
-| 4. Power is then allocated based on the device's requirements and the system's capabilities. | 4. 然后根据设备需求和系统能力分配功率。 |
-| 5. Power management software writes to the Slot Power Scale and Slot Power Value fields within the expansion port. | 5. 电源管理软件写入扩展端口内的槽位功率比例（Slot Power Scale）和槽位功率值（Slot Power Value）字段。 |
-| 6. Writes to these fields command the port to send the Set\_Slot\_Power\_Limit message to convey the contents of the Slot Power fields. | 6. 写入这些字段命令端口发送Set\_Slot\_Power\_Limit消息，以传达槽位功率字段的内容。 |
-| 7. The slot receives the message and updates its Captured Slot Power Limit Value and Scale fields. | 7. 槽位接收该消息并更新其捕获的槽位功率限制值（Captured Slot Power Limit Value）和比例（Scale）字段。 |
-| 8. These values limit the power that the expansion device can consume once it is enabled by its device driver. | 8. 这些值限制扩展设备在其设备驱动程序使能后可消耗的功率。 |
-
-## 19.12.2 Expansion Device Limits Power Consumption | 19.12.2 扩展设备限制功耗
-
-| EN | ZH |
-|---|---|
-| The device driver reads the values from the Captured Slot Power Limit and Scale fields to verify that the power available is sufficient to operate the device. Several conditions may exist: | 设备驱动程序读取Captured Slot Power Limit和Scale字段的值，以验证可用功率是否足以运行设备。可能存在以下几种情况： |
-| Enough power is available to operate the device at full capability. In this case, the driver enables the device by writing to the configuration Command register, permitting the device to consume power up to the limit specified in the Power Limit fields. | 可用功率足以使设备以全能力运行。在这种情况下，驱动程序通过写入配置Command寄存器来使能设备，允许设备消耗不超过Power Limit字段中指定上限的功率。 |
-| The power available is sufficient to operate the device but not at full capability. In this case, the driver is required to configure the device such that it consumes no more power than specified in the Power Limit fields. | 可用功率足以运行设备，但不足以使其全能力运行。在这种情况下，驱动程序必须配置设备，使其消耗的功率不超过Power Limit字段中指定的值。 |
-| The power available is insufficient to operate the device. In this case, the driver must not enable the card and must report the inadequate power condition to the upper software layers, which should in turn inform the end user of the problem. | 可用功率不足以运行设备。在这种情况下，驱动程序不得使能该卡，并且必须将功率不足的情况报告给上层软件，上层软件应进而将问题通知最终用户。 |
-| The power available exceeds the maximum power specified by the form factor spec. This condition should not occur. but, if it does, the device is not permitted to consume power beyond the maximum permitted by the form factor. | 可用功率超过外形规格规范指定的最大功率。这种情况不应发生，但如果确实发生，设备不得消耗超出外形规格所允许的最大功率。 |
-| The power available is less than the lowest value specified by the form factor spec. This is a violation of the spec, which states that the expansion port "must not transmit a Set\_Slot\_Power\_Limit Message that indicates a limit lower than the lowest value specified in the electromechanical spec for the slot's form factor." | 可用功率低于外形规格规范指定的最低值。这违反了规范，规范指出扩展端口"不得发送指示限制值低于插槽外形规格的机电规范所指定最低值的Set\_Slot\_Power\_Limit消息。" |
-| Some expansion devices may consume less power than the lowest limit specified for their form factor. Such devices are permitted to discard the information delivered in the Set\_Slot\_Power\_Limit Messages. When the Slot Power Limit Value and Scale fields are read, these devices return zeros. | 某些扩展设备消耗的功率可能低于其外形规格指定的最低限制。此类设备允许丢弃Set\_Slot\_Power\_Limit消息中传递的信息。当读取Slot Power Limit Value和Scale字段时，这些设备返回零。 |
-
-## 19.13 The Power Budget Capabilities Register Set | 19.13 功率预算能力寄存器集
-
-| EN | ZH |
-|---|---|
-| These registers permit power budgeting software to allocate power more effectively based on information provided by the device through its power budget data select and data register. This feature is similar to the data select and data fields within the power management capability registers. However, the power budget registers provide more detailed information to software to aid it in determining the effects of expansion cards that are added during runtime on the system power budget and cooling requirements. Through this capability, a device can report the power it consumes: | 这些寄存器允许电源预算管理软件基于设备通过其电源预算数据选择寄存器和数据寄存器提供的信息更有效地分配电源。此功能类似于电源管理能力寄存器中的数据选择和数据字段。然而，电源预算寄存器向软件提供了更详细的信息，以帮助其确定运行时添加的扩展卡对系统电源预算和散热需求的影响。通过此能力，设备可报告其所消耗的功率： |
-| • from each power rail | • 来自每条电源轨 |
-| • in various power management states | • 在各种电源管理状态下 |
-| • in different operating conditions | • 在不同操作条件中 |
-| These registers are not required for devices implemented on the system board or on expansion devices that do not support hot plug. Figure 19-12 on page 884 illustrates the power budget capabilities register set and shows the data select and data field that provide the method for accessing the power budget information. | 对于实现于系统板上的设备或不支持热插拔的扩展设备，不要求这些寄存器。第884页的图19-12展示了电源预算能力寄存器集，并示出了提供访问电源预算信息方法的数据选择字段和数据字段。 |
-| The power budget information is maintained within a table that consists of one or more 32-bit entries. Each table entry contains power budget information for the different operating modes supported by the device. Each table entry is selected via the data select field, and the selected entry is then read from the data field. The index values start at zero and are implemented in sequential order. When a selected index returns all zeros in the data field, the end of the power budget table has been located. Figure 19-13 on page 885 illustrates the format and types of information available from the data field. | 电源预算信息保存在一个由一个或多个32位条目组成的表中。每个表条目包含设备所支持的不同操作模式的电源预算信息。每个表条目通过数据选择字段选择，然后从数据字段读取所选条目。索引值从零开始并以顺序方式实现。当所选索引在数据字段中返回全零时，表示已到达电源预算表的末尾。第885页的图19-13示出了数据字段中可用的信息格式和类型。 |
-
-Figure 19-12: Power Budget Capability Registers | 图19-12：功耗预算能力寄存器
-
-<table><tr><td colspan="2">PCIe Extended Capability Header</td><td>Offset</td></tr><tr><td>RsvdP</td><td>Data Select Register</td><td>00h</td></tr><tr><td colspan="2">Data Register</td><td>04h</td></tr><tr><td>RsvdP</td><td>Power Budget Capability Register</td><td>08h</td></tr></table>
-
-Figure 19-13: Power Budget Data Field Format and Definition | 图19-13：功耗预算数据字段格式和定义  
-
-<img src="images/part06_2a8d5061705d00ef97c93cf25fd41331fa4b24e9a58d97da1ad0740078d4f4c9.jpg" width="700" alt="">
-
-| EN | ZH |
-|-----|-----|
-| # 20 Updates for Spec Revision 2.1 | # 规范 2.1 版的 20 项更新 |
-
-## Previous Chapter | 上一章
-
-| EN | ZH |
-|---|---|
-| The previous chapter describes the PCI Express hot plug model. A standard usage model is also defined for all devices and form factors that support hot plug capability. Power is an issue for hot plug cards, too, and when a new card is added to a system during runtime, it's important to ensure that its power needs don't exceed what the system can deliver. A mechanism was needed to query the power requirements of a device before giving it permission to oper ate. Power budgeting registers provide that. | 前一章描述了PCI Express热插拔模型。对于所有支持热插拔能力的设备和外形规格，也定义了一个标准使用模型。电源同样是热插拔卡面临的问题，当在运行时向系统添加新卡时，务必确保其电源需求不超过系统所能提供的容量。需要一种机制来在允许设备运行前查询其电源需求。电源预算寄存器提供了这一功能。 |
-
-## This Chapter | 本章
-
-| EN | ZH |
-|---|---|
-| This chapter describes the changes and new features that were added with the 2.1 revision of the spec. Some of these topics, like the ones related to power management, are described in other chapters, but for others there wasn't another logical place for them. In the end, it seemed best to group them all together in one chapter to ensure that they were all covered and to help clarify what features were new. | 本章描述规范 2.1 修订版所引入的变更和新功能。其中部分主题（例如与电源管理相关的内容）已在其他章节中描述，但其余主题并无其他更合理的放置位置。最终，将所有内容集中在一章中似乎是最好方案，以确保全面覆盖，并有助于厘清哪些功能是新增的。 |
-
-## The Next Chapter | 下一章
-
-| EN | ZH |
-|---|---|
-| The next section is the book appendix which includes topics such as: Debugging PCI Express Traffic using LeCroy Tools, Markets & Applications of PCI Express Architecture, Implementing Intelligent Adapters and Multi-Host Systems with PCI Express Technology, Legacy Support for Locking and the book Glossary. | 下一节为本书附录，涵盖以下主题：使用 LeCroy 工具调试 PCI Express 流量、PCI Express 体系结构的市场与应用、利用 PCI Express 技术实现智能适配器与多主机系统、对锁定机制的遗留支持以及本书术语表。 |
-
-## 20.1 Changes for PCIe Spec Rev 2.1 | 20.1 PCIe 规范 Rev 2.1 的变更
-
-| EN | ZH |
-|---|---|
-| The 2.1 revision of the spec for PCIe introduced several changes to enhance performance or improve operational characteristics. It did not add another data rate and that's why it was considered an incremental revision. The modifications can be grouped generally into four areas of improvement: System Redundancy, Performance, Power Management, and Configuration. | PCIe 规范 2.1 修订版引入了若干变更，以提升性能或改善运行特性。该版本未增加新的数据速率，因此被视为一次增量修订。这些修改总体上可归为四个改进领域：系统冗余（System Redundancy）、性能（Performance）、电源管理（Power Management）和配置（Configuration）。 |
-
-## 20.2 System Redundancy Improvement: Multi-casting | 20.2 系统冗余改进：多播
-
-| EN | ZH |
-|---|---|
-| The Multi‑casting capability allows a Posted Write TLP to be routed to more than one destination at the same time, allowing for things like automatically making redundant copies of data or supporting multi‑headed graphics. As shown in Figure 20‑1 on page 888, a TLP sourced from one Endpoint can be routed to multiple destinations based solely on its address. In this example, data is sent to the video port for display while redundant copies of it are automatically routed to storage. There are other ways this activity could be supported, of course, but this is very efficient in terms of Link usage since it doesn't require a recipient to re‑send the packet to secondary locations. | 多播（Multi‑casting）能力允许一个 Posted Write TLP 同时路由到多个目的地，从而实现诸如自动创建数据冗余副本或支持多头图形等功能。如第 888 页图 20‑1 所示，源自一个端点的 TLP 可仅基于其地址路由到多个目的地。在此示例中，数据被发送到视频端口进行显示，同时其冗余副本被自动路由到存储设备。当然，也可以通过其他方式支持此活动，但这种方式在链路利用率方面非常高效，因为它不需要接收者将数据包重新发送到次要位置。 |
-
-Figure 20‑1: Multicast System Example | 图20‑1：多播系统示例
-
-<img src="images/part06_c5b66a4706e3fd9144b74bc07b66e788abd7a2a5ad128535a1ee6bb81d80dc84.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| This mechanism is only supported for posted, address‑routed Requests, such as Memory Writes, that contain data to be delivered and an address that can be decoded to show which Ports should receive it. Non‑posted Requests will not be treated as Multicast even if their addresses fall within the MultiCast address range. Those will be treated as unicast TLPs just as they normally would. | 此机制仅支持带数据的、地址路由的 Posted Request，例如 Memory Write，其包含待传送的数据和一个可解码以指示哪些端口应接收该数据的地址。Non‑posted Request 即使其地址落在多播地址范围内，也不会被视为多播处理，而将像通常一样被视为单播 TLP。 |
-| The setup for Multicast operation involves programming a new register block for each routing element and Function that will be involved, called the Multicast Capability structure. The contents of this block are shown in Figure 20‑2 on page 889, where it can be seen that they define addresses and also MCGs (MultiCast Group numbers) that explain whether a Function should send or receive copies of an incoming TLP or whether a Port should forward them. Let's describe these registers next and discuss how they're used to create Multicast operations in a system. | 多播操作的设置涉及为每个参与的路由元件和 Function 编程一个新的寄存器块，称为多播能力结构（Multicast Capability structure）。该块的内容如第 889 页图 20‑2 所示，其定义了地址以及 MCG（多播组编号），用以说明一个 Function 应发送还是接收入站 TLP 的副本，或者一个端口是否应转发它们。接下来让我们描述这些寄存器，并讨论如何在系统中利用它们创建多播操作。 |
-
-Figure 20‑2: Multicast Capability Registers | 图20‑2：多播能力寄存器
-
-<img src="images/part06_42362d1a7be73eba81745721c9bac8e9a5e97fac7aab87c3928bcf8aad990e93.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| ## Multicast Capability Registers | ## 组播能力寄存器 |
-| The Capability Header register at the top of the figure includes the Capability ID of 0012h, a 4‑bit Version number, and a pointer to the next capability structure in the linked list of registers. | 图中顶部的能力头寄存器包含能力ID 0012h、4位版本号，以及指向寄存器链表中下一个能力结构的指针。 |
-
-## Multicast Capability | 多播能力
-
-| EN | ZH |
-|---|---|
-| This register, shown in detail in Figure 20-3 on page 890, contains several fields. The MC_Max_Group value defines how many Multicast Groups this Function has been designed to support minus one, so that a value of zero means one group is supported. The Window Size Requested, which is only valid for Endpoints and reserved in Switches and Root Ports, represents the address size needed for this purpose as a power of two. | 该寄存器（详见第890页图20-3）包含多个字段。MC_Max_Group 值定义了该功能设计支持的多播组数量减一，因此值为零表示支持一个组。Window Size Requested（请求的窗口大小）仅对端点有效，在交换机和根端口中为保留字段，它以2的幂次方表示为此目的所需的地址大小。 |
-
-Figure 20-3: Multicast Capability Register | 图20-3：多播能力寄存器
-
-<img src="images/part06_acd9d0fc86bfc589e7e16139f3306df457c9dc9f54cfd05e2675e116ee8c870e.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| Lastly, bit 15 indicates whether this Function supports regenerating the ECRC value in a TLP if forwarding it involved making address changes to it. Refer to the section called "Overlay Example" on page 895 for more detail on this. | 最后，位15指示该功能是否支持在转发TLP时若涉及地址更改则重新生成TLP中的ECRC值。更多详情请参见第895页的"覆盖示例"一节。 |
-
-## Multicast Control | 多播控制
-
-| EN | ZH |
-|---|---|
-| This register, shown in Figure 20‐4 on page 890, contains the MC\_Num\_Group that is programmed with the number of Multicast Groups configured by software for use by this Function. The default number is zero, and the spec notes that programming a value here that is greater than the max value defined in the MC\_Max\_Group register will result in undefined behavior. The MC\_Enable bit is used to enable the Multicast mechanism for this component. | 该寄存器如图20-4（第890页）所示，包含MC\_Num\_Group字段，该字段由软件编程设置供此功能使用的多播组数量。默认值为零，规格说明指出，在此处编程的值大于MC\_Max\_Group寄存器中定义的最大值将导致未定义行为。MC\_Enable位用于使能该组件的多播机制。 |
-
-Figure 20‐4: Multicast Control Register | 图20‐4：多播控制寄存器
-
-<img src="images/part06_486605100e9b5168197b06888191506149a26f486f353e24016131575dea7b88.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| ## Multicast Base Address | ## 多播基址 |
-| The base address register, shown in Figure 20‐5 on page 891, contains the 64‐bit starting address of the Multicast Address range for this component. The Multi‐Cast Index Position register indicates the bit position within the address where the MultiCast Group (MCG) number is to be found. When the address of an incoming TLP falls within the MultiCast address range starting at this Base Address, the logic will offset into the address itself by the number of bit locations given in the Index Position and interpret the next bits (up to 6 bits, allowing up to 64 groups) as the MCG number for that TLP. The MCG number, in turn, will indicate whether the Port should forward a copy of this TLP. | 基址寄存器（如图20‐5所示，见第891页）包含该组件的多播地址范围的64位起始地址。多播索引位置寄存器指示地址中用于定位多播组（MCG）编号的位位置。当入站TLP的地址落在从该基址开始的多播地址范围内时，逻辑将根据索引位置给出的位数量偏移到地址中，并将接下来的位（最多6位，允许最多64个组）解释为该TLP的MCG编号。而MCG编号则指示端口是否应转发此TLP的副本。 |
-
-Figure 20‐5: Multicast Base Address Register | 图20‐5：多播基地址寄存器  
-<img src="images/part06_21c71727a30fb0a924fcceb103c2b76a35374e0512b4bcb9db3d80ef662a68c0.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| An example of locating the MCG within the address is shown in Figure 20‐6 on page 892. Here the Index Position value is 24, so the MCG is found in address bits 25 to 30. Interestingly, since the base address doesn't define the lower 12 bits of the address, the MC Index Position must be 12 or greater to be valid. If it's less than 12 and the MC_Enable bit is set, the component's behavior will be undefined. | 在地址中定位MCG的示例如图20‐6所示（见第892页）。此处索引位置值为24，因此MCG位于地址的位25到位30。值得注意的是，由于基址未定义地址的低12位，多播索引位置必须为12或更大才有效。如果小于12且MC_Enable位被置位，则组件的行为将是未定义的。 |
-
-Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位置  
-<img src="images/part06_4ccac63a6dc07af3a9e95e75ac305222e1c8f8e2e31c72bc9052989df0b2373c.jpg" width="700" alt="">
-
-## MC Receive | MC 接收
-
-| EN | ZH |
-|---|---|
-| This 64-bit register is a bit vector that indicates for which of the 64 MCGs this Function should accept a copy or this Port should forward a copy. If the MCG value is found to be 47, for example, and bit 47 is set in this register, then this Function should receive it or this Port should forward it. | 该64位寄存器是一个位向量，用于指示该功能应对64个MCG中的哪些接受副本，或该端口应转发副本。例如，若MCG值为47，且该寄存器中位47被置位，则该功能应接收该报文，或该端口应转发该报文。 |
-
-## MC Block All | MC 全部阻止
-
-| EN | ZH |
-|----|----|
-| This 64-bit register indicates which MCGs an Endpoint Function is blocked from sending and which a Switch or Root Port is blocked from forwarding. This can be programmed in a Switch or Root Port to prevent it from forwarding MultiCast TLPs to an Endpoint that doesn't understand them, for example. A blocked TLP is considered an error condition, and how the error is handled is described in the next section. | 该64位寄存器指示端点功能被阻止发送哪些MCG（多播组），以及交换机或根端口被阻止转发哪些MCG。例如，可在交换机或根端口中对其进行编程，以防止其将多播TLP转发给不理解这些TLP的端点。被阻止的TLP被视为错误条件，错误的处理方式将在下一节中描述。 |
-
-## MC Block Untranslated | MC 阻止未翻译
-
-| EN | ZH |
-|---|---|
-| The meaning and use of this 64‑bit register is almost identical to the Block All register except that it doesn’t apply to TLPs whose AT header field shows them to be translated. This mechanism can be used to set up a Multicast window that is protected in that it can only receive translated addresses. | 这个64位寄存器的含义和用途与Block All寄存器几乎相同，区别在于它不适用于AT头字段显示为已转换的TLP。该机制可用于建立一个受保护的多播窗口，该窗口只能接收已转换的地址。 |
-| If a TLP is blocked because of the setting of either of these two blocking registers, it’s handled as an MC Blocked TLP, meaning it gets dropped and the Port or Function logs and signals this as an error. Logging the error involves setting the Signaled Target Abort bit in its Status register or its Secondary Status register, as appropriate. That’s barely enough information to be useful, though, so the spec highly recommends that Advanced Error Reporting (AER) registers be implemented in Functions with Multicast capability to facilitate isolating and diagnosing faults. | 如果TLP因这两个阻塞寄存器中任一寄存器的设置而被阻止，它将被当作MC阻塞TLP处理，即该TLP被丢弃，并且端口或功能会记录并将此作为错误发出信号。记录错误涉及在其Status寄存器或Secondary Status寄存器中设置Signaled Target Abort位。然而，这些信息几乎不足以提供有用的帮助，因此规范强烈建议在具有多播能力的功能中实现高级错误报告（AER）寄存器，以便于隔离和诊断故障。 |
-| The spec notes that this register is required in all Functions that implement the MC Capability registers, but if an Endpoint Function doesn’t implement the ATS (Address Translation Services) registers, the designer may choose to make these bits reserved. | 规范指出，该寄存器在所有实现MC能力寄存器的功能中是必需的，但如果端点功能未实现ATS（地址转换服务）寄存器，设计者可以选择将这些位保留。 |
-
-## 20.2.2 Multicast Example | 20.2.2 多播示例
-
-| EN | ZH |
-|---|---|
-| At this point, an example will help to illustrate how these registers can be used to set up a multicast environment. To set this up, let's first give the relevant registers some values: | 此时，举一个示例有助于说明如何使用这些寄存器来设置多播环境。为建立该环境，首先为相关寄存器赋予一些值： |
-| • MC_Base_Address = 2GB (Starting address for the multicast range) | • MC_Base_Address = 2GB（多播范围的起始地址） |
-| • MC_Max_Group = 7 (Meaning 8 windows are possible for this design) | • MC_Max_Group = 7（表示该设计最多支持8个窗口） |
-| • MC_Window_Size_Requested = 10 (Meaning $2^{10}$ or 1KB size was requested by an Endpoint) | • MC_Window_Size_Requested = 10（表示端点请求的窗口大小为 $2^{10}$，即1KB） |
-| • MC_Index_Position = 12 (Meaning the actual size of each window is $2^{12}$) | • MC_Index_Position = 12（表示每个窗口的实际大小为 $2^{12}$） |
-| • MC_Num_Group = 5 (Meaning software only configured 6 of the available multicast windows). | • MC_Num_Group = 5（表示软件仅配置了可用多播窗口中的6个） |
-| Based on those register settings, the image in Figure 20-7 on page 894 illustrates the result. The multicast window range is shown starting at 2GB and ranging as high as 2GB + 8 \* (the window size). However, only 6 are enabled by software, so the actual multicast address range is from 2GB to 2GB + 24KB. The windows are all the same size and correspond to the MCGs: MCG 0 is the first window, 1 is the next window, and so on. | 基于这些寄存器设置，第894页的图20-7展示了结果。如图所示，多播窗口范围起始于2GB，最高可达2GB + 8 ×（窗口大小）。然而，软件仅使能了6个窗口，因此实际的多播地址范围为2GB至2GB + 24KB。所有窗口大小相同，并与MCG相对应：MCG 0对应第一个窗口，MCG 1对应下一个窗口，以此类推。 |
-
-Figure 20-7: Multicast Address Example | 图20-7：多播地址示例
-
-<img src="images/part06_320c178813e84518c1c5157347f88b8fcc8536071c4de2cae5c35250d19a195f.jpg" width="700" alt="">
-
-## 20.2.3 MC Overlay BAR | 20.2.3 MC 覆盖 BAR
-
-| EN | ZH |
-|---|---|
-| This last set of registers are required for Switch and Root Ports that implement Multicasting, but they're not implemented in Endpoints. The motivation for this BAR is that it allows two special cases. First, a Port can forward TLPs downstream if they hit in a multicast window even if the Endpoint wasn't designed for multicasting. Second, a Port can forward multicast TLPs upstream to system memory. In both cases, this is accomplished by replacing part of the Request's address with an address that will be recognized by the target. Doing so allows a single BAR in a component to serve as a target for both unicast and multicast writes even if it wasn't designed with multicast capability. | 最后一组寄存器对于实现了多播（Multicasting）的交换机和根端口是必需的，但它们在端点中未实现。引入此BAR的动机在于它允许两种特殊情况。第一，端口可以在TLP命中多播窗口时将其向下游转发，即使端点并非为多播而设计。第二，端口可以将多播TLP向上游转发到系统内存。在这两种情况下，这都是通过将请求地址的一部分替换为目标可识别的地址来实现的。这样做允许组件中的单个BAR充当单播和多播写入的目标，即使它并非为多播能力而设计。 |
-| As shown in Figure 20‑8 on page 895, this register block consists of an address that will be overlaid onto the outgoing TLP, and a 6‑bit Overlay Size indicator. The size referred to here is simply the number of bits from the original 64‑bit address that will be retained, while all the others will be replaced by the Overlay BAR bits. The spec mistakenly refers to this in at least one place as the size in bytes, but in other places it's made clear that it is a bit number. Note that the overlay size value must be 6 or higher to enable the overlay operation. If the size is given as 5 or lower, no overlay will take place and the address is unchanged. | 如图20‑8（第895页）所示，该寄存器块包含一个将被覆盖到传出TLP上的地址，以及一个6位的覆盖大小（Overlay Size）指示符。此处所述的大小是指原始64位地址中将被保留的位数，而所有其他位将被覆盖BAR位替换。规范至少在有一处错误地将其称为以字节为单位的大小，但在其他位置明确说明它是一个位数。请注意，覆盖大小值必须为6或更高才能启用覆盖操作。如果大小指定为5或更小，则不会发生覆盖，地址保持不变。 |
-
-Figure 20‑8: Multicast Overlay BAR | 图20‑8：多播覆盖BAR
-
-<table><tr><td>31</td><td>6</td><td>5</td><td>0</td></tr><tr><td colspan="2">MC_Overlay_BAR [31:6]</td><td colspan="2">MC_Overlay_Size</td></tr><tr><td colspan="4">MC_Overlay_BAR [63:32]</td></tr></table>
-
-## 20.2.4 Overlay Example | 20.2.4 覆盖示例
-
-| EN | ZH |
-|---|---|
-| Now consider the case in which an address overlay is desired, as shown in Figure 20‐9 on page 896. Here the address of a TLP to be forwarded, ABCD_BEEFh, falls within the defined multicast range (also referred to as a multicast hit) and the egress Port has been configured with valid values in the Overlay BAR. | 现在考虑需要进行地址覆盖的情况，如图20‐9（第896页）所示。这里，待转发的TLP的地址ABCD_BEEFh落在定义的多播范围内（也称为多播命中），并且出口端口已使用覆盖BAR中的有效值进行了配置。 |
-| The overlay case creates the unusual situation with the ECRC value that was mentioned earlier in the description of the Multicast Capability register. If the TLP whose address is being changed by the overlay includes an ECRC, that value would be rendered incorrect by this change. Switches and Root Ports optional support regenerating the ECRC based on the new address so that it still serves its purpose going forward. If the routing agent does not support it, the ECRC is simply dropped and the TD header bit is forced to zero to avoid any confusion. | 覆盖情况会造成之前在多播能力寄存器描述中提到的ECRC值的异常情况。如果地址被覆盖更改的TLP包含ECRC，则该值将因地址更改而变得不正确。交换机和根端口可选支持基于新地址重新生成ECRC，使其在后续传输中仍能发挥其作用。如果路由代理不支持此功能，则直接丢弃ECRC，并将TD头比特强制清零以避免混淆。 |
-| A potential problem can arise with ECRC regeneration. If the incoming TLP already had an error but the ECRC value is regenerated because the address was modified, that would inadvertently hide the original error. To avoid that, the routing agent must verify the original ECRC first. If it finds an error, it must force a bad ECRC on the outgoing TLP by inverting the calculated ECRC value before appending it to ensure that the target will see it as an error condition. | ECRC重新生成可能会引发一个潜在问题。如果传入的TLP已经存在错误，但因地址被修改而重新生成了ECRC值，这将会无意中掩盖原始错误。为避免这种情况，路由代理必须首先验证原始ECRC。如果发现错误，它必须在传出TLP上强制生成错误的ECRC——即先计算ECRC值再将其取反后附加——以确保目标端会将其视为错误条件。 |
-
-Figure 20‐9: Overlay Example | 图20‐9：覆盖示例  
-<img src="images/part06_3af4c1d47650cddd0b1761270bc8fa5f79b127fb5db8e071e584b3e1215d2d11.jpg" width="700" alt="">
-
-## 20.2.5 Routing Multicast TLPs | 20.2.5 路由多播TLP
-
-| EN | ZH |
-|---|---|
-| When a Switch or Root Port detects an MC hit (address falls within the MC range) normal routing is suspended. The MCG is extracted from the address and is compared to the MC_Receive register of all the Ports to see which of them should forward a copy of this TLP. Ports whose corresponding Receive register bit is set will forward a copy of the TLP unless their corresponding MC Blocked register bit is also set. If no Ports forward the TLP and no Functions consume it, it is silently dropped. To prevent loops, a TLP is never forwarded back out on its ingress Port, with the possible exception of an ACS case. | 当交换机或根端口检测到MC命中（地址落在MC范围内）时，正常路由被暂停。从地址中提取MCG，并与所有端口的MC_Receive寄存器进行比较，以确定哪些端口应转发此TLP的副本。其对应Receive寄存器位被设置的端口将转发TLP的副本，除非其对应的MC Blocked寄存器位也被设置。如果没有端口转发TLP且没有功能消费它，则被静默丢弃。为防止环路，TLP永远不会被转发回其入端口，但ACS情况可能例外。 |
-| Endpoints extract the MCG and compare it with their Receive register. If there's no match, the TLP is silently dropped. If the Endpoint doesn't support Multicasting, it will treat the TLP as having an ordinary address. | 端点提取MCG并将其与其Receive寄存器进行比较。如果没有匹配，则TLP被静默丢弃。如果端点不支持多播，它将把该TLP视为具有普通地址。 |
-
-## 20.2.6 Congestion Avoidance | 20.2.6 拥塞避免
-
-| EN | ZH |
-|---|---|
-| The use of Multicasting will increase the amount of system traffic in proportion to the percentage of MC traffic, which leads to the risk of packet congestion. To avoid creating backpressure, MC targets should be designed to accept MC traffic "at speed", meaning with minimal delay. To avoid oversubscribing the Links, MC initiators should limit their packet injection rate. A system designer would be wise to choose components carefully to handle this. For example, using Switches and Root Ports whose buffers are big enough to handle the expected traffic, and Endpoints that are able to accept their incoming MC packets quickly enough to avoid trouble. | 组播的使用将按组播流量比例增加系统流量，从而导致数据包拥塞的风险。为避免产生反压，组播目标应设计为能够"线速"接收组播流量，即具有最小延迟。为避免链路过载，组播发起者应限制其数据包注入速率。系统设计者应谨慎选择组件来处理这一问题。例如，使用缓冲区足够大以处理预期流量的交换机和根端口，以及能够足够快地接收其传入组播数据包以避免问题的端点。 |
-
-## 20.3 Performance Improvements | 20.3 性能改进
-
-| EN | ZH |
-|---|---|
-| System performance is enhanced with the addition of four new features: | 通过新增四项特性，系统性能得到提升： |
-| 1. AtomicOps to replace the legacy transaction locking mechanism | 1. AtomicOps 取代传统事务锁定机制 |
-| 2. TLP Processing Hints to allow software to suggest caching options | 2. TLP 处理提示（TPH）允许软件建议缓存选项 |
-| 3. ID-Based Ordering to avoid unnecessary latency | 3. 基于ID的顺序（IDO）避免不必要的延迟 |
-| 4. Alternative Routing-ID Interpretation to increase the number of Functions available in a device. | 4. 替代路由ID解释（ARI）增加设备中可用的功能（Function）数量 |
+<img src="images/part05_725b0a188c35dc149c85c12e66eccc0dddf4d89932beb419e1781eefccc5d4c4.jpg" width="700" alt="">
 
 | EN | ZH |
 | --- | --- |
-| ## AtomicOps | ## AtomicOps（原子操作） |
-| Processors that share resources or otherwise communicate with each other sometimes need uninterrupted, or "atomic", access to system resources to do things like testing and setting semaphores. On parallel processor buses this was accomplished by locking the bus with the assertion of a Lock pin until the originator completed the whole sequence (a read followed by a write), during which time other processors were not allowed to initiate transactions on the bus. PCI included a Locked pin to apply this same model on the PCI bus as on the processor bus, allowing this protocol to used with peripheral devices. | 共享资源或以其他方式相互通信的处理器有时需要对系统资源进行不间断的（即"原子的"）访问，以执行诸如测试和设置信号量等操作。在并行处理器总线上，这是通过断言Lock引脚来锁定总线实现的，直到发起方完成整个序列（一次读取后跟一次写入），在此期间其他处理器不允许在总线上发起事务。PCI包含了一个Locked引脚，将相同的模型应用于PCI总线，就像在处理器总线上一样，使得该协议可用于外设。 |
-| This model worked but was slow on the shared processor bus and even worse when going onto the PCI bus. That's one reason why PCIe limited its use only to Legacy devices. However, the increasing use of shared processing in today's PCs, such as graphics co‐processors and compute accelerators, has brought this issue back to the fore because the different compute engines need to be able to share an atomic protocol. The way this problem was resolved on PCIe was to introduce three new commands that can each do a series of things atomically within the target device rather than requiring a series of separate uninterruptable commands on the interface. These new commands, called AtomicOps, are: | 这种模型确实有效，但在共享处理器总线上速度较慢，进入PCI总线时更慢。这就是PCIe将其使用仅限于传统（Legacy）设备的原因之一。然而，当今PC中共享处理（如图形协处理器和计算加速器）的使用日益增多，使这个问题再次凸显，因为不同的计算引擎需要能够共享原子协议。PCIe解决该问题的方式是引入了三条新命令，每条命令都可在目标设备内原子性地执行一系列操作，而不需要在接口上执行一系列独立的不可中断命令。这些被称为AtomicOps的新命令如下： |
-| 1. FetchAdd (Fetch and Add) ‐ This Request contains an "add" value. It reads the target location, adds the "add"value to it, stores the result in the target location and returns the original value of the target location. This could be used in support of atomically updating statistics counters. | 1. FetchAdd（取并加）— 该请求包含一个"加"值。它读取目标位置，将"加"值加到该位置，将结果存储回目标位置，并返回目标位置的原始值。这可用于支持原子性地更新统计计数器。 |
-| 2. Swap (Unconditional Swap) ‐ This Request contains a "swap" value. It reads the target location, writes the "swap" value into it, and returns the original target value. This could be useful for atomically reading and clearing counters. | 2. Swap（无条件交换）— 该请求包含一个"交换"值。它读取目标位置，将"交换"值写入该位置，并返回原始目标值。这对于原子性地读取和清除计数器很有用。 |
-| 3. CAS (Compare and Swap) ‐ This Request contains both a "compare" value and a "swap" value. It reads the target location, compares it against the "compare" value and, if they're equal, writes in the "swap" value. Finally, it returns the original value of the target location. This can be useful as a "test and set" mechanism for managing semaphores. | 3. CAS（比较并交换）— 该请求同时包含一个"比较"值和一个"交换"值。它读取目标位置，将其与"比较"值进行比较，如果相等，则写入"交换"值。最后，它返回目标位置的原始值。这可用作管理信号量的"测试并设置"机制。 |
-| Both Endpoints and Root Ports are optionally allowed to act as AtomicOp Requesters and Completers, which might seem unexpected because, in PCs at least, this kind of transaction is usually only initiated by the central processor. But modern systems can include an Endpoint acting as a co‐processor, in which case it would need to be able to use AtomicOps to properly handle the protocol. All three commands support 32‐bit and 64‐bit operands, while CAS also supports 128‐bit operands. The actual size in use will be given in the Length field in the header. Routing elements like Switch Ports and Root Ports with peer‐to‐peer access will need to support the AtomicOp routing capability to be able to recognize and route these Requests. | 端点和根端口都可以选择性地充当AtomicOp请求者和完成者，这可能看起来有些出乎意料，因为至少在PC中，这类事务通常仅由中央处理器发起。但现代系统可能包含充当协处理器的端点，在这种情况下，它需要能够使用AtomicOps来正确处理协议。所有三条命令都支持32位和64位操作数，而CAS还支持128位操作数。实际使用的操作数大小将在头部的Length字段中给出。路由元素（如交换机端口和具有对等访问能力的根端口）需要支持AtomicOp路由能力，以便能够识别和路由这些请求。 |
-| A question naturally arises as to how the system (Root Complex) will be instructed to generate these new commands in response to processor activity, since there may not be a directly‐analogous processor bus command. The spec suggests two approaches. First, the Root could be designed to recognize specific processor activity and interpret that to "export" a PCIe AtomicOp in response. Second, a register‐based approach similar to the one used for legacy Configuration access could be used. In that case, one register might give the target address while another specified which command should be generated and the combination of the two would generate the Request. | 一个自然产生的问题是，系统（根复合体）将如何被指示根据处理器活动生成这些新命令，因为可能没有直接对应的处理器总线命令。规范提出了两种方法。第一，可以将根复合体设计为识别特定的处理器活动，并将其解释为"导出"PCIe AtomicOp作为响应。第二，可以使用类似于传统配置访问的基于寄存器的方法。在这种情况下，一个寄存器可能提供目标地址，而另一个寄存器指定应生成哪条命令，两者的组合将生成该请求。 |
-| AtomicOp Completers can be identified by the presence of the three new bits in the Device Capabilities 2 register, as shown in Figure 20‐10 on page 899. Bit 6 of this register also identifies whether routing elements are capable of routing AtomicOps. | AtomicOp完成者可以通过设备能力2（Device Capabilities 2）寄存器中存在的三个新位来识别，如图20-10（第899页）所示。该寄存器的位6还标识路由元素是否能够路由AtomicOps。 |
-| Legacy PCI does not comprehend AtomicOps, of course, and there is no straight‐forward way to translate them into PCI commands. For that reason, PCIe‐to‐PCI bridges do not support AtomicOps. If atomic access is needed on that bus it would have to be done with the legacy locked protocol and the spec states that Locked Transactions and AtomicOps can operate concurrently on the same platform. | 传统PCI当然不理解AtomicOps，也没有直接的方法将它们转换为PCI命令。因此，PCIe到PCI桥不支持AtomicOps。如果在该总线上需要原子访问，则必须使用传统的锁定协议来完成，并且规范指出锁定事务（Locked Transactions）和AtomicOps可以在同一平台上并发操作。 |
+| MSI Interrupt Delivery — MSI eliminates the need for sideband signals by using memory writes to deliver the interrupt notification. The term "Message Signaled Interrupt" can be confusing because its name includes the term "Message" which is a type of TLP in PCIe, but an MSI interrupt is a Posted Memory Write instead of a Message transaction. MSI memory writes are distinguished from other memory writes only by the addresses they target, which are typically reserved by the system for interrupt delivery (e.g., x86-based systems traditionally reserve the address range FEEx_xxxxh for interrupt delivery). | MSI中断投递 — MSI通过使用存储器写操作来投递中断通知，从而消除了对边带信号的需求。术语"Message Signaled Interrupt"可能会引起混淆，因为其名称中包含"Message"一词，而Message是PCIe中的一种TLP类型，但MSI中断实际上是Posted Memory Write（推送存储器写）而非Message事务。MSI存储器写与其他存储器写的区别仅在于它们所针对的地址，这些地址通常由系统保留用于中断投递（例如，基于x86的系统传统上保留地址范围FEEx_xxxxh用于中断投递）。 |
+| Figure 17-2 illustrates the delivery of interrupts from various types of PCIe devices. All PCIe devices are required to support MSI, but software may or may not support MSI, in which case, the INTx messages would be used. Figure 17-2 also shows how a PCIe-to-PCI Bridge is required to convert sideband interrupts from connected PCI devices to PCIe-supported INTx messages. | 图17-2展示了来自各种类型PCIe设备的中断投递。所有PCIe设备都必须支持MSI，但软件可能支持也可能不支持MSI，在这种情况下将使用INTx消息。图17-2还说明了PCIe到PCI桥接器如何将来自所连接PCI设备的边带中断转换为PCIe支持的INTx消息。 |
 
-Figure 20‐10: Device Capabilities 2 Register | 图20‐10：设备能力2寄存器  
+Figure 17-2: Interrupt Delivery Options in PCIe System | 图17-2：PCIe系统中的中断传递选项
 
-<img src="images/part06_5ea886ba02e700de4ac83c59057e10b297a07386eda717bb64d426f9baf96ef3.jpg" width="700" alt="">
-
-## 20.3.2 TPH (TLP Processing Hints) | 20.3.2 TPH（TLP 处理提示）
-
-| EN | ZH |
-|---|---|
-| Adding hints about how the system should handle TLPs targeting memory space can improve latency and traffic congestion. The spec describes this special handling basically as providing information about which of several possible cache locations in the system would be the optimal place for a temporary copy. | 关于系统应如何处理目标为存储器空间的TLP添加提示，可改善延迟和流量拥塞。规范将这种特殊处理描述为提供信息，说明系统中多个可能的缓存位置中哪一个是临时拷贝的最佳存放位置。 |
+<img src="images/part05_981b211aa82038ad22c82db88bb070d177e6b8a2f94224ed268786d39066e70a.jpg" width="700" alt="">
 
 | EN | ZH |
 |----|----|
-| of a TLP. The spec makes note of the fact that, since the usage described for TPH relates to caching, it wouldn't usually make sense to use them with TLPs targeting Non‑prefetchable Memory Space. If such usage was needed, it would be essential to somehow guarantee that caching such TLPs did not cause undesirable side effects. | 一个TLP的。规范指出，由于TPH（TLP处理提示）所述的用途与缓存相关，通常将其用于针对不可预取存储空间的TLP是没有意义的。如果确实需要这种用法，则必须以某种方式保证缓存此类TLP不会导致不良副作用。 |
+| ## The Legacy Model | ## 传统模型 |
 
-## TPH Examples | TPH示例
+## General | 概述
 
-<table>
-<tr>
-<td width="50%">
-Device Write to Host Read. To help clarify the motivation for TPH, consider the example shown in Figure 20‐11 on page 901. Here the Endpoint is writing data into memory for later use by the CPU. The sequence is as follows:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-设备写主机读。为帮助阐明TPH的动机，请考虑第901页图20-11所示的示例。此处Endpoint正在将数据写入内存以供CPU后续使用。具体序列如下：
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| To illustrate the legacy interrupt delivery model, refer to Figure 17-3 on page 797 and consider the usual steps involved in interrupt delivery using the legacy method of interrupt pins: | 为说明传统中断传送模型，请参考第797页的图17-3，并考虑使用中断引脚的 legacy 方法所涉及的中断传送通常步骤： |
+| 1. The device generates an interrupt by asserting its pin to the controller. In older systems this controller was typically an Intel 8259 PIC that had 15 IRQ inputs and one INTR output. The PIC would then assert INTR to inform the CPU that one or more interrupts were pending. | 1. 设备通过向其控制器断言其引脚来产生中断。在较老的系统中，该控制器通常是 Intel 8259 PIC，具有 15 个 IRQ 输入和一个 INTR 输出。PIC 随后会断言 INTR，以通知 CPU 有一个或多个中断处于待处理状态。 |
+| 2. Once the CPU detects the assertion of INTR and is ready to act on it, it must identify which interrupt actually needs service, and that is done by the CPU issuing a special command on the processor bus called an Interrupt Acknowledge. | 2. 一旦 CPU 检测到 INTR 被断言并准备对其采取行动，它必须识别出哪个中断实际需要服务，这是通过 CPU 在处理器总线上发出一个称为中断确认（Interrupt Acknowledge）的特殊命令来完成的。 |
+| 3. This command is routed by the system to the PIC, which returns an 8-bit value called the Interrupt Vector to report the highest priority interrupt currently pending. A unique vector would have been programmed earlier by system software for each IRQ input. | 3. 该命令由系统路由到 PIC，PIC 返回一个称为中断向量（Interrupt Vector）的 8 位值，以报告当前待处理的最高优先级中断。系统软件事先已为每个 IRQ 输入编程了唯一的向量。 |
+| 4. The interrupt handler then uses the vector as an offset into the Interrupt Table (an area set up by software to contain the start addresses of all the Interrupt Service Routines, ISRs), and fetches the ISR start address it finds at that location. | 4. 中断处理程序随后将该向量作为中断表（Interrupt Table）的偏移量（该表是软件设置的区域，包含所有中断服务例程 ISR 的起始地址），并获取在该位置找到的 ISR 起始地址。 |
+| 5. That address would point to the first instruction of the ISR that had been set up to handle this interrupt. This handler would be executed, servicing the interrupt and telling its device to deassert its INTx# line and then would return control to the previously interrupted task. | 5. 该地址指向为处理此中断而设置的 ISR 的第一条指令。将执行此处理程序，为该中断服务并通知其设备取消断言 INTx# 线，然后将控制权返回给先前被中断的任务。 |
 
-<table>
-<tr>
-<td width="50%">
-1. First, the Endpoint sends a memory write TLP containing an address that maps to the system memory. The packet gets routed to the Root Complex (RC).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-1. 首先，Endpoint发送一个内存写TLP，其中包含映射到系统内存的地址。该数据包被路由到Root Complex（RC）。
-</td>
-</tr>
-</table>
+Figure 17-3: Legacy Interrupt Example | 图17-3：传统中断示例
 
-<table>
-<tr>
-<td width="50%">
-2. The RC recognizes this as an access to a cacheable memory space and pauses its progress while it snoops the CPU cache. This may result in a write‐back cycle from the CPU to update the system memory before the transaction can proceed, and this is shown as step 2a.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-2. RC识别出这是对可缓存内存空间的访问，并在侦听CPU缓存时暂停其处理。这可能导致CPU执行写回周期以更新系统内存，然后事务才能继续，如步骤2a所示。
-</td>
-</tr>
-</table>
+<img src="images/part05_954a3c6f4c78a4dbeee5b035be59bfa551f71aa5922394621eeea3d4576b2bfd.jpg" width="700" alt="">
 
-<table>
-<tr>
-<td width="50%">
-3. Once any write backs have finished, the RC allows the write to update the system memory.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-3. 一旦所有写回操作完成，RC允许该写入操作更新系统内存。
-</td>
-</tr>
-</table>
+## 17.2.1 Changes to Support Multiple Processors | 17.2.1 支持多处理器的变更
 
-<table>
-<tr>
-<td width="50%">
-4. At some point, the Endpoint notifies the CPU about data delivery.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-4. 在某个时刻，Endpoint通知CPU数据已送达。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| This model works well for single‑CPU systems, but has a limitation that makes it sub‑optimal in a multi‑CPU system. The problem is that the INTR pin can only be connected to one CPU. If multiple processors are present then only one of them will see the interrupts and will have to service them all while the other CPUs won't see any of them. To obtain the best performance, such systems really need an even distribution of the system tasks across all the processors, referred to as SMP (Symmetric Multi‑Processing) but the pin model won't support it. | 该模型在单CPU系统中运行良好，但存在一个局限性，使其在多CPU系统中并非最优。问题在于INTR引脚只能连接到一个CPU。如果存在多个处理器，则只有一个处理器能接收到中断并必须处理所有中断，而其他CPU则看不到任何中断。为获得最佳性能，此类系统需要将系统任务均匀分布到所有处理器上，这称为SMP（对称多处理），但引脚模型无法支持这一点。 |
+| To achieve better SMP, a new model was needed, and toward this end the PIC was modified to become the IO APIC (Advanced Programmable Interrupt Controller). The IO APIC was designed to have a separate small bus, called the APIC Bus, over which it could deliver interrupt messages, as shown in Figure 17‑4 on page 799. In this model, the message contained the interrupt vector number, so there was no need for the CPU to send an Interrupt Acknowledge down into the IO world to fetch it. The APIC Bus connected to a new internal logic block within the processors called the Local APIC. The bus was shared among all the agents and any of them could initiate messages on it but, for our purposes, the interesting part is its use for interrupt delivery from peripherals. Those interrupts could now be statically assigned by software to be serviced by different CPUs, multiple CPUs or even dynamically assigned by the IO APIC. | 为实现更好的SMP，需要一种新模型，为此PIC被修改为IO APIC（高级可编程中断控制器）。IO APIC设计有一条独立的小型总线，称为APIC总线，可通过该总线传递中断消息，如图17-4（第799页）所示。在此模型中，消息中包含中断向量号，因此CPU无需向IO世界发送中断确认来获取该向量号。APIC总线连接到处理器内部一个称为Local APIC的新逻辑块。该总线由所有代理共享，任何代理都可以在其上发起消息，但对我们而言，其关键用途在于从外设传递中断。这些中断现在可以由软件静态分配给不同的CPU处理，或由多个CPU共同处理，甚至可以由IO APIC动态分配。 |
+| That model, known as the APIC model, was sufficient for several years but still depended on sideband pins from the peripheral devices to work. Another limitation of this model was the number of IRQs (interrupt request lines) into the IO APIC. Without a very large number of IRQs, peripheral devices had to share IRQs which means added latency anytime that IRQ is asserted because there could be multiple devices that could have asserted it and software must evaluate all of them. This technique of linking multiple ISRs together was often referred to as interrupt chaining. Eventually, because of this issue and a couple other minor issues, another improvement came along. | 该模型称为APIC模型，运行了数年之久，但仍然依赖外设的边带引脚来工作。该模型的另一个局限是进入IO APIC的IRQ（中断请求线）数量有限。如果没有足够多的IRQ，外设就必须共享IRQ，这意味着每次IRQ被断言时都会增加延迟，因为可能有多个设备都断言了该IRQ，而软件必须逐一评估所有这些设备。这种将多个ISR链接在一起的技术通常称为中断链。最终，由于这个问题以及其他一些小问题，又出现了新的改进。 |
+| Why not have the peripheral devices themselves send interrupt messages directly to the Local APICs? All that is needed is a communications path which already exists in the form of the PCI bus and the processor bus. So the APIC bus was eliminated and all interrupts were delivered to the Local APICs in the form of memory writes, referred to as MSIs or Message Signaled Interrupts. These MSIs were targeting a special address that the system understood to be an interrupt message targeting the Local APICs. (This special address address was traditionally FEEx\_xxxxh for x86‑based systems.) Even the IO APIC was programmed to send its interrupt notifications over the ordinary data bus using memory writes (MSI). Now it simply sends an MSI memory write across the data bus targeting the memory address of the desired processor's Local APIC, and that has the effect of notifying the processor of the interrupt. | 为何不让外设自身直接将中断消息发送给Local APIC？所需要的只是一条通信路径，而PCI总线和处理器总线已经提供了这样的路径。于是APIC总线被淘汰，所有中断都以内存写操作的形式传递给Local APIC，称为MSI或消息 signaled 中断。这些MSI的目标是一个特殊地址，系统理解该地址是发送给Local APIC的中断消息。（对于基于x86的系统，这个特殊地址传统上是FEEx\_xxxxh。）即使是IO APIC也被编程为通过普通数据总线使用内存写操作（MSI）来发送其中断通知。现在，IO APIC只需在数据总线上发送一个MSI内存写操作，目标地址是所需处理器的Local APIC的内存地址，从而通知处理器有中断到达。 |
+| This model is known as the xAPIC model, and since it is not based on sideband signals which go into an interrupt controller with a limited number of inputs, the need to share interrupts is almost eliminated. More information can be found about this model in "An MSI Solution" on page 827. | 该模型称为xAPIC模型，由于它不依赖进入输入数量有限的中断控制器的边带信号，因此几乎消除了共享中断的需求。有关此模型的更多信息，请参见第827页的"MSI解决方案"。 |
+| PCI added MSI support as an option years ago and PCIe made that capability a requirement. A peripheral that can generate MSI transactions on its own opens new options for handling interrupts, such as giving each Function the ability to generate multiple unique interrupts instead of just one. | 多年前，PCI将MSI支持作为可选功能加入，而PCIe将该能力变为强制性要求。能够自行生成MSI事务的外设为中断处理开辟了新的选择，例如使每个功能都能生成多个唯一的中断，而不仅仅是只有一个中断。 |
 
-<table>
-<tr>
-<td width="50%">
-5. Finally, the CPU fetches the data from memory to complete the sequence.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-5. 最后，CPU从内存中获取数据以完成该序列。
-</td>
-</tr>
-</table>
+Figure 17‑4: APIC Model for Interrupt Delivery | 图17‑4：中断传递的APIC模型
 
-Figure 20‐11: TPH Example | 图20‐11：TPH示例  
-<img src="images/part06_46f8af8067dccb7f406e6b5f6312245c03cd2ee05a769589ed46a667c24b857d.jpg" width="700" alt="">
+<img src="images/part05_ce26d7a690338f1dc4517fbaef8f6bcd7b9ff38e5913f5179763b8023c83ba9b.jpg" width="700" alt="">
 
-<table>
-<tr>
-<td width="50%">
-This sequence works but there's an opportunity for performance improvement by adding an intermediate cache in the system. To illustrate this, consider the example shown in Figure 20‐12 on page 902. From the perspective of the Endpoint, the operation is the same but the knows to handle it a differently. The steps now are as follows:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-该序列可以工作，但通过在系统中添加中间缓存可以进一步提升性能。为说明这一点，请考虑第902页图20-12所示的示例。从Endpoint的角度来看，操作是相同的，但系统知道以不同方式处理它。现在的步骤如下：
-</td>
-</tr>
-</table>
+## 17.2.2 Legacy PCI Interrupt Delivery | 17.2.2 传统 PCI 中断传递
 
-<table>
-<tr>
-<td width="50%">
-1. The Endpoint does the same memory write but this time TPH bits are included. The write is forwarded to the RC by the Switch as before.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-1. Endpoint执行相同的内存写操作，但这次包含TPH位。与之前一样，该写入由Switch转发到RC。
-</td>
-</tr>
-</table>
+| EN | ZH |
+| --- | --- |
+| This section provides more detail on legacy PCI interrupt delivery. Readers familiar with PCI may wish to proceed to "Virtual INTx Signaling" on page 805 to learn more about how PCIe emulates this legacy model, or to "The MSI Model" on page 812 to learn more about that method. | 本节提供有关传统PCI中断投递的更多细节。熟悉PCI的读者可以继续阅读第805页的"虚拟INTx信令"，以了解PCIe如何模拟这一传统模型，或阅读第812页的"MSI模型"以了解该方法。 |
+| PCI devices that use interrupts have two options. They may use either: | 使用中断的PCI器件有两个选项： |
+| INTx# active low-level signals that can be shared and were defined in the original spec. | INTx# 有效低电平信号，可共享，并在原始规范中定义。 |
+| Message Signaled Interrupts that were added as an option with the 2.2 version of the spec. MSI needs no modification for use in a PCIe system. | 消息 signaled 中断（MSI），作为2.2版规范的一个可选特性加入。MSI在PCIe系统中使用无需修改。 |
 
-<table>
-<tr>
-<td width="50%">
-2. The RC understands that this memory access must be snooped to the CPU as before. However, once the snoop has been handled, the RC is informed by the TPH bits to store this TLP in an intermediate cache rather than going to system memory.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-2. RC知道与之前一样必须侦听该内存访问到CPU。然而，一旦侦听处理完毕，RC根据TPH位的指示将该TLP存储在中间缓存中，而不是写入系统内存。
-</td>
-</tr>
-</table>
+## Device INTx# Pins | 设备 INTx# 引脚
 
-<table>
-<tr>
-<td width="50%">
-3. The Endpoint notifies the CPU that the data item has been delivered.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-3. Endpoint通知CPU数据项已送达。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|----|----|
+| A PCI device can implement up to 4 INTx# signals (INTA#, INTB#, INTC#, and INTD#). | 一个 PCI 设备最多可实现 4 个 INTx# 信号（INTA#、INTB#、INTC# 和 INTD#）。 |
+| More than one pin is available because PCI devices can support up to 8 functions, each of which is allowed to drive one (but only one) interrupt pin. | 之所以提供多个引脚，是因为 PCI 设备最多可支持 8 个功能，每个功能允许驱动一个（且仅一个）中断引脚。 |
+| When PCI was developed, a typical system used a chipset that included the 15-input 8259 PIC, so that's how many IRQs (which map to interrupt vectors) that were available to the system. | 在开发 PCI 时，典型系统使用的芯片组包含 15 路输入的 8259 PIC，因此系统可用的 IRQ（映射到中断向量）数量就是这么多。 |
+| However, many of those were already used for system purposes like the system timer, keyboard interrupt, mouse interrupt, and so on. | 然而，其中许多已被用于系统用途，如系统定时器、键盘中断、鼠标中断等。 |
+| In addition, some pins were reserved for ISA cards that could still be plugged into these older systems. | 此外，一些引脚被保留给仍可插入这些老旧系统的 ISA 卡。 |
+| Consequently, the PCI spec writers considered that only four IRQs would reliably be available for their new bus, and so the spec only supported four interrupt pins. | 因此，PCI 规范制定者认为其新总线只能可靠地使用四个 IRQ，故该规范仅支持四个中断引脚。 |
+| However, as you probably know, there are typically more than four PCI devices on a PCI bus and even a single device could have more than four functions inside, each wanting its own interrupt. | 然而，如你所知，一条 PCI 总线上通常有超过四个 PCI 设备，甚至单个设备内部也可能有超过四个功能，每个功能都需要自己的中断。 |
+| These reasons are why the PCI interrupts were designed to be level-sensitive and shareable. | 正是由于这些原因，PCI 中断被设计为电平敏感且可共享。 |
+| These signals could simply be wire-ORed together to get down to a handful of resulting outputs, each one representing interrupt requests. | 这些信号只需通过线或方式连接在一起，即可减少为少数几个输出结果，每个结果代表一个中断请求。 |
+| Since they are shared, when an interrupt is detected, the interrupt handler software will need to go through the list of functions that are sharing the same pin and test to see which ones need servicing. | 由于它们是共享的，当检测到中断时，中断处理程序软件需要遍历共享同一引脚的函数列表，并逐一检查哪些函数需要服务。 |
 
-<table>
-<tr>
-<td width="50%">
-4. The CPU reads from the specified address, but now the data is found in the intermediate cache and so the request does not go to system memory. This has the usual benefits we'd expect from a cache design: faster access time as well as reduced traffic for the system memory.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-4. CPU从指定地址读取，但现在数据在中间缓存中找到，因此请求无需到达系统内存。这带来了缓存设计的常见好处：更快的访问时间以及减少系统内存的流量。
-</td>
-</tr>
-</table>
+## Determining INTx# Pin Support | 确定 INTx# 引脚支持
 
-<table>
-<tr>
-<td width="50%">
-This is a simple Device Write to Host Read (DWHR) example to illustrate the concept but it wouldn't be hard to imagine a more complex system with a much larger topology in which there could be other caches placed in Switches or other locations to achieve the same benefits for other targets.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-这是一个简单的设备写主机读（DWHR）示例，用于说明该概念。不难想象一个具有更大拓扑的更复杂系统，其中可以在Switch或其他位置放置其他缓存，从而为其他目标实现相同的益处。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| PCI functions indicate support for an INTx# signal in their configuration headers. The read‑only Interrupt Pin register illustrated in Figure 17‑5 indicates whether an INTx# is supported by this function and if so, which interrupt pin will it assert when requesting an interrupt. | PCI 功能在配置头中指示对 INTx# 信号的支持。如图 17‑5 所示的只读中断引脚寄存器指示该功能是否支持 INTx#，如果支持，则在请求中断时将断言哪一根中断引脚。 |
 
-Figure 20‐12: TPH Example with System Cache | 图20‐12：带系统缓存的TPH示例  
-<img src="images/part06_dc3acfa9fc127750cf49c912aa35a41135e7784dd6ba7e02af40a4f6c0852658.jpg" width="700" alt="">
+Figure 17‑5: Interrupt Registers in PCI Configuration Header | 图17‑5：PCI配置头中的中断寄存器
 
-<table>
-<tr>
-<td width="50%">
-Host Write to Device Read. To illustrate the concept going the other way (called Host Write to Device Read or HWDR), consider the example shown in Figure 20‐13 on page 903. In this example, the CPU initiates a memory write whose address targets the PCIe Endpoint in step one. The packet contains TPH bits that tell the RC that it should be stored in an intermediate cache near the target, instead of the cache in the RC that was used in the previous example. In this case a cache built into the Switch serves the purpose. The TLP is then forwarded on to the target Endpoint in step two. This model is beneficial when the data is updated infrequently but read often by the Endpoint. That allows several memory reads that would normally go to system memory to be handled by the cache instead, off loading both the Link from the Switch to the RC and the path to memory.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-主机写设备读。为说明反向的概念（称为主机写设备读或HWDR），请考虑第903页图20-13所示的示例。在此示例中，CPU发起一个内存写操作，其地址指向PCIe Endpoint，这是第一步。该数据包包含TPH位，告知RC应将其存储在目标附近的中间缓存中，而不是之前示例中使用的RC内部的缓存。在此情况下，Switch内置的缓存起到了作用。然后TLP在第二步中转发到目标Endpoint。当数据不经常更新但被Endpoint频繁读取时，此模型非常有益。这使得原本需要访问系统内存的多次内存读取可以由缓存处理，从而减轻了从Switch到RC的链路以及内存路径的负载。
-</td>
-</tr>
-</table>
+<img src="images/part05_a59550f116cdf6a523de94de6495aaa642e867c00de61b348bffde0cc0df5cea.jpg" width="700" alt="">
 
-Figure 20‐13: TPH Usage for TLPs to Endpoint | 图20‐13：TPH在到端点的TLP中的使用  
-<img src="images/part06_8bdff8cf16b9c4b579a1b72f34cfe9194b15ca2028f765db20af4086de418717.jpg" width="700" alt="">
+## Interrupt Routing | 中断路由
 
-<table>
-<tr>
-<td width="50%">
-Device to Device. One last example is illustrated in Figure 20‐14 on page 904, where two Endpoints communicate with each other (called Device Read/ Write to Device Read/Write or D\*D\*) through a shared memory location that is directed by TPH bits to an intermediate cache. In this case, both may update different locations that they need to handle as "read mostly", or one Endpoint may update data that the other needs to read several times. In both cases, using the intermediate cache improves system performance.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-设备到设备。最后一个示例如第904页图20-14所示，其中两个Endpoint通过由TPH位导向中间缓存的共享内存位置相互通信（称为设备读/写到设备读/写或D\*D\*）。在此情况下，两者可能更新各自需要作为"主要读取"处理的不同位置，或者一个Endpoint可能更新另一个需要多次读取的数据。在这两种场景中，使用中间缓存都能提升系统性能。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| The Interrupt Line register shown in Figure 17-5 on page 801 gives the next information that a driver needs to know: the input pin of the PIC to which this pin has been connected. The PIC is programmed by system software with a unique vector number for each input pin (IRQ). The vector for the highest-priority interrupt asserted is reported to the processor who then uses that vector to index into a corresponding entry in the interrupt vector table. This entry points to the interrupting device's interrupt service routine which the processor executes. | 图17-5（第801页）所示的中断线（Interrupt Line）寄存器提供了驱动程序需要了解的下一个信息：即此引脚所连接到的PIC的输入引脚。系统软件为PIC的每个输入引脚（IRQ）编程分配一个唯一的向量号。被断言的最高优先级中断的向量被报告给处理器，处理器随后使用该向量索引到中断向量表中的相应条目。该条目指向发起中断的设备的中断服务例程，并由处理器执行。 |
+| The platform designer assigns the routing of INTx# pins from devices. They can be routed in a variety of ways, but ultimately each INTx# pin connects to an input of the interrupt controller. Figure 17-6 on page 803 illustrates an example in which several PCI device interrupts are connected to the interrupt controller through a programmable router. All signals connected to a given input of the programmable router will be directed to a specific input of the interrupt controller. Functions whose interrupts are routed to a common interrupt controller input will all have the same Interrupt Line number assigned to them by platform software (typically firmware). In this example, IRQ15 has three PCI INTx# inputs from different devices connected to it. Consequently, the functions using these INTx# lines will share IRQ15 and will therefore all cause the controller to send the same vector when queried. That vector will have the three ISRs for the different Functions chained together. | 平台设计者分配设备INTx#引脚的路由。它们可以通过多种方式路由，但最终每个INTx#引脚都连接到中断控制器的一个输入。图17-6（第803页）展示了一个示例，其中多个PCI设备中断通过可编程路由器连接到中断控制器。所有连接到可编程路由器某一给定输入的信号都将被导向中断控制器的特定输入。其中断被路由到同一中断控制器输入的功能，都将由平台软件（通常是固件）分配相同的中断线（Interrupt Line）编号。在此示例中，IRQ15连接了来自不同设备的三个PCI INTx#输入。因此，使用这些INTx#线的功能将共享IRQ15，从而在查询时都会导致控制器发送相同的向量。该向量将包含不同功能的三个ISR链式执行。 |
+
+## Associating the INTx# Line to an IRQ Number | 将 INTx# 线关联到 IRQ 号
+
+| EN | ZH |
+|---|---|
+| Based on system requirements, the router is programmed to connect its four inputs to four available PIC inputs. Once this is done, the routing of the INTx# pin associated with each function is known and the Interrupt Line number is written by software into each Function. The value is ultimately read by the Function's device driver so it will know which interrupt table entry it has been assigned. That's the place where the starting address of its ISR will be written, a process referred to as "hooking the interrupt". When this function later generates an interrupt, the CPU will receive the vector number that corresponds to the IRQ specified in the Interrupt Line register. The CPU uses this vector to index into the interrupt vector table to fetch the entry point of the interrupt service routine associated with the Function's device driver. | 根据系统需求，路由器被编程以将其四个输入连接到四个可用的PIC输入。完成后，与每个功能关联的INTx#引脚的布线已知，软件将中断线号写入每个功能。该值最终由功能的设备驱动程序读取，以便驱动程序知道它被分配了哪个中断表条目。这是其ISR起始地址将被写入的位置，这一过程称为"挂接中断"。当该功能随后产生中断时，CPU将收到与中断线寄存器中指定的IRQ对应的向量号。CPU使用该向量索引中断向量表，以获取与该功能设备驱动程序关联的中断服务例程的入口点。 |
+
+Figure 17-6: INTx Signal Routing is Platform Specific | 图17-6：INTx信号路由是平台相关的
+
+<img src="images/part05_c59f2669195aa3ca43b73e5c385f3bac6bace9cd6bcb316f68852f0c8848d86c.jpg" width="700" alt="">
+
+## INTx# 信号传输
+
+| EN | ZH |
+|---|---|
+| The INTx# lines are active-low signals implemented as open-drain with a pullup resistor provided on each line by the system. Multiple devices connected to the same PCI interrupt request signal line can assert it simultaneously without damage. | INTx# 信号线是低电平有效信号，采用开漏实现，每条信号线由系统提供上拉电阻。连接到同一 PCI 中断请求信号线的多个设备可以同时将其置为有效而不会造成损坏。 |
+| When a Function signals an interrupt it also sets the Interrupt Status bit located in the Status register of the config header. This bit can be read by system software to see if an interrupt is currently pending. (See Figure 17-8 on page 805.) | 当功能（Function）发出中断信号时，它还会设置配置头状态寄存器中的中断状态位。系统软件可以读取该位以查看当前是否有中断挂起。（参见第 805 页的图 17-8。） |
+| Interrupt Disable. The 2.3 PCI spec added an Interrupt Disable bit (Bit 10) to the Command register of the config header. See Figure 17-7 on page 804. The bit is cleared at reset permitting INTx# signal generation, but software may set it to prevent that. Note that the Interrupt Disable bit has no effect on Message Signalled Interrupts (MSI). MSIs are enabled via the Command Register in the MSI Capability structure. Enabling MSI automatically has the effect of disabling interrupt pins or emulation. | 中断禁用。PCI 2.3 规范在配置头的命令寄存器中添加了中断禁用位（位 10）。参见第 804 页的图 17-7。复位时该位被清零，允许生成 INTx# 信号，但软件可设置该位以禁止生成 INTx# 信号。注意，中断禁用位对消息信号中断（MSI）无效。MSI 通过 MSI 能力结构中的命令寄存器使能。使能 MSI 会自动禁用中断引脚或仿真。 |
+| Interrupt Status. The PCI 2.3 spec added a read-only Interrupt Status bit to the configuration status register (pictured in Figure 17-8 on page 805). A function must set this status bit when an interrupt is pending. In addition, if the Interrupt Disable bit in the Command register of the header is cleared (i.e. interrupts enabled), then the function's INTx# signal is asserted when this status bit is set. This bit is unaffected by the state of the Interrupt Disable bit. | 中断状态。PCI 2.3 规范在配置状态寄存器中添加了只读的中断状态位（如图 17-8 所示，第 805 页）。当有中断挂起时，功能必须设置该状态位。此外，如果配置头命令寄存器中的中断禁用位被清零（即中断使能），则当该状态位被设置时，功能的 INTx# 信号被置为有效。该位不受中断禁用位状态的影响。 |
+
+Figure 17-7: Configuration Command Register — Interrupt Disable Field | 图17-7：配置命令寄存器 — 中断禁用字段
+
+Figure 17-8: Configuration Status Register — Interrupt Status Field | 图17-8：配置状态寄存器 — 中断状态字段
+<img src="images/part05_e43fb776b10ab126cf1cbc3724644203bc5a08ddf32f156b4401ce9aa3343d35.jpg" width="700" alt="">
+
+<img src="images/part05_0b951b286ad62923ae65ad5060936c667325716e9bca0c04433269d7846f0722.jpg" width="700" alt="">
+
+## 17.2.3 Virtual INTx Signaling | 17.2.3 虚拟 INTx 信令
+
+| EN | ZH |
+|---|---|
+| ## Virtual INTx Signaling | ## 虚拟 INTx 信令 |
+
+| EN | ZH |
+|---|---|
+| ## General | ## 概述 |
+| If circumstances make the use of MSI not possible in a PCIe topology, the INTx signaling model would be used. Following are two examples of devices that would need to be able to use INTx messages: | 如果在PCIe拓扑中因情况所限无法使用MSI，则将采用INTx信令模型。以下是两个需要使用INTx消息的设备示例： |
+| PCIe‐to‐(PCI or PCI‐X) bridges — Most PCI devices will use the INTx# pins because MSI support is optional for them. Since PCIe doesn't support sideband interrupt signaling, the inband messages are used instead. The interrupt controller understands the message and delivers an interrupt request to the CPU which would include a pre‐programmed vector number. | PCIe转(PCI或PCI-X)桥 — 大多数PCI设备将使用INTx#引脚，因为MSI支持对它们是可选的。由于PCIe不支持边带中断信令，因此改用带内消息。中断控制器理解该消息并向CPU发送中断请求，其中包含预编程的中断向量号。 |
+| Boot Devices — PC systems commonly use the legacy interrupt model during the boot sequence because MSI usually requires OS‐level initialization. Generally, a minimum of three subsystems are needed for booting: an output to the operator such as video, an input from the operator which is typically the keyboard, and a device that can be used to fetch the OS, typically a hard drive. PCIe devices involved in initializing the system are called "boot devices." Boot devices will use legacy interrupt support until the OS and device drivers are loaded, after which it's preferable they use MSI. | 引导设备 — PC系统在引导序列期间通常使用传统中断模型，因为MSI通常需要操作系统级初始化。通常，引导至少需要三个子系统：面向操作者的输出设备（如显示器）、来自操作者的输入设备（通常是键盘）、以及可用于获取操作系统的设备（通常是硬盘）。参与系统初始化的PCIe设备称为"引导设备"。在操作系统和设备驱动程序加载完成之前，引导设备将使用传统中断支持，之后它们最好使用MSI。 |
+
+## Virtual INTx Wire Delivery | 虚拟 INTx 线传递
+
+| EN | ZH |
+|---|---|
+| ## Virtual INTx Wire Delivery | ## 虚拟INTx线传送 |
+| Figure 17‐9 on page 806 illustrates a system with a PCIe Endpoint and a PCI Express‐to‐PCI Bridge. If we assume software has not enabled MSI on the Endpoint, it will deliver interrupt requests with INTx messages. In this example, the bridge is propogating pin‐based interrupts from connected PCI devices with INTx messages. As can be seen, the bridge sends an INTB messages to signal the assertion and deassertion of its INTB# input from the PCI bus. The PCIe Endpoint is shown signaling an INTA using emulation messages. Note that INTx# signaling involves two messages: | 第806页的图17‑9展示了一个包含PCIe端点和PCI Express到PCI桥接器的系统。假设软件未在端点上启用MSI，端点将通过INTx消息传递中断请求。在此示例中，桥接器通过INTx消息传播来自所连接PCI设备的引脚中断。如图所示，桥接器发送INTB消息以表示来自PCI总线的INTB#输入的断言和解除断言。PCIe端点被显示为使用仿真消息发出INTA信号。请注意，INTx#信号传送涉及两条消息： |
+| Assert\_INTx messages indicate a high‐to‐low transition (from inactive to active) of the virtual INTx# signal. | Assert_INTx消息表示虚拟INTx#信号的高到低跳变（从不活跃到活跃）。 |
+| • Deassert\_INTx messages indicate a low‐to‐high transition. | • Deassert_INTx消息表示低到高跳变。 |
+| When a Function delivers an Assert\_INTx message, it also sets its Interrupt Status bit in the Configuration Status register, just as it would if it asserted the physical INTx# pin (see Figure 17‐8 on page 805). | 当功能发送Assert_INTx消息时，它还会在配置状态寄存器中设置其中断状态位，就像它断言物理INTx#引脚时一样（参见第805页的图17‑8）。 |
+| Figure 17‐9: Example of INTx Messages to Virtualize INTA#‐INTD# Signal Transitions | 图17‑9：用于虚拟化INTA#‑INTD#信号跳变的INTx消息示例 |
+
+Figure 17‐9: Example of INTx Messages to Virtualize INTA#‐INTD# Signal Transitions | 图17‐9：用于虚拟化INTA#-INTD#信号转换的INTx消息示例  
+<img src="images/part05_e54fb57f63b4fc4597cda9f8095c4c6c5cdcd465d3edbd4c61d0941ff432a9ee.jpg" width="700" alt="">
+
+| EN | ZH |
+| --- | --- |
+| Figure 17‐10 on page 807 depicts the format of the INTx message header. The interrupt controller is the ultimate destination of these messages, however the routing method employed is not "Route to the Root Complex", but is actually "Local - Terminate at Receiver" as shown in Figure 17‐10. There are two reasons for this. The first is because each bridge (including Switch Ports and Root Ports) along the upstream path may map the virtual interrupt wire to a different virtual interrupt wire across the bridge (e.g., a Switch Port receives Assert\_INTA but maps it to Assert\_INTB when propogating it upstream). More info about this INTx mapping can be found in "INTx Mapping" on page 808. | 图17-10（第807页）描述了INTx消息头的格式。中断控制器是这些消息的最终目的地，然而其所采用的路由方式并非"路由到根复合体"，而是如图17-10所示的"本地——在接收端终止"。这有两个原因。第一，因为上游路径上的每个桥（包括交换端口和根端口）都可能将虚拟中断线映射为穿过该桥的另一条不同的虚拟中断线（例如，某个交换端口接收了Assert\_INTA，但在向上游传播时将其映射为Assert\_INTB）。有关此INTx映射的更多信息，请参见第808页的"INTx映射"。 |
+| The second reason for the local routing type of these messages is due to the fact that we're emulating a pin-based signal. If a port receives an assert interrupt message that maps to INTA on its primary side and it has already sent an Assert\_INTA message upstream because of a previous interrupt, then there is no reason to send another one. INTA is already seen as asserted. More info about this collapsing of INTx messages can be found in "INTx Collapsing" on page 810. | 这些消息采用本地路由类型的第二个原因是，我们正在模拟基于引脚的中断信号。如果一个端口在其主侧收到一个映射到INTA的中断断言消息，而它由于之前的中断已经向上游发送过Assert\_INTA消息，那么就没有必要再发送一个。INTA已经被视为已断言。有关此INTx消息合并的更多信息，请参见第810页的"INTx合并"。 |
+
+Figure 17‐10: INTx Message Format and Type | 图17‐10：INTx消息格式和类型  
+<img src="images/part05_1f4256f11b306fc9107e7a4cff68dbc371071fec0b1c66b1cf237c0bb3568c2e.jpg" width="700" alt="">
+
+## 17.2.4 Mapping and Collapsing INTx Messages | 17.2.4 映射和合并 INTx 消息
 
 | EN | ZH |
 |----|-----|
-| ## PCI Express Technology | ## PCI Express 技术 |
-| Figure 20‐14: TPH Usage Between Endpoints | 图 20-14：端点间的 TPH 使用 |
+| ## Mapping and Collapsing INTx Messages | ## 映射与合并 INTx 消息 |
 
-<img src="images/part06_8c20700aad3cc2dcfc4a16364e83d6b49443149cd7f4ff649f6836e6dd77f06f.jpg" width="700" alt="">
-
-## TPH Header Bits | TPH头部比特位
-
-| EN | ZH |
-|---|---|
-| Several bits in the TLP header describe how the hints are used. First, as shown in the middle at the top of Figure 20‐15 on page 905, the TH (TLP Hints) bit reports whether the optional TPH bits are in use for the TLP. When set, the PH (Processing Hint bits) indicate the next level of information. | TLP头部中的若干比特位描述了这些提示（hints）的使用方式。首先，如第905页图20-15顶部中间所示，TH（TLP提示）比特位指示该TLP是否使用了可选的TPH比特位。当该位置位时，PH（处理提示比特位）指示下一级信息。 |
-| When the TH bit is set the PH bits, shown at the bottom right of Figure 20‐15 on page 905, take the place of what were the two reserved LSBs in the address field. For a 32‐bit address, these are byte 11 [1:0], while for the 64‐bit address shown, they are byte 15 [1:0]. Their encoding is described in Table 20‐1 on page 905. These hints are provided by the Requester based on knowledge of the data patterns in use, which is information that would be difficult for a Completer to deduce on its own. | 当TH比特位置位时，PH比特位（如图20-15右下角所示）取代了地址字段中原先的两个保留最低有效位（LSB）。对于32位地址，这两个比特位位于字节11 [1:0]；而对于所示的64位地址，它们位于字节15 [1:0]。其编码方式在第905页的表20-1中描述。这些提示由请求者（Requester）根据对当前使用中的数据模式的了解而提供，这是完成者（Completer）难以自行推导的信息。 |
-| The next level of information is the Steering Tag byte that provides system‑specific information regarding the best place to cache this TLP. Interestingly, the location of this byte in the header varies depending on the Request type. For Posted Memory Writes the Tag field is repurposed to be the Steering Tag (no completion will be returned so the Tag isn’t needed), while for Memory Reads the two Byte Enable fields are repurposed for it (byte enables are not needed for pre‑fetchable reads). The meaning of the bits is implementation specific but they need to uniquely identify the location of the desired cache in the system. | 下一级信息是导向标签（Steering Tag）字节，它提供关于缓存此TLP的最佳位置的系统特定信息。有趣的是，该字节在头部中的位置因请求类型而异。对于推送内存写请求（Posted Memory Writes），标签字段被重新用作导向标签（不会返回完成报文，因此不需要标签）；而对于内存读请求（Memory Reads），两个字节使能字段被重新用于此目的（预取读不需要字节使能）。这些比特位的含义是具体实现相关的，但它们必须唯一地标识系统中目标缓存的位置。 |
-| Two formats for TPH are described in the spec and this level of hint information (TH + PH + 8‑bit Steering Tag), called Baseline TPH, is the first and is required of all Requests that provide TPH. The second format uses TLP Prefixes to extend the Steering Tags (see "TLP Prefixes" on page 908 for more detail). | 规范描述了两种TPH格式。这种提示信息级别（TH + PH + 8位导向标签）称为基线TPH（Baseline TPH），是第一种格式，所有提供TPH的请求都必须支持。第二种格式使用TLP前缀来扩展导向标签（更多详情请参见第908页的"TLP前缀"）。 |
-
-Figure 20‐15: TPH Header Bits | 图20‐15：TPH头部位
-
-<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="4">+1</td><td colspan="4">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>F</td><td>TH</td><td>T</td><td>EP</td><td>Attr</td><td>AT</td></tr><tr><td>Byte 4</td><td colspan="8">Requester ID</td><td colspan="3">Tag</td><td>Last DW BE</td></tr><tr><td>Byte 8</td><td colspan="12">Address [63:32]</td></tr><tr><td>Byte 12</td><td colspan="12">Address [31:2]</td></tr></table>
-
-Table 20‐1: PH Encoding Table | 表20‐1：PH编码表
-
-<table><tr><td>PH [1:0]</td><td>Processing Hint</td><td>Usage Model</td></tr><tr><td>00b</td><td>Bi-directional data structure</td><td>Indicates frequent read/write access by Host and device.</td></tr><tr><td>01b</td><td>Requester</td><td>D*D* (device-to-device transfers). Indicates frequent read/write access by device. The asterisk means either device could be reading or writing.</td></tr><tr><td>10b</td><td>Target</td><td>DWHR, HWDR (device-to-host or host-to-device transfers). Indicates frequent read/write access by Host.</td></tr><tr><td>11b</td><td>Target with Priority</td><td>Same as Target but with additional temporal re-use priority information. Indicates frequent read/write access by Host and high temporal locality for accessed data.</td></tr></table>
-
-## Steering Tags | 导向标签
-
-| EN | ZH |
-|---|---|
-| These values are programmed by software into a table to be used during normal operation. The spec recommends that the table be located in the TPH Requester Capability structure, shown in Figure 20-16 on page 906, but it can alternatively be built into the MSI-X table instead. Only one or the other of these table locations can be used for a given Function. The location is given in the ST Table Location field [10:9] of the Requester Capability register, shown in Figure 20-17 on page 907. The encoding of these 2 bits is shown in Table 20-2 on page 907. | 这些值由软件编程到一张表中，在正常操作期间使用。规范建议将该表置于 TPH 请求者能力结构中（见第 906 页图 20-16），但也可以将其内建于 MSI-X 表中。对于给定的功能，只能使用这两种表位置之一。该位置由请求者能力寄存器（见第 907 页图 20-17）中 ST 表位置字段 [10:9] 给出。这 2 位的编码见第 907 页表 20-2。 |
-
-Figure 20-16: TPH Requester Capability Structure | 图20-16：TPH请求者能力结构
-
-<table><tr><td>PCI Express Capabilities Register</td><td>Next Cap Pointer</td><td>PCI Express Cap ID (17h)</td></tr><tr><td colspan="3">TPH Requester Capability Register</td></tr><tr><td colspan="3">TPH Requester Control Register</td></tr><tr><td colspan="3">TPH ST Table (optional)(Sized by number of ST entries)</td></tr></table>
-
-| EN | ZH |
-|---|---|
-| ## Chapter 20: Updates for Spec Revision 2.1 | ## 第20章：规范修订版 2.1 的更新 |
-
-Figure 20‐17: TPH Capability and Control Registers | 图20‐17：TPH能力和控制寄存器
-<img src="images/part06_f2751ae1b9737f137986eecb5a887722e61077b755c3fb05ded33d3f0e06e0dd.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| Table 20‐2: ST Table Location Encoding | 表 20‑2：ST 表位置编码 |
-
-<table><tr><td>Bits [10:9]</td><td>ST Table Location</td></tr><tr><td>00b</td><td>Not present</td></tr><tr><td>01b</td><td>Located in the Requester Capability structure</td></tr><tr><td>10b</td><td>Located in the MSI-X table</td></tr><tr><td>11b</td><td>Reserved</td></tr></table>
-
-## PCI Express Technology | PCI Express 技术
-
-| EN | ZH |
-|---|---|
-| The Requester Capability register lists the number of entries in the ST Table in bits [26:16]. Each table entry is 2 bytes wide, and the ST Table implemented in the TPH Capability register set is shown in Figure 20-18 on page 908, where entry zero is highlighted. The Requester Capability register also describes which ST Modes are supported for the Requester with the 3 LSBs: | Requester Capability 寄存器在位 [26:16] 中列出 ST 表中的条目数。每个表条目宽度为 2 字节，在 TPH Capability 寄存器集中实现的 ST 表如图 20-18（第 908 页）所示，其中条目零被突出显示。Requester Capability 寄存器还通过最低 3 位描述了该请求者支持哪些 ST 模式： |
-| • No ST — uses zeros for ST bits. Selected in the TPH Requester Control register's ST Mode Select field when the value = 000b. | • No ST — ST 位使用零。在 TPH Requester Control 寄存器的 ST Mode Select 字段中当值为 000b 时选择此模式。 |
-| Interrupt Vector — uses the interrupt vector number as the offset into the table, meaning the values are contained in the MSI-X table. (ST Mode Select value = 001b.) | Interrupt Vector — 使用中断向量号作为表的偏移量，意味着这些值包含在 MSI-X 表中。（ST Mode Select 值 = 001b。） |
-| Device-Specific — uses a device-specific method to offset into the ST Table in the TPH Capability structure because the ST values are located there. This is the recommended implementation, although how a given Request is associated with a particular ST entry is outside the scope of the spec. (ST Mode Select value = 010b.) | Device-Specific — 使用设备特定的方法作为 ST 表的偏移量以访问 TPH Capability 结构中的 ST 表，因为 ST 值位于该处。这是推荐的实现方式，但特定请求如何与特定 ST 条目相关联不在规范范围内。（ST Mode Select 值 = 010b。） |
-| • All other ST Mode Select encodings are reserved for future use. | • 所有其他 ST Mode Select 编码保留供将来使用。 |
-
-Figure 20-18: TPH Capability ST Table | 图20-18：TPH能力ST表
-
-<table><tr><td>ST Upper Entry (1)</td><td>ST Lower Entry (1)</td><td>ST Upper Entry (0)</td><td>ST Lower Entry (0)</td></tr><tr><td>ST Upper Entry (3)</td><td>ST Lower Entry (3)</td><td>ST Upper Entry (2)</td><td>ST Lower Entry (2)</td></tr><tr><td>ST Upper Entry(Table Size)</td><td>ST Lower Entry(Table Size)</td><td>ST Upper Entry(Table Size - 1)</td><td>ST Lower Entry(Table Size - 1)</td></tr></table>
-
-## TLP Prefixes | TLP前缀
-
-| EN | ZH |
-|---|---|
-| The Steering Tag bits can be extended with the addition of optional TLP Prefixes if needed. When one or more Prefixes are given with the TLP, the header reports it by setting the most significant bit in the Format field, as shown in Figure 20-19 on page 909. | Steering Tag位可通过添加可选的TLP前缀进行扩展。当一个或多个前缀随TLP一起给出时，头部通过设置Format字段中的最高有效位来报告该情况，如第909页图20-19所示。 |
-
-Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
-
-<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td>Byte 0</td><td>Fmt1</td><td>0</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TDP</td><td>Attr</td><td>AT</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="9">Requester ID</td><td colspan="3">Tag</td><td>Last DWBE</td><td>1st DWBE</td></tr><tr><td>Byte 8</td><td colspan="14">Address [63:32]</td></tr><tr><td>Byte 12</td><td colspan="13">Address [31:2]</td><td>PH</td></tr></table>
-
-## 20.3.3 IDO (ID-based Ordering) | 20.3.3 IDO（基于 ID 的排序）
+## INTx Mapping | INTx 映射
 
 | EN | ZH |
 | --- | --- |
-| Transaction ordering rules are important for proper traffic flow, but there are times when it’s not necessary and latencies can be improved in those cases. In particular, TLPs from different Requesters are very unlikely to have dependencies between them, so this feature allows software to enable them to be re‑ordered for improved performance. The details of this operation are described in the section called “ID Based Ordering (IDO)” on page 301. | 事务排序规则对于正确的流量流通非常重要，但有时并无必要，在这些情况下可以改善延迟。特别是，来自不同请求者的TLP之间极不可能存在依赖关系，因此该特性允许软件启用它们重新排序以提升性能。该操作的详细信息在第301页的"基于ID的排序(IDO)"一节中描述。 |
+| Switches must adhere to the INTx mapping defined by the PCI spec, shown in Table 17-1 on page 809. This mapping defines the virtual connection that exists when interrupts are routed across a PCI-to-PCI bridge. The mapping is based on the INTx message type and the Device number from the Requester ID field in the message. | 交换器必须遵循 PCI 规范定义的 INTx 映射，如第 809 页的表 17-1 所示。该映射定义了中断通过 PCI-to-PCI 桥传输时存在的虚拟连接。该映射基于 INTx 消息类型和消息中请求者 ID（Requester ID）字段内的设备号（Device number）。 |
+| Refer to Figure 17-11 on page 810 for this example. The assert interrupt messages received on the two downstream switch ports are both INTA messages. The virtual PCI-to-PCI bridge at each of the ingress ports will map both INTA messages to INTA, meaning no change. This is because the Device number of both originating Endpoint devices is zero (which is contained in the interrupt message itself as part of the Requester ID, ReqID). Table 17-1 shows that interrupts messages coming from Device 0 map to the same INTx message on the other side of the bridge (i.e., internal to the Switch both INTA messages are mapped to INTA). So each downstream port will propogate the interrupt messages upstream without changing their virtual wire. However, the propogated interrupt messages no longer have the ReqID of the original requester, they now have the ReqID of the port that is propogating the interrupt message. | 请参见第 810 页的图 17-11 了解此示例。在两个下游交换器端口上收到的断言中断消息都是 INTA 消息。每个入口端口处的虚拟 PCI-to-PCI 桥会将两个 INTA 消息都映射到 INTA，即不做改变。这是因为两个源端端点的设备号均为零（该设备号包含在中断消息本身的请求者 ID（ReqID）中）。表 17-1 显示，来自设备 0 的中断消息在桥的另一侧映射到相同的 INTx 消息（即在交换器内部，两个 INTA 消息都映射到 INTA）。因此，每个下游端口将中断消息向上游传播，而不改变其虚拟连线。但是，传播后的中断消息不再具有原始请求者的 ReqID，而是具有传播该中断消息的端口的 ReqID。 |
+| Next, the upstream Switch Port receives the propogated interrupt messages. The INTA interrupt from port 2:1:0 is going to be mapped to an INTB message when progopated upstream because the interrupt message indicates it came from Device 1 (ReqID 2:1:0). The other interrupt being propogated by port 2:2:0 is going to be mapped to an INTC message when sent from the upstream Switch Port to the Root Port. Refer to Table 17-1 to confirm these mappings. | 接下来，上游交换器端口接收到传播后的中断消息。来自端口 2:1:0 的 INTA 中断在向上游传播时将映射到 INTB 消息，因为该中断消息表明其来自设备 1（ReqID 2:1:0）。由端口 2:2:0 传播的另一个中断在从上游交换器端口发送到根端口（Root Port）时将映射到 INTC 消息。请参考表 17-1 确认这些映射。 |
+| The reason for this interrupt mapping is the same as it was for PCI: to avoid as much as possible having multiple functions sharing the same INTx# pin. As stated previously, single function devices are required to use INTA if using legacy interrupts. So if all the Functions downstream of a Root Port used INTA and there was no mapping across bridges, they would all be routed to the same IRQ. Which means anytime one of the Functions asserted INTA, all the Functions would have to be checked. This would result in significant interrupt servicing latencies for the Functions at the end of the list. This interrupt mapping method is a crude attempt at distributing interrupts (especially INTA) across all four INTx virtual wires because each INTx virtual wire can be mapped to a separate IRQ at the interrupt controller. | 这种中断映射的原因与 PCI 相同：尽可能避免多个功能共享同一个 INTx# 引脚。如前所述，若使用传统中断，单功能设备必须使用 INTA。因此，如果根端口下游的所有功能都使用 INTA，且桥之间不存在映射，则它们都将路由到同一个 IRQ。这意味着只要其中一个功能断言了 INTA，就必须检查所有功能。这将导致列表末尾的功能出现显著的中断服务延迟。这种中断映射方法是一种粗略的尝试，旨在将中断（尤其是 INTA）分布到全部四条 INTx 虚拟连线上，因为每条 INTx 虚拟连线都可以映射到中断控制器上的独立 IRQ。 |
 
-## 20.3.4 ARI (Alternative Routing-ID Interpretation) | 20.3.4 ARI（替代路由ID解读）
+Table 17-1: INTx Message Mapping Across Virtual PCI-to-PCI Bridges / 表 17-1：跨虚拟 PCI-to-PCI 桥的 INTx 消息映射 | 表17-1：跨虚拟 PCI-to-PCI 桥的 INTx 消息映射
+
+<table><tr><td>Device Number of Delivering INTx</td><td>INTx Message Type at Input</td><td>INTx Message Type at Output</td></tr><tr><td rowspan="4">0, 4, 8, 12 etc.</td><td>INTA</td><td>INTA</td></tr><tr><td>INTB</td><td>INTB</td></tr><tr><td>INTC</td><td>INTC</td></tr><tr><td>INTD</td><td>INTD</td></tr><tr><td rowspan="4">1, 5, 9, 13 etc.</td><td>INTA</td><td>INTB</td></tr><tr><td>INTB</td><td>INTC</td></tr><tr><td>INTC</td><td>INTD</td></tr><tr><td>INTD</td><td>INTA</td></tr><tr><td rowspan="4">2, 6, 10, 14 etc.</td><td>INTA</td><td>INTC</td></tr><tr><td>INTB</td><td>INTD</td></tr><tr><td>INTC</td><td>INTA</td></tr><tr><td>INTD</td><td>INTB</td></tr><tr><td rowspan="4">3, 7, 11, 15 etc.</td><td>INTA</td><td>INTD</td></tr><tr><td>INTB</td><td>INTA</td></tr><tr><td>INTC</td><td>INTB</td></tr><tr><td>INTD</td><td>INTC</td></tr></table>
+
+Figure 17-11: Example of INTx Mapping | 图17-11：INTx映射示例
+
+<img src="images/part05_384c00450192fa5e4c8a68cb2bcbe564f85663b57aa3297a24d6b4964c665474.jpg" width="700" alt="">
+
+## INTx Collapsing | INTx 合并
 
 | EN | ZH |
-|----|----|
-| The motivation for this optional feature is to increase the number of Function numbers available to Endpoints. | 这一可选特性的动机是为了增加端点可用的功能号数量。 |
-| Device numbers were useful in a shared-bus architecture like PCI but are not usually needed in a point-to-point architecture. | 设备号在像PCI这样的共享总线架构中很有用，但在点到点架构中通常不需要。 |
-| Consequently, the spec writers chose to allow devices to interpret the destination for ID-routed commands differently. | 因此，规范编写者选择允许设备以不同方式解释ID路由命令的目的地。 |
-| This was accomplished by defining the Device number to always be zero and then allowing the Function number to use the 5 bits in the ID that were previously the Device number. | 这是通过将设备号始终定义为0，然后允许功能号使用ID中先前属于设备号的5个比特来实现的。 |
-| Effectively, the Device number goes away while the Function number grows to 8 bits. | 实际上，设备号消失，而功能号扩展为8比特。 |
-| The target for a TLP that uses ARI will need to be enabled to recognize it before software can use this feature, but Routing elements in the path to it don't have to be aware of this. | 使用ARI的TLP的目标端需要在软件使用此特性之前被使能以识别它，但通往该目标路径上的路由元件无需知道这一点。 |
-| They're only looking at the bus number to determine the routing. | 它们仅查看总线号来确定路由。 |
+|---|---|
+| PCIe Switches must ensure that INTx messages are delivered upstream in the correct fashion. Specifically, interrupt routing of legacy PCI implementations must be handled such that software can determine which interrupts are routed to which interrupt controller inputs. INTx# lines may be wire‑ORed and be routed to the same IRQ input on the interrupt controller, and when multiple devices signal interrupts on the same line, only the first assertion is seen by the interrupt controller. Similarly, when one of these devices deasserts its INTx# line, the line remains asserted until the last one is turned off. These same principles apply to PCIe INTx messages. | PCIe 交换机必须确保 INTx 消息以正确的方式向上游传递。具体而言，传统 PCI 实现的中断路由必须得到妥善处理，以便软件能够确定哪些中断被路由到哪个中断控制器输入。INTx# 线可以线或连接，并路由到中断控制器上的同一个 IRQ 输入，当多个设备在同一根线上发出中断信号时，中断控制器只会看到第一个断言。同样，当其中一个设备解除其 INTx# 线的断言时，该线将保持断言状态，直到最后一个设备关闭。这些相同原理也适用于 PCIe INTx 消息。 |
+| In some cases, however, two overlapping INTx messages may be mapped to the same INTx message by a virtual PCI bridge at the egress port, requiring the messages to be collapsed. Consider the following example illustrated in Figure 17‑12 on page 811. | 然而，在某些情况下，两个重叠的 INTx 消息可能会被出口端口的虚拟 PCI 桥映射到同一个 INTx 消息，这就要求将这些消息合并。请考虑第 811 页图 17-12 所示的示例。 |
+| When the upstream Switch Port maps the interrupt messages for delivery on the upstream link, both interrupts will be mapped as INTB (based on the device numbers of the downstream Switch Ports). Note that because these two overlapping messages are the same they must be collapsed. | 当上行交换机端口映射用于在上行链路上传递的中断消息时，两个中断都将被映射为 INTB（基于下行交换机端口的设备号）。请注意，由于这两个重叠的消息相同，因此必须合并。 |
+| Collapsing ensures that the interrupt controller will never receive two consecutive Assert_INTx or Deassert_INTx messages for the shared interrupts. This is equivalent to INTx signals being wire‑ORed. | 合并确保中断控制器永远不会收到两个连续的针对共享中断的 Assert_INTx 或 Deassert_INTx 消息。这等效于 INTx 信号进行线或处理。 |
 
-## 20.4 Power Management Improvements | 20.4 电源管理改进
+Figure 17-12: Switch Uses Bridge Mapping of INTx Messages | 图17-12：交换机使用INTx消息的桥映射
+
+<img src="images/part05_1039201c8cc27476bb6df13f0288b48f32e1951d1e3e0555224c8b8d47e579c5.jpg" width="700" alt="">
+
+## INTx Delivery Rules | INTx 传递规则
 
 | EN | ZH |
-|----|----|
-| There are four additions that improve the system's ability to manage power effectively, and they are listed here. All of these are covered in Chapter 16, entitled "Power Management," on page 703. | 有四项新增功能增强了系统有效管理功耗的能力，现列举如下。所有这些内容均涵盖于第703页开始的第16章"电源管理"中。 |
+|---|---|
+| The rules associated with the delivery of INTx messages have some unique characteristics: | 与 INTx 消息传递相关的规则具有一些独特特性： |
+| Assert_INTx and Deassert_INTx are only issued in the upstream direction. | Assert_INTx 和 Deassert_INTx 仅在向上游方向发出。 |
+| Switches that are collapsing interrupts will only issue INTx messages upstream when there is a change of the interrupt status. | 正在合并中断的交换机仅当中断状态发生变化时才会向上游发出 INTx 消息。 |
+| Devices on either side of a link must track the current state of INTA-INTD assertion. | 链路两侧的设备必须跟踪 INTA-INTD 断言的当前状态。 |
+| A Switch tracks the state of the four virtual wires for each of its downstream ports, and may present a collapsed set of virtual wires on its upstream port. | 交换机跟踪其每个下游端口的四条虚拟线的状态，并可在其上游端口呈现合并后的虚拟线集合。 |
+| The Root Complex must track the state of the four virtual wires (A-D) for each downstream port. | 根复合体必须跟踪每个下游端口的四条虚拟线（A-D）的状态。 |
+| INTx signaling may be disabled with the Interrupt Disable bit in the Command Register. | INTx 信令可通过命令寄存器中的中断禁用位来禁用。 |
+| If any INTx virtual wires are active and device interrupts are then disabled, a corresponding Deassert_INTx message must be sent. | 如果任何 INTx 虚拟线处于活动状态而后设备中断被禁用，则必须发送相应的 Deassert_INTx 消息。 |
+| If a downstream Switch Port goes to DL_Down status, any active INTx virtual wires must be deasserted, and the upstream port updated accordingly (Deassert_INTx message required if that INTx was in active state). | 如果下游交换机端口进入 DL_Down 状态，任何活动的 INTx 虚拟线必须被解除断言，并且上游端口相应更新（如果该 INTx 处于活动状态，则需要发送 Deassert_INTx 消息）。 |
 
-## DPA (Dynamic Power Allocation) | DPA（动态功率分配）
+## 17.3 The MSI Model | 17.3 MSI 模型
+
+| EN | ZH |
+|---|---|
+| A PCIe Function indicates MSI support via the MSI Capability registers. Each Function must implement either the MSI Capability Structure or the MSI‑X (eXtended MSI, see "The MSI‑X Model" on page 821) Capability Structure, or both. The MSI Capability registers are set up by configuration software and include: | PCIe 功能通过 MSI 能力寄存器指示其对 MSI 的支持。每个功能必须实现 MSI 能力结构或 MSI‑X（扩展 MSI，见第 821 页 "MSI‑X 模型"）能力结构，或两者都实现。MSI 能力寄存器由配置软件设置，包括： |
+| • Target memory address | • 目标存储器地址 |
+| • Data Value to be written to that address | • 要写入该地址的数据值 |
+| • The number of unique messages that can be encoded into the data | • 可编码到数据中的唯一消息数量 |
+| See "Memory Request Header Fields" on page 188 for a review of the Memory Write Transaction Header. Note that MSIs always have a data payload of 1DW. | 关于存储器写事务头标的回顾，请参见第 188 页的 "存储器请求头标字段"。注意，MSI 始终具有 1 双字的数据载荷。 |
+
+| EN | ZH |
+|---|---|
+| The MSI Capability Structure resides in the PCI‑compatible config space area (first 256 bytes). There are four variations of the MSI Capability Structure based on whether it supports 64‑bit addressing or only 32‑bit and whether it supports per vector masking or not. Native PCIe devices are required to support 64‑bit addressing. All four variations of the MSI Capability Structure can be found in Figure 17‑13 on page 813. | MSI能力结构位于PCI兼容配置空间区域（前256字节）。根据其是否支持64位寻址或仅支持32位寻址，以及是否支持每向量屏蔽，MSI能力结构有四种变体。原生PCIe设备必须支持64位寻址。图17‑13（第813页）展示了MSI能力结构的所有四种变体。 |
+
+Figure 17‑13: MSI Capability Structure Variations | 图17‑13：MSI能力结构变体
+
+<table><tr><td colspan="3">32-bit Address</td></tr><tr><td>Message Control</td><td>Next Capability Pointer</td><td>Capability ID (05h) DW0</td></tr><tr><td colspan="3">Message Address [31:0]</td></tr><tr><td></td><td>Message Data</td><td>DW1 DW2</td></tr><tr><td colspan="3">64-bit Address</td></tr><tr><td>Message Control</td><td>Next Capability Pointer</td><td>Capability ID (05h) DW0</td></tr><tr><td colspan="3">Message Address [31:0]</td></tr><tr><td colspan="3">Message Address [63:32]</td></tr><tr><td></td><td>Message Data</td><td>DW1 DW2 DW3</td></tr><tr><td colspan="3">32-bit Address with Per-Vector Masking</td></tr><tr><td>Message Control</td><td>Next Capability Pointer</td><td>Capability ID (05h) DW0</td></tr><tr><td colspan="3">Message Address [31:0]</td></tr><tr><td>Reserved</td><td>Message Data</td><td>DW1 DW2 DW3 DW4</td></tr><tr><td colspan="3">Mask Bits</td></tr><tr><td colspan="3">Pending Bits</td></tr><tr><td colspan="3">64-bit Address with Per-Vector Masking</td></tr><tr><td>Message Control</td><td>Next Capability Pointer</td><td>Capability ID (05h) DW0</td></tr><tr><td colspan="3">Message Address [31:0]</td></tr><tr><td colspan="3">Message Address [63:32]</td></tr><tr><td>Reserved</td><td>Message Data</td><td>DW1 DW2 DW3 DW4 DW5</td></tr><tr><td colspan="3">Mask Bits</td></tr><tr><td colspan="3">Pending Bits</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| ## Capability ID | ## 能力ID |
+| A Capability ID value of 05h identifies the MSI capability and is a read-only value. | Capability ID值为05h标识MSI能力，且为只读值。 |
+
+## Next Capability Pointer | 下一个能力指针
 
 | EN | ZH |
 | --- | --- |
-| A new set of extended configuration registers defines up to 32 sub‑states below D0. This allows software to easily make changes to a device's power state without incurring the latency penalty of going all the way to the D1 device power state. To learn more on this, see "Dynamic Power Allocation (DPA)" on page 714. | 一组新的扩展配置寄存器定义了D0以下的32个子状态。这使得软件能够轻松更改设备的电源状态，而无需承受直接进入D1设备电源状态所带来的延迟代价。欲了解更多信息，请参见第714页的"动态功耗分配（DPA）"。 |
+| The second byte of the register is a read-only value that gives the dword-aligned offset from the top of config space to the next Capability Structure in the linked list of structures or else contains 00h to indicate the end of the linked list. | 该寄存器的第二个字节是一个只读值，提供从配置空间顶部到结构链表中下一个能力结构的dword对齐偏移量，否则包含00h以指示链表结束。 |
 
 | EN | ZH |
 |---|---|
-| ## LTR (Latency Tolerance Reporting) | ## LTR（延迟容忍度报告） |
-| Allowing Endpoints to report the latencies they can tolerate in response to their requests enables system software to make better choices regarding system response time and sleep states. To learn more about this, see "LTR (Latency Tolerance Reporting)" on page 784. | 允许端点报告其在响应请求时可以容忍的延迟，使系统软件能够更好地选择系统响应时间和休眠状态。要了解更多信息，请参见第784页的"LTR（延迟容忍度报告）"。 |
+| ## Message Control Register | ## 消息控制寄存器 |
+| Figure 17‑14 on page 814 and Table 17‑2 on page 814 illustrate the layout and usage of the Message Control register. | 第814页的图17-14和第814页的表17-2说明了消息控制寄存器的布局和用法。 |
 
-## 20.4.3 OBFF (Optimized Buffer Flush and Fill) | 20.4.3 OBFF（优化缓冲区刷新与填充）
+Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
 
-<table>
-<tr>
-<td width="50%">
-Similarly, allowing the system to report the preferred time slots during which Endpoints should or should not initiate DMA or interrupt traffic helps coordinate system sleep times and improve power management. For more on this, see "OBFF (Optimized Buffer Flush and Fill)" on page 776.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-同样，允许系统报告端点应发起或不应发起DMA或中断流量的首选时隙，有助于协调系统休眠时间并改善电源管理。有关更多信息，请参见第776页的"OBFF（优化缓冲区刷新与填充）"。
-</td>
-</tr>
-</table>
-
-## 20.4.4 ASPM Options | 20.4.4 ASPM 选项
+<img src="images/part05_8a6a4a0cfb491543536acd16ab4683bf466a7c142a36180b2f75f4e228ca4dd3.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
-| This change simply permits devices to support no ASPM Link power management if they choose to do so. In the previous spec versions, support for L0s was mandatory, but now it becomes optional. | 这一改动只是允许设备自行选择不支持 ASPM 链路电源管理。在之前的规范版本中，对 L0s 的支持是强制的，而现在变为可选的。 |
+| Table 17‑2: Format and Usage of Message Control Register | 表17-2：消息控制寄存器的格式和用法 |
+
+<table><tr><td>Bit(s)</td><td>Field Name</td><td>Description</td></tr><tr><td>0</td><td>MSI Enable</td><td>Read/Write. State after reset is 0, indicating that the device's MSI capability is disabled.0 = Function isdisabledfrom using MSI. It must use MSI-X or else INTx Messages.1 = Function isenabledto use MSI to request service and won't use MSI-X or INTx Messages.</td></tr></table>
+
+| EN | ZH |
+|----|-----|
+| ## Chapter 17: Interrupt Support | ## 第17章：中断支持 |
+| Table 17-2: Format and Usage of Message Control Register (Continued) | 表17-2：消息控制寄存器的格式与用法（续） |
+
+<table><tr><td>Bit(s)</td><td>Field Name</td><td>Description</td></tr><tr><td rowspan="10">3:1</td><td rowspan="10">Multiple Message Capable</td><td>Read-Only. System software reads this field to determine how many messages (interrupt vectors) the Function would like to use. The requested number of messages is a power of two, therefore a Function that would like three messages must request that four messages be allocated to it.</td></tr><tr><td>Value Number of Messages Requested</td></tr><tr><td>000b 1</td></tr><tr><td>001b 2</td></tr><tr><td>010b 4</td></tr><tr><td>011b 8</td></tr><tr><td>100b 16</td></tr><tr><td>101b 32</td></tr><tr><td>110b Reserved</td></tr><tr><td>111b Reserved</td></tr><tr><td rowspan="10">6:4</td><td rowspan="10">Multiple Message Enable</td><td>Read/Write. After system software reads the Multi-ple Message Capable field (previous row in this table) to see how many messages (interrupt vec-tors) are requested by the Function, it programs a 3-bit value in this field indicating the actual num-ber of messages allocated to the Function. The number allocated can be equal to or less than the number actually requested. The state of this field after reset is 000b.</td></tr><tr><td>Value Number of Messages Requested</td></tr><tr><td>000b 1</td></tr><tr><td>001b 2</td></tr><tr><td>010b 4</td></tr><tr><td>011b 8</td></tr><tr><td>100b 16</td></tr><tr><td>101b 32</td></tr><tr><td>110b Reserved</td></tr><tr><td>111b Deferred</td></tr></table>
+
+## PCI Express 3.0 Technology | PCI Express 3.0 技术
+
+| EN | ZH |
+|---|---|
+| Table 17-2: Format and Usage of Message Control Register (Continued) | 表17-2：消息控制寄存器的格式与用途（续） |
+
+<table><tr><td>Bit(s)</td><td>Field Name</td><td>Description</td></tr><tr><td>7</td><td>64-bit Address Capable</td><td>Read-Only.0 = Function does not implement the upper 32 bits of the Message Address register; only a 32-bit address is possible.1 = Function implements the upper 32 bits of the Message Address register and is capable of generating a 64-bit memory address.</td></tr><tr><td>8</td><td>Per-Vector Masking Capable</td><td>Read-Only.0 = Function does not implement the Mask Bit register or the Pending Bit register; software does NOT have the ability to mask individual interrupts with this capability structure.1 = Function does implement the Mask Bit register or the Pending Bit register; software does have the ability to mask individual interrupts with this capability structure.</td></tr><tr><td>15:9</td><td>Reserved</td><td>Read-Only. Always zero.</td></tr></table>
+
+## Message Address Register | 消息地址寄存器
+
+| EN | ZH |
+| --- | --- |
+| The lower two bits of the 32-bit Message Address register are zero and cannot be changed, forcing the address assigned by software to be dword aligned. Typically, this would be the address of the Local APIC in the system CPU. In x86-based systems (Intel-compatible), this address has traditionally been FEEx_xxxxh where the lower 20 bits indicate which Local APIC is being targeted as well as some other info about the interrupt itself. It is important to note that how the address is interpreted is platform specific and is not dictated in the PCI or PCIe specs. | 32位消息地址寄存器的低两位固定为0且不可更改，强制软件分配的地址按双字对齐。通常，该地址指向系统CPU中的本地APIC。在基于x86的系统中（Intel兼容），该地址传统上为FEEx_xxxxh，其中低20位表示目标本地APIC以及中断本身的一些其他信息。需要注意的是，地址的解释方式与平台相关，PCI或PCIe规范未对此做出规定。 |
+| The register containing bits [63:32] of the Message Address are required for native PCI Express devices but is optional for legacy endpoints. This register is present if Bit 7 of the Message Control register is set. If so, it is a read/write register used in conjunction with the Message Address [31:0] register to enable a 64-bit memory address for interrupt delivery from this Function. | 包含消息地址位[63:32]的寄存器对于原生PCI Express设备是必需的，但对于传统端点是可选的。如果消息控制寄存器的位7被置位，则该寄存器存在。若是，它是一个读/写寄存器，与消息地址[31:0]寄存器配合使用，以启用从该功能发送中断的64位内存地址。 |
+
+## Message Data Register | 消息数据寄存器
+
+| EN | ZH |
+|----|----|
+| System software writes a base message data pattern into this 16-bit, read/write register. When the Function generates an interrupt request, it writes a 32-bit data value to the memory address specified in the Message Address register. The upper 16 bits of this data are always set to zero, while the lower 16 bits are supplied by the Message Data register. | 系统软件将一个基础消息数据模式写入这个16位读/写寄存器。当该Function产生中断请求时，它向Message Address寄存器指定的存储器地址写入一个32位数据值。该数据的高16位始终为零，低16位由Message Data寄存器提供。 |
+| If more than one message has been assigned to the Function, it modifies the lower bits (the number of modifiable bits depends on how many messages have been assigned to the Function by configuration software) of the Message Data register value to form the appropriate value for the event it wishes to report. As an example, refer to "Basics of Generating an MSI Interrupt Request" on page 820. | 如果该Function被分配了多个消息，它会修改Message Data寄存器值的低位（可修改的位数取决于配置软件为该Function分配了多少个消息），以形成其希望报告的事件所对应的适当值。例如，请参考第820页的"生成MSI中断请求的基本原理"。 |
+
+| EN | ZH |
+| :-- | :-- |
+| ## Mask Bits Register and Pending Bits Register | ## 屏蔽位寄存器（Mask Bits Register）与挂起位寄存器（Pending Bits Register） |
+| If the Function supports per-vector masking (indicated in bit [8] of the Message Control register) then these registers are present. The max number of interrupt messages (interrupt vectors) that can be requested and assigned to a Function using MSI is 32. So these two registers are 32 bits in length with each potential interrupt message having its own mask and pending bit. If bit [0] of the Mask Bits register is set, then interrupt message 0 is masked (this is the base vector from this Function). If bit [1] is set, then interrupt message 1 is masked (this is the base vector + 1). | 如果 Function 支持按向量屏蔽（由 Message Control 寄存器的 bit[8] 指示），则这些寄存器存在。使用 MSI 可请求并分配给一个 Function 的最大中断消息（中断向量）数量为 32。因此这两个寄存器均为 32 位长度，每个潜在的中断消息都有各自的屏蔽位和挂起位。如果 Mask Bits 寄存器的 bit[0] 被置位，则中断消息 0 被屏蔽（即该 Function 的基本向量）。如果 bit[1] 被置位，则中断消息 1 被屏蔽（即基本向量 + 1）。 |
+| When an interrupt message is masked, the MSI for that vector cannot be sent. Instead, the corresponding Pending Bit is set. This allows software to mask individual interrupts from a Function and then periodically poll the Function to see if there are any masked interrupts that are pending. | 当中断消息被屏蔽时，该向量的 MSI 无法发送。取而代之的是，相应的 Pending Bit 被置位。这允许软件屏蔽来自 Function 的单个中断，然后定期轮询该 Function，以查看是否有任何被屏蔽的中断处于挂起状态。 |
+| If software clears a mask bit and the corresponding pending bit is set, the Function must send the MSI request at that time. Once the interrupt message has been sent, the Function would clear the pending bit. | 如果软件清除某个屏蔽位，且对应的挂起位已被置位，则该 Function 必须立即发送 MSI 请求。当中断消息发送完成后，Function 应清除该挂起位。 |
+
+## 17.3.2 Basics of MSI Configuration | 17.3.2 MSI 配置基础
+
+The following list specifies the steps taken by software to configure MSI interrupts for a PCI Express device. Refer to Figure 17‐15 on page 819.
+
+| EN | ZH |
+|----|----|
+| ## Basics of MSI Configuration | ## MSI配置基础 |
+| The following list specifies the steps taken by software to configure MSI interrupts for a PCI Express device. Refer to Figure 17‐15 on page 819. | 以下列表指定了软件为PCI Express设备配置MSI中断所采取的步骤。参见第819页图17‐15。 |
+| 1. At startup time, enumeration software scans the system for all PCI‐compatible Functions (see "Single Root Enumeration Example" on page 109 for a discussion of the enumeration process). | 1. 在启动时，枚举软件扫描系统中所有PCI兼容功能（有关枚举过程的讨论，请参见第109页的"单根枚举示例"）。 |
+
+## PCI Express 3.0 技术
+
+| EN | ZH |
+|---|---|
+| 2. Once a Function is discovered software reads the Capabilities List Pointer, to find the location of the first capability structure in the linked list. | 2. 一旦发现某功能，软件读取能力列表指针，以找到链表中第一个能力结构的位置。 |
+| 3. If the MSI Capability structure (Capability ID of 05h) is found in the list, software reads the Multiple Message Capable field in the device's Message Control register to determine how many event-specific messages the device supports and if it supports a 64-bit message address or only 32-bit. Software then allocates a number of messages equal to or less than that and writes that value into the Multiple Message Enable field. At a minimum, one message will be allocated to the device. | 3. 如果在链表中找到MSI能力结构（能力ID为05h），软件读取设备消息控制寄存器中的多消息能力字段，以确定设备支持多少条事件特定消息，以及它支持64位消息地址还是仅支持32位。然后软件分配等于或小于该数量的消息数，并将该值写入多消息使能字段。至少会为设备分配一条消息。 |
+| 4. Software writes the base message data pattern into the device's Message Data register and writes a dword-aligned memory address to the device's Message Address register to serve as the destination address for MSI writes. | 4. 软件将基本消息数据模式写入设备的消息数据寄存器，并将双字对齐的内存地址写入设备的消息地址寄存器，作为MSI写操作的目标地址。 |
+| 5. Finally, software sets the MSI Enable bit in the device's Message Control register, enabling it to generate MSI writes and disabling other interrupt delivery options. | 5. 最后，软件设置设备消息控制寄存器中的MSI使能位，使其能够生成MSI写操作，并禁用其他中断投递选项。 |
+
+Figure 17-15: Device MSI Configuration Process | 图17-15：设备MSI配置过程
+
+<img src="images/part05_1654181dfd018f4368b5d9654a15e92923a7eefa7a474b0d97665ed98de04afd.jpg" width="700" alt="">
+
+## 17.3.3 Basics of Generating an MSI Interrupt Request | 17.3.3 MSI中断请求生成基础
+
+Figure 17‐16 on page 821 illustrates the contents of an MSI Memory Write Transaction Header and Data field. Key points include:
+
+第821页的图17-16展示了MSI存储器写事务头部和数据字段的内容。要点包括：
+
+| EN | ZH |
+|---|---|
+| Format field must be 011b for native functions, indicating a 4DW header (64-bit address) with Data, but it may be 010b for Legacy Endpoints, indicating a 32-bit address. | 对于原生功能，Format字段必须为011b，表示带数据的4DW头部（64位地址）；但对于传统端点，它可以为010b，表示32位地址。 |
+| The Attribute bits for No Snoop and Relaxed Ordering must be zero. | No Snoop和Relaxed Ordering的属性位必须为零。 |
+| Length field must be 01h to indicate maximum data payload of 1DW. | Length字段必须为01h，表示最大数据负载为1DW。 |
+| First BE field must be 1111b, indicating valid data in all four bytes of the DW, even though the upper two bytes will always be zero for MSI. | First BE字段必须为1111b，表示该DW中所有四个字节的数据均有效，尽管对于MSI来说高两个字节始终为零。 |
+| Last BE field must be 0000b, indicating a single DW transaction. | Last BE字段必须为0000b，表示单DW事务。 |
+| Address fields within the header come directly from the address fields within the MSI Capability registers. | 头部中的地址字段直接来自MSI能力寄存器中的地址字段。 |
+| Lower 16 bits of the Data payload are derived from the data field within the MSI Capability registers. | 数据负载的低16位来自MSI能力寄存器中的数据字段。 |
+
+## 17.3.4 Multiple Messages | 17.3.4 多消息
+
+| EN | ZH |
+| --- | --- |
+| If system software allocated more than one message to the Function, the multiple values are created by modifying the lower bits of the assigned Message Data value to send a different message for each device-specific event type. | 如果系统软件为一个功能分配了多个消息，则通过修改所分配的Message Data值的低位来创建多个值，以便为每个设备特定事件类型发送不同的消息。 |
+| As an example, assume the following: | 举例如下： |
+| • Four messages have been allocated to a device. | • 已为一个设备分配了四个消息。 |
+| • A data value of 49A0h has been assigned to the device's Message Data register. | • 已将数据值49A0h分配给该设备的Message Data寄存器。 |
+| • Memory address FEEF_F00Ch has been written into the device's Message Address register. | • 已将存储器地址FEEF_F00Ch写入该设备的Message Address寄存器。 |
+| When one of the four events occurs, the device generates a request by performing a dword write to memory address FEEF_F00Ch with a data value of 0000_49A0h, 0000_49A1h, 0000_49A2h, or 0000_49A3h. In other words, the lower two bits of the data value are modified to specify which event occurred. If this Function would have been allocated 8 messages, then the lower three bits could be modified. Also, the device always uses 0000h for the upper 2 bytes of its message data value. | 当四个事件之一发生时，该设备通过向存储器地址FEEF_F00Ch执行双字写入来生成一个请求，数据值为0000_49A0h、0000_49A1h、0000_49A2h或0000_49A3h。换句话说，修改数据值的低两位以指明哪个事件发生。如果该功能本应被分配8个消息，则可修改低三位。此外，设备始终使用0000h作为其消息数据值的高2字节。 |
+
+Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Delivery | 图17‐16：本机设备MSI传递的存储器写事务格式  
+<img src="images/part05_853c46fe25ff1f321f1b8892650b097f2f07447ad0ca452aa4076d90951a22a7.jpg" width="700" alt="">
+
+## 17.4 The MSI-X Model | 17.4 MSI-X 模型
+
+| EN | ZH |
+| --- | --- |
+| ## The MSI-X Model | ## MSI-X 模型 |
+
+## General | 概述
+
+| EN | ZH |
+|---|---|
+| The 3.0 revision of the PCI spec added support for MSI-X, which has its own capability structure. MSI-X was motivated by a desire to alleviate three shortcomings of MSI: | PCI规范的3.0修订版增加了对MSI-X的支持，MSI-X拥有自己的能力结构。引入MSI-X旨在缓解MSI的三个缺点： |
+| • 32 vectors per function are not enough for some applications. | • 每个功能32个向量对于某些应用来说不够用。 |
+| Having only one destination address makes static distribution of interrupts across multiple CPUs difficult. The most flexibility would be achieved if a unique address could be assigned for each vector. | 只有一个目标地址使得中断在多个CPU间的静态分配变得困难。如果能为每个向量分配一个唯一的地址，则可实现最大的灵活性。 |
+| In several platforms, like x86-based systems, the vector number of the interrupt indicates its priority relative to other interrupts. With MSI, a single Function could be allocated multiple interrupts, but all the interrupt vectors would be contiguous, meaning similar priority. This is not a good solution if some interrupts from this Function should be high priority and others should be low priority. A better approach would be for software to designate a unique vector (message data value), that does not have to be contiguous, for each interrupt allocated to the Function. | 在一些平台中（如基于x86的系统），中断的向量号指示了它相对于其他中断的优先级。使用MSI时，单个功能可被分配多个中断，但所有中断向量必须是连续的，这意味着它们的优先级相近。如果该功能的某些中断应为高优先级而其他应为低优先级，这并非一个好的解决方案。更好的方法是，由软件为分配给该功能的每个中断指定一个唯一的向量（消息数据值），该向量不必连续。 |
+| Keeping those goals in mind, it's easy to understand the register changes that were implemented to provide more vectors with each vector being assigned a target address and message data value. | 牢记这些目标，就不难理解为实现提供更多向量、并为每个向量分配目标地址和消息数据值而实现的寄存器变化。 |
+
+## MSI-X 能力结构 (Capability Structure)
+
+| EN | ZH |
+| --- | --- |
+| As shown in Figure 17-17 on page 822, the Message Control register is quite different from MSI. Interestingly, even though MSI-X can support up to 2048 vectors per Function versus the 32 for MSI, the number of configuration registers for MSI-X is actually a little smaller than for MSI. That's because the vector information isn't contained here. Instead, it's in a memory location (MMIO) pointed to by the Table BIR (Base address Indicator Register), as shown in Figure 17-18 on page 824. | 如第822页图17-17所示，消息控制寄存器与MSI有很大不同。有趣的是，尽管MSI-X每个功能最多支持2048个向量，而MSI为32个，但MSI-X的配置寄存器数量实际上比MSI还要少一些。这是因为向量信息并不包含在此处，而是位于由Table BIR（基址指示器寄存器）指向的内存位置（MMIO）中，如第824页图17-18所示。 |
+
+Figure 17-17: MSI-X Capability Structure | 图17-17：MSI-X能力结构
+
+<table><tr><td colspan="2">Message Control</td><td>Next Capability Pointer</td><td>Capability ID (11h)</td></tr><tr><td colspan="3">MSI-X Table Offset</td><td>Table BIR</td></tr><tr><td colspan="3">Pending Bit Array (PBA) Offset</td><td>PBA BIR</td></tr></table>
+
+Table 17-3: Format and Usage of MSI-X Message Control Register | 表17-3：MSI-X消息控制寄存器格式和用法
+
+<table><tr><td>Bit(s)</td><td>Field Name</td><td>Description</td></tr><tr><td>10:0</td><td>Table Size</td><td>Read-Only. This field indicates the number of interrupt messages (vectors) that this Function supports. The value here is interpreted in an N-1 fashion, so a value of 0 means 1 vector. A value of 7 means 8 vectors. Each vector has its own entry in the MSI-X Table and its own bit in the Pending Bit Array.</td></tr><tr><td>13:11</td><td>Reserved</td><td>Read-Only. Always zero.</td></tr><tr><td>14</td><td>Function Mask</td><td>Read/Write. This field provides system software an easy way to mask all the interrupts from a Function. If this bit is cleared, interrupts can still be masked individually by setting the mask bit within each vector's MSI-X table entry.</td></tr><tr><td>15</td><td>MSI-X Enable</td><td>Read/Write. State after reset is 0, indicating that the device's MSI-X capability is disabled. 0 = Function is disabled from using MSI-X. It must use MSI or INTx Messages. 1 = Function is enabled to use MSI-X to request service and won't use MSI or INTx Messages.</td></tr></table>
+
+Figure 17-18: Location of MSI-X Table | 图17-18：MSI-X表位置
+
+<img src="images/part05_a61ab039fc1c25f2bb4bb5650ef5ba5316b371393361ed72f7fabaf2caff8faf.jpg" width="700" alt="">
+
+| EN | ZH |
+|---|---|
+| ## MSI-X Table | ## MSI-X 表 |
+| The MSI-X Table itself is an array of vectors and addresses, as shown in Figure 17-19 on page 825. | MSI-X 表本身是一个向量和地址的数组，如图 17-19（第 825 页）所示。 |
+| Each entry represents one vector and contains four Dwords. | 每个表项代表一个向量，并包含四个双字。 |
+| DW0 and DW1 supply a unique 64-bit address for that vector, while DW2 gives a unique 32-bit data pattern for it. | DW0 和 DW1 提供该向量的唯一 64 位地址，而 DW2 提供其唯一的 32 位数据模式。 |
+| DW3 only contains one bit at present: a mask bit for that vector, allowing each vector to be independently masked off as needed. | DW3 目前只包含一个位：该向量的掩码位，允许根据需要独立屏蔽每个向量。 |
+
+Figure 17-19: MSI-X Table Entries | 图17-19：MSI-X表项
+
+<table><tr><td>DW3</td><td>DW2</td><td>DW1</td><td>DW0</td><td></td></tr><tr><td>Vector Control</td><td>Message Data</td><td>Upper Address</td><td>Lower Address</td><td>Entry 0</td></tr><tr><td>Vector Control</td><td>Message Data</td><td>Upper Address</td><td>Lower Address</td><td>Entry 1</td></tr><tr><td>Vector Control</td><td>Message Data</td><td>Upper Address</td><td>Lower Address</td><td>Entry 2</td></tr><tr><td>....</td><td>....</td><td>....</td><td>....</td><td></td></tr><tr><td>....</td><td>....</td><td>....</td><td>....</td><td></td></tr><tr><td>Vector Control</td><td>Message Data</td><td>Upper Address</td><td>Lower Address</td><td>Entry N-1</td></tr></table>
+
+## 17.4.3 Pending Bit Array | 17.4.3 待处理位阵列
+
+| EN | ZH |
+|----|----|
+| In much the same way, the Pending Bit Array is also located within a memory address. It can use the same BIR value (same BAR) as the MSI-X Table with a different offset, or it could use a different BAR altogether. The array, shown in Figure 17-20, simply contains a bit for every vector that will be used. If the event to trigger that interrupt occurs but its Mask Bit has been set, then an MSI-X transaction will not be sent. Instead, the corresponding pending bit is set. Later, if that vector is unmasked and the pending bit is still set, the interrupt will be generated at that time. | 类似地，Pending Bit Array（待处理位数组）也位于某个内存地址中。它可以与 MSI-X Table 共用相同的 BIR 值（同一 BAR）但使用不同的偏移量，也可以使用完全不同的 BAR。如图 17-20 所示，该数组简单地包含每个将要使用的向量所对应的一个比特位。如果触发该中断的事件发生但其中断掩码位（Mask Bit）已被置位，则不会发送 MSI-X 事务。取而代之的是，相应的待处理位（pending bit）被置位。之后，如果该向量被解除掩码且待处理位仍处于置位状态，则此时将生成中断。 |
+
+Figure 17-20: Pending Bit Array | 图17-20：待定位数组  
+
+<img src="images/part05_8dd9757aa7d0006b3e1aa35afdd05a4348e094e6ebcff937669f9d9c16de91c9.jpg" width="700" alt="">
+
+## 17.5 Memory Synchronization When Interrupt Handler Entered | 17.5 进入中断处理程序时的内存同步
+
+| EN | ZH |
+|---|---|
+## 17.5 Memory Synchronization When Interrupt Handler Entered | 17.5 进入中断处理程序时的内存同步 |
+
+| EN | ZH |
+|---|---|
+| ## The Problem | ## 问题 |
+| There is a potential problem with any interrupt scheme when data is being delivered. For example, if the device has previously sent data and wants to report that with an interrupt, a unexpected delay on data delivery could allow the interrupt to arrive too soon. That might happen in the bridge data buffer shown in Figure 17-21 on page 827, and the result is a race condition. The steps are similar to our earlier discussion (see "The Legacy Model" on page 796): | 在数据传输过程中，任何中断方案都存在一个潜在问题。例如，如果设备先前已发送数据并想通过中断来报告此事，数据传送中意外的延迟可能导致中断过早到达。这种情况可能发生在图17-21（第827页）所示的桥数据缓冲区中，其结果是一个竞态条件。其步骤类似于我们之前的讨论（参见第796页的"传统模型"）： |
+| 1. The function writes a data block toward memory. The write completes on the local bus as a posted transaction, meaning that the sender has finished all it needed to do and the transaction is considered completed. | 1. 该功能向存储器写入一个数据块。该写操作在本地总线上作为 posted 事务完成，意味着发送者已完成所有必要操作，该事务被视为已完成。 |
+| 2. An interrupt is delivered to notify software that some requested data is now present in memory. However, the data has been delayed in the bridge for some reason. | 2. 传递一个中断以通知软件某些请求的数据现已存在于存储器中。然而，由于某种原因，数据在桥中被延迟了。 |
+| 3. The interrupt vector is fetched as before. | 3. 照常获取中断向量。 |
+| 4. The ISR starting address is fetched and control is passed to it. | 4. 获取ISR起始地址并将控制权传递给它。 |
+| 5. The ISR reads from the target memory buffer but the data payload still hasn't been delivered so it fetches stale data, possibly causing an error. | 5. ISR从目标存储器缓冲区读取，但数据载荷仍未送达，因此它获取到过时数据，可能引发错误。 |
+
+Figure 17-21: Memory Synchronization Problem | 图17-21：存储器同步问题
+
+<img src="images/part05_8a2295bdbc89d94065547b7688a638c8a1f1903a1e9de37551b56ef9a3a05cdb.jpg" width="700" alt="">
+
+## 17.5.2 One Solution | 17.5.2 一种解决方案
+
+| EN | ZH |
+|---|---|
+| One way to alleviate this problem takes advantage of PCI transaction ordering rules. If the ISR first sends a read request to the device that initiated the interrupt before it attempts to fetch the data, the resulting read completion will follow the same path back to the CPU that any write data would have taken from that device to get to memory. | 缓解该问题的一种方法利用了 PCI 事务排序规则。如果 ISR 在尝试获取数据之前，先向发起中断的设备发送一个读请求，那么所产生的读完成报文将沿着与该设备发往内存的任何写数据相同的路径返回 CPU。 |
+| Transaction ordering rules guarantee that a read result in a bridge cannot pass a posted write going in the same direction, so the end result is that the data will get written into memory before the read result will be allowed to reach the CPU. | 事务排序规则保证，桥接器中的读结果不能超越同一方向上的 Posted 写操作，因此最终结果是数据将在读结果被允许到达 CPU 之前先写入内存。 |
+| Therefore, if the ISR waits for the read completion to arrive before proceeding, it can be sure that any data will have been delivered to memory and thus the race condition is avoided. | 因此，如果 ISR 等待读完成报文到达后再继续执行，它便可以确信所有数据已经送达内存，从而避免了竞争条件。 |
+| Since the read is basically being used as a data flush mechanism, it isn't necessary for it to return any data. In that case the read can be zero length and the data returned is discarded. | 由于该读操作本质上被用作一种数据冲刷机制，因此它无需返回任何数据。在这种情况下，读操作可以是零长度的，返回的数据被丢弃。 |
+| For that reason, this type of read is sometimes called a "dummy read." | 出于这个原因，这种类型的读操作有时被称为"虚拟读"（dummy read）。 |
+
+## 17.5.3 An MSI Solution | 17.5.3 MSI 解决方案
+
+| EN | ZH |
+|---|---|
+| MSI can simplify this process, although there are some requirements for it to work (refer to Figure 17-22 on page 829). If the system allows the device to generate its own MSI writes rather than going through an intermediary like an IO APIC, then the following example can take place: | MSI 可以简化这一过程，尽管它需要满足一些条件才能工作（参见第 829 页的图 17-22）。如果系统允许设备生成自己的 MSI 写事务，而不是通过像 IO APIC 这样的中介，那么可以发生以下示例： |
+| 1. The device writes the payload data toward memory and it is absorbed by the write buffer in the bridge. | 1. 设备将有效载荷数据写入内存，该数据被桥接器中的写缓冲区吸收。 |
+| 2. The device believes the data has been delivered and signals an interrupt to notify the CPU. In this case, an MSI is sent and uses the same path as the data. Since both data and MSI appear as memory writes to the bridge, the normal transaction ordering rules will keep them in the correct sequence. | 2. 设备认为数据已送达，并发出中断以通知 CPU。在这种情况下，MSI 被发送并使用与数据相同的路径。由于数据和 MSI 对桥接器来说都表现为内存写事务，正常的事务排序规则将保持它们正确的顺序。 |
+| 3. The payload data is delivered to memory, freeing the path through the bridge for the MSI write. | 3. 有效载荷数据被传送到内存，释放了桥接器中 MSI 写事务的通路。 |
+| 4. The MSI write is delivered to the CPU Local APIC and the software now knows that the payload data is available. | 4. MSI 写事务被传送到 CPU 本地 APIC，软件现在知道有效载荷数据已可用。 |
+
+## 17.5.4 Traffic Classes Must Match | 17.5.4 流量类别必须匹配
+
+| EN | ZH |
+|---|---|
+| An important point must be stressed here, however. Both the data and MSI must use the same Traffic Class for this to work. Recall that packets that have been assigned different TC values may end up being mapped into different Virtual Channels, and that packets in different VCs have no ordering relationship. If the data were mapped to VC0 and the MSI was mapped to VC1, then the system would be unaware of any ordering relationship between them and unable to enforce memory coherency automatically. | 然而，这里必须强调一个重要点。数据和MSI必须使用相同的流量类才能实现这一点。回想一下，被分配了不同TC值的报文最终可能会被映射到不同的虚通道中，而不同VC中的报文之间没有排序关系。如果数据被映射到VC0而MSI被映射到VC1，那么系统将无法感知它们之间的任何排序关系，也无法自动强制执行内存一致性。 |
+| If giving both packets the same TC is not possible, the system would need to use the "dummy read" method instead and the TC of the read request would need to match the TC of the data write packet. It should be clear that even if the same TC is used for both, the use of the Relaxed Ordering bit must be avoided. We're counting on the transaction ordering rules to achieve memory synchronization, so they must not be relaxed. | 如果无法为两个报文赋予相同的TC，则系统需要使用"虚读"方法，并且读请求的TC需要与数据写报文的TC匹配。应该清楚的是，即使两者使用相同的TC，也必须避免使用宽松排序位。我们依赖事务排序规则来实现内存同步，因此这些规则不能放宽。 |
+
+Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
+<img src="images/part05_f4510f5bc1c4bdc1a4a120ba4d49872937b73e292092f5a5f4adf055e7e0aaac.jpg" width="700" alt="">
+
+| EN | ZH |
+|---|---|
+| ## Interrupt Latency | ## 中断延迟 |
+| The time from signaling an interrupt until software services the device is referred to as the interrupt latency. In spite of its advantages, MSI, like other interrupt delivery mechanisms, does not provide interrupt latency guarantees. | 从发起中断信号到软件为设备提供服务的时间被称为中断延迟。尽管MSI有其优势，但与其他中断传递机制一样，它并不提供中断延迟的保证。 |
+
+## 17.7 MSI May Result In Errors | 17.7 MSI 可能导致错误
+
+## MSI 可能导致错误
+
+| EN | ZH |
+| --- | --- |
+| Because MSIs are delivered as Memory Write transactions, an error associated with delivery of an MSI is treated the same as any other Memory Write error condition. See "ECRC Generation and Checking" on page 657 for treatment of ECRC errors, as one example. The concern, of course, is that if an error results in the MSI packet being unrecognized then no interrupt will be seen by the processor. How this condition would be handled is outside the scope of the PCIe spec. | 由于MSI作为存储器写事务传递，与MSI传递相关的错误将按照与其他任何存储器写错误条件相同的方式处理。以ECRC错误的处理为例，请参见第657页的"ECRC生成与检查"。当然，问题在于如果某个错误导致MSI包无法被识别，那么处理器将看不到任何中断。这种情况如何处理超出了PCIe规范的范围。 |
+
+## 17.8 Some MSI Rules and Recommendations | 17.8 一些 MSI 规则和建议
+
+### Bilingual Translation
+
+| English | 中文 |
+|---------|------|
+| 1. It is the intent of the spec that mutually-exclusive messages will be assigned to Functions by system software and that each message will be converted to an exclusive interrupt on delivery to the processor. | 1. 规范的意图是由系统软件将互斥的消息分配给各个功能，并且每个消息在传递给处理器时将被转换为一个独占的中断。 |
+| 2. More than one MSI capability register set per Function is prohibited. | 2. 每个功能禁止拥有多个 MSI 能力寄存器组。 |
+| 3. A read of the Message Address register produces undefined results. | 3. 读取消息地址寄存器会产生未定义的结果。 |
+| 4. Reserved registers and bits are read-only and always return zero when read. | 4. 保留寄存器和位是只读的，读取时始终返回零。 |
+| 5. System software can modify Message Control register bits, but the device itself is prohibited from doing so. In other words, modifying the bits by a "back door" mechanism is not allowed. | 5. 系统软件可以修改消息控制寄存器位，但设备自身禁止这样做。换句话说，不允许通过"后门"机制修改这些位。 |
+| 6. At a minimum, a single message will be assigned to each device (assuming software supports and plans to use MSI in the system). | 6. 至少会为每个设备分配一个消息（假设软件支持并计划在系统中使用 MSI）。 |
+| 7. System software must not write to the upper half of the dword that contains the Message Data register. | 7. 系统软件不得向包含消息数据寄存器的双字的高半部分写入。 |
+| 8. If the device writes the same message multiple times, only one of those messages is guaranteed to be serviced. If all of them must be serviced, the device must not generate the same message again until the previous one has been serviced. | 8. 如果设备多次写入相同的消息，则仅保证这些消息中的一个得到服务。如果所有消息都必须得到服务，则设备必须在前一个消息得到服务之前不再生成相同的消息。 |
+| 9. If a device has more than one message assigned, and it writes a series of different messages, it is guaranteed that all of them will be serviced. | 9. 如果设备分配有多个消息，并且它写入了一系列不同的消息，则保证所有这些消息都将得到服务。 |
+
+## 17.9 Special Consideration for Base System Peripherals | 17.9 基础系统外设的特殊考虑
+
+| EN | ZH |
+|---|---|
+| Interrupts may also originate in embedded legacy hardware, such as an IO Controller Hub or Super IO device. Some of the typical legacy devices required in such systems include:<br>• Serial ports<br>• Parallel ports<br>• Keyboard and Mouse Controller<br>• System Timer<br>• IDE controllers | 中断也可能源自嵌入式传统硬件，例如I/O控制器集线器或超级I/O设备。此类系统中需要的一些典型传统设备包括：<br>• 串行端口<br>• 并行端口<br>• 键盘和鼠标控制器<br>• 系统定时器<br>• IDE控制器 |
+| These devices typically require a specific IRQ line into a PIC or IO APIC, which allows legacy software to interact with them correctly. | 这些设备通常需要连接到PIC或I/O APIC的特定IRQ线，这使得传统软件能够正确与它们交互。 |
+| Using the INTx messages does not guarantee that the devices will receive the IRQ assignment they require. The following example illustrates a system that will support the proper legacy interrupt assignment. | 使用INTx消息并不能保证设备会获得它们所需的IRQ分配。以下示例说明了一个将支持正确传统中断分配的系统。 |
+
+| EN | ZH |
+| --- | --- |
+| ## Example Legacy System | ## 传统系统示例 |
+| Figure 17-23 on page 831 shows a older PCI Express system that includes an IO Controller Hub (ICH) attached to the Root Complex via a proprietary Hub link. The IO APIC embedded within the ICH can generate an MSI when it receives an interrupt request at its inputs. In such an implementation, software can assign the legacy vector number to each input to ensure that the correct legacy software will be called. | 图17-23第831页展示了一个较旧的PCI Express系统，其包含一个通过专有Hub链路连接到根复合体的I/O控制中心(ICH)。ICH内嵌的I/O APIC在其输入接收到中断请求时，可生成MSI。在这种实现中，软件可为每个输入分配传统向量号，以确保调用正确的传统软件。 |
+| The advantage of this approach is that existing hardware can be used to support the legacy requirements of a PCIe platform. This system also requires that the MSI subsystem be configured for use during the boot sequence. The example illustrated eliminates the need for INTx messages unless a PCIe expansion device incorporates a PCI Express-to-PCI Bridge. | 这种方法的优势在于现有硬件可用于支持PCIe平台的传统需求。该系统还必须要求MSI子系统在引导序列期间配置为可用状态。所展示的示例消除了对INTx消息的需求，除非PCIe扩展设备包含PCI Express到PCI桥接器。 |
+
+Figure 17-23: PCI Express System with PCI-Based IO Controller Hub | 图17-23：基于PCI的IO控制器集线器的PCI Express系统  
+
+<img src="images/part05_35d1fc3d8cb11bf364d592dfba1dfc83a2340542f3b82d87604c690692c90552.jpg" width="700" alt="">

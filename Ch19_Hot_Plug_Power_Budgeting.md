@@ -1,2005 +1,566 @@
 # Ch19_Hot_Plug_Power_Budgeting
 
 | EN | ZH |
-|---|---|
-| ## Usage Models | ## 使用模型 |
-
-## 99.2.1 Intelligent Adapters | 99.2.1 智能适配器
-
-| EN | ZH |
-| --- | --- |
-| Intelligent adapters are typically peripheral devices that use a local processor to offload tasks from the host. Examples of intelligent adapters include RAID controllers, modem cards, and content processing blades that perform tasks such as security and flow processing. Generally, these tasks are either computationally onerous or require significant I/O bandwidth if performed by the host. By adding a local processor to the endpoint, system designers can enjoy significant incremental performance. In the RAID market, a significant number of products utilize local intelligence for their I/O processing. | 智能适配器通常是利用本地处理器来卸载主机任务的外围设备。智能适配器的示例包括 RAID 控制器、调制解调器卡以及执行安全处理和流处理等内容处理刀片。通常，这些任务要么计算量繁重，要么若由主机执行则需要大量 I/O 带宽。通过在端点中添加本地处理器，系统设计人员可以获得显著的增量性能提升。在 RAID 市场中，相当多的产品利用本地智能进行其 I/O 处理。 |
-| Another example of intelligent adapters is an ecommerce blade. Because general purpose host processors are not optimized for the exponential mathematics necessary for SSL, utilizing a host processor to perform an SSL handshake typically reduces system performance by over 90%. Furthermore, one of the requirements for the SSL handshake operation is a true random number generator. Many general purpose processors do not have this feature, so it is actually difficult to perform SSL handshakes without dedicated hardware. Similar examples abound throughout the intelligent adapter marketplace; in fact, this usage model is so prevalent that for many applications it has become the de facto standard implementation. | 智能适配器的另一个示例是电子商务刀片。由于通用主机处理器并未针对 SSL 所需的指数运算进行优化，因此利用主机处理器执行 SSL 握手通常会使系统性能降低 90% 以上。此外，SSL 握手操作的要求之一是需要一个真正的随机数生成器。许多通用处理器不具备此功能，因此没有专用硬件实际上很难执行 SSL 握手。类似的示例在智能适配器市场中比比皆是；事实上，这种使用模式非常普遍，以至于在许多应用中它已成为事实上的标准实现。 |
-
-## 99.2.2 Host Failover | 99.2.2 主机故障切换
-
-| EN | ZH |
 |----|----|
-| Host failover capabilities are designed into systems that require high availability. | 主机故障转移能力被设计到需要高可用性的系统中。 |
-| High availability has become an increasingly important requirement, especially in storage and communication platforms. | 高可用性已成为日益重要的需求，尤其是在存储和通信平台中。 |
-| The only practical way to ensure that the overall system remains operational is to provide redundancy for | 确保整个系统保持可运行状态的唯一实用方法是提供冗余，以 |
-
-## Chapter : Appendix C: Implementing Intelligent Adapt- | 附录 C：实现智能适配器
-
-| EN | ZH |
-| --- | --- |
-| all components. Host failover systems typically include a host based system attached to several endpoints. In addition, a backup host is attached to the system and is configured to monitor the system status. When the primary host fails, the backup host processor must not only recognize the failure, but then take steps to assume primary control, remove the failed host to prevent additional disruptions, reconstitute the system state, and continue the operation of the system without losing any data. | 所有组件。主机故障转移系统通常包括一个连接到多个端点（Endpoint）的主机系统。此外，一个备份主机连接到该系统，并被配置为监控系统状态。当主主机发生故障时，备份主机处理器不仅要识别出故障，还必须采取措施接管主控制权，移除故障主机以防止额外的中断，重建系统状态，并在不丢失任何数据的情况下继续系统的运行。 |
-
-## 99.2.3 Multiprocessor Systems | 99.2.3 多处理器系统
-
-| EN | ZH |
-| --- | --- |
-| Multiprocessor systems provide greater processing bandwidth by allowing multiple computational engines to simultaneously work on sections of a complex problem. | 多处理器系统允许多个计算引擎同时处理复杂问题的不同部分，从而提供更大的处理带宽。 |
-| Unlike systems utilizing host failover, where the backup processor is essentially idle, multiprocessor systems utilize all the engines to boost computational throughput. | 与采用主机故障切换的系统（其中备份处理器基本处于空闲状态）不同，多处理器系统利用所有引擎来提高计算吞吐量。 |
-| This enables a system to reach performance levels not possible by using only a single host processor. | 这使得系统能够达到仅使用单个主处理器无法实现的性能水平。 |
-| Multiprocessor systems typically consist of two or more complete sub‐systems that can pass data between themselves via a special interconnect. | 多处理器系统通常由两个或更多完整的子系统组成，这些子系统之间可以通过特殊的互连传递数据。 |
-| A good example of a multihost system is a blade server chassis. | 多主机系统的一个典型例子是刀片式服务器机箱。 |
-| Each blade is a complete subsystem, often replete with its own CPU, Direct Attached Storage, and I/O. | 每个刀片都是一个完整的子系统，通常配备有自己的 CPU、直连存储和 I/O。 |
-
-## 99.3 The History Multi-Processor Implementations Using PCI | 99.3 使用 PCI 的多处理器实现历史
+| # 19 Hot Plug and Power Budgeting | # 19 热插拔与电源预算 |
 
 | EN | ZH |
 |---|---|
-| To better understand the implementation proposed for PCI Express, one needs to first understand the PCI implementation. | 为了更好地理解PCI Express提出的实现方式，首先需要了解PCI的实现。 |
-| PCI was originally defined in 1992 for personal computers. Because of the nature of PCs at that time, the protocol architects did not anticipate the need for multiprocessors. Therefore, they designed the system assuming that the host processor would enumerate the entire memory space. Obviously, if another processor is added, the system operation would fail as both processors would attempt to service the system requests. | PCI最初于1992年为个人计算机定义。由于当时PC的特性，协议架构师并未预见到多处理器的需求。因此，他们设计系统时假设主处理器将枚举整个内存空间。显然，如果添加另一个处理器，系统操作将会失败，因为两个处理器都会试图处理系统请求。 |
-| Several methodologies were subsequently invented to accommodate the requirement for multiprocessor capabilities using PCI. The most popular implementation, and the one discussed in this paper for PCI Express, is the use of non-transparent bridging between the processing subsystems to isolate their memory spaces.<sup>1</sup> | 随后发明了多种方法来满足使用PCI实现多处理器能力的需求。最流行的实现方式——也是本文针对PCI Express所讨论的——是在处理子系统之间使用非透明桥接来隔离各自的内存空间。<sup>1</sup> |
-| Because the host does not know the system topology when it is first powered up or reset, it must perform discovery to learn what devices are present and then map them into the memory space. To support standard discovery and configuration software, the PCI specification defines a standard format for Control and Status Registers (CSRs) of compliant devices. The standard PCI-to-PCI bridge CSR header, called a Type 1 header, includes primary, secondary and subordinate bus number registers that, when written by the host, define the CSR addresses of devices on the other side of the bridge. Bridges that employ a Type 1 CSR header are called transparent bridges. | 由于主机在首次上电或复位时不知道系统拓扑，它必须执行发现过程来了解存在哪些设备，然后将它们映射到内存空间中。为了支持标准的发现和配置软件，PCI规范为兼容设备的控制和状态寄存器(CSR)定义了标准格式。标准PCI到PCI桥的CSR头部称为Type 1头部，包含主总线号、次级总线号和从属总线号寄存器，当主机写入这些寄存器时，它们定义了桥另一侧设备的CSR地址。采用Type 1 CSR头部的桥称为透明桥。 |
-| A Type 0 header is used for endpoints. A Type 0 CSR header includes base address registers (BARs) used to request memory or I/O apertures from the host. Both Type 1 and Type 0 headers include a class code register that indicates what kind of bridge or endpoint is represented, with further information available in a subclass field and in device ID and vendor ID registers. The CSR header format and addressing rules allow the processor to search all the branches of a PCI hierarchy, from the host bridge down to each of its leaves, reading the class code registers of each device it finds as it proceeds, and assigning bus numbers as appropriate as it discovers PCI-to-PCI bridges along the way. At the completion of discovery, the host knows which devices are present and the memory and I/O space each device requires to function. These concepts are illustrated in Figure C-0-1. | Type 0头部用于端点。Type 0 CSR头部包含基址寄存器(BAR)，用于向主机请求内存或I/O窗口。Type 1和Type 0头部都包含类别代码寄存器，指示所代表的是何种桥或端点，子类别字段以及设备ID和厂商ID寄存器提供进一步信息。CSR头部格式和寻址规则允许处理器搜索PCI层次结构的所有分支，从主桥向下直到每个叶子节点，在遍历过程中读取所发现的每个设备的类别代码寄存器，并在发现PCI到PCI桥时相应地分配总线号。发现过程完成后，主机知道存在哪些设备以及每个设备运行所需的内存和I/O空间。这些概念如图C-0-1所示。 |
+| ## The Previous Chapter | ## 前章回顾 |
+| The previous chapter describes three types of resets defined for PCIe: Fundamental reset (consisting of cold and warm reset), hot reset, and function-level reset (FLR). The use of a side-band reset PERST# signal to generate a system reset is discussed, and so is the in-band TS1 based Hot Reset described. | 前一章描述了为PCIe定义的三种复位类型：基本复位（包括冷复位和暖复位）、热复位以及功能级复位(FLR)。讨论了使用边带复位信号PERST#产生系统复位的方式，同时也描述了基于带内TS1的热复位。 |
 
-Figure 0-1: Enumeration Using Transparent Bridges | 图0-1：使用透明桥的枚举
-
-<img src="images/part06_f19b0d11bcc662e3364a706795525203cbb743404a04fb6c4daa834282b683f2.jpg" width="700" alt="">
-
-## Implementing Multi-host | Intelligent Adapters in PCI Express Base Systems / 在 PCI Express 基础系统中实现多主机/智能适配器
+## This Chapter ## 本章
 
 | EN | ZH |
 |---|---|
-| Up to this point, our discussions have been limited to one processor with one memory space. As technology progressed, system designers began developing end points with their own native processors built in. The problem that this caused was that both the host processor and the intelligent adapter would, upon power up or reset, attempt to enumerate the entire system, causing system conflict and ultimately a non‑functional system. | 至此，我们的讨论仅限于单一处理器和单一存储器空间。随着技术的进步，系统设计人员开始开发内置自有处理器的端点。这带来的问题是，主机处理器和智能适配器在上电或复位时都会尝试枚举整个系统，导致系统冲突，最终使系统无法运行。 |
-| To get around this, architects designed non‑transparent bridges. A non‑transparent PCI‑to‑PCI Bridge, or PCI Express‑to‑PCI Express Bridge, is a bridge that exposes a Type 0 CSR header on both sides and forwards transactions from one side to the other with address translation, through apertures created by the BARs of those CSR headers. Because it exposes a Type 0 CSR header, the bridge appears to be an endpoint to discovery and configuration software, eliminating potential discovery software conflicts. Each BAR on each side of the bridge creates a tunnel or window into the memory space on the other side of the bridge. To facilitate communication between the processing domains on each side, the non‑transparent bridge also typically includes doorbell registers to send interrupts from each side of the bridge to the other, and scratchpad registers accessible from both sides. | 为解决这一问题，架构师设计了非透明桥。非透明 PCI‑PCI 桥或 PCI Express‑PCI Express 桥是一种在两侧暴露 Type 0 CSR 头标，并通过这些 CSR 头标的基址寄存器（BAR）所创建的窗口，在两侧之间进行地址转换并转发事务的桥接器。由于暴露了 Type 0 CSR 头标，该桥接器对发现和配置软件而言表现为一个端点，从而消除了潜在的发现软件冲突。桥接器每一侧的每个 BAR 都在对侧存储器空间中创建一个隧道或窗口。为了便于两侧处理域之间的通信，非透明桥通常还包括门铃寄存器（用于从桥的一侧向另一侧发送中断）以及可从两侧访问的便签寄存器。 |
-| A non‑transparent bridge is functionally similar to a transparent bridge in that both provide a path between two independent PCI buses (or PCI Express links). The key difference is that when a non‑transparent bridge is used, devices on the downstream side of the bridge (relative to the system host) are not visible from the upstream side. This allows an intelligent controller on the downstream side to manage the devices in its local domain, while at the same time making them appear as a single device to the upstream controller. The path between the two buses allows the devices on the downstream side to transfer data directly to the upstream side of the bus without directly involving the intelligent controller in the data movement. Thus transactions are forwarded across the bus unfettered just as in a PCI‑to‑PCI Bridge, but the resources responsible are hidden from the host, which sees a single device. | 非透明桥在功能上与透明桥类似，两者都在两条独立的 PCI 总线（或 PCI Express 链路）之间提供通路。关键区别在于，使用非透明桥时，桥接器下游侧（相对于系统主机）的设备对上游侧不可见。这使得下游侧的智能控制器可以管理其本地域中的设备，同时使这些设备在上游控制器看来如同单个设备。两条总线之间的通路允许下游侧设备直接将数据传输到总线上游侧，而无需智能控制器直接参与数据移动。因此，事务就像在 PCI‑PCI 桥中一样不受阻碍地在总线间转发，但所涉及的资源对主机而言是隐藏的，主机看到的只是一个单一设备。 |
-| Because we now have two memory spaces, the PCI Express system needs to translate addresses of transactions that cross from one memory space to the other. This is accomplished via Translation and Limit Registers associated with the BAR. | 由于现在存在两个存储器空间，PCI Express 系统需要对从一个存储器空间跨越到另一个存储器空间的事务进行地址转换。这是通过与 BAR 相关联的转换与边界寄存器（Translation and Limit Registers）来实现的。 |
+| This chapter describes the PCI Express hot plug model. A standard usage model is also defined for all devices and form factors that support hot plug capability. Power is an issue for hot plug cards, too, and when a new card is added to a system during runtime, it's important to ensure that its power needs don't exceed what the system can deliver. A mechanism was needed to query the power requirements of a device before giving it permission to operate. Power budgeting registers provide that. | 本章描述 PCI Express 热插拔模型。同时，对所有支持热插拔功能的设备和形态因素定义了一种标准使用模型。对于热插拔卡而言，功耗同样是一个问题；在运行期间向系统添加新卡时，必须确保其功耗需求不超过系统所能提供的容量。因此，需要一种机制在允许设备运行之前查询其功耗需求。功耗预算寄存器提供了这一能力。 |
 
-See "Address Translation" on page 958 for a detailed description; Figure C-0-2 on page 949 provides a conceptual rendering of Direct Address Translation.
-
-Address translation can be done by Direct Address Translation (essentially replacement of the data under a mask), table lookup, or by adding an offset to an address.
-
-Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple windows spread across system memory space for packet originated in a local I/O processor's domain, as well as Direct Address Translation used to create a single window in the opposite direction.
+## The Next Chapter | 下一章
 
 | EN | ZH |
 |---|---|
-| Address translation can be done by Direct Address Translation (essentially replacement of the data under a mask), table lookup, or by adding an offset to an address. Figure C‑0‑3 on page 950 shows Table Lookup Translation used to create multiple windows spread across system memory space for packet originated in a local I/O processor's domain, as well as Direct Address Translation used to create a single window in the opposite direction. | 地址转换可通过直接地址转换（本质上是在掩码下替换数据）、表查找或向地址添加偏移量来完成。第 950 页的图 C‑0‑3 展示了用于为本地 I/O 处理器域发起的数据包创建分布在系统存储器空间中的多个窗口的表查找转换，以及用于在相反方向创建单个窗口的直接地址转换。 |
-
-| EN | ZH |
-| --- | --- |
-| ## Chapter : Appendix C: Implementing Intelligent Adapt- | ## 附录 C：实现智能适配器 |
-| Figure 0-2: Direct Address Translation | 图 0-2：直接地址翻译 |
-
-<img src="images/part06_16233cf40f4625514aa729e0d5e6ef58d10bffece04650cd6f5ca16551038551.jpg" width="700" alt="">
-
-| EN | ZH |
-| --- | --- |
-| Figure 0-3: Look Up Table Translation Creates Multiple Windows | 图 0-3：查找表翻译创建多个窗口 |
-
-<img src="images/part06_6167f9ca8ef7cd1d5ab3169da775a6c92633563dbc3ff796511be68938551498.jpg" width="700" alt="">
-
-## 99.4.1 Example: Implementing Intelligent Adapters in a PCI Express Base System | 99.4.1 示例：在 PCI Express 基础系统中实现智能适配器
-## 示例：在 PCI Express 基础系统中实现智能适配器
-
-| EN | ZH |
-|---|---|
-| Intelligent adapters will be pervasive in PCI Express systems, and will likely be the most widely used example of systems with "multiple processors". | 智能适配器将在 PCI Express 系统中无处不在，很可能成为"多处理器"系统中最广泛使用的实例。 |
-| Figure C-0-4 on page 951 illustrates how PCI Express systems will implement intelligent adapters. The system diagram consists of a system host, a root complex (the PCI Express version of a Northbridge), a three port switch, an example endpoint, and an intelligent add-in card. Similar to the system architecture, the add-in card contains a local host, a root complex, a three port switch, and an | 图 C-0-4（第 951 页）展示了 PCI Express 系统如何实现智能适配器。该系统框图包含一个系统主机、一个根复合体（PCI Express 版本的北桥）、一个三端口交换机、一个示例端点和一块智能插卡。与系统架构类似，该智能插卡包含一个本地主机、一个根复合体、一个三端口交换机和一个 |
-
-## Chapter : Appendix C: Implementing Intelligent Adapters in PCI and PCI Express Systems | 附录 C：在 PCI 和 PCI Express 系统中实现智能适配器
-
-Figure 0-4: Intelligent Adapters in PCI and PCI Express Systems | 图0-4：PCI和PCI Express系统中的智能适配器
-
-<img src="images/part06_0e0303807b2f7dda9278e3b16af14b791f92f12d8fda9ad48de3811f454afdbb.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| example endpoint. However we should note two significant differences: the intelligent add‑in card contains an EEPROM, and one port of the switch contains a back to back non‑transparent bridge. | 示例端点。但我们应注意两个重要区别：智能插件卡包含一个EEPROM，且交换机的一个端口包含一个背对背非透明桥。 |
-| Upon power up, the system host will begin enumerating to determine the topology. It will pass through the Root Complex and enter the first switch (Switch A). Upon entering the topmost port, it will see a transparent bridge, so it will know to continue to enumerate. The host will then poll the leftmost port and, upon finding a Type 0 CSR header, will consider it an endpoint and explore no deeper along that branch of the PCI hierarchy. The host will then use the information in the endpoint's CSR header to configure base and limit registers in bridges and BARs in endpoints to complete the memory map for this branch of the system. | 上电后，系统主机将开始枚举以确定拓扑。它将经过根复合体进入第一个交换机（Switch A）。进入最顶层端口时，它将看到一个透明桥，因此会继续枚举。主机随后轮询最左侧端口，当发现Type 0 CSR头时，将其视为端点，不再沿该PCI层次分支继续向下探寻。然后，主机使用端点CSR头中的信息配置桥中的基址和限制寄存器以及端点中的BAR（基址寄存器），以完成该系统分支的存储器映射。 |
-| The host will then explore the rightmost port of Switch A and read the CSR header registers associated with the top port of Switch B. Because this port is a non‑transparent bridge, the host finds a Type 0 CSR header. The host processor therefore believes that this is an endpoint and explores no deeper along that branch of the PCI hierarchy. The host reads the BARs of the top port of Switch B to determine the memory requirements for windows into the memory space on the other side of the bridge. The memory space requirements can be preloaded from an EEPROM into the BAR Setup Registers of Switch B's non‑transparent port or can be configured by the processor that is local to Switch B prior to allowing the system host to complete discovery. | 主机随后探测Switch A最右侧端口，并读取与Switch B顶层端口相关联的CSR头寄存器。由于该端口是一个非透明桥，主机发现的是Type 0 CSR头。因此主机处理器认为这是一个端点，不再沿该PCI层次分支继续探寻。主机读取Switch B顶层端口的BAR，以确定桥另一侧存储器空间窗口的存储器需求。存储器空间需求可从EEPROM预加载到Switch B非透明端口的BAR设置寄存器中，也可在允许系统主机完成发现之前由Switch B的本地处理器进行配置。 |
-| Similar to the host processor power up sequence, the local host will also begin enumerating its own system. Like the system host processor, it will allocate memory for endpoints and continue to enumerate when it encounters a transparent bridge. When the host reaches the topmost port of Switch B, it sees a non‑transparent bridge with a Type 0 CSR header. Accordingly, it reads the BARs of the CSR header to determine the memory aperture requirements, then terminates discovery along this branch of its PCI tree. Again, the memory aperture information can be supplied by an EEPROM, or by the system host. | 与主机处理器上电序列类似，本地主机也将开始枚举其自身系统。与系统主机处理器一样，它将为端点分配存储器，并在遇到透明桥时继续枚举。当主机到达Switch B最顶层端口时，它看到一个带有Type 0 CSR头的非透明桥。因此，它读取CSR头中的BAR以确定存储器窗口需求，然后终止沿其PCI树该分支的发现。同样，存储器窗口信息可由EEPROM提供，或由系统主机提供。 |
-| Communication between the two processor domains is achieved via a mailbox system and doorbell interrupts. The doorbell facility allows each processor to send interrupts to the other. The mailbox facility is a set of dual ported registers that are both readable and writable by both processors. Shared memory mapped mechanisms via the BARs may also be used for inter‑processor communication. | 两个处理器域之间的通信通过邮箱系统和门铃中断实现。门铃机制允许每个处理器向对方发送中断。邮箱机制是一组双端口寄存器，两个处理器均可读写。通过BAR的共享存储器映射机制也可用于处理器间通信。 |
-
-## 99.4.2 Example: Implementing Host Failover in a PCI Express System | 99.4.2 示例：在 PCI Express 系统中实现主机故障切换
-## 示例：在PCI Express系统中实现主机故障切换
-
-| EN | ZH |
-|---|---|
-| Figure C-0-5 on page 953 illustrates how most PCI Express systems will implement host failover. The primary host processor in this illustration is on the left side of the diagram, with the backup host on the right side of the diagram. Like most systems with which we are familiar, the host processor connects to a root complex. In turn, the root complex routes its traffic to the switch. In this example, the switch has two ports to end points in addition to the upstream port for the primary host we have just described. Furthermore, this system also has another processor, which is connected to the switch via another root complex. | 图C-0-5（第953页）展示了大多数PCI Express系统如何实现主机故障切换。此图中的主宿主机位于示意图左侧，备份宿主机位于右侧。与我们熟悉的大多数系统一样，宿主机连接到一个根复合体。根复合体再将其流量路由到交换机。在此示例中，除了我们刚刚描述的主宿主机的上游端口外，交换机还有两个通向端点的端口。此外，该系统还有另一个处理器，该处理器通过另一个根复合体连接到交换机。 |
-
-Figure 0-5: Host Failover in PCI and PCI Express Systems | 图0-5：PCI和PCI Express系统中的主机故障切换
-
-<img src="images/part06_dcdfbe316f4856a23c1d4583b50d833827e3691ebefb4bde0b61800919d42d50.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| The switch ports to both processors need to be configurable to behave either as a transparent bridge or a non-transparent bridge. An EEPROM or strap pins on the switch can be used to initially bootstrap this configuration. | 连接到两个处理器的交换机端口必须可配置为透明桥或非透明桥。可以使用交换机上的EEPROM或配置引脚来初始引导此配置。 |
-| Under normal operation, upon power up, the primary host begins to enumerate the system. In our example, as the primary host processor begins its discovery protocol through the fabric, it discovers the two end points, and their memory requirements, by sizing their BARs. When it gets to the upper right port, it finds a Type 0 CSR header. This signifies to the primary host processor that it should not attempt discovery on the far side of the associated switch port. As in the previous example, the BARs associated with the non-transparent switch port may have been configured by EEPROM load prior to discovery or might be configured by software running on the local processor. | 在正常操作下，上电后，主宿主机开始枚举系统。在我们的示例中，当主宿主机处理器开始通过交换结构执行其发现协议时，它通过测量端点的基址寄存器（BAR）来发现这两个端点及其内存需求。当它到达右上端口时，发现了一个类型0 CSR头标。这向主宿主机处理器表明，它不应尝试在相关交换机端口的远端进行发现。与前面的示例一样，与非透明交换机端口相关联的基址寄存器（BAR）可以在发现之前通过EEPROM加载来配置，也可以由本地处理器上运行的软件来配置。 |
-| Again, similar to the previous example, the backup processor powers up and begins to enumerate. In this example, the backup processor chipset consists of the root complex and the backup processor only. It discovers the non-transparent switch port and terminates its discovery there. It is keyed by EEPROM loaded Device ID and Vendor ID registers to load an appropriate driver. | 同样，与前面的示例类似，备份处理器上电并开始枚举。在此示例中，备份处理器芯片组仅由根复合体和备份处理器组成。它发现非透明交换机端口并在此终止其发现。它通过EEPROM加载的设备ID和供应商ID寄存器来加载相应的驱动程序。 |
-| During the course of normal operation, the host processor performs all of its normal duties as it actively manages the system. In addition, it will send messages to the backup processor called heartbeat messages. Heartbeat messages are indications of the continued good health of the originating processor. A heartbeat message might be as simple as a doorbell interrupt assertion, but typically would include some data to reduce the possibility of a false positive. Checkpoint and journal messages are alternative approaches to providing the backup processor with a starting point, should it need to take over. In the journal methodology, the backup is provided with a list or journal of completed transactions (in the application specific sense, not in the sense of bus transactions). In the checkpoint methodology, the backup is periodically provided with a complete system state from which it can restart if necessary. The heartbeat's job is to provide the means by which the backup processor verifies that the host processor is still operational. Typically this data provides the latest activities and the state of all the peripherals. | 在正常操作过程中，宿主机处理器主动管理系统，执行其所有正常职责。此外，它还会向备份处理器发送称为心跳消息的消息。心跳消息是源处理器持续健康的指示。心跳消息可能就像门铃中断断言一样简单，但通常包含一些数据以减少误报的可能性。检查点（checkpoint）和日志（journal）消息是为备份处理器提供起始点的替代方法，以备其需要接管之需。在日志方法中，备份处理器会获得已完成事务（在应用特定意义上，而非总线事务意义上）的列表或日志。在检查点方法中，备份处理器会定期获得完整的系统状态，必要时可以从中重新启动。心跳的作用是提供备份处理器验证宿主机处理器仍在运行的手段。通常这些数据提供最新的活动以及所有外设的状态。 |
-| If the backup processor fails to receive timely heartbeat messages, it will begin assuming control. One of its first tasks is to demote the primary port to prevent the failed processor from interacting with the rest of the system. This is accomplished by reprogramming the CSRs of the switch using a memory mapped view of the switch's CSRs provided via a BAR in the non-transparent port. To take over, the backup processor reverses the transparent/non-transparent modes at both its port and the primary processor's port and takes down the link to the primary processor. After cleaning up any transactions left in the queues or left in an incomplete state as a result of the host failure, the backup processor reconfigures the system so that it can serve as the host. Finally, it uses the data in the checkpoint or journal messages to restart the system. | 如果备份处理器未能及时收到心跳消息，它将开始接管控制。其首要任务之一是降级主端口，以防止故障处理器与系统的其余部分交互。这通过使用非透明端口中基址寄存器（BAR）提供的交换机CSR的内存映射视图来重新编程交换机的CSR来实现。为了接管，备份处理器反转其端口和主处理器端口的透明/非透明模式，并关闭到主处理器的链路。在清理队列中遗留的或因主机故障而处于未完成状态的事务之后，备份处理器重新配置系统以便其能够充当宿主机。最后，它使用检查点或日志消息中的数据来重新启动系统。 |
-
-| EN | ZH |
-|---|---|
-| ## Example: Implementing Dual Host in a PCI Express Base System | ## 示例：在PCI Express基本系统中实现双主机 |
-| Figure C-0-6 on page 955 illustrates how PCI Express systems might implement a dual host system<sup>1</sup>. In this example, the leftmost blocks are a typically complete system, with the rightmost blocks being a separate subsystem. As previously discussed, connecting the leftmost and rightmost diagram is a set of nontransparent bridges. | 第955页的图C‑0‑6说明了PCI Express系统如何实现双主机系统<sup>1</sup>。在此示例中，最左侧的模块是一个典型的完整系统，而最右侧的模块则是一个独立的子系统。如前所述，连接最左侧和最右侧图的部分是一组非透明桥。 |
-
-**Figure 0-6: Dual Host in a PCI and PCI Express System**
-
-<img src="images/part06_3e90664de5b3fa4c38071f2bcf85d67cc73ba20b85766b70b400fce321e4722b.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| Upon power up, both processors will begin enumerating. As before, the hosts will search out the endpoints by reading the CSR and then allocate memory | 上电后，两个处理器将开始枚举。与之前一样，主机将通过读取CSR来搜索端点，然后分配内存。 |
-
-## PCI Express 3.0 Technology | PCI Express 3.0 技术
-
-| EN | ZH |
-|---|---|
-| appropriately. When the hosts encounter the non-transparent bridge port in each of their private switches, they will assume it is an endpoint and, using the data in the EEPROM, allocate resources. Both systems will use the doorbell and mailbox registers described above to communicate with each other. | 适当地。当主机在其各自私有交换机中遇到非透明桥接端口时，会将其假定为端点，并利用EEPROM中的数据分配资源。两个系统将使用上文所述的门铃寄存器和邮箱寄存器相互通信。 |
-| <sup>2</sup>The dual-host system model may be extended to a fully redundant dual star system by using additional switches to dual-port the hosts and line cards into a redundant fabric as shown in Figure C-0-7 on page 957. This is particularly attractive to vendors who employ chassis based systems for their flexibility, scalability and reliability. | <sup>2</sup>双主机系统模型可通过使用额外的交换机将主机和线路卡双端口接入冗余结构来扩展为完全冗余的双星型系统，如图C-0-7（第957页）所示。这对于采用基于机箱的系统（因其灵活性、可扩展性和可靠性）的供应商尤其具有吸引力。 |
-| Two host cards are shown. Host A is the primary host of Fabric A and the secondary host of Fabric B. Similarly, Host B is the primary host of Fabric B and the secondary host of Fabric A. | 图中显示两个主机卡。主机A是结构A的主主机和结构B的从主机。类似地，主机B是结构B的主主机和结构A的从主机。 |
-| Each host is connected to the fabric it serves via a transparent bridge/switch port and to the fabric for which it provides only backup via a non-transparent bridge/switch port. These non-transparent ports are used for host-to-host communications and also support cross-domain peer-to-peer transfers where address maps do not allow a more direct connection. | 每个主机通过透明桥接器/交换机端口连接到其所服务的结构，并通过非透明桥接器/交换机端口连接到其仅提供备份的结构。这些非透明端口用于主机间通信，并在地址映射不允许更直接连接的情况下支持跨域对等传输。 |
-
-Figure 0-7: Dual-Star Fabric | 图0-7：双星型结构
-
-<img src="images/part06_69ca642d9ad66b908a02f832e8d4df8a1e3ead77d74ca0a56383a15939f36816.jpg" width="700" alt="">
-
-## 99.5 Summary | 99.5 总结
-
-<table>
-<tr>
-<td width="50%">
-Through non-transparent bridging, PCI Express Base offers vendors the ability to integrate intelligent adapters and multi-host systems into their next generation designs. This appendix demonstrated how these features will be deployed using de-facto standard techniques adopted in the PCI environment and showed how they would be utilized for various applications. Because of this, we can expect this methodology to become the industry standard in the PCI Express paradigm.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-通过非透明桥接，PCI Express Base为供应商提供了将智能适配器和多主机系统集成到其下一代设计中的能力。本附录演示了如何使用PCI环境中采用的事实标准技术来部署这些特性，并展示了它们将如何被用于各种应用。因此，我们可以预期这种方法将成为PCI Express范式中的行业标准。
-</td>
-</tr>
-</table>
-
-## 99.6 Address Translation | 99.6 地址翻译
-
-<table>
-<tr>
-<td width="50%">
-This section provides an in-depth description of how systems that use nontransparent bridges communicate using address translation. We provide details about the mechanism by which systems determine not only the size of the memory allocated, but also about how memory pointers are employed. Implementations using both Direct Address Translation as well as Lookup Table Based Address Translation are discussed. By using the same standardized architectural implementation of non transparent bridging popularized in the PCI paradigm into the PCI Express environment, interconnect vendors can speed market adoption of PCI Express into markets requiring intelligent adapters, host failover and multihost capabilities.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-本节深入描述了使用非透明桥的系统如何通过地址翻译进行通信。我们详细阐述了系统不仅确定分配内存大小的机制，还介绍了内存指针的使用方式。讨论了使用直接地址翻译以及基于查找表的地址翻译的实现。通过将在PCI范式中流行的非透明桥接的相同标准化架构实现引入PCI Express环境，互联供应商可以加快PCI Express在需要智能适配器、主机故障切换和多主机能力的市场中的采用。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-The transparent bridge uses base and limit registers in I/O space, non-prefetchable memory space, and prefetchable memory space to map transactions in the downstream direction across the bridge. All downstream devices are required to be mapped in contiguous address regions such that a single aperture in each space is sufficient. Upstream mapping is done via inverse decoding relative to the same registers. A transparent bridge does not translate the addresses of forwarded transactions/packets.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-透明桥使用I/O空间、不可预取存储器空间和可预取存储器空间中的基址和限制寄存器，以在桥的下行方向映射事务。所有下游设备必须映射在连续的地址区域中，使得每个空间中的单个窗口就足够了。上行映射通过相对于相同寄存器的反向解码完成。透明桥不会翻译转发的事务/数据包的地址。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-The non-transparent bridges use the standard set of BARs in their Type 0 CSR header to define apertures into the memory space on the other side of the bridge. There are two sets of BARs: one on the Primary side and one on the Secondary. BARs define resource apertures that allow the forwarding of transactions to the opposite (other side) interface.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-非透明桥使用其Type 0 CSR头部中的标准BAR集来定义通往桥另一侧存储器空间的窗口。有两组BAR：一组在主侧，一组在从侧。BAR定义了允许将事务转发到对侧（另一侧）接口的资源窗口。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-For each BAR bridge there exists a set of associated control and setup registers usually writable from the other side of the bridge. Each BAR has a "setup" register, which defines the size and type of its aperture, and an address translation register. Some bars also have a limit register that can be used to restrict its aperture's size. These registers need to be programmed prior to allowing access from outside the local subsystem. This is typically done by software running on a local processor or by loading the registers from EEPROM.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-对于每个BAR桥，存在一组相关的控制和设置寄存器，通常可从桥的另一侧写入。每个BAR有一个"设置"寄存器，用于定义其窗口的大小和类型，以及一个地址翻译寄存器。某些BAR还有一个限制寄存器，可用于限制其窗口的大小。这些寄存器需要在允许从本地子系统外部访问之前进行编程。这通常由运行在本地处理器上的软件完成，或通过从EEPROM加载寄存器来完成。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-In PCI Express, the Transaction ID fields of packets passing through these apertures are also translated to support Device ID routing. These Device IDs are used to route completions to non-posted requests and ID routed messages.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在PCI Express中，通过这些窗口的数据包的Transaction ID字段也会被翻译以支持Device ID路由。这些Device ID用于将完成报文路由到非发布请求和ID路由消息。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-The transparent bridge forwards CSR transactions in the downstream direction according to the secondary and subordinate bus number registers, converting Type 1 CSRs to Type 0 CSRs as required. The non-transparent bridge accepts only those CSR transactions addressed to it and returns an unsupported request response to all others.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-透明桥根据次级总线号和从属总线号寄存器在下行方向转发CSR事务，根据需要将Type 1 CSR转换为Type 0 CSR。非透明桥仅接受那些寻址到自身的CSR事务，并对所有其他事务返回不支持请求响应。
-</td>
-</tr>
-</table>
-
-## 99.6.1 Direct Address Translation | 99.6.1 直接地址翻译
-
-<table>
-<tr>
-<td width="50%">
-The addresses of all upstream and downstream transactions are translated (except BARs accessing CSRs). With the exception of the cases in the following two sections, addresses that are forwarded from one interface to the other are translated by adding a Base Address to their offset within the BAR that they landed in as seen in Figure C-0-8 on page 959. The BAR Base Translation Registers are used to set up these base translations for the individual BARs.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-所有上行和下行事务的地址均被翻译（访问CSR的BAR除外）。除以下两节所述情况外，从一个接口转发到另一个接口的地址，通过在其所落入的BAR内的偏移量上加上一个基地址来进行翻译，如图C-0-8（第959页）所示。BAR基地址翻译寄存器用于为各个BAR设置这些基地址翻译。
-</td>
-</tr>
-</table>
-
-Figure 0-8: Direct Address Translation | 图0-8：直接地址转换
-
-<img src="images/part06_b9f658a82478d41670c0713da32fb2eee4cb996c6d3204c17970773156d57fed.jpg" width="700" alt="">
-
-## 99.6.2 Lookup Table Based Address Translation | 99.6.2 基于查找表的地址转换
-
-<table>
-<tr>
-<td width="50%">
-Following the de facto standard adopted by the PCI community, PCI Express should provide several BARs for the purposes of allocating resources. All BARs contain the memory allocation; however, in accordance with PCI industry conventions, BAR 0 contains the CSR information whereas BAR1 contains I/O information, BAR 2 and BAR 3 are utilized for Lookup Table Based Translation. BAR 4 and BAR 5 are utilized for Direct Address Translations.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-遵循PCI社区采纳的事实标准，PCI Express应提供多个BAR用于资源分配。所有BAR都包含内存分配；然而，根据PCI行业惯例，BAR 0包含CSR信息，而BAR 1包含I/O信息，BAR 2和BAR 3用于基于查找表的转换。BAR 4和BAR 5用于直接地址转换。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-On the secondary side, BAR3 uses a special lookup table based address translation for transactions that fall inside its window as seen in Figure C‐0‐9 on page 960. The lookup table provides more flexibility in secondary bus local addresses to primary bus addresses. The location of the index field with the address bus is programmable to adjust aperture size.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在从属侧，BAR 3对其窗口范围内的事务使用一种特殊的基于查找表的地址转换，如图C-0-9（第960页）所示。查找表为从属总线本地地址到主总线地址提供了更大的灵活性。地址总线中索引字段的位置是可编程的，以调整孔径大小。
-</td>
-</tr>
-</table>
-
-Figure 0‐9: Lookup Table Based Translation | 图0‐9：基于查找表的转换  
-<img src="images/part06_46e325e25efdfe78f84ef0cb38c00866541e316a5f27b0f5e056285f1bce257c.jpg" width="700" alt="">
-
-## 99.6.3 Downstream BAR Limit Registers | 99.6.3 下游BAR限制寄存器
-
-<table>
-<tr>
-<td width="50%">
-The two downstream BARs on the primary side (BAR2/3 and BAR4/5) also have Limit registers, programmable from the local side, to further restrict the size of the window they expose, as seen in Figure C‐0‐10 on page 961. BARs can only be assigned memory resources in "power of two" granularity. The limit registers provide a means to obtain better granularity by "capping" the size of the BAR within the "power of two" granularity. Only transactions below the Limit registers are forwarded to the secondary bus. Transactions above the limit are discarded or return 0xFFFFFFFF, or a master abort equivalent packet, on reads.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-主侧的两个下游BAR（BAR2/3和BAR4/5）也有可从本地侧编程的限制寄存器，用于进一步限制它们所暴露窗口的大小，如图C-0-10（第961页）所示。BAR只能以"2的幂"粒度分配存储器资源。限制寄存器提供了一种通过在"2的幂"粒度内"封顶"BAR大小来获得更好粒度的方法。只有低于限制寄存器的事务才会被转发到副总线。高于限制的事务将被丢弃，或在读操作时返回0xFFFFFFFF或主中止等效报文。
-</td>
-</tr>
-</table>
-
-Figure 0‐10: Use of Limit Register | 图0‐10：限制寄存器的使用
-<img src="images/part06_16fce13f8a5cd71d166a65ba7b9fcbcd49e7b122d14528f1c3be9b36c0ede20a.jpg" width="700" alt="">
-
-## 99.6.4 Forwarding 64bit Address Memory Transactions | 99.6.4 转发64位地址存储器事务
-
-<table>
-<tr>
-<td width="50%">
-Certain BARs can be configured to work in pairs to provide the base address and translation for transactions containing 64-bit addresses. Transactions that hit within these 64-bit BARs are forwarded using Direct Address Translation. As in the case of 32 bit transactions, when a memory transaction is forwarded from the primary to the secondary bus, the primary address can be mapped to another address in the secondary bus domain. The mapping is performed by substituting a new base address for the base of the original address.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-某些基址寄存器（BAR）可被配置为成对工作，为包含64位地址的事务提供基地址和地址转换。命中这些64位BAR范围内的事务将使用直接地址转换进行转发。与32位事务的情况类似，当存储器事务从主总线转发到从总线时，主总线地址可被映射到从总线域中的另一个地址。该映射通过用新的基地址替换原始地址的基址部分来执行。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-A 64-bit BAR pair on the system side of the bridge is used to translate a window of 64-bit addresses in packets originated on the system side of the bridge down below 232 in local space.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-位于桥系统侧的64位BAR对用于将桥系统侧发起的数据包中的64位地址窗口转换到本地空间中2^32以下的地址范围。
-</td>
-</tr>
-</table>
-
-# Appendix D: Locked Transactions | 附录D：锁定事务
-
-## 99.1 Introduction | 99.1 引言
-
-<table>
-<tr>
-<td width="50%">
-Native PCI Express implementations do not support the old lock protocol. Support for Locked transaction sequences only exists to support legacy device software executing on the host processor that performs a locked RMW (read-modify-write) operation on a memory location in a legacy PCI device. This chapter defines the protocol defined by PCI Express for this legacy support of locked access sequences that target legacy devices. Failure to support lock may result in deadlocks.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-原生PCI Express实现不支持旧的锁定协议。对锁定事务序列的支持仅是为了支持在主机处理器上执行的遗留设备软件，这些软件对遗留PCI设备中的存储器位置执行锁定的RMW（读-修改-写）操作。本章定义了PCI Express为针对遗留设备的锁定访问序列提供的这种遗留支持所定义的协议。不支持锁定可能会导致死锁。
-</td>
-</tr>
-</table>
+| The next chapter describes the changes and new features that were added with the 2.1 revision of the spec. Some of these topics, like the ones related to power management, are described in earlier chapters, but for others there wasn't another logical place for them. In the end, it seemed best to group them all together in one chapter to ensure that they were all covered and to help clarify what features are new. | 下一章描述 2.1 版规范新增的变更与特性。其中部分主题（如与电源管理相关的内容）已在前面章节中阐述，但其他主题则无其他更合适的放置位置。最终，将它们集中归入一章似乎是最佳方案，以确保涵盖所有内容，并帮助阐明哪些特性是新增的。 |
 
 ## 99.2 Background | 99.2 背景
 
-<table>
-<tr>
-<td width="50%">
-PCI Express supports atomic or uninterrupted transaction sequences (usually described as an atomic read-modify-write sequence) for legacy devices only. Native PCIe devices don't support this at all and will return a Completion with UR (Unsupported Request) status if they receive a locked Request.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-PCI Express仅对遗留设备支持原子或不可中断的事务序列（通常描述为原子读-修改-写序列）。原生PCIe设备完全不支持此功能，如果收到锁定请求，将返回带有UR（不支持请求）状态的完成报文。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Locked operations consist of the basic RMW sequence, that is:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-锁定操作由基本的RMW序列组成，即：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-1. One or more memory reads from the target location to obtain the value.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-1. 从目标位置进行一次或多次存储器读取以获取数值。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-2. The modification of the data in a processor register.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-2. 在处理器寄存器中修改数据。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-3. One or more writes to write the modified value back to the target memory location.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-3. 进行一次或多次写入，将修改后的值写回目标存储器位置。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-This transaction sequence must be performed such that no other accesses are permitted to the target locations (or device) during the locked sequence. This requires blocking other transactions during the operation. This can potentially result in deadlocks and poor performance.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-此事务序列的执行必须确保在锁定序列期间不允许对目标位置（或设备）进行任何其他访问。这需要在操作期间阻止其他事务。这可能导致死锁和性能下降。
-</td>
-</tr>
-</table>
-
-## PCI Express Technology | PCI Express技术
-
-<table>
-<tr>
-<td width="50%">
-The devices required to support locked sequences are:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-需要支持锁定序列的设备包括：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• The Root Complex.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 根复合体。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• Any Switches in the path to a Legacy Device that may be the target of a locked transaction series.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 通往可能成为锁定事务系列目标的遗留设备路径上的任何交换机。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• PCIe-to-PCI Bridge or PCIe-to-PCI-X Bridge.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• PCIe到PCI桥或PCIe到PCI-X桥。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• Any Legacy Device whose driver issues locked transactions to memory residing within the legacy device.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 任何其驱动程序向驻留在遗留设备内的存储器发出锁定事务的遗留设备。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Locking in the PCI environment is achieved by the use of the LOCK# signal. The equivalent functionality in PCIe is accomplished by using a specific Request that emulates the LOCK# signal functionality.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在PCI环境中，锁定是通过使用LOCK#信号实现的。在PCIe中，等效功能是通过使用模拟LOCK#信号功能的特定请求来实现的。
-</td>
-</tr>
-</table>
-
-## 99.3 The PCI Express Lock Protocol | 99.3 PCI Express锁定协议
-
-<table>
-<tr>
-<td width="50%">
-The only source of lock supported by PCI Express is the system processor acting through the Root Complex. A locked operation is performed between a Root Port and the Legacy Endpoint. In most systems, the legacy device is typically a PCI Express-to-PCI or PCI Express-to-PCI-X bridge. Only one locked sequence at a time is supported for a given hierarchical path.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-PCI Express支持的唯一锁定源是通过根复合体进行操作的系统处理器。锁定操作在根端口和遗留端点之间执行。在大多数系统中，遗留设备通常是PCI Express到PCI或PCI Express到PCI-X桥。对于给定的层次路径，一次仅支持一个锁定序列。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Locked transactions are constrained to use only Traffic Class 0 and Virtual Channel 0. Transactions with other TC values that map to a VC other than zero are permitted to traverse the fabric without regard to the locked operation, but transactions that map to VC0 are affected by the lock rules described here.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-锁定事务被限制为仅使用流量类0和虚通道0。映射到非零VC的其他TC值的事务允许穿越结构而无需考虑锁定操作，但映射到VC0的事务受此处描述的锁定规则影响。
-</td>
-</tr>
-</table>
-
-## Lock Messages — The Virtual Lock Signal | 锁定消息——虚拟锁定信号
-
-<table>
-<tr>
-<td width="50%">
-PCI Express defines the following transactions that, together, act as a virtual wire and replace the LOCK# signal.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-PCI Express定义了以下事务，它们共同起到虚拟导线的作用并取代LOCK#信号。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Memory Read Lock Request (MRdLk) — Originates a locked sequence. The first MRdLk transaction blocks other Requests in VC0 from reaching the target device. One or more of these locked read requests may be issued during the sequence.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-存储器读锁定请求（MRdLk）——发起锁定序列。第一个MRdLk事务阻止VC0中的其他请求到达目标设备。在序列期间可以发出一个或多个此类锁定读请求。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Memory Read Lock Completion with Data (CplDLk) — Returns data and confirms that the path to the target is locked. A successful read Completion that returns data for the first Memory Read Lock request results in the path between the Root Complex and the target device being locked. That is, transactions traversing the same path from other ports are blocked from reaching either the root port or the target port. Transactions being routed in buffers for VC1-VC7 are unaffected by the lock.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-带数据的存储器读锁定完成报文（CplDLk）——返回数据并确认到目标的路径已锁定。为第一个存储器读锁定请求返回数据的成功读完成报文会导致根复合体与目标设备之间的路径被锁定。也就是说，从其他端口穿越同一条路径的事务被阻止到达根端口或目标端口。在VC1-VC7缓冲区中路由的事务不受锁定的影响。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Memory Read Lock Completion without Data (CplLK) — A Completion without a data payload indicates that the lock sequence cannot complete currently and the path remains unlocked.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-不带数据的存储器读锁定完成报文（CplLK）——不带数据负载的完成报文表示锁定序列当前无法完成，且路径保持未锁定状态。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Unlock Message — An unlock message is issued by the Root Complex from the locked root port. This message unlocks the path between the root port and the target port.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-解锁消息——由根复合体从锁定的根端口发出解锁消息。该消息解锁根端口与目标端口之间的路径。
-</td>
-</tr>
-</table>
-
-## The Lock Protocol Sequence — an Example | 锁定协议序列——示例
-
-<table>
-<tr>
-<td width="50%">
-This section explains the PCI Express lock protocol by example. The example includes the following devices:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-本节通过示例解释PCI Express锁定协议。该示例包括以下设备：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• The Root Complex that initiates the Locked transaction series on behalf of the host processor.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 代表主机处理器发起锁定事务系列的根复合体。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• A Switch in the path between the root port and targeted legacy endpoint.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 位于根端口与目标遗留端点之间路径上的交换机。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• A PCI Express-to-PCI Bridge in the path to the target.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 通往目标路径上的PCI Express到PCI桥。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• The target PCI device whose Device Driver initiated the locked RMW.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 其设备驱动程序发起锁定RMW的目标PCI设备。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• A PCI Express endpoint is included to describe Switch behavior during lock.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 包含一个PCI Express端点以描述锁定期间的交换机行为。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-In this example, the locked operation completes normally. The steps that occur during the operation are described in the two sections that follow.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在此示例中，锁定操作正常完成。操作期间发生的步骤在接下来的两节中描述。
-</td>
-</tr>
-</table>
-
-## The Memory Read Lock Operation | 存储器读锁定操作
-
-<table>
-<tr>
-<td width="50%">
-Figure E-1 on page 967 illustrates the first step in the Locked transaction series (i.e., the initial memory read to obtain the semaphore):
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-第967页的图E-1说明了锁定事务系列的第一步（即获取信号量的初始存储器读取）：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-1. The CPU initiates the locked sequence (a Locked Memory Read) as a result of a driver executing a locked RMW instruction that targets a PCI target.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-1. CPU因驱动程序执行针对PCI目标的锁定RMW指令而发起锁定序列（锁定存储器读取）。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-2. The Root Port issues a Memory Read Lock Request from port 2. The Root Complex is always the source of a locked sequence.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-2. 根端口从端口2发出存储器读锁定请求。根复合体始终是锁定序列的源。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-3. The Switch receives the lock request on its upstream port and forwards the request to the target egress port (3). The switch, upon forwarding the request to the egress port, must block all requests from ports other than the ingress port (1) from being sent from the egress port.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-3. 交换机在其上行端口上接收到锁定请求，并将该请求转发到目标出口端口（3）。交换机在将请求转发到出口端口时，必须阻止来自除入口端口（1）之外的其他端口的所有请求从该出口端口发出。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-4. A subsequent peer-to-peer transfer from the illustrated PCI Express endpoint to the PCI bus (switch port 2 to switch port 3) would be blocked until the lock is cleared. Note that the lock is not yet established in the other direction. Transactions from the PCI Express endpoint could be sent to the Root Complex.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-4. 随后从图示的PCI Express端点到PCI总线（交换机端口2到交换机端口3）的对等传输将被阻止，直到锁定解除。请注意，另一个方向尚未建立锁定。来自PCI Express端点的事务可以发送到根复合体。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-5. The Memory Read Lock Request is sent from the Switch's egress port to the PCI Express-to-PCI Bridge. This bridge will implement PCI lock semantics (See the MindShare book entitled PCI System Architecture, Fourth Edition, for details regarding PCI lock).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-5. 存储器读锁定请求从交换机的出口端口发送到PCI Express到PCI桥。该桥将实现PCI锁定语义（有关PCI锁定的详细信息，请参阅MindShare出版的《PCI系统体系结构，第四版》）。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-6. The bridge performs the Memory Read transaction on the PCI bus with the PCI LOCK# signal asserted. The target memory device returns the requested semaphore data to the bridge.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-6. 桥在PCI总线上执行存储器读事务，并断言PCI LOCK#信号。目标存储器设备将请求的信号量数据返回给桥。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-7. Read data is returned to the Bridge and is delivered back to the Switch via a Memory Read Lock Completion with Data (CplDLk).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-7. 读数据返回到桥，并通过带数据的存储器读锁定完成报文（CplDLk）传递回交换机。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-8. The switch uses ID routing to return the packet upstream towards the host processor. When the CplDLk packet is forwarded to the upstream port of the Switch, it establishes a lock in the upstream direction to prevent traffic from other ports from being routed upstream. The PCI Express endpoint is completely blocked from sending any transaction to the Switch ports via the path of the locked operation. Note that transfers between Switch ports not involved in the locked operation would be permitted (not shown in this example).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-8. 交换机使用ID路由将数据包向上游返回给主机处理器。当CplDLk数据包被转发到交换机的上行端口时，它在上行方向建立了锁定，以防止来自其他端口的流量被路由到上游。PCI Express端点被完全阻止通过锁定操作的路径向交换机端口发送任何事务。请注意，不参与锁定操作的交换机端口之间的传输是允许的（本例中未示出）。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-9. Upon detecting the CplDLk packet, the Root Complex knows that the lock has been established along the path between it and the target device, and the completion data is sent to the CPU.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-9. 在检测到CplDLk数据包时，根复合体就知道锁定已在其与目标设备之间的路径上建立，并且完成数据被发送到CPU。
-</td>
-</tr>
-</table>
-
-Figure D-1: Lock Sequence Begins with Memory Read Lock Request | 图D-1：锁定序列以存储器读锁定请求开始
-<img src="images/part06_f6913aa97476401663ef2a81abb4e6b5da7417c5e2f611200ca27786fdc6951b.jpg" width="700" alt="">
-
-## Read Data Modified and Written to Target and Lock Completes | 读数据被修改并写入目标，锁定完成
-
-<table>
-<tr>
-<td width="50%">
-The device driver receives the semaphore value, alters it, and then initiates a memory write to update the semaphore within the memory of the legacy PCI device. Figure E-2 on page 969 illustrates the write sequence followed by the Root Complex's transmission of the Unlock message that releases the lock:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-设备驱动程序接收信号量值，修改它，然后发起存储器写入以更新遗留PCI设备存储器中的信号量。第969页的图E-2说明了写入序列，随后根复合体发送解锁消息以释放锁定：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-10. The Root Complex issues the Memory Write Request across the locked path to the target device.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-10. 根复合体通过锁定的路径向目标设备发出存储器写请求。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-11. The Switch forwards the transaction to the target egress port (3). The memory address of the Memory Write must be the same as the initial Memory Read request.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-11. 交换机将事务转发到目标出口端口（3）。存储器写的存储器地址必须与初始存储器读请求的地址相同。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-12. The bridge forwards the transaction to the PCI bus.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-12. 桥将事务转发到PCI总线。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-13. The target device receives the memory write data.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-13. 目标设备接收存储器写数据。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-14. Once the Memory Write transaction is sent from the Root Complex, it sends an Unlock message to instruct the Switches and any PCI/PCI-X bridges in the locked path to release the lock. Note that the Root Complex presumes the operation has completed normally (because memory writes are posted and no Completion is returned to verify success).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-14. 一旦存储器写事务从根复合体发出，它就发送一条解锁消息，指示锁定路径中的交换机和任何PCI/PCI-X桥释放锁定。请注意，根复合体假定操作已正常完成（因为存储器写是发布性的，不返回完成报文来验证成功）。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-15. The Switch receives the Unlock message, unlocks its ports and forwards the message to the egress port that was locked to notify any other Switches and/or bridges in the locked path that the lock must be cleared.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-15. 交换机接收解锁消息，解锁其端口，并将该消息转发到被锁定的出口端口，以通知锁定路径中的任何其他交换机和/或桥必须解除锁定。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-16. Upon detecting the Unlock message, the bridge must also release the lock on the PCI bus.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-16. 在检测到解锁消息时，桥还必须释放PCI总线上的锁定。
-</td>
-</tr>
-</table>
-
-Figure D-2: Lock Completes with Memory Write Followed by Unlock Message | 图D-2：锁定以存储器写后跟解锁消息完成
-<img src="images/part06_5b9488b3a211370278d851a4da3e757bbb0a8776bfad32d700487c491a9d52cb.jpg" width="700" alt="">
-
-## 99.3.3 Notification of an Unsuccessful Lock | 99.3.3 不成功锁定的通知
-
-<table>
-<tr>
-<td width="50%">
-A locked transaction series is aborted when the initial Memory Read Lock Request receives a Completion packet with no data (CplLk). This means that the locked sequence must terminate because no data was returned. This could result from an error associated with the memory read transaction, or perhaps the target device is busy and cannot respond at this time.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-当初始存储器读锁定请求收到不带数据的完成报文（CplLk）时，锁定事务系列被中止。这意味着锁定序列必须终止，因为没有返回数据。这可能是由于与存储器读事务相关的错误，或者目标设备正忙而无法响应所致。
-</td>
-</tr>
-</table>
-
-## 99.4 Summary of Locking Rules | 99.4 锁定规则总结
-
-<table>
-<tr>
-<td width="50%">
-Following is a list of ordering rules that apply to the Root Complex, Switches, and Bridges.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-以下是适用于根复合体、交换机和桥的有序规则列表。
-</td>
-</tr>
-</table>
-
-## 99.4.1 Rules Related To the Initiation and Propagation of Locked Transactions | 99.4.1 与锁定事务发起和传播相关的规则
-
-<table>
-<tr>
-<td width="50%">
-Locked Requests which are completed with a status other than Successful Completion do not establish lock.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-以成功完成之外的状态完成的锁定请求不会建立锁定。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Regardless of the status of any of the Completions associated with a locked sequence, all locked sequences and attempted locked sequences must be terminated by the transmission of an Unlock Message.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-无论与锁定序列关联的任何完成报文的状态如何，所有锁定序列和尝试的锁定序列都必须通过发送解锁消息来终止。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-MRdLk, CplDLk and Unlock semantics are allowed only for the default Traffic Class (TC0).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-MRdLk、CplDLk和解锁语义仅允许用于默认流量类（TC0）。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• Only one locked transaction sequence attempt may be in progress at a given time within a single hierarchy domain.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 在单个层次域中，同一时间只能有一个锁定事务序列尝试在进行中。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Any device which is not involved in the locked sequence must ignore the Unlock Message.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-任何未参与锁定序列的设备必须忽略解锁消息。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-The initiation and propagation of a locked transaction sequence through the PCI Express fabric is performed as follows:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-锁定事务序列通过PCI Express结构的发起和传播按如下方式执行：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• A locked transaction sequence is started with a MRdLk Request:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 锁定事务序列以MRdLk请求开始：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-— Any successive reads associated with the locked transaction sequence must also use MRdLk Requests.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-— 与锁定事务序列关联的任何后续读取也必须使用MRdLk请求。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-The Completions for any successful MRdLk Request use the CplDLk Completion type, or the CPlLk Completion type for unsuccessful Requests.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-任何成功的MRdLk请求使用CplDLk完成报文类型，不成功的请求使用CplLk完成报文类型。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-If any read associated with a locked sequence is completed unsuccessfully, the Requester must assume that the atomicity of the lock is no longer assured, and that the path between the Requester and Completer is no longer locked.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-如果与锁定序列关联的任何读取未成功完成，请求者必须假定锁定的原子性不再得到保证，并且请求者与完成者之间的路径不再锁定。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-• All writes associated with a locked sequence must use MWr Requests.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 与锁定序列关联的所有写入必须使用MWr请求。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-The Unlock Message is used to indicate the end of a locked sequence. A Switch propagates Unlock Messages through the locked Egress Port.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-解锁消息用于指示锁定序列的结束。交换机通过锁定的出口端口传播解锁消息。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Upon receiving an Unlock Message, a legacy Endpoint or Bridge must unlock itself if it is in a locked state. If it is not locked, or if the Receiver is a PCI Express Endpoint or Bridge which does not support lock, the Unlock Message is ignored and discarded.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在收到解锁消息时，如果遗留端点或桥处于锁定状态，它必须解锁自身。如果它未锁定，或者接收者是PCI Express端点或不支持锁定的桥，则解锁消息被忽略并丢弃。
-</td>
-</tr>
-</table>
-
-## 99.4.2 Rules Related to Switches | 99.4.2 与交换机相关的规则
-
-<table>
-<tr>
-<td width="50%">
-Switches must detect transactions associated with locked sequences from other transactions to prevent other transactions from interfering with the lock and potentially causing deadlock. The following rules cover how this is done. Note that locked accesses are limited to TC0, which is always mapped to VC0.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-交换机必须从其他事务中检测与锁定序列关联的事务，以防止其他事务干扰锁定并可能导致死锁。以下规则涵盖了如何做到这一点。请注意，锁定访问仅限于TC0，它始终映射到VC0。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-When a Switch propagates a MRdLk Request from an Ingress Port to the Egress Port, it must block all Requests which map to the default Virtual Channel (VC0) from being propagated to the Egress Port. If a subsequent MRdLk Request is received at this Ingress Port addressing a different Egress Port, the behavior of the Switch is undefined. Note that this sort of split-lock access is not supported by PCI Express and software must not cause such a locked access. System deadlock may result from such accesses.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-当交换机将MRdLk请求从入口端口传播到出口端口时，它必须阻止所有映射到默认虚通道（VC0）的请求被传播到出口端口。如果在此入口端口接收到寻址不同出口端口的后续MRdLk请求，则交换机的行为是未定义的。请注意，PCI Express不支持这种分裂锁定访问，软件不得引起这样的锁定访问。此类访问可能导致系统死锁。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-When the CplDLk for the first MRdLk Request is returned, if the Completion indicates a Successful Completion status, the Switch must block all Requests from all other Ports from being propagated to either of the Ports involved in the locked access, except for Requests which map to channels other than VC0 on the Egress Port.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-当第一个MRdLk请求的CplDLk返回时，如果完成报文指示成功完成状态，交换机必须阻止来自所有其他端口的所有请求传播到参与锁定访问的任一端口，但映射到出口端口上非VC0通道的请求除外。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-The two Ports involved in the locked sequence must remain blocked until the Switch receives the Unlock Message (at the Ingress Port which received the initial MRdLk Request)
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-参与锁定序列的两个端口必须保持阻塞状态，直到交换机（在接收初始MRdLk请求的入口端口处）收到解锁消息。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-— The Unlock Message must be forwarded to the locked Egress Port.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-— 解锁消息必须转发到锁定的出口端口。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-— The Unlock Message may be broadcast to all other Ports.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-— 解锁消息可以广播到所有其他端口。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-The Ingress Port is unblocked once the Unlock Message arrives, and the Egress Port(s) which were blocked are unblocked following the transmission of the Unlock Message out of the Egress Port(s). Ports that were not involved in the locked access are unaffected by the Unlock Message.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-一旦解锁消息到达，入口端口被解除阻塞，而被阻塞的出口端口在将解锁消息从出口端口发出后解除阻塞。未参与锁定访问的端口不受解锁消息的影响。
-</td>
-</tr>
-</table>
-
-## 99.4.3 Rules Related To PCI Express/PCI Bridges | 99.4.3 与PCI Express/PCI桥相关的规则
-
-<table>
-<tr>
-<td width="50%">
-The requirements for PCI Express/PCI Bridges are similar to those for Switches, except that, because these Bridges only use TC0 and VC0, all other traffic is blocked during the locked access. Requirements on the PCI bus side are described in the MindShare book, PCI System Architecture, Fourth Edition.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-对PCI Express/PCI桥的要求与对交换机的要求类似，只是由于这些桥仅使用TC0和VC0，因此在锁定访问期间所有其他流量都被阻塞。有关PCI总线侧的要求在MindShare出版的《PCI系统体系结构，第四版》中描述。
-</td>
-</tr>
-</table>
-
-## 99.4.4 Rules Related To the Root Complex | 99.4.4 与根复合体相关的规则
-
-<table>
-<tr>
-<td width="50%">
-A Root Complex is permitted to support locked transactions as a Requester. If locked transactions are supported, a Root Complex must follow the rules already described to perform a locked access. The mechanism(s) used by the Root Complex to interface to the host processor's FSB (Front-Side Bus) are outside the scope of the spec.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-根复合体允许作为请求者支持锁定事务。如果支持锁定事务，根复合体必须遵循已描述的规则来执行锁定访问。根复合体用于与主机处理器FSB（前端总线）接口的机制不在本规范的范围内。
-</td>
-</tr>
-</table>
-
-## 99.4.5 Rules Related To Legacy Endpoints | 99.4.5 与遗留端点相关的规则
-
-<table>
-<tr>
-<td width="50%">
-Legacy Endpoints are permitted to support locked accesses, although their use is discouraged. If locked accesses are supported, legacy Endpoints must handle them as follows:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-允许遗留端点支持锁定访问，但不鼓励使用。如果支持锁定访问，遗留端点必须按如下方式处理：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-The legacy Endpoint becomes locked when it transmits the first Completion for the first read request of the locked transaction series access with a Successful Completion status:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-当遗留端点为锁定事务系列访问的第一个读请求发送第一个状态为成功完成的完成报文时，该遗留端点变为锁定状态：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-— If the completion status is not Successful Completion, the legacy Endpoint does not become locked.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-— 如果完成状态不是成功完成，则遗留端点不会变为锁定状态。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-— Once locked, the legacy Endpoint must remain locked until it receives the Unlock Message.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-— 一旦锁定，遗留端点必须保持锁定状态，直到收到解锁消息。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-While locked, a legacy Endpoint must not issue any Requests using Traffic Classes which map to the default Virtual Channel (VC0). Note that this requirement applies to all possible sources of Requests within the Endpoint, in the case where there is more than one possible source of Requests. Requests may be issued using TCs which map to VCs other than VC0.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在锁定状态下，遗留端点不得使用映射到默认虚通道（VC0）的流量类发出任何请求。请注意，此要求适用于端点内所有可能的请求源（如果有多个可能的请求源的情况）。可以使用映射到VC0以外的VC的TC来发出请求。
-</td>
-</tr>
-</table>
-
-## 99.4.6 Rules Related To PCI Express Endpoints | 99.4.6 与PCI Express端点相关的规则
-
-<table>
-<tr>
-<td width="50%">
-Native PCI Express Endpoints do not support lock. A PCI Express Endpoint must treat a MRdLk Request as an Unsupported Request.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-原生PCI Express端点不支持锁定。PCI Express端点必须将MRdLk请求视为不支持请求。
-</td>
-</tr>
-</table>
-
-## Locked Transactions | 锁定事务
-
-## 99.1 Introduction | 99.1 引言
-
-<table>
-<tr>
-<td width="50%">
-Native PCI Express implementations do not support the old lock protocol. Support for Locked transaction sequences only exists to support legacy device software executing on the host processor that performs a locked RMW (read-modify-write) operation on a memory location in a legacy PCI device. This chapter defines the protocol defined by PCI Express for this legacy support of locked access sequences that target legacy devices. Failure to support lock may result in deadlocks.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-原生 PCI Express 实现不支持旧的锁定协议。支持锁定事务序列仅为了支持在主机处理器上执行的遗留设备软件，该软件在遗留 PCI 设备的内存位置上执行锁定的 RMW（读-修改-写）操作。本章定义了 PCI Express 为此遗留支持所定义的协议，用于针对遗留设备的锁定访问序列。不支持锁定可能会导致死锁。
-</td>
-</tr>
-</table>
-
-## 99.2 Background | 99.2 背景
-
-<table>
-<tr>
-<td width="50%">
-PCI Express supports atomic or uninterrupted transaction sequences (usually described as an atomic read‐modify‐write sequence) for legacy devices only. Native PCIe devices don't support this at all and will return a Completion with UR (Unsupported Request) status if they receive a locked Request.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-PCI Express仅在传统设备中支持原子性或不可中断的事务序列（通常描述为原子读-修改-写序列）。原生PCIe设备完全不支持此功能，如果收到锁定请求，将返回带有UR（不支持请求）状态的完成报文。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Locked operations consist of the basic RMW sequence, that is:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-锁定操作由基本的RMW序列组成，即：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-1. One or more memory reads from the target location to obtain the value.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-1. 从目标位置进行一次或多次存储器读取以获取该值。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-2. The modification of the data in a processor register.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-2. 在处理器寄存器中修改数据。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-3. One or more writes to write the modified value back to the target memory location.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-3. 进行一次或多次写入以将修改后的值写回目标存储器位置。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-This transaction sequence must be performed such that no other accesses are permitted to the target locations (or device) during the locked sequence. This requires blocking other transactions during the operation. This can potentially result in deadlocks and poor performance.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-该事务序列的执行必须确保在锁定序列期间，不允许对目标位置（或设备）进行任何其他访问。这需要在操作期间阻止其他事务。这可能导致死锁和性能下降。
-</td>
-</tr>
-</table>
+| EN | ZH |
+| --- | --- |
+| Some systems using PCIe require high availability or non‑stop operation. Online service suppliers require computer systems that experience downtimes of just a few minutes a year or less. There are many aspects to building such systems, but equipment reliability is clearly important. To facilitate these goals PCIe supports the Hot Plug/Hot Swap solutions for add‑in cards that provide three important capabilities: | 某些使用PCIe的系统需要高可用性或不间断运行。在线服务供应商要求计算机系统每年的停机时间不超过几分钟甚至更少。构建此类系统涉及多个方面，但设备可靠性显然至关重要。为实现这些目标，PCIe支持面向扩展卡的热插拔/热替换方案，该方案提供三项重要能力： |
+| 1. a method of replacing failed expansion cards without turning the system off | 1. 一种无需关闭系统即可更换故障扩展卡的方法 |
+| 2. keeping the O/S and other services running during the repair | 2. 在维修期间保持操作系统及其他服务继续运行 |
+| 3. shutting down and restarting software associated with a failed device | 3. 关闭并重新启动与故障设备相关的软件 |
+| Prior to the widespread acceptance of PCI, many proprietary Hot Plug solutions were developed to support this type of removal and replacement of expansion cards. The original PCI implementation did not support hot removal and insertion of cards, but two standardized solutions for supporting this capability in PCI have been developed. The first is the Hot Plug PCI Card used in PC Server motherboard and expansion chassis implementations. The other is called Hot Swap and is used in CompactPCI systems based on a passive PCI backplane implementation. | 在PCI被广泛接受之前，业界已开发出许多专有热插拔方案来支持扩展卡的此类移除与更换。最初的PCI实现不支持卡的热移除和热插入，但后来开发出两种标准化方案来支持PCI的这一能力。第一种是用于PC服务器主板和扩展机箱实现的热插拔PCI卡。另一种称为热替换，用于基于无源PCI背板实现的CompactPCI系统。 |
+| In both solutions, control logic is used to electrically isolate the card logic from the shared PCI bus. Power, reset, and clock are controlled to ensure an orderly power down and power up of cards as they are removed and replaced, and status and power LEDs inform the user when it's safe to change a card. | 在这两种方案中，均使用控制逻辑将卡逻辑与共享PCI总线进行电气隔离。电源、复位和时钟受到控制，以确保卡在移除和更换时有序下电和上电，状态指示灯和电源指示灯告知用户何时可以安全更换卡。 |
+| Extending hot plug support to PCI Express cards is an obvious step, and designers have incorporated some Hot Plug features as "native" to PCIe. The spec defines configuration registers, Hot Plug Messages, and procedures to support Hot Plug solutions. | 将热插拔支持扩展到PCI Express卡是一个必然的步骤，设计者已将某些热插拔特性作为PCIe的"原生"功能融入其中。该规范定义了配置寄存器、热插拔消息以及支持热插拔方案的相关过程。 |
+
+## 19.2 Hot Plug in the PCI Express Environment | 19.2 PCI Express 环境中的热插拔
+
+## PCI Express 环境中的热插拔
+
+| EN | ZH |
+|---|---|
+| PCIe Hot Plug is derived from the 1.0 revision of the Standard Hot Plug Controller spec (SHPC 1.0) for PCI. The goals of PCI Express Hot Plug are to: | PCIe 热插拔源自 PCI 标准热插拔控制器规范 (SHPC 1.0) 的 1.0 版本。PCI Express 热插拔的目标是： |
+| Support the same "Standardized Usage Model" as defined by the Standard Hot Plug Controller spec. This ensures that the PCI Express hot plug is identical from the user perspective to existing implementations based on the SHPC 1.0 spec. | 支持标准热插拔控制器规范所定义的相同"标准化使用模型"。这确保从用户角度来看，PCI Express 热插拔与基于 SHPC 1.0 规范的现有实现完全相同。 |
+| Support the same software model implemented by existing operating systems. However, an OS using a SHPC 1.0 compliant driver won't work with PCI Express Hot Plug controllers because they have a different programming interface. | 支持现有操作系统所实现的相同软件模型。然而，使用兼容 SHPC 1.0 驱动的操作系统将无法与 PCI Express 热插拔控制器配合工作，因为它们具有不同的编程接口。 |
+| The registers necessary to support a Hot Plug Controller are integrated into individual Root and Switch Ports. Under Hot Plug software control, these controllers and the associated port interface must control the card interface signals to ensure orderly power down and power up as cards are changed. To accomplish that, they'll need to: | 支持热插拔控制器所需的寄存器被集成到各个根端口和交换端口之中。在热插拔软件控制下，这些控制器及相关的端口接口必须控制插卡接口信号，以确保在更换插卡时有序地下电和上电。为此，它们需要： |
+| • Assert and deassert the PERST# signal to the PCI Express card connector | • 向 PCI Express 插卡连接器断言和取消断言 PERST# 信号 |
+| • Remove or apply power to the card connector. | • 移除或施加插卡连接器的电源。 |
+| Selectively turn on or off the Power and Attention Indicators associated with a specific card connector to draw the user's attention to the connector and indicate whether power is applied to the slot. | 选择性地打开或关闭与特定插卡连接器关联的电源指示灯和注意指示灯，以引起用户对该连接器的注意，并指示插槽是否已上电。 |
+| • Monitor slot events (e.g. card removal) and report them to software via interrupts. | • 监视插槽事件（例如插卡移除）并通过中断向软件报告。 |
+| PCI Express Hot-Plug (like PCI) is designed as a "no surprises" Hot-Plug methodology. In other words, the user is not normally allowed to install or remove a PCI Express card without first notifying the system. Software then prepares both the card and slot and finally indicates to the operator the status of the hot plug process and notification that installation or removal may now be performed. | PCI Express 热插拔（与 PCI 一样）被设计为一种"无意外"的热插拔方法。换言之，通常不允许用户在未预先通知系统的情况下安装或移除 PCI Express 插卡。软件随后准备好插卡和插槽，最后向操作员指示热插拔过程的状态，并通知其现在可以执行安装或移除操作。 |
+
+## 19.2.1 Surprise Removal Notification | 19.2.1 意外移除通知
+
+| EN | ZH |
+|---|---|
+| Cards designed to the PCIe Card ElectroMechanical spec (CEM) implement card presence detect pins (PRSNT1# and PRSNT2#) on the connector. These pins are shorter than the others so that they break contact first (when the card is removed from the slot). This can be used to give advanced notice to software of a "surprise" removal, allowing time to remove power before the signals break contact. | 按PCIe卡电气机械规范（CEM）设计的卡在连接器上实现了卡存在检测引脚（PRSNT1#和PRSNT2#）。这些引脚比其它引脚短，因此在卡从槽中拔出时会先断开接触。这可用于向软件预先通知"热"拔出，从而在信号断开接触前留出时间切断电源。 |
+
+## 19.2.2 Differences between PCI and PCIe Hot Plug | 19.2.2 PCI 和 PCIe 热插拔的区别
+
+| EN | ZH |
+|---|---|
+| The elements needed to support hot plug are essentially the same in both PCI and PCIe hot plug solutions. Figure 19‐1 on page 850 shows the PCI hardware and software elements required to support hot plug. PCI solutions implement a single standardized hot plug controller on the system board that handled all the | 支持热插拔所需的元素在PCI和PCIe热插拔方案中基本相同。第850页的图19‐1展示了支持热插拔所需的PCI硬件和软件元素。PCI方案在主板上实现一个单一的标准化热插拔控制器，该控制器处理所有 |
 
 ## PCI Express Technology | PCI Express 技术
 
-<table>
-<tr>
-<td width="50%">
-The devices required to support locked sequences are:
+| EN | ZH |
+|---|---|
+| ## PCI Express Technology | ## PCI Express 技术 |
+| hot plug slots on the bus. Isolation logic is needed in the PCI environment to electrically disconnect a card from the shared bus prior to making changes to avoid glitching the signals on an active bus. | 总线上的热插拔槽位。在PCI环境中需要隔离逻辑，以便在进行更改之前将板卡与共享总线电气断开，避免干扰活动总线上的信号。 |
+| PCIe uses point‐to‐point connections (see Figure 19‐2 on page 851) that eliminate the need for isolation logic but require a separate hot plug controller for each Port to which a connector is attached. A standardized software interface defined for each Root and Switch Port controls hot plug operations. | PCIe采用点对点连接（参见第851页图19-2），无需隔离逻辑，但每个连接了连接器的端口都需要独立的热插拔控制器。为每个根端口和交换端口定义的标准软件接口控制热插拔操作。 |
 
-• The Root Complex.
+Figure 19-1: PCI Hot Plug Elements | 图19-1：PCI热插拔元素  
 
-• Any Switches in the path to a Legacy Device that may be the target of a locked transaction series.
+Figure 19-2: PCI Express Hot‐Plug Elements | 图19-2：PCI Express热插拔元素  
+<img src="images/part06_e782447dba28ca410651c7234b506dd54f403efb0e758ffb8f581915ce4a2683.jpg" width="700" alt="">
 
-• PCIe‐to‐PCI Bridge or PCIe‐to‐PCI‐X Bridge.
+<img src="images/part06_7de86b5668c688a50e9eed39e6fa172dde150418b5d99ecf517ff17d5bd58b82.jpg" width="700" alt="">
 
-• Any Legacy Device whose driver issues locked transactions to memory residing within the legacy device.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-需要支持锁定序列的设备包括：
+## 19.3 Elements Required to Support Hot Plug | 19.3 支持热插拔所需的要素
 
-• 根复合体。
+| EN | ZH |
+|---|---|
+| As shown in Figure 19‐2 on page 851 there are several parts involved in making a hog‐plug environment work. For discussion, let's break these down into software and hardware elements. | 如第851页图19-2所示，热插拔环境的正常工作涉及多个组成部分。为便于讨论，我们将其分为软件和硬件两大类。 |
 
-• 路径中可能成为锁定事务系列目标的传统设备所经的任何交换机。
+| EN | ZH |
+|---|---|
+| ## Software Elements | ## 软件元素 |
+| The following table describes the major software elements that support Hot-Plug capability. | 下表描述了支持热插拔能力的主要软件元素。 |
 
-• PCIe到PCI桥或PCIe到PCI-X桥。
+Table 19‐1: Introduction to Major Hot‐Plug Software Elements | 表19‐1：主要热插拔软件元素介绍
 
-• 其驱动程序对驻留在传统设备内的存储器发出锁定事务的任何传统设备。
-</td>
-</tr>
-</table>
+<table><tr><td>Software Element</td><td>Supplied by</td><td>Description</td></tr><tr><td>User Interface</td><td>OS vendor</td><td>An OS-supplied utility that permits the user to request that a connector be powered off to remove a card or turned on to use a card that has just been installed.</td></tr><tr><td>Hot-Plug Service</td><td>OS vendor</td><td>A service that processes requests (referred to as Hot-Plug Primitives) issued by the OS. This includes requests to:provide slot identifiers;turn card power On or Off;turn Attention Indicator On or Off;read current power of slot (On or Off). The Hot-Plug Service interacts with the Hot-Plug System Driver to satisfy the requests. The interface (i.e., API) with the Hot-Plug System Driver is defined by the OS vendor.</td></tr><tr><td>Standardized Hot-Plug System Driver</td><td>System Board vendor or OS</td><td>Receives requests (Hot-Plug Primitives) from the Hot-Plug Service within the OS. Interacts with the hardware Hot-Plug Controllers to accomplish requests.</td></tr><tr><td>Device Driver</td><td>Adapter card vendor</td><td>Some Hot-Plug-specific capabilities must be incorporated in a Hot-Plug-capable device driver. This includes:• support for the Quiesce command;• optional support of the Pause command;• Support for Start command or optional Resume command.</td></tr></table>
 
-<table>
-<tr>
-<td width="50%">
-Locking in the PCI environment is achieved by the use of the LOCK# signal. The equivalent functionality in PCIe is accomplished by using a specific Request that emulates the LOCK# signal functionality.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在PCI环境中，锁定是通过使用LOCK#信号实现的。PCIe中的等效功能是通过使用模拟LOCK#信号功能的特定请求来完成的。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| A Hot-Plug-capable system may use an OS that doesn't support Hot-Plug capability. In that case, although the system BIOS would contain Hot-Plug-related software, the Hot-Plug Service would not be present. Assuming that the user doesn't attempt hot insertion or removal of a card, the system will operate as a standard, non-Hot-Plug system: | 支持热插拔的系统可运行不支持热插拔能力的操作系统。在这种情况下，尽管系统BIOS包含热插拔相关软件，但热插拔服务将不存在。假设用户不尝试热插入或移除插卡，系统将作为标准的非热插拔系统运行： |
+| The system startup firmware must ensure that all Attention Indicators are Off. | 系统启动固件必须确保所有注意力指示灯均处于关闭状态。 |
+| The spec also states: "the Hot-Plug slots must be in a state that would be appropriate for loading non-Hot-Plug system software." | 规范还指出："热插拔槽位必须处于适合加载非热插拔系统软件的状态。" |
 
-## 99.3 The PCI Express Lock Protocol | 99.3 PCIe 锁定协议
+| EN | ZH |
+|---|---|
+| ## Hardware Elements | ## 硬件组件 |
+| Table 19-2 on page 853 lists the major hardware elements necessary to support PCI Express Hot-Plug operation. | 第853页的表19-2列出了支持PCI Express热插拔操作所需的主要硬件组件。 |
 
-<table>
-<tr>
-<td width="50%">
-The only source of lock supported by PCI Express is the system processor acting through the Root Complex. A locked operation is performed between a Root Port and the Legacy Endpoint. In most systems, the legacy device is typically a PCI Express-to-PCI or PCI Express-to-PCI-X bridge. Only one locked sequence at a time is supported for a given hierarchical path.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-PCI Express 支持的锁定唯一来源是通过根复合体（Root Complex）作用的系统处理器。锁定操作在根端口（Root Port）与传统端点（Legacy Endpoint）之间执行。在大多数系统中，传统设备通常是 PCI Express-to-PCI 或 PCI Express-to-PCI-X 桥接器。对于给定的层次路径，一次仅支持一个锁定序列。
-</td>
-</tr>
-</table>
+Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件元素
 
-<table>
-<tr>
-<td width="50%">
-Locked transactions are constrained to use only Traffic Class 0 and Virtual Channel 0. Transactions with other TC values that map to a VC other than zero are permitted to traverse the fabric without regard to the locked operation, but transactions that map to VC0 are affected by the lock rules described here.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-锁定事务（Locked transactions）被限制为仅使用流量类 0（Traffic Class 0）和虚通道 0（Virtual Channel 0）。映射到非零 VC 的其他 TC 值的事务允许在结构（fabric）中传输，而不受锁定操作的影响，但映射到 VC0 的事务则受此处描述的锁定规则影响。
-</td>
-</tr>
-</table>
+<table><tr><td>Hardware Element</td><td>Description</td></tr><tr><td>Hot-Plug Controller</td><td>Receives and processes commands issued by the Hot-Plug System Driver. One Controller is associated with each Root or Switch Port that supports hot plug operation. The PCIe spec defines a standard software interface for the Hot-Plug Controller.</td></tr><tr><td>Card Slot Power Switching Logic</td><td>Allows power to a slot to be turned on or off under program control. Controlled by the Hot Plug controller under the direction of the Hot-Plug System Driver.</td></tr><tr><td>Card Reset Logic</td><td>Hot Plug Controller drives the PERST# signal to a specific slot as directed by the Hot-Plug System Driver.</td></tr><tr><td>Power Indicator</td><td>Indicates whether power is currently active on the connector. Controlled by the Hot Plug logic associated with each port and directed by the Hot Plug System Driver.</td></tr><tr><td>Attention Indicator</td><td>Draws operator attention to a connector that needs service. Controlled by the Hot Plug logic and directed by the Hot-Plug System Driver.</td></tr><tr><td>Attention Button</td><td>Pressed by the operator to notify Hot Plug software of a request to change a card.</td></tr><tr><td>Card Present Detect Pins</td><td>There are two of these: PRSNT1# is located at one end of the card slot and PRSNT2# at the opposite end. These pins are shorter than the others so that they disconnect first when a card is removed. The system board ties PRSNT1# to ground and connects PRSNT2# as an input to the Hot-Plug Controller with a pull-up resistor. Additional PRSNT2# pins are defined for wider connectors to support the insertion and recognition of shorter cards installed into longer connectors. The card itself shorts PRSNT1# to PRSNT2#, so that the PRSNT2# input is high if a card is not physically plugged in or low if it is.</td></tr></table>
 
-## Lock Messages — The Virtual Lock Signal | 锁消息 — 虚拟锁定信号
+## 19.4 Card Removal and Insertion Procedures | 19.4 卡移除与插入规程
+## 19.4 Card Removal and Insertion Procedures | 19.4 卡移除与插入规程
 
-<table>
-<tr>
-<td width="50%">
-PCI Express defines the following transactions that, together, act as a virtual wire and replace the LOCK# signal.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-PCI Express 定义了以下事务，它们共同充当虚拟连线并取代 LOCK# 信号。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| The descriptions of typical card removal and insertion that follow are intended to be introductory in nature. It should be noted that the procedures described in the following sections assume that the OS, rather than the Hot‑Plug System Driver, is responsible for configuring a newly‑installed device. If the Hot‑Plug System Driver has this responsibility, the Hot‑Plug Service will call the Hot‑Plug System Driver and instruct it to configure the newly‑installed device. | 以下典型卡移除与插入的描述仅为介绍性内容。需要注意的是，后续章节描述的规程假定由操作系统（OS）而非热插拔系统驱动程序负责配置新安装的设备。若热插拔系统驱动程序承担此职责，则热插拔服务将调用热插拔系统驱动程序并指示其配置新安装的设备。 |
 
-<table>
-<tr>
-<td width="50%">
-Memory Read Lock Request (MRdLk) — Originates a locked sequence. The first MRdLk transaction blocks other Requests in VC0 from reaching the target device. One or more of these locked read requests may be issued during the sequence.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-存储器读锁定请求（MRdLk）— 发起一个锁定序列。第一个 MRdLk 事务阻止 VC0 中的其他请求到达目标设备。在该序列期间，可以发出一个或多个此类锁定读请求。
-</td>
-</tr>
-</table>
+## 19.4.1 On and Off States | 19.4.1 开启和关闭状态
 
-<table>
-<tr>
-<td width="50%">
-Memory Read Lock Completion with Data (CplDLk) — Returns data and confirms that the path to the target is locked. A successful read Completion that returns data for the first Memory Read Lock request results in the path between the Root Complex and the target device being locked. That is, transactions traversing the same path from other ports are blocked from reaching either the root port or the target port. Transactions being routed in buffers for VC1-VC7 are unaffected by the lock.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-带数据的存储器读锁定完成（CplDLk）— 返回数据并确认通往目标的路径已被锁定。成功返回数据的读完成（针对第一个存储器读锁定请求）将导致根复合体与目标设备之间的路径被锁定。也就是说，来自其他端口且经过同一路径的事务被阻止到达根端口或目标端口。在 VC1-VC7 缓冲区中路由的事务不受锁定的影响。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| A slot in the On state has the following characteristics: | 处于 On（开启）状态的槽位具有以下特征： |
+| • Power is applied to the slot. | • 槽位已供电。 |
+| • REFCLK is on. | • REFCLK 已开启。 |
+| • The link is active or in an Active State Power Management state. | • 链路处于活动状态或活动状态电源管理状态。 |
+| • The PERST# signal is deasserted. | • PERST# 信号已去断言（取消复位）。 |
+| A slot in the Off state has the following characteristics: | 处于 Off（关闭）状态的槽位具有以下特征： |
+| • Power to the slot is turned off. | • 槽位电源已关闭。 |
+| • REFCLK is off. | • REFCLK 已关闭。 |
+| • The link is inactive. (Driver at the root of switch port is in Hi Z state) | • 链路处于非活动状态。（交换机端口根部的驱动器处于高阻态） |
+| • The PERST# signal is asserted. | • PERST# 信号已断言（复位有效）。 |
 
-<table>
-<tr>
-<td width="50%">
-Memory Read Lock Completion without Data (CplLK) — A Completion without a data payload indicates that the lock sequence cannot complete currently and the path remains unlocked.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-不带数据的存储器读锁定完成（CplLK）— 不带数据载荷的完成表示锁定序列当前无法完成，路径保持解锁状态。
-</td>
-</tr>
-</table>
+## Turning Slot Off | 关闭插槽
 
-<table>
-<tr>
-<td width="50%">
-Unlock Message — An unlock message is issued by the Root Complex from the locked root port. This message unlocks the path between the root port and the target port.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-解锁消息 — 由根复合体从锁定的根端口发出解锁消息。该消息解锁根端口与目标端口之间的路径。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| Steps required to turn off a slot that is currently in the On state: | 关闭当前处于开启状态的插槽所需的步骤： |
+| 1. Deactivate the link. This may involve issuing a EIOS to enter the Hi Z state. | 1. 停用链路。这可能涉及发送 EIOS 以进入 Hi Z 状态。 |
+| 2. Assert the PERST# signal to the slot. | 2. 向插槽断言 PERST# 信号。 |
+| 3. Turn off REFCLK to the slot. | 3. 关闭通往插槽的 REFCLK。 |
+| 4. Remove power from the slot. | 4. 切断插槽的电源。 |
 
-## The Lock Protocol Sequence — an Example | 锁协议序列示例
+## Turning Slot On | 开启插槽
 
-<table>
-<tr>
-<td width="50%">
-This section explains the PCI Express lock protocol by example. The example includes the following devices:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-本节通过示例解释PCI Express锁协议。该示例包括以下设备：
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| Steps to turn on a slot that is currently in the off state: | 将当前处于关闭状态的槽位开启的步骤： |
+| 1. Apply power to the slot. | 1. 向槽位供电。 |
+| 2. Turn on REFCLK to the slot | 2. 向槽位开启 REFCLK |
+| 3. Deassert the PERST# signal to the slot. The system must meet the setup and hold timing requirements (specified in the PCI Express spec) relative to the rising edge of PERST#. | 3. 对槽位取消 PERST# 信号（即解除复位）。系统必须满足相对于 PERST# 上升沿的建立时间和保持时间要求（如 PCI Express 规范中所规定）。 |
+| Once power and clock have been restored and PERST# removed, the physical layers at both ports will perform link training and initialization. When the link is active, the devices will initialize VC0 (including flow control), making the link ready to transfer TLPs. | 一旦电源和时钟恢复且 PERST# 被移除，两端端口的物理层将执行链路训练和初始化。当链路激活后，设备将初始化 VC0（包括流控），使链路准备好传输 TLP。 |
 
-<table>
-<tr>
-<td width="50%">
-• The Root Complex that initiates the Locked transaction series on behalf of the host processor.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 代表主机处理器发起锁定事务序列的根复合体。
-</td>
-</tr>
-</table>
+## 19.4.2 Card Removal Procedure | 19.4.2 卡移除流程
 
-<table>
-<tr>
-<td width="50%">
-• A Switch in the path between the root port and targeted legacy endpoint.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 位于根端口与目标传统端点之间路径上的交换机。
-</td>
-</tr>
-</table>
+## 19.4.2 Card Removal Procedure | 19.4.2 卡片移除流程
 
-<table>
-<tr>
-<td width="50%">
-• A PCI Express‐to‐PCI Bridge in the path to the target.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 位于到达目标路径上的PCI Express到PCI桥。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|----|----|
+| When a card is to be removed, a number of steps are needed to prepare software and hardware for safe removal of the card, and set the indicators for the card being processed. The condition of the indicators during normal operation are: | 当要移除卡片时，需要执行一系列步骤来准备软件和硬件以安全移除该卡片，并设置正在处理中的卡片对应的指示灯。正常操作期间指示灯的状态如下： |
+| • Attention Indicator (Amber or Yellow) — "Off" during normal operation. | • 注意指示灯（琥珀色或黄色）——正常操作期间为"熄灭"。 |
+| • Power Indicator (Green) — "On" during normal operation | • 电源指示灯（绿色）——正常操作期间为"点亮"。 |
+| Software sends requests to the Hot Plug Controller using configuration writes that target the Slot Control Registers implemented by Hot-Plug capable ports. These control the power to the slot and the state of the indicators. | 软件通过配置写操作向热插拔控制器发送请求，这些写操作的目标是支持热插拔的端口所实现的插槽控制寄存器。这些寄存器控制插槽的供电以及指示灯的状态。 |
+| The sequence of events is as follows: | 事件序列如下： |
+| 1. The operator requests card removal by pressing the slot's attention button or by using the system's user interface to select the Physical Slot number of the card to be removed. If the button was used, the Hot-Plug Controller detects this event and delivers an interrupt to the root complex. The interrupt directs the Hot Plug service to call the Hot Plug System Driver to read slot status information and detect the Attention Button request. | 1. 操作员通过按下插槽的注意按钮或使用系统用户界面选择要移除卡片的物理插槽号来请求移除卡片。如果使用了按钮，热插拔控制器检测到此事件并向根复合体发送中断。该中断指示热插拔服务调用热插拔系统驱动程序，以读取插槽状态信息并检测到注意按钮请求。 |
+| 2. Next, the Hot-Plug Service commands the Hot-Plug System Driver to blink the slot's Power Indicator as visual feedback to the operator for 5 seconds. If this was initiated by pressing the Attention button, the operator can press the button a second time to cancel the request during this 5-second interval. | 2. 接下来，热插拔服务命令热插拔系统驱动程序使插槽的电源指示灯闪烁5秒钟，作为向操作员提供的视觉反馈。如果此操作是通过按下注意按钮启动的，操作员可在该5秒间隔内再次按下该按钮以取消请求。 |
+| 3. The Power Indicator continues to blink while the Hot Plug software validates the request. If the card is currently in use for some critical system operation, software may deny the request. In that case, it will issue a command to the Hot Plug controller to turn the Power Indicator back ON. The spec also recommends that software notify the operator, perhaps with a message or by logging an entry indicating the reason the request was denied. | 3. 电源指示灯持续闪烁，同时热插拔软件验证该请求。如果该卡片当前正用于某些关键系统操作，软件可拒绝该请求。在这种情况下，软件将向热插拔控制器发出命令，将电源指示灯重新点亮。规范还建议软件通知操作员，可能通过消息或记录日志条目来指示请求被拒绝的原因。 |
+| 4. If the request is validated, the Hot-Plug Service utility commands the card's device driver to quiesce the device. That is, disable its ability to generate new Requests and complete or terminate all outstanding Root or Switch Port requests. | 4. 如果请求被验证通过，热插拔服务实用程序命令卡片的设备驱动程序使设备静止。即，禁用其生成新请求的能力，并完成或终止所有未完成的根或交换机端口请求。 |
+| 5. Software then issues a command to disable the card's Link via the Link Control register in the Root or Switch Port to which the slot is attached. | 5. 然后，软件通过该插槽所连接的根或交换机端口中的链路控制寄存器发出命令，以禁用卡片的链路。 |
+| 6. Next, software commands the Hot Plug Controller to turn the slot off. | 6. 接下来，软件命令热插拔控制器关闭插槽电源。 |
+| 7. Following successful power down, software issues the Power Indicator Off Request to turn off the power indicator so the operator knows the card may be removed. | 7. 成功断电后，软件发出电源指示灯关闭请求以熄灭电源指示灯，从而使操作员知道可以移除卡片。 |
+| 8. The operator releases the Mechanical Retention Latch, if there is one, causing the Hot Plug Controller to remove all switched signals from the slot (e.g., SMBus and JTAG signals). The card can now be removed. | 8. 操作员松开机械固定锁闩（如果有的话），使热插拔控制器从插槽中移除所有切换信号（例如，SMBus和JTAG信号）。现在可以移除卡片。 |
+| 9. The OS deallocates the memory space, IO space, interrupt line, etc. that had been assigned to the device and makes these resources available for assignment to other devices in the future. | 9. 操作系统解除分配已分配给该设备的内存空间、IO空间、中断线路等，并使这些资源可供将来分配给其他设备使用。 |
 
-<table>
-<tr>
-<td width="50%">
-• The target PCI device who's Device Driver initiated the locked RMW.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 其设备驱动程序发起锁定读-修改-写（RMW）操作的目标PCI设备。
-</td>
-</tr>
-</table>
+## 19.4.3 Card Insertion Procedure | 19.4.3 卡插入流程
 
-<table>
-<tr>
-<td width="50%">
-• A PCI Express endpoint is included to describe Switch behavior during lock.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 包含一个PCI Express端点，用于描述锁定期间交换机的行为。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| The procedure for installing a new card basically reverses the steps listed for card removal. The following steps assume that the slot was left in the same state that it was in immediately after a card was removed from the connector (in other words, the Power Indicator is in the Off state, indicating the slot is ready for card insertion). | 安装新卡的流程基本上与卡移除所列步骤相反。以下步骤假设插槽保持与卡从连接器移除后立即所处的状态相同（换句话说，电源指示灯处于关闭状态，表示插槽已准备好进行卡插入）。 |
+| The steps taken to Insert and enable a card are as follows: | 插入并启用卡的步骤如下： |
+| 1. The operator installs the card and secures the MRL. If implemented, the MRL sensor will signal the Hot-Plug Controller that the latch is closed, causing switched auxiliary signals and $\mathrm { V _ { a u x } }$ to be connected to the slot. | 1. 操作员安装卡并固定MRL。如果实现了MRL传感器，它将向热插拔控制器发出锁闩已关闭的信号，从而使切换的辅助信号和$\mathrm { V _ { a u x } }$连接到插槽。 |
+| 2. Next, the operator notifies the Hot-Plug Service that the card has been installed by pressing the Attention Button or using the Hot Plug Utility program to select the slot. | 2. 接下来，操作员通过按下注意按钮或使用热插拔实用程序选择插槽，通知热插拔服务卡已安装。 |
+| 3. If the button was pressed, it signals the Hot Plug controller of the event, resulting in status register bits being set and causing a system interrupt to be sent to the Root Complex. Subsequently, Hot Plug software reads slot status from the port and recognizes the request. | 3. 如果按钮被按下，它会向热插拔控制器发送事件信号，导致状态寄存器位被置位，并引发系统中断发送到根复合体。随后，热插拔软件从端口读取插槽状态并识别该请求。 |
+| 4. The Hot-Plug Service issues a request to the Hot-Plug System Driver commanding the Hot Plug Controller to blink the slot's Power Indicator to inform the operator that the card must not be removed. The operator is granted a 5 second abort interval, from the time that the indicators starts to blink, to abort the request by pressing the button a second time. | 4. 热插拔服务向热插拔系统驱动程序发出请求，命令热插拔控制器闪烁插槽的电源指示灯，以告知操作员不得移除卡。从指示灯开始闪烁时起，操作员有5秒钟的中止间隔，可以通过再次按下按钮来中止该请求。 |
 
-<table>
-<tr>
-<td width="50%">
-In this example, the locked operation completes normally. The steps that occur during the operation are described in the two sections that follow.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在此示例中，锁定操作正常完成。操作期间发生的步骤将在接下来的两节中描述。
-</td>
-</tr>
-</table>
+## PCI Express Technology | PCI Express 技术
 
-## The Memory Read Lock Operation | 存储器读锁定操作
+| EN | ZH |
+| --- | --- |
+| 5. The Power Indicator continues to blink while Hot Plug software validates the request. Note that software may fail to validate the request (e.g., the security policy settings may prohibit the slot being enabled). If the request is not validated, software will issue a command to the Hot Plug controller to turn the Power Indicator back OFF. The spec recommends that software notify the operator via a message or by logging an entry indicating the cause of the request denial. | 5. 在热插拔软件验证请求期间，电源指示灯继续闪烁。请注意，软件可能无法验证该请求（例如，安全策略设置可能禁止启用该插槽）。如果请求未通过验证，软件将向热插拔控制器下发命令，将电源指示灯重新关闭。规范建议软件通过消息或日志记录条目通知操作员，指明请求被拒绝的原因。 |
+| 6. The Hot-Plug Service issues a request to the Hot-Plug System Driver commanding the Hot Plug Controller to turn the slot on. | 6. 热插拔服务向热插拔系统驱动程序发出请求，命令热插拔控制器开启插槽。 |
+| 7. Once power is applied, software issues a command to turn the Power Indicator ON. | 7. 一旦供电完成，软件下发命令将电源指示灯点亮。 |
+| 8. Once link training is complete, the OS commands the Platform Configuration Routine to configure the card function(s) by assigning the necessary resources. | 8. 链路训练完成后，操作系统命令平台配置例程通过分配必要资源来配置卡的功能。 |
+| 9. The OS locates the appropriate driver(s) (using the Vendor ID and Device ID, or the Class Code, or the Subsystem Vendor ID and Subsystem ID configuration register values as search criteria) for the function(s) within the PCI Express device and loads it (or them) into memory. | 9. 操作系统查找PCI Express设备内功能对应的合适驱动程序（使用厂商ID和设备ID、类别代码、子系统厂商ID和子系统ID配置寄存器值作为搜索条件），并将其加载到内存中。 |
+| 10. The OS then calls the driver's initialization code entry point, causing the processor to execute the driver's initialization code. This code finishes the setup of the device and then sets the appropriate bits in the device's PCI configuration Command register to enable the device. | 10. 操作系统随后调用驱动程序的初始化代码入口点，使处理器执行驱动程序的初始化代码。该代码完成设备的最终设置，然后在设备的PCI配置命令寄存器中设置相应位以启用设备。 |
 
-<table>
-<tr>
-<td width="50%">
-Figure E-1 on page 967 illustrates the first step in the Locked transaction series (i.e., the initial memory read to obtain the semaphore):
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-图E-1（第967页）展示了锁定事务序列的第一步（即获取信号量的初始存储器读操作）：
-</td>
-</tr>
-</table>
+## 19.5 Standardized Usage Model | 19.5 标准化使用模型
+| EN | ZH |
+|---|---|
+| ## Standardized Usage Model | ## 标准化使用模型 |
 
-<table>
-<tr>
-<td width="50%">
-1. The CPU initiates the locked sequence (a Locked Memory Read) as a result of a driver executing a locked RMW instruction that targets a PCI target.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-1. 由于驱动执行了针对PCI目标的锁定RMW（读-修改-写）指令，CPU发起锁定序列（锁定存储器读）。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| ## Background | ## 背景 |
+| Systems based on the original 1.0 version of the PCI Hot Plug spec implemented hardware and software designs that varied widely because the spec did not define standardized registers or user interfaces. Consequently, customers who purchased Hot Plug capable systems from different vendors were confronted with a wide variation in user interfaces that required retraining operators when new systems were purchased. Furthermore, every board designer was required to write software to manage their implementation-specific hot plug controller. The 1.1 revision of the PCI Hot-Plug Controller (HPC) spec defines: | 基于原始 1.0 版 PCI 热插拔规范的系统实现了差异很大的硬件和软件设计，因为该规范没有定义标准化寄存器或用户接口。因此，从不同供应商处购买支持热插拔系统的客户面临各种不同的用户接口，当购买新系统时需要重新培训操作员。此外，每个板卡设计者都必须编写软件来管理其特定实现的热插拔控制器。PCI 热插拔控制器 (HPC) 规范的 1.1 修订版定义了： |
+| • a standard user interface that eliminates retraining of operators | • 标准用户接口，消除操作员再培训 |
+| a standard programming interface for the hot plug controller, which permits a standardized hot plug driver to be incorporated into the operating system. PCI Express implements registers not defined by the HPC spec, hence the standard Hot Plug Controller driver implementations for PCI and PCI Express are slightly different. | 热插拔控制器的标准编程接口，允许将标准化的热插拔驱动程序集成到操作系统中。PCI Express 实现了 HPC 规范未定义的寄存器，因此 PCI 和 PCI Express 的标准热插拔控制器驱动程序实现略有不同。 |
 
-<table>
-<tr>
-<td width="50%">
-2. The Root Port issues a Memory Read Lock Request from port 2. The Root Complex is always the source of a locked sequence.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-2. 根端口从端口2发出存储器读锁定请求。根复合体始终是锁定序列的发起源。
-</td>
-</tr>
-</table>
+## 19.5.2 Standard User Interface | 19.5.2 标准用户界面
+| EN | ZH |
+|----|----|
+| ## Standard User Interface | ## 标准用户接口 |
 
-<table>
-<tr>
-<td width="50%">
-3. The Switch receives the lock request on its upstream port and forwards the request to the target egress port (3). The switch, upon forwarding the request to the egress port, must block all requests from ports other than the ingress port (1) from being sent from the egress port.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-3. 交换机在其上游端口接收锁定请求，并将该请求转发到目标出口端口（3）。交换机在将请求转发到出口端口后，必须阻止除入口端口（1）之外的所有端口的请求从该出口端口发出。
-</td>
-</tr>
-</table>
+## The user interface includes the following features: | 用户界面包括以下特性：
+## 用户界面包括以下特性：
 
-<table>
-<tr>
-<td width="50%">
-4. A subsequent peer-to-peer transfer from the illustrated PCI Express endpoint to the PCI bus (switch port 2 to switch port 3) would be blocked until the lock is cleared. Note that the lock is not yet established in the other direction. Transactions from the PCI Express endpoint could be sent to the Root Complex.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-4. 后续从图示PCI Express端点到PCI总线（交换机端口2到交换机端口3）的对等传输将被阻塞，直到锁定解除。请注意，锁定在另一个方向上尚未建立。来自PCI Express端点的事务可以发送到根复合体。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| Attention Indicator — shows the attention state of the slot with an LED that is on, off, or blinking. The spec defines the blinking frequency as 1 to 2 Hz and 50% (+/- 5%) duty cycle. The state of this indicator is strictly under software control. | 注意力指示器(Attention Indicator)——通过LED的亮、灭或闪烁来显示槽位的注意状态。规范定义闪烁频率为1至2Hz，占空比50%(+/- 5%)。该指示器的状态完全由软件控制。 |
+| Power Indicator (called Slot State Indicator in PCI HP 1.1) — shows the power status of the slot and also can be on, off, or blinking (at 1 to 2 Hz and 50% (+/- 5%) duty cycle). This indicator is controlled by software; however, the spec permits an exception in the event of a hardware power fault condition. | 电源指示器(Power Indicator，在PCI HP 1.1中称为槽位状态指示器Slot State Indicator)——显示槽位的电源状态，同样可处于亮、灭或闪烁状态(1至2Hz，占空比50% +/- 5%)。该指示器由软件控制；但规范允许在硬件电源故障条件下存在例外。 |
+| Manually Operated Retention Latch and Optional Sensor — secures card within slot and notifies the system when the latch is released | 手动操作固定闩锁(Retention Latch)与可选传感器——将卡固定在槽位内，并在闩锁释放时通知系统 |
+| Electromechanical Interlock (optional) — locks the card or retention latch to prevent the card from being removed while power is applied. | 机电互锁(Electromechanical Interlock，可选)——锁定卡或固定闩锁，防止在供电时拔出卡。 |
+| • Software User Interface — allows operator to request hot plug operation | • 软件用户接口(Software User Interface)——允许操作员请求热插拔操作 |
+| Attention Button — allows operator to manually request hot plug operation. | 注意按钮(Attention Button)——允许操作员手动请求热插拔操作。 |
+| • Slot Numbering Identification — provides visual identification of slot on the board. | • 槽位编号标识(Slot Numbering Identification)——提供板上槽位的视觉标识。 |
 
-## PCI Express Technology | PCI Express技术
+| EN | ZH |
+|---|---|
+| ## Attention Indicator | ## 注意力指示灯 |
+| As mentioned in the previous section, the spec requires the system vendor to include an Attention Indicator associated with each Hot-Plug slot. This indicator must be located in close proximity to the corresponding slot and is yellow or amber in color. This Indicator draws the attention of the end user to the slot for service. The spec makes a clear distinction between operational and validation errors and does not permit the attention indicator to report validation errors. Validation errors are problems detected and reported by software prior to beginning the hot plug operation. The behavior of the Attention Indicator is listed in Table 19-3 on page 860. | 如前节所述，规范要求系统供应商为每个热插拔槽位配备一个注意力指示灯。该指示灯必须位于对应槽位附近，颜色为黄色或琥珀色。该指示灯用于引起最终用户对该槽位的注意，以便进行维护。规范明确区分了操作错误和验证错误，并且不允许注意力指示灯报告验证错误。验证错误是在开始热插拔操作之前由软件检测并报告的问题。注意力指示灯的行为列于第860页的表19-3中。 |
+| Table 19-3: Behavior and Meaning of the Slot Attention Indicator | 表19-3：槽位注意力指示灯的行为与含义 |
 
-<table>
-<tr>
-<td width="50%">
-5. The Memory Read Lock Request is sent from the Switch's egress port to the PCI Express‐to‐PCI Bridge. This bridge will implement PCI lock semantics (See the MindShare book entitled PCI System Architecture, Fourth Edition, for details regarding PCI lock).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-5. Memory Read Lock Request从交换机的出口端口发送到PCI Express-to-PCI桥。该桥将实现PCI锁定语义（关于PCI锁定的详细信息，请参阅MindShare所著的《PCI系统架构第四版》）。
-</td>
-</tr>
-</table>
+<table><tr><td>Indicator Behavior</td><td>Attention State</td></tr><tr><td>Off</td><td>Normal -- Normal Operation</td></tr><tr><td>On</td><td>Attention -- Hot Plug Operation Failed due to an operational problem (e.g., problems with external cabling, add-in cards, software drivers, and power faults)</td></tr><tr><td>Blinking</td><td>Locate -- Slot is being identified at operator's request</td></tr></table>
 
-<table>
-<tr>
-<td width="50%">
-6. The bridge performs the Memory Read transaction on the PCI bus with the PCI LOCK# signal asserted. The target memory device returns the requested semaphore data to the bridge.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-6. 桥在PCI总线上执行Memory Read事务，并置位PCI LOCK#信号。目标存储器设备将请求的信号量数据返回给桥。
-</td>
-</tr>
-</table>
+## Power Indicator | 电源指示灯
 
-<table>
-<tr>
-<td width="50%">
-7. Read data is returned to the Bridge and is delivered back to the Switch via a Memory Read Lock Completion with Data (CplDLk).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-7. 读取数据返回到桥，并通过带数据的Memory Read Lock Completion（CplDLk）传回给交换机。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| The power indicator simply reflects the state of main power at the slot, and is controlled by Hot Plug software. The color of this indicator is green and is illuminated when power to the slot is "on." | 电源指示灯仅反映插槽主电源的状态，由热插拔软件控制。该指示灯为绿色，当插槽供电"开启"时点亮。 |
+| The spec specifically prohibits Root or Switch Port hardware from changing the power indicator state autonomously as a result of power fault or other events. A single exception to this rule allows a platform to detect stuck‑on power faults. A stuck‑on fault is simply a condition in which commands issued to remove slot power are ineffective. If the system is designed to detect this condition the system may override the Root or Switch Port's command to turn the power indicator off and force it to remain on. This notifies the operator that the card should not be removed from the slot. The spec further states that supporting stuck‑on faults is optional and, if handled via system software, "the platform vendor must ensure that this optional feature of the Standard Usage Model is addressed via other software, platform documentation, or by other means." | 规范明确禁止根复合体或交换端口硬件因电源故障或其他事件而自主更改电源指示灯状态。该规则仅有一个例外，即允许平台检测持续导通故障（stuck‑on fault）。持续导通故障是指关闭插槽电源的命令无效的情况。若系统设计为可检测此状况，则系统可覆盖根复合体或交换端口关闭电源指示灯的命令，强制其保持点亮。这向操作员表明不应从插槽中移除该卡。规范进一步指出，支持持续导通故障检测是可选项，若通过系统软件处理，则"平台供应商必须确保此标准使用模型的可选特性通过其他软件、平台文档或其他方式解决"。 |
+| The behavior of the power indicator and the related power states are listed in Table 19‑4 on page 861. Note that $\mathrm { V _ { a u x } }$ remains on and switch signals are still connected until the retention latch is released or when the card is removed as detected by the Prsnt1# and Prsnt2# signals. | 电源指示灯的行为及相关电源状态列于第861页的表19‑4中。请注意，$\mathrm { V _ { a u x } }$ 保持供电，交换信号仍保持连接，直至释放保持锁存器，或通过 Prsnt1# 和 Prsnt2# 信号检测到卡被移除。 |
 
-<table>
-<tr>
-<td width="50%">
-8. The switch uses ID routing to return the packet upstream towards the host processor. When the CplDLk packet is forwarded to the upstream port of the Switch, it establishes a lock in the upstream direction to prevent traffic from other ports from being routed upstream. The PCI Express endpoint is completely blocked from sending any transaction to the Switch ports via the path of the locked operation. Note that transfers between Switch ports not involved in the locked operation would be permitted (not shown in this example).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-8. 交换机使用ID路由将报文向上游发送到主机处理器。当CplDLk报文被转发到交换机的上游端口时，它会在上游方向建立锁定，以防止来自其他端口的流量被路由到上游。PCI Express端点被完全阻塞，无法通过锁定操作的通路向交换机端口发送任何事务。注意，不涉及锁定操作的交换机端口之间的传输是允许的（本例中未显示）。
-</td>
-</tr>
-</table>
+Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源指示器的行为和含义
 
-<table>
-<tr>
-<td width="50%">
-9. Upon detecting the CplDLk packet, the Root Complex knows that the lock has been established along the path between it and the target device, and the completion data is sent to the CPU.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-9. 当检测到CplDLk报文时，根复合体知道锁定已在其与目标设备之间的路径上建立，完成数据被发送到CPU。
-</td>
-</tr>
-</table>
+<table><tr><td>Indicator Behavior</td><td>Power State</td></tr><tr><td>Off</td><td>Power Off --- it is safe to remove or insert a card. All power has been removed as required for hot plug operation. Vaux is only removed when the Manual Retention Latch is released.</td></tr><tr><td>On</td><td>Power On --- removal or insertion of a card is not allowed. Power is currently applied to the slot.</td></tr><tr><td>Blinking</td><td>Power Transition --- card removal or insertion is not allowed. This state notifies the operator that software is currently removing or applying slot power in response to a hot plug request.</td></tr></table>
 
-Figure D‐1: Lock Sequence Begins with Memory Read Lock Request | 图D‐1：锁定序列以存储器读锁定请求开始
-<img src="images/part06_f6913aa97476401663ef2a81abb4e6b5da7417c5e2f611200ca27786fdc6951b.jpg" width="700" alt="">
+## Manually Operated Retention Latch and Sensor | 手动操作的保持锁存器和传感器
 
-## Read Data Modified and Written to Target and Lock Completes | 读取数据修改后写入目标并完成锁定
+| EN | ZH |
+| --- | --- |
+| The Manual Retention Latch (MRL) is required and holds PCI Express cards rigidly in the slot. Each MRL can implement an optional sensor that notifies the Hot-Plug Controller that the latch has been closed or opened. The spec also allows a single latch that can hold down multiple cards. Such implementations do not support the MRL sensor. | 手动保持闩锁(MRL)是必需的，用于将PCI Express卡牢固地固定在槽位中。每个MRL可以实现一个可选传感器，用于通知热插拔控制器闩锁已被关闭或打开。规范也允许使用单个闩锁固定多个卡。此类实现不支持MRL传感器。 |
+| An MRL Sensor is a switch, optical device, or other type of sensor that reports whether the latch is closed or open. If an unexpected latch release is detected, the port automatically disables the slot and notifies system software, although changing the state of the Power or Attention indicators autonomously is not allowed. | MRL传感器是一种开关、光学器件或其他类型的传感器，用于报告闩锁是关闭还是打开。如果检测到意外的闩锁释放，端口会自动禁用该槽位并通知系统软件，但不允许自主更改电源或注意指示器的状态。 |
+| The switched signals and auxiliary power (Vaux) must be automatically removed from the slot when the MRL Sensor indicates that the MRL is open, and they must be restored to the slot when the MRL Sensor indicates that the latch is closed. The switched signals are $\mathrm { V _ { a u x , } }$ SMBCLK, and SMBDAT. | 当MRL传感器指示MRL为打开状态时，交换信号和辅助电源(Vaux)必须自动从槽位中断开；当MRL传感器指示闩锁为关闭状态时，必须恢复提供。交换信号包括$\mathrm { V _ { a u x , } }$、SMBCLK和SMBDAT。 |
+| The spec also describes an alternate method for removing $\mathrm { V _ { a u x } }$ and SMBus power when an MRL sensor is not present. The PRSNT#2 pin indicates whether a card is physically installed into the slot and can be used to trigger the port to remove the switched signals. | 规范还描述了在不存在MRL传感器时移除$\mathrm { V _ { a u x } }$和SMBus电源的替代方法。PRSNT#2引脚指示卡是否物理安装在槽位中，可用于触发端口移除交换信号。 |
 
-<table>
-<tr>
-<td width="50%">
-The device driver receives the semaphore value, alters it, and then initiates a memory write to update the semaphore within the memory of the legacy PCI device. Figure E-2 on page 969 illustrates the write sequence followed by the
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-设备驱动程序接收信号量值，修改该值，然后发起一次存储器写操作，以更新传统PCI器件存储器中的信号量。第969页的图E-2展示了写入序列，随后由
-</td>
-</tr>
-</table>
+## Electromechanical Interlock (optional) | 机电互锁（可选）
 
-## PCI Express Technology | PCI Express技术
+| EN | ZH |
+|---|---|
+| The optional electromechanical card interlock mechanism provides a more sophisticated method of ensuring that a card is not removed while power is applied to the slot. The spec does not define the specific nature of the interlock, but states that it can physically lock the add-in card or the MRL in place. | 可选的机电卡互锁机制提供了一种更精密的方法，确保在插槽供电期间不会拔出卡。规范未定义互锁的具体性质，但指出它可以将添加卡或 MRL 物理锁定在位。 |
+| The lock mechanism is controlled via software; however, there is no specific programming interface defined for it. Instead, an interlock is controlled by the same Port signal that enables main power to the slot. | 锁定机制通过软件控制；但并未为其定义特定的编程接口。相反，互锁由控制插槽主电源使能的同一端口信号来操控。 |
 
-<table>
-<tr>
-<td width="50%">
-Root Complex's transmission of the Unlock message that releases the lock:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-根复合体发送Unlock报文以释放锁定：
-</td>
-</tr>
-</table>
+## Software User Interface | 软件用户界面
 
-<table>
-<tr>
-<td width="50%">
-10. The Root Complex issues the Memory Write Request across the locked path to the target device.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-10. 根复合体通过锁定路径向目标设备发出Memory Write Request。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| An operator may use a software interface to request card removal or insertion. This interface is provided by system software, which also monitors slots and reports status information to the operator. The spec states that the user interface is implemented by the Operating System and consequently is beyond the scope of the spec. | 操作员可通过软件接口请求移除或插入卡。该接口由系统软件提供，系统软件还负责监视槽位并向操作员报告状态信息。规范指出，用户界面由操作系统实现，因此不在规范范围之内。 |
+| The operator must be able to initiate operations at each slot independent of other slots. Consequently, the operator may initiate a hot-plug operation on one slot using the software user interface or attention button while a hot-plug operation on another slot is in process. This can be done regardless of which interface the operator used to start the first Hot-Plug operation. | 操作员必须能够独立于其他槽位启动每个槽位的操作。因此，操作员可在另一个槽位的热插拔操作正在进行时，通过软件用户界面或注意按钮启动某一槽位的热插拔操作。无论操作员使用何种界面启动第一个热插拔操作，均可执行此操作。 |
 
-<table>
-<tr>
-<td width="50%">
-11. The Switch forwards the transaction to the target egress port (3). The memory address of the Memory Write must be the same as the initial Memory Read request.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-11. 交换机将事务转发到目标出口端口(3)。Memory Write的存储器地址必须与初始Memory Read请求相同。
-</td>
-</tr>
-</table>
+## Attention Button | 注意力按钮
+
+| EN | ZH |
+|---|---|
+| The Attention Button is a momentary-contact push-button switch, located near the corresponding Hot-Plug slot or on a module. The operator presses this button to initiate a hot-plug operation for this slot (e.g., card removal or insertion). Once the Attention Button is pressed, the Power Indicator starts to blink. From the time the blinking begins the operator has 5 seconds to abort the Hot Plug operation by pressing the button a second time. | 注意力按钮(Attention Button)是一个瞬动式按钮开关，位于相应热插拔槽位附近或模块上。操作员按下此按钮以启动该槽位的热插拔操作（例如，拔出或插入卡）。按下注意力按钮后，电源指示灯(Power Indicator)开始闪烁。从闪烁开始之时起，操作员有5秒时间再次按下该按钮以中止热插拔操作。 |
+| The spec recommends that if an operation initiated by an Attention Button fails, the system software should notify the operator of the failure. For example, a message explaining the nature of the failure can be reported or logged. | 规范建议，如果由注意力按钮发起的操作失败，系统软件应通知操作员该故障。例如，可以报告或记录一条解释故障性质的消息。 |
+
+## Slot Numbering Identification | 插槽编号标识
+
+| EN | ZH |
+|---|---|
+| Software and operators must be able to identify a physical slot based on its slot number. Each hot‐plug capable port must implement registers that software uses to identify the physical slot number. The registers include a Physical Slot number and a chassis number. The main chassis is always labeled chassis 0. The chassis numbers for other chassis must be non‐zero and are assigned via the PCI‐to‐PCI bridge's Chassis Number register. | 软件和操作人员必须能够根据槽位编号识别物理槽位。每个支持热拔插的端口必须实现软件用于识别物理槽位编号的寄存器。这些寄存器包括物理槽位编号和机箱编号。主箱体始终标记为 chassis 0。其他箱体的机箱编号必须为非零值，并通过 PCI-to-PCI 桥的机箱编号寄存器分配。 |
+
+## 19.6 Standard Hot Plug Controller Signaling Interface | 19.6 标准热插拔控制器信令接口
+
+| EN | ZH |
+| --- | --- |
+| Figure 19-3 on page 864 presents a more detailed view of the logic within Switch Ports, along with the signals routed between the slot and the Port. The importance of the standardized Hot Plug Controller is the common software interface that allows the device driver to be integrated into operating systems. | 第864页的图19-3展示了交换端口内部逻辑的更详细视图，以及插槽与端口之间路由的信号。标准化热插拔控制器的重要性在于其通用软件接口，使得设备驱动程序能够集成到操作系统中。 |
+| The PCIe spec, together with the Card ElectroMechanical (CEM) spec, defines the slot signals and the support required for Hot Plug PCI Express. Following is a list of required and optional port interface signals needed to support the Standard Usage Model: | PCIe规范与Card ElectroMechanical (CEM)规范共同定义了插槽信号以及热插拔PCI Express所需的支持。以下是支持标准使用模型所需的基本和可选端口接口信号列表： |
+| **PWRLED# (required)** — port output that controls state of Power Indicator | **PWRLED# (必需)** — 端口输出，控制电源指示灯状态 |
+| **ATNLED# (required)** — port output controls state of Attention Indicator | **ATNLED# (必需)** — 端口输出，控制注意指示灯状态 |
+| **PWREN (required if reference clock is implemented)** — port output that controls main power to slot | **PWREN (若实现了参考时钟则必需)** — 端口输出，控制插槽的主电源 |
+| **REFCLKEN# (required)** — port output that controls delivery of reference clock to the slot | **REFCLKEN# (必需)** — 端口输出，控制向插槽提供参考时钟 |
+| **PERST# (required)** — port output that controls PERST# at slot | **PERST# (必需)** — 端口输出，控制插槽处的PERST# |
+| **PRSNT1# (required)** — Grounded at the connector | **PRSNT1# (必需)** — 在连接器处接地 |
+| **PRSNT2# (required)** — port input, pulled up on system board, that indicates presence of card in slot | **PRSNT2# (必需)** — 端口输入，在系统板上上拉，指示插槽中是否存在适配卡 |
+| **PWRFLT# (required)** — port input that notifies the Hot-Plug controller of a power fault condition detected by external logic | **PWRFLT# (必需)** — 端口输入，通知热插拔控制器外部逻辑检测到的电源故障状况 |
+| **AUXEN# (required if AUX power is implemented)** — port output that controls switched AUX signals and AUX power to slot when MRL is opened and closed. The MRL# signal is required with AUX power is present. | **AUXEN# (若实现了AUX电源则必需)** — 端口输出，当MRL打开和关闭时控制切换的AUX信号和AUX电源至插槽。当存在AUX电源时，MRL#信号是必需的。 |
+| **MRL# (required if MRL Sensor is implemented)** — port input from the MRL sensor | **MRL# (若实现了MRL传感器则必需)** — 来自MRL传感器的端口输入 |
+| **BUTTON# (required if Attention Button is implemented)** — port input indicating operator has pressed the Attention Button | **BUTTON# (若实现了注意按钮则必需)** — 端口输入，指示操作员已按下注意按钮 |
+
+Figure 19-3: Hot Plug Control Functions within a Switch | 图19-3：交换机内的热插拔控制功能
+
+<img src="images/part06_36d5d3a4db7747b0685a323c79cfe69189bd59993c739e8367f657ea8287864d.jpg" width="700" alt="">
+
+## 19.7 The Hot-Plug Controller Programming Interface | 19.7 热插拔控制器编程接口
+
+| EN | ZH |
+|---|---|
+| The standard programming interface to the Hot-Plug Controller is provided via the PCI Express Capability register block, shown in Figure 19-4 on page 865, where the Hot-Plug related registers are highlighted. Hot Plug features are primarily found in the Slot Registers defined for Root and Switch Ports. The Device Capability register is also used in some implementations as described later in this chapter. | 热插拔控制器的标准编程接口通过PCI Express能力寄存器块提供，如第865页图19-4所示，其中突出显示了与热插拔相关的寄存器。热插拔功能主要存在于为根端口和交换机端口定义的插槽寄存器中。设备能力寄存器在某些实现中也会被使用，本章后面将对此进行描述。 |
+
+Figure 19-4: PCIe Capability Registers Used for Hot-Plug | 图19-4：用于热插拔的PCIe能力寄存器
+
+<table><tr><td>PCI Express Capabilities Register</td><td>Next Cap Pointer</td><td>PCI Express Cap ID</td></tr><tr><td colspan="3">Device Capabilities Register</td></tr><tr><td>Device Status</td><td colspan="2">Device Control</td></tr><tr><td colspan="3">Link Capabilities</td></tr><tr><td>Link Status</td><td colspan="2">Link Control</td></tr><tr><td colspan="3">Slot Capabilities</td></tr><tr><td>Slot Status</td><td colspan="2">Slot Control</td></tr><tr><td>Root Capability</td><td colspan="2">Root Control</td></tr><tr><td colspan="3">Root Status</td></tr><tr><td colspan="3">Device Capabilities 2</td></tr><tr><td>Device Status 2</td><td colspan="2">Device Control 2</td></tr><tr><td colspan="3">Link Capabilities 2</td></tr><tr><td>Link Status 2</td><td colspan="2">Link Control 2</td></tr><tr><td colspan="3">Slot Capabilities 2</td></tr><tr><td>Slot Status 2</td><td colspan="2">Slot Control 2</td></tr></table>
+
+| EN | ZH |
+| --- | --- |
+| ## Slot Capabilities | ## 插槽能力 |
+| Figure 19‑5 on page 866 illustrates the slot capability register and bit fields. Hardware initializes all of these capability register fields to reflect the features implemented by this port. This register applies to both card slots and rack mount implementations, except for the indicators and attention button. Software must read from the device capability register within the module to determine if indicators and attention buttons are implemented. Table 19‑5 on page 866 lists and defines the slot capability fields. | 第866页的图19‑5展示了插槽能力寄存器和位域。硬件初始化所有这些能力寄存器字段，以反映该端口实现的功能。该寄存器适用于卡槽和机架安装实现，但指示灯和注意按钮除外。软件必须读取模块内的设备能力寄存器，以确定是否实现了指示灯和注意按钮。第866页的表19‑5列出并定义了插槽能力字段。 |
+
+Figure 19‑5: Slot Capabilities Register | 图19‑5：插槽能力寄存器  
+
+<img src="images/part06_6bf6981b822affb3cf6e1c2eade1107c6bdd5de4cd342e9a1d3798bf944b2e0b.jpg" width="700" alt="">
+
+Table 19‑5: Slot Capability Register Fields and Descriptions | 表19‑5：插槽能力寄存器字段和描述
+
+<table><tr><td>Bit(s)</td><td>Register Name and Description</td></tr><tr><td>0</td><td>Attention Button Present — indicates the presence of an attention button on the chassis adjacent to the slot.</td></tr><tr><td>1</td><td>Power Controller Present — indicates the presence of a power controller for this slot.</td></tr><tr><td>2</td><td>MRL Sensor Present — indicates the presence of a MRL Sensor on the slot.</td></tr><tr><td>3</td><td>Attention Indicator Present — indicates the presence of an attention indicator on the chassis adjacent to the slot.</td></tr><tr><td>4</td><td>Power Indicator Present — indicates the presence of a power indicator on the chassis adjacent to the slot.</td></tr></table>
+
+| ## Chapter 19: Hot Plug and Power Budgeting | ## 第19章：热插拔与功率预算 |
+| Table 19‑5: Slot Capability Register Fields and Descriptions (Continued) | 表19‑5：槽位能力寄存器字段及描述（续） |
+
+<table><tr><td>Bit(s)</td><td>Register Name and Description</td></tr><tr><td>5</td><td>Hot-Plug Surprise — indicates that it&#x27;s possible for the user to remove the card from the system without prior notification. This tells the OS to allow for such removal without affecting continued software operation.</td></tr><tr><td>6</td><td>Hot-Plug Capable — indicates that this slot supports hot plug operation.</td></tr><tr><td>14:7</td><td>Slot Power Limit Value — specifies the maximum power that can be supplied by this slot. This limit value is multiplied by the scale specified in the next field.</td></tr><tr><td>16:15</td><td>Slot Power Limit Scale — specifies the scaling factor for the Slot Power Limit Value.</td></tr><tr><td>17</td><td>ElectroMechanical Interlock Present — indicates that this is implemented for this slot</td></tr><tr><td>18</td><td>No Command Completed Support— indicates that this slot doesn&#x27;t generate software notification when a command has been completed. Earlier versions sometimes took a long time to execute hot-plug commands (for example, sometimes taking a second or more to communicate across an  $I^{2}C$  bus to turn the power on or off), and generated an interrupt when they were finally done. When set this bit means that this Port can accept writes to all fields in the Slot Control register without delay, so there&#x27;s no need for the notification.</td></tr><tr><td>31:19</td><td>Physical Slot Number — Indicates the physical slot number associated with this port. It must be hardware initialized to a number that is unique within the chassis. Note that software will need this number to relate the physical slot to the Logical Slot ID (Bus, Device, &amp; Function number for this device).</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| ## Slot Power Limit Control | ## 插槽电源限制控制 |
+| The spec provides a method for software to limit the amount of power consumed by a card installed into an expansion slot or backplane implementation. The registers to support this feature are included in the Slot Capability register. | 规范提供了一种方法，使软件能够限制插入扩展插槽或背板实现中的插卡所消耗的功率。支持该功能的寄存器包含在插槽能力寄存器中。 |
+
+## 19.7.3 Slot Control | 19.7.3 插槽控制
+
+| EN | ZH |
+|---|---|
+| Software controls the Hot Plug events through the Slot Control register, shown in Figure 19-6 on page 868. This register permits software to enable various Hot Plug features and control hot plug operations. It's also used to enable interrupt generation as well as enabling the sources of Hot-Plug events that can result in interrupt generation. | 软件通过槽位控制寄存器（Slot Control Register）控制热插拔事件，如图19-6（第868页）所示。该寄存器允许软件启用各种热插拔特性并控制热插拔操作。它还用于启用中断生成以及使能可能导致中断产生的热插拔事件源。 |
+
+Figure 19-6: Slot Control Register | 图19-6：插槽控制寄存器
+
+<img src="images/part06_dacd864be890f81c21feacf778a636f8c02b23140f6e06c9e47ef47e4631d8a8.jpg" width="700" alt="">
+
+| EN | ZH |
+|---|---|
+| ## Chapter 19: Hot Plug and Power Budgeting | ## 第19章：热插拔与功率预算 |
+| Table 19‐6: Slot Control Register Fields and Descriptions | 表19‐6：插槽控制寄存器字段及描述 |
+
+<table><tr><td>Bit(s)</td><td>Register Name and Description</td></tr><tr><td>0</td><td>Attention Button Pressed Enable. When set, this bit enables the generation of a hot-plug interrupt (if enabled) or assertion of the Wake# message, when the attention button is pressed.</td></tr><tr><td>1</td><td>Power Fault Detected Enable. When set, enables generation of a hot-plug interrupt (if enabled) or Wake# message upon detection of a power fault.</td></tr><tr><td>2</td><td>MRL Sensor Changed Enable. When set, enables generation of a hot-plug interrupt or Wake# (if enabled) message upon detection of a MRL sensor changed event.</td></tr><tr><td>3</td><td>Presence Detect Changed Enable. When set this bit enables the generation of the hot-plug interrupt or a Wake message when the presence detect changed bit in the Slot Status register is set.</td></tr><tr><td>4</td><td>Command Completed Interrupt Enable. When set, enables a Hot- Plug interrupt to be generated that informs software that the hot-plug controller is ready to receive the next command.</td></tr><tr><td>5</td><td>Hot-Plug Interrupt Enable. When set, enables the generation of Hot-Plug interrupts.</td></tr><tr><td>7:6</td><td>Attention Indicator Control. Writes to the field control the state of the attention indicator and reads return the current state, as follows:00b = Reserved01b = On10b = Blink11b = Off</td></tr><tr><td>9:8</td><td>Power Indicator Control. Writes to the field control the state of the power indicator and reads return the current state, as follows:00b = Reserved01b = On10b = Blink11b = Off</td></tr><tr><td>10</td><td>Power Controller Control. Writes to the field switch main power to the slot and reads return the current state: 0b = Power On, 1b = Power Off</td></tr><tr><td>11</td><td>Electromechanical Interlock Control - If the interlock is implemented, writing a 1b to this bit toggles the state of it while writing a 0b has no effect. Reading this bit always returns a 0b.</td></tr><tr><td>12</td><td>Data Link Layer State Changed Enable - If the Data Link Layer Link Active Reporting capability is 1b, setting this bit enables software notification when the Data Link Layer Link Active bit changes. If the Data Link Layer Link Active Reporting capability is 0b, then this bit becomes read-only with a value of 0b.</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| ## Slot Status and Events Management | ## 插槽状态与事件管理 |
+| The Hot Plug Controller monitors a variety of events and reports these events to the Hot Plug System Driver. Software can use the "detected" bits to determine which event has occurred, while the status bit identifies that nature of the change. The changed bits must be cleared by software in order to detect a subsequent change. Note that whether these events get reported to the system (via a system interrupt) is determined by the related enable bits in the Slot Control Register. | 热插拔控制器监控各种事件并将这些事件报告给热插拔系统驱动程序。软件可以使用"已检测"位来确定哪个事件已发生，而状态位则标识变化的性质。必须由软件清除已变化的位，以便检测后续变化。请注意，这些事件是否（通过系统中断）报告给系统，由插槽控制寄存器中的相关使能位决定。 |
+
+Figure 19-7: Slot Status Register | 图19-7：插槽状态寄存器
+
+<img src="images/part06_2da48a0c81595333327c720fe91c8b5f20f2ab51643622a418d401db8b659646.jpg" width="700" alt="">
+
+| EN | ZH |
+|---|---|
+| Table 19-7: Slot Status Register Fields and Descriptions | 表19-7：插槽状态寄存器字段与描述 |
+
+<table><tr><td>Bit Location</td><td>Register Name and Description</td></tr><tr><td>0</td><td>Attention Button Pressed — If the button is implemented, this bit is set when the Attention Button is pressed.</td></tr><tr><td>1</td><td>Power Fault Detected — If a Power Controller that supports power fault detection is implemented, this bit is set when it detects a power fault at this slot. The spec notes that it's possible for a power fault to be detected at any time, regardless of the Power Control setting or whether the slot is occupied.</td></tr><tr><td>2</td><td>MRL Sensor Changed — If an MRL Sensor is implemented, this is set when a MRL Sensor state change is detected. If no sensor is present this bit will always be zero.</td></tr><tr><td>3</td><td>Presence Detect Changed — set when a change has been detected in the Presence Detect State bit.</td></tr><tr><td>4</td><td>Command Completed — If the No Command Completed Support bit in the Slot Capabilities register is 0b, then this bit is set when a hot plug command has completed and the Hot Plug Controller is ready to accept another command. Technically, only this last meaning is guaranteed: the controller is ready to accept another command, regardless of whether the previous one has actually completed.</td></tr><tr><td>5</td><td>MRL Sensor State — when set, indicates the current state of the MRL sensor, if implemented: 0b = MRL Closed, 1b = MRL Open</td></tr><tr><td>6</td><td>Presence Detect State — this bit indicates the presence of a card in a slot and is required for all Downstream Ports that implement a slot. Its value is the logical "OR" of Physical Layer's Detection logic and any other side-band detect mechanism implemented for the slot (such as PRSNT1# and PRSNT2#). The big difference between them is that the pins require no power to physically detect the card and can thus report on it without needing the power restored, while using the Physical Layer Detect logic does need power.</td></tr><tr><td>7</td><td>Electromechanical Interlock Status —If an Electromechanical Interlock is implemented, this bit indicates whether it is engaged (1b) or disengaged (0b).</td></tr><tr><td>8</td><td>Data Link State Changed — This bit is set when the Data Link Layer Link Active bit in the Link Status register changes. In response to this event, software must read the Data Link Layer Link Active bit to determine whether the Link is active before sending configuration cycles to the hot plugged device.</td></tr></table>
+
+| EN | ZH |
+|-----|-----|
+| ## Add-in Card Capabilities | ## 插件卡能力 |
+| The Device Capability register, seen in Figure 19‐8 on page 873, also has fields relevant to add‐in cards that record the power reported by the Hot Plug Controller as being available to their slot. This information must be communicated automatically with a Set\_Slot\_Power\_Limit Message whenever either of these takes place: | 设备能力寄存器（参见图19‐8，第873页）也包含与插件卡相关的字段，用于记录热插拔控制器报告的其插槽可用功率。只要发生以下任一情况，此信息就必须通过 Set\_Slot\_Power\_Limit 消息自动通信： |
+| • A configuration write to the Slot Capabilities register changes the Slot Power Limit Value and Slot Power Limit Scale values. | • 对插槽能力寄存器的配置写入更改了插槽功率限制值和插槽功率限制比例值。 |
+| • The Link transitions from non‑DL\_UP to DL\_Up status (unless the Slot Capabilities register has not yet been initialized). | • 链路从非DL\_UP状态转换为DL\_Up状态（除非插槽能力寄存器尚未初始化）。 |
+| The message updates the Captured Slot Power Limit Value and Scale registers with the values in the message, making this information readily available to its device driver. | 该消息使用消息中的值更新已捕获插槽功率限制值和比例寄存器，使该信息对其设备驱动程序随时可用。 |
+
+Figure 19‐8: Device Capabilities Register | 图19‐8：设备能力寄存器
+<img src="images/part06_18dafd3cc01b482cf41996c4ab0b902c82e2fcb102eb4354ae9747ceec387f24.jpg" width="700" alt="">
+
+| EN | ZH |
+|----|----|
+| ## Quiescing Card and Driver | ## 静止化卡与驱动程序 |
+
+## General | 概述
+
+| EN | ZH |
+|---|---|
+| Prior to removing a card from the system, two things must occur: the device driver must stop accessing the card, and the card must stop initiating or responding to new Requests. How this is accomplished is OS-specific, but the following must take place: | 从系统中移除一个卡之前，必须完成两件事：设备驱动程序必须停止访问该卡，并且该卡必须停止发起或响应新的请求(Requests)。具体实现方式因操作系统而异，但必须完成以下操作： |
+| • The OS must stop issuing new requests to the device’s driver or instruct the driver to stop accepting new requests. | • 操作系统必须停止向设备驱动程序下发新的请求，或指示驱动程序停止接受新的请求。 |
+| • The driver must terminate or complete all outstanding requests. | • 驱动程序必须终止或完成所有未完成的请求(outstanding requests)。 |
+| • The card must be disabled from generating interrupts or Requests. | • 该卡必须被禁止产生中断(interrupts)或请求(Requests)。 |
+| When the OS commands the driver to quiesce itself and its device, the OS must not expect the device to remain in the system (in other words, it could be removed and not replaced with an identical card). | 当操作系统命令驱动程序使其自身及其设备静止(quiesce)时，操作系统不应期望该设备继续保留在系统中（换言之，该设备可能被移除，且不会用相同的卡替换）。 |
+
+## 19.8.1 Pausing a Driver (Optional) | 19.8.1 暂停驱动（可选）
+
+| EN | ZH |
+|---|---|
+| Optionally, an OS could implement a "Pause" capability to temporarily stop driver activity in the expectation that the same card will be reinserted. If the card is not reinstalled within a reasonable amount of time, however, the driver must be quiesced and then removed from memory. | 可选地，操作系统可实现"暂停"能力，以临时停止驱动程序活动，期望同一张卡将被重新插入。然而，如果卡未在合理时间内重新安装，则驱动程序必须静止，然后从内存中移除。 |
+| As an example, the currently‑installed card is failing or is being replaced with a later revision as an upgrade. If the operation is to appear seamless from a software and operational perspective, the driver would have to quiesce the device, save the current context (contents of registers, stack and instruction pointer of local micro‑controller, etc.) and turn off the power to the slot. The new card could then be installed and powered, and then, when its context is restored, it could resume normal operation where it left off. Of course, if the old card had failed, it may not be possible to simply resume operation. | 例如，当前安装的卡出现故障，或正在被替换为更新版本以进行升级。如果从软件和操作的角度来看该操作需显得无缝，则驱动程序必须静止设备，保存当前上下文（寄存器内容、本地微控制器的堆栈和指令指针等），并关闭插槽电源。然后可以安装新卡并上电，待其上下文恢复后，即可从中断处恢复正常运行。当然，如果旧卡已发生故障，则可能无法简单地恢复操作。 |
+
+## Quiescing a Driver That Controls Multiple Devices | 暂停控制多个设备的驱动
+
+| EN | ZH |
+|----|----|
+| If a driver controls multiple cards and it receives a command from the OS to quiesce its activity with respect to a specific card, it must only quiesce its activity with that card and the card itself. | 如果一个驱动程序控制多个卡，并且它收到来自操作系统的命令要求对某个特定卡静止其活动，则它必须仅静止与该卡相关的活动以及该卡本身。 |
+
+## Quiescing a Failed Card | 暂停故障卡
+## Quiescing a Failed Card | 使故障卡静止（Quiescing）
+
+| EN | ZH |
+|---|---|
+| If a card has failed, it may not be possible for the driver to complete requests previously issued to the card. In this case, the driver must detect the error, terminate the requests without completion, and attempt to reset the card. | 如果卡已故障，驱动程序可能无法完成先前发给该卡的请求。在这种情况下，驱动程序必须检测错误、终止请求（不完成它们），并尝试复位该卡。 |
+
+## 19.9 The Primitives | 19.9 原语
+
+| EN | ZH |
+|----|----|
+| This section discusses the hot-plug software elements and the information passed between them. For a review of the software elements and their relationships to each other, refer to Table 19-1 on page 852. Communications between the Hot-Plug Service within the OS and the Hot-Plug System Driver is in the form of requests. The spec doesn't define the exact format of these requests, but does define the basic request types and their content. Each request type issued to the Hot-Plug System Driver by the Hot-Plug Service is referred to as a primitive. They are listed and described in Table 19-8 on page 875. | 本节讨论热插拔软件元素及其之间传递的信息。关于软件元素及其相互关系的回顾，请参见第852页的表19-1。操作系统内的热插拔服务与热插拔系统驱动程序之间的通信采用请求的形式。规范未定义这些请求的确切格式，但定义了基本的请求类型及其内容。热插拔服务向热插拔系统驱动程序发出的每种请求类型被称为一个原语。这些原语在第875页的表19-8中列出并描述。 |
+
+Table 19-8: The Primitives / 表19-8: 原语 | 表19-8：原语
 
 <table>
-<tr>
-<td width="50%">
-12. The bridge forwards the transaction to the PCI bus.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-12. 桥接器将事务转发到PCI总线。
-</td>
-</tr>
+<tr><td>Primitive / 原语</td><td>Parameters / 参数</td><td>Description / 描述</td></tr>
+<tr><td rowspan="2">Query Hot-Plug System Driver / 查询热插拔系统驱动程序</td><td>Input: None / 输入: 无</td><td rowspan="2">Requests that the Hot-Plug System Driver return a set of Logical Slot IDs for the slots it controls. / 请求热插拔系统驱动程序返回其所控制插槽的一组逻辑插槽ID。</td></tr>
+<tr><td>Return: Set of Logical Slot IDs for slots controlled by this driver. / 返回: 该驱动程序所控制插槽的逻辑插槽ID集合。</td></tr>
+<tr><td rowspan="2">Set Slot Status / 设置插槽状态</td><td>Inputs: Logical Slot ID, New slot state (on or off), New Attention Indicator state, New Power Indicator state. / 输入: 逻辑插槽ID, 新插槽状态(开或关), 新注意力指示器状态, 新电源指示器状态。</td><td rowspan="2">This request is used to control the slots and the Attention Indicator associated with each slot. Good completion of a request is indicated by returning the Status Change Successful parameter. If a fault is incurred during an attempted status change, the Hot-Plug System Driver should return the appropriate fault message (see middle column). Unless otherwise specified, the card should be left in the off state. / 该请求用于控制插槽及与每个插槽关联的注意力指示器。请求成功完成通过返回"状态更改成功"参数来指示。如果在尝试状态更改期间发生故障，热插拔系统驱动程序应返回相应的故障消息(参见中间列)。除非另有指定，插卡应保持在关闭状态。</td></tr>
+<tr><td>Return: Request completion status: status change successful, fault—wrong frequency, fault—insufficient power, fault—insufficient configuration resources, fault—power fail, fault—general failure / 返回: 请求完成状态: 状态更改成功, 故障—频率错误, 故障—电源不足, 故障—配置资源不足, 故障—电源失效, 故障—一般性故障</td></tr>
+<tr><td rowspan="2">Query Slot Status / 查询插槽状态</td><td>Input: Logical Slot ID / 输入: 逻辑插槽ID</td><td rowspan="2">This request returns the state of the indicated slot (if a card is present). The Hot-Plug System Driver must return the Slot Power status information. / 该请求返回指定插槽的状态(是否有插卡存在)。热插拔系统驱动程序必须返回插槽电源状态信息。</td></tr>
+<tr><td>Return: Slot state (on or off), Card power requirements. / 返回: 插槽状态(开或关), 插卡电源需求。</td></tr>
+<tr><td rowspan="2">Async Notice of Slot Status Change / 插槽状态变更异步通知</td><td>Input: Logical Slot ID / 输入: 逻辑插槽ID</td><td rowspan="2">This is the only primitive (defined by the spec) that is issued to the Hot-Plug Service by the Hot-Plug System Driver. It is sent when the Driver detects an unsolicited change in the state of a slot. Examples would be a run-time power fault or a card installed in a previously-empty slot with no warning. / 这是(由规范定义的)唯一由热插拔系统驱动程序向热插拔服务发出的原语。当驱动程序检测到插槽状态发生非请求的变更时发送该原语。例如运行时电源故障或在无警告情况下插卡被安装到先前空的插槽中。</td></tr>
+<tr><td>Return: none / 返回: 无</td></tr>
 </table>
 
-<table>
-<tr>
-<td width="50%">
-13. The target device receives the memory write data.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-13. 目标设备接收到存储器写数据。
-</td>
-</tr>
-</table>
+## 19.10 Introduction to Power Budgeting | 19.10 电源预算简介
 
-<table>
-<tr>
-<td width="50%">
-14. Once the Memory Write transaction is sent from the Root Complex, it sends an Unlock message to instruct the Switches and any PCI/PCI‐X bridges in the locked path to release the lock. Note that the Root Complex presumes the operation has completed normally (because memory writes are posted and no Completion is returned to verify success).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-14. 一旦从根复合体发送了Memory Write事务，它就发送一个Unlock报文来指示锁定路径中的交换机和任何PCI/PCI‐X桥接器释放锁定。注意，根复合体假定操作已正常完成（因为存储器写是Posted事务，不会返回Completion来验证成功）。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| The primary goal of the PCI Express power budgeting capability is to allocate power for PCI Express hot plug devices that are added to the system during runtime. This ensures that the system can allocate the proper amount of power and cooling for these devices. | PCI Express 电源预算（Power Budgeting）能力的主要目标是为运行期间添加到系统中的 PCI Express 热插拔设备分配电源。这确保了系统能够为这些设备分配适当的电力和冷却资源。 |
+| The spec states that "power budgeting capability is optional for PCI Express devices implemented in a form factor which does not require hot plug, or that are integrated on the system board." None of the form factor specs released at the time of this writing required support for hot plug or the power budgeting capability, but these change often. | 规范指出："对于采用无需热插拔的形态因素或集成在系统板上的 PCI Express 设备，电源预算能力是可选的。"截至本书撰写时发布的所有形态因素规范均未要求支持热插拔或电源预算能力，但这些规范经常变更。 |
+| System power budgeting is always required to support all system board devices and add-in cards. The new capability provides mechanisms for managing the budgeting process for a hot-plug card. Each form factor spec defines the min and max power for a given expansion slot. For example, the CEM spec limits the power an expansion card can consume prior to being fully enabled but, after it is enabled, it can consume the maximum amount of power specified for the slot. In the absence of the power budgeting capability registers, the system designer is responsible for guaranteeing that power has been budgeted correctly and that sufficient cooling is available to support any compliant card installed into the connector. | 系统电源预算始终是必需的，以支持所有系统板设备及附加卡。这一新能力提供了管理热插拔卡预算过程的机制。每种形态因素规范都定义了给定扩展插槽的最小和最大功耗。例如，CEM 规范限制了扩展卡在完全启用之前所能消耗的功率，但在启用之后，它可以消耗该插槽所规定的最大功率。在没有电源预算能力寄存器的情况下，系统设计人员负责确保电源已正确预算，并且有足够的冷却能力来支持安装到连接器中的任何兼容卡。 |
+| The spec defines the configuration registers to support the power budgeting process, but does not define the power budgeting methods and processes. The next section describes the hardware and software elements that would be involved in power budgeting, including the specified configuration registers. | 规范定义了支持电源预算过程的配置寄存器，但并未定义电源预算的方法和流程。下一节将描述参与电源预算的硬件和软件要素，包括所规定的配置寄存器。 |
 
-<table>
-<tr>
-<td width="50%">
-15. The Switch receives the Unlock message, unlocks its ports and forwards the message to the egress port that was locked to notify any other Switches and/ or bridges in the locked path that the lock must be cleared.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-15. 交换机接收Unlock报文，解锁其端口，并将该报文转发到被锁定的出口端口，以通知锁定路径中的任何其他交换机和/或桥接器必须清除锁定。
-</td>
-</tr>
-</table>
+## 19.11 The Power Budgeting Elements | 19.11 功率预算要素
 
-<table>
-<tr>
-<td width="50%">
-16. Upon detecting the Unlock message, the bridge must also release the lock on the PCI bus.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-16. 检测到Unlock报文后，桥接器也必须释放PCI总线上的锁定。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|----|----|
+| Figure 19‐10 illustrates the concept of Power Budgeting for hot plug cards. The role of each element involved in the power budgeting, allocation, and reporting process is listed and described below: | 图19-10展示了热插拔卡的电源预算概念。参与电源预算、分配和报告过程的每个元素的作用如下所列和所述： |
+| • System Firmware for Power Management (used during boot time). | • 电源管理系统固件（在启动期间使用）。 |
+| • Power Budget Manager (used during run time). | • 电源预算管理器（在运行期间使用）。 |
+| • Expansion Ports (to which card slots are attached). | • 扩展端口（连接卡槽）。 |
+| • Add‐in Devices (Power Budget Capable). | • 附加设备（具有电源预算能力）。 |
 
-Figure D‐2: Lock Completes with Memory Write Followed by Unlock Message | 图D‐2：锁定以存储器写后跟解锁消息完成
-<img src="images/part06_5b9488b3a211370278d851a4da3e757bbb0a8776bfad32d700487c491a9d52cb.jpg" width="700" alt="">
+| English | 中文 |
+|---------|------|
+| ## System Firmware | ## 系统固件 |
+| Written by the platform designers the specific system, this is responsible for reporting system power information. The spec recommends the following power information be reported to the PCI Express power budget manager, which allocates and verifies power consumption and dissipation during runtime: | 系统固件由特定系统的平台设计者编写，负责报告系统电源信息。规范建议将以下电源信息报告给 PCI Express 电源预算管理器，该管理器在运行时分配和验证功耗与散耗： |
+| • Total system power available. | • 可用系统总功率。 |
+| • Power allocated to system devices by firmware | • 固件分配给系统设备的功率 |
+| • Number and type of slots in the system. | • 系统中插槽的数量和类型。 |
+| Firmware may also allocate power to PCIe devices that support the power budgeting capability register set, such as a hot-plug device used during boot time. The Power Budgeting Capability register, shown in Figure 19-9 on page 878, contains a System Allocated bit that is hardware initialized (usually by firmware) to notify the power budget manager that power for this device has already been included in the system power allocation. If so, the Power Budget Manager still needs to read and save the power information for the hot-plug devices that were allocated in case they are later removed during runtime. | 固件也可以为支持电源预算能力寄存器集的 PCIe 设备分配功率，例如启动时使用的热插拔设备。电源预算能力寄存器（见第 878 页图 19-9）包含一个系统已分配位，该位由硬件初始化（通常由固件完成），用于通知电源预算管理器该设备的功率已包含在系统功率分配中。即便如此，电源预算管理器仍需读取并保存已分配的热插拔设备的电源信息，以防这些设备在运行时被移除。 |
 
-## 99.3.3 Notification of an Unsuccessful Lock | 99.3.3 锁定失败通知
+Figure 19-9: Power Budget Registers | 图19-9：功耗预算寄存器  
 
-<table>
-<tr>
-<td width="50%">
-A locked transaction series is aborted when the initial Memory Read Lock Request receives a Completion packet with no data (CplLk). This means that the locked sequence must terminate because no data was returned. This could result from an error associated with the memory read transaction, or perhaps the target device is busy and cannot respond at this time.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-当事初始内存读取锁定请求收到一个不带数据的完成报文(CplLk)时，锁定事务序列被中止。这意味着由于没有返回数据，锁定序列必须终止。这可能是由与内存读取事务相关的错误所致，或者目标设备正忙而暂时无法响应。
-</td>
-</tr>
-</table>
+<img src="images/part06_abbbd8c40de06aa7a17d6149a2705b8d10c79c45639f6bfd3ebbafef28d3c9ff.jpg" width="700" alt="">
 
-## 99.4 Summary of Locking Rules | 99.4 锁定规则总结
+## 19.11.2 The Power Budget Manager | 19.11.2 功率预算管理器
 
-<table>
-<tr>
-<td width="50%">
-Following is a list of ordering rules that apply to the Root Complex, Switches, and Bridges.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-以下是适用于根复合体、交换机和桥的排序规则列表。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|----|----|
+| This initializes when the OS installs and receives power-budget information from system firmware, although the spec does not define the method for delivering this information. This manager is responsible for allocating power for all PCI Express devices including: | 电源预算管理器在操作系统安装时初始化，并从系统固件接收电源预算信息，但规范未定义传递此信息的方法。该管理器负责为所有PCI Express设备分配电源，包括： |
+| PCI Express devices that have not already been allocated by the system (including embedded devices that support power budgeting). | 尚未由系统分配电源的PCI Express设备（包括支持电源预算的嵌入式设备）。 |
+| Hot-plugged devices installed at boot time. | 引导时安装的热插拔设备。 |
+| New devices added during runtime. | 运行期间新添加的设备。 |
 
-## 99.4.1 Rules Related To the Initiation and Propagation of Locked Transactions | 99.4.1 锁定事务的发起与传播相关规则
+## 19.11.3 Expansion Ports | 19.11.3 扩展端口
 
-<table>
-<tr>
-<td width="50%">
-Locked Requests which are completed with a status other than Successful Completion do not establish lock.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-以非成功完成状态完成锁定请求不会建立锁。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| Figure 19-10 on page 880 illustrates a hot plug port that must have the Slot Power Limit and Slot Power Scale fields within the Slot Capabilities register implemented. The firmware or power budget manager must load these fields with a value that represents the maximum amount of power supported by this Port. When software writes to these fields the Port automatically delivers a Set_Slot_Power_Limit message to the device. These fields are also written when software configures a new card that has been added as a hot plug installation. | 第880页的Figure 19-10展示了一个热插拔端口，该端口必须在Slot Capabilities寄存器中实现Slot Power Limit和Slot Power Scale字段。固件或功率预算管理器必须将这些字段加载为表示该端口所支持的最大功率值。当软件写入这些字段时，端口会自动向设备发送一条Set_Slot_Power_Limit消息。当软件配置通过热插拔安装的新插卡时，也会写入这些字段。 |
 
-<table>
-<tr>
-<td width="50%">
-Regardless of the status of any of the Completions associated with a locked sequence, all locked sequences and attempted locked sequences must be terminated by the transmission of an Unlock Message.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-无论与锁定序列相关的任何完成报文的状态如何，所有锁定序列及尝试的锁定序列都必须通过发送解锁报文来终止。
-</td>
-</tr>
-</table>
+## Spec requirements: | 规范要求：
+## 规范要求：
 
-<table>
-<tr>
-<td width="50%">
-MRdLk, CplDLk and Unlock semantics are allowed only for the default Traffic Class (TC0).
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-MRdLk、CplDLk 和 Unlock 语义仅允许用于默认流量类 (TC0)。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| Any Downstream Port that has a slot attached (the Slot Implemented bit in its PCIe Capabilities register is set) must implement the Slot Capabilities register. | 任何连接了插槽的 Downstream Port（其 PCIe Capabilities 寄存器中的 Slot Implemented 位被置位）必须实现 Slot Capabilities 寄存器。 |
+| Software must initialize the Slot Power Limit Value and Scale fields of the Slot Capabilities register of the Downstream Port that is connected to an add-in slot. | 软件必须初始化连接到添加卡插槽的 Downstream Port 的 Slot Capabilities 寄存器中的 Slot Power Limit Value 和 Scale 字段。 |
+| • Upstream Ports must implement the Device Capabilities register. | • Upstream Port 必须实现 Device Capabilities 寄存器。 |
+| When a card is installed in a slot and software updates the power limit and scale values in the Downstream Port, that Port will automatically send the Set\_Slot\_Power\_Limit message to the Upstream Port on the installed card. | 当卡插入插槽且软件更新了 Downstream Port 中的功率限制和比例值后，该 Port 将自动向已安装卡上的 Upstream Port 发送 Set\_Slot\_Power\_Limit 消息。 |
+| • The recipient of the Message must use the data payload to limit its power usage for the entire card, unless the card will never exceed the lowest value specified in the corresponding electromechanical spec. | • 该消息的接收者必须使用数据载荷来限制整个卡的功耗，除非该卡永远不会超过相应机电规范中规定的最低值。 |
 
-<table>
-<tr>
-<td width="50%">
-• Only one locked transaction sequence attempt may be in progress at a given time within a single hierarchy domain.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 在单个层次域内，同一时刻只能有一个锁定事务序列尝试在进行中。
-</td>
-</tr>
-</table>
+## 19.11.4 Add-in Devices | 19.11.4 插件设备
 
-<table>
-<tr>
-<td width="50%">
-Any device which is not involved in the locked sequence must ignore the Unlock Message.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-未参与锁定序列的任何设备必须忽略解锁报文。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| Expansion cards that support the power budgeting capability must include the Slot Power Limit Value and Slot Limit Scale fields within the Device Capabilities register, and the Power Budgeting Capability register set for reporting power-related information. | 支持电源预算功能的扩展卡必须在设备能力寄存器中包含槽位电源限制值和槽位限制比例字段，以及用于报告电源相关信息的电源预算能力寄存器集。 |
+| These devices must not consume more than the lowest power specified by the form factor spec. Once power budgeting software allocates additional power via the Set_Slot_Power_Limit message, the device can consume the power that has been specified, but not until it has been configured and enabled. | 这些设备不得消耗超过外形规格规定的最低功率。一旦电源预算软件通过Set_Slot_Power_Limit报文分配了额外功率，设备可以消耗已指定的功率，但必须在其被配置和使能之后才能这样做。 |
+| Device Driver—The device's software driver is responsible for verifying that sufficient power is available for proper device operation prior to enabling it. If the power is lower than that required by the device, the device driver is responsible for reporting this to a higher software authority. | 设备驱动程序——设备的软件驱动程序负责在使能设备之前验证是否有足够的功率用于设备的正常运行。如果功率低于设备所需，设备驱动程序负责将此情况报告给更高级别的软件。 |
 
-<table>
-<tr>
-<td width="50%">
-The initiation and propagation of a locked transaction sequence through the PCI Express fabric is performed as follows:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-锁定事务序列在 PCI Express 结构中的发起与传播如下进行：
-</td>
-</tr>
-</table>
+Figure 19‐10: Elements Involved in Power Budget | 图19‐10：参与功耗预算的元素
 
-<table>
-<tr>
-<td width="50%">
-• A locked transaction sequence is started with a MRdLk Request:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 锁定事务序列以 MRdLk 请求开始：
-</td>
-</tr>
-</table>
+<img src="images/part06_cb26416291d868d26023d5fdbfffc729877a51bfdf311fa537a693fbdaf06f1e.jpg" width="700" alt="">
 
-<table>
-<tr>
-<td width="50%">
-— Any successive reads associated with the locked transaction sequence must also use MRdLk Requests.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-— 与锁定事务序列相关的任何后续读取也必须使用 MRdLk 请求。
-</td>
-</tr>
-</table>
+## 19.12 Slot Power Limit Control | 19.12 插槽功率限制控制
 
-<table>
-<tr>
-<td width="50%">
-The Completions for any successful MRdLk Request use the CplDLk Completion type, or the CplLk Completion type for unsuccessful Requests.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-任何成功 MRdLk 请求的完成报文使用 CplDLk 完成类型，而不成功的请求则使用 CplLk 完成类型。
-</td>
-</tr>
-</table>
+| EN | ZH |
+| --- | --- |
+| Software is responsible for determining the maximum power that an expansion device is allowed to consume. This allocation is based on the power partitioning within the system, thermal capabilities, etc. Knowledge of the system's power and thermal limits comes from system firmware. The firmware or power manager is responsible for reporting the power limits to each expansion port. | 软件负责确定扩展设备允许消耗的最大功率。此分配基于系统内的电源分区、热能力等。系统的电源和热限制信息来自系统固件。固件或电源管理器负责向每个扩展端口报告功率限制。 |
 
-<table>
-<tr>
-<td width="50%">
-If any read associated with a locked sequence is completed unsuccessfully, the Requester must assume that the atomicity of the lock is no longer assured, and that the path between the Requester and Completer is no longer locked.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-如果与锁定序列相关的任何读取未成功完成，请求者必须假定锁的原子性不再得到保证，且请求者与完成者之间的路径不再被锁定。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| ## Expansion Port Delivers Slot Power Limit | ## 扩展端口提供槽位功率限制 |
+| Software writes to the Slot Power Limit Value and Slot Power Limit Scale fields of the Slot Capability register to specify the maximum power that can be consumed by the device. Software is required to specify a power value that reflects one of the maximum values defined by the spec. For example, revision 2.0 of the CEM spec defines power usage as listed in Table 19‑9. | 软件向槽位能力寄存器的槽位功率限制值（Slot Power Limit Value）和槽位功率限制比例（Slot Power Limit Scale）字段写入数据，以指定设备可消耗的最大功率。软件必须指定符合规范所定义最大值的功率值。例如，CEM规范2.0版本定义了表19‑9所列的功耗值。 |
+| An interesting note about these values is that a standard‑height x1 server card is limited to 10W after a reset and is only allowed to use the full 25W after it's been configured and enabled. Similarly, a x16 graphics card will be limited to 25W until configured and enabled to use the full 75W. | 关于这些值有一个有趣的说明：标准高度的x1服务器卡在复位后限制为10W，只有在完成配置和使能后才允许使用全部25W。类似地，x16显卡在配置并使能使用全部75W之前将被限制为25W。 |
+| Table 19‑9: Maximum Power Consumption for System Board Expansion Slots | 表19‑9：系统主板扩展槽位的最大功耗 |
 
-<table>
-<tr>
-<td width="50%">
-• All writes associated with a locked sequence must use MWr Requests.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-• 与锁定序列相关的所有写入必须使用 MWr 请求。
-</td>
-</tr>
-</table>
+<table><tr><td></td><td colspan="2">X1 Link</td><td>X4/X8 Link</td><td colspan="2">X16 Link</td></tr><tr><td>Standard Height</td><td>10W (max - desktop)</td><td>25W (max - server)</td><td>25W (max)</td><td>25W (max - server)</td><td>75W (max - graphics card)</td></tr><tr><td>Low Profile Card</td><td colspan="2">10W (max)</td><td>25W (max)</td><td colspan="2">25W (max)</td></tr></table>
 
-<table>
-<tr>
-<td width="50%">
-The Unlock Message is used to indicate the end of a locked sequence. A Switch propagates Unlock Messages through the locked Egress Port.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-解锁报文用于指示锁定序列的结束。交换机通过加锁的出口端口传播解锁报文。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| In addition to the base CEM spec, two more specs have been defined for higher‑powered devices. First is the PCIe x16 Graphics 150W‑ATX Spec 1.0, which defines a video card that's able to draw 75W from the card connector and another 75W from a separate 3‑pin ATX power connector. The second is the PCIe 225W/300W High Power CEM Spec 1.0, which extends this by adding another 3‑pin power connector to achieve 225W, or a 4‑pin ATX connector that brings the total to 300W. | 除了基础CEM规范外，还为高功率设备定义了另外两个规范。第一个是PCIe x16 Graphics 150W‑ATX Spec 1.0，该规范定义了可从显卡连接器吸取75W、并从独立的3引脚ATX电源连接器再吸取75W的显卡。第二个是PCIe 225W/300W High Power CEM Spec 1.0，它通过增加另一个3引脚电源连接器达到225W，或者使用4引脚ATX连接器使总功率达到300W。 |
+| When the Slot Power registers are written by power budget software, the expansion port sends a Set\_Slot\_Power\_Limit message to the expansion device. This procedure is illustrated in Figure 19‑11 on page 882. | 当功率预算软件写入槽位功率寄存器时，扩展端口向扩展设备发送Set\_Slot\_Power\_Limit消息。该过程如图19‑11（第882页）所示。 |
 
-<table>
-<tr>
-<td width="50%">
-Upon receiving an Unlock Message, a legacy Endpoint or Bridge must unlock itself if it is in a locked state. If it is not locked, or if the Receiver is a PCI Express Endpoint or Bridge which does not support lock, the Unlock Message is ignored and discarded.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在接收到解锁报文时，传统端点或桥如果处于锁定状态则必须解锁自身。如果其未被锁定，或者接收者是不支持锁的 PCI Express 端点或桥，则解锁报文将被忽略并丢弃。
-</td>
-</tr>
-</table>
+Figure 19‑11: Slot Power Limit Sequence | 图19‑11：插槽功耗限制序列
 
-## 99.4.2 Rules Related to Switches | 99.4.2 与交换机相关的规则
+<img src="images/part06_b2e7c599f5e3f95cfca0c52a41057585c65d055b77f7611e526de18f548448a5.jpg" width="700" alt="">
 
-<table>
-<tr>
-<td width="50%">
-Switches must detect transactions associated with locked sequences from other transactions to prevent other transactions from interfering with the lock and potentially causing deadlock. The following rules cover how this is done. Note that locked accesses are limited to TC0, which is always mapped to VC0.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-交换机必须能从其他事务中检测与锁定序列相关联的事务，以防止其他事务干扰锁定并可能导致死锁。以下规则涵盖了如何实现这一点。请注意，锁定访问仅限于TC0，而TC0始终映射到VC0。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| 1. When Hot Plug software is notified of a card insertion request, Power and Clock are restored to the slot. | 1. 当热插拔软件收到卡插入请求通知时，电源和时钟恢复至该槽位。 |
+| 2. Hot Plug software calls configuration and power budgeting software to configure and allocate power to the device. | 2. 热插拔软件调用配置和功率预算软件来配置和分配设备功率。 |
+| 3. Power budget software may interrogate the card to determine it's power requirements and characteristics. | 3. 功率预算软件可以查询该卡以确定其功率需求和特性。 |
+| 4. Power is then allocated based on the device's requirements and the system's capabilities. | 4. 然后根据设备需求和系统能力分配功率。 |
+| 5. Power management software writes to the Slot Power Scale and Slot Power Value fields within the expansion port. | 5. 电源管理软件写入扩展端口内的槽位功率比例（Slot Power Scale）和槽位功率值（Slot Power Value）字段。 |
+| 6. Writes to these fields command the port to send the Set\_Slot\_Power\_Limit message to convey the contents of the Slot Power fields. | 6. 写入这些字段命令端口发送Set\_Slot\_Power\_Limit消息，以传达槽位功率字段的内容。 |
+| 7. The slot receives the message and updates its Captured Slot Power Limit Value and Scale fields. | 7. 槽位接收该消息并更新其捕获的槽位功率限制值（Captured Slot Power Limit Value）和比例（Scale）字段。 |
+| 8. These values limit the power that the expansion device can consume once it is enabled by its device driver. | 8. 这些值限制扩展设备在其设备驱动程序使能后可消耗的功率。 |
 
-<table>
-<tr>
-<td width="50%">
-When a Switch propagates a MRdLk Request from an Ingress Port to the Egress Port, it must block all Requests which map to the default Virtual Channel (VC0) from being propagated to the Egress Port. If a subsequent MRdLk Request is received at this Ingress Port addressing a different Egress Port, the behavior of the Switch is undefined. Note that this sort of split-lock access is not supported by PCI Express and software must not cause such a locked access. System deadlock may result from such accesses.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-当交换机将MRdLk请求从入端口传播到出端口时，它必须阻止所有映射到默认虚通道(VC0)的请求传播到该出端口。如果随后在此入端口收到寻址不同出端口的MRdLk请求，则交换机的行为是未定义的。请注意，这种类型的分离锁定访问不受PCI Express支持，软件不得导致此类锁定访问。此类访问可能导致系统死锁。
-</td>
-</tr>
-</table>
+## 19.12.2 Expansion Device Limits Power Consumption | 19.12.2 扩展设备限制功耗
 
-<table>
-<tr>
-<td width="50%">
-When the CplDLk for the first MRdLk Request is returned, if the Completion indicates a Successful Completion status, the Switch must block all Requests from all other Ports from being propagated to either of the Ports involved in the locked access, except for Requests which map to channels other than VC0 on the Egress Port.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-当针对第一个MRdLk请求的CplDLk返回且完成报文指示成功完成状态时，交换机必须阻止所有来自其他端口的请求传播到涉及锁定访问的两个端口中的任何一个，但映射到出端口上VC0以外通道的请求除外。
-</td>
-</tr>
-</table>
+| EN | ZH |
+|---|---|
+| The device driver reads the values from the Captured Slot Power Limit and Scale fields to verify that the power available is sufficient to operate the device. Several conditions may exist: | 设备驱动程序读取Captured Slot Power Limit和Scale字段的值，以验证可用功率是否足以运行设备。可能存在以下几种情况： |
+| Enough power is available to operate the device at full capability. In this case, the driver enables the device by writing to the configuration Command register, permitting the device to consume power up to the limit specified in the Power Limit fields. | 可用功率足以使设备以全能力运行。在这种情况下，驱动程序通过写入配置Command寄存器来使能设备，允许设备消耗不超过Power Limit字段中指定上限的功率。 |
+| The power available is sufficient to operate the device but not at full capability. In this case, the driver is required to configure the device such that it consumes no more power than specified in the Power Limit fields. | 可用功率足以运行设备，但不足以使其全能力运行。在这种情况下，驱动程序必须配置设备，使其消耗的功率不超过Power Limit字段中指定的值。 |
+| The power available is insufficient to operate the device. In this case, the driver must not enable the card and must report the inadequate power condition to the upper software layers, which should in turn inform the end user of the problem. | 可用功率不足以运行设备。在这种情况下，驱动程序不得使能该卡，并且必须将功率不足的情况报告给上层软件，上层软件应进而将问题通知最终用户。 |
+| The power available exceeds the maximum power specified by the form factor spec. This condition should not occur. but, if it does, the device is not permitted to consume power beyond the maximum permitted by the form factor. | 可用功率超过外形规格规范指定的最大功率。这种情况不应发生，但如果确实发生，设备不得消耗超出外形规格所允许的最大功率。 |
+| The power available is less than the lowest value specified by the form factor spec. This is a violation of the spec, which states that the expansion port "must not transmit a Set\_Slot\_Power\_Limit Message that indicates a limit lower than the lowest value specified in the electromechanical spec for the slot's form factor." | 可用功率低于外形规格规范指定的最低值。这违反了规范，规范指出扩展端口"不得发送指示限制值低于插槽外形规格的机电规范所指定最低值的Set\_Slot\_Power\_Limit消息。" |
+| Some expansion devices may consume less power than the lowest limit specified for their form factor. Such devices are permitted to discard the information delivered in the Set\_Slot\_Power\_Limit Messages. When the Slot Power Limit Value and Scale fields are read, these devices return zeros. | 某些扩展设备消耗的功率可能低于其外形规格指定的最低限制。此类设备允许丢弃Set\_Slot\_Power\_Limit消息中传递的信息。当读取Slot Power Limit Value和Scale字段时，这些设备返回零。 |
 
-<table>
-<tr>
-<td width="50%">
-The two Ports involved in the locked sequence must remain blocked until the Switch receives the Unlock Message (at the Ingress Port which received the initial MRdLk Request)
+## 19.13 The Power Budget Capabilities Register Set | 19.13 功率预算能力寄存器集
 
-— The Unlock Message must be forwarded to the locked Egress Port.
+| EN | ZH |
+|---|---|
+| These registers permit power budgeting software to allocate power more effectively based on information provided by the device through its power budget data select and data register. This feature is similar to the data select and data fields within the power management capability registers. However, the power budget registers provide more detailed information to software to aid it in determining the effects of expansion cards that are added during runtime on the system power budget and cooling requirements. Through this capability, a device can report the power it consumes: | 这些寄存器允许电源预算管理软件基于设备通过其电源预算数据选择寄存器和数据寄存器提供的信息更有效地分配电源。此功能类似于电源管理能力寄存器中的数据选择和数据字段。然而，电源预算寄存器向软件提供了更详细的信息，以帮助其确定运行时添加的扩展卡对系统电源预算和散热需求的影响。通过此能力，设备可报告其所消耗的功率： |
+| • from each power rail | • 来自每条电源轨 |
+| • in various power management states | • 在各种电源管理状态下 |
+| • in different operating conditions | • 在不同操作条件中 |
+| These registers are not required for devices implemented on the system board or on expansion devices that do not support hot plug. Figure 19-12 on page 884 illustrates the power budget capabilities register set and shows the data select and data field that provide the method for accessing the power budget information. | 对于实现于系统板上的设备或不支持热插拔的扩展设备，不要求这些寄存器。第884页的图19-12展示了电源预算能力寄存器集，并示出了提供访问电源预算信息方法的数据选择字段和数据字段。 |
+| The power budget information is maintained within a table that consists of one or more 32-bit entries. Each table entry contains power budget information for the different operating modes supported by the device. Each table entry is selected via the data select field, and the selected entry is then read from the data field. The index values start at zero and are implemented in sequential order. When a selected index returns all zeros in the data field, the end of the power budget table has been located. Figure 19-13 on page 885 illustrates the format and types of information available from the data field. | 电源预算信息保存在一个由一个或多个32位条目组成的表中。每个表条目包含设备所支持的不同操作模式的电源预算信息。每个表条目通过数据选择字段选择，然后从数据字段读取所选条目。索引值从零开始并以顺序方式实现。当所选索引在数据字段中返回全零时，表示已到达电源预算表的末尾。第885页的图19-13示出了数据字段中可用的信息格式和类型。 |
 
-— The Unlock Message may be broadcast to all other Ports.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-涉及锁定序列的两个端口必须保持阻塞状态，直到交换机在收到初始MRdLk请求的入端口处接收到解锁消息。
+Figure 19-12: Power Budget Capability Registers | 图19-12：功耗预算能力寄存器
 
-— 解锁消息必须转发到被锁定的出端口。
+<table><tr><td colspan="2">PCIe Extended Capability Header</td><td>Offset</td></tr><tr><td>RsvdP</td><td>Data Select Register</td><td>00h</td></tr><tr><td colspan="2">Data Register</td><td>04h</td></tr><tr><td>RsvdP</td><td>Power Budget Capability Register</td><td>08h</td></tr></table>
 
-— 解锁消息可以广播到所有其他端口。
-</td>
-</tr>
-</table>
+Figure 19-13: Power Budget Data Field Format and Definition | 图19-13：功耗预算数据字段格式和定义  
 
-<table>
-<tr>
-<td width="50%">
-The Ingress Port is unblocked once the Unlock Message arrives, and the Egress Port(s) which were blocked are unblocked following the transmission of the Unlock Message out of the Egress Port(s). Ports that were not involved in the locked access are unaffected by the Unlock Message.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-一旦解锁消息到达，入端口即解除阻塞，而被阻塞的出端口在解锁消息从该出端口发送出去后解除阻塞。未涉及锁定访问的端口不受解锁消息的影响。
-</td>
-</tr>
-</table>
-
-## 99.4.3 Rules Related To PCI Express/PCI Bridges | 99.4.3 PCI Express/PCI 桥相关规则
-
-<table>
-<tr>
-<td width="50%">
-The requirements for PCI Express/PCI Bridges are similar to those for Switches, except that, because these Bridges only use TC0 and VC0, all other traffic is blocked during the locked access. Requirements on the PCI bus side are described in the MindShare book, PCI System Architecture, Fourth Edition.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-PCI Express/PCI 桥的需求与交换机类似，不同之处在于，由于这些桥仅使用 TC0 和 VC0，因此在锁定访问期间所有其他流量都被阻止。PCI 总线侧的需求在 MindShare 书籍《PCI 系统体系结构（第四版）》中描述。
-</td>
-</tr>
-</table>
-
-## 99.4.4 Rules Related To the Root Complex | 99.4.4 与根复合体相关的规则
-
-<table>
-<tr>
-<td width="50%">
-A Root Complex is permitted to support locked transactions as a Requester. If locked transactions are supported, a Root Complex must follow the rules already described to perform a locked access. The mechanism(s) used by the Root Complex to interface to the host processor's FSB (Front‐Side Bus) are outside the scope of the spec.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-根复合体作为请求者可以支持锁定事务。如果支持锁定事务，根复合体必须遵循已描述的规则来执行锁定访问。根复合体用于与主机处理器FSB（前端总线）接口的机制不在本规范范围内。
-</td>
-</tr>
-</table>
-
-## 99.4.5 Rules Related To Legacy Endpoints | 99.4.5 与传统端点相关的规则
-
-<table>
-<tr>
-<td width="50%">
-Legacy Endpoints are permitted to support locked accesses, although their use is discouraged. If locked accesses are supported, legacy Endpoints must handle them as follows:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-允许传统端点支持锁定访问，但不鼓励使用。如果支持锁定访问，传统端点必须按如下方式处理：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-The legacy Endpoint becomes locked when it transmits the first Completion for the first read request of the locked transaction series access with a Successful Completion status:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-当传统端点传输锁定事务系列访问中第一个读请求的第一个完成报文且状态为成功完成时，该传统端点即被锁定：
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-— If the completion status is not Successful Completion, the legacy Endpoint does not become locked.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-— 如果完成报文状态不是成功完成，则传统端点不会进入锁定状态。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-— Once locked, the legacy Endpoint must remain locked until it receives the Unlock Message.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-— 一旦锁定，传统端点必须保持锁定状态，直到收到解锁消息。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-While locked, a legacy Endpoint must not issue any Requests using Traffic Classes which map to the default Virtual Channel (VC0). Note that this requirement applies to all possible sources of Requests within the Endpoint, in the case where there is more than one possible source of Requests. Requests may be issued using TCs which map to VCs other than VC0.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在锁定状态下，传统端点不得使用映射到默认虚通道（VC0）的流量类发出任何请求。注意，此要求适用于端点内所有可能的请求源（如果有多个可能的请求源）。可以使用映射到非VC0的虚通道的流量类来发出请求。
-</td>
-</tr>
-</table>
+<img src="images/part06_2a8d5061705d00ef97c93cf25fd41331fa4b24e9a58d97da1ad0740078d4f4c9.jpg" width="700" alt="">

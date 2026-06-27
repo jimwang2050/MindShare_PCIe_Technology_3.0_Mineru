@@ -1,5 +1,46 @@
 # Ch03_Configuration_Overview
 
+# 3 Configuration Overview | 3 配置概述
+
+## The Previous Chapter | 上一章回顾
+
+<table>
+<tr>
+<td width="50%">
+The previous chapter provides a thorough introduction to the PCI Express architecture and is intended to serve as an "executive level" overview. It introduces the layered approach to PCIe port design described in the spec. The various packet types are introduced along with the transaction protocol.
+</td>
+<td width="50%" style="background-color:#e8e8e8">
+上一章对 PCI Express 架构进行了全面介绍，旨在提供一个"执行层级别"的概述。该章介绍了规范中所描述的 PCIe 端口设计的分层方法，并引入了各种数据包类型以及事务协议。
+</td>
+</tr>
+</table>
+
+## This Chapter | 本章内容
+
+<table>
+<tr>
+<td width="50%">
+This chapter provides an introduction to configuration in the PCIe environment. This includes the space in which a Function's configuration registers are implemented, how a Function is discovered, how configuration transactions are generated and routed, the difference between PCI-compatible configuration space and PCIe extended configuration space, and how software differentiates between an Endpoint and a Bridge.
+</td>
+<td width="50%" style="background-color:#e8e8e8">
+本章介绍PCIe环境中的配置机制。内容包括：Function配置寄存器所在的实现空间、如何发现Function、如何生成和路由配置事务、PCI兼容配置空间与PCIe扩展配置空间之间的区别，以及软件如何区分端点（Endpoint）与桥（Bridge）。
+</td>
+</tr>
+</table>
+
+## The Next Chapter | 下一章
+
+<table>
+<tr>
+<td width="50%">
+The next chapter describes the purpose and methods of a function requesting memory or IO address space through Base Address Registers (BARs) and how software initializes them. The chapter describes how bridge Base/Limit registers are initialized, thus allowing switches to route TLPs through the PCIe fabric.
+</td>
+<td width="50%" style="background-color:#e8e8e8">
+下一章将描述一个功能（function）通过基址寄存器（BAR）请求存储器或IO地址空间的目的和方法，以及软件如何对其进行初始化。该章还描述了桥基址/界限寄存器（Base/Limit寄存器）的初始化方式，从而使交换机能够通过PCIe架构路由TLP（事务层包）。
+</td>
+</tr>
+</table>
+
 ## 3.1 Definition of Bus, Device and Function | 3.1 总线、设备与功能的定义
 
 <table>
@@ -2092,158 +2133,6 @@ Decode for NVM Express structures
 </td>
 <td width="50%" style="background-color:#e8e8e8">
 NVM Express 结构解码
-</td>
-</tr>
-</table>
-
-# 4 Address Space & Transaction Routing | 4 地址空间与事务路由
-
-## The Previous Chapter | 前一章
-
-<table>
-<tr>
-<td width="50%">
-The previous chapter provides an introduction to configuration in the PCI Express environment. This includes the space in which a Function's configuration registers are implemented, how a Function is discovered, how configuration transactions are generated and routed, the difference between PCI-compatible configuration space and PCIe extended configuration space, and how software differentiates between an Endpoint and a Bridge.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-前一章介绍了 PCI Express 环境中的配置机制。这包括功能（Function）的配置寄存器所实现的地址空间、如何发现功能、如何生成和路由配置事务、PCI 兼容配置空间与 PCIe 扩展配置空间之间的区别，以及软件如何区分端点（Endpoint）与桥（Bridge）。
-</td>
-</tr>
-</table>
-
-## This Chapter | 本章内容
-
-<table>
-<tr>
-<td width="50%">
-This chapter describes the purpose and methods of a function requesting address space (either memory address space or IO address space) through Base Address Registers (BARs) and how software must setup the Base/Limit registers in all bridges to route TLPs from a source port to the correct destination port. The general concepts of TLP routing in PCI Express are also discussed, including address-based routing, ID-based routing and implicit routing.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-本章描述功能（function）通过基址寄存器（BAR）请求地址空间（存储器地址空间或 IO 地址空间）的目的和方法，以及软件必须如何设置所有桥中的基址/限制（Base/Limit）寄存器，以便将 TLP 从源端口路由到正确的目标端口。本章还讨论了 PCI Express 中 TLP 路由的一般概念，包括基于地址的路由、基于 ID 的路由和隐式路由。
-</td>
-</tr>
-</table>
-
-## The Next Chapter | 下一章
-
-<table>
-<tr>
-<td width="50%">
-The next chapter describes Transaction Layer Packet (TLP) content in detail. We describe the use, format, and definition of the TLP packet types and the details of their related fields.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-下一章将详细描述事务层包(TLP)的内容。我们将描述TLP包类型的使用、格式和定义，以及其相关字段的详细信息。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-I Need An Address
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-我需要一个地址
-</td>
-</tr>
-<tr>
-<td width="50%">
-Almost all devices have internal registers or storage locations that software (and potentially other devices) need to be able to access. These internal locations may control the device's behavior, report the status of the device, or may be a location to hold data for the device to process. Regardless of the purpose of the internal registers/storage, it is important to be able to access them from outside.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-几乎所有设备都有内部寄存器或存储位置，软件（以及其他可能的设备）需要能够访问这些位置。这些内部位置可以控制设备的行为、报告设备的状态，也可以是存放数据供设备处理的位置。无论内部寄存器/存储的用途是什么，能够从外部访问它们都至关重要。
-</td>
-</tr>
-</table>
-
-# Part part02 — `mindshare_part02_p0181-0360` | 第二部分 part02 — `mindshare_part02_p0181-0360`
-
-## PCI Express Technology | PCI Express 技术
-
-<table>
-<tr>
-<td width="50%">
-the device itself. This means these internal locations need to be addressable. Software must be able to perform a read or write operation with an address that will access the appropriate internal location within the targeted device. In order to make this work, these internal locations need to be assigned addresses from one of the address spaces supported in the system.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-设备自身。这意味着这些内部位置必须是可寻址的。软件必须能够通过一个地址执行读取或写入操作，该地址将访问目标设备内的相应内部位置。为了实现这一点，这些内部位置需要从系统支持的地址空间中分配地址。
-</td>
-</tr>
-<tr>
-<td width="50%">
-PCI Express supports the exact same three address spaces that were supported in PCI:
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-PCI Express 支持与 PCI 完全相同的三种地址空间：
-</td>
-</tr>
-<tr>
-<td width="50%">
-- Configuration
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-- 配置空间
-</td>
-</tr>
-<tr>
-<td width="50%">
-- Memory
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-- 存储器空间
-</td>
-</tr>
-<tr>
-<td width="50%">
-- IO
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-- I/O 空间
-</td>
-</tr>
-</table>
-
-## 4.1.1 Configuration Space | 4.1.1 配置空间
-
-<table>
-<tr>
-<td width="50%">
-As we saw in Chapter 1, configuration space was introduced with PCI to allow software to control and check the status of devices in a standardized way. PCI Express was designed to be software backwards compatible with PCI, so configuration space is still supported and used for the same reason as it was in PCI. More info about configuration space (purpose of, how to access, size, contents, etc.) can be found in Chapter 3.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-正如我们在第1章中看到的，配置空间随PCI引入，目的是让软件能够以标准化的方式控制和检查设备状态。PCI Express在设计上对PCI保持软件向后兼容，因此配置空间仍受支持，其使用原因也与PCI中相同。关于配置空间的更多信息（用途、访问方式、大小、内容等），请参见第3章。
-</td>
-</tr>
-<tr>
-<td width="50%">
-Even though configuration space was originally meant to hold standardized structures (PCI-defined headers, capability structures, etc.), it is very common for PCIe devices to have device-specific registers mapped into their config space. In these cases, the device-specific registers mapped into config space are often control, status or pointer registers as opposed to data storage locations.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-尽管配置空间最初意在容纳标准化结构（PCI定义的头标区、能力结构等），但PCIe设备通常会将设备特定的寄存器映射到其配置空间中。在这些情况下，映射到配置空间的设备特定寄存器通常是控制寄存器、状态寄存器或指针寄存器，而非数据存储位置。
-</td>
-</tr>
-</table>
-
-<table>
-<tr>
-<td width="50%">
-Memory and IO Address Spaces
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-存储器与IO地址空间
-</td>
-</tr>
-</table>
-
-## General | 概述
-
-<table>
-<tr>
-<td width="50%">
-In the early days of PCs, the internal registers/storage in IO devices were accessed via IO address space (as defined by Intel). However, because of several limitations and undesirable effects related to IO address space, that we will not be going into here, that address space quickly lost favor with software and hardware vendors. This resulted in the internal registers/storage of IO devices being mapped into memory address space (commonly referred to as memory-mapped IO, or MMIO). However, because early software was written to use IO address space to access internal registers/storage on IO devices, it became common practice to map the same set of device-specific registers in memory
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-在 PC 的早期，IO 设备中的内部寄存器/存储是通过 IO 地址空间（由 Intel 定义）来访问的。然而，由于 IO 地址空间存在若干限制和不良影响（此处不展开讨论），该地址空间很快便失去了软件和硬件厂商的青睐。这导致 IO 设备的内部寄存器/存储被映射到了存储器地址空间（通常称为内存映射 IO，即 MMIO）。然而，由于早期的软件是使用 IO 地址空间来访问 IO 设备上的内部寄存器/存储的，因此将同一组设备专用寄存器也映射到存储器空间中便成为了一种通行做法。
 </td>
 </tr>
 </table>

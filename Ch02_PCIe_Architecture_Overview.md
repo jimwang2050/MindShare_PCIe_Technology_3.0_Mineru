@@ -1,5 +1,46 @@
 # Ch02_PCIe_Architecture_Overview
 
+# 2 PCIe Architecture Overview | 2 PCIe 架构概览
+
+## Previous Chapter | 前一章
+
+<table>
+<tr>
+<td width="50%">
+The previous chapter provided historical background to establish a foundation for understanding PCI Express. This included reviewing the basics of PCI and PCI‑X 1.0/2.0. The goal was to provide a context for the overview of PCI Express that follows.
+</td>
+<td width="50%" style="background-color:#e8e8e8">
+前一章提供了历史背景，为理解 PCI Express 奠定基础。这包括回顾 PCI 和 PCI‑X 1.0/2.0 的基本知识。其目标是为后续的 PCI Express 概述提供上下文。
+</td>
+</tr>
+</table>
+
+## This Chapter | 本章内容
+
+<table>
+<tr>
+<td width="50%">
+This chapter provides a thorough introduction to the PCI Express architecture and is intended to serve as an "executive level" overview, covering all the basics of the architecture at a high level. It introduces the layered approach given in the spec and describes the responsibilities of each layer. The various packet types are introduced along with the protocol used to communicate them and facilitate reliable transmission.
+</td>
+<td width="50%" style="background-color:#e8e8e8">
+本章对PCI Express架构进行了全面介绍，旨在作为一份"执行层"层面的概述，从较高层次涵盖该架构的所有基础知识。本章介绍了规范中所给出的分层方法，并描述了各层的职责。同时介绍了各种包类型，以及用于通信这些包并实现可靠传输的协议。
+</td>
+</tr>
+</table>
+
+## The Next Chapter | 下一章
+
+<table>
+<tr>
+<td width="50%">
+The next chapter provides an introduction to configuration in the PCI Express environment. This includes the space in which a Function's configuration registers are implemented, how a Function is discovered, how configuration transactions are generated and routed, the difference between PCI-compatible space and PCIe extended space, and how software differentiates between an Endpoint and a Bridge.
+</td>
+<td width="50%" style="background-color:#e8e8e8">
+下一章介绍PCI Express环境中的配置机制。内容包括：Function配置寄存器的实现空间、Function的发现方式、配置事务的生成与路由方式、PCI兼容空间与PCIe扩展空间之间的区别，以及软件如何区分端点(Endpoint)与桥(Bridge)。
+</td>
+</tr>
+</table>
+
 ## 2.1 Introduction to PCI Express | 2.1 PCI Express 简介
 
 <table>
@@ -1180,7 +1221,7 @@ Receivers clock in the packet bits at the trained clock speeds as they arrive on
 </tr>
 </table>
 
-## 11.6 Link Training and Initialization | 11.6 链路训练与初始化
+## Link Training and Initialization | 链路训练与初始化
 
 <table>
 <tr>
@@ -1441,47 +1482,6 @@ In the meantime, the Requester Transaction Layer receives the CplD TLP in the ap
 </td>
 <td width="50%" style="background-color:#e8e8e8">
 与此同时，请求者事务层在相应的虚通道缓冲中接收CplD TLP。可选地，事务层可检查ECRC错误。如果没有错误，则将头部内容和数据载荷（包括完成状态）转发至请求者软件层，至此整个过程完成。
-</td>
-</tr>
-</table>
-
-# 3 Configuration Overview | 3 配置概述
-
-## The Previous Chapter | 上一章回顾
-
-<table>
-<tr>
-<td width="50%">
-The previous chapter provides a thorough introduction to the PCI Express architecture and is intended to serve as an "executive level" overview. It introduces the layered approach to PCIe port design described in the spec. The various packet types are introduced along with the transaction protocol.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-上一章对 PCI Express 架构进行了全面介绍，旨在提供一个"执行层级别"的概述。该章介绍了规范中所描述的 PCIe 端口设计的分层方法，并引入了各种数据包类型以及事务协议。
-</td>
-</tr>
-</table>
-
-## This Chapter | 本章内容
-
-<table>
-<tr>
-<td width="50%">
-This chapter provides an introduction to configuration in the PCIe environment. This includes the space in which a Function's configuration registers are implemented, how a Function is discovered, how configuration transactions are generated and routed, the difference between PCI-compatible configuration space and PCIe extended configuration space, and how software differentiates between an Endpoint and a Bridge.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-本章介绍PCIe环境中的配置机制。内容包括：Function配置寄存器所在的实现空间、如何发现Function、如何生成和路由配置事务、PCI兼容配置空间与PCIe扩展配置空间之间的区别，以及软件如何区分端点（Endpoint）与桥（Bridge）。
-</td>
-</tr>
-</table>
-
-## The Next Chapter | 下一章
-
-<table>
-<tr>
-<td width="50%">
-The next chapter describes the purpose and methods of a function requesting memory or IO address space through Base Address Registers (BARs) and how software initializes them. The chapter describes how bridge Base/Limit registers are initialized, thus allowing switches to route TLPs through the PCIe fabric.
-</td>
-<td width="50%" style="background-color:#e8e8e8">
-下一章将描述一个功能（function）通过基址寄存器（BAR）请求存储器或IO地址空间的目的和方法，以及软件如何对其进行初始化。该章还描述了桥基址/界限寄存器（Base/Limit寄存器）的初始化方式，从而使交换机能够通过PCIe架构路由TLP（事务层包）。
 </td>
 </tr>
 </table>

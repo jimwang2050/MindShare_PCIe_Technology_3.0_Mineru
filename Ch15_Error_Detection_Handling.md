@@ -1,1108 +1,854 @@
 # Ch15_Error_Detection_Handling
 
+# 15 Error Detection and Handling
+
 | EN | ZH |
-|---|---|
-| ## Dynamic Power Allocation (DPA) | ## 动态功耗分配（DPA） |
-| Optional. The 2.1 revision of the base spec added another optional capability that defines 32 more substates for D0 and describes their characteristics. This was intended to facilitate negotiation regarding power management between a device driver, OS, and an executing application, partly because some Functions don't have device drivers that handle PM well. One advantage of this model is that the Device technically still remains in the D0 state and may therefore be able to continue operating in a reduced capacity instead of going offline as would be caused by a change to the D1 or lower state. | 可选。基础规范2.1修订版增加了另一个可选能力，为D0定义了32个更多子状态并描述了其特征。此举旨在促进设备驱动程序、操作系统和正在运行的应用程序之间关于电源管理的协商，部分原因是某些功能没有能很好处理电源管理(PM)的设备驱动程序。该模型的一个优点是，设备在技术上仍保持在D0状态，因此可能能够以降级容量继续运行，而不会像切换到D1或更低状态那样导致离线。 |
-| DPA registers only apply when the Device power state is in D0 and aren't applicable in states D1-D3. Up to 32 substates can be defined, and they must be contiguously numbered from zero to the maximum value. Substate 0 is the initial default value and represents the maximum power the Function is capable of consuming. Software is not required to transition between substates in sequential order or even wait until a previous transition is completed before requesting another change in the substate. Consequently, when a Function has completed a substate change it must check the configured substate and, if they don't match, it must begin changing to the configured value. The registers to support DPA, illustrated in Figure 16-3 on page 715, are found in the Enhanced configuration space. | DPA寄存器仅在设备电源状态为D0时适用，不适用于D1-D3状态。最多可定义32个子状态，它们必须从零到最大值连续编号。子状态0是初始默认值，代表功能能够消耗的最大功率。软件无需按顺序在子状态间转换，也无需等待前一次转换完成即可请求再次改变子状态。因此，当一个功能完成子状态更改后，它必须检查已配置的子状态，如果不匹配，则必须开始更改为已配置的值。支持DPA的寄存器位于增强配置空间中，如图16-3（第715页）所示。 |
-
-Figure 16-3: Dynamic Power Allocation Registers | 图16-3：动态功耗分配寄存器
-
-<table>
-<tr><td colspan="2">PCIe Enhanced Capability Header</td><td>Offset</td></tr>
-<tr><td colspan="2">DPA Capability Register</td><td>000h</td></tr>
-<tr><td colspan="2">DPA Latency Indicator Register</td><td>004h</td></tr>
-<tr><td>DPA Control Register</td><td>DPA Status Register</td><td>008h</td></tr>
-<tr><td rowspan="3" colspan="2">DPA Power Allocation Array(Sized by number of substates)</td><td>00Ch</td></tr>
-<tr><td>010h</td></tr>
-<tr><td>Up to 02Ch</td></tr>
-</table>
+| --- | --- |
+| # 15 Error Detection and Handling | # 15 错误检测与处理 |
 
 | EN | ZH |
 |---|---|
-| The DPA capability register, shown in Figure 16-4 on page 716, contains several interesting values associated with the substates. The Substate\_Max number indicates how many substates are described, and the numbers must increment contiguously from zero to that value. Two Transition Latency Values are given and each substate will be associated with one or the other by the Latency Indicator register. which contains one bit for each possible substate; if that bit is set Transition Latency Value 1 is used, otherwise Value 0 is used. The latency value gives the maximum time required to transition into that substate from any other | DPA能力寄存器（如图16-4，第716页所示）包含几个与子状态相关的有意义的值。Substate\_Max数值指示描述了有多少个子状态，且编号必须从零到该值连续递增。给出了两个转换延迟值(Transition Latency Value)，每个子状态将通过延迟指示寄存器与其中之一相关联。该寄存器包含每个可能子状态的一个比特位；如果该位被置位则使用转换延迟值1，否则使用值0。延迟值给出了从任何其他子状态转换到该子状态所需的最长时间。 |
+| ## The Previous Chapter | ## 上一章 |
+| This chapter describes the operation of the Link Training and Status State Machine (LTSSM) of the Physical Layer. The initialization process of the Link is described from Power-On or Reset until the Link reaches fully-operational L0 state during which normal packet traffic occurs. In addition, the Link power management states L0s, L1, L2, and L3 are discussed along with the state transitions. The Recovery state, during which bit lock, symbol lock or block lock are re-established is described. Link speed and width change for Link bandwidth management is also discussed. | 本章描述物理层中链路训练与状态状态机（LTSSM）的操作。描述了链路从上电或复位直到达到完全运行状态L0（在此期间进行正常报文传输）的初始化过程。此外，还讨论了链路电源管理状态L0s、L1、L2和L3及其状态转换。描述了恢复状态（Recovery state），在该状态下重新建立位锁定、符号锁定或块锁定。还讨论了用于链路带宽管理的链路速度和宽度变化。 |
+
+## This Chapter | 本章
 
 | EN | ZH |
 |---|---|
+| Although care is always taken to minimize errors they can't be eliminated, so detecting and reporting them is an important consideration. This chapter discusses error types that occur in a PCIe Port or Link, how they are detected, reported, and options for handling them. Since PCIe is designed to be backward compatible with PCI error reporting, a review of the PCI approach to error handling is included as background information. Then we focus on PCIe error handling of correctable, non‐fatal and fatal errors. | 尽管始终注意尽量减少错误，但错误无法完全消除，因此检测和报告错误是一个重要的考虑因素。本章讨论 PCIe 端口或链路上发生的错误类型、如何检测和报告这些错误，以及处理它们的选项。由于 PCIe 设计为向后兼容 PCI 错误报告，因此作为背景信息，回顾了 PCI 的错误处理方法。然后我们重点讨论 PCIe 对可纠正、非致命和致命错误的处理。 |
+
+| EN | ZH |
+|----|----|
+| ## The Next Chapter | ## 下一章 |
+| The next chapter provides an overall context for the discussion of system power management and a detailed description of PCIe power management, which is compatible with the PCI Bus PM Interface Spec and the Advanced Configuration and Power Interface (ACPI). PCIe defines extensions to the PCI-PM spec that focus primarily on Link Power and event management. | 下一章将提供讨论系统电源管理的整体背景，并详细描述PCIe电源管理，它与PCI总线PM接口规范（PCI Bus PM Interface Spec）和高级配置与电源接口（ACPI）兼容。PCIe定义了PCI-PM规范的扩展，主要侧重于链路电源和事件管理。 |
+
+## 99.2 Background | 99.2 背景
+
+| EN | ZH |
+|---|---|
+| Software backward compatibility with PCI is an important feature of PCIe, and that's accomplished by retaining the PCI configuration registers that were already in place. PCI verified the correct parity on each transmission phase of the bus to check for errors. Detected errors were recorded in the Status register and could optionally be reported with either of two side‑band signals: PERR# (Parity Error) for a potentially recoverable parity fault during data transmission, and SERR# (System Error) for a more serious problem that was usually not recoverable. These two types can be categorized as follows: | 与PCI的软件向后兼容性是PCIe的一项重要特性，这是通过保留原有的PCI配置寄存器来实现的。PCI在每个总线传输阶段校验奇偶位的正确性以检查错误。检测到的错误记录在状态寄存器中，并可选择通过两个边带信号之一报告：PERR#（奇偶错误）用于数据传输期间可能可恢复的奇偶故障，SERR#（系统错误）用于通常不可恢复的更严重问题。这两种类型可分类如下： |
+| • Ordinary data parity errors — reported via PERR# | • 普通数据奇偶错误 — 通过PERR#报告 |
+| Data parity errors during multi‑task transactions (special cycles) — reported via SERR# | 多任务事务（特殊周期）期间的数据奇偶错误 — 通过SERR#报告 |
+| • Address and command parity errors — reported via SERR# | • 地址和命令奇偶错误 — 通过SERR#报告 |
+| • Other types of errors (device‑specific) — reported via SERR# | • 其他类型的错误（设备特定） — 通过SERR#报告 |
+| How the errors should be handled was outside the scope of the PCI spec and might include hardware support or device‑specific software. As an example, a data parity error on a read from memory might be recovered in hardware by detecting the condition and simply repeating the Request. That would be a safe step if the memory contents weren't changed by the failed operation. | 错误的处理方式不在PCI规范范围内，可能包括硬件支持或设备特定软件。例如，从内存读取时发生的数据奇偶错误，可以通过硬件检测到该状况并直接重发请求来恢复。如果失败操作未改变内存内容，这将是一个安全的步骤。 |
+| As shown in Figure 15‑1 on page 649, both error pins were typically connected to the chipset and used to signal the CPU in a consumer PC. These machines were very cost sensitive, so they didn't usually have the budget for much in the way of error handling. Consequently, the resulting error reporting signal chosen was the NMI (Non‑Maskable Interrupt) signal from the chipset to the processor that indicated significant system trouble requiring immediate attention. Most consumer PCs didn't include an error handler for this condition, so the system would simply be stopped to avoid corruption and the BSOD (Blue Screen Of Death) would inform the operator. An example of an SERR# condition would be an address parity mismatch seen during the command phase of a transaction. This is a potentially destructive case because the wrong target might respond. If that happened and SERR# reported it, recovery would be difficult and would probably require significant software overhead. (To learn more about PCI error handling, refer to MindShare's book PCI System Architecture.) | 如图15‑1（第649页）所示，这两个错误引脚通常连接到芯片组，用于向消费级PC中的CPU发出信号。这类机器对成本非常敏感，因此通常没有足够的预算来支持复杂的错误处理。结果，最终选择的错误报告信号是从芯片组到处理器的NMI（不可屏蔽中断）信号，指示需要立即处理的重大系统故障。大多数消费级PC未包含针对此状况的错误处理程序，因此系统会直接停止以避免数据损坏，并通过BSOD（蓝屏死机）通知操作员。SERR#条件的一个示例是在事务的命令阶段检测到地址奇偶不匹配。这是一种潜在的破坏性情况，因为错误的设备可能会响应。如果发生这种情况并通过SERR#报告，恢复将非常困难，且可能需要大量的软件开销。（欲了解更多关于PCI错误处理的内容，请参阅MindShare的《PCI系统体系结构》一书。） |
+| PCI‑X uses the same two error reporting signals but defines specific error handling requirements depending on whether device‑specific error handling software is present. If such a handler is not present, then all parity errors are reported with SERR#. | PCI‑X使用相同的两个错误报告信号，但根据是否存在设备特定的错误处理软件来定义具体的错误处理要求。如果不存在此类处理程序，则所有奇偶错误均通过SERR#报告。 |
+
+Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PCI错误处理
+
+<img src="images/part04_96e292268e2b753cbc405dcf86fd1c1a976ad96315393e11aa968938fe54fbff.jpg" width="700" alt="">
+
+| EN | ZH |
+|---|---|
+| PCI‑X 2.0 uses source‑synchronous clocking to achieve faster data rates (up to 4GB/s). This bus targeted high‑end enterprise systems because it was generally too expensive for consumer machines. Since these high‑performance systems also require high availability, the spec writers chose to improve the error handling by adding Error‑Correcting Code (ECC) support. ECC allows more robust error detection and enables correction of single‑bit errors on the fly. ECC is very helpful in minimizing the impact of transmission errors. (To learn more about PCI‑X error handling, see MindShare's book PCI‑X System Architecture.) | PCI‑X 2.0采用源同步时钟技术以实现更高的数据速率（最高4GB/s）。该总线面向高端企业级系统，因为其对消费级机器来说通常过于昂贵。由于这些高性能系统还需要高可用性，规范制定者选择通过添加ECC（纠错码）支持来改进错误处理。ECC允许更强大的错误检测，并能够实时纠正单比特错误。ECC在最小化传输错误的影响方面非常有帮助。（欲了解更多关于PCI‑X错误处理的内容，请参阅MindShare的《PCI‑X系统体系结构》一书。） |
+| PCIe maintains backward compatibility with these legacy mechanisms by using the error status bits in the legacy configuration registers to record error events in PCIe that are analogous to those of PCI. That lets legacy software see PCIe error events in terms that it understands, and allows it to operate with PCIe hardware. See "PCI‑Compatible Error Reporting Mechanisms" on page 674 for the details of these registers. | PCIe通过使用传统配置寄存器中的错误状态位来记录与PCI类似的PCIe错误事件，从而保持与这些传统机制的向后兼容性。这使得传统软件能够以它理解的方式查看PCIe错误事件，并允许其与PCIe硬件协同工作。有关这些寄存器的详细信息，请参见第674页的"PCI兼容错误报告机制"。 |
+
+## 15.2 PCIe Error Definitions | 15.2 PCIe 错误定义
+
+| EN | ZH |
+|---|---|
+| The spec uses four general terms regarding errors, defined here: | 本规范使用了四个与错误相关的通用术语，定义如下： |
+| 1. **Error Detection** - the process of determining that an error exists. Errors are discovered by an agent as a result of a local problem, such as receiving a bad packet, or because it received a packet signaling an error from another device (like a poisoned packet). | 1. **错误检测** -- 确定错误存在的过程。错误由某个代理（agent）因本地问题而发现，例如收到一个坏包，或者因为收到另一个设备发来的指示错误的包（如毒化包）。 |
+| 2. **Error Logging** - setting the appropriate bits in the architected registers based on the error detected as an aid for error-handling software. | 2. **错误记录** -- 根据检测到的错误，在架构化的寄存器中设置相应的位，以辅助错误处理软件。 |
+| 3. **Error Reporting** - notifying the system that an error condition exists. This can take the form of an error Message being delivered to the Root Complex, assuming the device is enabled to send error messages. The Root, in turn, can send an interrupt to the system when it receives an error Message. | 3. **错误上报** -- 通知系统存在错误状况。其形式可以是将错误消息（Error Message）递交给根复合体（Root Complex），前提是该设备已使能发送错误消息。根复合体收到错误消息后，可向系统发送中断。 |
+| 4. **Error Signaling** - the process of one agent notifying another of an error condition by sending an error Message, or sending a Completion with a UR (Unsupported Request) or CA (Completer Abort) status, or poisoning a TLP (also known as error forwarding). | 4. **错误信令** -- 一个代理通过发送错误消息、或发送带有 UR（不支持请求）或 CA（完成者中止）状态的完成报文（Completion）、或毒化 TLP（也称为错误转发）来通知另一个代理错误状况的过程。 |
+
+## 15.3 PCIe Error Reporting | 15.3 PCIe 错误报告
+
+| EN | ZH |
+|---|---|
+| Two error reporting levels are defined for PCIe. The first is a Baseline capability required for all devices. This includes support for legacy error reporting as well as basic support for reporting PCIe errors. The second is an optional Advanced Error Reporting Capability that adds a new set of configuration registers and tracks many more details about which errors have occurred, how serious they are and in some cases, can even record information about the packet that caused the error. | PCIe 定义了两个错误报告级别。第一个是所有设备都必须具备的基线能力（Baseline capability），包括对传统错误报告的支持以及 PCIe 错误报告的基本支持。第二个是可选的增强错误报告能力（Advanced Error Reporting Capability），它增加了一组新的配置寄存器，跟踪更多关于已发生错误的详细信息、错误的严重程度，并且在某些情况下，甚至可以记录导致该错误的数据包信息。 |
+
+## 15.3.1 Baseline Error Reporting | 15.3.1 基线错误报告
+
+| EN | ZH |
+|---|---|
+| Two sets of configuration registers are required in all devices in support of Baseline error reporting. These are described in detail in "Baseline Error Detection and Handling" on page 674 and are summarized here: | 所有设备都需要两组配置寄存器来支持基线错误报告。这些寄存器在第674页的"基线错误检测与处理"中有详细描述，此处进行总结： |
+| PCI-compatible Registers — these are the same registers used by PCI and provide backward compatibility for existing PCI-compatible software. To make this work, PCIe errors are mapped to PCI-compatible errors, making them visible to the legacy software. | PCI兼容寄存器——这些是与PCI相同的寄存器，为现有的PCI兼容软件提供向后兼容性。为此，PCIe错误被映射为PCI兼容错误，使其对遗留软件可见。 |
+| PCI Express Capability Registers — these registers will only be useful to newer software that is aware of PCIe, but they provide more error information specifically for PCIe software. | PCI Express能力寄存器——这些寄存器仅对识别PCIe的新软件有用，但它们为PCIe软件提供了更具体的错误信息。 |
+
+## 15.10 Advanced Error Reporting (AER) | 15.10 高级错误报告（AER）
+
+| EN | ZH |
+|----|----|
+| This optional error reporting mechanism includes a new and dedicated set of configuration registers that give error handling software more information to work with in diagnosing and recovering from problems. | 这种可选的错误报告机制包含一组新的专用配置寄存器，为错误处理软件提供更多信息，用于诊断和恢复问题。 |
+| The AER registers are mapped into the extended configuration space and provide much more information about the nature of any errors. | AER 寄存器映射到扩展配置空间中，并提供关于任何错误本质的更多详细信息。 |
+| See "Advanced Error Reporting (AER)" on page 685 for a detailed description of these registers. | 参见第685页的"Advanced Error Reporting (AER)"以获取这些寄存器的详细描述。 |
+
+## 15.4 Error Classes | 15.4 错误分类
+
+| EN | ZH |
+|---|---|
+| Errors fall into two general categories based on whether hardware is able to fix the problem or not, Correctable and Uncorrectable. The Uncorrectable category is further subdivided based on whether software can fix the problem, Non‑fatal and Fatal. | 根据硬件能否修复问题，错误分为两大类：可校正（Correctable）和不可校正（Uncorrectable）。不可校正类别又根据软件能否修复问题进一步细分为非致命（Non‑fatal）和致命（Fatal）。 |
+| • Correctable errors — automatically handled by hardware | • 可校正错误 — 由硬件自动处理 |
+| • Uncorrectable errors | • 不可校正错误 |
+| • Non‑fatal — handled by device‑specific software; Link is still operational and recovery without data loss may be possible | • 非致命 — 由设备特定软件处理；链路仍可运行，可能可以在不丢失数据的情况下恢复 |
+| • Fatal — handled by system software; Link or Device is not working properly and recovery without data loss is unlikely | • 致命 — 由系统软件处理；链路或设备工作不正常，不太可能在不丢失数据的情况下恢复 |
+| Based on these classes, error handling software can be partitioned into separate handlers to perform the actions required. Such actions might range from simply monitoring the frequency of Correctable errors to resetting the entire system in the event of a Fatal error. Regardless of the type of error, software may arrange for the system to be notified of all errors to allow tracking and logging them. | 基于这些分类，错误处理软件可以划分为独立的处理程序来执行所需操作。这些操作的范围可以从简单地监视可校正错误的频率，到在发生致命错误时重置整个系统。无论错误类型如何，软件都可以安排系统获知所有错误，以便对其进行跟踪和记录。 |
+
+| EN | ZH |
+|---|---|
+| ## Correctable Errors | ## 可校正错误 |
+| Correctable errors are, by definition, automatically corrected in hardware. They may impact performance by adding latency and consuming bandwidth, but if all goes well, recovery is automatic and fast because it doesn't depend on software intervention, and no information is lost in the process. These errors aren't required to be reported to software, but doing so could allow software to track error trends that might indicate that some devices are showing signs of imminent failure. | 可校正错误，顾名思义，由硬件自动校正。它们可能因增加延迟和消耗带宽而影响性能，但如果一切正常，恢复过程自动且快速，因其不依赖软件干预，且过程中不会丢失任何信息。此类错误无需向软件报告，但报告可让软件追踪错误趋势，从而发现某些设备可能即将出现故障的迹象。 |
+
+## 15.4.2 Uncorrectable Errors | 15.4.2 不可纠正错误
+
+| EN | ZH |
+| --- | --- |
+| Errors that can't be automatically corrected in hardware are called Uncorrectable, and these are either Non-fatal or Fatal in severity. | 无法在硬件中自动纠正的错误称为不可纠正错误，其严重性分为非致命或致命。 |
+
+## Non-fatal Uncorrectable Errors | 非致命不可校正错误
+
+| EN | ZH |
+|---|---|
+| Non-fatal errors indicate that information has been lost but the cause was likely something other than the integrity of a Link or Device. A packet failed somewhere, but the Link continues to function correctly and other packets are unaffected. Since the Link is still working, recovery of the lost information may be possible, but will depend on implementation-specific software to handle it. An example of this error type would be a Completion timeout, in which a Request was sent but no Completion was returned within the allowed time. Somewhere there was an issue, but it could be something as simple as a random bit error within a Switch that caused the Completion to be routed incorrectly. An attempt at recovery for this case could be as simple as re-issuing the Request. | 非致命错误表示信息已丢失，但其原因很可能与链路或设备的完整性无关。某个数据包在某处传输失败，但链路仍能正常工作，其他数据包不受影响。由于链路仍在运行，丢失的信息有可能恢复，但这将依赖于特定实现的软件来处理。此类错误的一个示例是完成报文超时，即已发送请求但在允许时间内未收到完成报文。链路中某处出现了问题，但可能仅仅是交换机内部的一个随机比特错误导致完成报文被错误路由。针对这种情况的恢复尝试可以简单到只需重新发送请求即可。 |
+
+## Fatal Uncorrectable Errors | 致命不可纠正错误
+
+| EN | ZH |
+|---|---|
+| Fatal errors indicate that a Link or Device has had an operational failure, causing data loss that is unlikely to be recovered. | 致命错误表示链路或设备发生了操作故障，导致数据丢失且不太可能恢复。 |
+| For these cases, resetting at least the failed Link or Device will probably be the first step in any recovery process because it's clearly not operational for some reason. | 对于这些情况，至少复位出故障的链路或设备很可能是任何恢复过程中的第一步，因为它显然由于某种原因无法正常运行。 |
+| The spec also invites implementation-specific approaches, in which software may attempt to limit the effects of the failure, but it doesn't define any particular actions that should be taken. | 规范也允许实现特有的方法，其中软件可以尝试限制故障的影响，但并未定义任何应采取的具体操作。 |
+| An example of this type of error would be a receiver buffer overflow, in which case information has been lost because flow control tracking counters have gotten out of sync with each other. | 这类错误的一个例子是接收缓冲器溢出，此时由于流控跟踪计数器彼此不同步而导致信息丢失。 |
+| Since there's no mechanism to fix this, a reset of this Link will usually be required. | 由于没有机制可以修复此问题，通常需要对该链路进行复位。 |
+
+## 15.5 PCIe Error Checking Mechanisms | 15.5 PCIe 错误检查机制
+## PCIe 错误检测机制
+
+| EN | ZH |
+|---|---|
+| The scope of PCIe error checking focuses on errors associated with the Link and packet delivery, as shown in Figure 15-2 on page 653. Errors that don't pertain to Link transmission are not reported through PCIe error-handling mechanisms and would need proprietary methods to report them, such as device-specific interrupts. Each layer of the interface includes error checking capabilities, and these are summarized in the sections that follow. | PCIe 错误检测的范围集中于与链路（Link）和报文投递相关的错误，如图 15-2（第 653 页）所示。与链路传输无关的错误不会通过 PCIe 错误处理机制报告，而需要通过专用方法（例如设备特定中断）来报告。接口的每一层都包含错误检测能力，后续章节将对此进行总结。 |
+
+Figure 15-2: Scope of PCI Express Error Checking and Reporting | 图15-2：PCI Express错误检查与报告范围
+
+<img src="images/part04_b3a4038ca9c8fa86d1d30586735f40af9d66c5eae30dfb3fe380768aef69184a.jpg" width="700" alt="">
+
+## 15.5.1 CRC | 15.5.1 CRC
+
+| EN | ZH |
+|---|---|
+| Before diving into error handling as it relates to the layers, it will help to first discuss the concept of CRC (Cyclic Redundancy Check) because it's an integral part of PCIe error checking. A CRC code is calculated by the transmitter based on the contents of the packet and adds it to the packet for transmission. The CRC name is derived from the fact that this check code (calculated from the packet to check for errors) is redundant (adds no information to the packet), and is derived from cyclic codes. Although a CRC doesn't supply enough information to do automatic error correction the way ECC (Error Correcting Code) can, it does provide robust error detection. CRCs are also commonly used in serial transports because they're good at detecting a string of incorrect bits. | 在深入探讨各层相关的错误处理之前，先讨论CRC（循环冗余校验）的概念会有所帮助，因为它是PCIe错误检查中不可或缺的一部分。发送器根据报文内容计算出CRC码，并将其附加到报文中进行传输。CRC的名称源于以下事实：这种校验码（根据报文计算以检查错误）是冗余的（不向报文添加任何信息），并且源自循环码。虽然CRC不能像ECC（纠错码）那样提供足够的信息来自动纠错，但它确实提供了强大的错误检测能力。CRC也常用于串行传输，因为它们擅长检测一连串的错误比特。 |
+| CRCs have two different usage cases in PCIe. One is the mandatory LCRC (Link CRC) generated and checked in the Data Link Layer for every TLP that goes across a Link. It's intended to detect transmission errors on the Link. | CRC在PCIe中有两种不同的使用场景。一种是强制性的LCRC（链路CRC），在数据链路层中为每条链路上传输的每个TLP生成并校验，旨在检测链路上的传输错误。 |
+| The second is the optional ECRC (End-to-end CRC) that's generated in the Transaction Layer of the sender and checked in the Transaction Layer of the ultimate target of the packet. This is intended to detect errors that might otherwise be silent, such as when a TLP passes through an intermediate agent like a Switch, as shown in Figure 15-3 on page 654. In this illustration, the packet arrived safely on the downstream port of the Switch but while it was being stored or processed within the Switch a bit error occurred. The LCRC only protects TLPs while on the Link. Once the Data Link Layer of the Ingress Port checks the LCRC, it removes it from the packet because a new LCRC will be calculated (which will include the new Sequence Number) at the Egress Port. This means that the packet is unprotected while inside the Switch. This is the purpose of having an ECRC. It is calculated at the originating device and is not removed or recalculated by intermediate devices. So if the target device is checking the ECRC and sees a mismatch, then there must have been an error somewhere along the way even though no LCRC error was seen. Note that using the ECRC requires the presence of the optional Advanced Error Reporting registers, since they contain the bits to enable this functionality. | 第二种是可选的ECRC（端到端CRC），它在发送端的事务层中生成，并在报文的最终目标的事务层中校验。这旨在检测那些原本可能静默发生的错误，例如当TLP经过像交换机这样的中间代理时，如图15-3（第654页）所示。在此示例中，报文安全到达交换机的下游端口，但在交换机内部存储或处理过程中发生了比特错误。LCRC仅在链路上保护TLP。一旦入口端口的数据链路层校验了LCRC，就会将其从报文中移除，因为出口端口将计算一个新的LCRC（其中将包含新的序列号）。这意味着报文在交换机内部不受保护。这就是使用ECRC的目的。它由源端设备计算，中间设备不会移除或重新计算它。因此，如果目标设备正在校验ECRC并发现不匹配，则说明沿途某处一定发生了错误，即使没有发现LCRC错误。请注意，使用ECRC需要具备可选的增强错误报告寄存器，因为这些寄存器包含启用此功能的比特位。 |
+
+Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
+
+<img src="images/part04_870b5b2ce8bbec3520fd4c2cb37ffa9c41f496ae7632c6c1779d4b2eca554b60.jpg" width="700" alt="">
+
+## 15.5.2 Error Checks by Layer | 15.5.2 按层级划分的错误检查
+
+| EN | ZH |
+| --- | --- |
+| Different aspects of an incoming packet are checked in the different layers at the Receiver. Some error checking is listed as optional. For those cases, if the error occurs but the designer has chosen not to implement that form of checking, it will not be detected. | 接收端的不同层会对入站数据包的各个方面进行检查。部分错误检查被列为可选。对于这些情况，如果错误发生但设计者选择未实现该检查形式，则错误将不会被检测到。 |
+
+## Physical Layer Errors | 物理层错误
+
+| EN | ZH |
+|---|---|
+| A packet arriving at the Receiver arrives at the Physical Layer first. There are a few things that must be checked at this level and others that may optionally be checked. Link training also takes place at this layer, and a variety of problems may arise during that process but those and other details of the Physical Layer are covered in Chapter 14, entitled "Link Initialization & Training," on page 505. In summary, though, Physical Layer errors, also called Receiver Errors or Link Errors, include the following cases: | 到达接收端的数据包首先进入物理层。在该层有一些项目必须检查，另一些项目则可以（可选）检查。链路训练也在该层进行，在此过程中可能出现各种问题，但这些内容以及物理层的其他细节将在第14章"链路初始化和训练"（第505页）中介绍。总而言之，物理层错误（也称为接收端错误或链路错误）包括以下情况： |
+| • When using 8b/10b, checking for decode violations (checking required) | • 使用8b/10b时，检查解码违规（必须检查） |
+| • Framing violations (optional for 8b/10b, required for 128b/130b) | • 组帧违规（8b/10b为可选，128b/130b为必须） |
+| • Elastic buffer errors (checking optional) | • 弹性缓冲错误（可选检查） |
+| • Loss of symbol lock or Lane deskew (checking optional) | • 符号锁丢失或通道去偏移（可选检查） |
+| If a TLP was in progress when a Receiver Error was detected, it is discarded. To resolve the error, the Data Link Layer is signaled to send a NAK if one isn't already pending. | 如果在检测到接收端错误时有一个TLP正在传输中，则该TLP将被丢弃。为解决该错误，数据链路层会被通知发送一个NAK（如果尚无待处理的NAK）。 |
+
+## Data Link Layer Errors | 数据链路层错误
+
+| EN | ZH |
+| --- | --- |
+| After the Physical Layer, incoming packets go next into the Data Link Layer, where they are checked for several possible problems. The details of these conditions can be found in Chapter 10, entitled "Ack/Nak Protocol," on page 317. In summary, the errors are: | 在物理层之后，入站数据包接下来进入数据链路层，在此处检查若干可能的问题。这些情况的详细信息请参见第317页第10章"Ack/Nak协议"。总结而言，错误包括： |
+| • LCRC failure for TLPs | • TLP的LCRC失败 |
+| • Sequence Number violation for TLPs | • TLP的序列号违规 |
+| • 16-bit CRC failure for DLLPs | • DLLP的16位CRC失败 |
+| • Link Layer Protocol errors | • 链路层协议错误 |
+| As with the Physical Layer, if a TLP was in progress when an error is seen, the TLP is discarded and a NAK is scheduled if one isn't already pending. | 与物理层一样，若在TLP传输过程中检测到错误，则该TLP被丢弃，并且若没有尚未完成的NAK，则会调度一个NAK。 |
+| There are some Data Link Layer errors to watch for at the transmitter, too, including REPLAY_TIMER expiring and the REPLAY_NUM counter rolling over. A timeout is handled by replaying the contents of the Replay Buffer and | 在发送端也有一些数据链路层错误需要注意，包括REPLAY_TIMER超时和REPLAY_NUM计数器回绕。超时通过重放重放缓冲区的内容来处理，并且 |
+
+| EN | ZH |
+| --- | --- |
 | ## PCI Express Technology | ## PCI Express 技术 |
-| substate. The latencies are multiplied by the Transition Latency Units to give the time in milliseconds. Similarly, the Power Allocation Scale value gives the multiplier for the power used in each substate, expressed in watts. For each defined substate, a 32‑bit field in the DPA Power Allocation Array describes the power used for that state. The first one of these is located at offset 010h, and the rest are implemented in subsequent dwords. | 子状态。延迟乘以转换延迟单位即可得到以毫秒为单位的时间。类似地，功率分配比例值给出了每个子状态所用功率的乘数，以瓦特为单位。对于每个定义的子状态，DPA 功率分配数组中的 32 位字段描述了该状态所使用的功率。第一个位于偏移量 010h 处，其余的在后续双字中实现。 |
-| The low‑order five bits of the DPA Control register are written by software to set a new substate, and the current substate can be read from the Status register, as shown in Figure 16‑5 on page 716. Notice that bit 8 of the Status register indicates whether the use of DPA substates has been enabled but it’s labeled as RW1C (Read, Write 1 to Clear), meaning software can clear this bit but can’t set it. DPA is enabled by default after a reset, and software would need to disable it by writing a one to this bit if it did not intend to use DPA. | 软件写入 DPA 控制寄存器的低五位以设置新的子状态，当前子状态可从状态寄存器中读取，如第 716 页图 16‑5 所示。请注意，状态寄存器的位 8 指示 DPA 子状态的使用是否已启用，但其标记为 RW1C（读取，写 1 清零），这意味着软件可以清除此位但不能设置它。复位后 DPA 默认启用，如果软件不打算使用 DPA，则需要向此位写 1 来禁用它。 |
-
-Figure 16‑4: DPA Capability Register | 图16‑4：DPA能力寄存器
-
-Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
-<img src="images/part05_911a868787c582e3df9394c3532d48092653a2b8fbc0078a841baa80656a8f92.jpg" width="700" alt="">
-
-<img src="images/part05_f8a402cfb1b111948b6519c4926cd1f805434d361cbfc9ec79ec955bf366f3d805.jpg" width="700" alt="">
+| incrementing the REPLAY\_NUM counter. The timer and counter are reset whenever an ACK or NAK arrives at the transmitter that indicates forward progress has been made (meaning it results in clearing one or more TLPs from the Replay Buffer). But if an Ack or Nak isn't received quickly enough, the timeout condition is seen which will result in a replay. | 递增 REPLAY\_NUM 计数器。每当有表明正向进度已取得（即导致一个或多个 TLP 从重放缓冲中被清除）的 ACK 或 NAK 到达发送器时，定时器和计数器都会被复位。但如果未能足够快地收到 Ack 或 Nak，就会观察到超时条件，从而导致重放。 |
 
 | EN | ZH |
 |---|---|
-| ## D1 State—Light Sleep | ## D1 状态——轻度休眠 |
-| Optional. Before going into this state, software must ensure that all outstanding non‑posted Requests have received their associated Completions. This can be achieved by polling the Transactions Pending bit in the Device Status register of the PCI Express Capability block; when the bit is cleared to zero, it's safe to proceed. In this light power conservation state the Function won't initiate Requests except PME Messages, if enabled. Other characteristics of the D1 state include: | 可选。进入此状态前，软件必须确保所有未完成的非发布请求已收到其关联的完成报文。这可通过轮询 PCI Express 能力块中设备状态寄存器的事务待处理位来实现；当该位清零时，即可安全继续。在此轻度省电状态下，功能不会发起请求，但 PME 消息（若使能）除外。D1 状态的其他特性包括： |
-| • Link is forced to the L1 power state when the Device goes into the D1 state. | • 设备进入 D1 状态时，链路被强制进入 L1 电源状态。 |
-| Configuration and Message Requests are accepted in this state, but all other Requests must be handled as Unsupported Requests and all completions may optionally be handled as Unexpected Completions. | 此状态下接受配置和消息请求，但所有其他请求必须作为不支持请求处理，所有完成报文可选择作为意外完成报文处理。 |
-| If an error is caused by an incoming Request and reporting it is enabled, an Error Message may be sent while in this state. If a different type of error occurs (such as a Completion timeout), the message won't be sent until the Device is returned to the D0 state. | 若传入请求导致错误且错误报告已使能，则在此状态下可发送错误消息。若发生其他类型的错误（如完成超时），则消息将延迟发送，直到设备返回到 D0 状态。 |
-| The Function may reactivate the Link and send a PME message, if supported and enabled in this state, to notify software that the Function has experienced an event requiring that power be restored. | 功能可重新激活链路并发送 PME 消息（若此状态下支持并使能），以通知软件功能遇到了需要恢复电源的事件。 |
-| The Function may or may not lose its context in this state. If it does and the device supports PME, it must at least maintain its PME context (see "PME Context" on page 710) while in this state. | 在此状态下，功能可能会或不会丢失其上下文。若丢失且设备支持 PME，则在此状态下必须至少维护其 PME 上下文（参见第 710 页的"PME 上下文"）。 |
-| • The Function must be returned to the D0 Active PM state in order to be fully operational. | • 功能必须返回到 D0 活动 PM 状态才能完全运行。 |
-| Table 16‑6 lists the PM policies while in the D1 state. | 表 16-6 列出了 D1 状态下的 PM 策略。 |
-| Table 16‑6: D1 Power Management Policies | 表 16-6：D1 电源管理策略 |
+| ## Transaction Layer Errors | ## 事务层错误 |
+| Lastly, if incoming TLPs pass all the checks at the Physical and Data Link Layers, they will finally reach the Transaction Layer, where they are checked for: | 最后，如果入站 TLP 通过了物理层和数据链路层的所有检查，它们最终将到达事务层，并在该层检查以下内容： |
+| • ECRC failure (checking optional) | • ECRC 失败（可选检查） |
+| • Malformed TLP (error in packet format) | • 畸形 TLP（报文格式错误） |
+| • Flow Control Protocol violation | • 流控协议违规 |
+| • Unsupported Requests | • 不支持的请求 |
+| • Data Corruption (poisoned packet) | • 数据损坏（中毒报文） |
+| • Completer Abort (checking optional) | • 完成者中止（可选检查） |
+| • Receiver Overflow (checking optional) | • 接收者溢出（可选检查） |
+| As with the Data Link Layer, there are some error checks at the transmitter Transaction Layer, too, such as: | 与数据链路层类似，发送端事务层也有若干错误检查，例如： |
+| • Completion Timeouts | • 完成报文超时 |
+| • Unexpected Completion (Completion does not match pending Request) | • 意外完成（完成报文与挂起的请求不匹配） |
 
-<table><tr><td>Link PM State</td><td>Function PM State</td><td>Registers or State that must be valid</td><td>Power</td><td>Actions permitted to Function</td><td>Actions permitted by Function</td></tr><tr><td>L1</td><td rowspan="2">D1</td><td>Device class-specific registers and PME context.*</td><td>≤ D0 unini- tial- ized</td><td>Config Requests and Messages. Link transi- tions back to L0 to ser- vice the request.</td><td>PME Messages.** Though not typi- cally permitted, they would require the Link to transi- tion back to L0.</td></tr><tr><td>L2-L3</td><td colspan="4">NA *</td></tr></table>
-
-\* This combination of Bus/Function PM states not allowed.
-\*\* If PME supported in this state.
-
-## D2 State—Deep Sleep | D2 状态—深度休眠
+## 15.6 Error Pollution | 15.6 错误传播
 
 | EN | ZH |
 |---|---|
-| Optional. Before going into this state, software must ensure that all outstanding non‑posted Requests have received their associated Completions. This can be achieved by polling the Transactions Pending bit in the Device Status register of | 可选。在进入该状态之前，软件必须确保所有未完成的非发布请求均已收到其关联的完成报文。这可以通过轮询设备状态寄存器中的待处理事务位来实现，该寄存器位于 |
+| A problem can arise if a device sees several problems for the same transaction. This could result in several errors getting reported (referred to as "Error Pollution"). To avoid this, reported errors are limited to only the most significant one. For example, if a TLP has a Receiver Error at the Physical Layer, it would certainly be found to have errors at the Data Link Layer and Transaction Layers, too, but reporting them all would just add confusion. What is most relevant is reporting the first error that was seen. Consequently, if an error is seen in the Physical Layer, there's no reason to forward the packet to the higher layers. Similarly, if an error is seen in the Data Link Layer, then the packet won't be forwarded to the Transaction Layer. Offending packets at one level are not forwarded to the next level but are dropped. | 如果一个设备对同一事务看到多个问题，则可能产生问题。这可能导致报告多个错误（称为"错误污染"）。为避免此情况，报告的错误仅限于最重要的一个。例如，如果一个TLP在物理层存在接收器错误，那么它在数据链路层和事务层也肯定会被发现存在错误，但报告所有错误只会增加混乱。最相关的是报告第一个被发现的错误。因此，如果物理层发现错误，则没有理由将数据包转发到更高层。类似地，如果数据链路层发现错误，则数据包不会被转发到事务层。某一层的有问题数据包不会被转发到下一层，而是被丢弃。 |
+| Still, multiple errors may be seen for the same packet at the Transaction Layer. Only the most significant one should be reported in the order of priority as defined by the spec. Transaction Layer error priority from highest to lowest is: | 尽管如此，在事务层仍可能对同一数据包看到多个错误。应按规范定义的优先级顺序仅报告最重要的一个。事务层错误优先级从高到低为： |
+| • Uncorrectable Internal Error | • 不可纠正内部错误 |
+| • Receiver Buffer Overflow | • 接收器缓冲区溢出 |
+| • Flow Control Protocol Error | • 流控协议错误 |
+| • ECRC Check Failed | • ECRC检查失败 |
+| • Malformed TLP | • 格式错误TLP |
+| • AtomicOp Egress Blocked | • AtomicOp出口被阻塞 |
+| • TLP Prefix Blocked | • TLP前缀被阻塞 |
+| • ACS (Access Control Services) Violation | • ACS（访问控制服务）违例 |
+| • MC (Multi‑cast) Blocked TLP | • MC（多播）阻塞TLP |
+| • UR (Unsupported Request), CA (Completer Abort), or Unexpected Completion | • UR（不支持请求）、CA（完成者中止）或意外完成 |
+| • Poisoned TLP Received | • 接收中毒TLP |
+| As an example, a TLP might experience an ECRC fault caused by a corrupted header. Since something was corrupted within the packet, it might also be seen as Malformed or possibly as an Unsupported Request. The ECRC fault is the highest priority, since it means that the header contents may have been corrupted, and due to this, there is no point in reporting errors that depend on those contents. | 例如，一个TLP可能遇到由损坏的头部引起的ECRC错误。由于数据包内某些内容已损坏，它也可能被视为格式错误或可能被视为不支持请求。ECRC错误具有最高优先级，因为它意味着头部内容可能已损坏，因此报告依赖于这些内容的错误没有意义。 |
 
-## PCI Express Technology | PCI Express 技术
-
-| EN | ZH |
-|---|---|
-| the PCI Express Capability block; when the bit is cleared to zero, it's safe to proceed. | PCI Express 能力寄存器块；当该位清零时，可安全继续。 |
-| This power state provides deeper power conservation than D1 but less than the $\mathrm{D3}_{\mathrm{hot}}$ state. | 该电源状态比 D1 提供更深的节能，但比 $\mathrm{D3}_{\mathrm{hot}}$ 状态浅。 |
-| As in D1, the Function won't initiate Requests (except a PME Message) or act as the target of Requests other than configuration. | 与 D1 中一样，功能不会发起请求（PME 消息除外），也不会充当除配置外的请求的目标。 |
-| Software must still be able to access the Function's configuration registers in this state. | 在此状态下，软件仍必须能够访问功能的配置寄存器。 |
-
-## Other characteristics of the D2 state include: | D2 状态的其他特性包括：
-
-| EN | ZH |
-|---|---|
-| Before going into this state, software must ensure that all outstanding non-posted Requests have received their associated Completions. This can be achieved by polling the Transactions Pending bit in the Device Status register of the PCIe Capability block. It could happen that the Completions will never be returned and, in that case, software should wait long enough to ensure they never will be returned. | 在进入此状态之前，软件必须确保所有未完成的非发布请求已收到其关联的完成报文。这可以通过轮询PCIe能力块中设备状态寄存器的事务待处理位来实现。可能会发生完成报文永远不会返回的情况，在这种情况下，软件应等待足够长的时间以确保它们永远不会被返回。 |
-| • Link state must transition to L1 when the Device transitions to the D2 state. | • 当设备转换到D2状态时，链路状态必须转换到L1。 |
-| Configuration and Message Requests are accepted in this state, but all other Requests must be handled as Unsupported Requests and all completions may optionally be handled as Unexpected Completions. | 在此状态下接受配置和消息请求，但所有其他请求必须作为不支持请求处理，且所有完成报文可选择作为意外完成报文处理。 |
-| If an error is caused by an incoming Request and reporting it is enabled, an Error Message may be sent while in this state. If a different type of error occurs (such as a Completion timeout), the message won't be sent until the Device is returned to the D0 state. | 如果传入请求导致错误且错误报告已使能，则在此状态下可以发送错误消息。如果发生其他类型的错误（例如完成超时），则消息将不会发送，直到设备返回到D0状态。 |
-| • Function may send a PME message, if supported and enabled, to notify software that it needs power restored to handle an event. | • 功能可以发送PME消息（如果支持且使能），以通知软件它需要恢复供电以处理事件。 |
-| The Function may or may not lose its context in this state. If it does and the device supports PME messages, it must at least maintain its PME context for this purpose. | 功能在此状态下可能会或可能不会丢失其上下文。如果确实丢失且设备支持PME消息，则它必须至少为此目的维护其PME上下文。 |
-| • The Function must return to the D0 Active state to be fully operational. | • 功能必须返回到D0活跃状态才能完全运行。 |
-| Table 16-7 on page 719 illustrates the PM policies while in the D2 state. | 第719页的表16-7说明了D2状态下的电源管理策略。 |
-
-**Table 16-7: D2 Power Management Policies**
-
-<table><tr><td>Link PM State</td><td>Function PM State</td><td>Registers and/or State that must be valid</td><td>Power</td><td>Actions permitted to Function</td><td>Actions permitted by Function</td></tr><tr><td>L1</td><td rowspan="2">D2</td><td>Device class-specific registers and PME context.*</td><td>≤ next higher supported PM state or ≤ D0 uninitialized.</td><td>Config Requests and transactions permitted by device class (typically none). This requires the Link to transition back to L0</td><td>PME Messages.* Though not typically permitted, they would require the Link to transition back to L0.</td></tr><tr><td>L2/L3</td><td colspan="4">N/A**</td></tr></table>
-
-\* If PME supported in this state.  
-\*\* This combination of Bus/Function PM states not allowed.
+## 15.7 Sources of PCI Express Errors | 15.7 PCI Express 错误源
 
 | EN | ZH |
 |---|---|
-| ## D3—Full Off | ## D3——完全关闭 |
-| Mandatory. All Functions must support the D3 state. This is the deepest state and power conservation is maximized. When software writes this power state to the Device, it goes to the $\mathbf { D 3 _ { h o t } }$ state, meaning power is still applied. Removing power (Vcc) from the Device puts it into the $\mathbf { D 3 _ { c o l d } }$ state and the Link into L2, if a secondary power source (Vaux) is available, or L3 if it's not. | 强制要求。所有功能必须支持D3状态。这是最深度的状态，功耗节省达到最大化。当软件向设备写入此电源状态时，设备进入$\mathbf { D 3 _ { h o t } }$状态，表示仍保持供电。从设备移除电源(Vcc)使其进入$\mathbf { D 3 _ { c o l d } }$状态，如果有辅助电源(Vaux)可用，链路进入L2状态，否则进入L3状态。 |
-| ${ \bf D } 3 _ { \mathbf { H o t } }$ State. (Mandatory.) Software puts a Function into $\mathrm { D 3 } _ { \mathrm { h o t } }$ by writing the appropriate value into the PowerState field of its Power Mgt Control and Status Register (PMCSR). In this state, the Function can only initiate PME or PME\_TO\_ACK Messages, and can only respond to configuration Requests or the PME\_Turn\_Off Message. Software must be able to access the Function's configuration registers while the device is in the $\mathrm { D 3 } _ { \mathrm { h o t } }$ state, if only to be able to change the state back to D0. Other characteristics of $\mathrm { D 3 } _ { \mathrm { h o t } }$ include: | ${ \bf D } 3 _ { \mathbf { H o t } }$ 状态。(强制要求。)软件通过向其电源管理控制和状态寄存器(PMCSR)的PowerState字段写入适当的值，将功能置于$\mathrm { D 3 } _ { \mathrm { h o t } }$状态。在此状态下，功能只能发起PME或PME\_TO\_ACK消息，并且只能响应配置请求或PME\_Turn\_Off消息。当设备处于$\mathrm { D 3 } _ { \mathrm { h o t } }$状态时，软件必须能够访问功能的配置寄存器，即便只是为了能将状态更改回D0。$\mathrm { D 3 } _ { \mathrm { h o t } }$的其他特性包括： |
-| Before going into this state, software must ensure that all outstanding non‐posted Requests have received their associated Completions. This can be achieved by polling the Transactions Pending bit in the Device Status register of the PCIe Capability block. It could happen that the Completions will never be returned and, in that case, software should wait long enough to ensure they never will be returned. | 在进入此状态之前，软件必须确保所有未完成的非发布请求均已收到其关联的完成报文。这可以通过轮询PCIe能力块设备状态寄存器中的Transactions Pending位来实现。可能会出现完成报文永远不会返回的情况，在这种情况下，软件应等待足够长的时间以确保它们永远不会被返回。 |
-| • The Link is forced to the L1 state when the Function changes to $\mathrm { D } 3 _ { \mathrm { h o t } }$ | • 当功能变为$\mathrm { D } 3 _ { \mathrm { h o t } }$时，链路被强制进入L1状态 |
+| Rather than consider all of the error conditions individually, it will be helpful to group them into common areas. | 与其逐一考虑所有错误条件，不如将它们归为常见类别更为有益。 |
 
-## PCI Express Technology | PCI Express 技术
+## ECRC Generation and Checking (ECRC生成和校验)
 
 | EN | ZH |
 |---|---|
-| The Function is allowed to send a PME message to notify PM software of its need to be returned to the fully active state (assuming it supports generation of PM events in the $\mathrm { D } 3 _ { \mathrm { h o t } }$ state and has been enabled to do so). | Function被允许发送PME消息以通知PM软件其需要返回到完全活动状态（前提是其在$\mathrm { D } 3 _ { \mathrm { h o t } }$状态下支持PM事件生成且已被使能）。 |
-| Function context may be lost when going to this state and if the power is turned off the spec assumes all context will be lost. On the other hand, if the power never goes off before software initiates a return to D0 the context could be maintained. In earlier spec versions that wasn't possible; changing from $\mathrm { D } 3 _ { \mathrm { h o t } }$ to D0 involved a soft reset and all the registers were re-initialized. However, the 1.2 revision of that spec added a new capability bit called "No Soft Reset" to indicate that the Function would not do a soft reset in that case. To be able to generate PME messages in the $\mathrm { D } 3 _ { \mathrm { h o t } }$ state, a Device must maintain its PME context (see "PME Context" on page 710). | 进入此状态时Function上下文可能会丢失，若电源关闭，规范假定所有上下文都将丢失。另一方面，如果在软件发起返回D0之前电源从未关闭，则上下文可以保持。在早期规范版本中这不可能；从$\mathrm { D } 3 _ { \mathrm { h o t } }$转换到D0涉及软复位，所有寄存器被重新初始化。然而，该规范的1.2修订版增加了一个名为"No Soft Reset"的新能力位，以指示Function在这种情况下不会执行软复位。要在$\mathrm { D } 3 _ { \mathrm { h o t } }$状态下能够生成PME消息，设备必须保持其PME上下文（参见第710页的"PME Context"）。 |
-| The Function exits from the $\mathrm { D } 3 _ { \mathrm { h o t } }$ state under two circumstances: | Function在以下两种情况下退出$\mathrm { D } 3 _ { \mathrm { h o t } }$状态： |
-| If Vcc is removed from the device, it transitions from $\mathrm { D } 3 _ { \mathrm { h o t } }$ to $\mathrm { D } 3 _ { \mathrm { c o l d } }$ | 如果从设备移除Vcc，则从$\mathrm { D } 3 _ { \mathrm { h o t } }$转换到$\mathrm { D } 3 _ { \mathrm { c o l d } }$ |
-| Software can write to the PowerState field of the Function's PMCSR register to change its PM state to D0. When programmed to exit $\mathrm { D } 3 _ { \mathrm { h o t } }$ and return to D0, the Function returns to the D0 Uninitialized PM state. A reset may or may not be required. Table 16-8 on page 721 lists the PM policies while in the $\mathrm { D } 3 _ { \mathrm { h o t } }$ state. | 软件可以写入Function的PMCSR寄存器的PowerState字段以将其PM状态更改为D0。当编程为退出$\mathrm { D } 3 _ { \mathrm { h o t } }$并返回D0时，Function返回到D0 Uninitialized PM状态。复位可能需要也可能不需要。第721页的表16-8列出了$\mathrm { D } 3 _ { \mathrm { h o t } }$状态下的PM策略。 |
+| As mentioned earlier, ECRC generation and checking requires the optional Advanced Error Reporting configuration register structure to be present, as shown in Figure 15-4 on page 658. Configuration software checks for this capability register to determine whether ECRCs are supported in a Function. If it is, a write to the Error Capability and Control register can be used to enable it. | 如前所述，ECRC生成和校验需要可选的进阶错误报告配置寄存器结构存在，如图15-4第658页所示。配置软件检查该能力寄存器以确定某个功能是否支持ECRC。如果支持，可通过写入错误能力和控制寄存器来启用它。 |
 
-**Table 16-8: $\mathbf{D3_{hot}}$ Power Management Policies**
+**Figure 15-4: Location of Error-Related Configuration Registers**
 
-<table><tr><td>Bus PM State</td><td>Function PM State</td><td>Registers and/or State that must be valid</td><td>Power</td><td>Actions permitted to Function</td><td>Actions permitted by Function</td></tr><tr><td>L1</td><td rowspan="3"> $D3_{hot}$ </td><td>PME context. **</td><td>≤ next higher supported PM state or ≤ D0 uninitialized.</td><td>PCI Express config transactions &amp; PME_Turn_Off broadcast message***(These can only occur after the Link transitions back to its L0 state.</td><td>PME message**PME_TO_ACK message**PM_Enter_L23 DLLP***(These can occur only after the Link returns to L0)</td></tr><tr><td>L2/L3 Ready</td><td colspan="4">L2/L3 Ready entered following the PME_Turn_Off handshake sequence, which prepares a device for power removal***</td></tr><tr><td>L2/L3</td><td colspan="4">NA *</td></tr></table>
-
-\* This combination of Bus/Function PM states not allowed.
-\*\* If PME supported in this state.
-\*\*\* See "L2/L3 Ready Handshake Sequence" on page 764 for details regarding the sequence.
+<img src="images/part04_b94c6d345755f326e484b323f2ea936134bf9cacb5793f7b29cada81aee881fa.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
-| $\mathbf { D } 3 _ { \mathbf { C o l d } }$ State. Mandatory. Every PCI Express Function enters the $\mathrm { D } 3 _ { \mathrm { C o l d } }$ PM state upon removal of power (Vcc) from the Function. When power is restored, the device must be reset or generate an internal reset, taking it from $\mathrm { D } 3 _ { \mathrm { C o l d } }$ to D0 $\mathrm { U n i n i t i a l i z e d }$. A Function capable of generating a PME must maintain PME context while in this state and when transitioning to the D0 state. Since power was removed to arrive at this state, the Function must have an auxiliary power source available if it is to maintain the PME context. Then, when the device goes to D0 $\mathrm { U n i n i t i a l i z e d }$, it can generate a PME message to inform the system of a wakeup event, if it's capable and enabled to do so. For more on auxiliary power, refer to "Auxiliary Power" on page 775. | $\mathbf { D } 3 _ { \mathbf { C o l d } }$状态。必须支持。每个PCI Express Function在从Function移除电源（Vcc）时进入$\mathrm { D } 3 _ { \mathrm { C o l d } }$ PM状态。当电源恢复时，设备必须复位或产生内部复位，使其从$\mathrm { D } 3 _ { \mathrm { C o l d } }$转换到D0 $\mathrm { U n i n i t i a l i z e d }$。能够产生PME的Function必须在此状态下以及转换到D0状态时保持PME上下文。由于到达此状态时电源已被移除，Function若要维持PME上下文，必须有辅助电源可用。然后，当设备进入D0 $\mathrm { U n i n i t i a l i z e d }$时，如果其有此能力且已被使能，则可以产生PME消息以通知系统唤醒事件。有关辅助电源的更多信息，请参见第775页的"Auxiliary Power"。 |
-| Table 16-9 on page 722 illustrates the PM policies while in the $\mathrm { D } 3 _ { \mathrm { C o l d } }$ state. | 第722页的表16-9说明了$\mathrm { D } 3 _ { \mathrm { C o l d } }$状态下的PM策略。 |
+| A device enabled to generate ECRCs originates a TLP (Request or Completion), computes the 32-bit ECRC based on the header and data portions of the packet and adds it to the end of the packet. The ECRC is called "end-to-end" because the intent is that it will be generated at the TLP's origin and never stripped off or regenerated by any intermediate device along its path. Switches in the path between the originating and receiving devices are allowed to check and report ECRC errors but aren't required to do so. Whether or not there is an error, a Switch must still forward the packet unaltered so that the ultimate target device can evaluate the ECRC and take appropriate steps. If a Switch is acting as the originator or recipient of the TLP it can participate like an ordinary device in ECRC generation and checking. For more on the topic of how a Switch is allowed to report such errors, see "Advisory Non-Fatal Errors" on page 670. | 启用ECRC生成的设备发起一个TLP（请求或完成报文），基于报文头部和数据部分计算32位ECRC，并将其附加到报文末尾。ECRC被称为"端到端"CRC，因为其意图是在TLP的源端生成，并且沿途的任何中间设备都不会剥离或重新生成它。位于源设备和接收设备路径之间的交换机可以检查并报告ECRC错误，但并非必须如此。无论是否有错误，交换机必须保持报文不变地转发，以便最终目标设备能够评估ECRC并采取适当措施。如果交换机充当TLP的发起方或接收方，它可以像普通设备一样参与ECRC生成和校验。有关交换机如何报告此类错误的更多信息，请参见第670页的"建议性非致命错误"。 |
 
-**Table 16-9: $\mathbf{D3_{cold}}$ Power Management Policies**
-
-<table><tr><td>Bus PM State</td><td>Function PM State</td><td>Registers and/or State that must be valid</td><td>Power</td><td>Actions permitted to Function</td><td>Actions permitted by Function</td></tr><tr><td>L2</td><td rowspan="2"> $D3_{cold}$ </td><td>PME context*</td><td>AUX Power</td><td rowspan="2">Bus reset only</td><td>Signal Beacon or WAKE#**</td></tr><tr><td>L3</td><td colspan="2">None</td><td>None</td></tr></table>
-
-\* If PME supported in this state.
-\*\* The method used to signal a wake to restore clock and power depends on the form factor.
+## TLP Digest | TLP 摘要
 
 | EN | ZH |
 |---|---|
-| ## Function PM State Transitions | ## 功能PM状态转换 |
-| Figure 16-6 illustrates the PM state transitions for a PCIe Function. Table 16-10 on page 723 provides a description of each transition. Table 16-11 on page 724 illustrates the transitions from one state to another from both a hardware and a software perspective. | 图16-6展示了PCIe功能的PM状态转换。第723页的表16-10描述了每种转换。第724页的表16-11从硬件和软件两个角度说明了各状态之间的转换。 |
+| If the optional ECRC capability is enabled, a special bit called TD (TLP Digest) is set in the header to indicate that it's present at the end of the packet (the ECRC is also called the Digest). The TD bit in the packet header is shown in Figure 15-5 on page 659. The spec emphasizes that this bit must be treated with special care when forwarding a TLP because if it's missing but the ECRC is present, or vice-versa, then the packet will be considered Malformed. | 如果启用了可选的 ECRC 能力，则在报头中设置一个称为 TD（TLP 摘要）的特殊位，以指示其在数据包尾部存在（ECRC 也称为摘要）。数据包报头中的 TD 位如图 15-5（第 659 页）所示。规范强调，在转发 TLP 时必须特别小心处理该位，因为如果该位缺失但 ECRC 存在，或者反之，则数据包将被视为畸形数据包。 |
 
-Figure 16-6: PCIe Function D-State Transitions | 图16-6：PCIe功能D状态转换  
+Figure 15-5: TLP Digest Bit in a Completion Header | 图15-5：完成头中的TLP摘要位
 
-<img src="images/part05_547d9d4a578662bb8ce1004893b67c56f49dee4a359dc4f7c52c1eb851b2d32e.jpg" width="700" alt="">
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="4">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>THD</td><td>EDP</td><td>Attr</td><td>AT</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="13">Bytes 4-7 Vary with Type Field</td></tr><tr><td>Byte 8</td><td colspan="13">Bytes 8-11 Vary with Type Field</td></tr><tr><td>Byte 12</td><td colspan="13">Bytes 12-15 Vary with Type Field</td></tr></table>
 
-Table 16-10: Description of Function State Transitions | 表16-10：功能状态转换描述
+## Variant Bits Not Included in ECRC Mechanism | ECRC 机制中不包含的变体比特
 
-<table><tr><td>From State</td><td>To State</td><td>Description</td></tr><tr><td>D0 Uninitialized</td><td>D0 Active</td><td>Function has been completely configured and enabled by its driver.</td></tr><tr><td rowspan="3">D0 Active</td><td>D1</td><td>Software writes the PMCSR PowerState to D1.</td></tr><tr><td>D2</td><td>Software writes the PMCSR PowerState to D2.</td></tr><tr><td> $D3_{hot}$ </td><td>Software writes the PMCSR PowerState to  $D3_{hot}$ .</td></tr><tr><td rowspan="3">D1</td><td>D0 Active</td><td>Software writes the PMCSR PowerState to D0.</td></tr><tr><td>D2</td><td>Software writes the PMCSR PowerState to D2.</td></tr><tr><td> $D3_{hot}$ </td><td>Software writes the PMCSR PowerState to  $D3_{hot}$ .</td></tr><tr><td rowspan="2">D2</td><td>D0 Active</td><td>Software writes the PMCSR PowerState to D0.</td></tr><tr><td> $D3_{hot}$ </td><td>Software writes the PMCSR PowerState to  $D3_{hot}$ .</td></tr><tr><td rowspan="2"> $D3_{hot}$ </td><td> $D3_{cold}$ </td><td>Power is removed from the Function.</td></tr><tr><td>D0 Uninitialized</td><td>Software writes the PMCSR PowerState to D0.</td></tr><tr><td> $D3_{cold}$ </td><td>D0 Uninitialized</td><td>Power is restored to the Function.</td></tr></table>
-
-Table 16-11: Function State Transition Delays | 表16-11：功能状态转换延迟
-
-<table><tr><td>Initial State</td><td>Next State</td><td>Minimum software-guaranteed delays</td></tr><tr><td>D0</td><td>D1</td><td>0</td></tr><tr><td>D0 or D1</td><td>D2</td><td>200μs from new state setting to first access (including config accesses).</td></tr><tr><td>D0, D1, or D2</td><td> $D3_{hot}$ </td><td>10ms from new state setting to first access.</td></tr><tr><td>D1</td><td>D0</td><td>0</td></tr><tr><td>D2</td><td>D0</td><td>200μs from new state setting to first access.</td></tr><tr><td> $D3_{hot}$ </td><td>D0</td><td rowspan="2">10ms from new state setting to first access.</td></tr><tr><td> $D3_{cold}$ </td><td>D0</td></tr></table>
-
-| EN | ZH |
-|----|----|
-| ## Detailed Description of PCI-PM Registers | ## PCI-PM 寄存器详细说明 |
-| The PCI Bus PM Interface spec defines the PM registers (see Figure 16‐7) that are implemented in PCIe Functions. Configuration software can determine the PM capabilities and control its properties. | PCI 总线 PM 接口规范定义了在 PCIe 功能中实现的 PM 寄存器（见图 16-7）。配置软件可以确定 PM 能力并控制其属性。 |
-
-Figure 16‐7: PCI Function's PM Registers | 图16‐7：PCI功能的电源管理寄存器
-
-<table><tr><td colspan="2">Power Management Capabilities (PMC)</td><td>Pointer to Next Capability</td><td>Capability ID 01h</td></tr><tr><td>Data Register</td><td>Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2">Control/Status Register (PMCSR)</td></tr></table>
-
-| EN | ZH |
+| English | 中文 |
 |---|---|
-| ## PM Capabilities (PMC) Register | ## PM 能力 (PMC) 寄存器 |
-| The fields of this 16‑bit read‑only register are described in Table 16‑12. | 该 16 位只读寄存器的字段如表 16‑12 所述。 |
-| Table 16‑12: The PMC Register Bit Assignments | 表 16‑12：PMC 寄存器位分配 |
-
-<table><tr><td>Bit(s)</td><td colspan="2">Description</td></tr><tr><td>31:27</td><td colspan="2">PME_Support field. Indicates in which PM states the Function is capable of sending a PME message. A zero in a bit indicates PME notification is not supported in the respective PM state.BitCorresponds to PM State27 D028 D129 D230  $D3_{hot}$ 31  $D3_{cold}$  (Function requires aux power for PME logic and Wake signaling via beacon or WAKE# pin)Systems that support wake from  $D3_{cold}$  must also support aux power and must use it to signal the wakeup.Bits 31, 30, and 27 must be set to 1b for virtual PCI-PCI Bridges implemented within Root and Switch Ports. This is required for ports that forward PME Messages.</td></tr><tr><td>26</td><td colspan="2">D2_Support bit. 1 = Function supports the D2 PM state.</td></tr><tr><td>25</td><td colspan="2">D1_Support bit. 1 = Function supports the D1 PM state.</td></tr><tr><td rowspan="10">24:22</td><td colspan="2">Aux_Current field. For a Function that supports generation of the PME message from the D3cold state, this field reports the current demand made upon the 3.3Vaux power source (see "Auxiliary Power" on page 775) by the Function's logic that retains the PME context information. This information is used by software to determine how many Functions can simultaneously be enabled for PME generation (based on the total amount of current each draws from the system 3.3Vaux power source and the power sourcing capability of the power source).If the Function does not support PME notification from within the D3cold PM state, this field is not implemented and always returns zero when read. Alternatively, a new feature defined by PCI Express permits devices that do not support PMEs to report the amount of Aux current they draw when enabled by the Aux Power PM Enable bit within the Device Control register.If the Function implements the Data register (see "Data Register" on page 731), this field always returns zeros when read. The Data register then takes precedence over this field in reporting the 3.3Vaux current requirements for the Function.If the Function supports PME notification from the D3cold state and does not implement the Data register, then the Aux_Current field reports the 3.3Vaux current requirements for the Function. It is encoded as follows:</td></tr><tr><td>Bit24 23 22</td><td>Max Current Required</td></tr><tr><td>1 1 1</td><td>375mA</td></tr><tr><td>1 1 0</td><td>320mA</td></tr><tr><td>1 0 1</td><td>270mA</td></tr><tr><td>1 0 0</td><td>220mA</td></tr><tr><td>0 1 1</td><td>160mA</td></tr><tr><td>0 1 0</td><td>100mA</td></tr><tr><td>0 0 1</td><td>55mA</td></tr><tr><td>0 0 0</td><td>0mA</td></tr><tr><td>21</td><td>Device-Specific Initialization (DSI) bit. A one in this bit indicates that immediately after entry into the D0 Uninitialized state, the Function requires additional configuration above and beyond setup of its PCI configuration Header registers before the Class driver can use the Function. Microsoft OSs do not use this bit. Rather, the determination and initialization is made by the Class driver.</td></tr><tr><td>20</td><td>Reserved.</td></tr><tr><td>19</td><td>PME Clock bit. Does not apply to PCI Express. Must be hardwired to 0.</td></tr><tr><td rowspan="2">18:16</td><td>Version field. This field indicates the version of the PCI Bus PM Interface spec that the Function complies with.</td></tr><tr><td colspan="2">Bit18 17 16 Complies with Spec Version0 0 1 1.00 1 0 1.1 (required by PCI Express)</td></tr></table>
-
-## PM Control and Status Register (PMCSR) | 电源管理控制和状态寄存器（PMCSR）
-
-| EN | ZH |
-| --- | --- |
-| ## PM Control and Status Register (PMCSR) | ## PM控制/状态寄存器（PMCSR） |
-| This register, required for all PCI Express Devices, serves several purposes as described below. Table 16-13 on page 728 provides a description of the PMCSR bit fields. | 该寄存器是所有PCI Express设备必需的，具有以下几个用途。第728页的表16-13提供了PMCSR位字段的描述。 |
-| If the Function implements PME capability, a PME Enable bit permits software to enable or disable the Function's ability to assert the PME message or WAKE# signal, and a Status bit reflects whether or not a PME has occurred. | 如果该功能实现了PME能力，则PME使能位允许软件启用或禁用该功能断言PME消息或WAKE#信号的能力，而状态位反映是否发生了PME。 |
-| If the optional Data register is implemented (see "Data Register" on page 731), two fields are used to permit software to select which information can be read through the Data register, and provide the scaling multiplier for the Data register value. | 如果实现了可选的数据寄存器（见第731页的"Data Register"），则使用两个字段来允许软件选择可通过数据寄存器读取的信息，并为数据寄存器值提供缩放倍率。 |
-| The register's PowerState field can be read to determine the current PM state of the Function and written to place the Function into a new PM state. | 该寄存器的PowerState字段可被读取以确定功能的当前PM状态，并可被写入以将功能置于新的PM状态。 |
-
-Table 16-13: PM Control/Status Register (PMCSR) Bit Assignments | 表16-13：电源管理控制/状态寄存器（PMCSR）位分配
-
-| EN | ZH |
-| --- | --- |
-| Table 16-13: PM Control/Status Register (PMCSR) Bit Assignments | 表16-13：PM控制/状态寄存器（PMCSR）位分配 |
-
-<table><tr><td>Bit(s)</td><td>Value at Reset</td><td>Read/Write</td><td>Description</td></tr><tr><td>31:24</td><td>all zeros</td><td>Read Only</td><td>See "Data Register" on page 731.</td></tr><tr><td>23</td><td>zero</td><td>Read Only</td><td>Not used in PCI Express</td></tr><tr><td>22</td><td>zero</td><td>Read Only</td><td>Not used in PCI Express</td></tr><tr><td>21:16</td><td>all zeros</td><td>Read Only</td><td>Reserved</td></tr><tr><td>15</td><td>See Description.</td><td>Read, Write one to clear, Sticky RW1CS</td><td>PME_Status bit.Optional: only implemented if the Function supports PME notification, otherwise zero.This bit reflects whether the Function has experienced a PME (even if the PME_En bit in this register has disabled the Function's ability to send a PME message). If set to one, the Function has experienced a PME. Software clears this bit by writing a one to it.After reset, this bit is zero if the Function doesn't support PME in D3cold. If the Function does support PME in D3cold, this bit is indeterminate at initial OS boot time but after that reflects whether the Function has experienced a PME.If the Function supports PME from D3cold, the state of this bit must persist even if power is lost or the Function is reset (a sticky bit). This implies that an auxiliary power source keeps this logic active during these conditions (see "Auxiliary Power" on page 775).</td></tr></table>
-
-| EN | ZH |
-| --- | --- |
-| Bit(s) | 位 |
-| Value at Reset | 复位值 |
-| Read/Write | 读/写 |
-| Description | 描述 |
-| 31:24 | all zeros / 全零 |
-| 23 | zero / 零 |
-| 22 | zero / 零 |
-| 21:16 | all zeros / 全零 |
-| 15 | See Description. / 参见描述。 |
-| Read, Write one to clear, Sticky RW1CS | 读、写1清零、粘滞RW1CS |
-| PME_Status bit. Optional: only implemented if the Function supports PME notification, otherwise zero. | PME_Status位。可选：仅当功能支持PME通知时实现，否则为零。 |
-| This bit reflects whether the Function has experienced a PME (even if the PME_En bit in this register has disabled the Function's ability to send a PME message). | 该位反映功能是否经历过PME（即使该寄存器中的PME_En位已禁用功能发送PME消息的能力）。 |
-| If set to one, the Function has experienced a PME. Software clears this bit by writing a one to it. | 如果设置为1，则表示功能经历过PME。软件通过写入1来清除该位。 |
-| After reset, this bit is zero if the Function doesn't support PME in D3cold. | 复位后，如果功能不支持D3cold中的PME，则该位为零。 |
-| If the Function does support PME in D3cold, this bit is indeterminate at initial OS boot time but after that reflects whether the Function has experienced a PME. | 如果功能确实支持D3cold中的PME，则该位在操作系统初始启动时是不确定的，但之后反映功能是否经历过PME。 |
-| If the Function supports PME from D3cold, the state of this bit must persist even if power is lost or the Function is reset (a sticky bit). | 如果功能支持来自D3cold的PME，则该位的状态即使在掉电或功能复位时也必须保持（粘滞位）。 |
-| This implies that an auxiliary power source keeps this logic active during these conditions (see "Auxiliary Power" on page 775). | 这意味着在这些情况下由辅助电源保持该逻辑活动（见第775页的"Auxiliary Power"）。 |
-
-| EN | ZH |
-|---|---|
-| ## Chapter 16: Power Management | ## 第16章：电源管理 |
-
-Table 16‐13: PM Control/Status Register (PMCSR) Bit Assignments (Continued) | 表16‐13：电源管理控制/状态寄存器（PMCSR）位分配（续）
-表16‐13：PM控制/状态寄存器（PMCSR）位分配（续）
-
-<table><tr><td>Bit(s)</td><td>Value at Reset</td><td>Read/Write</td><td>Description</td></tr><tr><td>14:13</td><td>Device-specific</td><td>Read Only</td><td>Data_Scale field. Optional. If the Function does not implement the Data register this field is hardwired to return zeros.If the Data register is implemented, the Data_Scale field is mandatory and must be a read-only value representing the multiplier for it. The value and interpretation of the Data_Scale field depends on the data item selected to be viewed through the Data register by the Data_Select field.</td></tr><tr><td>12:9</td><td>0000b</td><td>Read/Write</td><td>Data_Select field. Optional. If the Function does not implement the Data register, this field is hardwired to return zeros.If the Data register is implemented, Data_Select is a mandatory read/write field. The value placed in this register selects the data to be viewed in the Data register. That value must then be multiplied by the value read from the Data_Scale field.</td></tr></table>
-
-## PCI Express Technology | PCI Express 技术
-
-| EN | ZH |
-|---|---|
-| Table 16-13: PM Control/Status Register (PMCSR) Bit Assignments (Continued) | 表16-13：PM控制/状态寄存器（PMCSR）位分配（续） |
-
-<table><tr><td>Bit(s)</td><td>Value at Reset</td><td>Read/Write</td><td>Description</td></tr><tr><td>8</td><td>See Description.</td><td>Read/Write</td><td>PME_En bit. Optional.1 = enable Function's ability to send PME messages when an event occurs.0 = disable.If the Function does not support the generation of PMEs from any power state, this bit always return zero when read.After reset, this bit is zero if the Function doesn't support PME from D3cold. If the Function supports PME from D3cold:·this bit is indeterminate at initial OS boot time.·otherwise, it enables or disables whether the Function can send a PME message in case a PME occurs.If the Function supports PME from D3cold, the state of this bit must persist while the Function remains in the D3cold state and during the transition from D3cold to the D0 Uninitialized state. This implies that the PME logic must use an aux power source to power this logic during these conditions.</td></tr><tr><td>7:2</td><td>all zeros</td><td>Read Only</td><td>Reserved</td></tr><tr><td>1:0</td><td>00b</td><td>Read/Write</td><td>PowerState field. Mandatory. Software uses this field to read the current PM state of the Function or write a new PM state. If software selects a PM state not supported by the Function, the write completes normally but the data is discarded and no state change occurs.10 PM State0 0 D00 1 D11 0 D21 1 D3hot</td></tr></table>
-
-| EN | ZH |
-|---|---|
-| ## Data Register | ## 数据寄存器 |
-| Optional, read-only. Refer to Figure 16-8 on page 732. The Data register is an 8-bit, read-only register that provides software with the following information: | 可选，只读。参见第732页图16-8。数据寄存器是一个8位只读寄存器，为软件提供以下信息： |
-| • Power consumed in the selected PM state; useful in power budgeting. | • 在所选PM状态下的功耗；用于电源预算管理。 |
-| • Power dissipated in the selected PM state; useful in managing the thermal environment. | • 在所选PM状态下的功率耗散；用于管理热环境。 |
-| • Any type of data could be reported through this register, but the PCI-PM spec only defines power consumption and power dissipation information for it. | • 任何类型的数据均可通过该寄存器报告，但PCI-PM规范仅为其定义了功耗和功率耗散信息。 |
-| If the Data register is implemented, the Data\_Select and Data\_Scale fields of the PMCSR registers must also be implemented, and the Aux\_Current field of the PMC register must not be implemented. | 如果实现了数据寄存器，则必须同时实现PMCSR寄存器的Data\_Select和Data\_Scale字段，且不得实现PMC寄存器的Aux\_Current字段。 |
-| Determining Presence of the Data Register. Software can perform the following procedure to check for the presence of the Data register: | 判断数据寄存器的存在。软件可执行以下过程来检查数据寄存器的存在： |
-| 1. Write a value of 0000b into the Data\_Select field of the PMCSR register. | 1. 将值0000b写入PMCSR寄存器的Data\_Select字段。 |
-| 2. Read from either the Data register or the Data\_Scale field of the PMCSR register. A non-zero value indicates that the Data register as well as the Data\_Scale and Data\_Select fields of the PMCSR registers are implemented. If a value of zero is read, go to step 4. | 2. 读取数据寄存器或PMCSR寄存器的Data\_Scale字段。非零值表示数据寄存器以及PMCSR寄存器的Data\_Scale和Data\_Select字段均已实现。如果读取到零，则转到步骤4。 |
-| 3. If the current value of the Data\_Select field is a value other than 1111b, go to step 4. If the current value of the Data\_Select field is 1111b, all possible Data register values have been scanned and returned zero, indicating that neither the Data register nor the Data\_Scale and Data\_Select fields of the PMCSR registers are implemented. | 3. 如果Data\_Select字段的当前值不是1111b，则转到步骤4。如果Data\_Select字段的当前值是1111b，则所有可能的数据寄存器值均已扫描并返回零，表示数据寄存器以及PMCSR寄存器的Data\_Scale和Data\_Select字段均未实现。 |
-| 4. Increment the content of the Data\_Select field and go back to step 2. Since the data select field is only 4 bits, a complete scan requires testing 16 possible select values and looking to see if any non-zero values are seen for the data and scale registers. | 4. 递增Data\_Select字段的内容并返回步骤2。由于Data\_Select字段仅为4位，完整扫描需要测试16个可能的select值，并检查数据寄存器和scale寄存器是否出现任何非零值。 |
-| Operation of the Data Register. The information returned is typically a static copy of the Function's worst-case power consumption and power dissipation characteristics in the various PM states (as listed in the Device's data sheet). To use the Data register, the programmer uses the following sequence: | 数据寄存器的操作。返回的信息通常是该Function在各种PM状态下最差情况下的功耗和功率耗散特性的静态副本（如设备数据手册所列）。要使用数据寄存器，程序员需遵循以下顺序： |
-| 1. Write a value into the Data\_Select field (see Table 16-14 on page 733) of the PMCSR register to select the data item to be viewed through the Data register. | 1. 将一个值写入PMCSR寄存器的Data\_Select字段（参见第733页表16-14），以选择要通过数据寄存器查看的数据项。 |
-
-## PCI Express Technology | PCI Express 技术
-
-| EN | ZH |
-|---|---|
-| 2. Read the data value from Data register and the Data_Scale field of the PMCSR register. | 2. 从 Data 寄存器读取数据值以及 PMCSR 寄存器的 Data_Scale 字段。 |
-| 3. Multiply the value by the scaling factor. | 3. 将该值乘以缩放因子。 |
-| **Multi-Function Devices.** In a multi-function PCI Express device, each Function must supply its own power information. The power information for the logic common to all the Functions is reported through Function zero's Data register (see Data Select Value = 8 in Table 16-14 on page 733). | **多功能设备。** 在多功能 PCI Express 设备中，每个功能必须提供其自身的电源信息。所有功能所共用逻辑的电源信息通过功能 0 的 Data 寄存器报告（参见第 733 页表 16-14 中 Data Select Value = 8）。 |
-| **Virtual PCI-to-PCI Bridge Power Data.** The spec doesn't specify data field use in PCI-to-PCI bridge Functions in a Root Complex or Switch. But, to maintain PCI-PM compatibility, bridges must report the power information they consume. Software could read the virtual PPB Data registers at each port of a switch to determine the power consumed by the switch in each power state. | **虚拟 PCI-to-PCI 桥电源数据。** 规范未指定根复合体或交换机中 PCI-to-PCI 桥功能的 Data 字段使用。但为保持 PCI-PM 兼容性，桥必须报告其所消耗的电源信息。软件可读取交换机每个端口的虚拟 PPB Data 寄存器，以确定交换机在每个电源状态下的功耗。 |
-
-Figure 16-8: PM Registers | 图16-8：PM寄存器
-
-<table><tr><td colspan="2">Power Management Capabilities (PMC)</td><td>Pointer to Next Capability</td><td>Capability ID 01h</td></tr><tr><td>Data Register</td><td>Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2">Control/Status Register (PMCSR)</td></tr></table>
-
-Table 16-14: Data Register Interpretation | 表16-14：数据寄存器解释
-
-<table><tr><td>Data Select Value</td><td>Data Reported in Data Register</td><td>Interpretation of Data Scale Field in PMCSR</td><td>Units/Accuracy</td></tr><tr><td>00h</td><td>Power consumed in D0</td><td rowspan="9">00b = unknown<br>01b = multiply by 0.1<br>10b = multiply by 0.01<br>11b = multiply by 0.001</td><td rowspan="9">Watts</td></tr><tr><td>01h</td><td>Power consumed in D1</td></tr><tr><td>02h</td><td>Power consumed in D2</td></tr><tr><td>03h</td><td>Power consumed in D3</td></tr><tr><td>04h</td><td>Power dissipated in D0</td></tr><tr><td>05h</td><td>Power dissipated in D1</td></tr><tr><td>06h</td><td>Power dissipated in D2</td></tr><tr><td>07h</td><td>Power dissipated in D3</td></tr><tr><td>08h</td><td>In a multi-function PCI device, Function 0 indicates power consumed by logic common to all Functions in the package.</td></tr><tr><td>09h-0Fh</td><td>Reserved for future use of Function 0 in a multi-function device.</td><td rowspan="2">Reserved</td><td rowspan="2">TBD</td></tr><tr><td>08h-0Fh</td><td>Reserved in single-function devices and Functions other than Function 0 in a multi-function device</td></tr></table>
-
-## 1.4 Introduction to Link Power Management | 1.4 链路电源管理简介
-## 1.4 Introduction to Link Power Management | 1.4 链路电源管理简介
-
-| EN | ZH |
-|---|---|
-| We've just seen how software can put Devices into one of several device power states, now let's consider how PCIe also manages Link power. Device power and Link power are related to each other, as shown in Table 16-15 on page 734. Note also the relationship between downstream and upstream devices, which can be summarized by saying that an upstream Device or Link cannot be in a more aggressive power-conserving state than the one below it. The reason is to facilitate timely delivery of packets from the Endpoints, whose traffic would be delayed if upstream devices were in a lower power state. Each relationship is described below: | 我们刚刚了解了软件如何将设备置入若干设备电源状态之一，现在来考察PCIe如何管理链路电源。设备电源与链路电源相互关联，如第734页表16-15所示。还请注意下游设备与上游设备之间的关系，可以概括为：上游设备或链路不能处于比其下方设备更激进的省电状态。原因是为了便于来自端点的数据包及时送达，如果上游设备处于更低的电源状态，这些流量将会被延迟。每种关系描述如下： |
-| D0 — Device is fully powered and typically in the L0 Link state. Some power conservation is available without leaving this state by using DPA substates (see "Dynamic Power Allocation (DPA)" on page 714), and by using the hardware-based Link power management (see "Active State Power Management (ASPM)" on page 735 for more details). | D0 — 设备完全上电，通常处于L0链路状态。在不离开此状态的情况下，可以通过使用DPA子状态（见第714页"动态功率分配（DPA）"）以及基于硬件的链路电源管理（详见第735页"主动状态电源管理（ASPM）"）来实现一定程度的省电。 |
-| D1 & D2 — When software changes the device state to D1 or D2, the Link must automatically transition to the L1 state. Since both Link partners are involved in this operation there is a handshake mechanism to ensure that things are done in an orderly fashion. | D1和D2 — 当软件将设备状态改为D1或D2时，链路必须自动转换到L1状态。由于链路双方都参与此操作，因此存在一种握手机制以确保有序完成。 |
-| $\mathbf { D 3 _ { h o t } }$ — When software places a device into the D3 state, the Link automatically transitions to L1 just as it does when going to the D1 and D2 states. Software may now choose to remove the reference clock and power, putting the device into $\mathrm { D } 3 _ { \mathrm { c o l d } } .$ But, before doing that, it's expected that the system will initiate a handshake process to prepare the Links by putting them into the L2/L3 Ready state. | $\mathbf { D 3 _ { h o t } }$ — 当软件将设备置入D3状态时，链路自动转换到L1，这与进入D1和D2状态时的情况相同。此时软件可以选择移除参考时钟和电源，将设备置入$\mathrm { D } 3 _ { \mathrm { c o l d } }$。但在执行此操作之前，系统应启动一个握手过程，通过将链路置入L2/L3 Ready状态来做好准备。 |
-| $\mathbf { D } 3 _ { \mathbf { c o l d } }$ — In this state, main power and the reference clock have been turned off. However, auxiliary power $(\bar { \mathrm { V } } _ { \mathrm { A U X } })$ may be available, allowing the device to signal a wakeup event to the system. If it is, the Link state will be in L2. If main power is removed but $\mathsf { V } _ { \mathrm { A U X } }$ is not available, the Link will be in L3. Table 16-16 on page 735 provides additional information regarding the Link power states. | $\mathbf { D } 3 _ { \mathbf { c o l d } }$ — 在此状态下，主电源和参考时钟已关闭。但辅助电源$(\bar { \mathrm { V } } _ { \mathrm { A U X } })$可能仍然可用，允许设备向系统发出唤醒事件信号。如果辅助电源可用，链路状态将为L2。如果主电源已移除但$\mathsf { V } _ { \mathrm { A U X } }$不可用，链路将处于L3状态。第735页表16-16提供了有关链路电源状态的更多信息。 |
-
-Table 16-15: Relationship Between Device and Link Power States | 表16-15：设备和链路电源状态之间的关系
-
-<table><tr><td>Downstream Component D-State</td><td>Permissible Upstream Component D-State</td><td>Permissible Interconnect State</td></tr><tr><td>D0</td><td>D0</td><td>L0, L0s &amp; L1 (optional)</td></tr><tr><td>D1</td><td>D0-D1</td><td>L1</td></tr><tr><td>D2</td><td>D0-D2</td><td>L1</td></tr><tr><td>D3 hot</td><td>D0-D3 hot</td><td>L1, L2/L3 Ready</td></tr><tr><td>D3 cold</td><td>D0-D3 cold</td><td>L2 (AUX Pwr), L3</td></tr></table>
-
-Table 16-16: Link Power State Characteristics | 表16-16：链路电源状态特性
-
-<table><tr><td>State</td><td>Description</td><td>Software Directed?</td><td>Active State Link PM</td><td>Ref. Clocks</td><td>Main Power</td><td>PLL</td><td>Vaux</td></tr><tr><td>L0</td><td>Fully Active</td><td>Yes (D0)</td><td>On</td><td>On</td><td>On</td><td>On</td><td>On/Off</td></tr><tr><td>L0s</td><td>Standby</td><td>No</td><td>Yes (D0)</td><td>On</td><td>On</td><td>On</td><td>On/Off</td></tr><tr><td>L1</td><td>Low Power Standby</td><td>Yes* (D1-D3 hot)</td><td>Yes (option) (D0)</td><td>On</td><td>On</td><td>On/Off</td><td>On/Off</td></tr><tr><td>L2/L3 Ready</td><td>Staging for power removal</td><td>Yes PME_Turn_Off handshake</td><td>No</td><td>On</td><td>On</td><td>On/Off</td><td>On/Off</td></tr><tr><td>L2</td><td>Low Power Sleep</td><td>Yes**</td><td>No</td><td>Off</td><td>Off</td><td>Off</td><td>On</td></tr><tr><td>L3</td><td>Off (Zero Power)</td><td>N/A</td><td>N/A</td><td>Off</td><td>Off</td><td>Off</td><td>Off</td></tr></table>
-
-| EN | ZH |
-|---|---|
-| \* The L1 state is entered either due to PM software placing a device into the D1, D2, or D3 states or under hardware control with ASPM. | \* L1状态要么由电源管理软件将设备置入D1、D2或D3状态而进入，要么由ASPM在硬件控制下进入。 |
-| \*\* The spec describes the L2 state as being software directed. The other L-states in the table are listed as software directed because software initiates the transition into these states. For example, when software initiating a device power state change to D1, D2, or D3 devices must respond by entering the L1 state. Software then causes the transition to the L2/L3 Ready state by initiating a PME_Turn_Off message. Finally, software initiates the removal of power from a device after the device has transitioned to the L2/L3 Ready state. Because Vaux power is available in L2, a wakeup event can be signaled to notify software. | \*\* 规范将L2状态描述为软件导向的。表中其他L状态也列为软件导向的，因为软件启动进入这些状态的转换。例如，当软件发起设备电源状态变更到D1、D2或D3时，设备必须通过进入L1状态来响应。然后软件通过发起PME_Turn_Off消息导致转换到L2/L3 Ready状态。最后，在设备转换到L2/L3 Ready状态后，软件发起从设备移除电源。由于L2状态下Vaux电源可用，可以发出唤醒事件通知软件。 |
-
-## 1.5 Active State Power Management (ASPM) | 1.5 主动状态电源管理（ASPM）
-## 1.5 Active State Power Management (ASPM) | 1.5 主动状态电源管理(ASPM)
-
-| EN | ZH |
-|----|----|
-| ASPM is a hardware-based Link power conservation mechanism that only applies while the device is in the D0 device power state. Transitions into and out of ASPM states are initiated by hardware based on implementation-specific criteria; software can't control or observe this operation, it can only enable or disable it using configuration register bits (see Figure 16-15 on page 744). | ASPM是一种基于硬件的链路电源节省机制，仅在设备处于D0设备电源状态时适用。进入和退出ASPM状态的转换由硬件基于实现特定的准则发起；软件不能控制或观察此操作，只能通过配置寄存器位来启用或禁用它（参见第744页图16-15）。 |
-| Two low power states are defined for ASPM: | ASPM定义了两种低功耗状态： |
-| 1. L0s (standby state) — This state provides substantial power savings but still allows quick entry and exit latencies. The main way this is done is by putting the Transmitter into the Electrical Idle condition. Support for this state was previously required for all PCIe devices in the earlier spec versions, but in the 3.0 spec it became optional. | 1. L0s（待机状态）— 此状态可提供显著的电源节省，但仍允许快速的进入和退出延迟。实现此目标的主要方式是将发送器置于电气空闲条件。在较早的规范版本中，所有PCIe设备之前都必须支持此状态，但在3.0规范中它变为可选的。 |
-| 2. L1 ASPM — The goal for L1 is to achieve greater power conservation than L0s for situations where longer entry and exit latencies are acceptable. For example, in this state both Transmitters go into Electrical Idle at the same time. Support for this state continues to be optional in the 3.0 spec as it was in the earlier specs. | 2. L1 ASPM — L1的目标是在允许较长进入和退出延迟的情况下实现比L0s更大的电源节省。例如，在此状态下两个发送器同时进入电气空闲。与较早的规范一样，此状态在3.0规范中继续为可选的。 |
-
-## 1.5.1 Electrical Idle | 1.5.1 电气空闲
-
-| EN | ZH |
-| --- | --- |
-| Since putting a Transmitter into Electrical Idle is a central part of ASPM, it will help to discuss how doing so works. | 由于将发送器置入电气空闲是 ASPM 的核心部分，讨论其工作方式将有助于理解。 |
-| When a Transmitter's differential signals (TxD+ and TxD-) go into the Electrical Idle condition, it stops signaling and instead holds its voltage very close to the common mode voltage with a differential voltage of 0 V. | 当发送器的差分信号（TxD+ 和 TxD-）进入电气空闲状态时，它将停止信号传输，而是将其电压保持在非常接近共模电压的水平，差分电压为 0 V。 |
-| Signal transitions consume power, so stopping them on the Link gives power savings while still allowing a fairly quick resumption back to normal Link activity during which it is said to be in the L0 state. | 信号跳变会消耗功率，因此在链路上停止信号跳变可以节省功耗，同时仍允许相当快速地恢复到正常的链路活动，此时称链路处于 L0 状态。 |
-| Depending on the degree of power savings, the Link is either in the L0s or L1 state. | 根据功耗节省的程度，链路处于 L0s 或 L1 状态。 |
-| During this time, the transmitter may choose to remain in the low-impedance state or change to high impedance by turning off its termination logic to save more power. | 在此期间，发送器可以选择保持在低阻抗状态，或通过关闭其端接逻辑变为高阻抗以节省更多功耗。 |
-| In addition to L0s and L1, Electrical Idle will also be in effect when the Link has been disabled. | 除 L0s 和 L1 之外，当链路被禁用时，电气空闲也将生效。 |
-
-## Transmitter Entry to Electrical Idle | 发送器进入电气空闲
-
-| EN | ZH |
-|---|---|
-| Transmitters that wish to enter the Electrical Idle condition must first inform the Link partner so the lack of further signaling won't be misinterpreted as an error. They do that by sending the EIOS (Electrical Idle Ordered-Set) and then quickly ceasing transmission and tri-stating the Link output drivers. What the EIOS looks like depends on the encoding method in use, as described in the following sections. Once the last EIOS has been sent, the Transmitter must enter Electrical Idle within 8ns and remain in that mode for at least 20ns, regardless of the data rate. The differential peak voltage allowed during Electrical Idle must be between 0 and 20mV peak, again regardless of the data rate, to reduce the chance of the Receiver misinterpreting noise on the line as a valid signal. (See Table 13-3 on page 489 for more on these timing and voltage parameters.) | 希望进入电气空闲（Electrical Idle）状态的发送器（Transmitter）必须首先通知链路（Link）对端，以免链路对端将后续信号的缺失误判为错误。发送器通过发送EIOS（电气空闲有序集，Electrical Idle Ordered-Set）来实现此通知，随后迅速停止发送并将链路输出驱动器置为高阻态。EIOS的形式取决于所使用的编码方式，如下文各节所述。发送完最后一个EIOS后，无论数据速率如何，发送器都必须在8ns内进入电气空闲状态，并保持该模式至少20ns。同样无论数据速率如何，电气空闲期间允许的差分峰值电压必须在0到20mV峰值之间，以降低接收器（Receiver）将线路上的噪声误判为有效信号的可能性。（有关这些时序和电压参数的更多信息，请参见第489页的表13-3。） |
-| **Gen1/Gen2 Mode Encoding** | **Gen1/Gen2模式编码** |
-| For Gen1/Gen2 mode, the EIOS takes the form shown in Figure 16-9 on page 737. All four Symbols must be sent, but the Receiver only needs to see two IDL control characters to recognize this condition. | 对于Gen1/Gen2模式，EIOS的形式如图16-9（第737页）所示。必须发送全部四个符号（Symbol），但接收器只需检测到两个IDL控制字符即可识别该条件。 |
-
-Figure 16-9: Gen1/Gen2 Mode EIOS Pattern | 图16-9：Gen1/Gen2模式EIOS模式
-
-<img src="images/part05_12d61c63aaefd1001bbe61a3afb4c33d2e2a960cb755c0683c0e38060722b510.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| **Gen3 Mode Encoding** | **Gen3模式编码** |
-| For Gen3 mode, the EIOS is an Ordered Set block that consists of an Ordered Set Sync Header (01b) followed by 16 bytes that are all 66h, as shown in Figure 16-10 on page 737. Curiously, a Transmitter is not required to finish the block if it will go directly to Electrical Idle but is allowed to stop after Symbol 13 (anywhere in Symbol 14 or 15). The reason is to allow for the case where an internal clock doesn't line up with the Symbol boundaries due to 128b/130b encoding. This truncation won't cause a problem at the Receiver because it only needs to see Symbols 0-3 of the EIOS to recognize it. | 对于Gen3模式，EIOS是一个有序集块（Ordered Set block），由一个有序集同步头（Ordered Set Sync Header，01b）后跟全部为66h的16个字节组成，如图16-10（第737页）所示。值得注意的是，如果发送器将直接进入电气空闲，则不要求其完成整个块，而是允许其在符号13之后停止（符号14或15中的任意位置）。这样做的原因是考虑到由于128b/130b编码，内部时钟可能与符号边界不对齐的情况。这种截断不会在接收器端引起问题，因为接收器只需看到EIOS的符号0-3即可识别该状态。 |
-
-Figure 16-10: Gen3 Mode EIOS Pattern | 图16-10：Gen3模式EIOS模式
-
-<img src="images/part05_c0710d12e256c474df2870cd8809c5c6bef9b26ebf839c0fdf6e3170a8318432.jpg" width="700" alt="">
-
-## Transmitter Exit from Electrical Idle | 发送器退出电气空闲
-
-| EN | ZH |
-|---|---|
-| When a Transmitter is instructed to exit from Electrical Idle, the steps it takes depend on the data rate in use (see below). However, it must resume transmission within less than 8ns by sending FTSs or TS1/TS2s causing transition back to the L0 full-on state. | 当发送器被指示退出电气空闲时，其采取的步骤取决于当前使用的数据速率（见下文）。但发送器必须通过在 8ns 内发送 FTS 或 TS1/TS2 来恢复传输，从而使链路转换回 L0 全开状态。 |
-| **Gen1 Mode.** For 2.5 GT/s, the process is simple: it begins using valid differential signals to send the TS1s or FTSs that will serve to inform the Receiver about the change. The Receiver detects the voltage as being above the squelch threshold and begins to evaluate the incoming signal. | **Gen1 模式。** 对于 2.5 GT/s，过程很简单：发送器开始使用有效的差分信号发送 TS1 或 FTS，以告知接收器状态的变化。接收器检测到电压高于静噪阈值，并开始评估输入信号。 |
-| **Gen2 Mode.** When using 5.0 GT/s, the signals are changing so quickly that they don't have time to reach the higher voltage levels. That makes it more difficult to quickly detect when the voltages have changed back to the operational values. To make this easier, the EIEOS (Electrical Idle Exit Ordered Set), was defined to provide a lower-frequency sequence. The EIEOS for 8b/10b encoding, shown in Figure 16-11 on page 739, uses repeated K28.7 control characters to appear as a repeating string of 5 ones followed by 5 zeros. This gives the low-frequency signal that allows the higher signal voltages that are more readily seen. In fact, the spec states that this pattern guarantees that the Receiver will properly detect an exit from Electrical Idle, something that scrambled data cannot do. The EIEOS is to be sent under the following conditions: | **Gen2 模式。** 使用 5.0 GT/s 时，信号变化非常快，没有时间达到较高的电压电平。这使得快速检测电压是否已恢复为工作值变得更加困难。为解决此问题，定义了 EIEOS（电气空闲退出有序集）以提供较低频率的序列。用于 8b/10b 编码的 EIEOS（见第 739 页图 16-11）使用重复的 K28.7 控制字符，呈现为重复的 5 个 1 后跟 5 个 0 的字符串。这提供了低频信号，从而可获得更易检测的较高信号电压。事实上，规范指出此模式可保证接收器正确检测到电气空闲的退出，这是加扰数据无法做到的。EIEOS 应在以下条件下发送： |
-| Before the first TS1 after entering the Configuration.Linkwidth.Start or Recovery.RcvrLock state. | 在进入 Configuration.Linkwidth.Start 或 Recovery.RcvrLock 状态后，发送第一个 TS1 之前。 |
-| After every 32 TS1s or TS2s are sent in Configuration.Linkwidth.Start, Recovery.RcvrLock, or Recovery.RcvrCfg states. The TS1/TS2 count is reset to zero whenever an EIEOS is sent or the first TS2 is received in the Recovery.RcvrCfg state. | 在 Configuration.Linkwidth.Start、Recovery.RcvrLock 或 Recovery.RcvrCfg 状态下每发送 32 个 TS1 或 TS2 之后。每当发送 EIEOS 或在 Recovery.RcvrCfg 状态下接收到第一个 TS2 时，TS1/TS2 计数器将复位为零。 |
-
-Figure 16-11: Gen1/Gen2 Mode EIEOS Symbol Pattern | 图16-11：Gen1/Gen2模式EIEOS符号模式
-
-<img src="images/part05_baa1d13871ed11b0b0e824b9b4a63456f85f4b146081fa2d2f0d85d5d57d7b66.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| **Gen3 Mode.** An EIEOS is needed for 8 GT/s rate too and for the same reason as for 5.0 GT/s. Now, though, the Ordered Set takes the form of a block, as shown in Figure 16-12 on page 740. As before, it gives a low-frequency pattern in alternating bytes of 00h and FFh, which appears as a repeating string of 8 zeros followed by 8 ones. | **Gen3 模式。** 8 GT/s 速率同样需要 EIEOS，原因与 5.0 GT/s 相同。不过，此时有序集采用块的形式，如第 740 页图 16-12 所示。与之前一样，它以 00h 和 FFh 交替字节提供低频模式，呈现为重复的 8 个 0 后跟 8 个 1 的字符串。 |
-| In addition, EIEOS is sent so as to allow a receiver during LTSSM Recovery state to establish Block Lock after which the Link transitions to the L0 state. See the section "Block Alignment" on page 411 and "Achieving Block Alignment" on page 438. | 此外，发送 EIEOS 可使 LTSSM Recovery 状态下的接收器建立块锁定，之后链路转换到 L0 状态。参见第 411 页的"块对齐"一节和第 438 页的"实现块对齐"一节。 |
-| In Gen3 mode, EIEOS is to be sent: | 在 Gen3 模式下，EIEOS 应在以下条件下发送： |
-| • Before the first TS1 after entering the Configuration.Linkwidth.Start or Recovery.RcvrLock state. | • 在进入 Configuration.Linkwidth.Start 或 Recovery.RcvrLock 状态后，发送第一个 TS1 之前。 |
-| Immediately after an EDS Framing Token when a Data Stream is ending if an EIOS is not being sent and the LTSSM is not entering Recovery.RcvrLock. | 当数据流结束时，在 EDS 帧标记之后立即发送，前提是未发送 EIOS 且 LTSSM 未进入 Recovery.RcvrLock。 |
-| • After every 32 TS1s/TS2s whenever TS1s or TS2s are sent. The count is reset to zero when: | • 每当发送 TS1 或 TS2 时，每发送 32 个 TS1/TS2 之后。在以下情况下，计数器复位为零： |
-| — an EIEOS is sent | — 发送了 EIEOS |
-| — the first TS2 is received while in either the Recovery.RcvrCfg or Configuration.Complete LTSSM state | — 在 Recovery.RcvrCfg 或 Configuration.Complete LTSSM 状态下接收到第一个 TS2 |
-| — a Downstream Port in Phase 2 of the Equalization sequence, or an Upstream Port in Phase 3, receives two TS1s with the Reset EIEOS Interval Count bit set. | — 处于均衡序列阶段 2 的下行端口或处于阶段 3 的上行端口接收到两个设置了复位 EIEOS 间隔计数位 的 TS1。 |
-
-## PCI Express Technology | PCI Express 技术
-
-| EN | ZH |
-|---|---|
-| After every $2^{16}$ TS1s during the Equalization sequence, if the Reset EIEOS Interval Count bit has prevented it from being sent. The spec states that designs are allowed to satisfy this requirement by sending an EIEOS within 2 TS1s of the scrambling LFSR matching its seed value. | 在均衡序列期间每经过 $2^{16}$ 个 TS1 后，如果复位 EIEOS 间隔计数位阻止了其发送。规范指出，设计允许通过在扰码 LFSR 匹配其种子值后的 2 个 TS1 内发送一个 EIEOS 来满足此要求。 |
-| • As part of an FTS sequence, Compliance Pattern, or Modified Compliance pattern. | • 作为 FTS 序列、合规性模板或修改合规性模板的一部分。 |
-
-Figure 16‐12: 128b/130b EIEOS Block | 图16‐12：128b/130b EIEOS块
-
-<img src="images/part05_ab0a327bb776c6382f4898d15ddd8bae0856b48ea3707239b288a58b11fa9f74.jpg" width="700" alt="">
-
-## Receiver Entry to Electrical Idle | 接收器进入电气空闲
-
-| EN | ZH |
-|---|---|
-| When a Transmitter enters Electrical Idle, the Link partner's Receiver responds based on the data rate, as described in the following sections. Receipt of an EIOS informs the Receiver that this is going to happen, preparing it to detect when it actually does happen. When the Receiver detects this condition it de‑gates the error logic to prevent reporting errors caused by unreliable activity on the Link and arms its Electrical Idle Exit detector so it will be ready to resume normal activity when the Transmitter begins to send data again. There are two Electrical Idle detection options.: | 当发送器进入电气空闲时，链路对端的接收器根据数据速率做出响应，如下节所述。收到EIOS通知接收器即将发生此情况，使其准备好检测实际发生时的情况。当接收器检测到此条件时，它禁用错误逻辑以防止报告由链路上不可靠活动引起的错误，并启用其电气空闲退出检测器，以便在发送器再次开始发送数据时准备好恢复正常活动。有两种电气空闲检测选项： |
-| Detecting Electrical Idle Voltage. Once an EIOS has been received, the expectation is that the Transmitter will cease transmission very quickly. In the 1.x spec versions Receivers detect this by observing that the incoming voltage has dropped below the threshold of a valid signal. This isn't too difficult at 2.5 GT/s but it requires a squelch detect circuit that consumes space and power. | 检测电气空闲电压。一旦收到EIOS，预计发送器将很快停止发送。在1.x规范版本中，接收器通过观察输入电压是否降至有效信号阈值以下来检测此情况。在2.5 GT/s下这并不太难，但需要一个占用面积和功耗的静噪检测电路。 |
-| Inferring Electrical Idle. However, at higher frequencies the signal becomes increasingly attenuated, making it difficult for squelch detect logic to distinguish the levels. This is especially true for 8.0 GT/s, where it's expected that the Receiver may need to perform equalization internally to recover a good signal. To alleviate these detection problems, the 2.0 spec introduced the concept of allowing a Receiver to infer when the Link has gone to the Electrical Idle condition rather than testing the voltage level. In this model, the absence of expected events is used to indicate that the Link is not signaling and can therefore be assumed to be in Electrical Idle, as listed in Table 16‑17. By way of explanation, Flow Control Updates should arrive regularly while the Link is in L0, and SOSs are expected with certain timing, too. For simplicity, a Receiver is allowed to check for one or the other or both of these conditions. During Link training the TS1s and TS2s should arrive regularly, so their absence can also be taken to mean that the Link is Idle. For the last two rows of the table, though, it's possible that no Symbols have been received at all, and that will also be understood to mean the Link is Idle. Since Electrical Idle takes place for the overall Link and not for Lanes independently, there's no need for each Lane to measure these times. Instead, an LTSSM can just use one timer in common for all the Lanes on that Link. | 推断电气空闲。然而，在更高频率下，信号衰减加剧，使得静噪检测逻辑难以区分电平。对于8.0 GT/s尤其如此，接收器可能需要内部执行均衡才能恢复良好信号。为缓解这些检测问题，2.0规范引入了允许接收器推断链路何时进入电气空闲状态而非检测电压电平的概念。在此模型中，使用预期事件的缺失来指示链路没有发信号，因此可以假定处于电气空闲状态，如表16‑17所列。作为说明，当链路处于L0时，流控更新应定期到达，SOS也应按特定时序到达。为简化起见，允许接收器检查这些条件中的一个或另一个或两者皆检查。在链路训练期间，TS1和TS2应定期到达，因此它们的缺失也可被理解为链路处于空闲。但对于表中最后两行，可能根本没有收到任何符号，这也将被理解为链路处于空闲。由于电气空闲发生在整个链路上而非独立发生在各通道上，因此每个通道无需分别测量这些时间。相反，LTSSM可以仅使用一个定时器，供该链路上的所有通道共用。 |
-
-Table 16‑17: Electrical Idle Inference Conditions | 表16‑17：电气空闲推断条件
-
-<table><tr><td>State</td><td>2.5GT/s</td><td>5.0 GT/s</td><td>8.0 GT/s</td></tr><tr><td>L0</td><td colspan="3">Absence of an FC Update or SOS in a 128μs window</td></tr><tr><td>Recovery.RcvrCfg</td><td colspan="2">Absence of a TS1 or TS2 in a 1280 UI interval</td><td>Absence of a TS1 or TS2 in a 4ms window</td></tr><tr><td>Recovery.Speed (successful_speed_negotiation = 1b)</td><td colspan="2">Absence of a TS1 or TS2 in a 1280 UI interval</td><td>Absence of a TS1 or TS2 in a 4680 UI interval</td></tr><tr><td>Recovery.Speed (successful_speed_negotiation = 0b)</td><td>Absence of an exit from Electrical Idle in a 2000 UI interval</td><td colspan="2">Absence of an exit from Electrical Idle in a 16000 UI interval</td></tr><tr><td>Loopback.Active (as a slave)</td><td>Absence of an exit from Electrical Idle in a 128μs window</td><td>N/A</td><td>N/A</td></tr></table>
-
-| EN | ZH |
-|---|---|
-| How the EIOS is recognized at the Receiver also depends on the encoding scheme. For Gen1/Gen2 mode, a receiver recognizes an EIOS when it sees two of the three IDL Symbols. For Gen3 mode, it's recognized when Symbols 0‑3 of the incoming block match the EIOS pattern. | 接收器如何识别EIOS也取决于编码方案。对于Gen1/Gen2模式，接收器在看到三个IDL符号中的两个时识别出EIOS。对于Gen3模式，当输入块的符号0‑3与EIOS模式匹配时即识别出EIOS。 |
-
-## Receiver Exit from Electrical Idle | 接收器退出电气空闲
-
-| EN | ZH |
-|---|---|
-| Receivers detect a voltage difference to signify a resumption of normal signaling. An exit from Electrical Idle will be detected when the differential peak-to-peak voltage exceeds the Electrical Idle Detect threshold, which is allowed to be set between 65 and 175mV for all data rates. | 接收器通过检测电压差来表示正常信令的恢复。当差分峰峰值电压超过电气空闲检测阈值时，将检测到退出电气空闲状态，对于所有数据速率，该阈值允许设置在65至175mV之间。 |
-| At 2.5 GT/s nothing more is needed, but at higher rates Receivers don't have to rely on this detection circuit except when receiving EIEOS during certain LTSSM states or during the four EIE Symbols that precede transmission of an FTS sequence at 5.0 GT/s. The number and timing of EIEOSs to facilitate detection of Electrical Idle exit depends on the Link state. For more on this, see "Active State Power Management (ASPM)" on page 735. | 在2.5 GT/s时无需更多操作，但在更高速率下，接收器不必依赖此检测电路，除非在特定LTSSM状态期间接收EIEOS，或在5.0 GT/s时在发送FTS序列之前的四个EIE符号期间。用于辅助检测电气空闲退出的EIEOS数量和时序取决于链路状态。更多信息请参见第735页的"主动状态电源管理(ASPM)"。 |
-| In Electrical Idle, the Receiver's PLL looses clock synchronization. When the Transmitter exits Electrical Idle, it sends FTSs to exit from L0s, or TS1/TS2s to exit from all other Link states. Doing so supplies the needed transition density for the CDR logic to re-synchronize the receiver PLL and achieve Bit Lock and Symbol Lock or Block Alignment. | 在电气空闲状态下，接收器的PLL会失去时钟同步。当发送器退出电气空闲时，它会发送FTS以退出L0s，或发送TS1/TS2以退出所有其他链路状态。这样做为CDR逻辑提供了所需的跳变密度，以重新同步接收器PLL并实现位锁和符号锁或块对齐。 |
-| Figure 16-13 illustrates the Link state transitions and highlights the transitions between L0, L0s, and L1. Note that there is no direct path from L0s to L1, so the Link must be returned to the L0 state before changing between them. | 图16-13展示了链路状态转换，并突出显示了L0、L0s和L1之间的转换。注意，从L0s到L1没有直接路径，因此在它们之间切换时，链路必须先返回到L0状态。 |
-
-Figure 16-13: ASPM Link State Transitions | 图16-13：ASPM链路状态转换  
-
-<img src="images/part05_db088fbe98114f49d74254b7e1c01a9bc488da98525b305e1c281b900b76e5a7.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| The Link Capability register specifies a device's support for Active State Power Management. Figure 16-14 illustrates the ASPM Support field within this register. In earlier spec versions, not all 4 options were available, but the 2.1 spec filled in all of them. Note that bit 22 indicates whether all the options are available. | 链路能力寄存器指定设备对主动状态电源管理的支持。图16-14展示了该寄存器中的ASPM支持字段。在早期规范版本中，并非所有4个选项都可用，但2.1规范补充了所有选项。注意，位22指示所有选项是否均可用。 |
-
-Figure 16-14: ASPM Support | 图16-14：ASPM支持  
-
-<img src="images/part05_79f98295c4ea5ad89a906334db32eb545e7c9393555f7d18c8b9aead71a26630.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| Software can enable and disable ASPM via the Active State PM Control field of the Link Control Register as illustrated in Figure 16-15 on page 744. The possible settings are listed in Table 16-18 on page 743. Note: The spec recommends that ASPM be disabled for all components in a path used for Isochronous transactions if the additional latencies associated with ASPM exceed the limits of the isochronous transactions. | 软件可通过链路控制寄存器的主动状态PM控制字段来启用和禁用ASPM，如图16-15（第744页）所示。可能的设置列于表16-18（第743页）。注意：如果与ASPM相关的额外延迟超过等时事务的延迟限制，规范建议在用于等时事务的路径中为所有组件禁用ASPM。 |
-
-Table 16-18: Active State Power Management Control Field Definition | 表16-18：活动状态电源管理控制字段定义
-
-<table><tr><td>Setting</td><td>Description</td></tr><tr><td>00b</td><td>L0s and L1 ASPM disabled</td></tr><tr><td>01b</td><td>L0s enabled and L1 disabled</td></tr><tr><td>10b</td><td>L1 enabled and L0s disabled</td></tr><tr><td>11b</td><td>Both L0s and L1 enabled</td></tr></table>
-
-Figure 16-15: Active State PM Control Field | 图16-15：活动状态电源管理控制字段  
-
-<img src="images/part05_77e209a142c65d91bf56500642e273f00f0fc13f303078745de3ee810ce97cb7.jpg" width="700" alt="">
-
-## 1.5.2 L0s State | 1.5.2 L0s 状态
-
-| EN | ZH |
-|----|----|
-| L0s is a Link power state that can only be entered under hardware control and is applied to a single direction of the Link. For example, a large volume of traffic in conventional PC-based systems results from Functions sending data to main system memory. As a result, the upstream lanes carry heavy traffic while the downstream lanes may carry very little. These downstream lanes can enter the L0s state to conserve power during stretches of idle bus time. | L0s是一种链路电源状态，只能在硬件控制下进入，并应用于链路的单一方向。例如，在传统PC系统中，大量流量来自各功能向主系统内存发送数据。因此，上行通道承载繁重流量，而下行通道可能承载很少流量。这些下行通道可在总线空闲时段进入L0s状态以节省功耗。 |
-
-## Entry into L0s
-
-## 进入 L0s
-
-| EN | ZH |
-|---|---|
-| A Transmitter initiates a change from L0 to L0s after detecting a period of idle time that is implementation specific. | 发送方在检测到一段具体实现相关的空闲时间后，会启动从 L0 到 L0s 的转换。 |
-| Entry into L0s. Entry is managed for a single direction of the Link based on detecting a period of Link idle time. Ports are required to enter L0s after detecting idle time of no greater than 7μs. | 进入 L0s。进入过程是基于检测到一段链路空闲时间，针对链路的单个方向进行管理的。端口在检测到不超过 7μs 的空闲时间后，必须进入 L0s。 |
-| Idle is defined differently for Endpoints and Switches. The reason for this is a desire to minimize recovery time as Link recovery time propagates through Switches. For example, if a Switch upstream port was in a low power state and now sees activity, it means that a TLP is probably on its way down to the Switch. Where will the packet need to be routed? It will go to one of the downstream ports, but rather than wait to receive the packet and determine which port will be the target before starting to wake it up, the lowest-latency approach would be to wake all the downstream ports so that the one that turns out to be the target will be ready as quickly as possible. | 空闲的定义对于端点和交换机有所不同。其原因是为了最小化恢复时间，因为链路恢复时间会通过交换机传播。例如，如果交换机的上游端口处于低功耗状态，而现在检测到活动，这意味着可能有 TLP 正在发往该交换机。该数据包需要路由到哪里？它将发往某个下游端口，但与其等待接收数据包并确定哪个端口是目标后再开始唤醒它，最低延迟的方法是唤醒所有下游端口，这样最终成为目标的端口就能尽可能快地准备就绪。 |
-| Basic rules regarding idle time: | 关于空闲时间的基本规则： |
-| • Endpoint Port or Root Port: | • 端点端口或根端口： |
-| No TLPs are pending transmission or a lack of Flow Control credits is temporarily blocking them. | 没有待发送的 TLP，或者由于缺乏流控信用而暂时阻塞了发送。 |
-| - No DLLPs are pending transmission. | - 没有待发送的 DLLP。 |
-| • Upstream Switch Port: | • 交换机上游端口： |
-| - The receive lane of all downstream ports are already in L0s. | - 所有下游端口的接收通道已处于 L0s。 |
-| No TLPs are pending transmission or a lack of Flow Control credits is temporarily blocking them. | 没有待发送的 TLP，或者由于缺乏流控信用而暂时阻塞了发送。 |
-| - No DLLPs are pending transmission. | - 没有待发送的 DLLP。 |
-| • Downstream Switch Port: | • 交换机下游端口： |
-| The Switch's Upstream Port's Receive Lanes are in L0s. | 交换机的上游端口的接收通道处于 L0s。 |
-| No TLPs are pending transmission or a lack of Flow Control credits is temporarily blocking them. | 没有待发送的 TLP，或者由于缺乏流控信用而暂时阻塞了发送。 |
-| - No DLLPs are pending for transmission | - 没有待发送的 DLLP。 |
-| The Transaction and Data Link Layers are unaware of whether the Physical Layer transmitter has entered L0s, but the idle conditions that trigger a transition to L0s must be continuously reported from the Transaction and Link layers to the Physical Layer so it can make timely choices about this. Note that a port must always tolerate L0s on its receiver, even if software has disabled ASPM. This allows a device at the other end of the Link that is enabled for ASPM to still transition one side of the Link to the L0s state. | 事务层和数据链路层并不知晓物理层发送方是否已进入 L0s，但触发转换到 L0s 的空闲条件必须由事务层和链路层持续上报给物理层，以便物理层能及时做出相关决策。请注意，即使软件已禁用 ASPM，端口也必须始终容忍其接收端上的 L0s。这允许链路另一端已启用 ASPM 的设备仍然可以将链路的一侧转换到 L0s 状态。 |
-| Flow Control Credits Must be Delivered. One situation that qualifies as idle time is a pending TLP that is blocked due to insufficient FC credits. When flow control credits are received that allow delivery of the pending TLP, the transmitting port must initiate a return to L0. Also, if the receive buffer associated with the transmitter in L0s makes additional flow control credits available, the transmitter must return to L0 and deliver the FC_Update DLLP to the neighbor. | 流控信用必须被送达。一种符合空闲时间条件的情况是，有挂起的 TLP 因 FC 信用不足而被阻塞。当收到允许发送该挂起 TLP 的流控信用时，发送端口必须启动返回到 L0。此外，如果与处于 L0s 的发送方相关联的接收缓冲区释放了额外的流控信用，发送方必须返回 L0 并向邻居发送 FC_Update DLLP。 |
-| Transmitter Initiates Entry to L0s. When sufficient idle time has been observed by a Transmitter, it forces a transition from L0 to L0s by sending an "electrical idle" ordered set (EIOS) to the receiver and stopping transmission. The transmitter and receiver are now in their electrical idle states and have reduced power consumption. Synchronization between the transmitter and receiver has been lost and retraining will be required for recovery. The spec requires that the PLL logic in the receiver must remain active (powered) to allow quick recovery from L0s back to L0. | 发送方启动进入 L0s。当发送方观测到足够的空闲时间后，它通过向接收方发送"电气空闲"有序集 (EIOS) 并停止传输，强制从 L0 转换到 L0s。发送方和接收方现在处于电气空闲状态，功耗降低。发送方与接收方之间的同步已丢失，恢复时将需要重新训练。规范要求接收方中的 PLL 逻辑必须保持活动（供电），以允许从 L0s 快速恢复到 L0。 |
-
-## Exit from L0s State | 退出 L0s 状态
-
-| EN | ZH |
-|---|---|
-| If the transmitter detects that the idle condition is no longer true, it must initiate the exit from L0s to L0. The spec encourages designers to monitor events that give an early indication that an L0s exit is imminent and start the recovery process to speed up the transition back to L0. For example, if the Receiver of the port receives a non-posted Request, the Transmitter knows that it will soon be asked to send a Completion in response. Consequently, the Transmitter can go ahead and start the exit process so the Link state is L0 by the time it is asked to deliver the Completion. | 如果发送器检测到空闲条件不再成立，它必须启动从L0s到L0的退出。规范鼓励设计者监视那些能提前指示L0s退出即将发生的事件，并启动恢复过程以加速回到L0的转换。例如，如果端口的接收器收到一个非发布请求，发送器就知道很快将被要求发送一个完成报文作为响应。因此，发送器可以提前启动退出过程，以便在被要求交付完成报文时链路状态已经是L0。 |
-| **Transmitter Initiates L0s Exit.** To exit L0s, the Transmitter sends one or more Fast Training Sequence (FTS) Ordered Sets. The number of these required by the Link partner's Receiver was communicated earlier during Link training (N_FTS field in the TS1s and TS2s used in training). After sending the requested number of FTSs, one SOS is delivered. The receiver should be able to establish bit lock and symbol lock or Block lock, and should be ready to resume normal operation. | **发送器发起L0s退出。** 要退出L0s，发送器发送一个或多个快速训练序列(FTS)有序集。链路伙伴的接收器所需的FTS数量已在之前的链路训练期间传达（训练中使用的TS1和TS2中的N_FTS字段）。在发送所需数量的FTS之后，交付一个SOS。接收器应能够建立位锁定和符号锁定或块锁定，并应准备好恢复正常操作。 |
-| **Actions Taken by Switches that Receive L0s Exit.** A switch that receives an L0s to L0 transition sequence on one port may also need to initiate an L0s exit to other of its ports. Two specific cases are considered: | **收到L0s退出的交换机采取的动作。** 在一个端口上收到L0s到L0转换序列的交换机可能也需要在其其他端口上发起L0s退出。考虑两个具体情形： |
-| *Switch Downstream Port Receives L0s to L0 transition.* The switch must signal an L0s to L0 on its upstream port if it is currently in the L0s state because the packet coming up from the Endpoint or downstream switch will most likely need to go upstream to the Root Complex. | *交换机下游端口收到L0s到L0转换。* 如果交换机当前处于L0s状态，它必须在其上游端口上发出L0s到L0的信号，因为来自端点或下游交换机的报文很可能需要上行到根复合体。 |
-| *Switch Upstream Port Receives L0s to L0 transition.* The switch must signal an L0s to L0 transition on all downstream ports currently in the L0s state because it doesn't want to wait until the packet arrives to begin waking the target path. | *交换机上游端口收到L0s到L0转换。* 交换机必须在所有当前处于L0s状态的下游端口上发出L0s到L0转换的信号，因为它不想等到报文到达才开始唤醒目标路径。 |
-| Switch ports that were put into L1 by a software change to the device power state remain unaffected by L0s to L0 transitions. However, once the upstream Link has completed the transition to L0, a subsequent transaction may target this port, causing a transition from L1 to L0. | 通过软件更改设备电源状态而进入L1的交换机端口不受L0s到L0转换的影响。然而，一旦上游链路完成了到L0的转换，后续事务可能以该端口为目标，导致从L1到L0的转换。 |
-
-| EN | ZH |
-|---|---|
-| ## L1 ASPM State | ## L1 ASPM 状态 |
-| The optional L1 ASPM state provides deeper power savings than L0s, but has a greater recovery latency. This state results in both directions of the Link going into the L1 state and results in Link and Transaction layer deactivation within each device. | 可选的 L1 ASPM 状态提供比 L0s 更深的节能效果，但恢复延迟更大。该状态导致链路两个方向均进入 L1 状态，并导致每个设备内链路层和事务层停用。 |
-| Entry into this state is requested by an upstream port, such as from an Endpoint or the upstream port of a switch (upstream ports are shaded as shown in Figure 16-16). The downstream port responds to this request and either agrees to go into L1 or rejects the request through a negotiation process with the downstream component. Exiting L1 ASPM can be initiated by either the downstream or upstream port. | 进入该状态由上游端口请求，例如来自端点或交换机的上游端口（上游端口如图 16-16 所示以阴影标示）。下游端口响应该请求，并通过与下游组件协商，同意进入 L1 或拒绝该请求。退出 L1 ASPM 可由下游或上游端口发起。 |
-
-Figure 16-16: Only Upstream Ports Initiate L1 ASPM | 图16-16：仅上游端口发起L1 ASPM  
-
-<img src="images/part05_b97e1cf9a99cb4c47612ac5db33e2f91c348baf38a8902028212a4000b10ebbe.jpg" width="700" alt="">
-
-| EN | ZH |
-|----|----|
-| ## PCI Express Technology | ## PCI Express 技术 |
-
-## Downstream Component Decides to Enter L1 ASPM | 下游组件决定进入 L1 ASPM
-
-| EN | ZH |
-|---|---|
-| The spec does not precisely define all conditions under which an Endpoint or upstream port of a switch decides to attempt entry into the L1 ASPM state but does suggest that one case might be when both sides of the Link have been in L0s for a preset amount of time. The requirements given include: | 规范并未精确定义端点或交换机上游端口决定尝试进入L1 ASPM状态的所有条件，但建议一种情况可能是链路两侧都处于L0s状态达到预设时间。给出的要求包括： |
-| • ASPM L1 entry is supported and enabled | • ASPM L1入口受支持并已启用 |
-| • Device-specific requirements for entering L1 have been satisfied | • 进入L1的设备特定要求已满足 |
-| • No TLPs are pending transmission | • 没有待传输的TLP |
-| • No DLLPs are pending transmission | • 没有待传输的DLLP |
-| If the downstream component is a switch, then all of the switch's downstream ports must be in the L1 or higher power conservation state before the upstream port can initiate L1 entry. | 如果下游组件是交换机，则交换机的所有下游端口必须处于L1或更高的省电状态后，上游端口才能发起L1进入。 |
-
-| EN | ZH |
-|---|---|
-| ## Negotiation Required to Enter L1 ASPM | ## 进入L1 ASPM所需的协商 |
-| Because of the longer latency required to recover from L1 ASPM, a negotiation process is employed to ensure that the port at the other end of the Link is enabled for L1 ASPM and is prepared to enter it. The negotiation involves sending several packets: | 由于从L1 ASPM恢复需要较长的延迟，因此采用协商过程来确保链路另一端的端口已启用L1 ASPM并准备进入该状态。协商过程涉及发送若干报文： |
-| • PM\_Active\_State\_Request\_L1 DLLP — issued by the downstream port to start the negotiation process. | • PM\_Active\_State\_Request\_L1 DLLP —— 由下游端口发出，用于启动协商过程。 |
-| • PM\_Request\_Ack DLLP — returned by the upstream port when all of its requirements to enter L1 ASPM have been satisfied. | • PM\_Request\_Ack DLLP —— 当上游端口进入L1 ASPM的所有条件均已满足时，由上游端口返回。 |
-| • PM\_Active\_State\_Nak message TLP — returned by the upstream port when it is unable to enter the L1 ASPM state. | • PM\_Active\_State\_Nak消息TLP —— 当上游端口无法进入L1 ASPM状态时，由上游端口返回。 |
-| The upstream component may or may not accept the transition to the L1 ASPM state. The following scenarios describe a variety of circumstances that result in both conditions. | 上游组件可以接受也可不接受到L1 ASPM状态的转换。以下场景描述了导致这两种情况的各种情形。 |
-
-## Scenario 1: Both Ports Ready to Enter L1 ASPM State | 场景 1：两端端口均准备好进入 L1 ASPM 状态
+| The ECRC is calculated based on the contents of the header and data. Since these are not expected to change, the result should be the same when the check is performed at the receiver. However, it turns out that two header bits can legally change while the packet is in flight: bit 0 of the Type field, and the EP bit. Bit 0 of the Type field can change in Configuration Requests for the simple reason that the Request will be Type 1 until it has reached its destination bus, and then it will become Type 0. That involves changing bit 0 of the Type field. The EP bit can also be legally changed by intermediate devices if they detect a data error. For example, if a Switch forwards a TLP but it suffers an internal error of some kind that corrupts the data, setting the EP bit as it goes out the Egress Port is one way to report the error (known as error forwarding or data poisoning). | ECRC 基于头部和数据的内容进行计算。由于这些内容预期不会改变，因此在接收端执行校验时结果应该相同。然而，有两个头部比特在报文传输过程中可以合法更改：Type 字段的 bit 0 和 EP 比特。Type 字段的 bit 0 可以在配置请求中更改，原因很简单：在请求到达其目标总线之前为 Type 1，到达后将变为 Type 0。这涉及更改 Type 字段的 bit 0。如果中间设备检测到数据错误，EP 比特也可以被合法更改。例如，如果交换机转发一个 TLP 但遇到某种内部错误导致数据损坏，在从出口端口发出时设置 EP 比特是报告该错误的一种方式（称为错误转发或数据中毒）。 |
+| Since these two bits can change while the packet is in flight they are called "variant bits" and cannot be used in the generation or checking of ECRC. Instead, their values are always assumed to be 1b for ECRC generation and checking instead of using the actual values. That way the ECRC doesn't depend on them and will be correctly evaluated. | 由于这两个比特在报文传输过程中可能改变，它们被称为"变体比特"，不能用于 ECRC 的生成或校验。相反，在 ECRC 生成和校验时，始终假定它们的值为 1b，而不使用实际值。这样 ECRC 就不依赖于它们，从而能被正确计算。 |
 
 | English | 中文 |
 |---------|------|
-| Figure 16-17 on page 750 summarizes the sequence of events that must occur to enable transition to the L1 ASPM state. This scenario assumes that all transactions have completed in both directions and no new transaction requirements emerge during the negotiation. | 第 750 页的图 16-17 总结了必须发生的事件序列，以支持转换到 L1 ASPM 状态。该场景假设所有事务已在两个方向上完成，并且在协商期间没有出现新的事务需求。 |
-| Downstream Component Requests L1 State. If the downstream component wishes to transition to the L1 state, it can send the request to enter L1 after the following steps have completed: | 下游组件请求 L1 状态。如果下游组件希望转换到 L1 状态，它可以在以下步骤完成后发送进入 L1 的请求： |
-| 1. TLP scheduling is blocked at the Transaction Layer. | 1. 事务层中 TLP 调度被阻塞。 |
-| 2. The Link Layer has received acknowledgement for the last TLP it had previously sent and the replay buffer is empty. | 2. 数据链路层已收到先前发送的最后一个 TLP 的确认，并且重放缓冲区为空。 |
-| 3. Sufficient flow control credits are available to allow transmission of the largest possible packet for any FC type. This ensures that the component can issue a TLP immediately upon exiting the L1 state. | 3. 有足够的流控信用可用，以允许传输任何 FC 类型的最大可能数据包。这确保组件在退出 L1 状态后可以立即发出 TLP。 |
-| The downstream component then delivers the PM_Active_State_Request_L1 to notify the upstream component of the request to enter the L1 state. This is sent repeatedly until the upstream component responds — either a PM_Request_ACK DLLP or a PM_Active_State_NAK message. | 然后，下游组件发送 PM_Active_State_Request_L1 以通知上游组件进入 L1 状态的请求。该消息被重复发送，直到上游组件响应——要么是 PM_Request_ACK DLLP，要么是 PM_Active_State_NAK 消息。 |
+| ## PCI Express Technology | ## PCI Express 技术 |
+| The actions taken when an ECRC error is detected are beyond the scope of the spec, but the possible choices will depend on whether the error is found in a Request or a Completion. | 检测到 ECRC 错误时所采取的动作超出了规范的范围，但可能的选择将取决于错误是在请求中还是在完成报文中发现。 |
+| ECRC in Request — Completers that detect an ECRC error must set the ECRC error status bit. They may also choose not to return a Completion for this Request, resulting in a Completion timeout at the Requester, whose software might then choose to reschedule the Request. | 请求中的 ECRC — 检测到 ECRC 错误的完成者必须设置 ECRC 错误状态位。它们也可以选择不为此请求返回完成报文，导致请求者处发生完成超时，请求者的软件随后可能会选择重新调度该请求。 |
+| ECRC in Completion — Requesters that detect an ECRC error must set the ECRC error status bit. Besides the standard error reporting mechanism, they may also choose to report the error to their device driver with a Function-specific interrupt. As before, the software might decide to reschedule the failed Request. | 完成报文中的 ECRC — 检测到 ECRC 错误的请求者必须设置 ECRC 错误状态位。除了标准错误报告机制外，它们也可以选择通过功能特定中断向设备驱动程序报告该错误。如前所述，软件可能会决定重新调度失败的请求。 |
+| In either case, an Uncorrectable Non-fatal error Message may be sent to the system. If so, the device driver would probably be accessed to check the status bits in the Uncorrectable Error Status Register and learn the nature of the error. If possible, the failed Request may be rescheduled, but other steps might be needed. | 无论哪种情况，都可能会向系统发送不可纠正非致命错误消息。如果是这样，可能会访问设备驱动程序以检查不可纠正错误状态寄存器中的状态位，了解错误的性质。如果可能，失败的请求可以重新调度，但可能还需要其他步骤。 |
 
-## Upstream Component Response to L1 ASPM Request. Downstream ports (i.e., ports of an upstream component that face downward) must accept a request to enter a low power L1 state if all of the following conditions are true:
-
-| EN | ZH |
-|---|---|
-| ## Upstream Component Response to L1 ASPM Request. Down‑stream ports (i.e., ports of an upstream component that face downward) must accept a request to enter a low power L1 state if all of the following conditions are true: | ## 上行组件对L1 ASPM请求的响应。下游端口（即上行组件中面向下方的端口）必须接受进入低功耗L1状态的请求，前提是满足以下所有条件： |
-| • The Port supports ASPM L1 entry and is enabled to do so | • 端口支持ASPM L1进入且已使能 |
-| • No TLP is scheduled for transmission | • 没有TLP计划发送 |
-| • No Ack or Nak DLLP is scheduled for transmission | • 没有Ack或Nak DLLP计划发送 |
-| Upstream Component Acknowledges Request to Enter L1. The upstream component sends a PM\_Request\_ACK to notify the downstream component of its agreement to enter the L1 ASPM state after it: | 上行组件确认进入L1的请求。上行组件发送PM\_Request\_ACK以通知下游组件同意进入L1 ASPM状态，需在满足以下条件之后： |
-| 1. Block scheduling of any new TLPs. | 1. 阻止任何新TLP的调度。 |
-| 2. Receive acknowledgement for the last TLP previously sent (meaning its replay buffer is empty). | 2. 收到先前发送的最后一个TLP的确认（意味着其重放缓冲区为空）。 |
-| 3. Ensure enough flow control credits are available to send the largest possible packet for any FC type so that it can issue a TLP immediately after exiting the L1 state. | 3. 确保每种FC类型都有足够的流控信用值以发送最大可能报文，从而在退出L1状态后能立即发出TLP。 |
-| The Upstream component then sends PM\_Request\_Ack continuously until it detects the EIOS on its receive lanes, indicating that the downstream device has entered Electrical Idle. | 上行组件随后持续发送PM\_Request\_Ack，直到在其接收通道上检测到EIOS，表明下游设备已进入电气空闲。 |
-| Downstream Component Sees Acknowledgement. When the Downstream component sees the PM\_Request\_Ack, it stops sending the PM\_Active\_State\_Request\_L1, disables DLLP and TLP transmission, sends the EIOS and places its transmit lanes into Electrical Idle. | 下游组件看到确认。当下游组件看到PM\_Request\_Ack时，停止发送PM\_Active\_State\_Request\_L1，禁用DLLP和TLP发送，发送EIOS并将其发送通道置于电气空闲。 |
-| Upstream Component Receives Electrical Idle. When the Upstream component receives the EIOS, it stops sending the PM\_Request\_Ack DLLP, disables DLLP and TLP transmission, sends EIOS and places its own transmit lanes into Electrical Idle. | 上行组件接收电气空闲。当上行组件接收到EIOS时，停止发送PM\_Request\_Ack DLLP，禁用DLLP和TLP发送，发送EIOS并将其自身的发送通道置于电气空闲。 |
-
-Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM | 图16-17：进入L1活动状态电源管理所需的协商序列
-
-<img src="images/part05_a168403ad42ca4bdb2c1773513deeab401a0a1a8cbfe17143c8237f8e82d42da.jpg" width="700" alt="">
+## 15.7.2 Data Poisoning | 15.7.2 数据毒化
 
 | EN | ZH |
 |---|---|
-| Scenario 2: Upstream Component Transmits TLP Just Prior to Receiving L1 Request | 场景2：上行组件在收到L1请求之前刚发送了TLP |
-| This scenario presumes that the upstream component has just been instructed by its core logic to send a TLP downstream before it receives the request to enter L1 from the downstream device. Several negotiation rules define the actions to ensure that this situation is managed correctly. | 该场景假设上行组件在其核心逻辑的指示下刚刚向下游发送了一个TLP，随后才收到来自下游设备的进入L1请求。若干协商规则定义了相关动作，以确保正确处理这种情况。 |
-| TLP Must Be Accepted by Downstream Component. Note that after the downstream device sends the PM\_Active\_State\_L1 DLLP it must wait for a response from the upstream component. While waiting, the downstream component must be able to accept TLPs and DLLPs from the upstream device. Although it won't send any TLPs, it must be able to send DLLPs as needed, such as ACKs for incoming TLPs. In this case, two possibilities exist: | 下游组件必须接受TLP。注意，下游设备发送PM\_Active\_State\_L1 DLLP后，必须等待上行组件的响应。在等待期间，下游组件必须能够接受来自上行设备的TLP和DLLP。虽然它不会发送任何TLP，但必须能够根据需要发送DLLP，例如对传入TLP的ACK。在这种情况下，存在两种可能： |
-| • an ACK is returned to verify successful receipt of the TLP. | • 返回ACK以确认TLP接收成功。 |
-| • a NAK is returned if a TLP transmission error is detected. The resulting retry of the TLP is allowed during the L1 negotiation. | • 如果检测到TLP传输错误，则返回NAK。在L1协商期间允许由此产生的TLP重试。 |
-| Upstream Component Receives Request to Enter L1. The spec requires that the upstream component immediately accept or reject the request to enter the L1 state. However, it further states that prior to sending a PM\_Request\_ACK it must: | 上行组件收到进入L1的请求。规范要求上行组件立即接受或拒绝进入L1状态的请求。然而，规范进一步指出，在发送PM\_Request\_ACK之前，它必须： |
-| 1. Block scheduling of new TLPs | 1. 阻止新TLP的调度 |
-| 2. Wait for acknowledgement of the last TLP previously sent, if necessary, and retry TLPs that receive a NAK, unless a Link Acknowledgement timeout condition occurs. | 2. 如有必要，等待先前发送的最后一个TLP的确认，并重试收到NAK的TLP，除非发生链路确认超时条件。 |
-| Once all outstanding TLPs have been acknowledged, and all other conditions are satisfied, the upstream device must return a PM\_Request\_ACK DLLP. | 一旦所有未完成的TLP都已得到确认，且满足所有其他条件，上行设备必须返回PM\_Request\_ACK DLLP。 |
+| Data poisoning, also called Error Forwarding, provides an optional way for a device to indicate that the data associated with a TLP is corrupted. In these cases, the EP (Error Poisoned) bit in the packet header is set to indicate the error. The EP bit is shown in Figure 15-6 on page 660. | 数据毒化（也称为错误转发）为设备提供了一种可选方式，用于指示与TLP相关的数据已损坏。在这些情况下，包头中的EP（错误毒化）位被置位以指示错误。EP位如第660页图15-6所示。 |
 
-## Scenario 3: Downstream Component Receives TLP During Negotiation | 场景 3：下游组件在协商期间接收 TLP
+Figure 15-6: The Error/Poisoned Bit in a Completion Header | 图15-6：完成头中的错误/毒化位
+
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="6">+1</td><td colspan="6">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TDP</td><td>Attr</td><td>AT</td><td colspan="5">Length</td></tr><tr><td>Byte 4</td><td colspan="16">Bytes 4-7 Vary with Type Field</td></tr><tr><td>Byte 8</td><td colspan="16">Bytes 8-11 Vary with Type Field</td></tr><tr><td>Byte 12</td><td colspan="16">Bytes 12-15 Vary with Type Field</td></tr></table>
 
 | EN | ZH |
 |---|---|
-| During the negotiation sequence the downstream device may be instructed to send a new TLP upstream. | 在协商序列期间，下游设备可被指示向上游发送新的TLP。 |
-| However, a device that begins the L1 ASPM negotiation process must block new TLP scheduling. | 然而，开始L1 ASPM协商过程的设备必须阻止新的TLP调度。 |
-| This prevents a race condition between going into L1 and sending a new TLP that would prevent entry into L1. | 这防止了进入L1与发送新TLP之间的竞态条件，否则新TLP会阻止进入L1。 |
-| Consequently, once the downstream device has scheduled delivery of the PM_Request_L1 it must complete the transition to L1 if a PM_Request_ACK is received. | 因此，一旦下游设备已调度PM_Request_L1的发送，如果收到PM_Request_ACK，则必须完成到L1的转换。 |
-| Sending a new TLP will have to wait until L1 has been entered, after which the device can initiate a transition from L1 back to L0 to send the TLP. | 发送新TLP必须等待进入L1，之后设备可发起从L1回到L0的转换以发送TLP。 |
+| Anytime data is transferred, such as in write Requests or Completions with data, corruption of that data could happen which needs to be reported to the target device. In each of these cases, the packet can be forwarded to the recipient but marked as having bad data by the EP bit in the header. The thoughtful reader may wonder why one might want to send data that is already known to be bad. As it happens, there are some cases where it's useful: | 每当传输数据时，例如在写请求或带数据的完成报文中，数据可能会发生损坏，这需要向目标设备报告。在这些情况下，报文可以转发给接收者，但通过头部的EP位标记为包含错误数据。细心的读者可能会问，为什么有人想要发送已知已损坏的数据。事实上，在某些情况下这是有用的： |
+| **1.** If a Request results in a Completion returned with data, but that data encountered an error as it was gathered from the target (like a parity or ECC failure in memory), then what is the best way to report it? One approach would be not to send the Completion at all but, if the error isn't reported in some other way, the system only sees a Completion timeout at the Requester. That response isn't very helpful because any number of problems might result in that outcome. | **1.** 如果一个请求导致返回带数据的完成报文，但该数据在从目标收集时遇到错误（例如存储器中的奇偶校验或ECC错误），那么最佳报告方式是什么？一种方法是根本不发送完成报文，但如果没有通过其他方式报告错误，系统在请求者处只能看到完成超时。这种响应没有太大帮助，因为多种问题都可能导致该结果。 |
+| If, on the other hand, the Completion is delivered with the poisoned bit set, then at least the Requester can see that the round-trip path to the Completer must have been working correctly. Therefore, the problem must have occurred internally to the Completer or else in a Switch that was in the path. What steps will be taken will be implementation specific, but more is known about what must have gone wrong than if the Completion simply timed out. | 另一方面，如果完成报文被送达时毒化位已置位，那么至少请求者可以看到到完成者的往返路径必定是正常工作的。因此，问题一定发生在完成者内部或路径中的交换机内。将采取什么步骤取决于具体实现，但与完成报文仅超时相比，可以了解到更多关于出错原因的信息。 |
+| **2.** It can be used to report an intermediate problem. If a data payload is corrupted while passing through a Switch, the packet can still be forwarded with the EP bit set to indicate the problem. | **2.** 它可以用于报告中间问题。如果数据有效负载在通过交换机时损坏，报文仍可转发，同时EP位置位以指示该问题。 |
+| **3.** It may be that the target device can accept the data with errors. As an example, an audio output device needs to receive a timely data stream to work well. If incoming data has an error, the consequences are small (glitch in the audio output) and the time to recover would be long enough to cause a noticeable delay, so it can be better to take it as is rather than attempting recovery of the data. | **3.** 目标设备可能可以接收含错误的数据。例如，音频输出设备需要及时接收数据流才能正常工作。如果输入数据有错误，后果很小（音频输出中出现短暂干扰），而恢复所需的时间足以导致明显的延迟，因此直接接收数据可能比尝试恢复更好。 |
+| **4.** A target device might have a means of correcting the data. The data might be directly recoverable, or the target might have a means of re-creating parts of it, or have some other means of working around the problem. | **4.** 目标设备可能具有纠正数据的方法。数据可能可以直接恢复，或者目标可能具有重新创建部分数据的方法，或具有其他绕过该问题的方法。 |
+| The spec states that data poisoning applies only to the data payload associated with a packet (such as Memory, Configuration, or I/O writes and Completions) and never to the contents of the TLP header. Consequently, a receiver's behavior is undefined if it sees a poisoned packet (EP=1) with no payload (like a poisoned memory read). Poisoning can only be done at the Transaction Layer of a device; the Data Link Layer does not examine or affect the contents of the TLP header. | 规范规定，数据毒化仅适用于与报文相关的数据有效负载（例如存储器、配置或I/O写请求和完成报文），绝不适用于TLP头部的内容。因此，如果接收者看到没有有效负载的毒化报文（EP=1）（例如毒化的存储器读请求），其行为是未定义的。毒化只能在设备的事务层进行；数据链路层不检查也不影响TLP头部的内容。 |
+| Error forwarding support is stated to be optional for transmitters, and the absence of such a statement for receivers implies that it's not optional for them. | 错误转发支持对发送端来说被声明为可选的，而对于接收端没有此类声明，这意味着对它们来说不是可选的。 |
 
-## Scenario 4: Upstream Component Receives TLP During Negotiation | 场景 4：上游组件在协商期间接收 TLP
-## Scenario 4: Upstream Component Receives TLP | 场景4：协商期间上游组件接收TLP
+---
 
-| EN | ZH |
-|---|---|
-| If the upstream component needs to send a TLP or DLLP after sending the PM\_Request\_Ack, it must first complete the transition to L1. It can then initiate a change from L1 to L0 to send the packet. | 如果上游组件在发送PM\_Request\_Ack后需要发送TLP或DLLP，它必须首先完成到L1的转换。然后它可以启动从L1到L0的变更以发送该报文。 |
-
-## Scenario 5: Upstream Component Rejects L1 Request | 场景 5：上游组件拒绝 L1 请求
+# Part part05 — `mindshare_part05_p0721-0900`
 
 | EN | ZH |
 |---|---|
-| Figure 16-18 on page 752 summarizes the negotiation sequence when the upstream component rejects the request to enter the L1 ASPM state. The negotiation begins normally as the downstream component requests L1. However, the upstream device returns a PM_Active_State_Nak TLP to reject the request. The reasons for rejecting the request to enter L1 include: | 第752页的图16-18总结了上游组件拒绝进入L1 ASPM状态请求时的协商序列。协商正常开始，下游组件请求L1。然而，上游设备返回一个PM_Active_State_Nak TLP以拒绝该请求。拒绝进入L1请求的原因包括： |
-| • L1 ASPM not supported or software has not enabled this feature | • 不支持L1 ASPM或软件未启用此功能 |
-| • One or more TLPs are scheduled for transfer across the Link | • 一个或多个TLP计划跨链路传输 |
-| • ACK or NAK DLLPs are scheduled for transfer | • ACK或NAK DLLP计划传输 |
-| Once the rejection message has been sent, the upstream component can continue sending TLPs and DLLPs as needed. The rejection tells the downstream component that L1 is not an option at present, and so it must transition to L0s instead, if possible. | 一旦拒绝消息被发送，上游组件可以根据需要继续发送TLP和DLLP。该拒绝告知下游组件，L1目前不是可用选项，因此如果可能，它必须转换到L0s。 |
+| If a transmitter supports it, it's enabled with the Parity Error Response bit in the legacy Command register. That's because a Poisoned packet is roughly analogous to a parity error in PCI, since that's how PCI reports bad data. Receipt of a poisoned packet may be reported to the system with an error Message if enabled and, if the optional Advanced Error Reporting registers are present, will also set the Poisoned TLP status bit. | 如果发送方支持此功能，则通过传统命令寄存器(Command register)中的奇偶校验错误响应位(Parity Error Response)启用。这是因为毒化包(Poisoned packet)大致类似于PCI中的奇偶校验错误，因为PCI正是通过这种方式报告错误数据的。如果已使能，接收到毒化包可通过错误消息报告给系统，并且如果存在可选的高级错误报告(Advanced Error Reporting)寄存器，还会设置毒化TLP状态位(Poisoned TLP status bit)。 |
+| As one might expect, poisoned writes to control locations are not allowed to modify the contents in the target. Examples given in the spec are Configuration writes, IO or memory writes to control registers, and AtomicOps. Switches that receive poisoned packets must forward them unchanged to the destination port although, if they've been enabled to do so, they must report this packet as an error to help software determine where the error happened. Completers that receive a poisoned non-posted Request are expected to return a Completion with a status of UR (Unsupported Request). | 正如所料，对控制位置的毒化写操作不允许修改目标中的内容。规范中给出的示例包括配置写(Configuration writes)、对控制寄存器的IO或存储器写以及AtomicOps。接收到毒化包的交换机(Switch)必须将其原封不动地转发到目标端口，但如果已使能，它们必须将此包作为错误报告，以帮助软件确定错误发生的位置。接收到毒化非发布请求(non-posted Request)的完成者(Completer)应返回状态为UR(不支持请求)的完成报文(Completion)。 |
 
-Figure 16-18: Negotiation Sequence Resulting in Rejection to Enter L1 ASPM State | 图16-18：导致拒绝进入L1 ASPM状态的协商序列
+## 15.7.3 Split Transaction Errors | 15.7.3 拆分事务错误
 
-<img src="images/part05_c96eb6d51261fef2cded052c64c1056f7c4bdbb779b8c3e4aafe075d155e3d75.jpg" width="700" alt="">
-
-## Exit from L1 ASPM State | 退出 L1 ASPM 状态
+Figure 15‐7: Completion Status Field within the Completion Header | 图15‐7：完成头中的完成状态字段
 
 | EN | ZH |
 | --- | --- |
-| Either component can initiate the transition from L1 back to L0 when it needs to use the Link. The procedure is the same in either case and doesn't involve any negotiation. When switches are involved in exiting from L1 the spec requires that other switch ports in the ASPM low power states must also transition to the L0 state if they are in the possible path of the packet that will be sent. These issues are discussed in subsequent sections. | 当任一组件需要使用链路时，均可启动从L1到L0的转换。两种情况下过程相同，且无需任何协商。当交换机参与L1退出时，规范要求如果其他处于ASPM低功耗状态的交换机端口位于待发送报文的可能路径上，则它们也必须转换到L0状态。这些问题将在后续章节讨论。 |
-| L1 ASPM Exit Signaling. The spec states that exit from L1 is invoked by exiting electrical idle, which begins by sending TS1s. The receiving port responds by sending TS1s back to the originating device and the Physical Layer follows its LTSSM protocol to complete the Recovery state and return the Link to L0. Refer to "Recovery State" on page 571 for details. | L1 ASPM退出信令。规范规定，L1退出通过退出电气空闲来触发，其始于发送TS1序列。接收端口通过向发起设备回送TS1序列作为响应，物理层遵循其LTSSM协议完成Recovery状态并将链路恢复到L0。详情请参阅第571页的"Recovery状态"。 |
-| Switch Receives L1 Exit from Downstream Component. As pictured in Figure 16‐19, the Switch must respond to L1 exit on the downstream port by returning TS1s and, within 1μs (from signal L1 Exit downstream), it must also exit L1 on its upstream Link if it was in that state. | 交换机从下游组件接收L1退出。如图16‐19所示，交换机的下游端口必须通过回送TS1序列来响应L1退出，并且在1μs内（从下游发出L1退出信号起），如果其上游链路处于L1状态，也必须退出L1。 |
+| A variety of failures can occur during a split transaction associated with nonposted requests. PCIe defines a status field within the Completion header that allows the Completer to report some errors back to the Requester. Figure 15‐7 on page 662 illustrates the location of this field in a completion header and Table 15‐1 on page 663 gives the possible values. As the table shows, only four encodings are defined, two of which represent error conditions. | 在与非 posted 请求相关的拆分事务过程中可能发生多种故障。PCIe 在完成报文头部定义了一个状态字段，允许完成者将某些错误报告回请求者。第662页的图15-7展示了该字段在完成报文头部中的位置，第663页的表15-1给出了可能的取值。如表所示，仅定义了四种编码，其中两种表示错误条件。 |
 
-Figure 16‐19: Switch Behavior When Downstream Component Signals L1 Exit | 图16‐19：下游组件发出L1退出信号时的交换机行为  
-<img src="images/part05_ce536b694cb408923fab6037c48a47737553110bea1482acb1b187050d0b03e3.jpg" width="700" alt="">
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td>Byte 0</td><td>Fmt0 x 0</td><td>Type0 1 0 1 0</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TE</td><td>P</td><td>Att</td><td>AT0 0</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="11">Completer ID</td><td>Compl Status</td><td colspan="2">Byte Count</td></tr><tr><td>Byte 8</td><td colspan="8">Requester ID</td><td colspan="4">Tag</td><td>R</td><td>Lower Address</td></tr></table>
+
+Table 15‐1: Completion Code and Description | 表15‐1：完成码和描述
+
+<table><tr><td>Status Code</td><td>Completion Status Definition</td></tr><tr><td>000b</td><td>Successful Completion (SC)</td></tr><tr><td>001b</td><td>Unsupported Request (UR) - error</td></tr><tr><td>010b</td><td>Configuration Request Retry Status (CRS)</td></tr><tr><td>011b</td><td>Completer Abort (CA) - error</td></tr><tr><td>100b - 111b</td><td>Reserved</td></tr></table>
+
+## Unsupported Request (UR) Status | 不支持请求（UR）状态
+
+| EN | ZH |
+|---|---|
+| If a receiver doesn't support a Request, it returns a Completion with UR status. The spec defines a number of conditions that could result in a UR status. Some examples are: | 如果接收方不支持某请求，则返回带有UR状态的完成报文。规范定义了多种可能导致UR状态的条件。示例如下： |
+| Request type not supported (example: IO Request to native Endpoint or MRdLk to native Endpoint) | 不支持的请求类型（例如：对本机端点发起IO请求或MRdLk请求） |
+| Message with unsupported or undefined message code | 带有不支持或未定义消息码的消息 |
+| Request does not reference address space mapped to the device | 请求未引用映射到该设备的地址空间 |
+| Request address isn't mapped within a Switch Port's address range | 请求地址未映射到交换机端口地址范围内 |
+| Poisoned write Request (EP=1) targets an I/O or Memory-mapped control space in the Completer. Such Requests must not be allowed to modify the location and are instead discarded by the Completer and reported with a Completion having a UR status. | 带毒写入请求(EP=1)目标为完成者的I/O或存储器映射控制空间。此类请求不得允许修改该位置，而是由完成者丢弃，并通过带有UR状态的完成报文报告。 |
+| A downstream Root or Switch Port receives a configuration Request targeting a device on its Secondary Bus that doesn't exist (e.g. a device with a non‑zero device number, unless ARI is enabled). The Port must terminate the Request and return a Completion with UR status because the downstream Device number is required to be zero (unless ARI, Alternative Routing‑ID Interpretation, is enabled). | 下游根或交换机端口收到目标为其二级总线上的不存在设备（例如，设备号非零的设备，除非启用ARI）的配置请求。该端口必须终止该请求并返回带有UR状态的完成报文，因为下游设备号必须为零（除非启用ARI，即备用路由ID解释）。 |
+| Type 1 configuration Request is received at an Endpoint. | 端点上收到类型1配置请求。 |
+| Completion using a reserved Completion Status field encoding must be interpreted as UR. | 使用保留的完成状态字段编码的完成报文必须被解释为UR。 |
+| A function in the D1, D2, or D3hot power management state receives a Request other than a configuration Request or Message. | 处于D1、D2或D3hot电源管理状态的功能收到除配置请求或消息外的请求。 |
+| A TLP without the No Snoop bit set in its header is routed to a port that has the Reject Snoop Transactions bit set in its VC Resource Capability register. | 头部中未设置No Snoop位的TLP被路由到其VC资源能力寄存器中设置了拒绝侦听事务位的端口。 |
+
+| EN | ZH |
+|---|---|
+| ## Completer Abort (CA) Status | ## 完成方终止（CA）状态 |
+| Several circumstances can occur that could result in a Completer returning this CA status to the Requester. Some examples are: | 若干情况可能导致完成方（Completer）向请求方（Requester）返回此CA状态。以下是一些示例： |
+| Completer receives a Request that it cannot complete without violating its programming rules. For example, some Functions may be designed to only allow accesses to some registers in a complete and aligned manner (e.g. a 4-byte register may require a 4-byte aligned access). Any attempt to access one of these registers in a partial or misaligned fashion (e.g. reading only two bytes of a 4-byte register) would fail. Such restrictions are not violations of the spec, but rather legal constraints associated with the programming interface for this Function. Access to such a Function is based on the expectation that the device driver understands how to access its Function. | 完成方收到一个请求，若完成该请求将违反其编程规则。例如，某些功能（Function）可能被设计为只允许以完整且对齐的方式访问某些寄存器（例如，4字节寄存器可能需要4字节对齐访问）。任何以部分或非对齐方式访问这些寄存器的尝试（例如，仅读取4字节寄存器中的两个字节）都将失败。此类限制并非违反规范，而是与该功能编程接口相关的合法约束。对此类功能的访问基于如下预期：设备驱动程序应了解如何访问其功能。 |
+| Completer receives a Request that it cannot process because of some permanent error condition in the device. For example, a wireless LAN card that won't accept new packets because it can't transmit or receive over its radio until an approved antenna is attached. | 完成方收到一个请求，但由于设备中的某种永久错误条件而无法处理。例如，无线局域网卡在未连接经核准的天线之前无法通过其无线电进行发送或接收，因此不会接受新的数据包。 |
+| Completer receives a Request for which it detects an ACS (Access Control Services) error. An example of this would be a Root Port that implements the ACS registers and has ACS Translation Blocking enabled. If a memory Request is seen on that Port with anything other than the default value in the AT field, it will be an ACS violation. | 完成方收到一个请求并检测到ACS（访问控制服务）错误。例如，实现了ACS寄存器且启用了ACS转换阻止（ACS Translation Blocking）的根端口（Root Port）。如果在该端口上看到存储器请求的AT字段包含非默认值，则将构成ACS违规。 |
+| PCIe-to-PCI Bridge may receive a Request that targets the PCI bus. PCI allows the target device to signal a target abort if it can't complete the Request due to some permanent condition or violation of the Function's programming rules. In response, the bridge would return a Completion with CA status. | PCIe到PCI桥（PCIe-to-PCI Bridge）可能收到发往PCI总线的请求。PCI允许目标设备在因某种永久条件或违反功能编程规则而无法完成请求时发出目标终止信号。作为响应，该桥将返回带有CA状态的完成报文。 |
+| A Completer that aborts a Request may report the error to the Root with a Nonfatal Error Message and, if the Request requires a Completion, the status would be CA. | 终止请求的完成方可通过非致命错误消息（Nonfatal Error Message）向根（Root）报告该错误，并且如果该请求需要完成报文，则状态将为CA。 |
+
+## Unexpected Completion | 意外完成
+
+| EN | ZH |
+|---|---|
+| When a Requester receives a Completion, it uses the transaction descriptor (Requester ID and Tag) to match it with an earlier Request. In rare circumstances, the transaction descriptor may not match any previous Request. This might happen because the Completion was mis‐routed on its journey back to the intended Requester. An Advisory Non‐fatal Error Message can be sent by the device that receives the unexpected Completion, but it’s expected that the correct Requester will eventually timeout and take the appropriate action, so that error Message would be a low priority. | 当请求者收到完成报文时，它使用事务描述符（请求者ID和标签）将其与先前的请求进行匹配。在罕见情况下，事务描述符可能不与任何先前的请求匹配。这种情况可能发生，因为完成报文在返回给预期请求者的途中被路由错误。接收到意外完成报文的设备可以发送 advisory 非致命错误消息，但预期正确的请求者最终会超时并采取适当措施，因此该错误消息优先级较低。 |
+
+| EN | ZH |
+|---|---|
+| ## Completion Timeout | ## 完成超时 |
+| For the case of a pending Request that never receives the Completion it's expecting, the spec defines a Completion timeout mechanism. The spec clearly intends this to detect when a Completion has no reasonable chance of returning; it should be longer than any normal expected latencies. | 针对未决请求始终未收到所期望的完成报文的情况，规范定义了完成超时机制。规范明确意在检测完成报文无合理返回可能的情形；该超时值应长于所有正常预期延迟。 |
+| The Completion timeout timer must be implemented by all devices that initiate Requests that expect Completions, except for devices that only initiate configuration transactions. Note also that every Request waiting for Completions is timed independently, and so there must be a way to track time for each outstanding transaction. The 1.x and 2.0 versions of the spec defined the permissible range of the timeout value as follows: | 所有发起期望接收完成报文的请求的设备都必须实现完成超时定时器，但仅发起配置事务的设备除外。另请注意，每个等待完成报文的请求被独立计时，因此必须有一种方式来跟踪每个未完成事务的时间。规范1.x和2.0版本定义了超时值的允许范围如下： |
+| It is strongly recommended that a device not timeout earlier than 10ms after sending a Request; however, if the device requires greater granularity a timeout can occur as early as 50μs. | 强烈建议设备在发送请求后不早于10ms发生超时；然而，如果设备需要更高的粒度，超时可以早至50μs发生。 |
+| • Devices must time‐out no later than 50ms. | • 设备的超时不得晚于50ms。 |
+| Beginning with the 2.1 spec revision, the Device Control Register 2 was added to the PCI Express Capability Block to allow software visibility and control of the timeout values, as shown in Figure 15‐8 on page 665. | 从2.1规范修订版开始，PCI Express能力块中增加了设备控制寄存器2，以允许软件查看和控制超时值，如第665页图15-8所示。 |
+
+Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2  
+<img src="images/part05_0a1bd1c9ba791086d46869ce7f9fceb31a588f2ed4e9abb0948e8d22c9873a41.jpg" width="700" alt="">
+
+| If Requests need multiple Completions to return the requested data, a single Completion won't stop the timer. Instead, the timer continues to run until all the data has been returned regardless of how many Completions are needed. If only part of the data has been returned when the timeout occurs, the Requester may discard or keep that data. | 如果请求需要多个完成报文来返回所请求的数据，单个完成报文不会停止定时器。相反，定时器会持续运行，直到所有数据返回完毕，无论需要多少个完成报文。如果在超时时仅返回了部分数据，请求者可以丢弃或保留该数据。 |
 
 | EN | ZH |
 | --- | --- |
-| Presumably the reason the downstream component is transitioning back to L0 is because it's preparing to send a TLP upstream. Since L1 exit latencies are relatively long, a switch "must not wait until its Downstream Port Link has fully exited to L0 before initiating an L1 exit transition on its Upstream Port Link." This prevents accumulated latencies that would otherwise result if all L1 to L0 transitions occurred in a sequential fashion. | 下游组件恢复到L0的原因很可能是它准备向上游发送TLP。由于L1退出延迟相对较长，交换机"不得等到其下游端口链路完全退出到L0后，才在其上游端口链路上启动L1退出转换"。这可以避免如果所有L1到L0转换按顺序发生所导致的累积延迟。 |
-| Switch Receives L1 Exit from Upstream Component. In this case, the switch must respond with TS1s back upstream, and within 1μs it must also send TS1s to all downstream ports that are in the L1 ASPM state to return them to L0. As in the previous example, the goal is to minimize the overall exit latency of returning to the L0 state for every Link in the path from the initiator to the target of the transaction. Figure 16‐20 on page 755 summarizes these requirements. The Link between Switch F and EndPoint (EP) E is in the L1 state because software put EP E into the D1 state, which caused the Link to transition to L1. Only Links in the L1 ASPM state are transitioned to L0 as a result of the Root Complex (RC) initiating the exit from L1 ASPM. | 交换机从上游组件接收L1退出。在这种情况下，交换机必须向上游回送TS1序列，并在1μs内向所有处于L1 ASPM状态的下游端口发送TS1序列，使其恢复到L0。与前面的例子一样，目标是尽可能缩短从事务发起端到目标端路径上每条链路恢复到L0状态的总体退出延迟。图16‐20（第755页）总结了这些要求。交换机F与端点E之间的链路处于L1状态，这是因为软件将端点E置于D1状态，导致该链路转换到L1。只有处于L1 ASPM状态的链路才会因根复合体发起L1 ASPM退出而转换到L0。 |
+| ## Link Flow Control Related Errors | ## 链路流控相关错误 |
+| Prior to forwarding the packet to the Data Link Layer for transmission, the Transaction Layer must check Flow Control (FC) credits to ensure that the receive buffers of the Link neighbor have sufficient room to hold it. Flow Control violations may occur, and they are considered uncorrectable. Protocol violations related to Flow Control can be detected by and associated with the port receiving the Flow Control information. Some examples are given here: | 在将报文转发至数据链路层进行传输之前，事务层必须检查流控（FC）信用量，以确保链路对端的接收缓冲区有足够的空间容纳该报文。流控违规可能发生，且被视为不可纠正错误。与流控相关的协议违规可由接收流控信息的端口检测并与该端口关联。下面给出一些示例： |
+| Link partner fails to advertise at least the minimum number of FC credits defined by the spec during FC initialization for any Virtual Channel. | 在任意虚通道的流控初始化期间，链路伙伴未能通告规范所定义的最少流控信用量数目。 |
+| Link partner advertises more than the allowed maximum number of FC credits (up to 2047 unused credits for data payload and 127 unused credits for headers). | 链路伙伴通告超过允许的最大流控信用量数目（数据载荷最多2047个未用信用量，报文头最多127个未用信用量）。 |
+| Receipt of FC updates containing non-zero values in credit fields that were initially advertised as infinite. | 接收到在最初被通告为无限的信用量字段中包含非零值的流控更新。 |
+| A receive buffer overflow, resulting in lost data. This check is optional but a detected violation is considered to be a Fatal error. | 接收缓冲区溢出，导致数据丢失。此检查为可选，但检测到的违规被视为致命错误。 |
 
-Figure 16‐20: Switch Behavior When Upstream Component Signals L1 Exit | 图16‐20：上游组件发出L1退出信号时的交换机行为  
-<img src="images/part05_eadb4cfae045c7d72877e30ff8989d1e9352a010a66b692b5d75774c3be98549.jpg" width="700" alt="">
+## 15.7.5 Malformed TLP | 15.7.5 格式错误 TLP
+
+| EN | ZH |
+|---|---|
+| TLPs arriving in the Transaction Layer are checked for violations of the packet formatting rules. A violation in the packet format is considered a Fatal error because it means the transmitter has made a grievous mistake in protocol, such as failing to properly maintain its counters, and the result is that it's no longer performing as expected. Some examples of a packet being considered malformed (badly formed) include the following: | 到达事务层的TLP将接受检查，以确认是否存在违反报文格式规则的情况。报文格式违规被视为致命错误，因为这意味着发送方在协议方面犯了严重错误（例如未能正确维护其计数器），导致其不再按预期运行。被视为畸形（格式错误）的报文示例如下： |
+| • Data payload exceeds Max payload size. | • 数据载荷超过最大载荷大小。 |
+| • Data length does not match length specified in the header. | • 数据长度与报头中指定的长度不匹配。 |
+| Memory start address and length combine to cause a transaction to cross a naturally-aligned 4KB boundary. | 存储器起始地址与长度组合导致事务跨越自然对齐的4KB边界。 |
+| TLP Digest (TD field) indication doesn't correspond with packet size (ECRC is unexpectedly missing or present). | TLP摘要（TD字段）指示与报文大小不对应（ECRC意外缺失或存在）。 |
+| • Byte Enable violation. | • 字节使能违规。 |
+| • Undefined Type field values. | • 未定义的Type字段值。 |
+| • Completion that violates the Read Completion Boundary (RCB) value. | • 违反读完成边界（RCB）值的完成报文。 |
+| Completion with status of Configuration Request Retry Status in response to a Request other than a configuration Request. | 针对非配置请求的请求返回状态为"配置请求重试状态"的完成报文。 |
+| Traffic Class field contains a value not assigned to an enabled Virtual Channel (this is also known as TC Filtering). | 流量类字段包含未分配到已使能虚通道的值（这也称为TC过滤）。 |
+| • I/O and Configuration Request violations (checking optional) — examples: TC field, Attr[1:0], and the AT field must all be zero, while the Length field must have a value of one. | • I/O和配置请求违规（检查为可选项）——示例：TC字段、Attr[1:0]和AT字段必须全部为零，而Length字段的值必须为1。 |
+| • Interrupt emulation messages sent downstream (checking optional). | • 向下游发送的中断仿真消息（检查为可选项）。 |
+| • TLP received with a TLP Prefix error: | • 收到的TLP存在TLP前缀错误： |
+| — TLP Prefix but no TLP Header | — 有TLP前缀但无TLP报头 |
+| — End-to-End TLP Prefixes preceding Local Prefixes | — 端到端TLP前缀位于本地前缀之前 |
+| — Local TLP Prefix type not supported | — 不支持的本地TLP前缀类型 |
+| — More than 4 End-to-End TLP Prefixes | — 超过4个端到端TLP前缀 |
+| — More End-to-End TLP Prefixes than are supported | — 端到端TLP前缀数量超过支持的数量 |
+| • Transaction type requiring use of TC0 has a different TC value: | • 需要使用TC0的事务类型具有不同的TC值： |
+| — I/O Read or Write Requests and corresponding Completions | — I/O读或写请求及对应的完成报文 |
+| — Configuration Read or Write Requests and corresponding Completions | — 配置读或写请求及对应的完成报文 |
+| — Error Messages | — 错误消息 |
+| — INTx messages | — INTx消息 |
+| — Power Management messages | — 电源管理消息 |
+| — Unlock messages | — Unlock消息 |
+| — Slot Power messages | — 槽位电源消息 |
+| — LTR messages | — LTR消息 |
+| — OBFF messages | — OBFF消息 |
+| • AtomicOp operand doesn't match an architected value. | • AtomicOp操作数与架构规定的值不匹配。 |
+| • AtomicOp address isn't naturally aligned with operand size. | • AtomicOp地址未与操作数大小自然对齐。 |
+| • Routing is incorrect for transaction type (e.g., transactions requiring routing to Root Complex detected moving away from Root Complex). | • 路由对于事务类型不正确（例如，检测到需要路由到根复合体的事务正远离根复合体方向移动）。 |
 
 | EN | ZH |
 |----|----|
-| ## ASPM Exit Latency | ## ASPM退出延迟 |
-| PCI Express provides mechanisms to ensure that the ASPM exit latencies for L0s and L1 don't exceed the requirements of the devices. All devices report their L0s and L1 exit latencies, and Endpoints also report the total acceptable latency they can tolerate for this when performing accesses to and from the Root Complex. This acceptable latency is based on the data buffer size within the device. If the chain of devices that reside between the Endpoint and target device have a total latency that exceeds the acceptable latency reported by the Endpoint, software can disable ASPM for a given Endpoint. | PCI Express提供了确保L0s和L1的ASPM退出延迟不超过设备要求的机制。所有设备报告其L0s和L1退出延迟，端点在执行与根复合体之间的访问时，也报告其可以容忍的总可接受延迟。该可接受延迟基于设备内部的数据缓冲区大小。如果位于端点和目标设备之间的设备链的总延迟超过了端点报告的可接受延迟，软件可以禁用给定端点的ASPM。 |
-| The exit latencies reported by a device will change depending on whether the devices on each end of a Link share a common reference clock or not. Consequently, the Link Status register includes a bit called Slot Clock that specifies whether the component uses an external reference clock provided by the platform, or an independent reference clock (perhaps generated internally). Software checks these bits in devices at both ends of each Link to determine whether they both use it and thus share a common clock. If so, software sets the Common Clock bit to report this in both devices. Figure 16‐21 on page 757 illustrates the registers and related bit fields involved in managing the ASPM exit latency. | 设备报告的退出延迟将根据链路两端的设备是否共享共同的参考时钟而变化。因此，链路状态寄存器包含一个称为Slot Clock（插槽时钟）的位，用于指定该组件使用的是平台提供的外部参考时钟，还是独立的参考时钟（可能内部生成）。软件检查每条链路两端设备中的这些位，以确定它们是否都使用该时钟，从而共享共同的时钟。如果是，软件在两个设备中设置Common Clock（共同时钟）位来报告这一情况。第757页的图16-21说明了用于管理ASPM退出延迟的寄存器及相关位域。 |
+| ## Internal Errors | ## 内部错误 |
+
+## The Problem | 问题
 
 | EN | ZH |
 |---|---|
-| ## Reporting a Valid ASPM Exit Latency | ## 报告有效的ASPM退出延迟 |
-| Because the clock configuration affects the exit latency that a device will experience, devices must report the source of their reference clock via the Slot Clock status bit within the Link Status register. This bit is initialized by the component to report the source of its reference clock. If this bit is set to 1, the clock uses the platform generated reference clock and if it's cleared (0) an independent clock is used. | 由于时钟配置会影响设备将经历的退出延迟，设备必须通过链路状态寄存器中的Slot Clock状态位报告其参考时钟的来源。该位由组件初始化以报告其参考时钟的来源。如果该位置1，则时钟使用平台生成的参考时钟；如果清零(0)，则使用独立时钟。 |
-| If system firmware or software determines that both components on the Link use the platform clock then the reference clocks within both devices will be in phase. This results in shorter exit latencies from L0s and L1, and is reported in the Common Clock field of the Link Control register. Components must then update their reported exit latencies to reflect the correct value. Note that if the clocks are not common then the default values will be correct and no further action is required. | 如果系统固件或软件确定链路上的两个组件都使用平台时钟，则两个设备内的参考时钟将同相。这将导致从L0s和L1退出时具有更短的延迟，并在链路控制寄存器的Common Clock字段中报告。组件随后必须更新其报告的退出延迟以反映正确的值。注意，如果时钟不共用，则默认值将是正确的，无需进一步操作。 |
-| L0s Exit Latency Update. Exit latency for L0s is reported in the Link Capability register based on the default assumption that a common clock implementation does not exist. L0s exit latency is also reported in the TS1s used during Link training as the number of FTS Ordered Sets (N\_FTS) required to exit L0s. If software then detects a common clock implementation, it sets the Common Clock field and writes to the Retrain Link bit in the Link Control register to force Link training to repeat. During retraining new N\_FTS values are reported and in the L0s Latency field of the Link Capability register. | L0s退出延迟更新。L0s的退出延迟基于默认假设（不存在共用时钟实现）在链路能力寄存器中报告。L0s退出延迟也通过在链路训练期间使用的TS1中报告，作为退出L0s所需的FTS有序集数量(N\_FTS)。如果软件随后检测到共用时钟实现，它设置Common Clock字段并写入链路控制寄存器中的Retrain Link位以强制重复链路训练。在重新训练期间，将报告新的N\_FTS值并更新链路能力寄存器的L0s Latency字段。 |
-| L1 Exit Latency Update. Following Link retraining, new values will also be reported in the L1 Latency field. | L1退出延迟更新。链路重新训练后，新的值也将在L1 Latency字段中报告。 |
+| The first versions of the PCIe spec did not include a mechanism for reporting errors within a device that were unrelated to transactions on the interface itself. For Endpoints this wasn't really a problem because they have a vendor-specific device driver associated with them that can detect and report internal errors. | PCIe规范的早期版本未包含用于报告设备内部与接口事务无关错误的机制。对于Endpoint（端点）而言，这并非真正的问题，因为它们有与之关联的厂商专用设备驱动程序，可检测并报告内部错误。 |
+| However, Switches are considered system resources that are managed by the OS, and typically don't have software to help with internal error detection. | 然而，Switch（交换机）被视为由操作系统管理的系统资源，通常没有软件辅助进行内部错误检测。 |
+| In high-end systems, the ability to contain errors is important, so Switch vendors created proprietary means of handling internal errors. | 在高端系统中，错误遏制能力至关重要，因此Switch厂商创建了专有方法来处理内部错误。 |
+| Unfortunately, since different vendor solutions were incompatible with each other, the end result was that they were seldom used. | 遗憾的是，由于不同厂商的解决方案互不兼容，最终导致它们很少被使用。 |
 
-Figure 16‐21: Config. Registers for ASPM Exit Latency Management and Reporting | 图16‐21：用于ASPM退出延迟管理和报告的配置寄存器
+| EN | ZH |
+| :-- | :-- |
+| ## PCI Express Technology | ## PCI Express 技术 |
 
-<img src="images/part05_689e1b6acc803718d51b5d17ad3df2374c5fa89e449024415be45dd4f1a29f9c.jpg" width="700" alt="">
+## The Solution | 解决方案
+
+| EN | ZH |
+|---|---|
+| To alleviate this situation, a standardized internal error reporting option was added with the 2.1 spec version. The definition of what constitutes an internal error is beyond the scope of the spec, but they can be reported as either Corrected or Uncorrectable Internal Errors. | 为缓解此情况，2.1 规范版本增加了一项标准化的内部错误报告选项。什么构成内部错误的定义超出了规范的范围，但此类错误可以作为已纠正内部错误（Corrected Internal Error）或不可纠正内部错误（Uncorrectable Internal Error）进行报告。 |
+| A Corrected Internal Error means an error was masked or worked around by the hardware with no loss of information or improper behavior. An example would be an ECC error on an internal memory location that was corrected automatically. On the other hand, an Uncorrectable Internal Error means improper operation has resulted with potential data loss, such as a parity error on an internal memory location. Reporting internal errors is optional and, if it is used, the AER (Advanced Error Reporting) registers must be present to support it. | 已纠正内部错误意味着硬件已屏蔽或绕过了某个错误，未造成信息丢失或不当行为。例如，内部存储器位置上发生的ECC错误被自动纠正。另一方面，不可纠正内部错误意味着不当操作已导致潜在的数据丢失，例如内部存储器位置上的奇偶校验错误。报告内部错误是可选的，如果使用此功能，则必须存在AER（高级错误报告，Advanced Error Reporting）寄存器来支持它。 |
+
+## 15.8 How Errors are Reported | 15.8 错误如何报告
+
+| EN | ZH |
+|----|----|
+| ## How Errors are Reported | ## 错误如何被报告 |
+
+## 99.1 Introduction | 99.1 引言
+
+| EN | ZH |
+|---|---|
+| PCI Express includes three methods of reporting errors, as shown below. The first two, Completions and poisoned packets, were covered earlier, so our next topic will be the error Messages. | PCI Express 包含三种错误报告方法，如下所示。前两种——完成报文和中毒报文——已在前面讨论过，因此我们的下一个主题将是错误消息。 |
+| • Completions — Completion Status reports errors back to the Requester | • 完成报文（Completions）——完成状态将错误报告回请求者 |
+| • Poisoned Packet — reports bad data in a TLP to the receiver | • 中毒报文（Poisoned Packet）——将 TLP 中的错误数据报告给接收者 |
+| • Error Message — reports errors to the host (software) | • 错误消息（Error Message）——将错误报告给主机（软件） |
+
+## 15.8.2 Error Messages | 15.8.2 错误消息
+
+| EN | ZH |
+|---|---|
+| PCIe eliminated the sideband signals from PCI and replaced them with Error Messages. These Messages provide information that could not be conveyed with the PERR# and SERR# signals, such as identifying the detecting Function and indicating the severity of the error. | PCIe 取消了 PCI 中的边带信号，并将其替换为错误消息。这些消息能够提供 PERR# 和 SERR# 信号无法传达的信息，例如标识检测到错误的 Function 以及指示错误的严重性。 |
+| Figure 15‐9 illustrates the Error Message format. Note that they're routed to the Root Complex for handling. | 图 15-9 展示了错误消息的格式。注意它们被路由到 Root Complex 进行处理。 |
+| The Message Code defines the type of Message being signaled. Not surprisingly, the spec defines three types of error Messages, as shown in Table 15‐2. | Message Code 定义了所发送消息的类型。不出所料，规范定义了三种类型的错误消息，如表 15-2 所示。 |
+
+| ## Chapter 15: Error Detection and Handling | ## 第15章：错误检测与处理 |
+
+| Table 15‑2: Error Message Codes and Description | 表15‑2：错误消息代码及描述 |
+
+<table><tr><td>Message Code</td><td>Name</td><td>Description</td></tr><tr><td>30h</td><td>ERR_COR</td><td>Device detected a correctable error. This is automatically corrected by hardware and doesn't require software attention. However, it can be helpful to report them anyway so software can watch for trends like an increasing number of correctable errors.</td></tr><tr><td>31h</td><td>ERR_NONFATAL</td><td>Indicates an uncorrectable Non-Fatal error. No hardware correction mechanism was available but the Link is still working reliably. Software attention will be required to resolve the problem.</td></tr><tr><td>33h</td><td>ERR_FATAL</td><td>Indicates an uncorrectable Fatal error. No hardware correction mechanism was available and Link operation has failed in some important respect. Software attention will be required and a reset of at least one device will probably be required to resolve this issue.</td></tr></table>
+
+Figure 15‑9: Error Message Format | 图15‑9：错误消息格式
+
+<img src="images/part05_e11eb268e769b90e8b17d0d88202503e7f8b022dc2be7bae5d0d235cb4cd29eb.jpg" width="700" alt="">
+
+| EN | ZH |
+|-----|-----|
+| ## PCI Express Technology | ## PCI Express 技术 |
+
+## Advisory Non-Fatal Errors | 建议性非致命错误
+
+| EN | ZH |
+|---|---|
+| Since we've just seen that both types of Uncorrectable errors will need software attention, it sounds counter-intuitive to say that there are cases where it's preferable that a device not report Non-Fatal errors it detects, but there are. These cases are predominantly based on the role of the detecting agent (Requester, Completer, or Intermediate device) and the type of error. The problem is that multiple devices might report an error caused by the same event and, on some platforms, sending one of the Non-Fatal Error Messages (ERR_NONFATAL) can prevent software from properly handling the error. For example, if an Endpoint reports an error, its device driver will be called to service the situation. However, if a Switch reports an error first for the same transaction, system software might be called to investigate and might not understand what the driver was trying to accomplish or what would be the optimal response. | 既然我们已经看到两种类型的不可纠正错误都需要软件干预，那么说在某些情况下设备最好不报告其检测到的非致命错误似乎有违直觉，但实际情况确实如此。这些情况主要取决于检测代理的角色（请求者、完成者或中间设备）以及错误的类型。问题在于，多个设备可能因为同一事件报告错误，而在某些平台上，发送非致命错误消息（ERR_NONFATAL）之一可能会妨碍软件正确处理该错误。例如，如果端点报告错误，将调用其设备驱动程序来处理该情况。然而，如果交换机首先针对同一事务报告错误，则可能会调用系统软件进行调查，而系统软件可能不了解驱动程序试图完成什么操作，也不清楚最佳响应是什么。 |
+| That example illustrates that some detecting agents aren't the best ones to determine the ultimate disposition of the error and shouldn't send an uncorrectable message. Instead, such an agent can signal an advisory notification to software with ERR_COR. This avoids confusion about the source of the uncorrectable error but still gives software a little more information about what happened. Eventually, the appropriate detecting agent will send the ERR_NONFATAL message whenever it sees the error. Beginning with the 1.1 spec revision, a new field was added in the PCI Express Device Capabilities register to indicate support for this capability as shown in Figure 15-10 on page 670. This bit must be set for every agent that is compliant with the 1.1 spec or later. | 该示例说明，某些检测代理并非确定错误最终处置的最佳角色，不应发送不可纠正消息。相反，此类代理可以通过 ERR_COR 向软件发送通告性通知。这避免了关于不可纠正错误来源的混淆，同时仍向软件提供关于所发生事件的更多信息。最终，当适当的检测代理发现该错误时，它会发送 ERR_NONFATAL 消息。从 1.1 规范修订版开始，在 PCI Express 设备能力寄存器中新增了一个字段，用于指示对该能力的支持，如第 670 页图 15-10 所示。每个符合 1.1 规范或更高版本的代理必须置位该位。 |
+
+Figure 15-10: Device Capabilities Register | 图15-10：设备能力寄存器
+
+<img src="images/part05_2f22259e258dd5db345684099efb359e2ca311c7b373f2eecce5ca0ac02a9cab.jpg" width="700" alt="">
+
+| EN | ZH |
+|---|---|
+| In spite of the reasons just described, software might want to stop operation as soon as some advisory errors are seen by an intermediate device. Since newer devices will always perform role-based error reporting, an override mechanism is needed. To handle this case, software can escalate the severity of the advisory errors from Non-Fatal to Fatal in the AER (Advanced Error Reporting) registers. Since there is no "advisory fatal" case, the error will now be reported as a Fatal Error (ERR_FATAL), if enabled, regardless of the role of the device. | 尽管有上述理由，但软件可能希望在中间设备一看到某些通告性错误时就停止操作。由于较新的设备始终执行基于角色的错误报告，因此需要一种覆盖机制。为处理此情况，软件可以在 AER（高级错误报告）寄存器中将通告性错误的严重性从非致命升级为致命。由于不存在"通告性致命"的情况，如果使能，则该错误现在将报告为致命错误（ERR_FATAL），而与设备的角色无关。 |
+
+## Advisory Non-Fatal Cases | 建议性非致命情况
+
+| EN | ZH |
+|---|---|
+| The spec lists five situations for which an advisory message (ERR\_COR) is preferred over a ERR\_NONFATAL message. In each of these cases, the detecting agent will handle the error as an Advisory Non‐Fatal Error. This means that a Non‐Fatal condition will be handled by sending an ERR\_COR, assuming the agent has AER registers and has enabled ERR\_COR. If it doesn't have AER registers or ERR\_COR was not enabled, it sends no Error Message. The five cases are as follows: | 规范列出了五种情况，在这些情况下建议使用通告消息（ERR\_COR）而非 ERR\_NONFATAL 消息。在每种情况下，检测到错误的代理将把该错误作为建议性非致命错误（Advisory Non-Fatal Error）处理。这意味着非致命条件将通过发送 ERR\_COR 来处理，前提是该代理拥有 AER 寄存器且已启用 ERR\_COR。如果它没有 AER 寄存器或 ERR\_COR 未启用，则不会发送任何错误消息。这五种情况如下： |
+| 1. Completer sent a Completion with UR or CA Status. The expectation in this case is that the Requester will have a mechanism to handle the error when it sees the offending Completion and will be the best agent to send whatever Error Messages are needed. A ERR\_NONFATAL message from the Completer would just be confusing, so it must be handled as Advisory Non‐Fatal (ERR\_COR). | 1. 完成者发送了带有 UR 或 CA 状态的完成报文。这种情况下的期望是，请求者在看到有问题的完成报文时将具有处理该错误的机制，并且将是发送所需任何错误消息的最佳代理。来自完成者的 ERR\_NONFATAL 消息只会造成混淆，因此必须将其作为建议性非致命错误（ERR\_COR）处理。 |
+| Curiously, there is no PCIe mechanism for the Requester to report that it received a Completion with this status. Instead, a design‐specific method like an interrupt will be needed to get device driver attention. An important example of this happens when the Root Complex receives a Completion with UR or CA status in response to a Configuration Read Request. On some platforms the response is to return all 1's to software for this case, to support backward compatibility with PCI enumeration (configuration probing) software. | 值得注意的是，PCIe 没有提供让请求者报告其收到带有此类状态的完成报文的机制。相反，需要采用设计特定的方法（如中断）来引起设备驱动程序的注意。一个重要示例是当根复合体收到响应配置读取请求而返回的带有 UR 或 CA 状态的完成报文时。在某些平台上，针对这种情况的响应是向软件返回全 1，以支持与 PCI 枚举（配置探测）软件的向后兼容性。 |
+| 2. Intermediate device detected an error. This case comes up in systems that employ Switches because a detecting agent may not be the final destination for a TLP. As an example of this, consider Figure 15‐11 on page 672, showing a poisoned packet delivered through an intermediate Switch. The TLP is seen as a Non‐Fatal error by the Switch but it can only signal an ERR\_COR message instead (as long as it's enabled to do so). | 2. 中间设备检测到错误。这种情况出现在使用交换机的系统中，因为检测到错误的代理可能不是 TLP 的最终目的地。例如，考虑第 672 页的图 15-11，该图显示了一个通过中间交换机传递的投毒数据包。该 TLP 被交换机视为非致命错误，但它只能发出 ERR\_COR 消息（只要它被启用这样做）。 |
+| To explore this concept a little more, why wouldn't we want the Switch to report ERR\_NONFATAL? One reason is seen by looking at error tracking in the AER registers. Figure 15‐12 on page 672 shows the AER registers that track the Source ID (BDF of the sending device) of Error Messages coming into a Root Port and we can see that there's only one space available for uncorrectable errors. If multiple uncorrectable errors are seen, that fact will be noted but only the first source ID will be saved since it is considered to be the probable cause of subsequent errors. It's important, therefore, that uncorrectable errors come from the most appropriate device to report them. It's worth noting that it's still helpful for intermediate devices to report ERR\_COR, because it allows software to determine where the error was first detected. | 为了进一步探讨这个概念，为什么我们不希望交换机报告 ERR\_NONFATAL？原因之一可以从 AER 寄存器中的错误跟踪看出。第 672 页的图 15-12 显示了跟踪进入根端口的错误消息的源 ID（发送设备的 BDF）的 AER 寄存器，我们可以看到只有一个空间可用于不可纠正错误。如果看到多个不可纠正错误，该事实将被记录下来，但只会保存第一个源 ID，因为它被认为是后续错误的可能原因。因此，不可纠正错误必须来自最合适的设备进行报告，这一点很重要。值得注意的是，中间设备报告 ERR\_COR 仍然是有帮助的，因为它允许软件确定错误最初是在哪里检测到的。 |
+
+Figure 15‐11: Role‐Based Error Reporting Example | 图15‐11：基于角色的错误报告示例
+<img src="images/part05_2c00dfb36d735c35d15d174682d65773a2e7d4aadc206301f321f292e64c448c.jpg" width="700" alt="">
+
+Figure 15‐12: Advanced Source ID Register | 图15‐12：高级源ID寄存器
+
+<table><tr><td colspan="2">Error Source Identification Register of the AER Capability Structure</td></tr><tr><td>31</td><td>0</td></tr><tr><td>ERR_FATAL/NONFATAL Source ID (ROS)</td><td>ERR_COR Source ID (ROS)</td></tr><tr><td colspan="2">ROS: Read-Only and Sticky</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| As another example, 1.0a devices that have the UR Reporting Enable bit cleared but don't have the Role‐Based Error Reporting capability are unable to report any error Messages when a UR error is detected (for posted or non‐posted Requests). In contrast, a 1.1‐compliant or later Completer that has the SERR# Enable bit set will send an ERR\_NONFATAL or ERR\_FATAL message for bad posted Requests, even if the Unsupported Request Reporting Enable bit is clear, so as to avoid silent data corruption. But it won't send an error Message for non‐posted Requests received, so as to support the PCI‐compatible configuration method of probing with configuration reads. It's recommended that software keep the UR Error Reporting Enable bit clear for devices that are not capable of Role‐Based Error Reporting, but set it for those that are. That way, UR errors are reported on bad posted requests, but not for bad non‐posted requests like configuration probing transactions, and backward compatibility with older software is maintained. | 另一个例子是，1.0a 设备如果清除了 UR 报告使能位但不具备基于角色的错误报告能力，则在检测到 UR 错误时（对于 Posted 或 Non-Posted 请求）无法报告任何错误消息。相比之下，符合 1.1 或更高版本的完成者如果设置了 SERR# 使能位，则会为错误的 Posted 请求发送 ERR\_NONFATAL 或 ERR\_FATAL 消息，即使未支持请求报告使能位被清除，以避免静默数据损坏。但它不会为接收到的 Non-Posted 请求发送错误消息，以支持通过配置读取进行探测的 PCI 兼容配置方法。建议软件对于不具备基于角色的错误报告能力的设备保持 UR 错误报告使能位为清除状态，但对于具备该能力的设备则设置该位。这样，UR 错误会在错误的 Posted 请求上报告，但不会在错误的 Non-Posted 请求（如配置探测事务）上报告，从而保持了与旧软件的向后兼容性。 |
+| The spec also mentions that poisoned TLPs sent to the Root will be handled in the same way if the Root is acting as an intermediate agent, but there is one exception: If the Root doesn't support Error Forwarding, it will be unable to communicate the poisoned error with the TLP and must report this as a Non‐Fatal error instead. | 规范还提到，如果根复合体充当中间代理，发送到根的投毒 TLP 将以相同方式处理，但有一个例外：如果根不支持错误转发（Error Forwarding），它将无法通过 TLP 传达投毒错误，而必须将其报告为非致命错误。 |
+| 3. Destination device received a poisoned TLP. Normally, Endpoints would report the Non‐Fatal error in this case, but there's an exception to this rule: If the ultimate destination device is able to handle the poisoned data in a way that allows for continued operation, it must treat this case as an Advisory Non‐Fatal Error instead. | 3. 目标设备接收到投毒 TLP。通常，端点在这种情况下会报告非致命错误，但此规则有一个例外：如果最终目标设备能够以允许继续运行的方式处理投毒数据，则必须将此情况作为建议性非致命错误处理。 |
+| An example of this behavior might be an audio device that receives streaming data that has been poisoned. In this situation, the data may be accepted even though it's known to be corrupted because pausing the audio flow long enough to get software attention and take remedial action would be a worse alternative than allowing a glitch in the sound output. | 这种行为的一个示例可能是音频设备接收到已被投毒的流式数据。在这种情况下，即使数据已知已损坏，也可能被接受，因为暂停音频流足够长时间以引起软件注意并采取补救措施，相比于允许声音输出中出现短暂故障而言，是更糟糕的选择。 |
+| 4. Requester experienced a Completion Timeout. This is a similar case to the previous one; if the Requester has a means of continuing operation in spite of the problem then it must treat this as an Advisory Non‐Fatal Error. A simple work‐around for the Requester in this case would simply be to send the request again and hope for better results this time. Clearly, this would only make sense if the previous request did not cause any side effects, but Requesters are permitted to do this as often as they like (although the spec says the number of retries must be finite). | 4. 请求者遇到完成超时。这与前一种情况类似；如果请求者有办法在出现问题的情况下继续运行，则必须将其作为建议性非致命错误处理。这种情况下，请求者的一种简单变通方法是重新发送请求并希望这次得到更好的结果。显然，这仅在前一次请求未引起任何副作用时才有意义，但请求者被允许任意多次这样做（尽管规范规定重试次数必须是有限的）。 |
+| 5. Unexpected completion received. This must be handled as an Advisory Non‐Fatal Error. The reason is that it was probably caused by a mis‐routed Completion and the original Requester will eventually report a Completion timeout. To allow that other Requester to attempt a retry of the failed request, it's important that the one that sees the Unexpected Completion not send an Non‐Fatal message. | 5. 收到意外完成报文。这必须作为建议性非致命错误处理。原因在于它可能是由路由错误的完成报文引起的，而原始请求者最终将报告完成超时。为了允许另一个请求者尝试重试失败的请求，看到意外完成报文的设备不发送非致命消息这一点很重要。 |
+
+## 15.9 Baseline Error Detection and Handling | 15.9 基线错误检测与处理
+
+## 15.9 Baseline Error Detection and Handling | 15.9 基线错误检测与处理
+
+| EN | ZH |
+|---|---|
+| This section defines the required support for detecting and reporting PCI Express errors. Compliant devices must include: | 本节定义了检测和报告PCI Express错误所需的支持。符合规范的设备必须包含： |
+| PCI-Compatible support — required to honor PCI-compatible error control and status fields for older software that has no awareness of PCI Express. | PCI兼容支持——对于不了解PCI Express的旧版软件，要求遵循PCI兼容的错误控制和状态字段。 |
+| PCI Express Error reporting — uses standard PCIe structures to for error control and status which can be used by newer software that does have knowledge of PCI Express. | PCI Express错误报告——使用标准PCIe结构进行错误控制和状态，可供了解PCI Express的新版软件使用。 |
+
+| EN | ZH |
+|----|----|
+| ## PCI-Compatible Error Reporting Mechanisms | ## PCI兼容的错误报告机制 |
+
+| EN | ZH |
+|---|---|
+| ## General | ## 概述 |
+| PCI Express errors are mapped into the original PCI configuration register bits for backward compatibility, allowing error status and control to be accessible to PCI‑compliant software. To understand the features available from the PCI‑compatible point of view, consider the error‑related bits of the Command and Status registers located within the Configuration header. Some of the field definitions have been modified to reflect the related PCIe error conditions and reporting mechanisms. The PCI Express errors tracked by the PCI‑compatible registers are: | 为保持向后兼容，PCI Express 错误被映射到原始 PCI 配置寄存器位中，使得符合 PCI 规范的软件能够访问错误状态和控制信息。要从 PCI 兼容的角度理解可用特性，请考虑配置头部中命令寄存器和状态寄存器的错误相关位。部分字段定义已修改，以反映相关的 PCIe 错误条件和报告机制。PCI 兼容寄存器所跟踪的 PCI Express 错误包括： |
+| • Transaction Poisoning/Error Forwarding (synonymous to data parity error in PCI) | • 事务投毒/错误转发（等同于 PCI 中的数据奇偶校验错误） |
+| Completer Abort (CA) detected by a Completer (synonymous to Target Abort in PCI) | 完成者检测到的完成者中止（CA）（等同于 PCI 中的目标中止） |
+| Unsupported Request (UR) detected by a Completer (synonymous to Master Abort in PCI) | 完成者检测到的不支持请求（UR）（等同于 PCI 中的主控中止） |
+| As mentioned earlier, the PCI mechanism for reporting errors is the assertion of PERR# (data parity errors) and SERR# (unrecoverable errors). The PCI Express mechanisms for reporting these events are the Completion Status values in Completions and Error Messages to the Root. | 如前所述，PCI 报告错误的机制是断言 PERR#（数据奇偶校验错误）和 SERR#（不可恢复错误）。PCI Express 报告这些事件的机制是完成报文中的完成状态值和发送到根复合体的错误消息。 |
+
+| EN | ZH |
+|---|---|
+| ## Legacy Command and Status Registers | ## 传统命令与状态寄存器 |
+| Figure 15‑13 on page 675 illustrates the Command register and the location of the error‑related fields. These bits are set to enable baseline error reporting under control of PCI‑compatible software. Table 15‑3 defines the specific effects of each bit. | 第675页的图15‑13展示了命令寄存器及其错误相关字段的位置。在PCI兼容软件的控制下，设置这些位以启用基本错误报告。表15‑3定义了每个位的具体作用。 |
+
+Figure 15‑13: Command Register in Configuration Header | 图15‑13：配置头中的命令寄存器  
+
+<img src="images/part05_9e93f29eb4b0065ff7915b6e90439640890e37dc10dc9b509f6a9f3a5b159835.jpg" width="700" alt="">
+
+Table 15‑3: Error‑Related Fields in Command Register | 表15‑3：命令寄存器中与错误相关的字段
+
+<table><tr><td>Name</td><td>Description</td></tr><tr><td>SERR# Enable</td><td>Setting this bit enables sending ERR_FATAL and ERR_NONFATAL error messages to the Root Complex. These are considered roughly analogous to asserting the System Error (SERR#) signal in PCI. For Type 1 headers (bridges), this bit controls the forwarding of ERR_FATAL and ERR_NONFATAL error messages from the secondary interface to the primary interface.This field has no affect over ERR_COR messages.</td></tr><tr><td>Parity Error Response</td><td>Setting this bit enables logging of poisoned TLPs in the Master Data Parity Error bit in the Status register. Poisoned packets indicate bad data and are roughly analogous to a PCI parity error.</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| Figure 15‑14 on page 676 illustrates the Configuration Status register and the location of the error‑related bit fields. Table 15‑4 on page 677 defines the circumstances under which each bit is set and the actions taken by the device when error reporting is enabled. | 第676页的图15‑14展示了配置状态寄存器及其错误相关位字段的位置。第677页的表15‑4定义了每个位被置位的情况以及启用错误报告时设备采取的动作。 |
+
+Figure 15‑14: Status Register in Configuration Header | 图15‑14：配置头中的状态寄存器  
+
+<img src="images/part05_11d4ebecdc54900b539192e588ef221c3e1590519f25dac8687a400569d7b5f0.jpg" width="700" alt="">
+
+Table 15‑4: Error‑Related Fields in Status Register | 表15‑4：状态寄存器中与错误相关的字段
+
+<table><tr><td>Error-Related Bit</td><td>Description</td></tr><tr><td>Detected Parity Error</td><td>Set by the port that receives a poisoned TLP. This status bit is updated regardless of the state of the Parity Error Response bit.</td></tr><tr><td>Signalled System Error</td><td>Set by a port that has reported an Uncorrectable Error with ERR_FATAL or ERR_NONFATAL and the SERR# enable bit in the Command register was set.</td></tr><tr><td>Received Master Abort</td><td>Set by a Requester that receives a Completion with status of UR (Unsupported Request). This is considered analogous to a PCI master abort because the target did not "claim the transaction".</td></tr><tr><td>Received Target Abort</td><td>Set by a Requester that receives a Completion with status of CA (Completer Abort). This is analogous to a PCI target abort in that the target has had a programming violation or internal error condition.</td></tr><tr><td>Signaled Target Abort</td><td>Set by the Completer that handled a request (either posted or non-posted) as a Completer Abort. If it was a non-posted request, then a Completion with a Completion Status of CA is sent.</td></tr><tr><td>Master Data Parity Error</td><td>For Type 0 headers (e.g., Endpoints), this bit is set if the Parity Error Response bit in the Command register is set AND it either initiates a poisoned request OR receives a poisoned completion.For Type 1 headers (e.g., Switches and Root Ports), this bit is set if the Parity Error Response bit in the Command register is set AND it either initiates a poisoned request heading upstream OR receives a poisoned completion heading downstream.</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| ## Baseline Error Handling | ## 基线错误处理 |
+| The Baseline capability requires the use of the PCI Express Capability structure. These registers include error detection and handling fields that provide finer granularity regarding the nature of an error and whether to report it or not than what is possible with just PCI-compatible error handling. | 基线能力需要使用PCI Express能力结构。与仅支持PCI兼容的错误处理相比，这些寄存器包含的错误检测和处理字段能提供更细粒度的错误性质判断及是否报告错误的信息。 |
+| Figure 15-15 on page 678 illustrates the PCI Express Capability structure. Some of these registers provide support for:<br>• Enabling/disabling error reporting (Error Message Generation)<br>• Providing error status<br>• Providing link training status and initiating link re-training | 第678页的图15-15展示了PCI Express能力结构。其中一些寄存器提供以下支持：<br>• 启用/禁用错误报告（错误消息生成）<br>• 提供错误状态<br>• 提供链路训练状态并启动链路重新训练 |
+
+Figure 15-15: PCI Express Capability Structure | 图15-15：PCI Express能力结构
+
+<table><tr><td rowspan="15"></td><td>PCI Express Capabilities Register</td><td>Next Cap Pointer</td><td>PCI Express Cap ID</td></tr><tr><td colspan="3">Device Capabilities Register</td></tr><tr><td>Device Status</td><td colspan="2">Device Control</td></tr><tr><td colspan="3">Link Capabilities</td></tr><tr><td>Link Status</td><td colspan="2">Link Control</td></tr><tr><td colspan="3">Slot Capabilities</td></tr><tr><td>Slot Status</td><td colspan="2">Slot Control</td></tr><tr><td>Root Capability</td><td colspan="2">Root Control</td></tr><tr><td colspan="3">Root Status</td></tr><tr><td colspan="3">Device Capabilities 2</td></tr><tr><td>Device Status 2</td><td colspan="2">Device Control 2</td></tr><tr><td colspan="3">Link Capabilities 2</td></tr><tr><td>Link Status 2</td><td colspan="2">Link Control 2</td></tr><tr><td colspan="3">Slot Capabilities 2</td></tr><tr><td>Slot Status 2</td><td colspan="2">Slot Control 2</td></tr></table>
+
+## Enabling | Disabling Error Reporting
+
+| EN | ZH |
+|---|---|
+| The Device Control registers allow software to enable generation of three different Error Messages for four error events, and Device Status registers allow it to see which error has been detected. The four error cases are: | 设备控制寄存器允许软件针对四种错误事件启用三种不同错误消息的生成，设备状态寄存器则允许软件查看已检测到哪种错误。四种错误情况分别是： |
+| • Correctable Errors | • 可校正错误 |
+| • Non-Fatal Errors | • 非致命错误 |
+| • Fatal Errors | • 致命错误 |
+| • Unsupported Request Errors | • 不支持请求错误 |
+| Note that the only specific error identified here is the Unsupported Request. Although an Unsupported Request is technically a subset of Non-Fatal errors, and, when reported, is even signaled with an ERR\_NONFATAL message, it has its own enable and status bits. That's because during system enumeration Unsupported Requests are going to happen (whenever an attempt it made to read config space from a Function that doesn't actually exist in the system) but they must not be reported as errors. The enumeration software may have very limited error-handling capability and if it was required to stop and service an error it might fail. Therefore, the software doesn't want error messages generated for the UR case during that time, but does want to know about any other Non-Fatal errors that may be detected. (See the section titled "Discovering the Presence or Absence of a Function" on page 105 for more details on Unsupported Requests during enumeration.) | 注意，此处唯一明确指出的特定错误是不支持请求(UR)。虽然不支持请求在技术上属于非致命错误的子集，并且在报告时甚至通过ERR\_NONFATAL消息发出信号，但它拥有自己独立的使能位和状态位。这是因为在系统枚举期间，不支持请求必然会发生（每当尝试从系统中实际不存在的功能读取配置空间时），但这些错误不得作为错误上报。枚举软件的纠错能力可能非常有限，如果要求它停下来处理错误，可能会失败。因此，在此期间软件不希望针对UR情况生成错误消息，但确实希望了解可能检测到的任何其他非致命错误。（有关枚举期间不支持请求的更多详细信息，请参见第105页的"发现功能存在与否"一节。） |
+| Table 15-5 on page 679 lists each error type and its associated error classification. | 第679页的表15-5列出了每种错误类型及其关联的错误分类。 |
+
+Table 15-5: Default Classification of Errors | 表15-5：错误的默认分类
+
+<table><tr><td>Classification &amp; Severity</td><td>Name of Error</td><td>Layer Detected</td></tr><tr><td>Correctable</td><td>Receiver Error</td><td>Physical</td></tr><tr><td>Correctable</td><td>Bad TLP</td><td>Link</td></tr><tr><td>Correctable</td><td>Bad DLLP</td><td>Link</td></tr><tr><td>Correctable</td><td>Replay Number Rollover</td><td>Link</td></tr><tr><td>Correctable</td><td>Replay Timer Timeout</td><td>Link</td></tr><tr><td>Correctable</td><td>Advisory Non-Fatal Error</td><td>Transaction</td></tr><tr><td>Correctable</td><td>Corrected Internal Error</td><td></td></tr><tr><td>Correctable</td><td>Header Log Overflow</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>Poisoned TLP Received</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>ECRC Check Failed</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>Unsupported Request</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>Completion Timeout</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>Completer Abort</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>Unexpected Completion</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>ACS Violation</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>MC Blocked TLP</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>AtomicOps Egress Blocked</td><td>Transaction</td></tr><tr><td>Uncorrectable - Non Fatal</td><td>TLP Prefix Blocked</td><td>Transaction</td></tr><tr><td>Uncorrectable - Fatal</td><td>Uncorrectable Internal Error (optional)</td><td></td></tr><tr><td>Uncorrectable - Fatal</td><td>Surprise Down (optional)</td><td>Link</td></tr><tr><td>Uncorrectable - Fatal</td><td>Receiver Overflow (optional)</td><td>Transaction</td></tr><tr><td>Uncorrectable - Fatal</td><td>DLL Protocol Error</td><td>Link</td></tr><tr><td>Uncorrectable - Fatal</td><td>Receiver Overflow</td><td>Transaction</td></tr><tr><td>Uncorrectable - Fatal</td><td>Flow Control Protocol Error</td><td>Transaction</td></tr><tr><td>Uncorrectable - Fatal</td><td>Malformed TLP</td><td>Transaction</td></tr></table>
+
+| EN | ZH |
+|---|---|
+| Device Control Register. Setting bits in the Device Control Register, shown in Figure 15-16 on page 681, enables sending the corresponding Error Messages to report errors. Unsupported Request errors are specified as Non-Fatal errors and are reported via a Non-Fatal Error Message, but only when the UR Reporting Enable bit is set. | 设备控制寄存器。设置第681页图15-16所示的设备控制寄存器中的相应位，可启用发送对应错误消息以报告错误。不支持请求错误被指定为非致命错误，并通过非致命错误消息报告，但仅在UR报告使能位被置位时才会如此。 |
+| In order for a Function to actually send an error message, either the corresponding enable bit in the Device Control register needs to be set, or for Fatal and Non-Fatal errors, the SERR# Enable should be set. For Uncorrectable Errors, if either the SERR# Enable bit in the Command Register is set OR the corresponding enable bit in the Device Control register is set, the appropriate error message will be sent (ERR\_FATAL or ERR\_NONFATAL). | 为了使功能实际发送错误消息，需要设置设备控制寄存器中相应的使能位，或者对于致命和非致命错误，应设置SERR#使能。对于不可校正错误，如果命令寄存器中的SERR#使能位被置位，或者设备控制寄存器中的相应使能位被置位，则相应的错误消息将被发送（ERR\_FATAL或ERR\_NONFATAL）。 |
+| For Correctable Errors, a Function will only send the ERR\_COR message if the Correctable Error Reporting Enable bit in the Device Control register is set. There is no control to enable ERR\_COR messages from the PCI-Compatible mechanisms, which makes sense because in PCI, there was no concept of correctable errors. | 对于可校正错误，功能仅当设备控制寄存器中的可校正错误报告使能位被置位时才会发送ERR\_COR消息。PCI兼容机制中没有使能ERR\_COR消息的控制，这合乎情理，因为在PCI中并无可校正错误的概念。 |
+
+Figure 15-16: Device Control Register Fields Related to Error Handling | 图15-16：与错误处理相关的设备控制寄存器字段
+
+<img src="images/part05_abff4ac07a5df4cd7836288008ac1d84d2871f591788eb322dd86aecfb722f95.jpg" width="700" alt="">
+
+| EN | ZH |
+|---|---|
+| Device Status Register. An error status bit is set in the Device Status register, shown in Figure 15-17 on page 682, anytime an error associated with its classification is detected, regardless of the setting of the error reporting enable bits in the Device Control Register. Because Unsupported Request errors are considered Non-Fatal Errors, when these errors occur both the Non-Fatal Error Detected status bit and the Unsupported Request Detected status bit will be set. Like several other status bits, these are "Sticky" (their values are not cleared by a reset event so they'll be available for diagnosing problems even if a reset was needed to get the Link working well enough to read the status). | 设备状态寄存器。每当检测到与其分类相关的错误时，无论设备控制寄存器中错误报告使能位的设置如何，都会在第682页图15-17所示的设备状态寄存器中设置错误状态位。由于不支持请求错误被视为非致命错误，因此当这些错误发生时，非致命错误检测状态位和不支持请求检测状态位都会被置位。与其他几个状态位一样，这些位是"粘性"的（它们的值不会因复位事件而清除，因此即使需要复位以使链路正常工作到足以读取状态，这些位仍可用于诊断问题）。 |
+
+Figure 15-17: Device Status Register Bit Fields Related to Error Handling | 图15-17：与错误处理相关的设备状态寄存器位字段
+
+<img src="images/part05_e083e9eeaccd11de4dd047af2bd1e5d6cb1b117b33a5e02a4c0393428a564ec6.jpg" width="700" alt="">
+
+## Root's Response to Error Message | 根复合体对错误消息的响应
+
+| EN | ZH |
+|----|----|
+| When an Error Message is received by the Root, the action it takes is determined in part by the settings in the Root Control Register. Figure 15-18 depicts this register and highlights the three fields that specify whether a received Error Message should be reported as System Error. In some x86-based systems, it's likely that an NMI (Non-Maskable Interrupt) will be signaled if the error is enabled to trigger a System Error. | 当根复合体接收到错误消息时，其采取的动作部分由根控制寄存器中的设置决定。图15-18描绘了该寄存器，并高亮显示了三个字段，用于指定接收到的错误消息是否应作为系统错误上报。在某些基于x86的系统中，如果错误被使能触发系统错误，则很可能会发出NMI（不可屏蔽中断）信号。 |
+| Other options for reporting Error Messages are not configurable via standard registers. The most likely scenario is that an interrupt will be signaled to the processor that will call an Error Handler, which may log the error and attempt to clear the problem. | 其他错误消息上报选项不可通过标准寄存器配置。最可能的情形是向处理器发送一个中断信号，该中断将调用错误处理程序，错误处理程序可以记录错误并尝试清除问题。 |
+
+Figure 15-18: Root Control Register | 图15-18：根控制寄存器
+
+<img src="images/part05_ec3b70c0fd56ccddf65794ac6a697ad2817f7c013417adc7e2d50d884952ad91.jpg" width="700" alt="">
+
+## Link Errors | 链路错误
+
+| EN | ZH |
+|---|---|
+| Link failures are typically detected in the Physical Layer and communicated to the Data Link Layer. For a downstream device, if the link has incurred a Fatal error and is not operating correctly, it can't report the error to the host. For these cases, the error must be reported by the upstream device. If software can isolate errors to a given link, one step in handling an uncorrectable error (or to prevent future uncorrectable errors) is to retrain the Link. The Link Control Register includes a bit that allows software to force the Link to retrain, as shown inFigure 15‐19 on page 684. If that solves the problem, operation resumes with little downtime. | 链路错误通常由物理层检测到，并通知给数据链路层。对于下游设备，如果链路发生了致命错误且无法正常操作，则无法向主机报告该错误。在这种情况下，必须由上游设备报告该错误。如果软件能够将错误隔离到特定链路，则处理不可校正错误（或防止将来出现不可校正错误）的一个步骤是重新训练链路。链路控制寄存器包含一个比特位，允许软件强制链路重新训练，如第684页的图15-19所示。如果这能解决问题，则操作在短暂中断后即可恢复。 |
+
+Figure 15‐19: Link Control Register - Force Link Retraining | 图15‐19：链路控制寄存器 - 强制链路重训练
+<img src="images/part05_649269efb1ad663f08776f64ac1035728e1474145075826ddd7c6ee86ff01e77.jpg" width="700" alt="">
+
+| EN | ZH |
+|---|---|
+| Having once requested retraining, software can poll the Link Training bit in the Link Status Register to see when training has completed. Figure 15-20 highlights this status bits. When this bit is 1b, the Link is still in the retraining process (or has yet to start retraining). Hardware will clear this bit once the Physical Layer reports the Link as active meaning the training process has completed successfully. | 一旦请求了重新训练，软件可以轮询链路状态寄存器中的链路训练比特位，以查看训练何时完成。图15-20突出显示了该状态位。当该比特位为1b时，链路仍在重新训练过程中（或尚未开始重新训练）。一旦物理层报告链路为活动状态（表示训练过程已成功完成），硬件将清除此比特位。 |
+
+Figure 15‐20: Link Training Status in the Link Status Register | 图15‐20：链路状态寄存器中的链路训练状态
+<img src="images/part05_2404d9ebc3b66d9636d0b1c6e35adff571985ee6f8d5d75184fbc5254a67d268.jpg" width="700" alt="">
+
+## 15.10 Advanced Error Reporting (AER) | 15.10 高级错误报告（AER）
+
+| EN | ZH |
+|---|---|
+| The Advanced Error Reporting Structure illustrated in Figure 15‐21 on page 686 allows for much more sophisticated error handling. These registers provide several additional features: | 第686页图15-21所示的高级错误报告结构（Advanced Error Reporting Structure）支持更复杂的错误处理。这些寄存器提供了以下几个额外特性： |
+| • Better granularity in logging the actual type of error that occurred | • 更精细地记录所发生错误的具体类型 |
+| • Control to specify the severity of each uncorrectable error type | • 控制指定每种不可校正错误类型的严重级别 |
+| • Support for logging the header of packets that had errors | • 支持记录发生错误的报文头 |
+| Standardizing control for the Root to report received Error Messages with an interrupt | 标准化控制根复合体通过中断报告接收到的错误消息 |
+| • Identifying the source of the error in the PCIe topology | • 在PCIe拓扑中标识错误的来源 |
+| • Ability to mask reporting individual types of errors | • 能够屏蔽对单个错误类型的报告 |
+
+Figure 15‐21: Advanced Error Capability Structure | 图15‐21：高级错误能力结构
+<img src="images/part05_53271136b5979d9972192df4bd28d93beb6206a26070506137990ca9379a68fa.jpg" width="700" alt="">
+
+## 15.10.1 Advanced Error Capability and Control | 15.10.1 高级错误能力与控制
+
+| EN | ZH |
+|---|---|
+| Let's begin our discussion of AER by looking at the Advanced Error Capability and Control register. End-to-End CRC (ECRC) generation and checking requires AER, and this register, shown in Figure 15-22 on page 687, reports whether this device supports it. If so, configuration software can enable (and force) its use by setting the appropriate bits. | 我们首先查看高级错误能力与控制寄存器来开始对 AER 的讨论。端到端 CRC（ECRC）的生成和校验需要 AER，该寄存器（见第 687 页图 15-22）报告本设备是否支持该功能。如果支持，配置软件可通过设置相应位来启用（并强制）其使用。 |
+| The five low-order bits of this register contain the First Error Pointer, set by hardware when the Uncorrectable Error status bits are updated. There are 32 status bits and the First Error Pointer indicates which of the unmasked, Uncorrectable Errors was detected first, meaning which status bit was set when all the other status bits were still 0. The first error is the most interesting because the others may have been caused by the first one. | 该寄存器的低 5 位包含首个错误指针，由硬件在更新不可校正错误状态位时设置。共有 32 个状态位，首个错误指针指示哪个未屏蔽的不可校正错误最先被检测到，即当所有其他状态位仍为 0 时哪一个状态位被置位。首个错误最为重要，因为其他错误可能是由第一个错误引发的。 |
+
+Figure 15-22: The Advanced Error Capability and Control Register / 图 15-22：高级错误能力与控制寄存器 | 图15-22：高级错误能力与控制寄存器
+
+<img src="images/part05_3ca4697d7f886bae3af8ad5f7601442b96b2173d624af06ceb2f44d7f4ef4be8.jpg" width="700" alt="">
+
+| EN | ZH |
+|---|---|
+| Beginning with the 2.1 spec revision, this capability was enhanced to allow tracking multiple errors. For that reason, if multiple error status bits have been set and cleared, the meaning really becomes more like an "Oldest Error Pointer" instead. The pointer is updated by hardware when the corresponding status bit is cleared by software, at which time it points to whichever error was detected next (see Figure 15-25 on page 691 for the list of uncorrectable errors). Interestingly, the next error may be the same one again if that error had been detected multiple times, with the result that the updated pointer still indicates the same value. | 从 2.1 规范修订版开始，该能力得以增强，允许跟踪多个错误。因此，如果多个错误状态位已被置位和清除，其含义实际上更像是一个"最旧错误指针"。当软件清除相应状态位时，硬件会更新该指针，此时指针指向下一个被检测到的错误（不可校正错误列表见第 691 页图 15-25）。有趣的是，如果同一错误被多次检测到，下一个错误可能仍是同一个，结果更新后的指针仍然指向相同的值。 |
+| Since multiple errors can be recorded in the Uncorrectable Status register, it would be very helpful to store multiple headers, too. Hardware must be designed to log at least one header, but is allowed to support more. If it does, the Multiple Header Recording Capable bit will be set and the Multiple Header Recording Enable bit can be used to enable storing more than one. Whenever the First Error Pointer indicates a status bit position that is not set or is not implemented, it means there are no more uncorrectable errors to service. | 由于不可校正状态寄存器中可以记录多个错误，因此同时存储多个报头也将非常有帮助。硬件必须设计为至少记录一个报头，但允许支持更多。如果支持，多报头记录能力位将被置位，并且可以使用多报头记录使能位来启用存储多个报头。每当首个错误指针指向一个未置位或未实现的状态位位置时，表示没有更多不可校正错误需要处理。 |
+
+## PCI Express Technology | PCI Express 技术
+
+| EN | ZH |
+| --- | --- |
+| ## PCI Express Technology | ## PCI Express Technology |
+| The last bit in this register, TLP Prefix Log Present, indicates whether the TLP Prefix Log registers contain valid information for the uncorrectable error indicated by the First Error Pointer. | 该寄存器中的最后一位，即TLP前缀日志存在位，指示TLP前缀日志寄存器是否包含由首次错误指针所指示的不可纠正错误的有效信息。 |
+| The fields in this register and the other AER registers have various characteristics, which are abbreviated as follows: | 该寄存器及其他AER寄存器中的字段具有各种特性，其缩写如下： |
+| • RO — Read Only, set by hardware | • RO — 只读，由硬件设置 |
+| • ROS — Read Only and Sticky (see the next section on sticky bits) | • ROS — 只读且粘滞（参见下一节关于粘滞位的内容） |
+| • RsvdP — Reserved and Preserved. These bits must not be used for any purpose, but software must be careful to maintain whatever values they contain. | • RsvdP — 保留并保持。这些位不得用于任何目的，但软件必须注意保持它们所含的任何值。 |
+| • RsvdZ — Reserved and Zero. Bits that must not be used for any purpose and must always be written to zeros. | • RsvdZ — 保留并清零。这些位不得用于任何目的，且必须始终写入零。 |
+| • RWS — Readable, Writeable and Sticky | • RWS — 可读、可写且粘滞 |
+| • RW1CS — Readable, Write 1 to Clear, and Sticky | • RW1CS — 可读、写1清除且粘滞 |
+
+## 15.10.2 Handling Sticky Bits | 15.10.2 粘滞位的处理
+
+| EN | ZH |
+|---|---|
+| Several AER register fields employ sticky bits, which means that a reset won't clear their contents. All other register fields are forced to default values on a reset, but these are not. | 多个AER寄存器字段使用了粘滞位（sticky bits），这意味着复位不会清除其内容。所有其他寄存器字段在复位时会被强制恢复为默认值，但这些字段不会。 |
+| This is a good idea because a Link may encounter a failure that can't be cleared without a reset. If the problem is in the downstream device of the failed Link, its register contents are unavailable until the Link is working again, which the reset will accomplish. But if the registers were cleared by the reset then the information is lost. | 这是合理的，因为链路可能会遇到不通过复位就无法清除的故障。如果问题出在故障链路的下游设备上，则其寄存器内容在链路恢复正常之前无法访问，而复位可以实现这一点。但如果寄存器被复位清除，信息就会丢失。 |
+| To solve this problem, sticky bits keep error status information available through a reset. Specifically, sticky bits will survive an FLR (Function Level Reset), a Hot Reset, and a Warm Reset because power is available to keep them active. They may even survive a Cold Reset if a secondary power source like $\mathrm { V _ { a u x } }$ is available to keep them active when the main power is shut off. | 为解决此问题，粘滞位可在复位期间保持错误状态信息可用。具体来说，粘滞位可以经受FLR（功能级复位）、热复位（Hot Reset）和暖复位（Warm Reset），因为有电源供电以保持其激活状态。如果主电源关闭时有诸如$\mathrm { V _ { a u x } }$这样的辅助电源可供使用以保持其激活状态，它们甚至可能经受冷复位（Cold Reset）。 |
+
+| EN | ZH |
+|---|---|
+| ## Advanced Correctable Error Handling | ## 高级可修正错误处理 |
+| Advanced Error Reporting provides the ability to record which specific correctable errors have been detected. These errors can be used to initiate a Correctable Error Message to the host system. Although system operation continues normally, reporting correctable errors can be useful because it allows system software to see which components are having trouble and to predict whether they may fail completely in the future. | 高级错误报告(Advanced Error Reporting)提供了记录已检测到哪些特定可修正错误的能力。这些错误可用于向主机系统发起可修正错误消息(Correctable Error Message)。尽管系统操作继续正常进行，但报告可修正错误仍很有用，因为它使系统软件能够查看哪些组件出现问题，并可预测这些组件未来是否可能完全失效。 |
+
+| EN | ZH |
+|---|---|
+| ## Advanced Correctable Error Status | ## 高级可校正错误状态 |
+| Correctable errors will automatically set the corresponding bit in the Advanced Correctable Error Status register, shown in Figure 15-23 on page 689, regardless of whether the error is reported with an Error Message. These bits are cleared by software writing a "1" to the bit position, hence the designation RW1CS. | 可校正错误将自动在高级可校正错误状态寄存器（如第689页图15-23所示）中设置相应位，无论该错误是否已通过错误消息上报。这些位由软件写入"1"来清除，因此标记为RW1CS。 |
+
+Figure 15-23: Advanced Correctable Error Status Register | 图15-23：高级可校正错误状态寄存器
+
+<img src="images/part05_7960ee47707fb6e463d1dba0e4c1a04eebec4e0a8914514f311ba3797bd88e6b.jpg" width="700" alt="">
+
+| EN | ZH |
+|---|---|
+| Receiver Error (optional) — Physical Layer detected an error in the incoming packet. The packet is discarded at the Physical Layer, any buffer space allocated to it is released, and the Link Layer is informed that a receive error occurred. | 接收器错误（可选）——物理层在入向报文中检测到错误。该报文在物理层被丢弃，为其分配的任何缓冲空间被释放，并通知链路层发生了接收错误。 |
+| Bad TLP — Data Link Layer detected a packet with a bad LCRC, an out-of-sequence Sequence Number or an incorrectly nullified packet. In each case, the Link Layer discards the packet and reports a Nak DLLP to the transmitter, triggering a TLP replay. | 错误TLP——数据链路层检测到具有错误LCRC、乱序序列号或错误无效化的报文。在每种情况下，数据链路层都会丢弃该报文并向发送端报告Nak DLLP，从而触发TLP重放。 |
+| Bad DLLP — Data Link Layer noticed an incoming DLLP had a 16-bit CRC failure so the packet is dropped. A subsequent DLLP of the same type is expected to make up for the information it contained. | 错误DLLP——数据链路层发现入向DLLP发生16位CRC校验失败，因此丢弃该报文。预期后续相同类型的DLLP将弥补其所包含的信息。 |
+| REPLAY_NUM Rollover — At the Data Link Layer, a set of TLPs have been sent without success (no Ack) four times in a row and this counter has rolled over back to zero. Hardware will automatically retrain the link in an attempt to clear the failure condition, then start the sequence again by replaying the contents of the Replay Buffer. | REPLAY_NUM翻转——在数据链路层，一组TLP连续四次发送未成功（无Ack），此计数器已翻转回零。硬件将自动重新训练链路以尝试清除故障状态，然后通过重放重放缓冲区的内容重新开始该序列。 |
 
 | EN | ZH |
 |---|---|
 | ## PCI Express Technology | ## PCI Express 技术 |
+| Replay Timer Timeout — At the Data Link Layer, transmitted TLPs have not received an acknowledgement (Ack or Nak) within the timeout period. Hardware automatically replays all unacknowledged TLPs, meaning all packets in the Replay Buffer. | 重放定时器超时 — 在数据链路层，已发送的TLP在超时时间内未收到确认（Ack或Nak）。硬件自动重放所有未确认的TLP，即重放缓冲区中的所有报文。 |
+| Advisory Non‐Fatal Error — Detection of these cases (see "Advisory Non‐Fatal Errors" on page 670) is logged in the corresponding Uncorrectable Error Status register and as a correctable error here. It may also generate a Correctable Error Message, if enabled. | 建议性非致命错误 — 这些情况的检测（参见第670页的"建议性非致命错误"）会记录在相应的不可校正错误状态寄存器中，并在此处作为可校正错误记录。如果启用，它还可生成可校正错误消息。 |
+| Corrected Internal Error (optional) — An error internal to the device was detected, but it was corrected or worked around without causing improper behavior. | 已校正内部错误（可选） — 检测到设备内部错误，但已校正或规避，未导致异常行为。 |
+| Header Log Overflow (optional) — The maximum number of headers that can be stored in the header log has been reached. The number is just one if the Multiple Header Recording Enable bit is not set in the Advanced Error Capability and Control register. | 头标日志溢出（可选） — 已达到头标日志可存储的最大头标数量。如果在高级错误能力和控制寄存器中未设置多头标记录使能位，则该数量仅为1。 |
 
 | EN | ZH |
 |---|---|
-| ## Calculating Latency from Endpoint to Root Complex | ## 计算从端点到根复合体的延迟 |
-| Figure 16-22 on page 759 illustrates an Endpoint whose transactions must transverse two switches to reach the Root Complex. Presuming that all Links in the path are in the L1 state, let's take the example that Endpoint B needs to send a packet to main memory. | 第 759 页的 Figure 16-22 展示了一个端点，其事务必须穿过两台交换机才能到达根复合体。假设路径上的所有链路均处于 L1 状态，现以端点 B 需要发送一个报文到主存为例。 |
-| 1. First, it begins the wake sequence by initiating a TS1 ordered set on its Link at time "T." The L1 exit latency for EP B is a maximum of 8μs, but Switch C has a maximum exit latency of 16μs. Therefore, the exit latency for this Link is 16μs. | 1. 首先，在时间 "T"，端点 B 在其链路上发起 TS1 有序集以开始唤醒序列。EP B 的 L1 退出延迟最大为 8μs，但交换机 C 的最大退出延迟为 16μs。因此，该链路的退出延迟为 16μs。 |
-| 2. Within 1μs of detecting the L1 exit on Link B/C, Switch C signals L1 exit on Link C/F at T+1μs. | 2. 在检测到链路 B/C 的 L1 退出后 1μs 内，交换机 C 在时间 T+1μs 时在链路 C/F 上发出 L1 退出信号。 |
-| 3. Link C/F completes its exit from L1 in 16μs, at T+17μs. | 3. 链路 C/F 在 16μs 内完成从 L1 的退出，时间点为 T+17μs。 |
-| 4. Switch F signals an exit from L1 to the Root Complex within 1μs of detecting L1 exit from Switch C (T+2μs). | 4. 交换机 F 在检测到来自交换机 C 的 L1 退出后 1μs 内（T+2μs），向根复合体发出 L1 退出信号。 |
-| 5. Link F/RC completes exit from L1 in 8μs, completing at T+10μs. | 5. 链路 F/RC 在 8μs 内完成从 L1 的退出，在 T+10μs 时完成。 |
-| 6. Total latency to transition path to target back to L0 = T+17μs. | 6. 将路径上的所有链路恢复到 L0 的总延迟 = T+17μs。 |
+| ## Advanced Correctable Error Masking | ## 高级可校正错误屏蔽 |
+| Correctable Error reporting is controlled collectively by the Correctable Error Enable bit in the Device Control register, but also individually by the Correctable Mask register, illustrated in Figure 15-24. The default state of the mask bits is cleared, meaning an ERR_COR message can be delivered when any correctable errors are detected if they've been enabled (meaning the Correctable Error Enable bit is set). However, software may choose to set bits in this mask register to prevent a message from being sent when those specific errors are detected. | 可校正错误的报告由设备控制寄存器中的可校正错误使能位统一控制，同时也受图15-24所示的可校正屏蔽寄存器的单独控制。屏蔽位的默认状态为清零，这意味着如果已使能（即可校正错误使能位被置位），则在检测到任何可校正错误时都可以发送ERR_COR消息。然而，软件可以选择设置该屏蔽寄存器中的位，以阻止在检测到这些特定错误时发送消息。 |
 
-Figure 16-22: Example of Total L1 Latency | 图16-22：L1总延迟示例  
+Figure 15-24: Advanced Correctable Error Mask Register | 图15-24：高级可校正错误掩码寄存器
 
-<img src="images/part05_8961dee54e0ce29831b8a950cff03449f37bf7cb81237bcab49e719827a0f99a.jpg" width="700" alt="">
+<table><tr><td rowspan="83">31</td><td rowspan="83">RsvdP</td><td>16</td><td>15</td><td>14</td><td>13</td><td>12</td><td>11</td><td>9</td><td>8</td><td>7</td><td>6</td><td>5</td><td>1</td><td>0</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td>RsvdP</td><td></td><td></td><td></td><td></td><td>RsvdP</td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="5"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="4"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="4"></td><td colspan="3"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="2"></td><td colspan="5"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td colspan="8"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td colspan="10"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td colspan="11"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td colspan="13"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td colspan="7"></td></tr><tr><td rowspan="22"></td><td rowspan="13"></td><td rowspan="13"></td><td rowspan="13"></td><td rowspan="13"></td><td rowspan="13"></td><td rowspan="13" colspan="7"></td></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr><td rowspan="6"></td><td rowspan="6"></td><td rowspan="6"></td></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr><td colspan="12">Header Log Overflow Mask</td></tr><tr><td colspan="12">Corrected Internal Error Mask</td></tr><tr><td colspan="12">Advisory Non-Fatal Error Mask</td></tr><tr><td colspan="12">Replay Timer Timeout Mask</td></tr><tr><td colspan="12">REPLAY_NUM Rollover Mask</td></tr><tr><td colspan="12">Bad DLLP Mask</td></tr><tr><td colspan="12">Bad TLP Mask</td></tr><tr><td colspan="12">Receiver Error Mask</td></tr><tr><td colspan="12">Note: all bits designated RWS</td></tr></table>
 
-## 1.6 Software Initiated Link Power Management
+| Note: all bits designated RWS | 注：所有位均标注为RWS |
 
 | EN | ZH |
 |---|---|
-| When software initiates configuration writes to change the power state for power conservation, devices must respond by transitioning their Link to the corresponding low power state. | 当软件发起配置写操作以改变电源状态来节能时，设备必须通过将其链路转换到相应的低功耗状态来响应。 |
+| ## Advanced Uncorrectable Error Handling | ## 高级不可纠正错误处理 |
+| For uncorrectable errors, AER provides the ability to track which specific error has occurred, control whether it should be considered Fatal or Non‑Fatal, and choose whether it will result in an Uncorrectable Error Message being sent to the Root. | 对于不可纠正错误，AER提供了追踪具体发生的错误、控制该错误被视为致命还是非致命，以及选择是否导致向根发送不可纠正错误报文的能力。 |
+
+| English | 中文 |
+|---|---|
+| ## Advanced Uncorrectable Error Status | ## 高级不可校正错误状态 |
+| When an uncorrectable error occurs, the corresponding bit in this register is automatically set by hardware (see Figure 15‑25 on page 691) regardless of whether the error will be reported to the Root. If multiple errors occur, hardware will set the corresponding bit for each error and will record which one was first in the First Error Pointer field of the Advanced Error Capability and Control register. It may even happen that multiple instances of the same error are detected before the first one can be serviced. Hardware that is compliant with the 2.1 spec revision or later will be able to keep track of a design‑specific number of those cases. | 当发生不可校正错误时，无论该错误是否会被上报至根复合体，硬件都会自动设置此寄存器中的相应位（参见第691页图15‑25）。如果发生多个错误，硬件将为每个错误设置相应的位，并在高级错误能力与控制寄存器的首次错误指针字段中记录哪一个错误最先发生。甚至可能在第一个错误被处理之前，就检测到同一错误的多个实例。符合2.1或更高规范修订版的硬件将能够追踪特定设计数量的此类情况。 |
+
+Figure 15‑25: Advanced Uncorrectable Error Status Register | 图15‑25：高级不可校正错误状态寄存器
+
+<img src="images/part05_2d325879f3b2adccdfa8d1f522d7066d2e408a25116c19b52595181df82df21d.jpg" width="700" alt="">
+
+| English | 中文 |
+|---|---|
+| The following list describes each of the register bits from right to left: | 以下列表从右到左描述了每一个寄存器位： |
+| • Undefined — Previously, this first bit represented a link training failure at the Physical Layer, but that meaning was removed with the 1.1 revision of the spec. Software must now ignore any value in this bit but may write any value to it. This information was no longer needed because bit 5, Surprise Down Error, now includes the same information in a broader meaning: the Link is not communicating at the Physical Layer. | • 未定义 — 此前，这第一个位表示物理层的链路训练失败，但该含义已在1.1版规范修订中被移除。软件现在必须忽略该位的任何值，但可以向其写入任意值。该信息不再需要，因为位5（意外断开错误）现已包含相同的含义且范围更广：链路在物理层无法通信。 |
+| Data Link Protocol Errors — Caused by Data Link Layer protocol errors including the Ack/Nak retry mechanism. For example, a transmitter receives an Ack or Nak whose sequence number doesn't correspond to an unacknowledged TLP or to the ACK<sub>D</sub>_SEQ number. | 数据链路协议错误 — 由数据链路层协议错误引起，包括Ack/Nak重试机制。例如，发送端接收到一个Ack或Nak，但其序列号与未确认的TLP或ACK<sub>D</sub>_SEQ编号不匹配。 |
+| Surprise Down — If the Physical Layer reports LinkUp = 0b (Link is no longer communicating) unexpectedly, this will be seen as an error unless it was an allowed exception. For example, if the Link Disable bit has already been set, then it's expected that LinkUp will be cleared and this condition won't be an error. This bit is only valid for Downstream Ports, which makes sense because it won't be possible to read status from an Upstream Port if the Link isn't working. | 意外断开 — 如果物理层意外报告LinkUp = 0b（链路不再通信），这将被视为错误，除非是允许的异常情况。例如，如果链路禁用位已被置位，那么LinkUp被清除是预期的，这种情况不会被视为错误。该位仅对下游端口有效，这是合理的，因为如果链路不工作，将无法从上游端口读取状态。 |
+| • Poisoned TLP — TLP was seen that had the EP bit set. | • 中毒TLP — 检测到EP位被置位的TLP。 |
+| Flow Control Protocol Error (optional) — Errors associated with failures of the Flow Control mechanism. Example: receiver reports more than 2047 data credits. | 流控协议错误（可选） — 与流控机制失效相关的错误。例如：接收端报告超过2047个数据信用量。 |
+| • Completion Timeout — A Completion is not received within the required amount of time after a non‑posted request was sent. | • 完成超时 — 发送非转发请求后，在规定时间内未收到完成报文。 |
+| • Completer Abort (optional) — Completer cannot fulfill a Request due to problems with the Request or failure of the Completer. | • 完成方异常终止（可选） — 由于请求本身的问题或完成方故障，完成方无法满足请求。 |
+| • Unexpected Completion — Requester receives a Completion that doesn't match any Requests that are awaiting a Completion. | • 意外完成 — 请求方接收到与任何等待完成的请求都不匹配的完成报文。 |
+| Receiver Overflow (optional) — More TLPs have arrived than the Receive Buffer had room to accept, resulting in an overflow error. | 接收端溢出（可选） — 到达的TLP数量超过接收缓冲区的容量，导致溢出错误。 |
+| • Malformed TLP — Caused by errors associated with a received TLP header (see "Malformed TLP" on page 666). | • 畸形TLP — 由接收到的TLP头部相关错误引起（参见第666页"畸形TLP"）。 |
+| • ECRC Error (optional) — Caused by an ECRC check failure at the Receiver. | • ECRC错误（可选） — 由接收端ECRC校验失败引起。 |
+| Unsupported Request Error — Completer does not support the Request. Request is correctly formed and had no other errors, but cannot be fulfilled by the Completer, perhaps because it's an invalid command for this device. | 不支持请求错误 — 完成方不支持该请求。请求格式正确且无其他错误，但完成方无法满足，可能是因为该命令对此设备无效。 |
+| • ACS Violation — Access control error was seen in a received posted or nonposted request. | • ACS违例 — 在接收到的转发或非转发请求中检测到访问控制错误。 |
+| Uncorrectable Internal Error — An internal error detected in the device could not be corrected or worked around by the hardware itself. | 不可校正内部错误 — 设备中检测到的内部错误无法由硬件自身校正或规避。 |
+| MC Blocked TLP — A TLP designated for Multi‑Cast routing was blocked. For example, an Egress Port can be programmed to block any MC hits that arrive with untranslated addresses (see "Routing Multicast TLPs" on page 896). | MC阻塞TLP — 指定用于多播路由的TLP被阻塞。例如，出口端口可被编程为阻塞任何携带未翻译地址到达的多播命中（参见第896页"路由多播TLP"）。 |
+| • AtomicOp Egress Blocked — Egress Ports of routing elements can be programmed to block AtomicOps from being forwarded to agents that shouldn't see them (see "AtomicOps" on page 897). | • AtomicOp出口阻塞 — 路由元素的出口端口可被编程为阻止AtomicOps转发给不应看到它们的代理（参见第897页"AtomicOps"）。 |
+| TLP Prefix Blocked Error — Egress Ports of routing elements can be programmed not to forward TLPs containing End‑to‑End TLP Prefixes. If they then see one, they'll drop the TLP and report this error. For more on this, see "TPH (TLP Processing Hints)" on page 899. | TLP前缀阻塞错误 — 路由元素的出口端口可被编程为不转发包含端到端TLP前缀的TLP。如果随后检测到此类TLP，它们将丢弃该TLP并报告此错误。更多信息参见第899页"TPH（TLP处理提示）"。 |
+| Recall that the First Error Pointer in the Capability and Control Register indicates which unmasked uncorrectable error was the first to arrive since the pointer was last updated. Error handling software can read the pointer to find out which error to investigate first. As an example, if the pointer value is 18d, that means bit position 18 in the Uncorrectable Status register was first, which is a Malformed TLP. Once that error has been serviced, software writes a one to bit 18 in the status register to clear that event, which updates the First Error Pointer to the next‑most‑recent error. | 回顾一下，能力与控制寄存器中的首次错误指针指示自该指针上次更新以来，最先到达的未屏蔽不可校正错误是哪一个。错误处理软件可以读取该指针以确定应首先调查哪个错误。例如，如果指针值为18d，则表示不可校正状态寄存器中的第18位最先置位，即畸形TLP。一旦该错误被处理，软件向状态寄存器的第18位写入1以清除该事件，从而将首次错误指针更新为下一个最近发生的错误。 |
 
 | EN | ZH |
 |---|---|
-| ## D1/D2/D3<sub>Hot</sub> and the L1 State | ## D1/D2/D3<sub>Hot</sub> 与 L1 状态 |
-| The spec requires that when all Functions within a device have been placed into any of the low power states (D1, D2, or D3_hot), the device must initiate a transition to the L1 state as shown in Figure 16-23. A device returns to L0 as a result of software initiating a configuration access to the device or a device initiated event. | 规范要求，当设备内的所有功能都被置于任何低功耗状态（D1、D2 或 D3_hot）时，该设备必须启动到 L1 状态的转换，如图 16-23 所示。设备返回 L0 的原因是软件启动对设备的配置访问或设备发起的事件。 |
+| ## Selecting Uncorrectable Error Severity | ## 选择不可校正错误的严重级别 |
+| Software can select whether or not uncorrectable errors should be considered Fatal in this register, allowing errors to be treated differently for different applications. For example, a Poisoned TLP will be a Non‐Fatal condition by default, and is treated as an Advisory Non‐Fatal error in some cases, as discussed earlier. But software can escalate it to Fatal by setting its severity bit to one and then it will no longer be an advisory case. The default severity values are illustrated in the individual bit fields of Figure 15‐26 on page 694 (1 = Fatal, 0 = Non‐Fatal). If they are enabled and not masked, those errors selected as Non‐Fatal will cause an ERR\_NONFATAL message to be sent to the Root Complex, and those selected as Fatal will cause an ERR\_FATAL message. | 软件可通过此寄存器选择不可校正错误是否应被视为致命（Fatal）错误，从而允许不同应用对错误进行不同处理。例如，中毒TLP默认情况下为非致命（Non‐Fatal）条件，如前所述，在某些情况下被视为通告性非致命（Advisory Non‐Fatal）错误。但软件可通过将其严重级别位置1将其升级为致命错误，之后它将不再属于通告性情况。默认严重级别值如图15‑26（第694页）的各个位域所示（1=致命，0=非致命）。如果这些错误被使能且未被屏蔽，则被选为非致命的错误将导致向根复合体发送ERR\_NONFATAL消息，而被选为致命的错误将导致发送ERR\_FATAL消息。 |
 
-Figure 16‑23: Devices Transition to L1 When Software Changes their Power Level from D0 | 图16‑23：软件将设备电源级别从D0变更时设备转换到L1
+Figure 15‐26: Advanced Uncorrectable Error Severity Register | 图15‐26：高级不可校正错误严重性寄存器  
+<img src="images/part05_0e2f0674e287b0e486b4c1519f3a5c3585debd7ccc7cdb5f85a6ecbab3d887e7.jpg" width="700" alt="">
 
-<img src="images/part05_5e09bfe24dcb08db35d51671340b6b73826c3d79c24c40432f17f2d67edb51c4.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| Upon receiving a configuration write to the Power State field of the PMCSR register, a device initiates the change from L0 to L1 by sending a PM_Enter_L1 DLLP to the upstream component. | 当接收到对 PMCSR 寄存器的 Power State 字段的配置写入时，设备通过向上游组件发送 PM_Enter_L1 DLLP 来启动从 L0 到 L1 的变更。 |
-
-## Entering the L1 State | 进入L1状态
+## Uncorrectable Error Masking | 不可纠正错误屏蔽
 
 | EN | ZH |
 |---|---|
-| The procedure to place the Link into an L1 state is illustrated in Figure 16‑24 on page 762. The steps in the figure are described in greater detail in the following list: | 将链路置入L1状态的过程如图16‑24（第762页）所示。图中的各步骤在以下列表中详细描述： |
-| 1. Once a device recognizes that all its Functions are in the D2 state, it must prepare to transition the Link into L1. This begins with blocking new TLPs from being scheduled. | 1. 一旦设备识别到其所有Function均处于D2状态，它必须准备将链路转换到L1。这首先从阻止新的TLP被调度开始。 |
-| 2. A TLP from the downstream Endpoint may not have been acknowledged prior to receiving the request to enter D2. The device must not respond to a request to change the Link power until all outstanding TLPs have been acknowledged. In other words, the Replay Buffer must be empty before proceeding to the L1 state. | 2. 在收到进入D2的请求之前，来自下游端点的TLP可能尚未被确认。在所有未完成的TLP被确认之前，设备不得响应改变链路功耗的请求。换言之，在进入L1状态前，重放缓冲区必须为空。 |
-| 3. Because of the long latencies involved in returning the Link to its active state, a device must be able to send a maximum‑sized TLP immediately upon return to the active state. Since a lack of Flow Control credits could block this, the Endpoint must have sufficient credits to permit transmission of the biggest packet supported for each Flow Control type before entering L1. | 3. 由于链路恢复到活跃状态涉及较长延迟，设备必须在返回活跃状态后能够立即发送最大尺寸的TLP。由于流控信用不足可能阻止这一过程，端点在进入L1之前必须拥有足够的信用，以允许每种流控类型支持的最大数据包的传输。 |
-| 4. When the requirements listed above have been met, the Endpoint sends a PM\_Enter\_L1 DLLP to the upstream device. This instructs the upstream component to put the Link into L1. The PM\_Enter\_L1 is repeated until a PM\_Request\_ACK DLLP is received from the upstream device. | 4. 当上述要求均满足后，端点向下游设备发送一个PM\_Enter\_L1 DLLP。这指示上游组件将链路置入L1。PM\_Enter\_L1被重复发送，直到从上游设备接收到PM\_Request\_ACK DLLP。 |
-| 5. When the upstream component receives PM\_Enter\_L1, it begins its preparation by performing steps 6, 7, and 8. This is the same preparation as performed by the downstream component prior to signaling the L1 transition. | 5. 当上游组件收到PM\_Enter\_L1后，它通过执行步骤6、7、8开始准备。这与下游组件在发出L1转换信号之前所做的准备相同。 |
-| 6. All new TLP scheduling is blocked. | 6. 所有新的TLP调度被阻止。 |
-| 7. In the event that a previous TLP has not yet been acknowledged, the upstream device will wait until all transactions in the Replay Buffer have been acknowledged. | 7. 如果之前的TLP尚未被确认，上游设备将等待，直到重放缓冲区中的所有事务都被确认。 |
-| 8. Sufficient Flow Control credits must be accumulated to ensure that the largest TLP can be transmitted for each Flow Control type. | 8. 必须积累足够的流控信用，以确保每种流控类型的最大TLP都能够被传输。 |
-| 9. The upstream component sends a PM\_Request\_ACK DLLP to confirm that it's ready to enter the L1 state. This DLLP is repeated until an Electrical Idle ordered set is received, indicating that it's been accepted. | 9. 上游组件发送PM\_Request\_ACK DLLP以确认已准备好进入L1状态。该DLLP被重复发送，直到收到电气空闲有序集，表明已被接受。 |
-| 10. When the downstream component receives the acknowledgement, it sends an EIOS and places its transmit lanes into electrical idle (transmitter is in Hi‑Z state). | 10. 当下游组件收到确认后，它发送EIOS并将其发送通道置于电气空闲状态（发射器处于Hi‑Z状态）。 |
-| 11. The upstream component recognizes the EIOS and places its transmit lanes into electrical idle. The Link has now entered the L1 state. | 11. 上游组件识别到EIOS并将其发送通道置于电气空闲状态。此时链路已进入L1状态。 |
+| Software can mask out individual errors so they won't cause an error message to be sent by using the Advanced Uncorrectable Error Mask register, shown in Figure 15-27 on page 694. The default condition is to allow Error Messages for each type of error (all mask bits are cleared). | 软件可以通过使用高级不可校正错误屏蔽寄存器（Advanced Uncorrectable Error Mask Register，如图15-27所示，见第694页）来屏蔽个别错误，使其不会导致发送错误消息。默认条件允许每种错误类型的错误消息（所有屏蔽位均被清零）。 |
 
-Figure 16‑24: Procedure Used to Transition a Link from the L0 to L1 State | 图16‑24：用于将链路从L0状态转换到L1状态的过程
+Figure 15-27: Advanced Uncorrectable Error Mask Register | 图15-27：高级不可校正错误掩码寄存器  
 
-<img src="images/part05_ea98afc53224b6998c6c3023ea503b6051188e4800409676486442c903438cdd.jpg" width="700" alt="">
+<img src="images/part05_ff290458a5e005e7caa1d32c4b68f085085b2a63ff7b51cff681bdff89b8e6c7.jpg" width="700" alt="">
 
-## Exiting the L1 State | 退出 L1 状态
+## 15.10.5 Header Logging | 15.10.5 报头记录
 
 | EN | ZH |
 |---|---|
-| An exit from the L1 state can be initiated by either the upstream or downstream component, as discussed below. This section also summarizes the signaling protocol used to exit L1. | 如下所述，L1状态的退出可由上游或下游组件中的任一方发起。本节还总结了用于退出L1的信令协议。 |
-| **Upstream Component Initiates.** Software may need to use a device which is currently in a low-power state, and that means the Power Management software must issue a configuration write to change its power state back to D0. When the configuration Request is ready to be sent from the upstream component (a Root Port or downstream Switch Port) the port will exit the electrical idle state and initiate re-training to return the Link to the L0 state. Once the Link is active, the configuration write can be delivered to the device to transition it back to D0, at which point it's ready for normal use. | **上游组件发起。** 软件可能需要使用当前处于低功耗状态的设备，这意味着电源管理软件必须发出配置写入以将其电源状态更改回D0。当配置请求准备从上游组件（根端口或下游交换端口）发送时，该端口将退出电气空闲状态并启动重新训练以将链路返回到L0状态。一旦链路激活，配置写入可被传送到设备以将其转换回D0，此时设备即可正常使用。 |
-| **Downstream Component Initiates L1 to L0 Transition.** In the L1 state the reference clock and power are still applied to devices on the Link. That allows a downstream device to be designed to monitor external events and trigger a Power Management Event (PME) when it occurs. In conventional PCI, this is reported by a side-band PME# signal, and system board logic usually uses it to generate an interrupt that informs the CPU of the need to bring the device back to full operation. PCIe eliminates the sideband signal and instead sends an in-band message to report the PME (see "The PME Message" on page 769 for details). | **下游组件发起L1到L0的转换。** 在L1状态下，参考时钟和电源仍施加给链路上的设备。这使得下游设备可以设计为监视外部事件，并在事件发生时触发电源管理事件（PME）。在传统PCI中，这通过边带PME#信号报告，系统板逻辑通常使用它来产生中断，通知CPU需要将设备恢复到完全工作状态。PCIe消除了边带信号，而是发送带内消息来报告PME（详见第769页的"PME消息"）。 |
-| **The L1 Exit Protocol.** In the L1 state both directions of the Link are in the electrical idle state. A device signals an exit from L1 by changing from electrical idle and sending TS1s. When the Link neighbor detects the exit from electrical idle it sends TS1s back. This sequence triggers both devices to enter the Recovery state and, when that has completed its operation, both devices will have returned to the L0 state. | **L1退出协议。** 在L1状态下，链路两个方向都处于电气空闲状态。设备通过退出电气空闲状态并发送TS1来发出退出L1的信号。当链路对端检测到退出电气空闲状态时，它会发送回TS1。此序列触发两个设备进入Recovery状态，当该状态完成其操作后，两个设备都将返回到L0状态。 |
+| A 4DW portion of the Advanced Error Reporting structure is used for storing the header of a received TLP that incurs an unmasked, uncorrectable error. Since header logging is only useful when a TLP has been received with a problem that wasn't seen by the Physical or Data Link Layers, the number of possibilities is limited, as shown in Table 15‐6 on page 695. As mentioned earlier, when the optional AER capability is implemented, hardware is required to be able to log at least one header, though it may support logging more. | 高级错误报告结构中的4DW部分用于存储收到且发生了未屏蔽的不可校正错误的TLP的报头。由于报头记录仅当TLP在物理层或数据链路层未发现的情况下接收到问题时才有用，因此可能的情况数量有限，如第695页的表15‐6所示。如前所述，当实现了可选AER能力时，硬件必须能够记录至少一个报头，但它可以支持记录更多。 |
+| When the First Error Pointer is valid, the header log contains the header for the corresponding error if it was caused by an incoming TLP. Updating the Uncorrectable Error Status register will cause the Header Log registers to also update to the next value in sequence, meaning the next uncorrectable error that was detected. Since the hardware can only track a limited number of headers, it's important that software service uncorrectable errors quickly enough to avoid running out of header space. If the header log capacity is reached, that's a correctable error in itself (Header Log Overflow). This could happen if the number of supported log registers is exceeded or if the Multiple Header Log Enable bit is not set and the First Error Pointer is already valid when a new uncorrectable error is detected. | 当首个错误指针有效时，如果对应错误是由入站TLP引起的，则报头日志包含该错误的报头。更新不可校正错误状态寄存器将导致报头日志寄存器也依次更新为序列中的下一个值，即下一个检测到的不可校正错误。由于硬件只能跟踪有限数量的报头，软件必须足够快地处理不可校正错误，以避免报头空间耗尽。如果达到报头日志容量，这本身就是一个可校正错误（报头日志溢出）。当支持的日志寄存器数量被超出，或者当多个报头日志使能位未设置且检测到新的不可校正错误时首个错误指针已经有效，就可能发生这种情况。 |
 
-## L2 | L3 Ready — Removing Power from the Link
+Table 15‐6: Errors That Can Use Header Log Registers / 表15‐6：可使用报头日志寄存器的错误 | 表15‐6：可使用报头日志寄存器的错误
 
-| EN | ZH |
-|---|---|
-| Once software has placed all Functions within a Device into the D3hot state power can be safely removed from the device. A typical application for this would be to place all devices in the system into D3 and then remove power from them all to achieve the lowest power consumption. However, the spec does not give details of the actual mechanism that would be used to remove clock and power or require that a particular sequence be followed, allowing for a variety of implementations. | 一旦软件将设备内的所有功能都置于 D3hot 状态，便可安全地断开该设备的电源。一个典型应用是将系统中的所有设备都置于 D3 状态，然后断开所有设备的电源，以达到最低功耗。然而，规范并未给出用于移除时钟和电源的实际机制的细节，也未要求遵循特定的序列，从而允许各种实现方式。 |
-| The state transitions to prepare devices for power removal involve the preliminary steps of entering L1 and then returning to L0 before arriving at the L2/L3 Ready state as illustrated in Figure 16-25 on page 764. | 为准备设备断电而进行的状态转换涉及以下初步步骤：先进入 L1，然后返回到 L0，最后到达 L2/L3 Ready 状态，如图 16-25 所示（第 764 页）。 |
+<table><tr><td>Name of Error</td><td>Default Classification</td></tr><tr><td>Poisoned TLP Received</td><td>Uncorrectable - NonFatal</td></tr><tr><td>ECRC Check Failed</td><td>Uncorrectable - NonFatal</td></tr><tr><td>Unsupported Request</td><td>Uncorrectable - NonFatal</td></tr><tr><td>Completer Abort</td><td>Uncorrectable - NonFatal</td></tr><tr><td>Unexpected Completion</td><td>Uncorrectable - NonFatal</td></tr><tr><td>ACS Violation</td><td>Uncorrectable - NonFatal</td></tr><tr><td>Malformed TLP</td><td>Uncorrectable - Fatal</td></tr></table>
 
-Figure 16-25: Link States Transitions Associated with Preparing Devices for Removal of the Reference Clock and Power | 图16-25：与准备设备移除参考时钟和电源相关的链路状态转换
-
-<img src="images/part05_2c9540144f970d6374d2245863bc321ad0c9fed42db8d6d9140b64734070eeef.jpg" width="700" alt="">
-
-## L2 | L3 Ready Handshake Sequence
-
-| EN | ZH |
-|---|---|
-| The spec does require a handshake sequence when transitioning to the L2/L3 Ready state. This ensures that all devices are ready for reference clock and power removal, and also that inband PME messages being sent to the Root Complex won't accidentally be lost when power is removed. | 规范确实要求在转换到 L2/L3 Ready 状态时执行握手序列。这确保所有设备都已准备好移除参考时钟和电源，同时也确保在移除电源时，正在发送到根复合体的带内 PME 消息不会意外丢失。 |
-| Consider the following example of the handshake sequence required for removing the reference clock and power from PCIe devices in the fabric. This example assumes a system-wide power down is being initiated, but the sequence can also apply to individual devices. The steps are summarized below and shown in Figure 16-26 on page 766. The overall sequence is represented in two parts labeled A and B. The Link state transitions involved in the complete sequence include: | 考虑以下从架构中的 PCIe 设备移除参考时钟和电源所需的握手序列示例。此示例假设正在发起系统范围的断电，但该序列也可适用于单个设备。步骤总结如下，并在第 766 页的图 16-26 中展示。整个序列分为标记为 A 和 B 的两部分。完整序列中涉及的链路状态转换包括： |
-| • L0 ‐‐> L1 (when software places a device into D3)<br>• L1 ‐‐> L0 (when software initiates a PME_Turn_Off message)<br>L0 ‐‐> L2/L3 Ready (resulting from the completion of the PME_Turn_Off handshake sequence, which culminates in a PM_Enter_L23 DLLP being sent by the device and the Link going to electrical idle) | • L0 ‐‐> L1（当软件将设备置入 D3 时）<br>• L1 ‐‐> L0（当软件发起 PME_Turn_Off 消息时）<br>L0 ‐‐> L2/L3 Ready（由 PME_Turn_Off 握手序列完成导致，该序列最终由设备发送 PM_Enter_L23 DLLP 并使链路进入电气空闲状态） |
-| The following steps detail the sequence illustrated in Figure 16-26 on page 766. | 以下步骤详细说明了第 766 页图 16-26 所示的序列。 |
-| 1. Power Management software first places all Functions in the PCIe fabric into their D3 state. | 1. 电源管理软件首先将 PCIe 架构中的所有功能置入其 D3 状态。 |
-| 2. All devices transition their Links to the L1 state when they enter D3. | 2. 所有设备在进入 D3 时将其链路转换到 L1 状态。 |
-| 3. Power Management software initiates a PME_Turn_Off TLP message, which is broadcast from all Root Complex ports to all devices. This prevents PME Messages from being lost in case they were in progress upstream when power was removed. Note that delivery of this TLP causes each Link to transition back to L0 so it can be forwarded downstream. | 3. 电源管理软件发起一条 PME_Turn_Off TLP 消息，该消息从所有根复合体端口广播到所有设备。这防止了 PME 消息在移除电源时如果正在上行传输中而丢失。请注意，此 TLP 的投递会导致每条链路转换回 L0，以便可以将其向下游转发。 |
-| 4. All devices must receive and acknowledge the PME_Turn_Off message by returning a PME_TO_ACK TLP message while in the D3 state. | 4. 所有设备必须接收 PME_Turn_Off 消息并通过在 D3 状态下返回一条 PME_TO_ACK TLP 消息进行确认。 |
-| 5. Switches collect the PME_TO_ACK messages from all of their enabled downstream ports and forward just one aggregated PME_TO_ACK message upstream toward the Root Complex. That's because these messages have the routing attribute set as "Gather and Route to the Root". | 5. 交换机从其所有已启用的下游端口收集 PME_TO_ACK 消息，并仅向上游向根复合体转发一条聚合后的 PME_TO_ACK 消息。这是因为这些消息的路由属性设置为"收集并路由到根复合体"。 |
-| 6. After sending the PME_TO_ACK, when it is ready to have the reference clock and power removed, devices send a PM_Enter_L23 DLLP repeatedly until a PM_Request_ACK DLLP is returned. The Links that enter the L2/L3 Ready state last are those attached to the device originating the PME_Turn_Off message (the Root Complex in this example). | 6. 在发送 PME_TO_ACK 后，当设备准备好移除参考时钟和电源时，设备会重复发送 PM_Enter_L23 DLLP，直到返回 PM_Request_ACK DLLP。最后进入 L2/L3 Ready 状态的链路是连接到发起 PME_Turn_Off 消息的设备（此示例中为根复合体）的那些链路。 |
-| 7. The reference clock and power can finally be removed when all Links have transitioned to the L2/L3 state, but not sooner than 100ns after that. If auxiliary power (V_AUX) is supplied to the devices, the Link transitions to L2. If no AUX power is available the Links will be in the L3 state. | 7. 当所有链路都已转换到 L2/L3 状态后，最终可以移除参考时钟和电源，但不得早于此后 100ns。如果向设备提供辅助电源 (V_AUX)，则链路转换到 L2 状态。如果没有 AUX 电源可用，则链路将处于 L3 状态。 |
-
-Figure 16-26: Negotiation for Entering L2/L3 Ready State | 图16-26：进入L2/L3就绪状态的协商
-
-<img src="images/part05_9adc2b8feff8cbe6076f4a3924391fe2ca8456f3d02396a2482c4f9dc33c5ed3.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| ## Exiting the L2/L3 Ready State — Clock and Power Removed | ## 退出L2/L3预备状态——时钟和电源移除 |
-| As illustrated in the state diagram in Figure 16-27, a device exits the L2/L3 Ready state when power is removed and has only two choices. When V_AUX is available the transition is to L2, otherwise the transition is to L3. | 如图16-27中的状态图所示，当电源被移除时，设备退出L2/L3预备状态，且只有两种选择。当V_AUX可用时，转换到L2状态，否则转换到L3状态。 |
-| Link state transitions are normally controlled by the LTSSM in the Physical Layer. However, transitions to L2 and L3 result from main power being removed and the LTSSM is not operational then. Consequently, the spec refers to L2 and L3 as pseudo-states defined for explaining the resulting condition of a device when power is removed. | 链路状态转换通常由物理层中的LTSSM控制。然而，L2和L3的转换是由于主电源被移除所致，此时LTSSM并不运行。因此，规范将L2和L3称为伪状态，定义为解释设备在电源移除后所处状态。 |
-
-Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed | 图16-27：电源移除时从L2/L3就绪状态的状态转换
-
-<img src="images/part05_bde116ad18e1f8f978a0a3d72252fcf97654804997457b4c61b5c704416df591.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| ## The L2 State | ## L2 状态 |
-| Some devices are designed to monitor external events and initiate a wakeup sequence to restore power to handle them. Since main power is removed, these device will need a power source like $\mathsf { V } _ { \mathrm { A U X } }$ to be able to monitor the events and to signal a wakeup. | 某些器件被设计用于监测外部事件并启动唤醒序列以恢复电源来处理这些事件。由于主电源已被移除，这些器件将需要像 $\mathsf { V } _ { \mathrm { A U X } }$ 这样的电源来监测事件和发出唤醒信号。 |
-
-| EN | ZH |
-|---|---|
-| ## The L3 State | ## L3 状态 |
-| In this state the device has no power and therefore no means of communication. Recovery from this state requires the system to restore power and the reference clock. That causes devices to experience a fundamental reset, after which they'll need be initialized by software to return to normal operation. | 在此状态下，设备没有电源，因此无法进行通信。从该状态恢复需要系统恢复供电和参考时钟。这会导致设备经历一次基础复位，之后需要由软件对设备进行初始化，才能恢复正常运行。 |
-
-| EN | ZH |
-|---|---|
-| ## Link Wake Protocol and PME Generation | ## 链路唤醒协议与PME生成 |
-| The wake protocol provides a method for an Endpoint to reactivate the upstream Link and request that software return it to D0 so it can perform required operations. PCIe PM is designed to be compatible with PCI-PM software, although the methods are different. | 唤醒协议提供了一种方法，使端点能够重新激活上游链路并请求软件将其返回到D0，以便其执行所需操作。PCIe电源管理设计为与PCI-PM软件兼容，尽管方法有所不同。 |
-| Rather than using a sideband signal, PCIe devices use an inband PME message to notify PM software of the need to return the device to D0. The ability to generate PME messages may optionally be supported in any of the low power states. Recall that a device reports which PM states it supports for PME message delivery. | PCIe设备不使用边带信号，而是使用带内PME消息通知电源管理软件需要将设备返回到D0。在任何低功耗状态下都可以选择支持生成PME消息的能力。设备会报告其支持哪些PM状态用于PME消息传递。 |
-| PME messages can only be delivered when the Link state is L0. The latency involved in reactivating the Link is based on a device's PM and Link state, but can include the following: | PME消息只能在链路状态为L0时传递。重新激活链路所涉及的延迟取决于设备的PM状态和链路状态，但可能包括以下情况： |
-| 1. Link is in non‑communicating (L2) state — when a Link is in the L2 state it cannot communicate because the reference clock and main power have been removed. No PME message can be sent until clock and power are restored, a Fundamental Reset is asserted, and the Link is re‑trained. These events will be triggered when a device signals a wakeup. This may result in all Links being re‑awakened in the path between the device needing to communicate and the Root Complex. | 1. 链路处于非通信(L2)状态 — 当链路处于L2状态时，由于参考时钟和主电源已被移除，它无法通信。在时钟和电源恢复、基本复位被断言以及链路重新训练之前，无法发送PME消息。当设备发出唤醒信号时，这些事件将被触发。这可能导致需要通信的设备与根复合体之间路径上的所有链路都被重新唤醒。 |
-| 2. Link is in communicating (L1) state — when a Link is in the L1 state clock and main power are still active; thus, a device simply exits the L1 state, goes to the Recovery state to re‑train the Link, and returns the Link to L0. Once the Link is in L0 the PME message is delivered. Note that the devices never send a PME message while in the L2/L3 Ready state because entry into that state only occurs after PME notification has been turned off, in preparation for clock and power to be removed. (See "L2/L3 Ready Handshake Sequence" on page 764.) | 2. 链路处于通信(L1)状态 — 当链路处于L1状态时，时钟和主电源仍然有效；因此，设备只需退出L1状态，进入Recovery状态以重新训练链路，然后将链路返回到L0。一旦链路处于L0状态，PME消息就会被传递。请注意，设备在L2/L3 Ready状态下从不发送PME消息，因为进入该状态仅在PME通知已关闭之后发生，以为移除时钟和电源做准备。(参见第764页的"L2/L3 Ready握手序列"。) |
-| 3. PME is delivered (L0) — If the Link is in the L0 state, the device transfers the PME message to the Root Complex, notifying Power Management software that the device has observed an event that requires the device be placed back into its D0 state. Note that the message contains the Requester ID (Bus#, Device#, and Function#) of the device. This quickly informs software which device needs service. | 3. PME被传递(L0) — 如果链路处于L0状态，设备将PME消息传输到根复合体，通知电源管理软件该设备已观察到某个事件，需要将设备恢复到其D0状态。请注意，该消息包含设备的请求者ID(总线号、设备号和功能号)。这可以快速告知软件哪个设备需要服务。 |
-
-## 1.7.1 The PME Message | 1.7.1 PME 报文
-
-| EN | ZH |
-|---|---|
-| The PME message is delivered by devices that support PME notification. The message format is illustrated in Table 16-28 on page 769. The message may be initiated by a device in a low power state (D1, D2, D3_hot, and D3_cold) and is sent immediately upon return of the Link to L0. | PME 报文由支持 PME 通知的设备发送。报文格式如图 16-28 和第 769 页的表 16-28 所示。该报文可由处于低功耗状态（D1、D2、D3_hot 和 D3_cold）的设备发起，并在链路返回 L0 后立即发送。 |
-
-Figure 16-28: PME Message Format | 图16-28：PME消息格式
-
-<img src="images/part05_4e0193ca491c49c26bbfa3a0664a2ac9c0954a09db6d78678377fcb9266ff863.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| The PME message is a Transaction Layer Packet that has the following characteristics: | PME 报文是一种事务层数据包（TLP），具有以下特性： |
-| - TC and VC are zero (no QoS applies) | - TC 和 VC 均为零（不应用 QoS） |
-| - Routed implicitly to the Root Complex | - 隐式路由到根复合体 |
-| - Handled as Posted Transaction | - 作为 Posted 事务处理 |
-| Relaxed Ordering is not permitted, forcing all transactions in the fabric between the signaling device and the Root Complex to be delivered to the Root Complex ahead of the PME message. | 不允许 Relaxed Ordering，强制互联结构中信令设备与根复合体之间的所有事务在 PME 报文之前送达根复合体。 |
-
-## 1.7.2 The PME Sequence | 1.7.2 PME 序列
+## 15.10.6 Root Complex Error Tracking and Reporting | 15.10.6 根复合体错误跟踪和报告
 
 | EN | ZH |
 | --- | --- |
-| ## The PME Sequence | ## PME 序列 |
-| Devices may support PME in any of the low power states as specified in the PM Capabilities register. This register also specifies the amount of V\_AUX current used by the device if it supports wakeup in the D3\_cold state. The basic sequence of events associated with sending a PME to software is specified below and presumes that the device and system are enabled to generate PME and the Link has already been transitioned to the L0 state: | 设备可在 PM 能力寄存器指定的任何低功耗状态下支持 PME。该寄存器还指定了设备在 D3\_cold 状态下支持唤醒时所用的 V\_AUX 电流量。以下描述了将 PME 发送给软件所涉及的基本事件序列，并假定设备和系统已使能生成 PME，且链路已转换至 L0 状态： |
-| 1. The device issues the PME message on its upstream port. | 1. 设备在其上游端口上发送 PME 消息。 |
-| 2. PME messages are implicitly routed to the Root Complex. Switches in the path transition their upstream ports to L0 if necessary and forward the packet upstream. | 2. PME 消息被隐式路由到根复合体。路径上的交换机在必要时将其上游端口转换至 L0，并将数据包向上游转发。 |
-| 3. A root port receives the PME and forwards it to the Power Management Controller. | 3. 根端口接收 PME 并将其转发给电源管理控制器。 |
-| 4. The controller informs power management software, typically with an interrupt. Software uses the Requester ID in the message to read and clear the PME\_Status bit in the PMCSR and return the device to the D0 state. Depending on the degree of power conservation, the PCI Express driver may also need to restore the devices configuration registers. | 4. 控制器通常通过中断通知电源管理软件。软件使用消息中的请求者 ID 读取并清除 PMCSR 中的 PME\_Status 位，并将设备返回到 D0 状态。根据电源节能程度的不同，PCI Express 驱动程序可能还需要恢复设备的配置寄存器。 |
-| 5. PM Software may also call the device driver in the event that device context was lost as a result of being placed in a low power state. If so, device software restores information within the device. | 5. 如果设备上下文因进入低功耗状态而丢失，电源管理软件也可调用设备驱动程序。若如此，设备软件将恢复设备内的信息。 |
+| The Root Complex is the target of all error Messages from devices in a PCIe topology. Errors received by the Root update status registers and may be reported to the host system if enabled to do so. | 根复合体是PCIe拓扑中所有设备发出的错误消息的目标。根复合体接收到的错误会更新状态寄存器，并且如果启用，可能会向主机系统报告。 |
 
-| EN | ZH |
-|----|----|
-| ## PME Message Back Pressure Deadlock Avoidance | ## PME消息反压死锁避免 |
+## Root Complex Error Status Registers | 根复合体错误状态寄存器
 
 | EN | ZH |
 |---|---|
-| **Background** | **背景** |
-| The Root Complex typically stores the PME messages it receives in a queue, and calls PM software to handle each one. A PME is held in this queue until PM software reads the PME_Status bit from the requesting device's PMCSR register. Once the configuration read transaction completes, this PME message can be removed from the internal queue. | 根复合体通常将接收到的PME消息存储在队列中，并调用PM软件逐一处理。PME在该队列中保持，直到PM软件从请求设备的PMCSR寄存器中读取PME_Status位。一旦配置读取事务完成，该PME消息便可从内部队列中移除。 |
+| When the Root receives an error Message, it sets status bits within the Root Error Status register (Figure 15-28 on page 697). This register indicates the type of error received and whether multiple errors of the same type have been received. Note that an error detected in the Root Port itself will set these status bits, too, as if the port had sent itself an error message. The status bits are: | 当根复合体接收到错误消息时，它会在根错误状态寄存器（第697页图15-28）中设置状态位。该寄存器指示所接收错误的类型以及是否接收到相同类型的多个错误。请注意，在根端口自身检测到的错误也会设置这些状态位，就好像该端口向自己发送了一条错误消息一样。状态位包括： |
+| • ERR_COR Received | • ERR_COR 已接收 |
+| Multiple ERR_COR Received — received an ERR_COR message, or detected an unmasked Root Port correctable error with the ERR_COR Received bit already set. | 已接收多个 ERR_COR — 接收到 ERR_COR 消息，或者在 ERR_COR 已接收位已置位的情况下检测到未屏蔽的根端口可纠正错误。 |
+| • ERR_FATAL/NONFATAL Received | • ERR_FATAL/NONFATAL 已接收 |
+| Multiple ERR_FATAL/NONFATAL Received — received an ERR_FATAL or ERR_NONFATAL message or detected an unmasked Root Port uncorrectable error with the ERR_FATAL/NONFATAL Received bit already set. | 已接收多个 ERR_FATAL/NONFATAL — 接收到 ERR_FATAL 或 ERR_NONFATAL 消息，或者在 ERR_FATAL/NONFATAL 已接收位已置位的情况下检测到未屏蔽的根端口不可纠正错误。 |
+| It's possible for a system to implement separate software error handlers for Correctable, Non-Fatal, and Fatal errors, so this register includes bits to differentiate whether Uncorrectable errors were Fatal or Non-Fatal: | 系统可以为可纠正、非致命和致命错误实现独立的软件错误处理程序，因此该寄存器包含用于区分不可纠正错误是致命还是非致命的位： |
+| If the first Uncorrectable Error Message received is Fatal the "First Uncorrectable Fatal" bit is also set along with the "Fatal Error Message Received" bit. | 如果接收到的第一个不可纠正错误消息是致命的，则"首个不可纠正致命错误"位与"致命错误消息已接收"位同时置位。 |
+| If the first Uncorrectable Error Message received is Non-Fatal the "Nonfatal Error Message Received" bit is set. (If a subsequent Uncorrectable Error is Fatal, the "Fatal Error Message Received" bit will be set, but because the "First Uncorrectable Fatal" remains cleared, software knows that the first Uncorrectable Error was Non-Fatal). | 如果接收到的第一个不可纠正错误消息是非致命的，则"非致命错误消息已接收"位置位。（如果后续的不可纠正错误是致命的，"致命错误消息已接收"位将置位，但由于"首个不可纠正致命错误"位保持清零，软件知道第一个不可纠正错误是非致命的。） |
+| Finally, an interrupt may have been enabled (in the Root Error Command register) to be sent to the host system as a result of detecting one of these events. To support that, the 5-bit Interrupt Message Number in this register supplies the MSI or MSI-X vector number to be used, and there are 32 possibilities. For MSI, the number is the offset from the base data pattern. For MSI-X, it represents the table entry to be used, and must be one of the first 32 even if the agent supports more than 32. This read-only value is set by hardware and must be automatically updated if the number of MSI messages assigned to the device changes. | 最后，由于检测到这些事件之一，可能已在根错误命令寄存器中使能中断以发送到主机系统。为此，该寄存器中的5位中断消息编号提供了要使用的MSI或MSI-X向量编号，共有32种可能。对于MSI，该编号是相对于基数据模式的偏移量。对于MSI-X，它表示要使用的表项，并且必须是前32项之一，即使该设备支持超过32项。此只读值由硬件设置，并且如果分配给设备的MSI消息数量发生变化，必须自动更新。 |
 
-## 17.5.1 The Problem | 17.5.1 问题
+Figure 15-28: Root Error Status Register | 图15-28：根错误状态寄存器
 
-## Problem | 问题
+<img src="images/part05_d35345608e322454f06a0835b6b26735baac5198cafd982bac3908a2852b1497.jpg" width="700" alt="">
+
+## Advanced Source ID Register | 高级源ID寄存器
+
+| EN | ZH |
+| --- | --- |
+| Software error handlers may need to read and clear status registers in the device that detected and reported the error. To facilitate this, the error Messages contain the ID (Bus:Dev:Func) of the first device reporting that error type. The Source ID register captures that ID from the Message for an incoming ERR\_FATAL/NONFATAL message if the ERR\_FATAL/NONFATAL bit isn't already set (meaning this is the first one). Similarly, the Source ID of the first received ERR\_COR message is captured, too, as shown in Figure 15-29 on page 698. | 软件错误处理程序可能需要读取并清除检测到并报告错误的设备中的状态寄存器。为此，错误消息中包含报告该错误类型的首个设备的ID（总线:设备:功能）。当接收到ERR\_FATAL/NONFATAL消息时，如果ERR\_FATAL/NONFATAL位尚未置位（即这是第一个错误），则Source ID寄存器会从该消息中捕获该ID。类似地，第一个接收到的ERR\_COR消息的Source ID也会被捕获，如图15-29第698页所示。 |
+
+Figure 15-29: Advanced Source ID Register | 图15-29：高级源ID寄存器
+
+<table><tr><td colspan="2">31</td><td>0</td></tr><tr><td>ERR_FATAL/NONFATAL Source ID(ROS)</td><td>ERR_COR Source ID(ROS)</td><td></td></tr><tr><td colspan="3">ROS: Read-Only and Sticky</td></tr></table>
 
 | EN | ZH |
 |---|---|
-| Deadlock can occur if the following scenario develops: | 如果出现以下情况，可能会发生死锁： |
-| 1. Incoming PME Messages have filled the PME message queue but other PME messages have been issued downstream from the same root port. | 1. 传入的PME消息已填满PME消息队列，但同一根端口已向下游发送了其他PME消息。 |
-| 2. PM software initiates a configuration read request from the Root to read PME_Status from the oldest PME requester. | 2. PM软件从根发起配置读取请求，以从最早的PME请求者读取PME_Status。 |
-| 3. The corresponding split completion must push all previously posted PME messages ahead of it based on transaction ordering rules. | 3. 根据事务排序规则，相应的拆分完成报文必须将先前发布的所有PME消息推送到其前面。 |
-| 4. The Root Complex cannot accept a new PME message because the queue is full, so the path is temporarily blocked. But that also means that the read completion can't reach the Root Complex to clear the older entry in the queue. | 4. 根复合体无法接受新的PME消息，因为队列已满，所以路径暂时被阻塞。但这同时也意味着读取完成报文无法到达根复合体来清除队列中较旧的条目。 |
-| 5. No progress can be made and deadlock occurs. | 5. 无法继续推进，从而发生死锁。 |
+| ## Root Error Command Register | ## 根错误命令寄存器 |
+| The Root Complex has separate enable bits for each of the three error categories to control whether that error type will generate an interrupt to call an error handler as shown in Figure 15-30 on page 698. The interrupt that is generate will either be an MSI or MSI-X as discussed in "Root Complex Error Status Registers" on page 696. Once the interrupt is received, the called error handler would probably first read the Root Complex status registers to determine the nature of the error, and then go down to the source BDF of the error to read standard status register as well as possibly device-specific registers to determine what occurred and how it should be handled. | 根复合体为三种错误类别分别设有独立的使能位，用于控制该错误类型是否产生中断以调用错误处理程序，如图15-30（第698页）所示。所产生的中断可以是MSI或MSI-X，详见第696页的"Root Complex Error Status Registers"讨论。一旦接收到中断，被调用的错误处理程序通常应先读取根复合体状态寄存器以确定错误的性质，然后向下访问错误的源BDF，读取标准状态寄存器以及可能的设备特定寄存器，以确定发生了什么以及应如何处理。 |
 
-## 8.7.1 The Solution | 8.7.1 解决方案
+Figure 15-30: Advanced Root Error Command Register | 图15-30：高级根错误命令寄存器
 
-| EN | ZH |
-|---|---|
-| The problem is avoided if the Root Complex always accepts new PME messages, even when they would overflow the queue. In this case, the Root simply discards the later PME messages. To prevent a discarded PME message from being lost permanently, a device that sends a PME message is required to measure a time-out interval, called the PME Service Time-out. If the device's PME_Status bit is not cleared with 100 ms (+ 50%/ - 5%), it assumes its message must have been lost and it re-issues the message. | 如果根复合体始终接受新的 PME 报文，即使会导致队列溢出，则可避免该问题。在这种情况下，根复合体直接丢弃后续的 PME 报文。为防止被丢弃的 PME 报文永久丢失，发送 PME 报文的设备必须测量一个称为 PME 服务超时（PME Service Time-out）的超时间隔。如果设备的 PME_Status 位在 100 ms（+ 50%/ - 5%）内未被清除，设备即认为其报文可能已丢失，并重新发送该报文。 |
+<table><tr><td rowspan="19">31</td><td colspan="5">RsvdP</td></tr><tr><td rowspan="14"></td><td>3</td><td>2</td><td>1</td><td>0</td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td colspan="5">Fatal Error Reporting Enable</td></tr><tr><td colspan="5">Non-Fatal Error Reporting Enable</td></tr><tr><td colspan="5">Correctable Error Reporting Enable</td></tr><tr><td colspan="5">Note: all bits designated RW</td></tr></table>
 
-## 1.7.4 The PME Context | 1.7.4 PME 上下文
+## 15.11 Summary of Error Logging and Reporting | 15.11 错误记录与报告总结
 
 | EN | ZH |
 |---|---|
-| Devices that generate PME must continue to power portions of the device that are used for detecting, signaling, and handling PME events, referred to collectively as the PME context. Devices that support PME in the $\mathrm { D } 3 _ { \mathrm { c o l d } }$ state use auxiliary power to maintain the PME context when the main power is removed. Items that are typically part of the PME context include: | 生成 PME 的设备必须继续为设备中用于检测、发送和处理 PME 事件的部分供电，这些部分统称为 PME 上下文。在 $\mathrm { D } 3 _ { \mathrm { c o l d } }$ 状态下支持 PME 的设备在主电源断开时使用辅助电源来维持 PME 上下文。通常属于 PME 上下文的项目包括： |
-| PME\_Status bit (required) — set when a device sends a PME message and cleared by PM software. Devices that support PME in the $\mathrm { D } 3 _ { \mathrm { c o l d } }$ state must implement the PME\_Status bit as "sticky," meaning that the value survives a fundamental reset. | PME\_Status 位（必需）——当设备发送 PME 消息时置位，并由电源管理软件清除。在 $\mathrm { D } 3 _ { \mathrm { c o l d } }$ 状态下支持 PME 的设备必须将 PME\_Status 位实现为"粘性"，即该值在基本复位后仍然保留。 |
+| The spec includes the flow chart in Figure 15-31 on page 699 that shows the actions taken by a Function when an error is detected. The part inside the dashed line highlights the items that are added when the optional AER capability structure is present. | 规范在第699页的图15-31中包含了流程图，展示了当检测到错误时一个功能（Function）所采取的动作。虚线框内的部分突出了当可选的高级错误报告（AER）能力结构存在时新增的条目。 |
+
+Figure 15-31: Flow Chart of Error Handling Within a Function / 图15-31：功能内部错误处理的流程图 | 图15-31：功能内部错误处理的流程图
+
+<img src="images/part05_603ee5d0f57be894c341dd0ab8b232396b272d0c100611c6c978c1e030f0791d.jpg" width="700" alt="">
+
+## 15.12 Example Flow of Software Error Investigation | 15.12 软件错误调查的示例流程
+## 软件错误调查的示例流程
+
+| EN | ZH |
+|---|---|
+| Now that we know all the mechanisms defined in PCIe for detecting, logging and reporting errors, it is worthwhile to look at how software would find and use this information to determine how to handle a reported error. | 既然我们已经了解了 PCIe 中定义的所有用于错误检测、记录和报告的机制，那么值得探讨的是软件将如何查找并使用这些信息，以确定如何处理所报告的错误。 |
 
 ## PCI Express Technology | PCI Express 技术
 
 | EN | ZH |
 |---|---|
-| PME_Enable bit (required) — this bit must remain set to continue enabling a Function's ability to generate PME messages and signal wakeup. Devices that support PME in the D3cold state must implement PME_Enable as "sticky," meaning that the value survives a fundamental reset. | PME_Enable 位（必需）——该位必须保持置位，以持续使能功能（Function）生成 PME 消息和发出唤醒信号的能力。在 D3cold 状态下支持 PME 的设备必须将 PME_Enable 实现为"粘性的（sticky）"，即该值在基础复位（fundamental reset）后仍然保留。 |
-| Device-specific status information — for example, a device might preserve event status information in cases where several different types of events can trigger a PME. | 设备特定状态信息——例如，在多种不同类型的事件均可触发 PME 的情况下，设备可能会保留事件状态信息。 |
-| • Application-specific information — for example, modems that initiate wakeup would preserve Caller ID information if supported. | • 应用特定信息——例如，发起唤醒的调制解调器若支持，则会保留主叫号码（Caller ID）信息。 |
+| This example is going to assume that both the originating Function as well as the Root Port upstream of it both support AER. Without AER support, the standardized registers for error logging are very limited. | 本示例假设发起端功能（Function）及其上游的根端口（Root Port）均支持AER。若没有AER支持，用于错误记录的标准寄存器将非常有限。 |
+| The system used for this example is shown in Figure 15-32 on page 701. The Root Port has a BDF of 0:28:0 and was enabled to generate an interrupt when it receives either an ERR_FATAL or ERR_NONFATAL message. We are going to follow the steps of error handling software would take to determine what errors have occurred, where they occurred and what packets were they detected in. | 本示例使用的系统如图15-32（第701页）所示。根端口的BDF为0:28:0，并被使能在接收到ERR_FATAL或ERR_NONFATAL消息时产生中断。我们将按照错误处理软件通常采取的步骤，来确定发生了什么错误、错误发生在哪里以及是在哪些报文中检测到的。 |
+| The error handling software has been called because of an interrupt from Root Port 0:28:0. The steps below are just an example, but illustrate the process of error handling software gathering error information. | 由于来自根端口0:28:0的中断，错误处理软件被调用。以下步骤仅是一个示例，但展示了错误处理软件收集错误信息的过程。 |
+| 1. Software knows it was Root Port 0:28:0 that called the error handler based on the interrupt vector used. Since MSI or MSI-X interrupts are used to report errors, each Root Port will have their own unique set of interrupt vectors. | 1. 软件根据所用的中断向量知道是根端口0:28:0调用了错误处理程序。由于使用MSI或MSI-X中断来报告错误，每个根端口都有自己唯一的一组中断向量。 |
+| 2. The error handler reads the Root Error Status register of the AER structure on 0:28:0 to determine what types of error messages have been received by the Root Port. The value in that register is 0800_007Ch which indicates that this Root Port has not received any ERR_COR messages, but has received both ERR_FATAL and ERR_NONFATAL messages and the first uncorrectable error message that it received was an ERR_FATAL. | 2. 错误处理程序读取0:28:0上AER结构的根错误状态寄存器，以确定根端口已接收到的错误消息类型。该寄存器的值为0800_007Ch，表明该根端口尚未收到任何ERR_COR消息，但已收到ERR_FATAL和ERR_NONFATAL消息，并且其收到的第一个不可纠正错误消息是ERR_FATAL。 |
+| 3. The next step is to determine which BDF beneath this Root Port sent the first uncorrectable error. Software then reads the Source ID register of the Root Port and finds the value 0500_0000h, which indicates that the source BDF of the first uncorrectable error was 5:0:0. | 3. 下一步是确定该根端口下的哪个BDF发送了第一个不可纠正错误。软件随后读取根端口的源ID寄存器，发现值为0500_0000h，表明第一个不可纠正错误的源BDF为5:0:0。 |
+| 4. Now software knows that the first uncorrectable error received by Root Port 0:28:0 was a Fatal error that originated from BDF 5:0:0. With this information, software then goes and reads the Uncorrectable Error Status register on BDF 5:0:0 to see which specific uncorrectable errors have occurred on that BDF. The value returned from that read is 0004_1000h which means that this BDF has detected at least one Malformed TLP and at least one Poisoned TLP. But what the error handler really cares about is which one occurred first, because that's the one that should be handled first. | 4. 现在软件知道根端口0:28:0接收到的第一个不可纠正错误是源自BDF 5:0:0的致命错误（Fatal error）。有了这些信息，软件随后读取BDF 5:0:0上的不可纠正错误状态寄存器，查看该BDF上具体发生了哪些不可纠正错误。读回的值为0004_1000h，意味着该BDF至少检测到一个畸形TLP（Malformed TLP）和至少一个中毒TLP（Poisoned TLP）。但错误处理程序真正关心的是哪个错误先发生，因为应该先处理那个错误。 |
+| 5. To determine which of the multiple uncorrectable errors occurred first, software then reads the Advanced Error Capability and Control register of 5:0:0 and finds the value 0000_0012h which has a First Error Pointer value of 12h meaning that the first uncorrectable error was a Malformed TLP (bit 18d) and not the Poisoned TLP (bit 12d). | 5. 为确定多个不可纠正错误中哪个最先发生，软件随后读取5:0:0的高级错误能力与控制寄存器，发现值为0000_0012h，其首个错误指针（First Error Pointer）值为12h，意味着第一个不可纠正错误是畸形TLP（位18d），而非中毒TLP（位12d）。 |
 
-## 1.7.5 Waking Non-Communicating Links | 1.7.5 唤醒非通信链路
+Figure 15-32: Error Investigation Example System | 图15-32：错误调查示例系统
 
-| EN | ZH |
-|---|---|
-| When a device that supports PME in the D3cold state needs to send a PME message, it must first transition the Link to L0. This is sometimes referred to as a wakeup. PCI Express defines two methods of triggering the wakeup of non‑communicating Links: | 当处于D3cold状态且支持PME的设备需要发送PME消息时，它必须首先将链路转换到L0。这有时被称为唤醒。PCI Express定义了两种触发非通信链路唤醒的方法： |
-| • Beacon — an in‑band indicator driven by AUX power | • Beacon（信标）— 由AUX电源驱动的带内指示信号 |
-| • WAKE# Signal — a sideband signal driven by AUX power | • WAKE#信号 — 由AUX电源驱动的边带信号 |
-| In both cases, PM software must be notified to restore main power and the reference clock. This also causes a fundamental reset that forces a device into the D0<sub>uninitialized</sub> state. Once the Link transitions to L0, the device sends the PME message. Since a reset is required to re‑activate the Link, devices must maintain PME context across the reset sequence described above. | 在这两种情况下，都必须通知电源管理软件恢复主电源和参考时钟。这还会导致一次基本复位，强制设备进入D0<sub>uninitialized</sub>状态。一旦链路转换到L0，设备就会发送PME消息。由于重新激活链路需要复位，因此设备必须在上述复位序列期间保持PME上下文。 |
-
-| EN | ZH |
-|---|---|
-| This signaling mechanism is designed to operate on AUX power and doesn't require much power. The beacon is simply a way of notifying the upstream component that software should be notified of the wakeup request. When switches receive a beacon on a downstream port, they in turn signal beacon on their upstream port. Ultimately, the beacon reaches the root complex, where it generates an interrupt that calls PM software. | 该信令机制设计为在AUX电源上运行，功耗较低。信标(beacon)仅是一种通知上游组件的方式，告知软件应被通知唤醒请求。当交换机(switch)在下行端口收到信标时，它们会在其上行端口上发送信标。最终，信标到达根复合体(root complex)，在此产生中断以调用电源管理(PM)软件。 |
-| Some form‑factors require beacon support for waking the system while others don't. The spec requires compliance with the form‑factor specs, and doesn't require beacon support for devices if their form‑factor doesn't. However, for "universal" components designed for use in a variety of form‑factors, beacon support is required. See "Beacon Signaling" on page 483 for details. | 某些外形规格(form-factor)要求支持信标以唤醒系统，而其他则不需要。规范要求符合外形规格标准，若设备的外形规格本身不要求信标，则规范不要求该设备支持信标。然而，对于设计用于多种外形规格的"通用"组件，信标支持是必需的。详情请参见第483页的"Beacon Signaling"。 |
+<img src="images/part05_f593e2fb9f91661bb82eece17272589f73a280f332d1222697b56f5162fa06ba.jpg" width="700" alt="">
 
 | EN | ZH |
 |---|---|
-| ## WAKE# | ## WAKE# |
-| PCI Express provides a sideband signal called WAKE# as a alternative to the beacon that can be routed directly to the Root or to other system logic to notify PM software. In spite of the desire to minimize the pin count of a Link, the motivation for adding this extra pin is easy to understand. The reason is that a component must consume auxiliary power to be able to recognize a beacon on a downstream port and then forward it to an upstream port. In a battery-powered system auxiliary power is jealously guarded because it drains the battery even when the system isn't doing any work. The preferred solution in that case would be to bypass as many components as possible when delivering the wakeup notification, and the WAKE# pin serves that purpose very well. On the other hand, if power is not a concern then the WAKE# pin might be considered less desirable. | PCI Express 提供了一种称为 WAKE# 的边带信号，作为信标的替代方案，可直接路由到根复合体或其他系统逻辑以通知 PM 软件。尽管希望尽量减少链路的引脚数量，但增加这个额外引脚的动机很容易理解。原因是组件必须消耗辅助电源才能识别下行端口上的信标，然后将其转发到上行端口。在电池供电的系统中，辅助电源受到严格保护，因为即使系统不工作时它也会消耗电池电量。在这种情况下，首选的解决方案是在传递唤醒通知时绕过尽可能多的组件，而 WAKE# 引脚非常出色地实现了这一目的。另一方面，如果功耗不成问题，那么 WAKE# 引脚可能就不那么理想了。 |
-| A hybrid implementation may also be used. In this case, WAKE# is sent to a switch, which in turn sends the beacon on its upstream port. The options are illustrated in Figure 16-29 on page 774 A and B. Note that when asserted, the WAKE# signal remains low until the PME_Status bit is cleared by software. | 也可以使用混合实现方式。在这种情况下，WAKE# 被发送到交换机，然后交换机在其上行端口上发送信标。这些选项如图 16-29（第 774 页，A 和 B）所示。请注意，当断言时，WAKE# 信号保持低电平，直到软件清除 PME_Status 位。 |
-| This signal must be implemented by ATX or ATX-based connectors and cards as well as by the mini-card form factor. No requirement is specified for embedded devices to use the WAKE# signal. | ATX 或基于 ATX 的连接器和卡以及迷你卡外形必须实现此信号。对于嵌入式设备，未指定使用 WAKE# 信号的要求。 |
-
-Figure 16-29: WAKE# Signal Implementations | 图16-29：WAKE#信号实现
-<img src="images/part05_f2408966fcbddf9c62276c74421bb598bd2c9ec03d7c4b51010ccaa266a5f268.jpg" width="700" alt="">
-
-## 1.7.6 Auxiliary Power | 1.7.6 辅助电源
-
-| EN | ZH |
-|----|----|
-| Devices that support PME in the D3cold state must support the wakeup sequence and are allowed by the PCI-PM spec to consume the maximum auxiliary current of 375 mA (otherwise only 20 mA). The amount of current they need is reported in the Aux_Current field of the PM Capability registers. Auxiliary power is enabled when the PME_Enable bit is set within the PMCSR register. | 在D3cold状态下支持PME的设备必须支持唤醒序列，并且PCI-PM规范允许它们消耗最大375 mA的辅助电流（否则仅为20 mA）。它们所需的电流量在PM能力寄存器的Aux_Current字段中报告。当PMCSR寄存器中的PME_Enable位置位时，辅助电源被使能。 |
-| PCI Express extends the use of auxiliary power beyond the limitations given by PCI-PM. Now, any Device may consume the maximum auxiliary current if enabled by setting the Aux Power PM Enable bit of the Device Control register, illustrated in Figure 16-30 on page 775. This gives devices the opportunity to support other things like SM Bus while in a low power state. As in PCI-PM the amount of current consumed by a device is reported in the Aux_Current field in the PMC register. | PCI Express将辅助电源的使用扩展到PCI-PM所规定的限制之外。现在，任何设备都可以通过设置设备控制寄存器中的Aux Power PM Enable位（如图16-30第775页所示）来使能消耗最大辅助电流。这为设备提供了在低功耗状态下支持SM Bus等其他功能的机会。与PCI-PM一样，设备消耗的电流量在PMC寄存器的Aux_Current字段中报告。 |
-
-Figure 16-30: Auxiliary Current Enable for Devices Not Supporting PMEs | 图16-30：不支持PME设备的辅助电流使能
-
-<img src="images/part05_96429d035b462f2fe78aefdf7c0c249cd312c31f122d226d8c2c8f2aaa527083.jpg" width="700" alt="">
-
-| EN | ZH |
-| --- | --- |
-| ## Improving PM Efficiency | ## 提高电源管理效率 |
-
-| EN | ZH |
-|---|---|
-| ## Background | ## 背景 |
-| As processors and other system components acquire better power management mechanisms, peripherals like PCIe components start to appear as a bigger contributor to power consumption in PC systems. Earlier generations of PCIe allowed some software and hardware power management, but coordinating PM decisions with the system was not a high priority and consequently software visibility and control was limited. | 随着处理器及其他系统组件获得更优的电源管理机制，PCIe 组件等外设在 PC 系统中逐渐成为更大的功耗贡献者。早期几代 PCIe 允许一定的软件和硬件电源管理，但与系统协调电源管理决策并非高优先级事项，因此软件的可见性和控制能力十分有限。 |
-| One problem that can arise from this lack of coordination happens when the system goes into a sleep state but the devices remain operational. Such devices can initiate interrupts or DMA traffic that would require the system to wake up to handle them, even thought they were low‑priority events, and thus defeat the goal of power conservation. | 这种协调不足可能引发的一个问题是：系统进入休眠状态而设备仍在运行。这些设备可能发起中断或 DMA 流量，要求系统唤醒进行处理——即便这些事件优先级很低——从而违背了节能的目标。 |
-| It can also happen that the system is unaware of how long the devices can afford to wait from the time they request system service (like a memory read) until they get a response. Without that information, software is often forced to assume that the response time must always be minimal and therefore power management policies can't afford enough time to do much. However, if the system was aware of time windows when a fast response was not needed, it could be more aggressive with power management and stay in a low power state for a longer time without risking performance problems. The 2.1 spec revision added two new features to address these problems. | 另一种情况是，系统不知道设备从请求系统服务（如存储器读取）到获得响应之间能忍受多长的等待时间。缺少这一信息，软件往往被迫假定响应时间必须始终最短，因此电源管理策略无法留出足够的时间来做更多节能操作。然而，如果系统能够了解哪些时段不需要快速响应，它就可以更激进地执行电源管理，在低功耗状态下停留更长时间而不影响性能。PCIe 2.1 规范修订版新增了两种特性来解决这些问题。 |
-
-| EN | ZH |
-|---|---|
-| ## OBFF (Optimized Buffer Flush and Fill) | ## OBFF（优化缓冲区刷新与填充） |
-| The first of these mechanisms is Optimized Buffer Flush and Fill, which provides a mechanism for Endpoints to be made aware of the system power state and therefore the best times to do data transfers to and from the system. | 这些机制中的第一种是优化缓冲区刷新与填充（Optimized Buffer Flush and Fill），它为端点提供了一种机制，使其能够感知系统电源状态，从而获知与系统之间进行数据传输的最佳时机。 |
-
-## 17.5.1 The Problem | 17.5.1 问题
-
-| EN | ZH |
-|---|---|
-| The problem with bus‑master capable devices is that if they're not aware of the system power status, they may initiate transactions at times when it would be better to wait. The diagram in Figure 16‑31 on page 777 illustrates the problem in simple terms: there are many components initiating events and as a result, the times without activity when the system is idle and can go to sleep are few and short‑lived. In contrast, Figure 16‑32 on page 777 illustrates an improvement in which the same events are grouped and serviced together so that the times when the system is idle enough to go to sleep are both more frequent and of longer duration. Clearly, this would result in better power conservation and fortunately, it's not difficult to implement. PCIe components simply need to understand what they should do based on the system power state, and they'll need a way to learn what that state currently is. | 支持总线主控的设备存在的问题是，如果它们不了解系统电源状态，可能会在更适合等待的时机发起事务。图16-31（第777页）简要说明了这个问题：许多组件都在触发事件，导致系统空闲且可进入睡眠状态的无活动时段既稀少又短暂。相比之下，图16-32（第777页）展示了改进情况：相同的事件被分组并集中处理，使得系统空闲到足以进入睡眠的时段更加频繁且持续时间更长。显然，这将实现更好的节能效果，幸运的是，这并不难实现。PCIe组件只需根据系统电源状态理解应执行的操作，并且它们需要一种方式来获知当前的系统电源状态。 |
-
-Figure 16‑31: Poor System Idle Time | 图16‑31：较差的系统空闲时间  
-
-Figure 16‑32: Improved System Idle Time | 图16‑32：改善后的系统空闲时间  
-<img src="images/part05_3568037bc910ae8c02bdfddb6d5d44ff1820482aab8717544f7b73f815c2302c.jpg" width="700" alt="">
-
-<img src="images/part05_f57cb1b1313651588e74633ef582ec8048806523bbdf7cae61b943d933551f11.jpg" width="700" alt="">
-
-## 8.7.1 The Solution | 8.7.1 解决方案
-
-| EN | ZH |
-|---|---|
-| OBFF is an optional hint that a system can use to inform components about optimal time windows for traffic. It's just a hint, though, so bus-master-capable devices can still initiate traffic whenever they like. Of course, power consumption will be negatively affected if they do, so overriding the OBFF hints should be avoided as much as possible. The information is communicated in one of two ways: by sending messages to the Endpoints or by toggling the WAKE# pin. If both options are available, using the pin is strongly recommended because it avoids the counter-productive step of using excess power, possibly across several Links, to inform a component about the current system power state. In fact, the OBFF message should only be used if the WAKE# pin is not available. | OBFF是一种可选提示机制，系统可用它来告知组件关于流量的最佳时间窗口。然而，这仅仅是一个提示，因此具有总线主控能力的设备仍然可以随时发起流量。当然，如果它们这样做，功耗将受到负面影响，因此应尽可能避免覆盖OBFF提示。该信息通过两种方式之一进行通信：向端点发送消息或通过切换WAKE#引脚。如果两种选项都可用，强烈建议使用引脚方式，因为它可以避免使用额外功耗（可能跨越多条链路）来告知组件当前系统电源状态这一适得其反的步骤。实际上，仅当WAKE#引脚不可用时才应使用OBFF消息。 |
-| Figure 16-33 on page 778 gives an example showing a mix of both communication types. Using the pin is required if it's available, but in this example it's not an option between the two switches. To work around this problem, the upper switch can translate the state received on the WAKE# pin into a message going downstream. It should perhaps be noted here that switches are strongly encouraged to forward all OBFF indications downstream but not required to do so. It may be necessary, especially when using messages, to discard or collapse some indications and that is permitted. | 第778页的图16-33给出了一个混合使用两种通信类型的示例。如果引脚可用，则必须使用它，但在本例中，两个交换机之间无法使用该引脚。为解决此问题，上游交换机可以将WAKE#引脚上接收到的状态转换为向下游发送的消息。这里或许应注意，强烈建议交换机将所有OBFF指示转发到下游，但并不强制要求这样做。尤其是在使用消息时，可能有必要丢弃或合并某些指示，这是允许的。 |
-
-Figure 16-33: OBFF Signaling Example | 图16-33：OBFF信令示例
-
-<img src="images/part05_6388cd761b9de74638617d414f6183577891272c712bc5aa6fca383938c9af26.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| **Using the WAKE# Pin.** This pin, previously only used to inform the system that a component needed to have power restored, is given an extra meaning as the simplest and lowest-power option for communicating system power status to PCIe components. It's optional, and the protocol is fairly simple: the WAKE# pin toggles to communicate the system state. As seen in Figure 16-34 on page 779, there are several transitions but only three states, which are described below: | **使用WAKE#引脚。** 该引脚先前仅用于通知系统某个组件需要恢复供电，现在被赋予了额外含义，成为向PCIe组件通信系统电源状态的最简单、功耗最低的选项。它是可选的，且协议相当简单：通过切换WAKE#引脚来传达系统状态。如第779页图16-34所示，存在多种跳变但只有三种状态，描述如下： |
-| 1. CPU Active -- system awake; all transactions OK. This is every component's initial state. | 1. CPU Active（CPU活跃）-- 系统唤醒；所有事务均可进行。这是每个组件的初始状态。 |
-| 2. OBFF -- system memory path available; transfers to and from memory are OK, but other transactions should wait for a higher power state. | 2. OBFF -- 系统内存路径可用；与内存之间的传送可以进行，但其他事务应等待更高的电源状态。 |
-| 3. Idle -- wait for a higher state before initiating. | 3. Idle（空闲）-- 在发起前等待更高状态。 |
-
-Figure 16-34: WAKE# Pin OBFF Signaling | 图16-34：WAKE#引脚OBFF信令
-
-<img src="images/part05_99e29ed82cbb0cb4b3990e5b61068894439a3148a609c9461a7990d02d41820f.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| When the CPU Active or OBFF state is indicated, it's recommended that the platform not return to the Idle state for at least 10 us so as to give components enough time to deliver the packets they may have been queuing up while in the previous Idle state. However, since that timing isn't required, it's also recommended that Endpoints not assume they'll have a certain amount of time in a CPU Active or OBFF window. Along the same lines, the platform is allowed to indicate that it's going to Idle before it actually does so as to give components advance notice that it's time to finish. The case this early notice is specifically designed to avoid is having an Endpoint start a transfer just as the platform goes to Idle, causing an immediate exit from the Idle state. The spec strongly recommends that this should be the only reason for an early indication of the Idle state and also that this advance notice time should be as short as possible. | 当指示CPU Active或OBFF状态时，建议平台至少在10微秒内不返回Idle状态，以便给组件足够的时间交付它们在之前Idle状态下可能已排队的包。然而，由于该时序并非强制要求，因此也建议端点不要假设它们在CPU Active或OBFF窗口内会有固定的时间量。同样地，允许平台在实际进入Idle之前提前指示其即将进入Idle，以便让组件预先知道需要完成事务。这种提前通知专门设计要避免的情况是：端点恰好在平台进入Idle时开始传送，从而导致立即退出Idle状态。规范强烈建议，这应是提前指示Idle状态的唯一原因，并且该提前通知时间应尽可能短。 |
-| Interestingly, the WAKE# pin can still be used for its original purpose of allowing a component to wake the system, and it's no surprise that this might confuse other components that are monitoring that pin for OBFF information. That could result in sub-optimal behavior in power or performance, but this is considered a recoverable situation so no steps were taken to guard against it. To cover all of these cases, any time the signal is unclear the default state will be CPU Active. | 有趣的是，WAKE#引脚仍然可以用于其原始目的——允许组件唤醒系统，而这可能会混淆正在监视该引脚以获取OBFF信息的其他组件，这并不令人意外。这可能导致电源或性能方面的次优行为，但这被认为是可恢复的情况，因此未采取任何防范措施。为涵盖所有这些情况，每当信号不明确时，默认状态将为CPU Active。 |
-| **Using the OBFF Message.** As mentioned earlier, OBFF information can be communicated using a message, although it's recommend that this only be used if the WAKE# pin is not available. These messages only flow downstream from the Root. The message contents are shown in Figure 16-35 on page 781, including the Routing type 100b (point-to-point) and an OBFF Code that gives the following values (all other codes are reserved): | **使用OBFF消息。** 如前所述，OBFF信息可以通过消息进行通信，但建议仅当WAKE#引脚不可用时才使用该方式。这些消息仅从根向下游传输。消息内容如第781页图16-35所示，包括路由类型100b（点对点）和OBFF代码，其值如下（所有其他代码保留）： |
-| 1. 1111b -- CPU Active | 1. 1111b -- CPU Active（CPU活跃） |
-| 2. 0001b -- OBFF | 2. 0001b -- OBFF |
-| 3. 0000b -- Idle | 3. 0000b -- Idle（空闲） |
-| If a reserved code is received, components must treat it as "CPU Active." If a Port receives an OBFF message but doesn't support OBFF or hasn't enabled it yet, it must treat it as an Unsupported Request (Completion status UR). | 如果收到保留代码，组件必须将其视为"CPU Active"。如果某端口收到OBFF消息但不支持OBFF或尚未使能OBFF，则必须将其视为不支持的请求（完成状态UR）。 |
-
-Figure 16-35: OBFF Message Contents | 图16-35：OBFF消息内容
-
-<img src="images/part05_d778ca93d07da3cfa8df8a68e2fbceba580892f258433912ce239698e49bfbe4.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| Support for OBFF is indicated via the Device Capability 2 register (Figure 16-36 on page 782), and enabled using the Device Control 2 register (Figure 16-37 on page 783). Note that both the pin and message options may be available. However, the pin method is preferred because it is the lower power option. | 对OBFF的支持通过设备能力2寄存器（第782页图16-36）指示，并使用设备控制2寄存器（第783页图16-37）使能。注意，引脚和消息两种选项都可以可用。然而，引脚方式是首选，因为它是功耗更低的选项。 |
-| Note that there are two variations for enabling a component to forward OBFF messages, and the difference between them has to do with handling a targeted Link that's not in L0. In Variation A, the message will only be sent if the Link is in L0. If it's not, the message is simply dropped to avoid the cost of waking the Link. This is preferred for Downstream Ports when the Device below it is not expected to have time-critical communication requirements and can indicate its need for non-urgent attention by simply returning the Link to L0. For Variation B, the message will always be forwarded and the Link will be returned to L0. This variation is preferred when the downstream Device can benefit from timely notification of the platform state. | 注意，使能组件转发OBFF消息有两种变体，它们之间的区别在于如何处理目标链路不在L0状态的情况。在变体A中，仅当链路处于L0时才发送消息。如果不是，则直接丢弃消息以避免唤醒链路的开销。当下游设备预计没有时间关键型通信需求，并且可以通过将链路返回到L0来指示其非紧急关注需求时，这种方式对于下游端口是首选。对于变体B，消息将始终被转发，并且链路将被返回到L0。当下游设备可以从平台状态的及时通知中受益时，这种变体是首选。 |
-
-Figure 16-36: OBFF Support Indication | 图16-36：OBFF支持指示
-
-<img src="images/part05_9e862104fcc022c58db0305a7fa299134fd8d80288cdee7f84ca477179758789.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| When using WAKE#, enabling any Root Port to assert it is considered a global enable unless there are multiple WAKE# signals, in which case only those associated with that Port are affected. When using the OBFF message, enabling a Root Port only enables the messages on that Port. The expectation in the spec is that all Root Ports would normally be enabled if any of them are, so as to ensure that the whole platform was enabled. However, selectively enabling some Ports and not others is permitted. | 当使用WAKE#时，使能任何根端口去断言它被认为是全局使能，除非存在多个WAKE#信号，在这种情况下只有与该端口关联的那些信号受影响。当使用OBFF消息时，使能根端口仅在该端口上使能消息。规范中的预期是：如果使能了任何一个根端口，通常所有根端口都应当被使能，以确保整个平台都被使能。然而，选择性地使能某些端口而不使能其他端口也是允许的。 |
-| When enabling Ports for OBFF, the spec recommends that all Upstream Ports be enabled before Downstream Ports, and Root Ports be enabled last of all. For unpopulated hot plug slots this isn't possible. For that case enabling OBFF using the WAKE# pin to the slot is permitted, but it's recommended that the Downstream Port above the slot not be enabled to deliver OBFF messages. | 在为OBFF使能端口时，规范建议先使能所有上游端口，再使能下游端口，而根端口最后使能。对于未插入设备的热插拔槽位，这是不可能的。对于这种情况，允许使用通往槽位的WAKE#引脚使能OBFF，但建议槽位上方的下游端口不要使能来传递OBFF消息。 |
-
-Figure 16-37: OBFF Enable Register | 图16-37：OBFF使能寄存器
-
-<img src="images/part05_9ca431fe83126fe8ade34898c4618229c1eae073eed73b5d755c169c1906c01a.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| Finally, let's refer back to the earlier example in Figure 16-33 on page 778 to consider what these registers might look like for that case. The Downstream Port of the switch that connects to the lower switch will have a value for OBFF Support of 01b -- Message Only, while its Upstream Port might have a value of 11b -- Both. These values might be hard coded into the device or hardware initialized in some other fashion to make them visible to software after a reset. The Downstream Port would need to have an OBFF Enable value of 01b or 10b -- Enabled with Message variation A or B so it could deliver an OBFF message. The Upstream Port would expect to have an OBFF Enable value of 11b -- Enabled with WAKE# signaling. The spec points out that when a switch is configured to use the different methods when going from one Port to another, it's required to make the translation and forward the indications. | 最后，让我们回顾前面第778页图16-33中的示例，考虑在这种情况下这些寄存器的可能取值。连接到下游交换机的交换机下游端口的OBFF支持值为01b -- 仅消息，而其上游端口的OBFF支持值可能为11b -- 两者。这些值可能硬编码到设备中，或以其他方式通过硬件初始化，以便在复位后对软件可见。下游端口需要设置OBFF使能值为01b或10b -- 使用消息变体A或B使能，以便它能够传递OBFF消息。上游端口应设置OBFF使能值为11b -- 使用WAKE#信令使能。规范指出，当交换机配置为在从一个端口到另一个端口时使用不同方法时，它必须进行转换并转发指示。 |
-
-| EN | ZH |
-|---|---|
-| ## LTR (Latency Tolerance Reporting) | ## LTR（延迟容忍度报告） |
-| The second new feature added to improve PM efficiency is called Latency Tolerance Reporting (LTR). This optional capability allows devices to report the delay they can tolerate when requesting service from the platform so that PM policies for platform resources like main memory can take that into consideration. If software supports it, this provides good performance for devices when they need it and lower power for the system when they don't need a fast response. One simple way of using this information would be to allow the system to postpone waking up to service a request as long as the latency tolerance was still met. | 第二个新增的用于提高电源管理效率的特性称为延迟容忍度报告（LTR）。这一可选能力允许设备在请求平台服务时报告其可以容忍的延迟，以便平台资源（如主存）的电源管理策略可以将此纳入考虑。如果软件支持，这能在设备需要时提供良好的性能，在系统不需要快速响应时降低功耗。利用此信息的一种简单方式是：只要延迟容忍度仍能满足，就允许系统推迟唤醒以服务请求。 |
-| The meaning of "latency tolerance" is not made explicitly clear in the spec, but some things are mentioned that might play into it. For example, the latency tolerance may affect acceptable performance or it may impact whether the component will function properly at all. Clearly, such a distinction would make a big difference in designing a PM policy. Similarly, the device may use buffering or other techniques to compensate for latency sensitivity and knowledge of that would be useful for software. | 规范中并未明确阐明"延迟容忍度"的含义，但提到了一些可能影响它的因素。例如，延迟容忍度可能影响可接受的性能，也可能影响组件是否能正常工作。显然，这种区别在设计电源管理策略时会有很大影响。类似地，设备可能使用缓冲或其他技术来补偿延迟敏感性，了解这些信息对软件会很有用。 |
-
-## LTR Registers | LTR寄存器
-
-| EN | ZH |
-|---|---|
-| The LTR capability in a device is discovered using a new bit in the PCIe Device Capability 2 Register, as shown in Figure 16-38 on page 785, and enabled in the Device Control 2 Register, illustrated in Figure 16-39 on page 785. The spec prescribes a sequence for enabling LTR, too: devices closest to the Root must be enabled first, working down to the Endpoints. An Endpoint must not be enabled unless its associated Root Port and all intermediate switches also support LTR and have been enabled to service it. It's permissible for some Endpoints to support LTR while others do not. If a Root Port or switch Downstream Port receives an LTR message but doesn't support it or hasn't been enabled yet, the message must be treated as an Unsupported Request. It's recommended that Endpoints send an LTR message shortly after being enabled to do so. It's strongly recommended that Endpoints not send more than two LTR messages within any 500 μs period unless required by the spec. However, if they do, Downstream Ports must properly handle them and not generate an error based on that. | 设备中的LTR能力通过PCIe设备能力2寄存器中的一个新位来发现，如图16-38（第785页）所示，并通过设备控制2寄存器来使能，如图16-39（第785页）所示。规范也规定了使能LTR的顺序：最靠近根复合体的设备必须先使能，依次向下直至端点。除非端点关联的根端口及所有中间交换机也支持LTR并已使能以服务LTR，否则端点不得被使能。允许部分端点支持LTR而其他端点不支持。如果根端口或交换机的下游端口收到LTR消息但不支持或尚未使能，则该消息必须被视为不支持请求。建议端点在使能后尽快发送一条LTR消息。强烈建议端点在任意500微秒周期内发送不超过两条LTR消息，除非规范另有要求。但如果它们确实发送了，下游端口必须正确处理这些消息，不得据此产生错误。 |
-
-Figure 16-38: LTR Capability Status | 图16-38：LTR能力状态
-
-Figure 16-39: LTR Enable | 图16-39：LTR使能
-<img src="images/part05_58e135bd1ea08586e6b30f93ec632a90ad81b524fbf58866d4679f53ca3888d2.jpg" width="700" alt="">
-
-<img src="images/part05_3a953ecb972c353a8b6047610671a798f3716d0d7cc7eb8ddcdd5defa0c11df7.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| The target for LTR information is the Root Complex. Participating downstream devices all report their values but the Port just uses the smallest value that was reported as the latency limit for all devices accessed through that Port. The Root is not required to honor requested service latencies but is strongly encouraged to do so. | LTR信息的目标是根复合体。所有参与的下游设备都报告其值，但端口仅使用所报告的最小值作为通过该端口访问的所有设备的延迟限制。根复合体不被要求必须遵从请求的服务延迟，但强烈建议其这样做。 |
-
-## LTR Messages | LTR 消息
-
-| EN | ZH |
-| --- | --- |
-| The LTR message itself has the format shown in Figure 16‑40 on page 788, where it can be seen that the Routing type 100b (point‑to‑point) and the LTR message code is 0001 0000b. Two latency values are reported, one for Requests that must be snooped and another for Requests that will not be snooped and therefore should complete more quickly. As seen in the diagram, the format for both is the same and includes the following fields: | LTR消息本身的格式如图16‑40（第788页）所示，其中可以看出路由类型为100b（点对点），LTR消息码为0001 0000b。该消息报告两个延迟值：一个用于必须侦听的请求，另一个用于无需侦听因而应更快完成的请求。如图所示，两者的格式相同，包含以下字段： |
-| Latency Value and Scale ‑ combine to give a value in the range from 1ns to about 34 seconds. Setting these fields to all zeros indicates that any delay will affect the device and thus the best possible service is requested. The meaning of the latency is defined as follows: | 延迟值与比例（Latency Value and Scale）‑ 两者结合给出从1ns到约34秒范围内的值。将这些字段全部置零表示任何延迟都将影响设备，因此请求尽可能最好的服务。延迟的含义定义如下： |
-| For Read Requests, it's the delay from sending the END symbol in the Request TLP until receiving the STP symbol in the first Completion TLP for that Request. | 对于读请求，是指从发送请求TLP中的END符号到接收到该请求的第一个完成TLP中的STP符号之间的延迟。 |
-| For Write Requests, it relates to Flow Control back‑pressure. If a write has been issued but the next write can't proceed due to a lack of Flow Control credits, the latency is the time from the last symbol of that write (END) until the first symbol of the DLLP that gives more credits (SDP). In other words, this represents the time within which the Root Port should be able to accept the next write. | 对于写请求，它与流控反压有关。如果一次写操作已发出，但由于缺乏流控信用而无法继续下一次写操作，则延迟是指从该写操作的最后一个符号（END）到提供更多信用的DLLP的第一个符号（SDP）之间的时间。换句话说，这表示根端口应能够接受下一次写操作的时间范围。 |
-| Requirement ‑ can be set for none, or one, or both to indicate whether that latency value is required. If a device doesn't implement one of these traffic types or has no service requirements for it, then this bit must be cleared for the associated field. If a device has reported requirements but has since been directed into a device power state lower than D0, or if its LTR Enable bit has been cleared, the device must send another LTR message reporting that these latencies are no longer required. | 需求（Requirement）‑ 可以设置为无、一个或两个，以指示是否需要该延迟值。如果设备未实现其中一种流量类型或对其没有服务需求，则该位必须为关联字段清零。如果设备已报告需求，但随后被引导至低于D0的设备电源状态，或者其LTR使能位已清零，则设备必须发送另一条LTR消息，报告不再需要这些延迟。 |
-
-## Guidelines Regarding LTR Use | LTR 使用指南
-
-| EN | ZH |
-|---|---|
-| Endpoints have a few guidelines regarding the use of LTR: | 端点（Endpoint）在使用LTR时有几条指南： |
-| 1. It's recommended that they send an updated LTR message every time their service requirements change, and the spec spends some time going over examples of this. The bottom line here is that devices need to take all the delays into account when making a change to the service requirements. That accounting includes time for the reference clock to be restored if was turned off, for the Link to be brought back to L0, for the LTR message to be delivered, and for the platform to prepare to handle the new requirement. | 1. 建议每次服务需求变化时发送更新的LTR消息，规范花了一些篇幅讨论相关示例。关键在于，设备在更改服务需求时必须考虑所有延迟。这包括：参考时钟若被关闭后重新恢复的时间、链路（Link）恢复到L0状态的时间、LTR消息传递的时间，以及平台准备处理新需求所需的时间。 |
-| 2. If the latency tolerance is being reduced, it's recommended that the LTR message be sent far enough ahead of the first associated Request to ensure that the platform is ready. | 2. 如果延迟容限正在减小，建议在第一个相关请求（Request）之前足够早地发送LTR消息，以确保平台准备就绪。 |
-| 3. If the latency tolerance is being increased, then the LTR message to report that should immediately follow the final Request that used the previous latency value. | 3. 如果延迟容限正在增大，则报告该情况的LTR消息应在使用先前延迟值的最后一个请求之后立即发送。 |
-| 4. To achieve the best overall platform power efficiency, it's recommended that Endpoints buffer Requests as much as they can and then send them in bursts that are as long as the Endpoint can support. | 4. 为实现最佳的整体平台能效，建议端点尽可能多地缓冲请求，然后以端点所能支持的最大长度以突发方式发送。 |
-| Multi-Function Devices (MFDs) have a few rules of their own. For example, they must send a "conglomerated" LTR message as follows: | 多功能器件（MFD）有其自身的一些规则。例如，它们必须按如下方式发送"聚合"LTR消息： |
-| 1. Reported latency values must reflect the lowest values associated with any Function. The snoop and no-snoop latencies could be associated with different Functions, but if none of them have a requirement for snoop or no-snoop traffic, then the requirement bit for that type must not be set. | 1. 报告的延迟值必须反映与任一功能（Function）相关联的最低值。侦听（snoop）和非侦听（no-snoop）延迟可能与不同的功能相关联，但如果没有任何功能对侦听或非侦听流量有要求，则不得设置该类型的需求位（Requirement bit）。 |
-| 2. MFDs must send a new LTR message upstream if any of the Functions changes its values in a way that affects the conglomerated value. | 2. 如果任一功能以影响聚合值的方式更改其值，MFD必须向上游发送新的LTR消息。 |
-| Switches have a similar set of rules related to LTR. Basically, they collect the messages from Downstream Ports that have been enabled to use LTR and send a "conglomerated" message upstream according to the following rules: | 交换机（Switch）有一套类似的LTR相关规则。基本上，它们从已启用LTR的下行端口（Downstream Port）收集消息，并根据以下规则向上游发送"聚合"消息： |
-| 1. If the Switch supports LTR, it must support it on all of its Ports. | 1. 如果交换机支持LTR，则必须在其所有端口（Port）上都支持LTR。 |
-| 2. The Upstream Port is allowed to send LTR messages only when the LTR Enable bit is set or shortly after software has cleared it so it can report that any previous requirements are no longer in effect. | 2. 上行端口（Upstream Port）仅在设置了LTR使能位（LTR Enable bit）时，或在软件清除该位后不久（以便报告任何先前的需求不再有效）才允许发送LTR消息。 |
-| 3. The conglomerated LTR value is based on the lowest value reported by any participating Downstream Port. If the Requirement bit is clear, or an invalid value is reported, the latency is considered effectively infinite. | 3. 聚合LTR值基于任一参与的下行端口所报告的最低值。如果需求位清零，或报告了无效值，则该延迟被视为实际上无穷大。 |
-| 4. If any Downstream Port reports that an LTR value is required, the Requirement bit will be set for that type in the LTR message forwarded upstream. | 4. 如果任一下行端口报告需要LTR值，则在上游转发的LTR消息中将为该类型设置需求位。 |
-| 5. The LTR values reported upstream must take into account the latency of the Switch itself. If the Switch latency changes based on its operational mode, it must not be allowed to exceed 20% of the minimum value reported on all Downstream Ports. The value reported on the Upstream Port is the minimum reported value on all the Downstream Ports minus the Switch's own latency, although the value can't be less than zero. | 5. 向上游报告的LTR值必须考虑交换机本身的延迟。如果交换机延迟随其工作模式而变化，则不得允许超过所有下行端口报告的最小值的20%。上行端口报告的值是所有下行端口报告的最小值减去交换机自身的延迟，但该值不能小于零。 |
-| 6. If a Downstream Port goes to DL_Down status, previous latencies for that Port must be treated as invalid. If that changes the conglomerated values upstream then a new message must be sent to report that. | 6. 如果下行端口进入DL_Down状态，则该端口的先前延迟必须视为无效。如果这改变了上游的聚合值，则必须发送新消息以报告该情况。 |
-| 7. If a Downstream Port's LTR Enable bit is cleared, any latencies associated with that Port must be considered invalid, which may also result in a new LTR message being sent upstream. | 7. 如果下行端口的LTR使能位被清除，则与该端口相关的任何延迟必须视为无效，这也可能导致向上游发送新的LTR消息。 |
-| 8. If any Downstream Ports receive new LTR values that would change the conglomerated value, the Switch must send a new LTR message upstream to report that. | 8. 如果任一下行端口收到可能改变聚合值的新的LTR值，则交换机必须向上游发送新的LTR消息以报告该情况。 |
-| Finally, the Root Complex also has a few rules related to LTR: | 最后，根复合体（Root Complex, RC）也有一些与LTR相关的规则： |
-| 1. The RC is allowed to delay processing of a device Request as long as it satisfies the service requirements. One application of this might be to buffer up several Requests from an Endpoint and service them all in a batch. | 1. RC可以延迟处理设备请求，只要满足服务需求即可。此规则的一种应用可能是缓冲来自端点的多个请求，并批量处理它们。 |
-| 2. If the latency requirements are updated while a series of Requests is in progress, the new values must be comprehended by the RC prior to servicing the next Request, and within less time than the previously reported latency requirements. | 2. 如果在一系列请求进行过程中更新了延迟需求，则RC必须在服务下一个请求之前理解新值，并且所用时间必须少于先前报告的延迟需求。 |
-
-Figure 16-40: LTR Message Format | 图16-40：LTR消息格式
-
-<img src="images/part05_27130930bb399afbc02f675fb1f5a8c729d2102014b758834d9dbe6bbad836b0.jpg" width="700" alt="">
-
-## LTR Example | LTR 示例
-
-| EN | ZH |
-|---|---|
-| To illustrate the concepts discussed so far, consider the example topology shown in Figure 16-41 on page 789. Here, the Endpoint on the lower left has delivered an LTR message to the Switch reporting a Snoop Latency requirement of 1200ns. At this point, none of the other Endpoints connected to the Switch has reported an LTR value, so that becomes the conglomerated value to be reported upstream. However, the Switch has an internal latency of 50ns so that must be subtracted from the value to be reported, resulting in the Upstream Port sending an LTR message reporting 1150ns to the Root Port. | 为了说明到目前为止讨论的概念，考虑图16-41（第789页）所示的示例拓扑。这里，左下角的端点已向交换机发送了一条LTR消息，报告其侦听延迟要求为1200ns。此时，连接到交换机的其他端点均未报告LTR值，因此该值成为要向上游报告的聚合值。然而，交换机具有50ns的内部延迟，必须从要报告的值中减去该延迟，结果导致上游端口发送一条LTR消息，向根端口报告1150ns。 |
-
-Figure 16-41: LTR Example | 图16-41：LTR示例
-
-<img src="images/part05_9a29ad499c43ca63776097212ef8d2924b6a8c31c9fd9c2ddca3a4fce36f64bb.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| Next, the Legacy Endpoint delivers an LTR message with a large latency requirement of 5000ns, as shown in Figure 16-42 on page 790. Since this is larger than the current conglomerate value for the Switch, no LTR message is sent for this case. | 接下来，如图16-42（第790页）所示，传统端点发送了一条LTR消息，其延迟要求为5000ns。由于该值大于交换机当前的聚合值，因此在这种情况下不会发送LTR消息。 |
-
-Figure 16-42: LTR - Change but no Update | 图16-42：LTR - 有变更但无更新
-
-<img src="images/part05_139d4fe5a915e2915877754ea95c81e26aba0a59b345f7ce2ceddb2a281b7d0d.jpg" width="700" alt="">
-
-| EN | ZH |
-|---|---|
-| In the next stage, the middle Endpoint reports its LTR value as 700ns. This is smaller than the current conglomerate value, so the Switch calculates the new value of 650ns by subtracting its internal latency and forwards that upstream as an LTR message. That makes the current latency requirement for that Root Port 650ns, as seen in Figure 16-43 on page 791. | 在下一阶段，中间的端点报告其LTR值为700ns。该值小于当前的聚合值，因此交换机通过减去其内部延迟计算出新值650ns，并将其作为LTR消息转发到上游。这使得该根端口的当前延迟要求变为650ns，如图16-43（第791页）所示。 |
-
-| EN | ZH |
-|---|---|
-| Finally, the Link to the middle Endpoint stops working for some reason as shown in Figure 16-44 on page 791, and the Switch Port reports DL_Down. Consequently, the LTR value for that Port must be considered invalid. Since its value was being used as the current conglomerate value, the conglomerate will be updated to the lowest value that is still valid, which is the 1200ns reported by the left-most Endpoint. The Switch will then subtract its internal latency and report 1150ns to the Root Port with a new LTR message. | 最后，如图16-44（第791页）所示，到中间端点的链路因某种原因停止工作，交换机端口报告DL_Down。因此，该端口的LTR值必须视为无效。由于其值被用作当前聚合值，聚合值将更新为仍然有效的最低值，即最左侧端点报告的1200ns。然后，交换机将减去其内部延迟，并通过新的LTR消息向根端口报告1150ns。 |
-
-Figure 16-43: LTR - Change with Update | 图16-43：LTR - 有变更且有更新
-
-Figure 16-44: LTR - Link Down Case | 图16-44：LTR - 链路断开情况
-<img src="images/part05_12783e2e6a2ae08def9894072cec50f6767a25f1e0f13dd8498973bcba537e86.jpg" width="700" alt="">
-
-<img src="images/part05_136e9cef633fd8eb73f5ca6102547677b3d0a2ec9d42d24f70a71d3a0f749284.jpg" width="700" alt="">
-
-# 17 Interrupt Support
-
-| EN | ZH |
-|----|----|
-| # 17 Interrupt Support | # 17 中断支持 |
-
-## The Previous Chapter | 上一章
-
-| EN | ZH |
-|----|----|
-| The previous chapter provides an overall context for the discussion of system power management and a detailed description of PCIe power management, which is compatible with the PCI Bus PM Interface Spec and the Advanced Configuration and Power Interface (ACPI) spec. PCIe defines extensions to the PCI-PM spec that focus primarily on Link Power and event management. An overview of the OnNow Initiative, ACPI, and the involvement of the Windows OS is also provided. | 上一章为系统电源管理的讨论提供了整体背景，并详细描述了PCIe电源管理，该规范与PCI总线电源管理接口规范(PCI Bus PM Interface Spec)以及高级配置与电源接口(ACPI)规范相兼容。PCIe定义了针对PCI-PM规范的扩展，这些扩展主要关注链路电源(Link Power)和事件管理。同时还概述了OnNow Initiative、ACPI以及Windows操作系统的参与。 |
-
-| EN | ZH |
-|----|----|
-| ## This Chapter | ## 本章 |
-| This chapter describes the different ways that PCIe Functions can generate interrupts. The old PCI model used pins for this, but sideband signals are undesirable in a serial model so support for the inband MSI (Message Signaled Interrupt) mechanism was made mandatory. The PCI INTx# pin operation can still be emulated using PCIe INTx messages for software backward compatibility reasons. Both the PCI legacy INTx# method and the newer versions of MSI/MSI-X are described. | 本章描述 PCIe 功能（Function）产生中断的不同方式。旧式 PCI 模型使用引脚来实现中断，但在串行模型中边带信号不受欢迎，因此强制要求支持带内 MSI（消息 signaled 中断）机制。出于软件向后兼容性的原因，PCI INTx# 引脚操作仍可通过 PCIe INTx 消息进行仿真。本章将介绍 PCI 传统 INTx# 方法以及较新版本的 MSI/MSI-X。 |
-
-## The Next Chapter | 下一章
-
-| EN | ZH |
-|----|----|
-| The next chapter describes three types of resets defined for PCIe: Fundamental reset (consisting of cold and warm reset), hot reset, and function-level reset (FLR). The use of a sideband reset PERST# signal to generate a system reset is discussed, and so is the inband TS1 based Hot Reset described. | 下一章描述PCIe定义的三种复位类型：基本复位（包括冷复位和暖复位）、热复位和功能级复位（FLR）。讨论了使用边带复位信号PERST#产生系统复位，以及基于带内TS1的热复位。 |
-
-## 17.1 Interrupt Support Background | 17.1 中断支持背景
-
-| EN | ZH |
-|---|---|
-| ## Interrupt Support Background | ## 中断支持背景 |
-
-## General | 概述
-
-| EN | ZH |
-|---|---|
-| The PCI architecture supported interrupts from peripheral devices as a means of improving their performance and offloading the CPU from the need to poll devices to determine when they require servicing. PCIe inherits this support largely unchanged from PCI, allowing software backwards compatibility to PCI. We provide a background to system interrupt handling in this chapter, but the reader who wants more details on interrupts is encouraged to look into these references: | PCI架构支持来自外设的中断，以此提升设备性能，并减轻CPU轮询设备以判断其是否需要服务的负担。PCIe几乎未作改动地继承了PCI的这一支持，从而实现了软件对PCI的向后兼容。本章将提供系统中断处理的背景知识，但希望了解更多中断详情的读者，建议参考以下资料： |
-| • For PCI interrupt background, refer to the PCI spec rev 3.0 or to chapter 14 of MindShare's textbook: PCI System Architecture (www.mindshare.com). | • 有关PCI中断背景，请参阅PCI规范rev 3.0或MindShare教材《PCI System Architecture》（www.mindshare.com）第14章。 |
-| • To learn more about Local and IO APICs, refer to MindShare's textbook: x86 Instruction Set Architecture. | • 欲了解更多关于Local APIC和IO APIC的内容，请参阅MindShare教材《x86 Instruction Set Architecture》。 |
-
-## 17.1.1 Two Methods of Interrupt Delivery | 17.1.1 两种中断投递方式
-
-| EN | ZH |
-| --- | --- |
-| PCI used sideband interrupt wires that were routed to a central interrupt controller. This method worked well in simple, single-CPU systems, but had some shortcomings that motivated moving to a newer method called MSI (Message Signaled Interrupts) with an extension called MSI-X (eXtented). | PCI使用连接到中央中断控制器的边带中断线。这种方法在简单的单CPU系统中工作良好，但存在一些缺点，促使业界转向称为MSI（Message Signaled Interrupts）的新方法，以及其扩展MSI-X（eXtended MSI）。 |
-| Legacy PCI Interrupt Delivery — This original mechanism defined for the PCI bus consists of up to four signals per device or INTx# (INTA#, INTB#, INTC#, and INTD#) as shown in Figure 17-1 on page 795. In this model, the pins are shared by wire-ORing them together, and they'd eventually be connected to an input on the 8259 PIC (Programmable Interrupt Controller). When a pin is asserted, the PIC in turn asserts its interrupt request pin to the CPU as part of a process described in "The Legacy Model" on page 796. | 传统PCI中断投递 — 这是为PCI总线定义的原始机制，每个设备最多有四个信号或INTx#（INTA#、INTB#、INTC#和INTD#），如图17-1（第795页）所示。在该模型中，引脚通过线或（wire-OR）方式共享，最终连接到8259 PIC（可编程中断控制器）的输入。当某个引脚被断言时，PIC反过来向CPU断言其中断请求引脚，这是第796页"传统模型"所述过程的一部分。 |
-| PCIe supports this PCI interrupt functionality for backward compatibility, but a design goal for serial transports is to minimize the pin count. As a result, the INTx# signals were not implemented as sideband pins. Instead, a Function can generate an inband interrupt message packet to indicate the assertion or deassertion of a pin. These messages act as "virtual wires", and target the interrupt controller in the system (typically in the Root Complex), as shown in Figure 17-2 on page 796. This picture also illustrates how an older PCI device using the pins can work in a PCIe system; the bridge translates the assertion of a pin into an interrupt emulation message (INTx) going upstream to the Root Complex. The expectation is that PCIe devices would not normally need to use the INTx messages but, at the time of this writing, in practice they often do because system software has not been updated to support MSI. | PCIe为了向后兼容而支持这种PCI中断功能，但串行传输的一个设计目标是尽量减少引脚数量。因此，INTx#信号并未实现为边带引脚。相反，功能（Function）可以生成带内中断消息包来指示引脚的断言或取消断言。这些消息充当"虚拟线"，目标是系统中的中断控制器（通常在根复合体中），如图17-2（第796页）所示。该图还说明了使用引脚的旧式PCI设备如何在PCIe系统中工作；桥接器将引脚的断言转换为发往根复合体的上游中断仿真消息（INTx）。预期PCIe设备通常不需要使用INTx消息，但在撰写本文时，实践中它们经常使用，因为系统软件尚未更新以支持MSI。 |
-
-Figure 17-1: PCI Interrupt Delivery | 图17-1：PCI中断传递
-
-<img src="images/part05_725b0a188c35dc149c85c12e66eccc0dddf4d89932beb419e1781eefccc5d4c4.jpg" width="700" alt="">
-
-| EN | ZH |
-| --- | --- |
-| MSI Interrupt Delivery — MSI eliminates the need for sideband signals by using memory writes to deliver the interrupt notification. The term "Message Signaled Interrupt" can be confusing because its name includes the term "Message" which is a type of TLP in PCIe, but an MSI interrupt is a Posted Memory Write instead of a Message transaction. MSI memory writes are distinguished from other memory writes only by the addresses they target, which are typically reserved by the system for interrupt delivery (e.g., x86-based systems traditionally reserve the address range FEEx_xxxxh for interrupt delivery). | MSI中断投递 — MSI通过使用存储器写操作来投递中断通知，从而消除了对边带信号的需求。术语"Message Signaled Interrupt"可能会引起混淆，因为其名称中包含"Message"一词，而Message是PCIe中的一种TLP类型，但MSI中断实际上是Posted Memory Write（推送存储器写）而非Message事务。MSI存储器写与其他存储器写的区别仅在于它们所针对的地址，这些地址通常由系统保留用于中断投递（例如，基于x86的系统传统上保留地址范围FEEx_xxxxh用于中断投递）。 |
-| Figure 17-2 illustrates the delivery of interrupts from various types of PCIe devices. All PCIe devices are required to support MSI, but software may or may not support MSI, in which case, the INTx messages would be used. Figure 17-2 also shows how a PCIe-to-PCI Bridge is required to convert sideband interrupts from connected PCI devices to PCIe-supported INTx messages. | 图17-2展示了来自各种类型PCIe设备的中断投递。所有PCIe设备都必须支持MSI，但软件可能支持也可能不支持MSI，在这种情况下将使用INTx消息。图17-2还说明了PCIe到PCI桥接器如何将来自所连接PCI设备的边带中断转换为PCIe支持的INTx消息。 |
-
-Figure 17-2: Interrupt Delivery Options in PCIe System | 图17-2：PCIe系统中的中断传递选项
-
-<img src="images/part05_981b211aa82038ad22c82db88bb070d177e6b8a2f94224ed268786d39066e70a.jpg" width="700" alt="">
-
-| EN | ZH |
-|----|----|
-| ## The Legacy Model | ## 传统模型 |
-
-## General | 概述
-
-| EN | ZH |
-|---|---|
-| To illustrate the legacy interrupt delivery model, refer to Figure 17-3 on page 797 and consider the usual steps involved in interrupt delivery using the legacy method of interrupt pins: | 为说明传统中断传送模型，请参考第797页的图17-3，并考虑使用中断引脚的 legacy 方法所涉及的中断传送通常步骤： |
-| 1. The device generates an interrupt by asserting its pin to the controller. In older systems this controller was typically an Intel 8259 PIC that had 15 IRQ inputs and one INTR output. The PIC would then assert INTR to inform the CPU that one or more interrupts were pending. | 1. 设备通过向其控制器断言其引脚来产生中断。在较老的系统中，该控制器通常是 Intel 8259 PIC，具有 15 个 IRQ 输入和一个 INTR 输出。PIC 随后会断言 INTR，以通知 CPU 有一个或多个中断处于待处理状态。 |
-| 2. Once the CPU detects the assertion of INTR and is ready to act on it, it must identify which interrupt actually needs service, and that is done by the CPU issuing a special command on the processor bus called an Interrupt Acknowledge. | 2. 一旦 CPU 检测到 INTR 被断言并准备对其采取行动，它必须识别出哪个中断实际需要服务，这是通过 CPU 在处理器总线上发出一个称为中断确认（Interrupt Acknowledge）的特殊命令来完成的。 |
-| 3. This command is routed by the system to the PIC, which returns an 8-bit value called the Interrupt Vector to report the highest priority interrupt currently pending. A unique vector would have been programmed earlier by system software for each IRQ input. | 3. 该命令由系统路由到 PIC，PIC 返回一个称为中断向量（Interrupt Vector）的 8 位值，以报告当前待处理的最高优先级中断。系统软件事先已为每个 IRQ 输入编程了唯一的向量。 |
-| 4. The interrupt handler then uses the vector as an offset into the Interrupt Table (an area set up by software to contain the start addresses of all the Interrupt Service Routines, ISRs), and fetches the ISR start address it finds at that location. | 4. 中断处理程序随后将该向量作为中断表（Interrupt Table）的偏移量（该表是软件设置的区域，包含所有中断服务例程 ISR 的起始地址），并获取在该位置找到的 ISR 起始地址。 |
-| 5. That address would point to the first instruction of the ISR that had been set up to handle this interrupt. This handler would be executed, servicing the interrupt and telling its device to deassert its INTx# line and then would return control to the previously interrupted task. | 5. 该地址指向为处理此中断而设置的 ISR 的第一条指令。将执行此处理程序，为该中断服务并通知其设备取消断言 INTx# 线，然后将控制权返回给先前被中断的任务。 |
-
-Figure 17-3: Legacy Interrupt Example | 图17-3：传统中断示例
-
-<img src="images/part05_954a3c6f4c78a4dbeee5b035be59bfa551f71aa5922394621eeea3d4576b2bfd.jpg" width="700" alt="">
-
-## 17.2.1 Changes to Support Multiple Processors | 17.2.1 支持多处理器的变更
-
-| EN | ZH |
-|---|---|
-| This model works well for single‑CPU systems, but has a limitation that makes it sub‑optimal in a multi‑CPU system. The problem is that the INTR pin can only be connected to one CPU. If multiple processors are present then only one of them will see the interrupts and will have to service them all while the other CPUs won't see any of them. To obtain the best performance, such systems really need an even distribution of the system tasks across all the processors, referred to as SMP (Symmetric Multi‑Processing) but the pin model won't support it. | 该模型在单CPU系统中运行良好，但存在一个局限性，使其在多CPU系统中并非最优。问题在于INTR引脚只能连接到一个CPU。如果存在多个处理器，则只有一个处理器能接收到中断并必须处理所有中断，而其他CPU则看不到任何中断。为获得最佳性能，此类系统需要将系统任务均匀分布到所有处理器上，这称为SMP（对称多处理），但引脚模型无法支持这一点。 |
-| To achieve better SMP, a new model was needed, and toward this end the PIC was modified to become the IO APIC (Advanced Programmable Interrupt Controller). The IO APIC was designed to have a separate small bus, called the APIC Bus, over which it could deliver interrupt messages, as shown in Figure 17‑4 on page 799. In this model, the message contained the interrupt vector number, so there was no need for the CPU to send an Interrupt Acknowledge down into the IO world to fetch it. The APIC Bus connected to a new internal logic block within the processors called the Local APIC. The bus was shared among all the agents and any of them could initiate messages on it but, for our purposes, the interesting part is its use for interrupt delivery from peripherals. Those interrupts could now be statically assigned by software to be serviced by different CPUs, multiple CPUs or even dynamically assigned by the IO APIC. | 为实现更好的SMP，需要一种新模型，为此PIC被修改为IO APIC（高级可编程中断控制器）。IO APIC设计有一条独立的小型总线，称为APIC总线，可通过该总线传递中断消息，如图17-4（第799页）所示。在此模型中，消息中包含中断向量号，因此CPU无需向IO世界发送中断确认来获取该向量号。APIC总线连接到处理器内部一个称为Local APIC的新逻辑块。该总线由所有代理共享，任何代理都可以在其上发起消息，但对我们而言，其关键用途在于从外设传递中断。这些中断现在可以由软件静态分配给不同的CPU处理，或由多个CPU共同处理，甚至可以由IO APIC动态分配。 |
-| That model, known as the APIC model, was sufficient for several years but still depended on sideband pins from the peripheral devices to work. Another limitation of this model was the number of IRQs (interrupt request lines) into the IO APIC. Without a very large number of IRQs, peripheral devices had to share IRQs which means added latency anytime that IRQ is asserted because there could be multiple devices that could have asserted it and software must evaluate all of them. This technique of linking multiple ISRs together was often referred to as interrupt chaining. Eventually, because of this issue and a couple other minor issues, another improvement came along. | 该模型称为APIC模型，运行了数年之久，但仍然依赖外设的边带引脚来工作。该模型的另一个局限是进入IO APIC的IRQ（中断请求线）数量有限。如果没有足够多的IRQ，外设就必须共享IRQ，这意味着每次IRQ被断言时都会增加延迟，因为可能有多个设备都断言了该IRQ，而软件必须逐一评估所有这些设备。这种将多个ISR链接在一起的技术通常称为中断链。最终，由于这个问题以及其他一些小问题，又出现了新的改进。 |
-| Why not have the peripheral devices themselves send interrupt messages directly to the Local APICs? All that is needed is a communications path which already exists in the form of the PCI bus and the processor bus. So the APIC bus was eliminated and all interrupts were delivered to the Local APICs in the form of memory writes, referred to as MSIs or Message Signaled Interrupts. These MSIs were targeting a special address that the system understood to be an interrupt message targeting the Local APICs. (This special address address was traditionally FEEx\_xxxxh for x86‑based systems.) Even the IO APIC was programmed to send its interrupt notifications over the ordinary data bus using memory writes (MSI). Now it simply sends an MSI memory write across the data bus targeting the memory address of the desired processor's Local APIC, and that has the effect of notifying the processor of the interrupt. | 为何不让外设自身直接将中断消息发送给Local APIC？所需要的只是一条通信路径，而PCI总线和处理器总线已经提供了这样的路径。于是APIC总线被淘汰，所有中断都以内存写操作的形式传递给Local APIC，称为MSI或消息 signaled 中断。这些MSI的目标是一个特殊地址，系统理解该地址是发送给Local APIC的中断消息。（对于基于x86的系统，这个特殊地址传统上是FEEx\_xxxxh。）即使是IO APIC也被编程为通过普通数据总线使用内存写操作（MSI）来发送其中断通知。现在，IO APIC只需在数据总线上发送一个MSI内存写操作，目标地址是所需处理器的Local APIC的内存地址，从而通知处理器有中断到达。 |
-| This model is known as the xAPIC model, and since it is not based on sideband signals which go into an interrupt controller with a limited number of inputs, the need to share interrupts is almost eliminated. More information can be found about this model in "An MSI Solution" on page 827. | 该模型称为xAPIC模型，由于它不依赖进入输入数量有限的中断控制器的边带信号，因此几乎消除了共享中断的需求。有关此模型的更多信息，请参见第827页的"MSI解决方案"。 |
-| PCI added MSI support as an option years ago and PCIe made that capability a requirement. A peripheral that can generate MSI transactions on its own opens new options for handling interrupts, such as giving each Function the ability to generate multiple unique interrupts instead of just one. | 多年前，PCI将MSI支持作为可选功能加入，而PCIe将该能力变为强制性要求。能够自行生成MSI事务的外设为中断处理开辟了新的选择，例如使每个功能都能生成多个唯一的中断，而不仅仅是只有一个中断。 |
-
-Figure 17‑4: APIC Model for Interrupt Delivery | 图17‑4：中断传递的APIC模型
-
-<img src="images/part05_ce26d7a690338f1dc4517fbaef8f6bcd7b9ff38e5913f5179763b8023c83ba9b.jpg" width="700" alt="">
-
-## 17.2.2 Legacy PCI Interrupt Delivery | 17.2.2 传统 PCI 中断传递
-
-| EN | ZH |
-| --- | --- |
-| This section provides more detail on legacy PCI interrupt delivery. Readers familiar with PCI may wish to proceed to "Virtual INTx Signaling" on page 805 to learn more about how PCIe emulates this legacy model, or to "The MSI Model" on page 812 to learn more about that method. | 本节提供有关传统PCI中断投递的更多细节。熟悉PCI的读者可以继续阅读第805页的"虚拟INTx信令"，以了解PCIe如何模拟这一传统模型，或阅读第812页的"MSI模型"以了解该方法。 |
-| PCI devices that use interrupts have two options. They may use either: | 使用中断的PCI器件有两个选项： |
-| INTx# active low-level signals that can be shared and were defined in the original spec. | INTx# 有效低电平信号，可共享，并在原始规范中定义。 |
-| Message Signaled Interrupts that were added as an option with the 2.2 version of the spec. MSI needs no modification for use in a PCIe system. | 消息 signaled 中断（MSI），作为2.2版规范的一个可选特性加入。MSI在PCIe系统中使用无需修改。 |
+| ## PCI Express Technology | ## PCI Express 技术 |
+| 6. Now that the error handler knows that the first uncorrectable error at 5:0:0 was a Malformed TLP, it can check the Header Log register to see the header of the packet that was malformed, since this is one of the errors where a header is recorded. In reading the Header Log register it finds these four doublewords: | 6. 既然错误处理程序已知 5:0:0 上的第一个不可校正错误是格式错误 TLP（Malformed TLP），它就可以检查 Header Log 寄存器以查看被格式错误的报文的头部，因为这是记录头部的错误之一。读取 Header Log 寄存器时，它发现以下四个双字： |
+| — 6000\_8080h – 1st DW<br>— 0000\_04FFh – 2nd DW<br>— FB80\_1000h – 3rd DW<br>— 0000\_0001h – 4th DW | — 6000\_8080h – 第 1 个 DW<br>— 0000\_04FFh – 第 2 个 DW<br>— FB80\_1000h – 第 3 个 DW<br>— 0000\_0001h – 第 4 个 DW |
+| 7. The evaluation of those 4 DWs identifies the malformed packet as: Memory Write, 4DW header, TC=0, TD=1, EP=0, Attr=0, AT=0, Length=80h (128 DWs or 512 bytes), Requester ID=0:0:0, Tag=4, Byte Enables=FFh, Address=1\_FB80\_1000h. | 7. 对这 4 个 DW 的解析表明该格式错误的报文为：Memory Write，4DW 头部，TC=0，TD=1，EP=0，Attr=0，AT=0，长度=80h（128 DW 或 512 字节），Requester ID=0:0:0，Tag=4，Byte Enables=FFh，地址=1\_FB80\_1000h。 |
+| The header of the packet all looks correct and every field uses valid encodings, so software must dig a little deeper to discover why this was treated as a Malformed TLP. In this example, let's assume that after further inspection of config space on 5:0:0, software discovers that the Max Payload Size enabled for this Function is 256 bytes, but this packet contained 512 bytes. This is a condition that will be treated as a Malformed TLP by the target device, in this case 5:0:0. | 该报文的头部看起来全部正确，每个字段都使用了有效的编码，因此软件必须进一步深入挖掘以发现为何它被视为格式错误 TLP。在本例中，假设进一步检查 5:0:0 上的配置空间后，软件发现该 Function 启用的最大有效负载大小（Max Payload Size）为 256 字节，但该报文包含了 512 字节。这种情形会被目标设备（此处为 5:0:0）视为格式错误 TLP。 |
+| If you would like verify your knowledge of this error investigation process, go ahead and evaluate what the first uncorrectable error detected on 4:0:0 was. | 如果你想验证自己对这一错误调查过程的掌握程度，请继续评估 4:0:0 上检测到的第一个不可校正错误是什么。 |
+| If you're feeling adventurous and would like to check out this type of info on a real system, say your desktop or laptop, you can do so by downloading the MindShare Arbor software (www.mindshare.com/arbor). You can run this on an x86-based machine and it will scan your system and display every visible PCI-compatible device with its configuration space decoded for easy interpretation. | 如果你有探索精神，想在真实系统（比如台式机或笔记本电脑）上查看这类信息，可以下载 MindShare Arbor 软件（www.mindshare.com/arbor）。你可以将其运行在基于 x86 的机器上，它会扫描你的系统并显示每个可见的 PCI 兼容设备，其配置空间已被解码以便于解读。 |
+
+<img src="images/part05_bbd5aeea3cfd2a614c339461f753b0e7fac35b1260c4109ba6a60ac0954d1f0f.jpg" width="700" alt="">

@@ -12,26 +12,46 @@ OUT_DIR = ROOT  # Write chapters to repo root, not chapters/ subdir
 
 # Chapter definitions: (name, start_chunk, end_chunk)
 CHAPTERS = [
-    ("Ch01_Front_Matter_and_Introduction", 1, 86),
-    ("Ch02_PCIe_Architecture_Overview", 87, 137),
-    ("Ch03_Configuration_Overview", 138, 189),
-    ("Ch04_Address_Space_and_Transaction_Routing", 190, 276),
-    ("Ch05_TLP_Elements", 277, 289),
+    # Our Ch01 = Front Matter + Chapter 1 (Background): chunks 1-82
+    ("Ch01_Front_Matter_and_Introduction", 1, 82),
+    # Ch02 starts at chunk 83 ("Chapter 2: PCIe Architecture Overview")
+    ("Ch02_PCIe_Architecture_Overview", 83, 133),
+    # Ch03 starts at chunk 134 ("Chapter 3: Configuration Overview")
+    ("Ch03_Configuration_Overview", 134, 179),
+    # Ch04 starts at chunk 180 ("Chapter 4: Address Space & Transaction Routing")
+    ("Ch04_Address_Space_and_Transaction_Routing", 180, 244),
+    # Ch05 starts at chunk 245 ("Chapter 5: TLP Elements")
+    ("Ch05_TLP_Elements", 245, 289),
+    # Ch06 starts at chunk 290 ("# 6 Flow Control")
     ("Ch06_Flow_Control", 290, 324),
+    # Ch07 starts at chunk 325 ("# Quality of Service")
     ("Ch07_Quality_of_Service", 325, 367),
+    # Ch08 starts at chunk 368 ("# Transaction Ordering")
     ("Ch08_Transaction_Ordering", 368, 395),
+    # Ch09 starts at chunk 396 ("# DLLP Elements"), Ch10 at 412 ("# 10 Ack/Nak Protocol")
     ("Ch09_DLLP_Elements", 396, 411),
-    ("Ch10_AckNak_Protocol", 412, 481),
-    ("Ch11_Physical_Layer_Logical_Gen1_Gen2", 482, 569),
-    ("Ch12_Physical_Layer_Logical_Gen3", 570, 661),
-    ("Ch13_Physical_Layer_Electrical", 662, 891),
-    ("Ch14_Link_Initialization_Training", 892, 1004),
-    ("Ch15_Error_Detection_Handling", 1005, 1088),
-    ("Ch16_Power_Management", 1089, 1187),
-    ("Ch17_Interrupt_Support", 1188, 1246),
-    ("Ch18_Optional_Features", 1247, 1287),
-    ("Ch19_Hot_Plug_Power_Budgeting", 1288, 1325),
-    ("Ch20_Updates_Spec_Rev_2.1", 1326, 1340),
+    ("Ch10_AckNak_Protocol", 412, 473),
+    # Ch11 starts at chunk 474 ("Chapter 11: Physical Layer - Logical")
+    ("Ch11_Physical_Layer_Logical_Gen1_Gen2", 474, 558),
+    # Ch12 starts at chunk 559 ("Chapter 12: Physical Layer - Logical (Gen3)")
+    ("Ch12_Physical_Layer_Logical_Gen3", 559, 615),
+    # Ch13 starts at chunk 616 ("Chapter 13: Physical Layer - Electrical")
+    ("Ch13_Physical_Layer_Electrical", 616, 686),
+    # Ch14 starts at chunk 687 ("Chapter 14: Link Initialization & Training")
+    ("Ch14_Link_Initialization_Training", 687, 908),
+    # Ch15 starts at chunk 909 ("Chapter 15: Error Detection and Handling")
+    ("Ch15_Error_Detection_Handling", 909, 984),
+    # Ch16 starts at chunk 985 ("Chapter 16: Power Management")
+    ("Ch16_Power_Management", 985, 1077),
+    # Ch17 starts at chunk 1078 ("Chapter 17: Interrupt Support")
+    ("Ch17_Interrupt_Support", 1078, 1130),
+    # Ch18 starts at chunk 1131 ("Chapter 18: System Reset")
+    ("Ch18_Optional_Features", 1131, 1154),
+    # Ch19 starts at chunk 1155 ("Chapter 19: Hot Plug and Power Budgeting")
+    ("Ch19_Hot_Plug_Power_Budgeting", 1155, 1210),
+    # Ch20 starts at chunk 1211 ("Chapter 20: Updates for Spec Revision 2.1")
+    ("Ch20_Updates_Spec_Rev_2.1", 1211, 1340),
+    # Appendix
     ("Appendix", 1341, 1360),
 ]
 

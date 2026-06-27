@@ -15,7 +15,7 @@ Table 5-7: Completion Header Fields (Continued) | 表5-7：完成头字段（续
 
 <table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Compl. Status [2:0] (Completion Status Code)</td><td>Byte 6 Bit 7:5</td><td>These bits indicate status for this Completion.000b = Successful Completion (SC)001b = Unsupported Request (UR)010b = Config Req Retry Status (CRS)100b = Completer abort (CA)All other codes are reserved. See "Summary of Completion Status Codes" on page 200.</td></tr><tr><td>BCM (Byte Count Modified)</td><td>Byte 6 Bit 4</td><td>This is only used by PCI-X Completers and indicates that the Byte Count field reports only the first payload rather than the total payload remaining. See "Using The Byte Count Modified Bit" on page 201.</td></tr><tr><td>Byte Count [11:0]</td><td>Byte 6 Bit 3:0Byte 7 Bit 7:0</td><td>Byte count remaining to satisfy a read request, as derived from the original request Length field. See "Data Returned For Read Requests:" on page 201 for special cases caused by multiple completions.</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0</td><td>Copied from the Request for use as the return address (target) for this Completion.Byte 8, 7:0 = Requester Bus #Byte 9, 7:3 = Requester Device #Byte 9, 2:0 = Requester Function #</td></tr><tr><td>Tag [7:0]</td><td>Byte 10 Bit 7:0</td><td>This must be the Tag value received with the Request. Requester associates this Completion with a pending Request based on the Tag.</td></tr><tr><td>Lower Address [6:0]</td><td>Byte 11 Bit 6:0</td><td>The lower 7 bits of address for the first data returned for a read request. Calculated from Request Length and Byte Enables, it assists buffer management by showing how many bytes can be transferred before reaching the next Read Completion Boundary. See "Calculating Lower Address Field" on page 200.</td></tr></table>
 
-## Summary of Completion Status Codes. | 完成状态码概述。
+## 5.1 Summary of Completion Status Codes. | 5.1 完成状态码概述。
 
 <table>
 <tr>
@@ -164,7 +164,7 @@ Using The Byte Count Modified Bit. This bit is only set by PCI-X Completers, but
 </tr>
 </table>
 
-## Data Returned For Read Requests: | 读请求返回的数据：
+## 5.2 Data Returned For Read Requests: | 5.2 读请求返回的数据：
 
 <table>
 <tr>
@@ -233,7 +233,7 @@ Multiple Completions for a single read request must return data in increasing ad
 </tr>
 </table>
 
-## Receiver Completion Handling Rules: | 接收器完成报文处理规则：
+## 5.3 Receiver Completion Handling Rules: | 5.3 接收器完成报文处理规则：
 
 <table>
 <tr>
@@ -318,7 +318,7 @@ If CRS Software Visibility is enabled, software designed to support it will alwa
 </tr>
 </table>
 
-## Message Requests | 消息请求
+## 5.4 Message Requests | 5.4 消息请求
 
 <table>
 <tr>
@@ -527,7 +527,7 @@ Rules regarding the use of INTx Messages:
 </tr>
 </table>
 
-## PCI Express Technology | PCI Express 技术
+## 5.5 PCI Express Technology | 5.5 PCI Express 技术
 
 <table>
 <tr>
@@ -681,7 +681,7 @@ PCI Express 技术
 </tr>
 </table>
 
-## Unlock Message Rules | 解锁消息规则
+## 5.6 Unlock Message Rules | 5.6 解锁消息规则
 
 <table>
 <tr>
@@ -941,7 +941,7 @@ PCI Express 技术
 </tr>
 </table>
 
-## OBFF Message Rules | OBFF 消息规则
+## 5.7 OBFF Message Rules | 5.7 OBFF 消息规则
 
 <table>
 <tr>

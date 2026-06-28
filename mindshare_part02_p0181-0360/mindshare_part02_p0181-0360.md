@@ -1,0 +1,2220 @@
+## PCI Express Technology
+
+the device itself. This means these internal locations need to be addressable. Software must be able to perform a read or write operation with an address that will access the appropriate internal location within the targeted device. In order to make this work, these internal locations need to be assigned addresses from one of the address spaces supported in the system.
+
+PCI Express supports the exact same three address spaces that were supported in PCI:
+
+• Configuration
+
+• Memory
+
+IO
+
+## Configuration Space
+
+As we saw in Chapter 1, configuration space was introduced with PCI to allow software to control and check the status of devices in a standardized way. PCI Express was designed to be software backwards compatible with PCI, so configuration space is still supported and used for the same reason as it was in PCI. More info about configuration space (purpose of, how to access, size, contents, etc.) can be found in Chapter 3.
+
+Even though configuration space was originally meant to hold standardized structures (PCI‐defined headers, capability structures, etc.), it is very common for PCIe devices to have device‐specific registers mapped into their config space. In these cases, the device‐specific registers mapped into config space are often control, status or pointer registers as opposed to data storage locations.
+
+## Memory and IO Address Spaces
+
+## General
+
+In the early days of PCs, the internal registers/storage in IO devices were accessed via IO address space (as defined by Intel). However, because of several limitations and undesirable effects related to IO address space, that we will not be going into here, that address space quickly lost favor with software and hardware vendors. This resulted in the internal registers/storage of IO devices being mapped into memory address space (commonly referred to as memorymapped IO, or MMIO). However, because early software was written to use IO address space to access internal registers/storage on IO devices, it became common practice to map the same set of device‐specific registers in memory
+
+## Chapter 4: Address Space & Transaction Routing
+
+address space as well as in IO address space. This allows new software to access the internal locations of a device using memory address space (MMIO), while allowing legacy (old) software to continue to function because it can still access the internal registers of devices using IO address space.
+
+Newer devices that do not rely on legacy software or have legacy compatibility issues typically just map internal registers/storage through memory address space (MMIO), with no IO address space being requested. In fact, the PCI Express specification actually discourages the use of IO address space, indicating that it is only supported for legacy reasons and may be deprecated in a future revision of the spec.
+
+A generic memory and IO map is shown in Figure 4‐1 on page 125. The size of the memory map is a function of the range of addresses that the system can use (often dictated by the CPU addressable range). The size of the IO map in PCIe is limited to 32 bits (4GB), although in many computers using Intel‐compatible (x86) processors, only the lower 16 bits (64KB) are used. PCIe can support memory addresses up to 64 bits in size.
+
+The mapping example in Figure 4‐1 is only showing MMIO and IO space being claimed by Endpoints, but that ability is not exclusive to Endpoints. It is very common for Switches and Root Complexes to also have device‐specific registers accessed via MMIO and IO addresses.
+
+## Prefetchable vs. Non-prefetchable Memory Space
+
+Figure 4‐1 shows two different types of MMIO being claimed by PCIe devices: Prefetchable MMIO (P‐MMIO) and Non‐Prefetchable MMIO (NP‐MMIO). It’s important to describe the distinction between prefetchable and non‐prefetchable memory space. Prefetchable space has two very well defined attributes:
+
+• Reads do not have side effects
+
+• Write merging is allowed
+
+Defining a region of MMIO as prefetchable allows the data in that region to be speculatively fetched ahead in anticipation that a Requester might need more data in the near future than was actually requested. The reason it’s safe to do this minor caching of the data is that reading the data doesn’t change any state info at the target device. That is to say there are no side effects from the act of reading the location. For example, if a Requester asks to read 128 bytes from an address, the Completer might prefetch the next 128 bytes as well in an effort to improve performance by having it on hand when it’s requested. However, if the Requester never asks for the extra data, the Completer will eventually have to discard it to free up the buffer space. If the act of reading the data changed the value at that address (or had some other side effect), it would be impossible to recover the discarded data. However, for prefetchable space, the read had no side effects, so it is always possible to go back and get it later since the original data would still be there.
+
+You may be wondering what sort of memory space might have read side effects? One example would be a memory‐mapped status register that was designed to automatically clear itself when read to save the programmer the extra step of explicitly clearing the bits after reading the status.
+
+Making this distinction was more important for PCI than it is for PCIe because transactions in that bus protocol did not include a transfer size. That wasn’t a problem when the devices exchanging data were on the same bus, because there was a real‐time handshake to indicate when the requester was finished and did not need anymore data, therefore knowing the byte count wasn’t so important. But when the transfer had to cross a bridge it wasn’t as easy because for reads, the bridge would need to guess the byte count when gathering data on the other bus. Guessing wrong on the transfer size would add latency and reduce performance, so having permission to prefetch could be very helpful. That’s why the notion of memory space being designated as prefetchable was helpful in PCI. Since PCIe requests do include a transfer size it’s less interesting than it was, but it’s carried forward for backward compatibility.
+
+## Chapter 4: Address Space & Transaction Routing
+
+Figure 4‐1: Generic Memory And IO Address Maps  
+![](images/ff238d8cb4d6de759075adb4d19f3f6e7aaf994543232b6497dd0bd93541edef.jpg)
+
+## Base Address Registers (BARs)
+
+## General
+
+Each device in a system may have different requirements in terms of the amount and type of address space needed. For example, one device may have 256 bytes worth of internal registers/storage that should be accessible through IO address space and another device may have 16KB of internal registers/storage that should be accessible through MMIO.
+
+PCI‐based devices are not allowed to decide on their own, which addresses should be used to access their internal locations, that is the job of system software (i.e. BIOS and OS kernel). So the devices must provide a way for system software to determine the address space needs of the device. Once software knows what the device’s requirements are in terms of address space, then assuming the request can be fulfilled, software will simply allocate an available range of addresses, of the appropriate type (IO, NP‐MMIO or P‐MMIO), to that device.
+
+This is all accomplished through the Base Address Registers (BARs) in the header of configuration space. As shown in Figure 4‐2 on page 127, a Type 0 header has six BARs available (each one being 32 bits in size), while a Type 1 header has only two BARs. Type 1 headers are found in all bridge devices, which means every switch port and root complex port has a Type 1 header. Type 0 headers are in non‐bridge devices like endpoints. An example of this can be seen in Figure 4‐3 on page 128.
+
+System software must first determine the size and type of address space being requested by a device. The device designer knows the collective size of the internal registers/storage that should be accessible via IO or MMIO. The device designer also knows how the device will behave when those registers are accessed (i.e. do reads have side‐effects or not). This will determine whether prefetchable MMIO (reads have no side‐effects) or non‐prefetchable MMIO (reads do have side‐effects) should be requested. Knowing this information, the device designer hard‐codes the lower bits of the BARs to certain values indicating the type and size of the address space being requested.
+
+The upper bits of the BARs are writable by software. Once system software checks the lower bits of the BARs to determine the size and type of address space requested, system software will then write the base address of the address range being allocated to this device into the upper bits of the BAR. Since a single
+
+Endpoint (Type 0 header) has six BARs, up to six different address space requests can be made. However, this is not common in the real world. Most devices will request 1‐3 different address ranges.
+
+Not all BARs have to be implemented. If a device does not need all the BARs to map their internal registers, the extra BARs are hard‐coded with all 0’s notifying software that these BARs are not implemented.
+
+Figure 4‐2: BARs in Configuration Space  
+![](images/0754b36296a00a43f0467a2571863dc6744e5c61e356c6ed1820fa1e873af09d.jpg)
+
+Once the BARs have been programmed, the internal registers or local memory within the device can be accessed via the address ranges programmed into the BARs. Anytime the device sees a request with an address that maps to one of its BARs, it will accept that request because it is the target.
+
+Figure 4‐3: PCI Express Devices And Type 0 And Type 1 Header Use  
+![](images/880d7b01ffbe102c74937fdb9de0855f5ef6606ba36a5ca59c0258f40509fd4c.jpg)
+
+## BAR Example 1: 32-bit Memory Address Space Request
+
+Figure 4‐4 on page 130 shows the basic steps in setting up a BAR, which in this example, is requesting a 4KB block of non‐prefetchable memory (NP‐MMIO). In the figure, the BAR is shown at three points in the configuration process:
+
+1. In (1) of Figure 4‐4, we see the uninitialized state of the BAR. The device designer has fixed the lower bits to indicate the size and type, but the upper bits (which are read‐write) are shown as Xs to indicate their value is not known. System software will first write all 1s to every BAR (using config writes) to set all writable bits. (Of course, the hard‐coded lower bits are unaffected by any configuration writes.) The second view of the BAR, shown in (2) of Figure 4‐4, shows how it looks after configuration software has written all 1’s to it.
+
+Writing all 1s is done to determine what the least‐significant writable bit is. This bit position indicates the size of the address space being requested. In this example, the least‐significant writable bit is bit 12, so this BAR is requesting $2 ^ { 1 2 }$ (or 4KB) of address space. If the least significant writable bit would have been bit 20, then the BAR would have been requesting $2 ^ { 2 0 }$ (or 1MB) of address space.
+
+2. After writing all 1s to the BARs, software turns around and reads the value of each BAR, starting with BAR0, to determine the type and size of the address space being requested. Table 4‐1 on page 129 summarizes the results of the configuration read of BAR0 for this example.
+
+3. The final step in this process is for system software to allocate an address range to BAR0 now that software knows the size and type of the address space being requested. The third view of the BAR, in (3) of Figure 4‐4, shows how it looks after software has written the start address for the allocated block of addresses. In this example, the start address is F900\_0000h.
+
+At this point the configuration of BAR0 is complete. Once software enables memory address decoding in the Command register (offset 04h), this device will accept any memory requests it receives that fall within the range from F900\_0000h ‐ F900\_0FFFh (4KB in size).
+
+Table 4‐1: Results of Reading the BAR after Writing All 1s To It
+
+<table><tr><td>BAR Bits</td><td>Meaning</td></tr><tr><td>0</td><td>Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td>2:1</td><td>Read as 00b indicating the target only supports decoding a 32-bit address</td></tr><tr><td>3</td><td>Read as 0b, indicating request is for non-prefetchable memory (meaning reads do have side-effects); NP-MMIO</td></tr><tr><td>11:4</td><td>Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td>31:12</td><td>Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Since bit 12 is the least significant bit that could be written, the memory size requested is  $2^{12} = 4KB$ .</td></tr></table>
+
+Figure 4‐4: 32‐Bit Non‐Prefetchable Memory BAR Set Up  
+![](images/c2d206df7d7c6b9fd1b3f40d41fdb0917bc4fef31eb4396435b8ddcf02c672e5.jpg)
+
+## BAR Example 2: 64-bit Memory Address Space Request
+
+In the previous example, we saw BAR0 being used to request non‐prefetchable memory address space (NP‐MMIO). In this example, as shown in Figure 4‐5 on page 132, BAR1 and BAR2 are being used to request a 64MB block of prefetchable memory address space. Two sequential BARs are being used here because the device supports a 64‐bit address for this request, meaning that software can allocate the requested address space above the 4GB address boundary if it wants to (but that is not a requirement). Since the address can be a 64‐bit address, two sequential BARs must be used together.
+
+As before, the BARs are shown at three points in the configuration process:
+
+1. In (1) of Figure 4‐5, we see the uninitialized state of the BAR pair. The device designer has hard‐coded the lower bits of the lower BAR (BAR1 in our example) to indicate the request type and size, while the bits of the upper BAR (BAR2) are all read‐write. System software’s first step was to write all 1s to every BAR. In (2) of Figure 4‐5, we see the BARs after having all 1s written to them.
+
+2. As described in the previous example, system software already evaluated BAR0. So software’s next step is to read the next BAR (BAR1) and evaluate it to see if the device is requesting additional address space. Once BAR1 is read, software realizes that more address space is being requested and this request is for prefetchable memory address space that can be allocated anywhere in the 64‐bit address range. Since it supports a 64‐bit address, the next sequential BAR (BAR2 in this case) is treated as the upper 32 bits of BAR1. So software now also reads in the contents of BAR2. However, software does not evaluate the lower bits of BAR2 in the same way it did for BAR1, because it knows BAR2 is simply the upper 32 bits of the 64‐bit address request started in BAR1. Table 4‐2 on page 132 summarizes the results of these configuration reads.
+
+3. The final step in this process is for system software to allocate an address range to the BARs now that software knows the size and type of the address space being requested. The third view of the BARs in (3) of Figure 4‐5 shows the result after software has used two configuration writes to program the 64‐bit start address for the allocated range. In this example, bit 1 of the Upper BAR (address bit 33 in the BAR pair) is set and bit 30 of the Lower BAR (address bit 30 in the BAR pair) is set to indicate a start address of 2\_4000\_0000h. All other writable bits in both BARs are cleared.
+
+At this point, the configuration of the BAR pair (BAR1 & BAR2) is complete. Once software enables memory address decoding in the Command register (offset 04h), this device will accept any memory requests it receives that fall within the range from 2\_4000\_0000h ‐ 2\_43FF\_FFFFh (64MB in size).
+
+Figure 4‐5: 64‐Bit Prefetchable Memory BAR Set Up  
+![](images/fb829876472623d44b981cc4e53ef1c96d7e11dd42612871eca008f1974bc0e4.jpg)
+
+Table 4‐2: Results Of Reading the BAR Pair after Writing All 1s To Both
+
+<table><tr><td>BAR</td><td>BAR Bits</td><td>Meaning</td></tr><tr><td>Lower</td><td>0</td><td>Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td>Lower</td><td>2:1</td><td>Read as 10b indicating the target supports a 64-bit address decoder, and that the next sequential BAR contains the upper 32 bits of the address information.</td></tr><tr><td>Lower</td><td>3</td><td>Read as 1b, indicating request is for prefetchable memory (meaning reads do not have side-effects); P-MMIO</td></tr><tr><td>Lower</td><td>25:4</td><td>Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td>Lower</td><td>31:26</td><td>Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Note that because bit 26 was the least significant writable bit, the memory address space request size is  $2^{26}$ , or 64MB.</td></tr><tr><td>Upper</td><td>31:0</td><td>Read as all 1s. These bits will be used as the upper 32 bits of the 64-bit start address programmed by system software.</td></tr></table>
+
+## BAR Example 3: IO Address Space Request
+
+Continuing from the previous two examples, this same function is also requesting IO space, as shown in Figure 4‐6 on page 134. In the diagram, the requesting BAR (BAR3 in the example) is shown at three points in the configuration process:
+
+1. In (1) of Figure 4‐6, we see the uninitialized state of the BAR. System soft ware has previously written all 1s to every BAR and has evaluated BAR0, then BAR1 and BAR2. Now software is going to see if this device is requesting additional address space with BAR3. State (2) of Figure 4‐6 shows the state of the BAR3 after the write of all 1s.
+
+2. Software now reads in BAR3 to evaluate the size and type of the request. Table 4‐3 on page 134 summarizes the results of this configuration read.
+
+3. Now that software knows this is a request for 256 bytes of IO address space, the final step is to program the BAR with the base address of the IO address range being allocated to this device, specifically this BAR. State (3) of Figure 4‐6 shows the state of the BAR after this step. In our example, the device start address is 16KB, so bit 14 is written resulting in a base address of 4000h; all other upper bits are cleared.
+
+At this point, the configuration of BAR3 is complete. Once software enables IO address decoding in the Command register (offset 04h), the device will accept and respond to IO transactions within the range 4000h  ‐  40FFh (256 bytes in size).
+
+Figure 4‐6: IO BAR Set Up  
+![](images/003b2db033194e03040a960e27cf1abbdb191136b23a53a655620e2ca61d33eb.jpg)
+
+Table 4‐3: Results Of Reading the IO BAR after Writing All 1s To It
+
+<table><tr><td>BAR Bits</td><td>Meaning</td></tr><tr><td>0</td><td>Read as 1b, indicating an IO request. Since this is an IO request, bit 1 is reserved.</td></tr><tr><td>1</td><td>Reserved. Hard-coded to 0b.</td></tr><tr><td>7:2</td><td>Read as 0s Indicates size of the request (these bits are hard-coded to 0)</td></tr><tr><td>31:8</td><td>Read as 1s because software has not yet programmed the upper bits with a start address for the block. Note that because bit 8 was the least significant writable bit, the IO request size is  $2^{8}$ , or 256 bytes.</td></tr></table>
+
+## All BARs Must Be Evaluated Sequentially
+
+After going through the previous three examples, it becomes clear that software must evaluate BARs in a sequential fashion.
+
+Most of the time, functions do not need all six BARs. Even in the examples we went through, only four of the six available BARs were used. If the function in our example did not need to request any additional address space, the device designer would hard‐code all bits of BAR4 and BAR5 to 0s. So even though software writes those BARs with all 1s, the writes have no affect. After evaluating BAR3, software would move on to evaluating BAR4. Once it detected that none of the bits were set, software would know this BAR is not being used and move on to evaluating the next BAR.
+
+All BARs must be evaluated, even if software finds a BAR that is not being used. There are no rules in PCI or PCIe, that state that BAR0 must be the first BAR used for address space requests. If a device designer chooses to, they can use BAR4 for an address space request and hard‐code BAR0, BAR1, BAR2, BAR3 and BAR5 to all 0s. This means software must evaluate every BAR in the header.
+
+## Resizable BARs
+
+The 2.1 version of the PCI Express specification added support for changing the size of the requested address space in the BARs by defining a new capability structure in extended config space. The new structure allows the function to advertise what address space sizes it can operate with and then have software enable one of the sizes based on the available system resources. For example, if a function would ideally like to have 2GB of prefetchable memory address space, but it could still operate with only 1GB, 512MB or 256MB of P‐MMIO, system software may only enable the function to request 256MB of address space if software would not be able to accommodate a request of a larger size.
+
+## Base and Limit Registers
+
+## General
+
+Once a function’s BARs are programmed, the function knows what address range(s) it owns, which means that function will claim any transactions it sees that is targeting an address range it owns, an address range programmed into one of its BARs. This is good, but it’s important to realize that the only way that function is going to “see” the transactions it should claim is if the bridge(s) upstream of it, forward those transactions downstream to the appropriate link that the target function is connected to. Therefore, each bridge (e.g. switch ports and root complex ports) needs to know what address ranges live beneath it so it can determine which requests should be forwarded from its primary interface (upstream side) to its secondary interface (downstream side). If the request is targeting an address that is owned by a BAR in a function beneath the bridge, the request should be forwarded to the bridge’s secondary interface.
+
+It is the Base and Limit registers in the Type 1 headers that are programmed with the range of addresses that live beneath this bridge. There are the three sets of Base and Limit registers found in each Type 1 header. Three sets of registers are needed because there can be three separate address ranges living below a bridge:
+
+• Prefetchable Memory space (P‐MMIO)
+
+• Non‐Prefetchable Memory space (NP‐MMIO)
+
+• IO space (IO)
+
+To explain how these Base and Limit registers work, let’s continue the example from the previous section and place that programmed function (an endpoint) beneath a switch as shown in Figure 4‐7 on page 137. The figure also lists the address ranges owned by the BARs of that function.
+
+The Base and Limit registers of every bridge upstream of the endpoint will need to be programmed, but to start out, we’re going to focus on the bridge that is connected to the endpoint (Port B).
+
+Figure 4‐7: Example Topology for Setting Up Base and Limit Values  
+![](images/a35e23b613320d5bdb8fbce1ad4b754276b9d32ad4bee523d66c3e94362fdbd8.jpg)
+
+## Prefetchable Range (P-MMIO)
+
+Type 1 headers have two pairs of prefetchable memory base/limit registers. The Prefetchable Memory Base/Limit registers store address info for the lower 32 bits of the prefetchable address range. If this bridge supports decoding 64‐bit addresses, then the Prefetchable Memory Base/Limit Upper 32 Bits registers are also used and hold the upper 32 bits (bits [63:32]) of the address range. Figure 4‐ 8 on page 138 shows the values software would program into these registers to indicate that the prefetchable address range of 2\_4000\_0000h  ‐  2\_43FF\_FFFFh lives beneath that bridge (Port B). The meaning of each field in those registers is summarized in Table 4‐4.
+
+Figure 4‐8: Example Prefetchable Memory Base/Limit Register Values
+
+<table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>Rev ID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
+
+![](images/85465c6b3a80c51edb75d9f4ed61ee62e089c610bea78ae06cd89b5276746731.jpg)
+
+## Chapter 4: Address Space & Transaction Routing
+
+Table 4‐4: Example Prefetchable Memory Base/Limit Register Meanings
+
+<table><tr><td>Register</td><td>Value</td><td>Use</td></tr><tr><td>Prefetchable Memory Base</td><td>4001h</td><td>The upper 12 bits of this register hold the upper 12 bits of the 32-bit BASE address (bits [31:20]). The lower 20 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 1MB boundary.The lower 4 bits of this register indicate whether a 64-bit address decoder is supported in the bridge, meaning the Upper Base/Limit Registers are used.</td></tr><tr><td>Prefetchable Memory Limit</td><td>43F1h</td><td>Similarly, the upper 12 bits of this register hold the upper 12 bits of the 32-bit LIMIT address (bits [31:20]). The lower 20 bits of the limit address are all implied to be all Fs.The lower 4 bits of this register have the same meaning as the lower 4 bits of the base register.</td></tr><tr><td>Prefetchable Memory Base Upper 32 Bits</td><td>00000002h</td><td>Holds the upper 32 bits of the 64-bit BASE address for Prefetchable Memory downstream of this port.</td></tr><tr><td>Prefetchable Memory Limit Upper 32 Bits</td><td>00000002h</td><td>Holds the upper 32 bits of the 64-bit LIMIT address for Prefetchable Memory downstream of this port.</td></tr></table>
+
+## Non-Prefetchable Range (NP-MMIO)
+
+Unlike the prefetchable memory range, the non‐prefetchable memory range can only support 32‐bit addresses. So there is only one register for the base and one register for the limit. Following the example in Figure 4‐7, the Non‐Prefetchable Memory Base/Limit registers of Port B would be programmed with the values shown in Figure 4‐9 on page 140. The meaning of these values is summarized in Table 4‐5.
+
+Figure 4‐9: Example Non‐Prefetchable Memory Base/Limit Register Values  
+Type 1 Header
+
+<table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>Rev ID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
+
+![](images/b5ee420b6ebab86a49bcce4a1dabefa73c1033141db7c92cc24041fcaeb9a66c.jpg)
+
+Non-Prefetchable Memory Range: F900\_0000h - F90F\_FFFFh
+
+Table 4‐5: Example Non‐Prefetchable Memory Base/Limit Register Meanings
+
+<table><tr><td>Register</td><td>Value</td><td>Use</td></tr><tr><td>(Non-Prefetchable) Memory Base</td><td>F900h</td><td>The upper 12 bits of this register hold the upper 12 bits of the 32-bit BASE address (bits [31:20]). The lower 20 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 1MB boundary.The lower 4 bits of this register must be 0s.</td></tr><tr><td>(Non-Prefetchable) Memory Limit</td><td>F900h</td><td>Similarly, the upper 12 bits of this register hold the upper 12 bits of the 32-bit LIMIT address (bits [31:20]). The lower 20 bits of the limit address are all implied to be all Fs.The lower 4 bits of this register must be 0s.</td></tr></table>
+
+This example shows an interesting case where the non‐prefetchable address range programmed in Port B’s configuration space indicates a much larger range (1MB) than the NP‐MMIO range (4KB) owned by the endpoint living downstream. This is because the memory base/limit registers in the Type 1 header, can only be used to specify address bits 20 and above ([31:20]). The lower 20 address bits, [19:0], are implied. So the smallest address range that can be specified with the memory base/limit registers is 1MB.
+
+In our example, the endpoint requested, and was granted, 4KB of NP‐MMIO (F900\_0000h  ‐  F900\_0FFFh). Port B was programmed with values indicating 1MB, or 1024KB, of NP‐MMIO lived downstream of that port (F900\_0000h  ‐ F90F\_FFFFh). This means 1020KB (F900\_1000h  ‐  F90F\_FFFFh) of memory address space is wasted. This address space CANNOT be allocated to another endpoint because the routing of the packets would not work.
+
+## IO Range
+
+Like with the prefetchable memory range, Type 1 headers have two pairs of IO base/limit registers. The IO Base/Limit registers store address info for the lower 16 bits of the IO address range. If this bridge supports decoding 32‐bit IO addresses (which is rare in real‐world devices), then the IO Base/Limit Upper 16 Bits registers are also used and hold the upper 16 bits (bits [31:16]) of the IO address range. Following our example, Figure 4‐10 on page 142 shows the values software would program into these registers to indicate that the IO address range of 4000h ‐ 4FFFh lives beneath that bridge (Port B). The meaning of each field in those registers is summarized in Table 4‐6.
+
+Figure 4‐10: Example IO Base/Limit Register Values
+
+<table><tr><td colspan="2">Device ID</td><td colspan="2">Vendor ID</td></tr><tr><td colspan="2">Status</td><td colspan="2">Command</td></tr><tr><td colspan="3">Class Code</td><td>RevID</td></tr><tr><td>BIST</td><td>Header Type</td><td>Latency Timer</td><td>Cache Line Size</td></tr><tr><td colspan="4">Base Address 0 (BAR0)</td></tr><tr><td colspan="4">Base Address 1 (BAR1)</td></tr><tr><td>Secondary Lat Timer</td><td>Subordinate Bus #</td><td>Secondary Bus #</td><td>Primary Bus #</td></tr><tr><td colspan="2">Secondary Status</td><td>IO Limit</td><td>IO Base</td></tr><tr><td colspan="2">(Non-Prefetchable) Memory Limit</td><td colspan="2">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2">Prefetchable Memory Limit</td><td colspan="2">Prefetchable Memory Base</td></tr><tr><td colspan="4">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2">IO Limit Upper 16 Bits</td><td colspan="2">IO Base Upper 16 Bits</td></tr><tr><td colspan="3">Reserved</td><td>Capability Pointer</td></tr><tr><td colspan="4">Expansion ROM Base Address</td></tr><tr><td colspan="2">Bridge Control</td><td>Interrupt Pin</td><td>Interrupt Line</td></tr></table>
+
+![](images/38a387246db1e2abb691885e5a75d06270c47bffec7d92eb9c23ededa1be4c6a.jpg)
+
+Table 4‐6: Example IO Base/Limit Register Meanings
+
+<table><tr><td>Register</td><td>Value</td><td>Use</td></tr><tr><td>IO Base</td><td>40h</td><td>The upper 4 bits of this register hold the upper 4 bits of the 16-bit BASE address (bits [15:12]). The lower 12 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 4KB boundary. The lower 4 bits of this register indicate whether a 32-bit IO address decoder is supported in the bridge, meaning the Upper Base/ Limit Registers are used.</td></tr><tr><td>IO Limit</td><td>40h</td><td>Similarly, the upper 4 bits of this register hold the upper 4 bits of the 16-bit LIMIT address (bits [15:12]). The lower 12 bits of the limit address are all implied to be all Fs. The lower 4 bits of this register have the same meaning as the lower 4 bits of the base regis- ter.</td></tr><tr><td>IO Base Upper 16 Bits</td><td>0000h</td><td>Holds the upper 16 bits of the 32-bit BASE address for IO downstream of this port.</td></tr><tr><td>IO Limit Upper 16 Bits</td><td>0000h</td><td>Holds the upper 16 bits of the 32-bit LIMIT address for IO downstream of this port.</td></tr></table>
+
+In this example, we see another situation where the address range programmed into the upstream bridge far exceeds the actual address range owned by the downstream function. The endpoint in our example owns 256 bytes of IO address space (specifically 4000h  ‐ 40FFh). Port B has been programmed with values indicating that 4KB of IO address space lives downstream (addresses 4000h  ‐  4FFFh). Again, this is simply a limitation of Type 1 headers. For IO address space, the lower 12 bits (bits [11:0]) have implied values, so the smallest range of IO addresses that can be specified is 4KB. This limitation turns out to be more serious than the 1MB minimum window for memory ranges. In x86‐ based (Intel compatible) systems, the processors only support 16 bits of IO address space, and since only bits [15:12] of the IO address range can be specified in a bridge, that means that there can be a maximum of 16 (2<sup>4</sup>) different IO address ranges in a system.
+
+## Unused Base and Limit Registers
+
+Not every PCIe device will use all three types of address space. In fact, the PCI Express specification actually discourages the use of IO address space, indicating that it is only supported for legacy reasons and may be deprecated in a future revision of the spec.
+
+In the cases where an endpoint does not request all three types of address space, what are the base and limit registers of the bridges upstream of those devices programmed with? They can’t be programmed with all 0s because the lower address bits would still be implied to be different (base = 0s; limit = Fs) which would represent a valid range. So to handle these cases, the limit register must be programmed with a higher address than the base. For example, if an endpoint does not request IO address space, then the bridge immediately upstream of that function would have its IO Base register programmed to 00h and its IO Limit register programmed with F0h. Since the limit address is higher than the base address, the bridge understands this is an invalid setting and takes it to mean that there are no functions downstream of it that own IO address space.
+
+This method of invalidating base and limit registers is valid for all three base and limit pairs, not just for the IO base/limit registers.
+
+## Sanity Check: Registers Used For Address Routing
+
+To ensure that you understand the rules and methods for setting up BARs and Base/Limit registers, please look over Figure 4‐11 on page 145 to make sure it makes sense. We have simply extended the example system to include additional address space requests from the other endpoint, as well as from one of the switch ports (Port A). Remember that Type 1 headers also have BARs (two of them to be exact) and can request address space too. The Base/Limit registers in a bridge do NOT include the addresses owned by that same bridge’s BARs. The Base/Limit registers only represent the addresses that live downstream of that bridge.
+
+Figure 4‐11: Final Example Address Routing Setup  
+![](images/1fb4688cc0829b4d5235f0affa8ed10db0ed46cd85a1abccb1a22d7b7d7b1db3.jpg)
+
+## TLP Routing Basics
+
+The purpose of setting up the BARs and Base/Limit registers as described in the previous sections, is to ensure that traffic targeting a function will be routed correctly so the targeted function can see the transactions and claim them. In shared‐bus architectures like PCI, all the traffic is visible to every device. The only time routing of requests happens is when the target is on another bus and must cross a bridge. Since PCIe Links are point‐to‐point, more routing will be needed to deliver transactions between devices.
+
+Figure 4‐12: Multi‐Port PCIe Devices Have Routing Responsibilities  
+![](images/b4840c3bc05898076b5ecfd8382467f308afe9b0354e12a5aa7cce3cc0ed8f92.jpg)
+
+As illustrated in Figure 4‐12 on page 146, a PCI Express topology consists of independent, point‐to‐point links connecting each device with one or more neighbors. As traffic arrives at the inbound side of a link interface (called the ingress port), the port checks for errors, then makes one of three decisions:
+
+1. Accept the traffic and use it internally
+
+2. Forward the traffic to the appropriate outbound (egress) port
+
+3. Reject the traffic because it is neither the intended target, nor an interface to it (Note that there are other reasons why traffic may be rejected)
+
+## Receivers Check For Three Types of Traffic
+
+Assuming a link is fully operational, the receiver interface of each device (ingress port) must detect and evaluated the arrival of the three types of link traffic: Ordered Sets, Data Link Layer Packets (DLLPs), and Transaction Layer Packets (TLPs). Ordered Sets and DLLPs are local to a link and thus are never routed to another link. TLPs can and do move from link to link, based on routing information contained in the packet headers.
+
+## Routing Elements
+
+Devices with multiple ports, like Root Complexes and Switches, can forward TLPs between the ports and are sometimes called Routing Agents or Routing Elements. They accept TLPs that target internal resources and forward TLPs between ingress and egress ports.
+
+Interestingly, peer‐to‐peer routing support is required in Switches, but for a Root Complex it’s optional. Peer‐to‐peer traffic is typically where one Endpoint sends packets that target another Endpoint.
+
+Endpoints have only one Link and never expect to see ingress traffic other than what is targeting them. They simply accept or reject incoming TLPs.
+
+## Three Methods of TLP Routing
+
+## General
+
+TLPs can be routed based on address (either memory or IO), based on ID (meaning Bus, Device, Function number), or routed implicitly. The routing method used is based on the TLP type. Table 4‐7 on page 147 summarizes the TLP types and the routing methods used for each.
+
+Table 4‐7: PCI Express TLP Types And Routing Methods
+
+<table><tr><td>TLP Type</td><td>Routing Method Used</td></tr><tr><td>Memory Read [Lock], Memory Write, AtomicOp</td><td>Address Routing</td></tr><tr><td>IO Read and Write</td><td>Address Routing</td></tr><tr><td>Configuration Read and Write</td><td>ID Routing</td></tr><tr><td>Message, Message With Data</td><td>Address Routing, ID Routing, or Implicit routing</td></tr><tr><td>Completion, Completion With Data</td><td>ID Routing</td></tr></table>
+
+Messages are the only TLP type that support more than one routing method. Most of the message TLPs defined in the PCI Express spec use implicit routing, however, the vendor‐defined messages could use address routing or ID routing if desired.
+
+## Purpose of Implicit Routing and Messages
+
+In implicit routing, neither address or ID routing information applies; instead, the packet is routed based on a code in the packet header indicating a destination with a known location in the topology, such as the Root Complex. This simplifies routing of messages in the cases where a type of implicit routing applies.
+
+Why Messages? Message transactions were not defined in PCI or PCI‐X, but were introduced with PCIe. The main reason for adding Messages as a packet type was to pursue the PCIe design goal to drastically reduce the number of sideband signals implemented in PCI (e.g. interrupt pins, error pins, power management signals, etc.). Consequently, most of the sideband signals were replaced with in‐band packets in the form of Message TLPs.
+
+How Implicit Routing HelpsUsing in‐band messages in place of sideband signals requires a means of routing them to the proper recipient in a topology consisting of numerous point‐to‐point links. Implicit routing takes advantage of the fact that Switches and other routing elements understand the concept of upstream and downstream, and that the Root Complex is found at the top of the topology while Endpoints are found at the bottom. As a result, a Message can use a simple code to show that it should go to the Root Complex, for example, or to be sent to all devices downstream. This ability eliminates the need to define address ranges or ID lists specifically used as the target of different message transactions.
+
+The different types of implicit routing can be found in “Implicit Routing” on page 163.
+
+## Split Transaction Protocol
+
+Like most other serial technologies, PCI Express uses the split transaction protocol which allows a target device to receive one or more requests and then respond to each request with a separate completion. This is a significant improvement over the PCI bus protocol that used wait‐states or delayed transactions (retries) to deal with latencies in accessing targets. Instead of testing to see when the target becomes ready to do a long‐latency transfer, the target initiates the response whenever it’s ready. This results in at least two separate TLPs per transaction ‐ the Request and the Completion (as will be discussed later, a single read request may result in multiple completion TLPs being sent back). Figure 4‐13 on page 149 illustrates the Request‐Completion components of a split transaction. This example shows software reading data from an Endpoint.
+
+Figure 4‐13: PCI Express Transaction Request And Completion TLPs  
+![](images/48a5a16bee00019f3f488013bb72a9c97e7ed8508405f635e2c1b6704b7bfa42.jpg)
+
+## Posted versus Non-Posted
+
+To mitigate the penalty of the Request‐Completion latency, memory write transactions are posted, meaning the transaction is considered completed from the Requester’s perspective as soon as the request leaves the Requester. If helpful, you can associate the term “posting” with the postal system, where posting a memory write is analogous to posting a letter in the mail. Once you’ve placed a letter in the postal box you put your faith in the system to deliver it and don’t wait for verification of delivery. This approach can be much faster than waiting for the entire Request‐Completion transit, but — as in all posting schemes — uncertainty exists concerning when (and if) the transaction completed successfully at the ultimate recipient.
+
+In PCIe, the small amount of uncertainty involved by making all memory writes posted is considered acceptable in exchange for the performance gained. By contrast, writes to IO and configuration space almost always affect device behavior and have a timeliness associated with them. Consequently, it is important to know when (and if) those write requests completed. Because of this, IO writes and configuration writes are always non‐posted and a completion will always be returned to report the status of the operation.
+
+In summary, non‐posted transactions require a completion. Posted transactions do not require, and should never receive, a completion. Table 4‐8 on page 150 lists which PCIe transactions are posted and non‐posted.
+
+Table 4‐8: Posted and Non‐Posted Transactions
+
+<table><tr><td>Request</td><td>How Request Is Handled</td></tr><tr><td>Memory Write</td><td>All memory write requests are posted. No completions are expected or sent.</td></tr><tr><td>Memory Read Memory Read Lock</td><td>All memory read requests are non-posted. A completion with data (made of one or more TLPs) will be returned by the Completer to deliver both the requested data and the status of the memory read. In the event of an error, a completion without data will be returned reporting the status.</td></tr><tr><td>AtomicOp</td><td>All AtomicOp requests are non-posted. A completion with data will be returned by the Completer containing the original value of the target location.</td></tr></table>
+
+## Chapter 4: Address Space & Transaction Routing
+
+Table 4‐8: Posted and Non‐Posted Transactions (Continued)
+
+<table><tr><td>Request</td><td>How Request Is Handled</td></tr><tr><td>IO ReadIO Write</td><td>All IO requests are non-posted. A completion without data will be returned for writes or failed reads, and a completion with data will be returned for successful reads.</td></tr><tr><td>Configuration ReadConfiguration Write</td><td>All configuration requests are non-posted. A completion without data will be returned for writes and failed reads, while a completion with data will be returned for successful reads.</td></tr><tr><td>Message</td><td>All messages are posted. The routing method depends on the Message type, but they&#x27;re all considered posted requests.</td></tr></table>
+
+## Header Fields Define Packet Format and Type
+
+## General
+
+As shown in Figure 4‐14 on page 152, each TLP contains a three or four doubleword (12 or 16 byte) header. This includes Format and Type fields that define the content of the rest of the header and indicate the routing method to be used for the TLP as it traverses the topology.
+
+Figure 4‐14: Transaction Layer Packet Generic 3DW And 4DW Headers  
+![](images/fec46d2d1fd69f8fd6b71b51ac36f4f1abfbb4b8e904d4b9e043ef0ce0204668.jpg)
+
+## Chapter 4: Address Space & Transaction Routing
+
+## Header Format/Type Field Encodings
+
+Table 4‐9 on page 153 below summarizes the encodings used in TLP header Format and Type fields.
+
+Table 4‐9: TLP Header Format and Type Field Encodings
+
+<table><tr><td>TLP</td><td>FMT[2:0]</td><td>TYPE [4:0]</td></tr><tr><td>Memory Read Request (MRd)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0000</td></tr><tr><td>Memory Read Lock Request (MRdLk)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0001</td></tr><tr><td>Memory Write Request (MWr)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 0000</td></tr><tr><td>IO Read Request (IORd)</td><td>000 = 3DW, no data</td><td>00010</td></tr><tr><td>IO Write Request (IOWr)</td><td>010 = 3DW, w/data</td><td>0 0010</td></tr><tr><td>Config Type 0 Read Request (CfgRd0)</td><td>000 = 3DW, no data</td><td>0 0100</td></tr><tr><td>Config Type 0 Write Request (CfgWr0)</td><td>010 = 3DW, w/data</td><td>0 0100</td></tr><tr><td>Config Type 1 Read Request (CfgRd1)</td><td>000 = 3DW, no data</td><td>0 0101</td></tr><tr><td>Config Type 1 Write Request (CfgWr1)</td><td>010 = 3DW, w/data</td><td>0 0101</td></tr><tr><td>Message Request (Msg)</td><td>001 = 4DW, no data</td><td>1 0RRR* (for RRR, see routing subfield in “Message Type Field Summary” on page 164)</td></tr><tr><td>Message Request w/Data (MsgD)</td><td>011 = 4DW, w/data</td><td>1 0RRR* (for RRR, see routing subfield in “Message Type Field Summary” on page 164)</td></tr><tr><td>Completion (Cpl)</td><td>000 = 3DW, no data</td><td>0 1010</td></tr><tr><td>Completion W/Data (CplD)</td><td>010 = 3DW, w/ data</td><td>0 1010</td></tr><tr><td>Completion-Locked (CplLk)</td><td>000 = 3DW, no data</td><td>0 1011</td></tr><tr><td>Completion w/Data (CplDLk)</td><td>010 = 3DW, w/ data</td><td>0 1011</td></tr><tr><td>Fetch and Add AtomicOp Request (FetchAdd)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1100</td></tr><tr><td>Unconditional Swap AtomicOp Request (Swap)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1101</td></tr><tr><td>Compare and Swap AtomicOp Request (CAS)</td><td>010 = 3DW, w/data011 = 4DW, w/data</td><td>0 1110</td></tr><tr><td>Local TLP Prefix (LPrfx)</td><td>100 = 1DW</td><td>0 LLLL</td></tr><tr><td>End-to-End TLP Prefix (EPrfx)</td><td>100 = 1DW</td><td>1 EEEE</td></tr></table>
+
+## TLP Header Overview
+
+When TLPs are received at an ingress port, they are first checked for errors at the Physical and Data Link Layers. If there are no errors, the TLP is examined at the Transaction Layer to learn which routing method is to be used. The basic steps are:
+
+1. Format and Type fields determine the header size, format and type of the packet.
+
+2. Depending on the routing method associated with the packet type, the device determines whether it’s the intended recipient. If so, it will accept (consume) the TLP, but if not, it will forward the TLP to the appropriate egress port ‐ subject to the rules for ordering and flow control for that egress port.
+
+3. If this device is not the intended recipient nor is it in the path to the intended recipient, it will generally reject the packet as an Unsupported Request (UR).
+
+## Applying Routing Mechanisms
+
+Once the system addresses have been configured and transactions are enabled, devices examine incoming TLPs and use the corresponding configuration fields to route the packet. The following sections describe the basic features/functionality of each routing mechanism used in routing TLPs through the PCI Express fabric.
+
+## ID Routing
+
+ID routing is used to target the logical position ‐ Bus Number, Device Number, Function Number (typically referred to as BDF), of a Function within the topology. It’s compatible with routing methods used in the PCI and PCI‐X protocols for configuration transactions. In PCIe, it is still used for routing configuration packets and is also used to route completions and some messages.
+
+## Bus Number, Device Number, Function Number Limits
+
+PCI Express supports the same topology limits as PCI and PCI‐X:
+
+1. Eight bits are used to give the bus number, so a maximum of 256 busses are possible in a system. This includes internal busses created by Switches.
+
+2. Five bits give the device number, so a maximum of 32 devices are possible per bus. An older PCI bus or an internal bus in a switch or root complex may host more than one downstream device. However, external PCIe links are always point‐to‐point and there’s only one downstream device on the link. The device number for an external link is forced by the downstream port to always be Device 0, so every external Endpoint will always be Device 0 (unless using Alternative Routing‐ID Interpretation (ARI), in which case, there are no device numbers; more about ARI can be found in the section on “IDO (ID‐based Ordering)” on page 909.
+
+3. Three bits give the function number, so a maximum of 8 internal functions is possible per device.
+
+## Key TLP Header Fields in ID Routing
+
+If the Type field in a received TLP indicates ID routing is to be used, then the ID fields in the header (Bus, Device, Function) are used to perform the routing check. There are two cases: ID routing with a 3DW header and ID routing with a 4DW header (only possible in messages). Figure 4‐15 on page 156 illustrates a TLP using ID routing and the 3DW header, while Figure 4‐16 on page 156 shows the 4DW header for ID routing.
+
+Figure 4‐15: 3DW TLP Header ‐ ID Routing Fields  
+![](images/a3eae75f4c57834d4b43ecc60db67b8feedf07b5daeead859131dec27b5446e6.jpg)
+
+Figure 4‐16: 4DW TLP Header ‐ ID Routing Fields  
+![](images/c5e73cb93b4421601309081f14e7dd41039673423275cf68bf670983767ecc47.jpg)
+
+## Endpoints: One Check
+
+For ID routing, an Endpoint simply checks the ID field in the packet header against its own BDF. Each function “captures” its own Bus and Device Number every time a Type 0 configuration write is seen on its link from bytes 8‐9 in the TLP Header. Where the captured Bus and Device Number information should be stored in not specified, only that functions must save it. The saved Bus and
+
+## Chapter 4: Address Space & Transaction Routing
+
+Device numbers are used as the Requester ID in TLP requests that this Endpoint initiates so the Completer of that request can include the Requester ID value in the completion packet(s). The Requester ID in a completion packet is used to route the completion.
+
+## Switches (Bridges): Two Checks Per Port
+
+For an ID‐routed TLP, a switch port first checks to see whether it is the intended target by comparing the target ID in the TLP Header against its own BDF, as shown by (1) in Figure 4‐17 on page 158. As was true for an Endpoint, each switch port captures its own Bus and Device number every time a configuration write (Type 0) is detected on its Upstream Port. If the target ID field in the TLP agrees with the ID of the switch port, it consumes the packet. If the ID field doesn’t match, it then checks to see if the TLP is targeting a device below this switch port. It does this by checking the Secondary and Subordinate Bus Number registers to see if the target Bus Number in the TLP is within this range (inclusive). If so, then the TLP should be forwarded downstream. This check is indicated by (2) in Figure 4‐17 on page 158. If the packet was moving downstream (arrived on the Upstream Port) and doesn’t match the BDF of the Upstream Port or fall within the Secondary‐Subordinate bus range, it will be handled as an Unsupported Request on the Upstream Port.
+
+If the Upstream Port determines that a TLP it received is for one of the devices beneath it (because the target bus number was within the range of its Secondary‐Subordinate bus number range), then it forwards it downstream and all the downstream ports of the switch perform the same checks. Each downstream port checks to see if the TLP is targeting them. If so, the targeted port will consume the TLP and the other ports ignore it. If not, all downstream ports check to see if the TLP is targeting a device beneath their port. The one port that returns true on that check will forward the TLP to its Secondary Bus and the other downstream ports ignore the TLP.
+
+In this section, it is important to remember that each port on a switch is a Bridge, and thus has its own configuration space with a Type 1 Header. Even though Figure 4‐17 on page 158 only shows a single Type 1 Header, in reality, each port (each P2P Bridge) has its own Type 1 Header and performs the same two checks on TLPs when they are seen by that port.
+
+Figure 4‐17: Switch Checks Routing Of An Inbound TLP Using ID Routing  
+![](images/fc6f79f8ca30a0eaee36c18c935ef53ffbdba2126190699e50eddded332a2037.jpg)
+
+## Address Routing
+
+TLPs that use address routing refer to the same memory (system memory and memory‐mapped IO) and IO address maps that PCI and PCI‐X transactions do. Memory requests targeting an address below 4GB (i.e. a 32‐bit address) must use a 3DW header, and requests targeting an address above 4GB (i.e. a 64‐bit address) must use a 4DW header. IO requests are restricted to 32‐bit addresses and are only implemented to support legacy functionality.
+
+## Key TLP Header Fields in Address Routing
+
+When the Type field indicates address routing is to be used for a TLP, then the Address Fields in the header are used to perform the routing check. These can be 32‐bit addresses or 64‐bit addresses.
+
+TLPs with 32‐Bit AddressFor IO or 32‐bit memory requests, a 3DW header is used as shown in Figure 4‐18. The memory‐mapped registers targeted with these TLPs will therefore reside below the 4GB memory or IO address boundary.
+
+TLPs with 64‐Bit AddressFor 64‐bit memory requests, a 4DW header is used as shown in Figure 4‐19 on page 160. The memory‐mapped registers targeted with these TLPs are able to reside above the 4GB memory boundary.
+
+Figure 4‐18: 3DW TLP Header ‐ Address Routing Fields  
+![](images/35aa75f79ed03d1081d34cf95b053c7f1e1f7022db9fd9fe908c90f87e7ad67a.jpg)
+
+Figure 4‐19: 4DW TLP Header ‐ Address Routing Fields  
+![](images/5c852f5678febf67f3fc428e4d27a5319701cb83d0df73f869d7b9b4793005e2.jpg)
+
+## Endpoint Address Checking
+
+If an Endpoint receives a TLP that uses address routing then it checks the address in the header against each of its implemented Base Address Registers (BARs) in its configuration header, as shown in Figure 4‐20. Since Endpoints only have one link interface, it will either accept the packet or reject it. The Endpoint will accept the packet if the target address in the TLP matches one of the ranges programmed into its BARs. More info on how the BARs are used can be found in section “Base Address Registers (BARs)” on page 126.
+
+## Chapter 4: Address Space & Transaction Routing
+
+Figure 4‐20: Endpoint Checks Incoming TLP Address  
+![](images/1f97be03524b192e0c9fa2c30aba8a145e6843a83eb62f3695ca2b2ab50f5644.jpg)
+
+## Switch Routing
+
+If an incoming TLP uses address routing, a Switch Port first checks to see if the address is local within the Port itself by comparing the address in the packet header against its two BARs in its Type 1 configuration header, as shown in Step 1 of Figure 4‐21 on page 162. If it matches one of these BARs, the switch port is the target of the TLP and consumes the packet. If not, the port then checks its Base/Limit register pairs to see if the TLP is targeting a function beneath (downstream of) this bridge. If the Request targets IO space, it will check the IO Base and Limit registers, as shown in Step 2a. However, if the Request targets memory space, it will check the Nonprefetchable Memory Base/ Limit registers and the Prefetchable Memory Base/Limit registers, as indicated by Step 2b in Figure 4‐21 on page 162. More info on how the Base/Limit register pairs are evaluated can be found in section “Base and Limit Registers” on page 136.
+
+Figure 4‐21: Switch Checks Routing Of An Inbound TLP Using Address  
+![](images/47521d33eb88e6a8aa297bb7e9520c2500d1748e9639be55d27495f09b5b3353.jpg)
+
+To understand routing of address‐based TLPs in switches, it is good to remember that each switch port is its own bridge. Below are the steps that a bridge (switch port) takes upon receiving an address‐based TLP:
+
+## Downstream Traveling TLPs (Received on Primary Interface)
+
+1. IF the target address in the TLP matches one of the BARs, then this bridge (switch port) consumes the TLP because it is the target of the TLP.
+
+2. IF the target address in the TLP falls in the range of one of its Base/ Limit register sets, the packet will be forwarded to the secondary interface (downstream).
+
+3. ELSE the TLP will be handled as an Unsupported Request on the primary interface. (This is true if no other bridges on the primary interface claim the TLP either.)
+
+## Upstream Traveling TLPs (Received on Secondary Interface)
+
+1. IF the target address in the TLP matches one of the BARs, then this bridge (switch port) consumes the TLP because it is the target of the TLP.
+
+2. IF the target address in the TLP falls in the range of one of its Base/ Limit register sets, the TLP will be handled as an Unsupported Request on the secondary interface. (This is true unless this port is the upstream port of the switch. In these cases, the packet may be a peer‐to‐peer transaction and will be forwarded downstream on a different downstream port than the one it was received on.)
+
+3. ELSE the TLP will be forwarded to the primary interface (upstream) given that the TLP address is not for this bridge and is not for any function beneath this bridge.
+
+## Multicast Capabilities
+
+The 2.1 version of the PCI Express specification added support for specifying a range of addresses that provide multicast functionality. Any packets received that fall within the address range specified as the multicast range are routed/ accepted according to the multicast rules. This address range might not be reserved in a function’s BARs and might not be within a bridge’s Base/Limit register pair, but would still need to be accepted/forwarded appropriately. More info can be found on the multicast functionality in the section on “Multicast Capability Registers” on page 889.
+
+## Implicit Routing
+
+Implicit routing, used in some message packets, is based on the awareness of routing elements that the topology has upstream and downstream directions and a single Root Complex at the top. This allows some simple routing methods without the need to assign a target address or ID. Since the Root Complex generally integrates power management, interrupt, and error handling logic, it is either the source or recipient of most PCI Express messages.
+
+## Only for Messages
+
+Some messages use address or ID routing rather than implicit routing, and for them, the routing mechanisms are applied in the same way as described in the those sections. However, most messages use implicit routing. The purpose of implicit routing is to mimic side‐band signal behavior since a design goal for PCIe was to eliminate as many side‐band signals from PCI as possible. These side‐band signals in PCI were typically either the host notifying all devices of an event or devices notifying the host of an event. In PCIe, we have Message TLPs to convey these events. The types of events that PCIe has defined messages for are:
+
+• Power Management
+
+• INTx legacy interrupt signaling
+
+• Error signaling
+
+• Locked Transaction support
+
+• Hot Plug signaling
+
+• Vendor‐specific signaling
+
+• Slot Power Limit settings
+
+## Key TLP Header Fields in Implicit Routing
+
+For implicit routing, the routing sub‐field in the header is used to determine the message destination. Figure 4‐22 on page 164 illustrates a message TLP using implicit routing.
+
+Figure 4‐22: 4DW Message TLP Header ‐ Implicit Routing Fields  
+![](images/180e1d6d4c7b49cebf8eda3097555e2eb146e70d55ac049bbc4ae3669523c4b5.jpg)
+
+## Message Type Field Summary
+
+Table 4‐10 on page 165 shows how the TLP header Type field for Messages is interpreted. As shown, the upper two bits indicate the packet is a Message while the lower three bits specify the routing method to apply. Note that Message TLPs always use a 4DW header regardless of the routing option selected.
+
+For address routing, bytes 8‐15 contain up to a 64‐bit address, and for ID routing, bytes 8 and 9 contain the target BDF.
+
+Table 4‐10: Message Request Header Type Field Usage
+
+<table><tr><td>Type Field Bits</td><td>Description</td></tr><tr><td>Bit 4:3</td><td>Defines the type of transaction: $10b = \text{Message TLP}$ </td></tr><tr><td>Bit 2:0</td><td>Message Routing Subfield R[2:0] $\bullet$  000b = Implicit - Route to the Root Complex $\bullet$  001b = Route by Address (bytes 8-15 of header contain address) $\bullet$  010b = Route by ID (bytes 8-9 of header contain ID) $\bullet$  011b = Implicit - Broadcast downstream $\bullet$  100b = Implicit - Local: terminate at receiver $\bullet$  101b = Implicit - Gather &amp; route to the Root Complex $\bullet$  110b - 111b = Reserved: terminate at receiver</td></tr></table>
+
+## Endpoint Handling
+
+For implicit routing, an Endpoint simply checks whether the routing sub‐field is appropriate for it. For example, an Endpoint will accept a Broadcast Message or a Message that terminates at the receiver; but not Messages that implicitly target the Root Complex.
+
+## Switch Handling
+
+Routing elements like Switches consider the port on which the TLP arrived on and whether the routing sub‐field code is appropriate for it. For example:
+
+1. A Switch Upstream Port may legitimately receive a Broadcast Message. It will duplicate that and forward it to all its Downstream Ports. An implicitly routed Broadcast Message received on a Downstream Port of a Switch (meaning the message was traveling upstream) would be an error that would be handled as a Malformed TLP.
+
+2. A Switch may receive implicitly routed Messages for the Root Complex on Downstream Ports and will forward these to its Upstream Port because the location of the Root Complex is understood to be upstream. It would not accept Messages received on its Upstream Port (meaning the message was traveling downstream) that are implicitly routed to the Root Complex.
+
+## PCI Express Technology
+
+3. If an implicitly routed Message indicates it should terminate at the receiver, then the receiving switch port will consume the message rather than forward it.
+
+4. For messages routed using address or ID routing, a Switch will simply perform normal address or ID checks in deciding whether to accept or forward it.
+
+## DLLPs and Ordered Sets Are Not Routed
+
+DLLP and Ordered Set traffic is not routed from ingress ports to egress ports of switches or root complexes. These packets move from port to port across a link from Physical Layer to Physical Layer.
+
+DLLPs originate at the Data Link Layer of a PCI Express port, pass through the Physical Layer, exit the port, traverse the Link and arrive at the neighboring port. At this port, the packet passes through the Physical Layer and ends up at the Data Link Layer where it is processed and consumed. DLLPs do not proceed further up the port to the Transaction Layer and hence are not routed.
+
+Similarly, Ordered‐Set packets originate at the Physical Layer, exit the port, traverse the Link and arrive at the neighboring port. At this port, the packet arrives at the Physical Layer where it is processed and consumed. Ordered‐Sets do not proceed further up the port to the Data Link Layer and Transaction Layer and hence are not routed.
+
+As has been discussed in this chapter, only TLPs are routed through switches and root complexes. The originate at the Transaction Layer of a source port and end up at the Transaction Layer of a destination port.
+
+Part Two:
+
+Transaction Layer
+
+## 5 TLP Elements
+
+## The Previous Chapter
+
+The previous chapter describes the purpose and methods of a function requesting address space (either memory address space or IO address space) through Base Address Registers (BARs) and how software must setup the Base/Limit registers in all bridges to route TLPs from a source port to the correct destination port. The general concepts of TLP routing in PCI Express are also discussed, including address‐based routing, ID‐based routing and implicit routing.
+
+## This Chapter
+
+Information moves between PCI Express devices in packets. The three major classes of packets are Transaction Layer Packets (TLPs), Data Link Layer Packets (DLLPs) and Ordered Sets. This chapter describes the use, format, and definition of the variety of TLPs and the details of their related fields. DLLPs are described separately in Chapter 9, entitled ʺDLLP Elements,ʺ on page 307.
+
+## The Next Chapter
+
+The next chapter discusses the purposes and detailed operation of the Flow Control Protocol. Flow control is designed to ensure that transmitters never send Transaction Layer Packets (TLPs) that a receiver can’t accept. This prevents receive buffer over‐runs and eliminates the need for PCI‐style inefficiencies like disconnects, retries, and wait‐states.
+
+## Introduction to Packet-Based Protocol
+
+## General
+
+Unlike parallel buses, serial transport buses like PCIe use no control signals to identify what’s happening on the Link at a given time. Instead, the bit stream they send must have an expected size and a recognizable format to make it possible for the receiver to understand the content. In addition, PCIe does not use any immediate handshake for the packet while it is being transmitted.
+
+With the exception of the Logical Idle symbols and Physical Layer packets called Ordered Sets, information moves across an active PCIe Link in fundamental chunks called packets that are comprised of symbols. The two major classes of packets exchanged are the high‐level Transaction Layer Packets (TLPs), and low‐level Link maintenance packets called Data Link Layer Packets (DLLPs). The packets and their flow are illustrated in Figure 5‐1 on page 170. Ordered Sets are packets too, however, they are not framed with a start and end symbol like TLPs and DLLPs are. They are also not byte striped like TLPs and DLLPs are. Ordered Set packets are instead replicated on all Lanes of a Link.
+
+Figure 5‐1: TLP And DLLP Packets  
+![](images/c95d2324c799f59c2437e1a433388a586089185e3661fa7dacda8c2af34d8ef6.jpg)
+
+## Motivation for a Packet-Based Protocol
+
+There are three distinct advantages to using a packet‐based protocol especially when it comes to data integrity:
+
+## 1. Packet Formats Are Well Defined
+
+Earlier buses like PCI allow transfers of indeterminate size, making identification of payload boundaries impossible until the end of the transfer. In addition, either device is able to terminate the transfer before it completes, making it difficult for the sender to calculate and send a checksum or CRC covering an entire payload. Instead, PCI uses a simple parity scheme and checks it on each data phase.
+
+By comparison, PCIe packets have a known size and format. The packet header at the beginning indicates the packet type and contains the required and optional fields. The size of the header fields is fixed except for the address, which can be 32 bits or 64 bits in size. Once a transfer commences, the recipient can’t pause or terminate it early. This structured format allows including information in the TLPs to aid in reliable delivery, including framing symbols, CRC, and a packet Sequence Number.
+
+## 2. Framing Symbols Define Packet Boundaries
+
+When using 8b/10b encoding in Gen1 and Gen2 mode of operation, each TLP and DLLP packet sent is framed by Start and End control symbols, clearly defining the packet boundaries for the receiver. This is a big improvement over PCI and PCI‐X, where the assertion and de‐assertion of the single FRAME# signal indicates the beginning and end of a transaction. A glitch on that signal (or any of the other control signals) could cause a target to misconstrue bus events. A PCIe receiver must properly decode a complete 10‐bit symbol before concluding Link activity is beginning or ending, so unexpected or unrecognized symbols are more easily recognized and handled as errors.
+
+For the 128b/130b encoding used in Gen3, control characters are no longer employed and there are no framing symbols as such. For more on the differences between Gen3 encoding and the earlier versions, see Chapter 12, entitled ʺPhysical Layer ‐ Logical (Gen3),ʺ on page 407.
+
+## 3. CRC Protects Entire Packet
+
+Unlike the side‐band parity signals used by PCI during the address and data phases of a transaction, the in‐band CRC value of PCIe verifies error‐free delivery of the entire packet. TLP packets also have a Sequence Number appended to them by the transmitter’s Data Link Layer so that if an error is detected at the Receiver, the problem packet can be automatically resent. The transmitter maintains a copy of each TLP sent in a Retry Buffer until it has been acknowledged by the receiver. This TLP acknowledgement mechanism, called the Ack/Nak Protocol, (and described in Chapter 10, entitled  ʺAck/Nak Protocol,ʺ  on page 317) forms the basis of Link‐level TLP error detection and correction. This Ack/Nak Protocol error recovery mechanism allows for a timely resolution of the problem at the place or Link where the problem occurred, but requires a local hardware solution to support it.
+
+## Transaction Layer Packet (TLP) Details
+
+In PCI Express, high‐level transactions originate in the device core of the transmitting device and terminate at the core of the receiving device. The Transaction Layer acts on these requests to assemble outbound TLPs in the Transmitter and interpret them at the Receiver. Along the way, the Data Link Layer and Physical Layer of each device also contribute to the final packet assembly.
+
+## TLP Assembly And Disassembly
+
+The general flow of TLP assembly at the transmit side of a Link and disassembly at the receiver is shown in Figure 5‐2 on page 173. Let’s now walk through the steps from creation of a packet to its delivery to the core logic of the receiver. The key stages in Transaction Layer Packet assembly and disassembly are listed below. The list numbers correspond to the numbers in Figure 5‐2 on page 173.
+
+## Transmitter:
+
+1. The core logic of Device A sends a request to its PCIe interface. How this is accomplished is outside the scope of the spec or this book. The request includes:
+
+— Target address or ID (routing information)
+
+— Source information such as Requester ID and Tag
+
+— Transaction type/packet type (Command to perform, such as a memory read.)
+
+— Data payload size (if any) along with data payload (if any)
+
+— Traffic Class (to assign packet priority)
+
+— Attributes of the Request (No Snoop, Relaxed Ordering, etc.)
+
+2. Based on that request, the Transaction Layer builds the TLP header, appends any data payload, and optionally calculates and appends the digest (End‐to‐End CRC, ECRC) if that’s supported and has been enabled. At this point the TLP is placed into a Virtual Channel buffer. The Virtual Channel manages the sequence of TLPs according to the Transaction Ordering rules and also verifies that the receiver has enough flow control credits to accept a TLP before it can be passed down to the Data Link Layer.
+
+3. When it arrives at the Data Link Layer, the TLP is assigned a Sequence Number and then a Link CRC is calculated based on the contents of the TLP and that Sequence Number. A copy of the resulting packet is saved in the Retry Buffer in case of transmission errors while it is also passed on to the Physical Layer.
+
+Figure 5‐2: PCIe TLP Assembly/Disassembly  
+![](images/9975e4bc5a3afd16b56b819f3cae3190ba51c80a39c9d42a9bc457fc722ea5f4.jpg)
+
+4. The Physical Layer does several things to prepare the packet for serial transmission, including byte striping, scrambling, encoding, and serializing the bits. For Gen1 and Gen2 devices, when using 8b/10b encoding, the control characters STP and END are added to either end of the packet. Finally, the packet is transmitted across the Link. In Gen3 mode, STP token is added to the front end of a TLP, but END is not added to the end of the packet. Rather the STP token contains information about TLP packet size.
+
+## Receiver:
+
+5. At the Receiver (Device B in this example), everything done to prepare the packet for transmission must now be undone. The Physical Layer de‐serializes the bit stream, decodes the resulting symbols, and un‐stripes the bytes.
+
+The control characters are removed here because they only have meaning at the Physical Layer, and then the packet is forwarded to the Data Link Layer.
+
+6. The Data Link Layer calculates the CRC and compares it to the received CRC. If that matches, the Sequence Number is checked. If there are no errors, the CRC and Sequence Number are removed and the TLP is passed to the Transaction Layer of the receiver and notifies the sender of good reception by returning an Ack DLLP. In the event of an error a Nak will be returned instead, and the transmitter will re‐replay TLPs in its Retry Buffer.
+
+7. At the Transaction Layer, the TLP is decoded and the information is passed to the core logic for appropriate action. If the receiving device is the final target of this packet, it checks for ECRC errors and reports any related ECRC error condition to the core logic should there be any.
+
+## TLP Structure
+
+The basic usage of each field in a Transaction Layer Packet is defined in Table 5‐ 1 on page 174.
+
+Table 5‐1: TLP Header Type Field Defines Transaction Variant
+
+<table><tr><td>TLP Component</td><td>Protocol Layer</td><td>Component Use</td></tr><tr><td>Header</td><td>Transaction Layer</td><td>3 or 4DW (12 or 16 bytes) in size. Format varies with type, but Header defines parameters, including:Transaction typeTarget address, ID, etc.Transfer size (if any), Byte EnablesAttributesTraffic Class</td></tr><tr><td>Data</td><td>Transaction Layer</td><td>Optional 1-1024 DW Payload, which is qualified with Byte Enables or byte-aligned start and end addresses. Note that a length of zero can&#x27;t be specified, but a zero-length read (useful in some cases) can be approximated by specifying a length of 1 DW and Byte Enables of all zero. The resulting data from the Completer will be undefined but the Requester doesn&#x27;t use it, so the result is the same.</td></tr><tr><td>Digest/ECRC</td><td>Transaction Layer</td><td>Optional. When present, ECRC is always 1 DW in size.</td></tr></table>
+
+## Generic TLP Header Format
+
+## General
+
+Figure 5‐3 on page 175 illustrates the format and contents of a generic TLP 4DW header. In this section, fields common to nearly all transactions are summarized. Header format differences associated with specific transaction types are covered later.
+
+Figure 5‐3: Generic TLP Header Fields  
+![](images/86de3a251a1f2d00f0f15727ca8579b021fdfe1bcfc1111e0c0d75e2bd01a7df.jpg)
+
+## Generic Header Field Summary
+
+Table 5‐2 on page 176 summarizes the size and use of each of the generic TLP header fields. Note that fields marked “R” in Figure 5‐3 on page 175 are reserved and should be set to zero.
+
+Table 5‐2: Generic Header Field Summary
+
+<table><tr><td>Header Field</td><td>Header Location</td><td>Field Use</td></tr><tr><td>Fmt[2:0] (Format)</td><td>Byte 0 Bit 7:5</td><td>These bits encode information about header size and whether a data payload will be part of the TLP:00b 3DW header, no data01b 4DW header, no data10b 3DW header, with data11b 4DW header, with dataAn address below 4GB must use a 3DW header. The spec states that receiver behavior is undefined if 4DW header is used for an address below 4GB with the upper 32 bits of the 64-bit address set to zero.</td></tr><tr><td>Type[4:0]</td><td>Byte 0 Bit 4:0</td><td>These bits encode the transaction variant used with this TLP. The Type field is used with Fmt [1:0] field to specify transaction type, header size, and whether data payload is present. See “Generic Header Field Details” on page 178 for details.</td></tr><tr><td>TC [2:0] (Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>These bits encode the traffic class to be applied to this TLP and to the completion associated with it (if any):000b = Traffic Class 0 (Default).111b = Traffic Class 7TC 0 is the default class, while TC 1-7 are used to provide differentiated services. See “Traffic Class (TC)” on page 247 for additional information.</td></tr><tr><td>Attr [2] (Attributes)</td><td>Byte 1 Bit 2</td><td>This third Attribute bit indicates whether ID-based Ordering is to be used for this TLP. To learn more, see “ID Based Ordering (IDO)” on page 301.</td></tr><tr><td>TH (TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>Indicates when TLP Hints have been included to give the system some idea about how best to handle this TLP. See “TPH (TLP Processing Hints)” on page 899 for a discussion on their usage.</td></tr><tr><td>TD (TLP Digest)</td><td>Byte 2 Bit 7</td><td>If TD = 1, the optional 4-byte TLP Digest has been included with this TLP as the ECRC value. Some rules:Presence of the Digest field must be checked by all receivers based on this bit.A TLP with TD = 1 but no Digest is handled as a Malformed TLP.If a device supports checking ECRC and TD=1, it must perform the ECRC check.If a device does not support checking ECRC (optional) at the ultimate destination, it must ignore the digest.For more on this topic see “CRC” on page 653 and “ECRC Generation and Checking” on page 657.</td></tr><tr><td>EP (Poisoned Data)</td><td>Byte 2 Bit 6</td><td>If EP = 1, the data accompanying this data should be considered invalid although the transaction is being allowed to complete normally. For more on poisoned packets, refer to “Data Poisoning” on page 660.</td></tr><tr><td>Attr [1:0] (Attributes)</td><td>Byte 2 Bit 5:4</td><td>Bit 5 = Relaxed ordering: When set to 1, PCI-X relaxed ordering is enabled for this TLP. If 0, then strict PCI ordering is used.Bit 4 = No Snoop: When set to 1, Requester is indicating that no host cache coherency issues exist for this TLP. System hardware can thus save time by skipping the normal processor cache snoop for this request. When 0, PCI -type cache snoop protection is required.</td></tr><tr><td>Address Type [1:0]</td><td>Byte 2 Bit 3:2</td><td>For Memory and Atomic Requests, this field supports address translation for virtualized systems. The translation protocol is described in a separate spec called Address Translation Services, where it can be seen that the field encodes as:00 = Default/Untranslated01 = Translation Request10 = Translated11 = Reserved</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>TLP data payload transfer size, in DW. Encoding:00 0000 0001b = 1DW00 0000 0010b = 2DW..11 1111 1111b = 1023 DW00 0000 0000b = 1024 DW</td></tr><tr><td>Last DW Byte Enables [3:0]</td><td>Byte 7 Bit 7:4</td><td>These four high-true bits map one-to-one to the bytes within the last double word of payload.Bit 7 = 1: Byte 3 in last DW is valid; otherwise notBit 6 = 1: Byte 2 in last DW is valid; otherwise notBit 5 = 1: Byte 1 in last DW is valid; otherwise notBit 4 = 1: Byte 0 in last DW is valid; otherwise not</td></tr><tr><td>First DW Byte Enables [3:0]</td><td>Byte 7 Bit 3:0</td><td>These four high-true bits map one-to-one to the bytes within the first double word of payload.Bit 3 = 1: Byte 3 in first DW is valid; otherwise notBit 2 = 1: Byte 2 in first DW is valid; otherwise notBit 1 = 1: Byte 1 in first DW is valid; otherwise notBit 0 = 1: Byte 0 in first DW is valid; otherwise not</td></tr></table>
+
+## Generic Header Field Details
+
+In the following sections, we describe details of each TLP Header field depicted in Figure 5‐3 on page 175.
+
+## Header Type/Format Field Encodings
+
+Table 5‐3 on page 179 summarizes the encodings used in TLP header Type and Format (Fmt) fields.
+
+Table 5‐3: TLP Header Type and Format Field Encodings
+
+<table><tr><td>TLP</td><td>FMT[2:0]</td><td>TYPE [4:0]</td></tr><tr><td>Memory Read Request (MRd)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0000</td></tr><tr><td>Memory Read Lock Request (MRdLk)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0001</td></tr><tr><td>Memory Write Request (MWr)</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 0000</td></tr><tr><td>IO Read Request (IORd)</td><td>000 = 3DW, no data</td><td>0 0010</td></tr><tr><td>IO Write Request (IOWr)</td><td>010 = 3DW, w/ data</td><td>0 0010</td></tr><tr><td>Config Type 0 Read Request (CfgRd0)</td><td>000 = 3DW, no data</td><td>0 0100</td></tr><tr><td>Config Type 0 Write Request (CfgWr0)</td><td>010 = 3DW, w/ data</td><td>0 0100</td></tr><tr><td>Config Type 1 Read Request (CfgRd1)</td><td>000 = 3DW, no data</td><td>0 0101</td></tr><tr><td>Config Type 1 Write Request (CfgWr1)</td><td>010 = 3DW, w/ data</td><td>0 0101</td></tr><tr><td>Message Request (Msg)</td><td>001 = 4DW, no data</td><td>1 0 rrr*(see routing field)</td></tr><tr><td>Message Request W/Data (MsgD)</td><td>011 = 4DW, w/ data</td><td>1 0rrr*(see routing field)</td></tr><tr><td>Completion (Cpl)</td><td>000 = 3DW, no data</td><td>0 1010</td></tr><tr><td>Completion W/Data (CplD)</td><td>010 = 3DW, w/ data</td><td>0 1010</td></tr><tr><td>Completion-Locked (CplLk)</td><td>000 = 3DW, no data</td><td>0 1011</td></tr><tr><td>Completion W/Data (CplDLk)</td><td>010 = 3DW, w/ data</td><td>0 1011</td></tr><tr><td>Fetch and Add AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1100</td></tr><tr><td>Unconditional Swap AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1101</td></tr><tr><td>Compare and Swap AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1110</td></tr><tr><td>Local TLP Prefix</td><td>100 = TLP Prefix</td><td> $0L_3L_2L_1L_0$ </td></tr><tr><td>End-to-End TLP Prefix</td><td>100 = TLP Prefix</td><td> $1E_3E_2E_1E_0$ </td></tr></table>
+
+## Digest / ECRC Field
+
+The TLP Digest bit reports the presence of the End‐to‐End CRC (ECRC). If this optional feature is supported and enabled by software, devices calculate and apply an ECRC for all TLPs they originate. Note that using ECRC requires devices to include the optional Advanced Error Reporting registers, since the capability and control registers for it are located there.
+
+ECRC Generation and Checking. ECRC covers all fields that do not change as the TLP is forwarded across the fabric. However, there are two bits that can legally change as a packet makes its way across a topology:
+
+Bit 0 of the Type field — changes when a configuration transaction is forwarded across a bridge and changes from a type 1 to a type 0 configuration transaction because it has reached the targeted bus. This is accomplished by changing bit 0 of the type field.
+
+Error/Poisoned (EP) bit — this can change as a TLP traverses the fabric if the data associated with the packet is seen as corrupted. This is an optional feature referred to as error forwarding.
+
+Who Checks ECRC? The intended target of an ECRC is the ultimate recipient of the TLP. Checking the LCRC verifies no transmission errors across a given Link, but that gets recalculated for the packet at the egress port of a routing element (Switch or Root Complex) before being forwarded to the next Link, which could mask an internal error in the routing element. To protect against that, the ECRC is carried forward unchanged on its journey between the Requester and Completer. When the target device checks the ECRC, any error possibilities along the way have a high probability of being detected.
+
+The spec makes two statements regarding a Switch’s role in ECRC checking:
+
+A Switch that supports ECRC checking performs this check on TLPs destined to a location within the Switch itself. “On all other TLPs a Switch must preserve the ECRC (forward it untouched) as an integral part of the TLP.”
+
+“Note that a Switch may perform ECRC checking on TLPs passing through the Switch. ECRC Errors detected by the Switch are reported in the same way any other device would report them, but do not alter the TLPs passage through the Switch.”
+
+## Using Byte Enables
+
+General. Like PCI, PCIe needs a mechanism to reconcile its DW‐aligned addresses with the need, at times, for transfer sizes or starting/ending addresses that are not DW aligned. Toward this end, PCI Express makes use of the two Byte Enable fields introduced earlier in Figure 5‐3 on page 175 and in Table 5‐2 on page 176. The First DW Byte Enable field and the Last DW Byte Enable fields allow the Requester to qualify the bytes of interest within the first and last double words transferred.
+
+## Byte Enable Rules
+
+1. Byte enable bits are high true. A value of 0 indicates the corresponding byte in the data payload should not be used by the Completer. A value of 1 indicates it should.
+
+2. If the valid data is all within a single double word, the Last DW Byte enable field must be = 0000b.
+
+3. If the header Length field indicates a transfer is more than 1DW, the First DW Byte Enable must have at least one bit enabled.
+
+4. If the Length field indicates a transfer of 3DW or more, then the First DW Byte Enable field and the Last DW Byte Enable field must have contiguous bits set. In these cases, the Byte Enables are only being used to give the byte offset of the effective starting and ending address from the DW‐aligned address.
+
+5. Discontinuous byte enable bit patterns in the First DW Byte enable field are allowed if the transfer is 1DW.
+
+6. Discontinuous byte enable bit patterns in both the First and Second DW Byte enable fields are allowed if the transfer is between one and two DWs.
+
+7. A write request with a transfer length of 1DW and no byte enables set is legal, but has no effect on the Completer.
+
+8. If a read request of 1 DW has no byte enables set, the completer returns a 1DW data payload of undefined data. This may be used as a Flush mechanism that takes advantage of transaction ordering rules to force all previously posted writes out to memory before the completion is returned.
+
+Byte Enable Example.  An example of byte enable use in this case is illustrated in Figure 5‐4 on page 182. Note that the transfer length must extend from the first DW with any valid byte enabled to the last DW with any valid bytes enabled. Because the transfer is more than 2DW, the byte enables may only be used to specify the start address location (2d) and end address location (34d) of the transfer.
+
+Figure 5‐4: Using First DW and Last DW Byte Enable Fields  
+![](images/6866d40c7ae466d43b498249907df37be5b233a907f7c511faebe3237f726984.jpg)
+
+## Transaction Descriptor Fields
+
+As transactions move between requester and completer, it’s necessary to uniquely identify a transaction, since many split transactions may be queued up from the same Requester at any instant. To help with this, the spec defines several important header fields that form a unique Transaction Descriptor, as illustrated in Figure 5‐5.
+
+Figure 5‐5: Transaction Descriptor Fields
+
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TD</td><td>EP</td><td>Attr</td><td>AT</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="8">Completer ID</td><td colspan="2">Cmpl Status</td><td>BCM</td><td colspan="3">Byte Count</td></tr><tr><td>Byte 8</td><td colspan="8">Requester ID</td><td colspan="4">Tag</td><td>R</td><td>Lower Addr</td></tr></table>
+
+While the Transaction Descriptor fields are not in adjacent header locations, collectively they describe key transaction attributes, including:
+
+Transaction ID. The combination of the Requester ID (Bus, Device, and Function Number of the Requester) and the Tag field of the TLP.
+
+Traffic Class. The Traffic Class (TC) is added by the requester based on the core logic request and travels unmodified through the topology to the Completer. On every Link, the TC is mapped to one of the Virtual Channels.
+
+Transaction Attributes. The ID‐based Ordering, Relaxed Ordering, and No Snoop bits also travel with the Request packet to the Completer.
+
+## Additional Rules For TLPs With Data Payloads
+
+The following rules apply when a TLP includes a data payload.
+
+1. The Length field refers only to the data payload.
+
+2. The first byte of data in the payload (immediately after the header) is always associated with the lowest (start) address.
+
+3. The Length field always represents an integral number of DWs transferred. Partial DWs are qualified using First and Last Byte Enable fields.
+
+4. The spec states that, when multiple transactions are returned by a compl eter in response to a single memory request, each intermediate transaction must end on naturally‐aligned 64‐  or 128‐byte address boundaries for a Root Complex. This is controlled by a configuration bit called the Read Completion Boundary (RCB). All other devices follow the PCI‐X protocol and break such transactions at naturally‐aligned 128‐byte boundaries. This makes buffer management simpler in bridges.
+
+5. The Length field is reserved when sending Message Requests unless the message is the version with data (MsgD).
+
+6. The TLP data payload must not exceed the current value in the Max\_Payload\_Size field of the Device Control Register. Only write transactions have data payloads, so this restriction doesn’t apply to read requests. A receiver is required to check for violations of the Max\_Payload\_Size limit during writes, and violations are treated as Malformed TLPs.
+
+7. Receivers also must check for discrepancies between the value in the Length field and the actual amount of data transferred in a TLP. This type of violation is also treated as a Malformed TLP.
+
+8. Requests must not mix combinations of start address and transfer length that would cause a memory access to cross a 4KB boundary. While checking for this is optional, if seen it’s treated as a Malformed TLP.
+
+## Specific TLP Formats: Request & Completion TLPs
+
+In this section, the format of 3DW and 4DW headers used to accomplish specific transaction types are described. Many of the generic fields described previously apply, but an emphasis is placed on the fields which are handled differently with specific transaction types. Detailed description of TLP Header format are described is sections following for TLP types: 1) IO Request, 2) Memory Requests, 3) Configuration Requests, 4) Completions and 5) Message Requests.
+
+## IO Requests
+
+While the spec discourages the use of IO transactions, allowance is made for Legacy devices and for software that may need to rely on a compatible device residing in the system IO map rather than the memory map. While the IO transactions can technically access a 32‐bit IO range, in reality many systems (and CPUs) restrict IO access to the lower 16 bits (64KB) of this range. Figure 5‐6 on page 185 depicts the system IO map and the 16‐ and 32‐bit address boundaries. Devices that don’t identify themselves as Legacy devices are not permitted to request IO address space in their configuration Base Address Registers.
+
+Figure 5‐6: System IO Map  
+![](images/6e6817b2254ebb975f278610668a2f09f3d6eb0c14374f26db535bad26c54eb4.jpg)  
+IO Request Header Format. A 3 DW IO request header is shown in Figure 5‐7 on page 185 and each of the fields is described in the section that follows.
+
+Figure 5‐7: 3DW IO Request Header Format  
+![](images/ec3566d8277fa448d856eb8d8b0127bafc6605dac2584e6c1f5197148ad9f4f7.jpg)
+
+IO Request Header Fields. The location and use of each field in an IO request header is described in Table 5‐4 on page 186.
+
+Table 5‐4: IO Request Header Fields
+
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Format for IO requests:000b = IO Read (3DW without data)010b = IO Write (3DW with data)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>Packet type is 00010b for IO requests</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>Traffic Class for IO requests is always zero, ensuring that these packets will never interfere with any high-priority packets.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>ID-based Ordering doesn’t apply for IO requests and this bit is reserved.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>TLP processing Hints don’t apply to IO requests and this bit is reserved.</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>Indicates the presence of a digest field (ECRC) at the end of the TLP.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>Indicates whether the data payload (if present) is poisoned.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Relaxed Ordering and No Snoop bits don’t apply for IO requests and are always zero.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type doesn’t apply for IO requests and these bits must be zero.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Indicates data payload size in DW. For IO requests, this field is always just 1 since no more than 4 bytes can be transferred. The First DW Byte Enables qualify which bytes are used.</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Requester's “return address” for corresponding Completion.Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>These bits identify the specific requests from the requester. A unique tag value is assigned to each outgoing Request. By default, only bits 4:0 are used, but the Extended Tag and Phantom Functions options can extend that to 11 bits, permitting up to 2048 outstanding requests to be in progress simultaneously.</td></tr><tr><td>Last DW BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>These bits must be 0000b because IO requests can only be one DW in size.</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>These bits qualify the bytes in the one-DW payload. For IO requests, any bit combination is valid (including all zeros).</td></tr><tr><td>Address [31:2]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0Byte 10 Bit 7:0Byte 11 Bit 7:2</td><td>The upper 30 bits of the 32-bit start address for the IO transfer. The lower two bits of the 32 bit address are reserved (00b), forcing a DW-aligned start address.</td></tr></table>
+
+## Memory Requests
+
+PCI Express memory transactions include two classes: Read Requests with their corresponding Completions, and Write Requests. The system memory map shown in Figure 5‐8 on page 188 depicts both a 3DW and 4DW memory request packet. Keep in mind a point that the spec reiterates several times: a memory transfer is never permitted to cross a 4KB address boundary.
+
+Figure 5‐8: 3DW And 4DW Memory Request Header Formats  
+![](images/93481f62478e88c776bdd0b5bb56579eec265c6153ca3401d6c0b38f7ea618ab.jpg)  
+Memory Request Header Fields. The location and use of each field in a 4DW memory request header is listed in Table 5‐5 on page 189. Note that the difference between a 3DW header and a 4DW header is simply the location and size of the starting Address field.
+
+Table 5‐5: 4DW Memory Request Header Fields
+
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Formats:000b = Memory Read (3DW w/o data)010b = Memory Write (3DW w/ data)001b = Memory Read (4DW w/o data)011b = Memory Write (4DW w/ data)1xxb = TLP Prefix has been added to the beginning of the packet. See “TPH (TLP Processing Hints)” on page 899 for more on this.</td></tr><tr><td>Type[4:0]</td><td>Byte 0 Bit 4:0</td><td>TLP packet Type field:00000b = Memory Read or Write00001b = Memory Read Locked Type field is used with Fmt [1:0] field to specify transaction type, header size, and whether data payload is present.</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>These bits encode the traffic class to be applied to a Request and to any associated Completion.000b = Traffic Class 0 (Default).111b = Traffic Class 7See“Traffic Class (TC)” on page 247 for more on this.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>Indicates whether ID-based Ordering is to be used for this TLP. To learn more, see “ID Based Ordering (IDO)” on page 301.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>Indicates whether TLP Hints have been included. See “TPH (TLP Processing Hints)” on page 899 for a discussion on these hints.</td></tr></table>
+
+## PCI Express Technology
+
+Table 5‐5: 4DW Memory Request Header Fields (Continued)
+
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>If 1, the optional TLP Digest field is included with this TLP.Some rules:The presence of the Digest field must be checked by all receivers (using this bit)TLPs with TD = 1 but no Digest field are treated as Malformed.If the TD bit is set, recipient must perform the ECRC check if enabled.If a Receiver doesn't support the optional ECRC checking, it must ignore the digest field.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>If 1, the data accompanying this packet should be considered to have an error although the transaction is allowed to complete normally.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Bit 5 = Relaxed ordering.When set = 1, PCI-X relaxed ordering is enabled for this TLP. Otherwise, strict PCI ordering is used.Bit 4 = No Snoop.If 1, system hardware is not required to cause processor cache snoop for coherency for this TLP. Otherwise, cache snooping is required.</td></tr><tr><td>Address Type [1:0]</td><td>Byte 2 Bit 3:2</td><td>This field supports address translation for virtualized systems. The translation protocol is described in a separate spec called Address Translation Services, where it can be seen that the field encodes as:00 = Default/Untranslated01 = Translation Request10 = Translated11 = Reserved</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>TLP data payload transfer size, in DW. Maximum size is 1024 DW (4KB), encoded as:00 0000 0001b = 1DW00 0000 0010b = 2DW..11 1111 1111b = 1023 DW00 0000 0000b = 1024 DW</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies a Requester's return address for a completion:Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>These identify each outstanding request issued by the Requester. By default only bits 4:0 are used, allowing up to 32 requests to be in progress at a time. If the Extended Tag bit in the Control Register is set, then all 8 bits may be used (256 tags).</td></tr><tr><td>Last BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>These qualify bytes within the last DW of data transferred.</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>These qualify bytes within the first DW of the data payload.</td></tr><tr><td>Address [63:32]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0Byte 10 Bit 7:0Byte 11 Bit 7:0</td><td>The upper 32 bits of the 64-bit start address for the memory transfer.</td></tr><tr><td>Address [31:2]</td><td>Byte 12 Bit 7:0Byte 13 Bit 7:0Byte 14 Bit 7:0Byte 15 Bit 7:2</td><td>The lower 32 bits of the 64 bit start address for the memory transfer. The lower two bits of the address are reserved, forcing a DW-aligned start address.</td></tr></table>
+
+Memory Request Notes. Features of memory requests include:
+
+1. Memory data transfers are not permitted to cross a 4KB boundary.
+
+2. All memory‐mapped writes are posted to improve performance.
+
+3. Either 32‐ or 64‐bit addressing may be used.
+
+4. Data payload size is between 0 and 1024 DW (0‐4KB).
+
+5. Quality of Service features may be used, including up to 8 Traffic Classes.
+
+6. The No Snoop attribute can be used to relieve the system of the need to snoop processor caches when transactions target main memory.
+
+7. The Relaxed Ordering attribute may be used to allow devices in the packet’s path to apply the relaxed ordering rules in hopes of improving performance.
+
+## Configuration Requests
+
+PCI Express uses both Type 0 and Type 1 configuration requests the same way PCI did to maintain backward compatibility. A Type 1 cycle propagates downstream until it reaches the bridge whose secondary bus matches the target bus. At that point, the configuration transaction is converted from Type 1 to Type 0 by the bridge. The bridge knows when to forward and convert configuration cycles based on the previously programmed bus number registers: Primary, Secondary, and Subordinate Bus Numbers. For more on this topic, refer to the section “Legacy PCI Mechanism” on page 91.
+
+Figure 5‐9: 3DW Configuration Request And Header Format  
+![](images/5807124a29434194ad38ae629fb7a39f2a557405c60e04e616a162a37d27fdd8.jpg)
+
+In Figure 5‐9 on page 193, a Type 1 configuration cycle is shown making its way downstream, where it is converted to Type 0 by the bridge for that bus (accomplished by changing bit 0 of the Type field). Note that, unlike PCI, only one device can reside downstream on a Link. Consequently, no IDSEL or other hardware indication is needed to tell the device that it should claim the Type 0 cycle; any Type 0 configuration cycle a device sees on its Upstream Link will be understood as targeting that device.
+
+Definitions Of Configuration Request Header Fields. Table 5‐6 on page 194 describes the location and use of each field in the configuration request header illustrated in Figure 5‐9 on page 193.
+
+Table 5‐6: Configuration Request Header Fields
+
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Always a 3DW header000b = configuration read (no data)010b = configuration write (with data)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>00100b = Type 0 Config Request00101b = Type 1 Config Request</td></tr><tr><td>TC [2:0](Transfer Class)</td><td>Byte 1 Bit 6:4</td><td>Traffic Class must be zero for Configuration requests, ensuring that these packets will never interfere with any high-priority packets.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td rowspan="2">These bits are reserved and must be zero for Config Requests.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>Indicates the presence of a digest field (1 DW) at the end of the TLP.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>Indicates that data payload is poisoned.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Relaxed Ordering and No Snoop bits are both always = 0 in configuration requests.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type is reserved for config requests and must be zero.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Data payload size in DW is always = 1 for configuration requests. Byte Enables qualify bytes within the DW and any combination is legal.</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Requester's return address for a completion:Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>These bits identify outstanding request issued by the requester. By default, only bits 4:0 are used (32 outstanding transactions at a time), but if the Extended Tag bit in the Control Register is set = 1, then all 8 bits may be used (256 tags).</td></tr><tr><td>Last BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>These qualify bytes in the last data DW transferred. Since config requests can only be one DW in size, these bits must be zero.</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>These high-true bits qualify bytes in the first data DW transferred. For config requests, any bit combination is valid (including none active).</td></tr><tr><td>Completer ID [15:0]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0</td><td>Identifies the completer being accessed with this configuration cycle.Byte 8, 7:0 = Bus NumberByte 9, 7:3 = Device NumberByte 9, 2:0 = Function Number</td></tr><tr><td>Ext Register Number[3:0](Extended Register Number)</td><td>Byte 10 Bit 3:0</td><td>These provide the upper 4 bits of DW space for accessing the extended config space. They're combined with Register Number to create the 10-bit address needed to access the 1024 DW (4096 byte) space. For PCI-compatible config space, this field must be zero.</td></tr><tr><td>Register Number [5:0]</td><td>Byte 11 Bit 7:0</td><td>As the lower 8 bits of configuration DW space, these specify the register number. The two lowest bits are always zero, forcing DW-aligned accesses.</td></tr></table>
+
+Configuration Request Notes. Configuration requests always use the 3DW header format and are routed based on the target Bus, Device and Function numbers. All devices “capture” their Bus and Device Number from the target numbers in the Request whenever they receive a Type 0 configuration write cycle. The reason for that is because they’ll need it later to use as their Requester ID when they send requests of their own in the future.
+
+## Completions
+
+Completions are expected in response to non‐posted Request, unless errors prevent them. For example Memory, IO, or Configuration Read requests usually result in Completions with data. On the other hand, IO or Configuration Write requests usually result in a completion without data that merely reports the status of the transaction.
+
+Many fields in the Completion use the same values as the associated request, including Traffic Class, Attribute bits, and the original Requester ID (used to route the completion back to the Requester). Figure 5‐10 on page 197 shows a completion returned for a non‐posted request, and the 3DW header format it uses. Completions also supply the Completer ID in the header. Completer ID is not interesting during normal operation, but knowing where the Completion came from could be useful for error diagnosis during system debug.
+
+Figure 5‐10:  3DW Completion Header Format  
+![](images/a6cddfbfaf4ca7c4ab4647260c51d133a2bd27b3074d97b8c5923f662039ce02.jpg)  
+Definitions Of Completion Header Fields. Table 5‐7 on page 197 describes the location and use of each field in a completion header.
+
+Table 5‐7: Completion Header Fields
+
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0] (Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Format (always a 3DW header)000b = Completion without data (Cpl)010b = Completion with data (CplD)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>Packet type is 01010b for Completions.</td></tr></table>
+
+## PCI Express Technology
+
+Table 5‐7: Completion Header Fields (Continued)
+
+<table><tr><td>Field Name</td><td>HeaderByte/Bit</td><td>Function</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>Completions must use the same value here as the corresponding Request.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>Indicates whether ID-based Ordering is to be used for this TLP. To learn more, see “ID Based Ordering (IDO)” on page 301.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>Reserved for Completions.</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>If = 1, indicates the presence of a digest field at the end of the TLP.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>If = 1, indicates the data payload is poisoned.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Completions must use the same values here as the corresponding Request.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type is reserved for Completions and must be zero, but Receivers are not required or even encouraged to check this.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Indicates data payload size in DW. For Completions, this field reflects the size of the data payload associated with this completion.</td></tr><tr><td>Completer ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Completer to support debugging problems.Byte 4 7:0 = Completer Bus #Byte 5 7:3 = Completer Dev #Byte 5 2:0 = Completer Function #</td></tr></table>
+
+## Chapter 5: TLP Elements
+
+Table 5‐7: Completion Header Fields (Continued)
+
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Compl. Status [2:0] (Completion Status Code)</td><td>Byte 6 Bit 7:5</td><td>These bits indicate status for this Completion.000b = Successful Completion (SC)001b = Unsupported Request (UR)010b = Config Req Retry Status (CRS)100b = Completer abort (CA)All other codes are reserved. See “Summary of Completion Status Codes” on page 200.</td></tr><tr><td>BCM (Byte Count Modified)</td><td>Byte 6 Bit 4</td><td>This is only used by PCI-X Completers and indicates that the Byte Count field reports only the first payload rather than the total payload remaining. See “Using The Byte Count Modified Bit” on page 201.</td></tr><tr><td>Byte Count [11:0]</td><td>Byte 6 Bit 3:0Byte 7 Bit 7:0</td><td>Byte count remaining to satisfy a read request, as derived from the original request Length field. See “Data Returned For Read Requests:” on page 201 for special cases caused by multiple completions.</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0</td><td>Copied from the Request for use as the return address (target) for this Completion.Byte 8, 7:0 = Requester Bus #Byte 9, 7:3 = Requester Device #Byte 9, 2:0 = Requester Function #</td></tr><tr><td>Tag [7:0]</td><td>Byte 10 Bit 7:0</td><td>This must be the Tag value received with the Request. Requester associates this Completion with a pending Request based on the Tag.</td></tr><tr><td>Lower Address [6:0]</td><td>Byte 11 Bit 6:0</td><td>The lower 7 bits of address for the first data returned for a read request. Calculated from Request Length and Byte Enables, it assists buffer management by showing how many bytes can be transferred before reaching the next Read Completion Boundary. See “Calculating Lower Address Field” on page 200.</td></tr></table>
+
+## Summary of Completion Status Codes.
+
+• 000b (SC) Successful Completion: the Request was serviced properly.
+
+001b (UR) Unsupported Request: Request is not legal or was not recognized by the Completer. This is an error condition but how the Completer responds depends on the spec revision to which it was designed. Before the 1.1 spec, this were considered an uncorrectable error, but for 1.1 and later it’s treated as an Advisory Non‐Fatal Error. See the “Unsupported Request (UR) Status” on page 663 for details.
+
+010b (CRS) Configuration Request Retry Status: Completer is temporarily unable to service a configuration request, and the request should be attempted again later.
+
+100b (CA) Completer Abort: Completer should have been able to service the request but has failed for some reason. This is an uncorrectable error.
+
+Calculating The Lower Address Field . This field is set up by the Completer to reflect the byte‐aligned address of the first enabled byte of data being returned in the Completion payload. Hardware calculates this by considering both the DW start address and the Byte Enable pattern in the First DW Byte Enable field provided in the original request.
+
+For Memory Read Requests, the address is an offset from the DW start address:
+
+If the First DW Byte Enable field is 1111b, all bytes are enabled in the first DW and the offset is 0. This field matches the DW‐aligned start address.
+
+If the First DW Byte Enable field is 1110b, the upper three bytes are enabled in the first DW and the offset is 1. This field is the DW start address + 1.
+
+• If the First DW Byte Enable field is 1100b, the upper two bytes are enabled
+
+in the first DW and the offset is 2. This field is the DW start address + 2.
+
+If the First DW Byte Enable field is 1000b, only the upper byte is enabled in the first DW and the offset is 3. This field is the DW start address + 3.
+
+Once calculated, the lower 7 bits are placed in the Lower Address field of the Completion header to facilitate the case in which the read completion is smaller than the entire payload and needs to stop at the first RCB. Breaking a transaction must be done on RCBs, and the number of bytes transferred to reach the first one is based on start address.
+
+For AtomicOp Completions, the Lower Address field is reserved. For all other Completion types, it’s set to zero.
+
+Using The Byte Count Modified Bit. This bit is only set by PCI‐X Completers, but they could exist in a PCIe topology if a bridge from PCIe to PCI‐X is used. Rules for its assertion include:
+
+1. It’s only set by a PCI‐X Completer if a read request is going to be broken into multiple completions.
+
+2. It’s only set for the first Completion of the series, and only then to indicate that the first Completion contains a Byte Count field that reflects the first Completion payload rather than the total remaining (as it normally would). The Requester understands that, even though the Byte Count appears to show that this is the last Completion for this request, this Completion will instead be followed by others to satisfy the original request as required.
+
+3. For subsequent Completions in the series, the BCM bit must be deasserted and the Byte Count field will reflect the total remaining count as it normally would.
+
+4. Devices receiving Completions with the BCM bit set must interpret this case properly.
+
+5. The Lower Address field is set by the Completer during completions with data to reflect the address of the first enabled byte of data being returned
+
+## Data Returned For Read Requests:
+
+1. A read request may require multiple completions to be fulfilled, but total data transfer must eventually equal the size of original request, or a Completion Timeout error will probably result.
+
+2. A given Completion can only service one Request.
+
+3. IO and Configuration reads are always 1 DW, and will always be satisfied with a single Completion
+
+4. A Completion with a Status Code other than SC (successful) terminates a transaction.
+
+5. The Read Completion Boundary (RCB) must be observed when handling a read request with multiple completions. The RCB is 64 bytes or 128 bytes for the Root Complex, since it is allowed to modify the size of packets flowing between its ports, and the value used is visible in a configuration register.
+
+6. Bridges and endpoints may implement a bit for selecting the RCB size (64 or 128 bytes) under software control.
+
+7. Completions that are entirely within an aligned RCB boundary must complete in one transfer, since the transfer won’t reach the RCB, which is the only place it can legally stop early.
+
+8. Multiple Completions for a single read request must return data in increasing address order.
+
+## Receiver Completion Handling Rules:
+
+1. A received Completion that doesn’t match a pending request is an Unexpected Completion and treated as an error.
+
+2. Completions with a completion status other than SC or CRS will be handled as errors and buffer space associated with them will be released.
+
+3. When the Root Complex receives a CRS status during a configuration cycle, the request is terminated. What happens next is implementation specific, but if the Root supports it, the action is defined by the setting of its CRS Software Visibility bit in the Root Control register.
+
+— If CRS Software Visibility is not enabled, the Root will reissue the config request for an implementation‐specific number of times before giving up and concluding the target has a problem.
+
+If CRS Software Visibility is enabled, software designed to support it will always read both bytes of the Vendor ID field first. If the hardware then receives a CRS for that Request, it returns the value 0001h for the Vendor ID. This value, reserved for this use by the PCI‐SIG, doesn’t correspond to any valid Vendor ID and informs software about this event. This allows software to go on to some other task while waiting for the target to become ready (which could take as long as 1 second after reset) rather than being stalled. Any other config read or write will simply be automatically retried by the Root as a new Request for the design‐specific number of iterations.
+
+4. A CRS status in response to a request other than configuration is illegal and may be reported as a Malformed TLP.
+
+5. Completions with status = reserved code are treated as if the code was UR.
+
+6. If a Read Completion or an AtomicOp Completion is received with a status other than SC, no data is included with the completion and the Requester must consider this Request terminated. How the Requester handles this case is implementation‐specific.
+
+7. In the event multiple completions are being returned for a read request, a completion status other than SC ends the transaction. Device handling of data received prior to the error is implementation‐specific.
+
+8. For compatibility with PCI, a Root Complex may be required to synthesize a read value of all “1’s” when a configuration cycle ends with a completion indicating an Unsupported Request. This is analogous to a PCI Master Abort that happens when enumeration software attempts to read from devices that are not present.
+
+## Message Requests
+
+Message Requests replace many of the interrupt, error, and power management sideband signals used on PCI and PCI‐X. All Message Requests use the 4DW header format, but not all of the fields are used in every Message type. Fields in bytes 8 through 15 are not defined for some Messages and are reserved for those cases. Messages are treated much like posted Memory Write transactions but their routing can be based on address, ID, and in some cases the routing can be implicit. The routing subfield (Byte 0, bits 2:0) in the packet header indicates which routing method is used and which additional header registers are defined. The general Message Request header format is shown in Figure 5‐11 on page 203.
+
+Figure 5‐11: 4DW Message Request Header Format
+
+<table><tr><td colspan="19">4DW Header for Messages</td><td></td></tr><tr><td rowspan="2"></td><td colspan="3">+0</td><td colspan="6">+1</td><td colspan="5">+2</td><td colspan="4">+3</td><td></td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td></tr><tr><td>Byte 0</td><td colspan="2">Fmt0 x 1</td><td>Type1</td><td>0</td><td>rr</td><td>r</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH0</td><td>TD</td><td>EP</td><td>Attr0</td><td>0</td><td>0</td><td>Length</td><td></td></tr><tr><td>Byte 4</td><td colspan="12">Requester ID</td><td colspan="4">Tag</td><td colspan="2">MessageCode</td><td></td></tr><tr><td>Byte 8</td><td colspan="18">Bytes 8-11 Vary with Message Code Field</td><td></td></tr><tr><td>Byte 12</td><td colspan="18">Bytes 12-15 Vary with Message Code Field</td><td></td></tr></table>
+
+## Message Request Header Fields.
+
+Table 5‐8: Message Request Header Fields
+
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Format. Always a 4DW header001b = Message Request without data011b = Message Request with data</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>TLP packet type field. Set to:Bit 4:3:10b = MsgBit 2:0 (Message Routing Subfield)000b = Implicitly Routed to RC (Root Complex)001b = Routed by address010b = Routed by ID011b = Implicitly Broadcast from RC100b = Local; terminate at receiver101b = Gather &amp; route to RC0thers = Reserved, treated as Local</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>TC is always zero for most Message Requests, ensuring that they don&#x27;t interfere with high-priority packets.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>Indicates whether ID-based Ordering is to be used for this TLP. To learn more, see “ID Based Ordering (IDO)” on page 301.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>Reserved, except as noted.</td></tr><tr><td>TD</td><td>Byte 2 Bit 7</td><td>If = 1, indicates the presence of a digest field (1 DW) at the end of the TLP (preceding LCRC and END)</td></tr><tr><td>EP</td><td>Byte 2 Bit 6</td><td>If = 1, indicates the data payload (if present) is poisoned.</td></tr></table>
+
+## Chapter 5: TLP Elements
+
+Table 5‐8: Message Request Header Fields (Continued)
+
+<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Except as noted, these are always reserved in Message Requests.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type is reserved for Messages and must be zero, but Receivers are not required or even encouraged to check this.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Indicates data payload size in DW. For Message Requests, this field is always 0 (no data) or 1 (one DW of data)</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Requester sending the message.Byte 4, 7:0 = Requester Bus #Byte 5, 7:3 = Requester Device #Byte 5, 2:0 = Requester Function #</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>Since all Message Requests are posted and don’t receive Completions, no tag is assigned to them. These bits should be zero.</td></tr><tr><td>Message Code [7:0]</td><td>Byte 7 Bit 7:0</td><td>This field contains the code indicating the type of message being sent.0000 0000b = Unlock Message0001 0000b = Lat. Tolerance Reporting0001 0010b = Optimized Buffer Flush/Fill0001 xxxxb = Power Mgt. Message0010 0xxxb = INTx Message0011 00xxb = Error Message0100 xxxxb = Ignored Messages0101 0000b = Set Slot Power Message0111 111xb = Vendor-Defined Messages</td></tr><tr><td>Address [63:32]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0Byte 10 Bit 7:0Byte 11 Bit 7:0</td><td>If address routing was selected for the message (see Type 4:0 field above), then this field contains the upper 32 bits of the 64 bit starting address.Otherwise, this field is not used.</td></tr><tr><td>Address [31:2]</td><td>Byte 12 Bit 7:0Byte 13 Bit 7:0Byte 14 Bit 7:0Byte 15 Bit 7:2</td><td>If address routing is selected (see Type field above), then this field contains the lower part of the 64-bit starting address.If ID routing is selected, Bytes 8 and 9 form the target ID.Otherwise, this field is not used.</td></tr></table>
+
+Message Notes: The following tables specify the message coding used for each of the nine message groups, and is based on the message code field listed in Table 5‐8 on page 204. The defined message groups include:
+
+1. INTx Interrupt Signaling
+
+2. Power Management
+
+3. Error Signaling
+
+4. Locked Transaction Support
+
+5. Slot Power Limit Support
+
+6. Vendor‐Defined Messages
+
+7. Ignored Messages (related to Hot‐Plug support in spec revision 1.1)
+
+8. Latency Tolerance Reporting (LTR)
+
+9. Optimized Buffer Flush and Fill (OBFF)
+
+INTx Interrupt Messages. Many devices are capable of using the PCI 2.3 Message Signaled Interrupt (MSI) method of delivering interrupts, but older devices may not support it. For these cases, PCIe defines a “virtual wire” alternative in which devices simulate the assertion and deassertion of the PCI interrupt pins (INTA‐INTD) by sending Messages. The interrupting device sends the first Message to inform the upstream device that an interrupt has been asserted. Once the interrupt has been serviced, the interrupting device sends a second Message to communicate that the signal has been released. For more on this protocol, refer to the section called “Virtual INTx Signaling” on page 805 for details.
+
+Table 5‐9: INTx Interrupt Signaling Message Coding
+
+<table><tr><td>INTx Message</td><td>Message Code 7:0</td><td>Routing 2:0</td></tr><tr><td>Assert_INTA</td><td>0010 0000b</td><td rowspan="8">100b(Local - Terminate at Rx)</td></tr><tr><td>Assert_INTB</td><td>0010 0001b</td></tr><tr><td>Assert_INTC</td><td>0010 0010b</td></tr><tr><td>Assert_INTD</td><td>0010 0011b</td></tr><tr><td>Deassert_INTA</td><td>0010 0100b</td></tr><tr><td>Deassert_INTB</td><td>0010 0101b</td></tr><tr><td>Deassert_INTC</td><td>0010 0110b</td></tr><tr><td>Deassert_INTD</td><td>0010 0111b</td></tr></table>
+
+Rules regarding the use of INTx Messages:
+
+1. They have no data payload and so the Length field is reserved.
+
+2. They’re only issued by Upstream Ports. Checking this rule for received packets is optional but, if checked, violations will be handled as Malformed TLPs.
+
+3. They’re required to use the default traffic class TC0. Receivers must check for this and violations will be handled as Malformed TLPs.
+
+4. Components at both ends of the Link must track the current state of the four virtual interrupts. If the logical state of one interrupt changes at the Upstream Port, it must send the appropriate INTx message.
+
+5. INTx signaling is disabled when the Interrupt Disable bit of the Command Register is set = 1 (as would be the case for physical interrupt lines).
+
+6. If any virtual INTx signals are active when the Interrupt Disable bit is set in the device, the Upstream Port must send corresponding Deassert\_INTx messages.
+
+7. Switches must track the state of the four INTx signals independently for each Downstream Port and combine the states for the Upstream Port.
+
+8. The Root Complex must track the state of the four INTx lines independently and convert them into system interrupts in an implementation‐specific way.
+
+## PCI Express Technology
+
+9. They use the routing type “Local‐Terminate at Receiver” to allow a Switch to remap the designated interrupt pin when necessary (see “Mapping and Collapsing INTx Messages” on page 808). Consequently, the Requester ID in an INTx message may be assigned by the last transmitter.
+
+Power Management Messages. PCI Express is compatible with PCI power management, and adds hardware‐based Link power management as well. Messages are used to convey some of this information, but to learn how the overall PCIe power management protocol works, refer to Chapter 16, entitled ʺPower Management,ʺ on page 703. Table 5‐10 on page 208 summarizes the four power management message types.
+
+Table 5‐10: Power Management Message Coding
+
+<table><tr><td>Power Management Message</td><td>Message Code 7:0</td><td>Routing 2:0</td></tr><tr><td>PM_Active_State_Nak</td><td>0001 0100b</td><td>100b</td></tr><tr><td>PM_PME</td><td>0001 1000b</td><td>000b</td></tr><tr><td>PM_Turn_Off</td><td>0001 1001b</td><td>011b</td></tr><tr><td>PME_TO_Ack</td><td>0001 1011b</td><td>101b</td></tr></table>
+
+Power Management Message Rules:
+
+1. Power Management Messages don’t have a data payload, so the Length field is reserved.
+
+2. They’re required to use the default traffic class TC0. Receivers must check for this and handle violations as Malformed TLPs.
+
+3. PM\_Active\_State\_Nak is sent from a Downstream Port after it observes a request from the Link neighbor to change the Link power state to L1 but it has chosen not to do so (Local ‐ Terminate at Receiver routing).
+
+4. PM\_PME is sent upstream by the component requesting a Power Management Event (Implicitly Routed to the Root Complex).
+
+5. PM\_Turn\_Off is sent downstream to all endpoints (Implicitly Broadcast from the Root Complex routing).
+
+6. PME\_TO\_Ack is sent upstream by endpoints. For switches with multiple Downstream Ports, this message won’t be forwarded upstream until all Downstream Ports have received it (Gather and Route to the Root Complex routing).
+
+Error Messages. Error Messages are sent upstream (Implicitly Routed to the Root Complex) by enabled components that detect errors. To assist software in knowing how to service the error, the Error Message identifies the requesting agent in the Requester ID field of the message header. Table 5‐11 on page 209 describes the three error message types.
+
+Table 5‐11: Error Message Coding
+
+<table><tr><td>Error Message</td><td>Message Code 7:0</td><td>Routing 2:0</td></tr><tr><td>ERR_COR (Correctable)</td><td>0011 0000b</td><td rowspan="3">000b</td></tr><tr><td>ERR_NONFATAL (Uncorrectable, Non-fatal)</td><td>0011 0001b</td></tr><tr><td>ERR_FATAL (Uncorrectable, Fatal)</td><td>0011 0011b</td></tr></table>
+
+Error Signaling Message Rules:
+
+1. They’re required to use the default traffic class TC0. Receivers must check for this and handle violations as Malformed TLPs.
+
+2. They don’t have a data payload, so the Length field is reserved.
+
+3. The Root Complex converts Error Messages into system‐specific events.
+
+Locked Transaction Support. The Unlock Message is used as part of the Locked transaction protocol defined for PCI and still available to Legacy Devices. The protocol begins with a Memory Read Locked Request. When that Request is seen by Ports along the path to the target device, they implement an atomic read‐modify‐write protocol by locking out other Requesters from using VC0 until the Unlock Message is received. This Message is sent to the target to release all the Ports in the path to it and finish the Locked Transaction sequence. Table 5‐12 on page 209 summarizes the coding for this message.
+
+Table 5‐12: Unlock Message Coding
+
+<table><tr><td>Unlock Message</td><td>Message Code 7:0</td><td>Routing 2:0</td></tr><tr><td>Unlock</td><td>0000 0000b</td><td>011b</td></tr></table>
+
+## PCI Express Technology
+
+## Unlock Message Rules:
+
+1. They’re required to use the default traffic class TC0. Receivers must check for this and handle violations as Malformed TLPs.
+
+2. They don’t have a data payload, and the Length field is reserved.
+
+Set Slot Power Limit Message. This is sent from a Downstream Port to the device plugged into the slot. This power limit is stored in the endpoint in its Device Capabilities Register. Table 5‐13 summarizes the message coding.
+
+Table 5‐13: Slot Power Limit Message Coding
+
+<table><tr><td>Slot Power Limit Message</td><td>Message Code 7:0</td><td>Routing 2:0</td></tr><tr><td>Set_Slot_Power_Limit</td><td>0101 0000b</td><td>100b</td></tr></table>
+
+## Set\_Slot\_Power\_Limit Message Rules:
+
+1. They’re required to use the default traffic class TC0. Receivers must check for this and handle violations as Malformed TLPs.
+
+2. The data payload is 1 DW and so the Length field is set to one. Only the lower 10 bits of the 32‐bit data payload are used for slot power scaling; the upper payload bits must be set to zero.
+
+3. This message is sent automatically anytime the Data Link Layer transitions to DL\_Up status or if a configuration write to the Slot Capabilities Register occurs while the Data Link Layer is already reporting DL\_Up status.
+
+4. If the card in the slot already consumes less power than the power limit specified, it’s allowed to ignore the Message.
+
+Vendor‐Defined Message 0 and 1. These are intended to allow expansion of the PCIe messaging capabilities either by the spec or by vendor‐specific extensions. The header for them is shown in Figure 5‐12 on page 211, and the codes are given in Figure 5‐14 on page 211.
+
+Figure 5‐12: Vendor‐Defined Message Header
+
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td>Byte 0</td><td>Fmt0 x 1</td><td>Type1</td><td>0</td><td>r</td><td>r</td><td>r</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TDP</td><td>Attr</td></tr><tr><td>Byte 4</td><td colspan="11">Requester ID</td><td colspan="3">Tag</td></tr><tr><td>Byte 8</td><td colspan="11">Target BDF if ID Routing used,otherwise Reserved</td><td colspan="3">Vendor ID</td></tr><tr><td>Byte 12</td><td colspan="14">For Vendor Definition</td></tr></table>
+
+Table 5‐14: Vendor‐Defined Message Coding
+
+<table><tr><td>Vendor-Defined Message</td><td>Message Code 7:0</td><td>Routing 2:0</td></tr><tr><td>Vendor Defined Message 0</td><td>0111 1110b</td><td rowspan="2">000b, 010b, 011b, 100b</td></tr><tr><td>Vendor Defined Message 1</td><td>0111 1111b</td></tr></table>
+
+Vendor‐Defined Message Rules:
+
+1. A data payload may or may not be included with either type.
+
+2. Messages are distinguished by the Vendor ID field.
+
+3. Attribute bits [2] and [1:0] are not reserved.
+
+4. If the Receiver doesn’t recognize the Message:
+
+• Type 1 Messages are silently discarded
+
+• Type 0 Messages are treated as an Unsupported Request error condition
+
+Ignored Messages. Listing an entire category of Messages that are to be ignored sounds a little strange without the context for it. These were formerly Hot Plug Signaling messages that supported devices that had Hot Plug indicators and push buttons on the add‐in card itself rather than on the system board. This Message type was defined through spec rev 1.0a, but this option was no longer supported beginning with the 1.1 spec release, so the details are only included here for reference. As the name now suggests, Transmitters are strongly encouraged not to send these messages, and Receivers are strongly encouraged to ignore them if they are seen. If they’re still going to be used anyway, they must conform to the 1.0a spec details.
+
+Table 5‐15: Hot Plug Message Coding
+
+<table><tr><td>Error Message</td><td>Message Code 7:0</td><td>Routing 2:0</td></tr><tr><td>Attention_Indicator_On</td><td>0100 0001b</td><td>100b</td></tr><tr><td>Attention_Indicator_Blink</td><td>0100 0011b</td><td>100b</td></tr><tr><td>Attention_Indicator_Off</td><td>0100 0000b</td><td>100b</td></tr><tr><td>Power_Indicator_On</td><td>0100 0101b</td><td>100b</td></tr><tr><td>Power_Indicator_Blink</td><td>0100 0111b</td><td>100b</td></tr><tr><td>Power_Indicator_Off</td><td>0100 0100b</td><td>100b</td></tr><tr><td>Attention_Button_Pressed</td><td>0100 1000b</td><td>100b</td></tr></table>
+
+Hot Plug Message Rules:  
+• They are driven by a Downstream Port to the card in the slot.  
+• The Attention Button Message is driven upstream by a slot device.
+
+Latency Tolerance Reporting Message. LTR Messages are used to optionally report acceptable read/write service latencies for a device. To learn more about this power management technique, see the section called “LTR (Latency Tolerance Reporting)” on page 784.
+
+Figure 5‐13: LTR Message Header
+
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td rowspan="2">Byte 0</td><td rowspan="2">Fmt0</td><td rowspan="2">Type1</td><td rowspan="2">0</td><td rowspan="2">1</td><td rowspan="2">0</td><td rowspan="2">0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TDP</td><td>Attr</td></tr><tr><td>Byte 4</td><td colspan="11">Requester ID</td><td colspan="2">Tag</td><td>Message Code0 0 0 1 0 0 0 0</td></tr><tr><td>Byte 8</td><td colspan="14">Reserved</td></tr><tr><td>Byte 12</td><td colspan="11">No-Snoop Latency</td><td colspan="3">Snoop Latency</td></tr></table>
+
+Table 5‐16: LTR Message Coding
+
+<table><tr><td>Latency Tolerance Reporting Message</td><td>Message Code 7:0</td><td>Routing 2:0</td></tr><tr><td>LTR</td><td>0001 0000</td><td>100</td></tr></table>
+
+LTR Message Rules:
+
+1. They’re required to use the default traffic class TC0. Receivers must check for this and handle violations as Malformed TLPs.
+
+2. They don’t have a data payload, and the Length field is reserved.
+
+Optimized Buffer Flush and Fill Messages. OBFF Messages are used to report platform power status to Endpoints and facilitate more effective system power management. To learn more about this technique, see the discussion called “OBFF (Optimized Buffer Flush and Fill)” on page 776.
+
+Figure 5‐14: OBFF Message Header
+
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td>Byte 0</td><td>Fmt0</td><td>Type1</td><td>0</td><td>1</td><td>0</td><td>0</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>Byte 4</td><td colspan="8">Requester ID</td><td colspan="4">Tag</td><td>Message Code0</td><td>0</td></tr><tr><td>Byte 8</td><td colspan="14">Reserved</td></tr><tr><td>Byte 12</td><td colspan="13">Reserved</td><td>OBFFCode</td></tr></table>
+
+Table 5‐17: LTR Message Coding
+
+<table><tr><td>Optimized Buffer Flush/Fill Message</td><td>Message Code 7:0</td><td>Routing 2:0</td></tr><tr><td>OBFF</td><td>0001 0010</td><td>100</td></tr></table>
+
+## PCI Express Technology
+
+## OBFF Message Rules:
+
+1. They’re required to use the default traffic class TC0. Receivers must check for this and handle violations as Malformed TLPs.
+
+2. They don’t have a data payload, and the Length field is reserved.
+
+3. The Requester ID must be set to the Transmitting Port’s ID.
+
+# 6 Flow Control
+
+## The Previous Chapter
+
+The previous chapter discusses the three major classes of packets: Transaction Layer Packets (TLPs), Data Link Layer Packets (DLLPs) and Ordered Sets. This chapter describes the use, format, and definition of the variety of TLPs and the details of their related fields. DLLPs are described separately in Chapter 9, entitled ʺDLLP Elements,ʺ on page 307.
+
+## This Chapter
+
+This chapter discusses the purposes and detailed operation of the Flow Control Protocol. Flow control is designed to ensure that transmitters never send Transaction Layer Packets (TLPs) that a receiver can’t accept. This prevents receive buffer over‐runs and eliminates the need for PCI‐style inefficiencies like disconnects, retries, and wait‐states.
+
+## The Next Chapter
+
+The next chapter discusses the mechanisms that support Quality of Service and describes the means of controlling the timing and bandwidth of different packets traversing the fabric. These mechanisms include application‐specific software that assigns a priority value to every packet, and optional hardware that must be built into each device to enable managing transaction priority.
+
+## Flow Control Concept
+
+Ports at each end of every PCIe Link must implement Flow Control. Before a packet can be transmitted, flow control checks must verify that the receiving port has sufficient buffer space to accept it. In parallel bus architectures like PCI, transactions are attempted without knowing whether the target is prepared to handle the data. If the request is rejected due to insufficient buffer space, the transaction is repeated (retried) until it completes. This is the “Delayed Transaction Model” of PCI and while it works the efficiency is poor.
+
+Flow Control mechanisms can improve transmission efficiency if multiple Virtual Channels (VCs) are used. Each Virtual Channel carries transactions that are independent from the traffic flowing in other VCs because flow‐control buffers are maintained separately. Therefore, a full Flow Control buffer in one VC will not block access to other VC buffers. PCIe supports up to 8 Virtual Channels.
+
+The Flow Control mechanism uses a credit‐based mechanism that allows the transmitting port to be aware of buffer space available at the receiving port. As part of its initialization, each receiver reports the size of its buffers to the transmitter on the other end of the Link, and then during run‐time it regularly updates the number of credits available using Flow Control DLLPs. Technically, of course, DLLPs are overhead because they don’t convey any data payload, but they are kept small (always 8 symbols in size) to minimize their impact on performance.
+
+Flow control logic is actually a shared responsibility between two layers: the Transaction Layer contains the counters, but the Link Layer sends and receives the DLLPs that convey the information. Figure 6‐1 on page 217 illustrates that shared responsibility. In the process of making flow control work:
+
+Devices Report Available Buffer Space — The receiver of each port reports the size of its Flow Control buffers in units called credits. The number of credits within a buffer is sent from the receive‐side transaction layer to the transmit‐side of the Link Layer. At the appropriate times, the Link Layer creates a Flow Control DLLP to forward this credit information to the receiver at the other end of the Link for each Flow Control Buffer.
+
+Receivers Register Credits — The receiver gets Flow Control DLLPs and transfers the credit values to the transmit‐side of the transaction layer. The completes the transfer of credits from one link partner to the other. These actions are performed in both directions until all flow control information has been exchanged.
+
+Transmitters Check Credits — Before it can send a TLP, a transmitter checks the Flow Control Counters to learn whether sufficient credits are available. If so, the TLP is forwarded to the Link Layer but, if not, the transaction is blocked until more Flow Control credits are reported.
+
+Figure 6‐1: Location of Flow Control Logic  
+![](images/d786ec1d97b435b78e33846a3f858379e154d1569a2efa911540f1625bbbb97f.jpg)
+
+## Flow Control Buffers and Credits
+
+Flow control buffers are implemented for each VC resource supported by a port. Recall that ports at each end of the Link may not support the same number of VCs, therefore the maximum number of VCs configured and enabled by software is the highest common number between the two ports.
+
+## VC Flow Control Buffer Organization
+
+Each VC Flow Control buffer at the receiver is managed for each category of transaction flowing through the virtual channel. These categories are:
+
+• Posted Transactions — Memory Writes and Messages
+
+• Non‐Posted Transactions — Memory Reads, Configuration Reads and Writes, and I/O Reads and Writes
+
+• Completions — Read and Write Completions
+
+In addition, each of these categories is separated into header and data portions for transactions that have both header and data. This yields six different buffers each of which implements its own flow control (see Figure 6‐2 on page 218).
+
+Some transactions, like read requests, consist of a header only while others, like write requests, have both a header and data. The transmitter must ensure that both header and data buffer space is available as needed for a transaction before it can be sent. Note that transaction ordering must be maintained within a VC Flow Control buffer when the transactions are forwarded to software or to an egress port in the case of a switch. Consequently, the receiver must also track the order of header and data components within the buffer.
+
+Figure 6‐2: Flow Control Buffer Organization  
+![](images/023566aa0c210732f66c53481330a405e826915412ed7bde9caf6d1ade7a21a4.jpg)
+
+## Flow Control Credits
+
+Buffer space is reported by the receiver in units called Flow Control credits. The unit value of Flow Control Credits (FCCs) for header and data buffers are:
+
+• Header credits — maximum header size + digest
+
+— 4 DWs for completions
+
+— 5 DWs for requests
+
+• Data credits — 4 DWs (aligned 16 bytes)
+
+Flow Control DLLPs communicate this information, and do not require Flow Control credits themselves. That’s because they originate and terminate at the Link Layer and don’t use the Transaction Layer buffers.
+
+## Initial Flow Control Advertisement
+
+During Flow Control initialization, PCIe devices communicate their buffer sizes by “advertising” their buffer space via flow control credits. PCIe also defines an infinite Flow Control credit value that is required for some buffers. A receiver that advertises infinite buffer space is effectively guaranteeing that its buffer space will never overflow.
+
+## Minimum and Maximum Flow Control Advertisement
+
+The specification defines the minimum number of credits that can be reported for the different Flow Control buffer types as listed in Table 6‐1. However, devices normally advertise considerably more credits than the minimum. Table 6‐2 on page 220 lists the maximum advertisement allowed by the specification.
+
+Table 6‐1: Required Minimum Flow Control Advertisements
+
+<table><tr><td>Credit Type</td><td>Minimum Advertisement</td></tr><tr><td>Posted Request Header (PH)</td><td>1 unit. Credit Value = one 4DW HDR + Digest = 5DW.</td></tr><tr><td>Posted Request Data (PD)</td><td>Largest possible setting of the Max_Payload_Size in credits. Example: If the largest Max_Payload_Size value supported is 1024 bytes, the smallest permitted initial credit value would be 040h.</td></tr><tr><td>Non-Posted Request HDR (NPH)</td><td>1 unit. Credit Value = one 4 DW HDR + Digest = 5DW.</td></tr><tr><td>Non-Posted Request Data (NPD)</td><td>1 unit. Credit Value = 4DW.2 unit. Receivers supporting AtomicOp routing or AtomicOp Completer capability have credit value of 02h</td></tr><tr><td>Completion HDR (CPLH)</td><td>1 unit. Credit Value = one 3DW HDR + Digest = 4DW; for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's for Root Complex with no peer-to-peer support and Endpoints.</td></tr><tr><td>Completion Data (CPLD)</td><td>n unit. Value of largest possible setting of Max_Payload_Size or size of largest Read Request (which ever is smaller) divided by FC Unit Size (4DW); for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's; for Root Complex with no peer-to-peer support and Endpoints.</td></tr></table>
+
+Table 6‐2: Maximum Flow Control Advertisements
+
+<table><tr><td>Credit Type</td><td>Maximum Advertisement</td></tr><tr><td>Posted Request Header (PH)</td><td>128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td>Posted Request Data (PD)</td><td>2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytes</td></tr><tr><td>Non-Posted Request HDR (NPH)</td><td>128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td>Non-Posted Request Data (NPD)</td><td>The author's could not find a precise value for the maximum number of credits for Non-Posted Data. The maximum number of credits listed for Data is 2048. However, a more reasonable approach might use the Non-Posted header limit of 128 credits, because Non-Posted Data is always associated with Non-Posted Headers.</td></tr><tr><td>Completion HDR (CPLH)</td><td>128 units. 128 credits @ 5 DWs = 2,560 bytes. This in the limit for ports that do not originate transactions (e.g., Root Complex with peer-to-peer support and Switches).Infinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr><tr><td>Completion Data (CPLD)</td><td>2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by a device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytesInfinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr></table>
+
+## Infinite Credits
+
+Note that a flow control value of 00h will be understood to mean infinite credits during initialization. Following Flow‐Control initialization no further advertisements are made. Devices that originate transactions must reserve buffer space for the data or status information that will return during split transactions. These transaction combinations include:
+
+• Non‐posted Read requests and return of Completion Data
+
+• Non‐posted Read requests and return of Completion Status
+
+• Non‐posted Write requests and return of Completion Status
+
+## Special Use for Infinite Credit Advertisements.
+
+The specification points out a special consideration for devices that implement only VC0. For example, the only Non‐Posted writes are I/O Writes and Configuration Writes both of which are permitted only on VC0. Thus, Non‐Posted data buffers are not used for VC1 ‐ VC7 and an infinite value can be advertised for those values. However, the Non‐Posted Header must still operate and header credits must still need to be updated.
+
+## Flow Control Initialization
+
+## General
+
+Prior to sending any transactions, flow control initialization is needed. In fact, TLPs cannot be sent across the Link until Flow Control Initialization is performed successfully. Initialization occurs on every Link in the system and involves a handshake between the devices at each end of a link. This process begins as soon as the Physical Layer link training has completed. The Link Layer knows the Physical Layer is ready when it observes the LinkUp signal is active, as illustrated in Figure 6‐3.
+
+Figure 6‐3: Physical Layer Reports That It’s Ready  
+![](images/54e12e01aa03e4379dcd32828df148c16b032beeb09488f10af286ed8439b988.jpg)
+
+Once started, the Flow Control initialization process is fundamentally the same for all Virtual Channels and is controlled by hardware once a VC has been enabled. VC0 is always enabled by default, so its initialization is automatic.
+
+That allows configuration transactions to traverse the topology and carry out the enumeration process. Other VCs only initialize when configuration software has set up and enabled them at both ends of the Link.
+
+## The FC Initialization Sequence
+
+The flow control initialization process involves the Link Layer’s DLCMSM (Data Link Control and Management State Machine). As shown in Figure 6‐4 on page 223, a reset puts the state machine into the DL\_Inactive state. While in the DL\_Inactive state, DL\_Down is signaled to both the Link and Transaction Layers. Meanwhile, it waits to see LinkUp from the Physical Layer to indicate that the LTSSM has finished its work and the Physical Layer is ready. That causes a transition to the DL\_Init sub‐state, which contains two stages that handle flow control initialization: FC\_INIT1 and FC\_INIT2.
+
+Figure 6‐4: The Data Link Control & Management State Machine  
+![](images/de91fb109446b91494463626952bd896773d600785c8df5647b5802d71a90c52.jpg)
+
+## FC\_Init1 Details
+
+During the FC\_INIT1 state, devices continuously send a sequence of 3 InitFC1 Flow Control DLLPs advertising their receiver buffer sizes (see Figure 6‐5). According to the spec, the packets must be sent in this order: Posted, Nonposted, and Completions as illustrated in Figure 6‐6 on page 225. The specification strongly encourages that these be repeated frequently to make it easier for the receiving device to see them, especially if there are no TLPs or DLLPs to send. Each device should also receive this sequence from its neighbor so it can register the buffer sizes. Once a device has sent its own values and received the complete sequence enough times to be confident that the values were seen correctly, it’s ready to exit FC\_INIT1. To do that, it records the received values in its transmit counters, sets an internal flag (FL1), and changes to the FC\_INIT2 state to begin the second initialization step.
+
+Figure 6‐5: INIT1 Flow Control DLLP Format and Contents  
+![](images/fb0decb7bc207d371ce9d41477d9f4a1d69d6ba5a1e511e0d94f1144e96e0030.jpg)
+
+Figure 6‐6: Devices Send InitFC1 in the DL\_Init State  
+![](images/bc4eb68d4c7fee927910e66a26a61152bd73805f2283f3c38706cbea17131594.jpg)
+
+## FC\_Init2 Details
+
+In this state a device continuously sends InitFC2 DLLPs. These are sent in the same sequence as the InitFC1s and contain the same credit information, but they also confirm that FC initialization has succeeded at the sender. Since the device has already registered the values from the neighbor it doesn’t need any more credit information and will ignore any incoming InitFC1s while it waits to see InitFC2s. It can even send TLPs at this point, even though initialization hasn’t completed for the other side of the Link, and this is indicated to the Transaction Layer by the DL\_Up signal (See Figure 6‐7).
+
+Why is this second initialization step needed? The simple answer is that neighboring devices may finish FC initialization at different times and this method ensures that the late one will continue to receive the FC information it needs even if the neighbor finishes early. Once a device receives an FC\_INIT2 packet for any buffer type, it sets an internal flag (Fl2). (It doesnʹt wait to receive an FC\_Init2 for each type.) Note that FL2 is also set upon receipt of an UpdateFC packet or TLP. When both sides are done and have sent InitFC2s, the DLCMSM transitions to the DL\_Active state and the Link Layer is ready for normal operation.
+
+Figure 6‐7: FC Values Registered ‐ Send InitFC2s, Report DL\_Up  
+![](images/5cd25435ccd57025b05bd860a7062084b0cb9f679e3881614c49a8de9c6fdea8.jpg)  
+Rate of FC\_INIT1 and FC\_INIT2 Transmission  
+The specification defines the latency between sending FC\_INIT DLLPs as follows:
+
+VC0. Hardware‐initiated flow control of VC0 requires that FC\_INIT1 and FC\_INIT2 packets be transmitted “continuously at the maximum rate possible.” That is, the resend timer is set to a value of zero.
+
+VC1‐VC7. When software initiates flow control initialization for other VCs, the FC\_INIT sequence is repeated “when no other TLPs or DLLPs are available for transmission.” However, the latency between the beginning of one sequence to the next can be no greater than 17μs.
+
+## Violations of the Flow Control Initialization Protocol
+
+A violation of the flow control initialization protocol can be optionally checked by a device. An error detected can be reported as a Data Link Layer protocol error.
+
+## Introduction to the Flow Control Mechanism
+
+## General
+
+The specification defines the requirements of the Flow Control mechanism using registers, counters, and mechanisms for reporting, tracking, and calculating whether a transaction can be sent. These elements are not required and the actual implementation is left to the device designer. This section introduces the specification model and serves to explain the concepts and to define the requirements.
+
+## The Flow Control Elements
+
+Figure 6‐8 illustrates the elements used for managing flow control. The diagram shows transactions flowing in a single direction across a Link, and another set of these elements supports transfers in the opposite direction. The primary function of each element is listed below. While these Flow Control elements are duplicated for all six receive buffers, for simplicity this example only deals with non‐posted header flow control.
+
+One final element associated with managing flow control is the Flow Control Update DLLP. This is the only Flow Control packet that is used during normal transmission. The format of the FC Update packet is illustrated in Figure 6‐9 on page 229.
+
+Figure 6‐8: Flow Control Elements  
+![](images/42362f326051b32a1b6017a8abb20f54beafb43cc3ee1623bfd8213166cccb9a.jpg)
+
+## Transmitter Elements
+
+• Transactions Pending Buffer — holds transactions that are waiting to be sent in the same virtual channel.
+
+• Credits Consumed counter — contains the credit sum of all transactions sent for this buffer. This count is abbreviated “CC.”
+
+Credit Limit counter — initialized by the receiver with the size of the corresponding Flow Control buffer. After initialization, Flow Control update packets are sent periodically to update the Flow Control credits as they become available at the receiver. This value is abbreviated “CL.”
+
+Flow Control Gating Logic — performs the calculations to determine if the receiver has sufficient Flow Control credits to accept the pending TLP (PTLP). In essence, this logic checks that the CREDITS\_CONSUMED (CC) plus the credits required for the next Pending TLP (PTLP) does not exceed the CREDIT\_LIMIT (CL). This specification defines the following equation for performing the check, with all values represented in credits.
+
+$$
+C L - (C C + P T L P) \text { mod } 2 ^ {[ F i e l d S i z e ]} \leq 2 ^ {[ F i e l d S i z e ]} / 2
+$$
+
+For an example application of this equation, See “Stage 1 — Flow Control Following Initialization” on page 230.
+
+## Receiver Elements
+
+• Flow Control Buffer — stores incoming headers or data.
+
+Credit Allocated — tracks the total Flow Control credits that have been allocated (made available). It’s initialized by hardware to reflect the size of the associated Flow Control buffer. The buffer fills as transactions arrive but then they are eventually removed from the buffer by the core logic at the receiver. When they are removed, the number of Flow Control credits is added to the CREDIT\_ALLOCATED counter. Thus the counter tracks the number of credits currently available.
+
+Credits Received counter (optional) — tracks the total credits of all TLPs received into the Flow Control buffer. When flow control is functioning properly, the CREDITS\_RECEIVED count should be equal to or less than the CREDIT\_ALLOCATED count. If this test ever becomes false, a flow control buffer overflow has occurred and an error is detected. The spec recommends that this optional mechanism be implemented and notes that a failure here will be considered a fatal error.
+
+Figure 6‐9: Types and Format of Flow Control DLLPs  
+![](images/0faa0be1ab74190a28a3d4d08f3049c677e1a521ac64dd64196c85f12e87983d.jpg)
+
+## Flow Control Example
+
+The following example describes the non‐posted header Flow Control buffer, and attempts to capture the nuances of the flow control implementation in several situations. The discussion of Flow Control is described with a series of basic stages as follows:
+
+Stage One — Immediately following initialization a transaction is transmitted and tracked to explain the basic operation of the counters and registers.
+
+Stage Two — The transmitter sends transactions faster than the receiver can process them and the buffer becomes full.
+
+Stage Three — When counters roll over to zero, the mechanism still works but there are a couple of issues to consider.
+
+Stage Four — The optional receiver error check for a buffer overflow.
+
+## Stage 1 — Flow Control Following Initialization
+
+Once flow control initialization has completed, the devices are ready for normal operation. The Flow Control buffer in our example is 2KB in size. We’re describing the non‐posted header buffer, and each credit is 5 dwords in size or 20 bytes. That means 102d (66h) Flow Control units are available. Figure 6‐10 on page 231 illustrates the elements involved, including the values that would be in each counter and register following flow control initialization.
+
+When the transmitter is ready to send a TLP, it must first check Flow Control credits. Our example is simple because a non‐posted header is the only packet being sent and it always requires just one Flow Control credit, and we are also assuming that no data is included in the transaction.
+
+The header credit check is made using unsigned arithmetic (2’s complement), and must satisfy the following formula:
+
+$$
+C L - (C C + P T L P) m o d 2 ^ {[ F i e l d S i z e ]} \leq 2 ^ {[ F i e l d S i z e ]} / 2
+$$
+
+Substituting values from Figure 6‐10 yields:
+
+$$
+6 6 h - (0 0 h + 0 1 h) \text { mod } 2 ^ {8} \leq 2 ^ {8} / 2
+$$
+
+$$
+6 6 h - 0 1 h \mod 2 5 6 \leq 8 0 h
+$$
+
+Figure 6‐10: Flow Control Elements Following Initialization  
+![](images/1f759c9b27bbd0e2884aa9a1040b8ae21035a87de9f175b3f8f7e80ae05801a3.jpg)  
+In this case, the current CREDITS\_CONSUMED count (CC) is added to the PTLP credits required, to determine the CREDITS\_REQUIRED (CR), and that gives 00h + 01h = 01h. The CREDITS\_REQUIRED count is subtracted from the CREDIT\_LIMIT count (CL) to determine whether or not sufficient credits are available.
+
+The following description incorporates a brief review of 2’s complement subtraction. When performing subtraction using 2’s complement the number to be subtracted is complemented (1’s complement) and 1 is added (2’s complement). This value is then added to the number from which we wish to subtract. Any carry due to the addition is dropped.
+
+Credit Check:
+
+```txt
+CL 01100110b (66h) - CR 00000001b (01h) = n
+```
+
+CR is converted to 2’s complement:
+
+```txt
+00000001b (CR)
+11111110b (CR inverted)
+11111110b +1
+11111111b (2's complement)
+```
+
+2’s complement added to CL:
+
+```txt
+01100110 (CL)
+11111111 (2's complement of CR)
+01100101 = 65h (carry bit is dropped)
+```
+
+Is result <= 80h? Yes. If the subtraction result is equal to or less than half the max value, which is tracked with a modulo 256 counter (128), then we know there is sufficient space in the receiver buffer and this packet can be sent. The decision to use only half the counter value avoids a potential count alias problem. See “Stage 3 — Counters Roll Over” on page 234.
+
+Figure 6‐11: Flow Control Elements After First TLP Sent  
+![](images/6668b06389284668f5eecd9f411a0c42da98c92d5f80af28055c956a31c8b258.jpg)
+
+```txt
+CL 01100111 (67)
+CR 10011001 add 2's complement of 67
+00000000 = 00h<=80h (true, send transaction
+```
+
+## Stage 2 — Flow Control Buffer Fills Up
+
+Assume now that the receiver has been unable to remove transactions from the Flow Control buffer for some time. Perhaps the device core logic was temporarily busy and unable to process transactions. Eventually, the Flow Control buffer becomes completely full, as shown in Figure 6‐12 on page 234. If the transmitter wishes to send another TLP and checks the Flow Control credits:
+
+Credit Limit (CL)= 66h
+
+Credits Required (CR) = 67h
+
+CL  01100110 (66)
+
+```txt
+CR 10011001 (add 2's complement of 67h)
+11111111 = FFh<=80h (not true; don't send packet)
+```
+
+This channel is blocked until an Update Flow Control DLLP is received with a new CREDIT\_LIMIT value of 67h or greater. When the new valued is loaded into the CL register the transmitter credit check will pass the test and a TLP can be sent.
+
+Figure 6‐12: Flow Control Elements with Flow Control Buffer Filled  
+![](images/10baf780e45f50c4249a7205fecbcc84862daf9d230eb799fffc64c5c8fe4d79.jpg)  
+Stage 3 — Counters Roll Over
+
+Since the Credit Limit (CL) and Credits Required (CR) counts only increment upward, they eventually roll over back to zero. When CL rolls over and CR has not, the credit check (CL‐CR) results in a small CL value and a large CR value. However, what might appear to be a problem is not when using unsigned arithmetic. As described in the previous examples the results are handled correctly when performing 2’s complement subtraction. Figure 6‐13 on page 235 shows the CL and CR counts before and after CL rollover along with the 2’s complement results.
+
+Figure 6‐13: Flow Control Rollover Problem  
+![](images/d7bbf66f20b0b0bc1d8c682e68c8ffe25f57b3d5de1d761943c1c05b36f70a67.jpg)
+
+## Stage 4 — FC Buffer Overflow Error Check
+
+Although it’s optional to do so, the specification recommends implementation of the FC buffer overflow error checking mechanism. Figure 6‐14 on page 236 shows the elements associated with the overflow error check that include:
+
+• Credits Received (CR) counter
+
+• Credits Allocated (CA) counter
+
+• Error Check Logic
+
+This permits the receiver to track Flow Control credits in the same manner as the transmitter. If flow control is working correctly, the transmitter’s Credits Consumed count will never exceed its Credit Limit, and the receiver’s Credits Received count will never exceed its Credits Allocated count.
+
+An overflow condition is detected if the following formula evaluates true. Note that the field size is either 8 (headers) or 12 (data):
+
+$$
+(C A - C R) \text { mod } 2 ^ {[ F i e l d S i z e ]} > 2 ^ {[ F i e l d S i z e ]} / 2
+$$
+
+If it does evaluate true, then more credits have been sent to the FC buffer than were available and an overflow has occurred. Note that the 1.0a version of the specification defines the equation as  rather than > as shown above. That appears to be an error, because when CA = CR no overflow condition exists.
+
+Figure 6‐14: Buffer Overflow Error Check  
+![](images/f45bdc971482dde76bcd7a9e7664cc934a2f2f347dbf1add5a50520ad4d8af58.jpg)
+
+## Flow Control Updates
+
+The receiver must regularly update its neighboring device with Flow Control credits that become available when transactions are removed from the buffer. Figure 6‐15 on page 238 illustrates an example where the transmitter was previously blocked from sending header transactions because the buffer was full. In the illustration, the receiver has just removed three headers from the Flow Control buffer. More space is now available, but the neighboring device is unaware of this. As headers are removed from the buffer, the CREDITS\_ALLOCATED count increments from 66h to 69h. This new count is reported to the CREDIT\_LIMIT register of the neighboring device using a Flow Control update packet. Once the credit limit has been updated, transmission of additional TLPs can proceed.
+
+An interesting note here is that the update reports the actual value of the Credits Allocated register. It would have worked to report just the change in the register, as perhaps “+3 credits on NP Headers” for example, but that represents a potential problem. To understand the risk, consider what would happen if the DLLP containing that increment information was lost for some reason. There is no replay mechanism for DLLPs; if an error occurs the packet is simply dropped. In this case, the increment information would be lost without a means of recovering it.
+
+If, on the other hand, the actual value of the register is reported instead and the DLLP fails, the next DLLP that succeeds will get the counters back in synchronization. In that case some time might be wasted if the transmitter is waiting on the FC credits before it can send the next TLP, but no information is lost.
+
+Figure 6‐15: Flow Control Update Example  
+![](images/715844a16965a4275f298ac264d83094f3578ec1e5b01a5fe0ed5151beeff20b.jpg)
+
+## FC\_Update DLLP Format and Content
+
+Recall that Flow Control update packets, like the Flow Control initialization packets, contain two credit fields, one for header and one for data, as shown in Figure 6‐16 on page 239. The receiver’s credit values reported in the HdrFC and DataFC fields may have been updated many times or not at all since the last update packet was sent.
+
+Figure 6‐16: Update Flow Control Packet Format and Contents  
+![](images/fde64227c5b68060559c40261e02f5492aa43e27e574a0e5eef46bd81625d69e.jpg)
+
+## Flow Control Update Frequency
+
+The specification defines a variety of rules and suggested implementations that govern when and how often Flow Control Update DLLPs should be sent. These are motivated by a desire to:
+
+Notify the transmitting device as early as possible about new credits allocated, especially if any transactions were previously blocked.
+
+• Establish worst‐case latency between FC Packets.
+
+• Balance the requirements associated with flow control operation, such as:
+
+— the need to report credits often enough to prevent transaction blocking
+
+— the desire to reduce the Link bandwidth needed for FC\_Update DLLPs
+
+— selecting the optimum buffer size
+
+— selecting the maximum data payload size
+
+• Detect violations of the maximum latency between Flow Control packets.
+
+Flow Control updates are permitted only when the Link is in the active state (L0 or L0s). All other Link states represent more aggressive power management that have longer recovery latencies.
+
+## Immediate Notification of Credits Allocated
+
+When a Flow Control buffer is so full that maximum‐sized packets cannot be sent, the spec requires immediate delivery of a FC\_Update DLLP when more space becomes available. Two cases exist:
+
+## PCI Express Technology
+
+Maximum Packet Size = 1 Credit. When packet transmission is blocked due to a buffer full condition for non‐infinite NPH, NPD, PH, and CPLH buffer types, an UpdateFC packet must be scheduled for Transmission when one or more credits are made available (allocated) for that buffer type.
+
+Maximum Packet Size = Max\_Payload\_Size. Flow Control buffer space may decrease to the extent that a maximum‐sized packet cannot be sent for non‐infinite PD and CPLD credit types. In this case, when one or more additional credits are allocated, an Update FCP must be scheduled for transmission.
+
+## Maximum Latency Between Update Flow Control DLLPs
+
+The transmission frequency of Update FCPs for each FC credit type (non‐infinite) must be scheduled for transmission at least once every 30 μs (‐0%/+50%). If the Extended Sync bit within the Control Link register is set, updates must be scheduled no later than every 120 μs (‐0%/+50%). Note that Update FCPs may be scheduled for transmission more frequently than is required.
+
+## Calculating Update Frequency Based on Payload Size and Link Width
+
+The specification offers a formula for calculating the frequency at which update packets need to be sent for maximum data payload sizes and Link widths. The formula, shown below, defines FC Update delivery intervals in symbol times. For reference, a symbol time is defined as the time it takes to deliver one symbol: 4ns for Gen1, 2ns for Gen2, 1ns for Gen3. Table 6‐3, Table 6‐4 and Table 6‐5 show the unadjusted FC Update values for each speed.
+
+$$
+\frac {(M a x P a y l o a d S i z e + T L P O v e r h e a d) \times U p d a t e F a c t o r}{L i n k W i d t h} + I n t e r n a l D e l a y
+$$
+
+MaxPayloadSize = The value in the Max\_Payload\_Size field of the Device Control register
+
+TLPOverhead = the constant value (28 symbols) representing the additional TLP components that consume Link bandwidth (TLP Prefix, Sequence Number, Packet Header, LCRC, Framing Symbols)
+
+UpdateFactor = the number of maximum size TLPs sent during the interval between UpdateFC Packets received. This number is intended to balance Link bandwidth efficiency and receive buffer sizes – the value varies with Max\_Payload\_Size and Link width
+
+• LinkWidth = The number of Lanes the Link is using
+
+InternalDelay = a constant value of 19 symbol times that represents the internal processing delays for received TLPs and transmitted DLLPs
+
+The relationship defined by the formula shows that the frequency of update packet delivery decreases as the Linkwidth increases and suggests a timer that triggers scheduling of update packets. Note that this formula does not account for delays associated with the receiver or transmitter being in the L0s power management state.
+
+Table 6‐3: Gen1 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times)
+
+<table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>237UF=1.4</td><td>128UF=1.4</td><td>73UF=1.4</td><td>67UF=2.5</td><td>58UF=3.0</td><td>48UF=3.0</td><td>33UF=3.0</td></tr><tr><td>256 Bytes</td><td>416FC=1.4</td><td>217FC=1.4</td><td>118UF=1.4</td><td>107UF=2.5</td><td>90UF=3.0</td><td>72UF=3.0</td><td>45UF=3.0</td></tr><tr><td>512 Bytes</td><td>559UF=1.0</td><td>289UF=1.0</td><td>154UF=1.0</td><td>86UF=1.0</td><td>109UF=2.0</td><td>86UF=2.0</td><td>52UF=2.0</td></tr><tr><td>1024 Bytes</td><td>1071UF=1.0</td><td>545UF=1.0</td><td>282UF=1.0</td><td>150UF=1.0</td><td>194UF=2.0</td><td>150UF=2.0</td><td>84UF=2.0</td></tr><tr><td>2048 Bytes</td><td>2095UF=1.0</td><td>1057UF=1.0</td><td>538UF=1.0</td><td>278UF=1.0</td><td>365UF=2.0</td><td>278UF=2.0</td><td>148UF=2.0</td></tr><tr><td>4096 Bytes</td><td>4143UF=1.0</td><td>2081UF=1.0</td><td>1050UF=1.0</td><td>534UF=1.0</td><td>706UF=2.0</td><td>534UF=2.0</td><td>276UF=2.0</td></tr></table>
+
+Table 6‐4: Gen2 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times)
+
+<table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>288UF=1.4</td><td>179UF=1.4</td><td>124UF=1.4</td><td>118UF=2.5</td><td>109UF=3.0</td><td>99UF=3.0</td><td>84UF=3.0</td></tr><tr><td>256 Bytes</td><td>467FC=1.4</td><td>268FC=1.4</td><td>169UF=1.4</td><td>158UF=2.5</td><td>141UF=3.0</td><td>123UF=3.0</td><td>96UF=3.0</td></tr><tr><td>512 Bytes</td><td>610UF=1.0</td><td>340UF=1.0</td><td>205UF=1.0</td><td>137UF=1.0</td><td>160UF=2.0</td><td>137UF=2.0</td><td>103UF=2.0</td></tr><tr><td>1024 Bytes</td><td>1122UF=1.0</td><td>596UF=1.0</td><td>333UF=1.0</td><td>201UF=1.0</td><td>245UF=2.0</td><td>201UF=2.0</td><td>135UF=2.0</td></tr><tr><td>2048 Bytes</td><td>2146UF=1.0</td><td>1108UF=1.0</td><td>589UF=1.0</td><td>329UF=1.0</td><td>416UF=2.0</td><td>329UF=2.0</td><td>199UF=2.0</td></tr><tr><td>4096 Bytes</td><td>4194UF=1.0</td><td>2132UF=1.0</td><td>1101UF=1.0</td><td>585UF=1.0</td><td>757UF=2.0</td><td>585UF=2.0</td><td>327UF=2.0</td></tr></table>
+
+Table 6‐5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times)
+
+<table><tr><td>Max Payload</td><td>x1 Link</td><td>x2 Link</td><td>x4 Link</td><td>x8 Link</td><td>x12 Link</td><td>x16 Link</td><td>x32 Link</td></tr><tr><td>128 Bytes</td><td>333UF=1.4</td><td>224UF=1.4</td><td>169UF=1.4</td><td>163UF=2.5</td><td>154UF=3.0</td><td>144UF=3.0</td><td>129UF=3.0</td></tr><tr><td>256 Bytes</td><td>512FC=1.4</td><td>313FC=1.4</td><td>214UF=1.4</td><td>203UF=2.5</td><td>186UF=3.0</td><td>168UF=3.0</td><td>141UF=3.0</td></tr><tr><td>512 Bytes</td><td>655UF=1.0</td><td>385UF=1.0</td><td>250UF=1.0</td><td>182UF=1.0</td><td>205UF=2.0</td><td>182UF=2.0</td><td>148UF=2.0</td></tr><tr><td>1024 Bytes</td><td>1167UF=1.0</td><td>641UF=1.0</td><td>378UF=1.0</td><td>246UF=1.0</td><td>290UF=2.0</td><td>246UF=2.0</td><td>180UF=2.0</td></tr><tr><td>2048 Bytes</td><td>2191UF=1.0</td><td>1153UF=1.0</td><td>643UF=1.0</td><td>374UF=1.0</td><td>461UF=2.0</td><td>374UF=2.0</td><td>244UF=2.0</td></tr><tr><td>4096 Bytes</td><td>4239UF=1.0</td><td>2177UF=1.0</td><td>1146UF=1.0</td><td>630UF=1.0</td><td>802UF=2.0</td><td>630UF=2.0</td><td>372UF=2.0</td></tr></table>
+
+The specification recognizes that the formula will be inadequate for many applications such as those that stream large blocks of data. These applications may require buffer sizes larger than the minimum specified, as well as a more sophisticated update policy in order to optimize performance and reduce power consumption. Because a given solution is dependent on the particular requirements of an application, no definition for such policies is provided.
+
+## Error Detection Timer — A Pseudo Requirement
+
+The specification defines an optional time‐out mechanism for Flow Control packets that is highly recommended and may become a requirement in future versions of the specification. The maximum latency between FC packets for a given credit type is 120μs, and this timeout has a maximum limit of 200μs. A separate timer is implemented for each FC credit type (P, NP, Cpl), and each timer is reset when a FC Update DLLP of the corresponding type is received. Note that a timer associated with infinite FC credit values must not report an error.
+
+Apart from the infinite case, a timeout implies a serious problem with the Link. If it occurs, the Physical Layer is signaled to go into the Recovery state and retrain the Link in hopes of clearing the error condition. Timer characteristics include:
+
+• Operates only when the Link is in an active state (L0 or L0s).
+
+• Max time limited to 200 μs (‐0%/+50%)
+
+• Timer is reset when any Init or Update FCP is received, or optionally by receipt of any DLLP.
+
+Timeout forces the Physical Layer to enter Link Training and Status State Machine (LTSSM) Recovery state.
+
+# Quality of Service
+
+## The Previous Chapter
+
+The previous chapter discusses the purposes and detailed operation of the Flow Control Protocol. Flow control is designed to ensure that transmitters never send Transaction Layer Packets (TLPs) that a receiver can’t accept. This prevents receive buffer over‐runs and eliminates the need for PCI‐style inefficiencies like disconnects, retries, and wait‐states.
+
+## This Chapter
+
+This chapter discusses the mechanisms that support Quality of Service and describes the means of controlling the timing and bandwidth of different packets traversing the fabric. These mechanisms include application‐specific software that assigns a priority value to every packet, and optional hardware that must be built into each device to enable managing transaction priority.
+
+## The Next Chapter
+
+The next chapter discusses the ordering requirements for transactions in a PCI Express topology. These rules are inherited from PCI. The Producer/Consumer programming model motivated many of them, so its mechanism is described here. The original rules also took into consideration possible deadlock conditions that must be avoided.
+
+## Motivation
+
+Many computer systems today don’t include mechanisms to manage bandwidth for peripheral traffic, but there are some applications that need it. One example is streaming video across a general‐purpose data bus, that requires data be delivered at the right time. In embedded guidance control systems timely delivery of video data is also critical to system operation. Foreseeing those needs, the original PCIe spec included Quality of Service (QoS) mechanisms that can give preference to some traffic flows. The broader term for this is
+
+Differentiated Service, since packets are treated differently based on an assigned priority and it allows for a wide range of service preferences. At the high end of that range, QoS can provide predictable and guaranteed performance for applications that need it. That level of support is called “isochronous” service, a term derived from the two Greek words “isos” (equal) and “chronos” (time) that together mean something that occurs at equal time intervals. To make that work in PCIe requires both hardware and software elements.
+
+## Basic Elements
+
+Supporting high levels of service places requirements on system performance. For example, the transmission rate must be high enough to deliver sufficient data within a time frame that meets the demands of the application while accommodating competition from other traffic flows. In addition, the latency must be low enough to ensure timely arrival of packets and avoid delay problems. Finally, error handling must be managed so that it doesn’t interfere with timely packet delivery. Achieving these goals requires some specific hardware elements, one of which is a set of configuration registers called the Virtual Channel Capability Block as shown in Figure 7‐1.
+
+Figure 7‐1: Virtual Channel Capability Registers  
+![](images/84ee9e7d227df3950570bcc4d5806ef6a0698fff16a4c5c0d12da0eecad477ad.jpg)
+
+## Traffic Class (TC)
+
+The first thing we need is a way to differentiate traffic; something to distinguish which packets have high priority. This is accomplished by designating Traffic Classes (TCs) that define eight priorities specified by a 3‐bit TC field within each TLP header (with ascending priority; TC 0‐7). The 32‐bit memory request header in Figure 7‐2 reveals the location of the TC field. During initialization, the device driver communicates the level of services to the isochronous management software, which returns the appropriate TC values to use for each type of packet. The driver then assigns the correct TC priority for the packet. The TC value defaults to zero so packets that don’t need priority service won’t accidentally interfere with those that do.
+
+Figure 7‐2: Traffic Class Field in TLP Header  
+![](images/7fc83f4e29c5c72ecbfbed64dad219b7d42909ac43c86b8c5064dd4eaf97e52e.jpg)
+
+Configuration software that’s unaware of PCIe won’t recognize the new registers and will use the default TC0/VC0 combination for all transactions. In addition, there are some packets that are always required to use TC0/VC0, including Configuration, I/O, and Message transactions. If these packets are thought of as maintenance‐level traffic, then it makes sense that they would need to be confined to VC0 and kept out of the path of high‐priority packets.
+
+## Virtual Channels (VCs)
+
+VCs are hardware buffers that act as queues for outgoing packets. Each port must include the default VC0, but may have as many as eight (from VC0 to VC7). Each channel represents a different path available for outgoing packets.
+
+The motivation for multiple paths is analogous to that of a toll road in which drivers purchase a radio tag that lets them take one of several high priority lanes at the toll booth. Those who don’t purchase a tag can still use the road but they’ll have to stop at the booth and pay cash each time they go through, and that takes longer. If there was only one path, everyone’s access time would be limited by the slowest driver, but having multiple paths available means that those who have priority are not delayed by those who don’t.
+
+## Assigning TCs to each VC — TC/VC Mapping
+
+The Traffic Class value assigned to each packet travels unchanged to the destination and must be mapped to a VC at each service point as it traverses the path to the target. VC mapping is specific to a Link and can change from one Link to another. Configuration software establishes this association during initialization using the TC/VC Map field of the VC Resource Control Register. This 8‐bit field permits TC values to be mapped to a selected VC, where each bit position represents the corresponding TC value (bit 0 = TC0, bit 1 = TC1, etc.). Setting a bit assigns the corresponding TC value to the VC ID. Figure 7‐3 on page 249 shows a mapping example where TC0 and TC1 are mapped to VC0 and TC2:TC4 are mapped to VC3.
+
+Software has a great deal of flexibility in assigning VC IDs and mapping the TCs, but there are some rules regarding the TC/VC mapping:
+
+• TC/VC mapping must be identical for the two ports attached on either end of the same Link.
+
+• TC0 will automatically be mapped to VC0.
+
+• Other TCs may be mapped to any VC.
+
+• A TC may not be mapped to more than one VC.
+
+The number of virtual channels used depends on the greatest capability shared by the two devices attached to a given link. Software assigns an ID for each VC and maps one or more TCs to the VCs.
+
+Figure 7‐3: TC to VC Mapping Example  
+![](images/1a9daa3e0c3aca73dec8a6f69d0026fe5ad4a4d90142451c8d01fdf340670b4f.jpg)
+
+## Determining the Number of VCs to be Used
+
+Software checks the number of VCs supported by the devices attached to a common link and would usually assign the greatest number of VCs that both devices can support. Consider the example topology in Figure 7‐4 on page 250.
+
+## PCI Express Technology
+
+Here, the switch supports all 8 VCs on each of its ports, while Device A supports only the default VC0, Device B supports 4 VC s, and Device C support 8 VCs. Note that even though switch port A supports all 8 VCs, Device A only supports VC0, so 7 VCs are left unused in switch port A. Similarly, only 4 VCs are used by switch port B.
+
+Figure 7‐4: Multiple VCs Supported by a Device  
+![](images/4d4de81f0c9e88ddc5b4014d286cec57387170e6d117718471286448d0dadbc0.jpg)
+
+Configuration software determines the maximum number of VCs supported by each port interface by reading the Extended VC Count field in the Virtual Channel Capability registers, as shown in Figure 7‐5 on page 251. Software checks the Extended VC Count at both ends of the Link and selects the highest common count. Using all the available VCs is not mandatory, though. Software may choose to enable fewer VCs as well.
+
+Figure 7‐5: Extended VCs Supported Field  
+![](images/01b8717e5301c3c8521b9b20031fb47aa87a7a46820a2577ae0b6be0ddd25dcf.jpg)
+
+## Assigning VC Numbers (IDs)
+
+Configuration software assigns a number (ID) to each of the VCs, except VC0 which is always hardwired. As shown in Figure 7‐3 on page 249, the VC Capabilities registers include 12 bytes of configuration registers for each VC. The first set of registers always applies to VC0. The Extended VC Count field defines the number of additional VCs implemented by this port, each of which will have a set of registers. The value “n” represents the number of additional VCs implemented. For example, if the Extended VC Count contains a value of 3, then there are three VCs and register sets in addition to VC0.
+
+Software assigns a number for each of the additional VCs via the VC ID field. (See Figure 7‐3 on page 249) The IDs don’t have to be contiguous but each number can only be used once.
+
+## VC Arbitration
+
+## General
+
+If a device has more than one VC and they all have a packet ready to send, VC arbitration determines the order of packet transmission. Any of several schemes can be chosen by software from among the options implemented by hardware. The goals are to implement the desired service policy and ensure that all transactions are making forward progress to prevent inadvertent time‐outs. In addition, VC Arbitration is affected by the requirements associated with flow control and transaction ordering. These topics are discussed in other chapters, but they affect arbitration, too, because:
+
+• Each supported VC provides its own buffers and flow control.
+
+Transactions mapped to the same VC are normally passed along in strict order (although there are exceptions, such as when a packet has the “Relaxed Ordering” attribute bit set).
+
+• Transaction ordering only applies within a VC, so there’s no ordering relationship among packets assigned to different VCs.
+
+The example in Figure 7‐6 on page 253 illustrates two VCs (VC0 and VC1) with a transmission priority based on a 3:1 ratio, meaning three VC1 packets are sent for every one VC0 packet. The device core sends requests (including a TC value) to the TC/VC Mapping logic. Based on the programmed mapping, the packet is placed into the appropriate VC buffer for transmission. Finally, the VC arbiter determines the VC priority for forwarding the packets. This example illustrates the flow in one direction, but the same logic exists for transmitting in the opposite direction at the same time.
+
+The VC capability registers provide three basic VC arbitration approaches:
+
+1. Strict Priority Arbitration — the highest numbered VC with a packet ready always wins.
+
+2. Group Arbitration — VCs are divided by hardware into one low‐priority group and one high‐priority group. The low‐priority group uses an arbitration method selected by software from the available choices, while the highpriority group always uses strict‐priority arbitration.
+
+3. Hardware Fixed arbitration — scheme built into the hardware.
+
+Figure 7‐6: VC Arbitration Example  
+![](images/3085c244d29089639875d921bd5cd20881136ab42b1f03a023f1d19301700bc8.jpg)
+
+## Strict Priority VC Arbitration
+
+The default priority scheme is based on the inherent priority of VC IDs (VC0=lowest priority and VC7=highest priority). The mechanism is automatic and requires no configuration. Figure 7‐7 on page 254 illustrates a strict priority arbitration example that includes all VCs. The VC ID governs the order in which transactions are sent. The maximum number of VCs that use strict priority arbitration cannot be greater than the value in the Extended VC Count field.
+
+(See Figure 7‐5 on page 251.) Furthermore, if the designer has chosen strict priority arbitration for all VCs supported, the Low Priority Extended VC Count field of Port VC Capability Register 1 is hardwired to zero. (See Figure 7‐8 on page 255.
+
+Figure 7‐7: Strict Priority Arbitration
+
+<table><tr><td>VC Resources</td><td>Priority Order</td></tr><tr><td>8th VC</td><td>VC7 Highest</td></tr><tr><td>7th VC</td><td>VC6</td></tr><tr><td>6th VC</td><td>VC5</td></tr><tr><td>5th VC</td><td>VC4</td></tr><tr><td>4th VC</td><td>VC3</td></tr><tr><td>3rd VC</td><td>VC2</td></tr><tr><td>2nd VC</td><td>VC1</td></tr><tr><td>1st VC</td><td>VC0 Lowest</td></tr></table>
+
+Strict priority requires that higher‐numbered VCs always get precedence over lower‐priority VCs. For example, if all eight VCs are governed by strict priority, then packets in VC0 can only be sent when no other VCs have packets pending. This achieves the goal of giving the highest priority packets very high bandwidth with minimal latencies. However, strict priority has the potential to starve low‐priority channels for bandwidth, so care must be taken to ensure this doesn’t happen. The spec requires that high priority traffic be regulated to avoid starvation, and gives two possible methods of regulation:
+
+The originating port can restrict the injection rate of high priority packets to allow more bandwidth for lower priority transactions.
+
+Switches can regulate multiple traffic flows at the egress port. This method may limit the throughput from high bandwidth applications and devices that attempt to exceed the limitations of the available bandwidth.
+
+A device designer may also limit the number of VCs that participate in strict priority by splitting the VCs into a low‐priority group and a high‐priority group as discussed in the next section.
+
+## Group Arbitration
+
+Figure 7‐8 illustrates the Low Priority Extended VC Count field within VC Capability Register 1. This read‐only field specifies a VC ID that identifies the upper limit of the low‐priority arbitration group for this device. For example, if this value is 4, then VC0‐VC4 are members of the low‐priority group and VC5‐VC7 are in the high‐priority group. Note that a Low Priority Extended VC Count of 7 means that no strict priority is used.
+
+Figure 7‐8: Low‐Priority Extended VCs  
+![](images/bb702db0e9dd72c5bfe709a482f22577102c614aab590092438b908771cd6213.jpg)
+
+## PCI Express Technology
+
+As depicted in Figure 7‐10 on page 257, the high‐priority VCs continue to use strict priority arbitration, while the low‐priority arbitration group uses one of the other arbitration methods supported by the device. VC Capability Register 2 reports which alternate methods are supported for this group, as shown in Figure 7‐9, and the VC Control Register permits selection of the method to be used. The low‐priority arbitration schemes include:
+
+• Hardware Based Fixed Arbitration
+
+• Weighted Round Robin Arbitration (WRR)
+
+Figure 7‐9: VC Arbitration Capabilities  
+![](images/b6ab50731a9edf9b8f3c5765f01a3cecb34c9381f862c6b922a1071e93bff1f6.jpg)
+
+Figure 7‐10: VC Arbitration Priorities
+
+<table><tr><td>VC Resources</td><td>VC IDs</td><td>Split Priority</td></tr><tr><td>8th VC</td><td>VC7</td><td>Highest</td></tr><tr><td>7th VC</td><td>VC6</td><td>High-Priority (Strict Priority Scheme)</td></tr><tr><td>6th VC</td><td>VC5</td><td rowspan="3">Low-Priority VC ID = 4</td></tr><tr><td>5th VC</td><td>VC4</td></tr><tr><td>4th VC</td><td>VC3</td></tr><tr><td>3rd VC</td><td>VC2</td><td rowspan="2">Low-Priority (Alternate Priority Scheme) (Selected by Software)</td></tr><tr><td>2nd VC</td><td>VC1</td></tr><tr><td>1st VC</td><td>VC0</td><td>Lowest</td></tr></table>
+
+## Hardware Fixed Arbitration Scheme
+
+This selection defines a hardware‐based method and requires no additional software setup. This method can be anything the hardware designer chooses to build in, and could be based on anticipated loading or bandwidth needs for the device. A simple example might be an ordinary round robin sequence, in which each VC gets an equal turn at sending packets during the rotation.
+
+## Weighted Round Robin Arbitration Scheme
+
+This is a scheme in which some VCs can be weighted more (given higher priority) than others by giving them more entries in the sequence than others. The spec defines three WRR options, each with a different number of entries (called phases). The table size is selected by writing the corresponding value in to the VC Arbitration Select field of the Port VC Control Register (see Figure 7‐9 on page 256). Each entry in the table represents one phase that software loads with a low priority VC number. The VC arbiter will repeatedly scan all table entries in a sequential fashion and send packets from the VC specified in the table entries. Once a packet has been sent, the arbiter immediately proceeds to the next phase. Figure 7‐11 on page 258 shows an example of a WRR arbitration table with 64 entries.
+
+Figure 7‐11: WRR VC Arbitration Table  
+![](images/96981d8b67c65e72959f2df5d78ff22ca6994c85269a2b407eeb9050233f233e.jpg)
+
+## Setting up the Virtual Channel Arbitration Table
+
+The location of the VC Arbitration Table (VAT) in configuration space is given as an offset from the base address of the VC Capability Structure, as shown in Figure 7‐12 on page 259.
+
+As shown in Figure 7‐13 on page 260, each entry in the VAT is a 4‐bit field that identifies the VC number of the buffer that is scheduled to deliver data during that phase. The table length is selected by the arbitration option shown in Figure 7‐9 on page 256.
+
+Figure 7‐12: VC Arbitration Table Offset and Load VC Arbitration Table Fields  
+![](images/9d87feb73a2c2594cee05c8b6d2d80ebbd8a287d87d0cdb43b642962e5c29299.jpg)
+
+The table is loaded by configuration software to achieve the desired priority order for the virtual channels. Hardware sets the VC Arbitration Table Status bit whenever any changes are made to the table, giving software a way to verify whether changes have been made but not yet applied to the hardware. Once the table is loaded, software sets the Load VC Arbitration Table bit
+
+<table><tr><td colspan="8">32 Phase Virtual Channel Arbitration Table</td></tr><tr><td>31</td><td>28</td><td>27</td><td>24</td><td>23</td><td>20</td><td>19</td><td>16</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>15</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>12</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>11</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>12</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>8</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>7</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>4</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>3</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>0</td></tr></table>
+
+Figure 7‐13: Loading the VC Arbitration Table Entries
+
+## PCI Express Technology
+
+in the Port VC Control register. That causes hardware to load, or apply, the new values to the VC Arbiter. Hardware clears the VC Arbitration Table Status bit when table loading is complete, signaling to software that loading has finished. This method is probably motivated by the desire to change the table contents during run time without disruption. The problem is that configuration writes are only able to update a dword at a time and are relatively slow transactions, which means it could take a long time to finish making changes, during which the table is only partially updated. That, in turn, could result in unexpected behavior by the device as it continues to operate during this time. To avoid that, this mechanism allows software to complete all the changes to the table and then apply them all at once to the hardware arbiter.
+
+## Port Arbitration
+
+## General
+
+Switch ports and root ports will often receive incoming packets that need to be routed to another port. Since packets arriving from multiple ports can all target the same VC in the same outgoing port, arbitration is needed to decide which incoming port’s packet gets next access to that VC. Like VC arbitration, port arbitration has several optional schemes available for selection by configuration software. The combination of TCs, VCs, and arbitration support a range of service levels that fall into two broad categories:
+
+1. Asynchronous — Packets get “best effort” service and may receive no preference at all. Many devices and applications, like mass storage devices, have no stringent requirements for bandwidth or latency and don’t need special timing mechanisms. On the other hand, packets generated by more demanding appli cations can still be prioritized without much trouble by establishing a hierarchy of traffic classes for different packets. Differentiated service is still considered to be asynchronous until the level of service requires guarantees. Naturally, asynchronous service is always available and doesn’t need any special software or hardware options.
+
+2. Isochronous — When latency and bandwidth guarantees are needed, we move into the isochronous category. This would be useful when a synchronous connection would normally be required between two devices. For example, a CD‐ROM sourcing data from a music CD uses a synchronous connection when a headset is plugged directly into the drive. However, when the audio must be routed across a general‐purpose bus like PCIe to get to external speakers, the connection cannot be synchronous because other traffic may also need to use the same data stream. To achieve an equivalent result, isochronous service must guarantee proper delivery of the time‐sensitive audio data without preventing other traffic from using the Link during the same time. Not surprisingly, specialized software and hardware are needed to support this.
+
+The concept of port arbitration is pictured in Figure 7‐14 on page 262. Note that port arbitration exists in several places in a system:
+
+• Egress ports of switches
+
+• Root Complex ports when peer‐to‐peer transactions are supported
+
+• Root Complex egress ports that lead to targets such as main memory
+
+Port arbitration will usually need software configuration for each virtual channel supported by a switch or root egress port. In the example below, root port 2 supports peer‐to‐peer transfers from root ports 1 and 2 and therefore needs port arbitration. It should be noted, though, that peer‐to‐peer support between root ports is optional, so it may be that not every root egress port would need port arbitration.
+
+The connection to system memory is an interesting path. There will likely be packets from multiple ingress ports trying to access this port at the same time, so it needs to support port arbitration. However, it doesn’t use a PCIe port, so it doesn’t have the set of PCIe registers to support arbitration that we’re describing here. Instead, the root will need to supply a vendor‐specific set of registers called a Root Complex Register Block (RCRB) to provide the same functionality.
+
+Because port arbitration is managed independently for each VC of the egress port, a separate table is required for each VC that supports programmable port arbitration, as shown in Figure 7‐15 on page 263. Port arbitration tables are supported only by switches and root ports and are not allowed in endpoints.
+
+Figure 7‐14: Port Arbitration Concept  
+![](images/00db08417841e65ec4a335c43d72b39ef1ea28bf4ddff0255fcf8734115c8d97.jpg)
+
+Figure 7‐15: Port Arbitration Tables for Each VC  
+![](images/d1158e33b7cbf226774c41e5939b3976c5fd48e86e62b0ca5b420b6a6168c450.jpg)
+
+Although it isn’t stated in the spec, the process of arbitrating between different packet streams also implies the use of additional buffers to accumulate traffic from each port in the egress port as illustrated in Figure 7‐16 on page 264. This example illustrates two ingress ports (1 and 2) whose transactions are routed to an egress port (3). The actions taken by the switch include the following:
+
+1. Packets arriving at the ingress ports are directed to the appropriate flow control buffers (VC) based on the TC/VC mapping.
+
+2. Packets are forwarded from the flow control buffers to the routing logic, which determines and routes them to the proper egress port.
+
+3. Packets routed to the egress port (3) use TC/VC mapping to determine into which VC buffer they should be placed.
+
+4. A set of buffers is associated with each of the ingress ports, allowing the ingress port number to be tracked until port arbitration can be done.
+
+5. Port arbitration logic determines the order in which transactions are sent from each group of ingress buffers.
+
+Figure 7‐16: Port Arbitration Buffering  
+![](images/20f2464ac876cc29e5fae22d7c21a9d0013eb585d7521865273edac0be236e49.jpg)
+
+## Port Arbitration Mechanisms
+
+The actual port arbitration mechanisms defined are similar to the models used for VC arbitration. Configuration software determines the capability for a port by reading the registers shown in Figure 7‐17 on page 265 and selects the port arbitration scheme to use for each VC.
+
+Figure 7‐17: Software Selects Port Arbitration Scheme  
+![](images/d51d505f010cca14d1172de4b502b0f0e7700d51ff89cae4d6ef9c53496d9da0.jpg)
+
+## Hardware-Fixed Arbitration
+
+This mechanism doesn’t require software setup. Once selected, it’s managed solely by hardware. The actual arbitration scheme is chosen by the hardware designer, possibly based on the expected demands for the device. This may simply ensure fairness or it may optimize some aspect of the design, but it doesn’t support differentiated or isochronous services.
+
+## Weighted Round Robin Arbitration
+
+Just like the weighted round robin mechanism in VC arbitration, software can set up the port arbitration table so that some ports receive more opportunities than others. This approach assigns different weights to traffic coming from different ports.
+
+As the table is scanned, each phase specifies the port number from which the next packet is received. Once the packet is delivered, the arbitration logic immediately proceeds to the next phase. If no transaction is pending transmission for the selected port, the arbiter advances immediately to the next phase. There is no time value associated with these entries.
+
+Four table lengths are given for WRR port arbitration, determined by the number of phases used by the table. Presumably, a larger number of entries in the table allows for more interesting ratios of arbitration selection. On the other hand, a smaller number of entries would use less storage and cost less.
+
+## Time-Based, Weighted Round Robin Arbitration (TBWRR)
+
+This mechanism is required for isochronous support. As the name implies, time‐based weighted round robin adds the element of time to each arbitration phase. Just as in WRR the port arbiter delivers one transaction from the ingress port VC buffer indicated by the Port Number of the current phase. Now though, rather than immediately advancing to the next phase, the time‐based arbiter waits until the current virtual timeslot elapses before advancing. This ensures that transactions are accepted from the ingress port buffer at regular intervals. If the selected port does not have a packet ready to send then nothing will be sent until the next timeslot. Note that the timeslot does not govern the duration of the transfer, but rather the interval between transfers. The maximum duration of a transaction is the time it takes to complete the round robin and return to the original timeslot. The length of the timeslot may change in the future, but currently has the value of 100ns.
+
+Time‐based WRR arbitration supports a maximum table length of 128 phases, but the actual number of table entries available for a given VC may be less than that. The value is hardware initialized and reported in the Maximum Time Slots field of each virtual channel that supports TBWRR, as shown in Figure 7‐18 on page 267.
+
+Figure 7‐18: Maximum Time Slots Register  
+![](images/1662bf01eddbddcff350dc6ff5947cd25705fc952fa4cbb9df7244b1ae92dfa7.jpg)
+
+## Loading the Port Arbitration Tables
+
+The actual size and format of the Port Arbitration Tables are a function of the number of phases and the number of ingress ports supported by the Switch, RCRB, or Root Port that supports peer‐to‐peer transfers. The maximum number of ingress ports supported by the Port Arbitration Table is 256 ports. The actual number of bits within each table entry is design dependent and governed by the number of ingress ports whose transactions can be delivered to the egress port. The size of each table entry is reported in the 2‐bit Port Arbitration Table Entry Size field of Port VC Capability Register 1. The permissible values are:
+
+• 00b — 1 bit (selects between 2 ports)
+
+• 01b — 2 bits (4 ports)
+
+• 10b — 4 bits (16 ports)
+
+• 11b — 8 bits (256 ports)
+
+Configuration software loads each table with port numbers to accomplish the desired port priority for each VC supported. As illustrated in Figure 7‐19 on page 268, the table format depends on the size of each entry and the number of phases supported by this design.
+
+Figure 7‐19: Format of Port Arbitration Tables
+
+<table><tr><td colspan="8">32-Phase Port Arbitration Table
+with 4-bit entries</td></tr><tr><td>31</td><td>28</td><td>27</td><td>24</td><td>23</td><td>20</td><td>19</td><td>16</td></tr><tr><td>15</td><td>Phase[7]</td><td>Phase[6]</td><td>Phase[5]</td><td>Phase[4]</td><td>Phase[3]</td><td>Phase[2]</td><td>Phase[1]</td></tr><tr><td>15</td><td>Phase[15]</td><td>Phase[14]</td><td>Phase[13]</td><td>Phase[12]</td><td>Phase[11]</td><td>Phase[10]</td><td>Phase[9]</td></tr><tr><td>23</td><td>Phase[23]</td><td>Phase[22]</td><td>Phase[21]</td><td>Phase[20]</td><td>Phase[19]</td><td>Phase[18]</td><td>Phase[17]</td></tr><tr><td>31</td><td>Phase[31]</td><td>Phase[30]</td><td>Phase[29]</td><td>Phase[28]</td><td>Phase[27]</td><td>Phase[26]</td><td>Phase[25]</td></tr></table>
+
+## Switch Arbitration Example
+
+Let’s consider an example of a three‐port switch to illustrate both Port and VC arbitration. The example presumes that packets arriving on ingress ports 0 and 1 are moving in the upstream direction and port 2 is the egress port facing upstream (toward the Root Complex). Refer to Figure 7‐20 on page 270 during the following discussion.
+
+1. Packets arriving at ingress port 0 are placed in a receiver VC based on the TC/VC mapping for port 0. As shown, TLPs with traffic class TC0 or TC1 are sent to the VC0 buffers. TLPs carrying traffic class TC3 or TC5 are sent to the VC1 buffers. No other TCs are permitted on this link. As an aside, if a packet does arrive with a TC that has not been mapped to an existing VC, it will be treated as an error.
+
+2. Packets arriving at ingress port 1 are placed in a VC based on TC/VC mapping, too, but it’s not the same for this port. As indicated, TLPs carrying traffic class TC0 are sent to VC0, while TLPs carrying traffic class TC2‐TC4 are sent to VC3. No other TCs are permitted on this link.
+
+3. In both ports, the target egress port is determined from routing information in each packet. For example, address routing is used in memory or IO request TLPs.
+
+4. All packets destined for egress port 2 are submitted to the TC/VC mapping logic for that port. As shown, TLPs carrying traffic class TC0‐TC2 are placed into buffers for VC0 that are labeled with their ingress port number, while TLPs carrying traffic class TC3‐TC7 are managed for VC1.
+
+5. Port Arbitration is applied independently to queued up packets to decide which port’s packets will get loaded next into the real VC.
+
+6. Finally, VC arbitration determines the order in which transactions in the VC buffers will be sent across the link.
+
+7. Note that the VC arbiter selects packets for transmission only if sufficient flow control credits exist.
+
+Figure 7‐20: Arbitration Examples in a Switch  
+![](images/a276bce9f95a857b412c2aa15c3afe2ee78b7c5187086ebeb8b7cbab0bab9e84.jpg)
+
+## Arbitration in Multi-Function Endpoints
+
+Another set of registers called Multi‐Function Virtual Channel (MFVC) capability is defined for the specific case of endpoints that will implement QoS in a device with multiple functions. Not surprisingly, this case presents the same arbitration issues internally that a switch port must handle.
+
+There are two cases described in the spec for this arbitration. In the first case, shown in Figure 7‐21 on page 271, there are two Functions but only Function 0 includes VC Capability registers and the assignments made there are implicitly the same for all functions. For this option, arbitration between the functions will be handled in some vendor‐specific manner. That’s the simplest approach, but doesn’t include a standard structure to define priority between requests from different functions and so it doesn’t support QoS.
+
+Figure 7‐21: Simple Multi‐Function Arbitration  
+![](images/8680fc3f04f0e69dd595aafe18e0acd645d0b88f8599350acbc065c6f1130c1e.jpg)
+
+If QoS support is desired, then an MFVC is implemented in VC0 and each function has its own unique set of VC Capability registers. To preserve software backward compatibility, the spec states that the VC Capability ID for a device that does not use MFVC must be 0002h, while the VC Capability ID for a device that does implement an MFVC structure must be 0009h.
+
+Figure 7‐22 on page 272 shows the MFVC register block and a block diagram of an example with two functions in an endpoint whose port supports two VCs. Each function has a Transaction Layer and its own VC Capability registers, but doesn’t implement the lower layers. Instead, they connect to the Transaction Layer of the shared port that does have all the layers. Sharing the hardware interface results in lower cost, of course, and the addition of MFVC allows the functions to handle isochronous traffic.
+
+As can be seen in the figure, the MFVC registers reside in Function 0 only and define the VCs and arbitration methods to be used for this interface. The MFVC registers look very much the same as VC capability registers and support VC arbitration and Function arbitration. Since packets from multiple functions can attempt to access the same VC at the same time, Function Arbitration decides the priorities among them. That should look familiar by now because it’s the same concept as port arbitration and even uses the same arbitration options, including TBWRR. VC arbitration options are also the same as they are in the single‐function VC registers.
+
+Figure 7‐22: QoS Support in Multi‐Function Arbitration  
+![](images/b3933be809f4ea0ecba8cb6a9e886e95d0db14dd0e900851c65d1a25cb162600.jpg)
+
+## Isochronous Support
+
+As mentioned earlier, not every machine or application needs isochronous support, but there are some that can’t get by without it. Since PCIe was designed to support it from the beginning, let’s consider what would need to be in place to make this work.
+
+## Timing is Everything
+
+Consider the example shown in Figure 7‐23 on page 274, where a synchronous connection would be desirable but isn’t possible. Instead, we emulate a synchronous path with isochronous mechanisms. In this example, isochrony defines the amount of data that will be delivered within each Service Interval to achieve the required service. The following sequence describes the operation:
+
+1. The synchronous source (video camera and PCI Express interface) accumulates data in Buffer A during the first of the equal service intervals (SI 1).
+
+2. The camera delivers all of the accumulated data across the general‐purpose bus during the next service interval (SI 2) while it accumulates the next block of data in Buffer B.
+
+Clearly, the system must be able to guarantee that the entire contents of buffer A can be delivered during the service interval, regardless of whether other traffic is in flight on the Link. This is handled by assigning a high priority to the time‐sensitive packets and programming arbitration schemes so they’ll be handled first any time there is competition with other traffic. Also note that, as long as all the data is delivered within the time window, it doesn’t matter exactly when it arrives. It might be spread out across the interval or bunched up in one place inside it. As long as it’s all delivered with the Service Interval the guarantees can still be met.
+
+3. During SI 2, the tape deck receives and buffers the incoming data, which can then be delivered to storage for recording during SI 3. The camera unloads Buffer B onto the Link during SI 3 while accumulating new data into Buffer A, and the cycle repeats.
+
+Figure 7‐23: Example Application of Isochronous Transaction  
+![](images/52af287f760b1dde29e105f5642ba88ecf1d9fb103db1b42e53b584c9d9c5e91.jpg)
+
+## How Timing is Defined
+
+Isochronous timing is defined in PCIe by the time slot used in the Time‐Based Weighted Round Robin port arbitration scheme. At present, the time for each slot is 100ns, and represents one entry of the 128 entries in the TBWRR table. Once set up, the arbiter will repeatedly cycle through this table once every 12.8s, which represents the overall Service Interval.
+
+Making an isochronous path work as intended requires a few considerations. First, the data packets must be delivered with predictable timing at regular intervals. Second, the maximum amount of isochronous data to be delivered must be known ahead of time and packets must not be allowed to exceed that limit. Third, the Link bandwidth must be sufficient to support the amount of data that needs to be delivered in a given time slot.
+
+Consider the following example. A single‐Lane Link running at 2.5 Gbps delivers one symbol every 4ns. That allows it to send 25 symbols within a 100ns time slot, but is that enough to be useful? In many cases it’s not, because a TLP may need 28 bytes of overhead for the combination of header, sequence number, LCRC, and so forth. That would mean there isn’t even time to finish sending the overhead, much less any data payload in 100ns. If we needed to send 128 bytes of data, then the bandwidth requirement would be 128+overhead = 156 bytes. One option for solving this problem would be to increase the Link width to 8 Lanes, allowing eight times as many bytes to be sent at once. That change would deliver 200 bytes in 100ns and allow a single time slot to deliver all the isochronous data. Another solution would be to use a single Lane but give the port more time slots, since 8 time slots at the lower Link width would deliver the same amount of data. The choice of solution depends on cost and performance constraints, but the system designer must know the timing and bandwidth requirements of the isochronous path to be able to set it up correctly.
+
+## How Timing is Enforced
+
+When timing is an integral part of the proper operation of a design, as in the previous example, it is enforced by the combination of things we’ve discussed so far. First, high‐priority TCs must be selected in software and VCs set up in hardware with the mappings between them defined so that only the correct packets will be placed into the high‐priority VCs. Then the desired timing is a matter of programming the arbitration schemes to accommodate the needed bandwidth in the specified time. For example, the choice for VC arbitration would probably be the Strict Priority option, since it’s the only choice that can ensure that a high‐priority packet won’t be delayed by other packets. For Port arbitration the choice must be TBWRR to enforce timing.
+
+## Software Support
+
+Supporting isochronous service requires some coordination between the software elements in the system. In a PC system, device drivers will report isochronous requirements and capabilities to the OS, which will then evaluate the overall system demands and allocate resources appropriately. Embedded systems will be different, because the all the pieces are known at the outset and software can be simpler. In the following discussion we’ll describe the PC case since an embedded system should simply be a simpler subset of that.
+
+## Device Drivers
+
+A device driver must be able to report its timing requirements to the software that oversees isochronous operation and obtain permission before trying to use isochronous packets. It’s important to note that driver‐level software should not directly change hardware assignments or arbitration policies on its own, even though it could, because the result would be chaos. If multiple drivers were each independently trying to do this, the last one to make changes would overwrite any previous assignments. To avoid that, an OS‐level program called an Isochronous Broker receives the timing requests from the system devices and assigns system resources in a coordinated way that accommodates them all.
+
+## Isochronous Broker
+
+This program manages the end‐to‐end flow of isochronous packets. It receives the isochronous timing requests from device drivers and allocates system resources in a way that accommodates the requests through the target path. In the spec this is referred to as establishing an isochronous contract between the requester/completer pair and the PCIe fabric. Doing so requires verifying that the intended path can indeed support isochronous traffic, and then programming the appropriate arbitration schemes to ensure it works within the specified timing requirements.
+
+## Bringing it all together
+
+By now it should be reasonably clear what needs to be done to support isochronous traffic flow in a system, but let’s look at one last example to bring all the pieces together. If we expand on the previous video capture example to show a more complex system, like the one in Figure 7‐24 on page 277, we’ll be able to discuss all the parts that must be in place if the video camera is going to be able to deliver captured data into system memory. This would be a difficult environment for isochronous service because there are so many devices that can compete for bandwidth in the path, but that also makes it useful to illustrate the various things that must be considered.
+
+## Endpoints
+
+Starting at the bottom, what will be needed in the PCIe interface for the video endpoint device itself? In hardware, more than one VC will be required if we’re going to differentiate packets. Let’s assume a single‐function device for simplicity. The device driver would need to report the device capabilities and isochronous timing requirements to the OS‐level Isochronous broker, which would evaluate the system and then report back whether an isochronous contract was possible and which TCs the software should use.
+
+Figure 7‐24: Example Isochronous System  
+![](images/19d01764d36aa5659db7ca7b5ad112be2f5d1d57cdd4c1906d91efa8375fc533.jpg)
+
+The driver would then program VC numbers and map the appropriate TCs to each VC. It would also most likely program the VC arbitration to be Strict Priority for the high‐priority channels. The one caveat here is that the arbitration must still be “fair”, meaning the low‐priority channels won’t get starved for access. That means the high‐priority VCs can’t have traffic pending constantly but instead must spread out packet injection over time.
+
+One other observation regarding Link operation is necessary before we finish our discussion of endpoints, and that is regarding Flow Control. The receive buffers of devices in the isochronous path must be large enough to handle the expected packet flow without causing any back pressure as long as packets are injected uniformly according to the Isochronous Contract. In addition, Flow Control Updates must be returned quickly enough to avoid stalls.
+
+## Switches
+
+Next, consider what would need to be present in each of the switches that reside between the endpoint and the Root Complex. Switches don’t commonly have device drivers, so it would fall to OS‐level software like the Isochronous Broker to read their configuration information and determine what service they support. First, all the ports in the isochronous path must support more than one VC, and the TC/VC mapping must match on both ends of each Link. Remember that once the packet gets into the Transaction Layer of the Switch port, only the TC remains with the packet, and the VC assignment for that TC is specific to each port. The TC/VC mapping of the downstream port of Switch 1 must match the mapping of the endpoint, but the other switch port mappings may be different to match the other end of their Links.
+
+Arbitration Issues. The choices for arbitration are straight‐forward. In our example, the isochronous path is shown as carrying traffic in only one direction for simplicity. It is possible to have isochronous traffic flowing in both directions in the case of a memory read, for example, but our example was chosen to resemble the video streaming case.
+
+VC arbitration for the isochronous egress port will most likely need to use the Strict Priority scheme for the same reasons the endpoint does. Port arbitration will need to use the Time‐Based WRR scheme, and that means software must understand the proper access ratios and program the Port Arbitration Tables to implement them. This might not be as simple as it sounds if multiple switches are in the path because even though they’ll all use the same TBWRR arbitration scheme, it’s not clear how the service intervals for each of them would be coordinated. If the SIs are not aligned, mean ing timing guarantees could be more difficult depending on the how busy the Links are. Coordinating the service intervals wasn’t considered in the spec, though, so it would again involve a non‐standard method. Clearly, this problem would be much simpler if we didn’t have multiple switches in an isochronous path.
+
+Timing Issues. Figure 7‐25 on page 279 shows the timing of packets being delivered by the two endpoints for our example. Packets from the video device, with a known size and delivered in regular and predictable intervals, are shown as the heavier arrows. The smaller, lighter arrows represent packets from the SCSI drive that are lower priority and whose timing is not predictable. In the endpoint, the packets simply need to have the proper TC assigned to them, but a switch needs to ensure that the proper timing policy is enforced. This is done by using TBWRR, which specifies which port will have access at a given time and for how long. Knowing the size and frequency of the isochronous packets allows software to properly arrange the timing, but what kind of timing is needed?
+
+Figure 7‐25: Injection of Isochronous Packets  
+![](images/311ee515cc591beb1edb91c4e832e93dba144194441b2b987fe4cbabfb5602fc.jpg)
+
+First, let’s review the parameters involved by considering a simple example. Recall that PCIe bases a time slot on the reference clock period is given by the Port Capability Register 1 field called Reference Clock. At present the only option for that field is 100ns, and the TBWRR table has no options besides 128 entries. The length of the Service Interval is the multiple of those, making it 12.8s. The bandwidth for a given device can be expressed by the equation below, where Y is the data to be delivered in one time slot (the spec states that the Max Payload Size programmed during configuration must be used for this bandwidth calculation), M is the number of time slots, and T is the overall Service Interval. If we choose 128 bytes as the payload, and we know that SI is 12.8s, then the BW = 10 MB/s for each time slot allocated.
+
+$$
+B W = \frac {Y \times M}{T}
+$$
+
+Now let’s consider a more realistic example. Let’s say that our Links are running at the Gen2 speed, that the video device needs to have a guaranteed bandwidth of 100MB/s, and that it will send 512 byte packets. Filling in the equation shows M = 2.5 instances of 512 bytes are needed. But how much data can actually be
+
+$$
+1 0 0 \times 1 0 ^ {6} = \frac {5 1 2 \times M}{1 2 . 8 \times 1 0 ^ {- 6}}, M = \frac {1 0 0 \times 1 0 ^ {6} \times 1 2 . 8 \times 1 0 ^ {- 6}}{5 1 2} = 2. 5
+$$
+
+sent in one time slot? The answer depends on speed and Link width, or course. At 5.0 Gb/s it takes 2ns to send each 10‐bit symbol, so 50 symbols can be delivered per Lane in 100ns. If the packet size is 512 bytes of data plus another 28 or so for the header, then 11 time slots would be needed to deliver 550 symbols for one packet using a x1 Link. It is possible to give one port several contiguous slots if needed, so that’s one solution. Since the packet size that will be sent is always the same, we can’t really program 2.5 instances of it, so we’d have to use 3 instead. From our equation, 3 instances of 512 bytes each results in an actual bandwidth of 120MB/s. That’s higher than we need, but it solves the problem. The number of time slots used would then be 11 x 3 = 33, leaving 95 for other use in the Service Interval. Each group of 11 time slots would need to be contiguous but the groups could be spaced out over the service interval.
+
+Another solution would be increase the Link width. Although the hardware would cost more, using 11 Lanes would allow delivery of all the data in one time slot. The CEM spec doesn’t currently support a x11 option, but a x12 option is available and would work for our example. Using a wide Link like that means software would only need to program one time slot for each packet, and just three over the whole service interval to support isochronous traffic for this device. Unlike the x1 case, now we wouldn’t need contiguous time slots. Instead, they could be spaced over the service interval in some optimal fashion.
+
+Bandwidth Allocation Problems. The TBWRR table must be programmed to guarantee sufficient timely bandwidth for isochronous traffic, and that other traffic won’t be allowed to interfere. In Figure 7‐25 on page 279, the SCSI controller is shown as sending one packet in SI 1 and another in SI 3. If the timing was such that one packet from that endpoint per SI was allowed then this works fine.
+
+Now let’s say the SCSI controller attempts to inject more packets than it has permission to do in SI 1, illustrated in Figure 7‐26 on page 280. This is the first of two bandwidth allocation problems mentioned in the spec and is called “oversubscription.” This could interfere with isochronous traffic flow, but programming the TBWRR table readily avoids that problem because the arbitration only allows a packet from that port at specific times. If more packets from that port are queued up, they simply have to wait until the next available time, which might be in SI 2, as shown in this exam ple. Eventually, this can result in flow control back‐pressure at the sending agent
+
+Figure 7‐26: Over‐Subscribing the Bandwidth  
+![](images/a7501a403d67ae62d025cd05b212b851dc3710595e00225f6dcb9f54b0a4ba78.jpg)
+
+The second timing problem is called “congestion” and happens when too many isochronous requests are sent within a given time window, as shown in Figure 7‐27 on page 281. This is a similar problem but now there is no simple solution. Unlike the previous case, postponing high‐priority packets until another time slot is not an option, so the system must make an effort to handle them all. The result is that some requests may experience excessive service latencies. To correct this, software would need to change the distribution of packets so that they can be supported by the available hardware bandwidth.
+
+Figure 7‐27: Bandwidth Congestion  
+![](images/ecb9798179d1b53ae22882c937eb1f84b29a18cf1f4cfd4aa168c381b7b696b9.jpg)
+
+Latency Issues . Managing latency for packet delivery is an important part of isochrony, and involves the combination of the fabric latency and the Completer latency. Fabric latency depends on all the characteristics of the Link between the various components in the system, especially the Link width and frequency of operation. A simple way to minimize this value is to constrain the complexity of the PCIe topology for isochronous paths. Completer latency depends on the target endpoint internal characteristics, such as memory speed and internal arbitration.
+
+## Root Complex
+
+The RC has the same arbitration and timing requirements as a switch. It receives packets on several downstream ports and forwards them to the target in a way that’s consistent with the rules for isochrony described earlier. However, much of how this is done will be vendor specific because the spec doesn’t define the RC or how it should be programmed.
+
+Problem: Snooping. One interesting thing affecting timing and latency in the root that we haven’t yet discussed is the process of snooping. Normally, anytime an access to system memory takes place it will be to a location that the processor considers cacheable, meaning it has permission to store a temporary copy in its local caches. If an external device attempts to accesses that area of memory, the chipset must first check the processor caches before allowing the access because a cached copy may have been modified. If so, the modified data will need to be written back to memory before it will be available for the device access. Although it’s necessary to ensure memory coherency, the problem is that snooping takes time. How long it takes is typically bounded but not predictable because it depends on what else the CPUs are doing at that time. Depending on the timing requirements, that kind of uncertainty could ruin an isochronous data flow.
+
+Snooping Solutions. One way to avoid snooping is for devices to only access areas of memory that have been designated as uncacheable. Another option is for software to set the “No Snoop” attribute bit in the high‐priority packet headers. That forces the chipset to skip the snoop step regardless of the memory type and go directly to memory because software has guaranteed that doing so won’t cause a problem. To enforce this as a requirement for the isochronous path, another bit can be initialized by hardware in the root port for the high‐priority VC called “Reject Snoop Transactions” (see the VC Resource Capability Register in Figure 7‐17 on page 265). The purpose of this is to allow only transactions for that VC that have the No Snoop attribute set. Any incoming packets that don’t have it set are discarded to ensure that the timing will never be violated by waiting for a snoop.
+
+## Power Management
+
+It’s a simple observation, but if timing is important for a path in PCIe, then power management (PM) mechanisms for devices in that path will need to handled carefully. Configuration software can read the latencies associated with every PM condition and select those cases that the timing budget will permit. The simplest approach, though, would just be to disable all PM options in an isochronous path. Fortunately, this is easily done using existing configuration registers. Devices can be placed into the device state D0 and left there, while the hardware‐controlled Link PM mechanism can be disabled (for more on PM, see Chapter 16, entitled ʺPower Management,ʺ on page 703).
+
+## Error Handling
+
+Finally, there is one last issue: what to do when errors occur on the Link. The ACK/NAK protocol, covered in Chapter 7, provides an automatic, hardwarebased retry mechanism to correct packets that encounter transmission problems. This otherwise desirable feature presents a problem for isochrony because it takes time to do it. And how long it takes to resolve an error can vary widely depending on things like how the problem was detected.
+
+To decide this question we have to know how much time uncertainty the system can tolerate and still deliver isochronous data. If the latency budget is too tight, there simply won’t be time for retrying failed packets and the ACK/NAK protocol will have to be disabled. Interestingly, the spec writers evidently didn’t consider that possibility because no configuration bits are included for disabling it or deciding how to handle packets that would have been retried but now won’t be. Therefore disabling this will require non‐standard mechanisms like vendor‐specific registers.
+
+If there isn’t enough time available for retries, the target agent may simply choose to discard any bad packets. Another option would be to use the bad packets as they are, errors and all. For some applications using isochronous support that isn’t as counter‐intuitive as it sounds. An error in video streaming, for example, might cause an occasional glitch on the display, but that could be considered an acceptable risk.
+
+If there is enough time in the Service Interval to allow retries, a limit could be placed on the possible latency they might add by adding a timer to track the time until the end of the Service Interval and use that to decide whether a retry could be attempted. Errors shouldn’t happen very often, of course, so this might be sufficient to correct the occasional transmission fault while still maintaining isochronous timing.
+
+![](images/eb1ae88c2cbc5e01e062355061788993fc48f05d5949d55ecd7a07ae70ef4f91.jpg)
+
+# Transaction Ordering
+
+## The Previous Chapter
+
+The previous chapter discusses the mechanisms that support Quality of Service and describes the means of controlling the timing and bandwidth of different packets traversing the fabric. These mechanisms include application‐specific software that assigns a priority value to every packet, and optional hardware that must be built into each device to enable managing transaction priority.
+
+## This Chapter
+
+This chapter discusses the ordering requirements for transactions in a PCI Express topology. These rules are inherited from PCI. The Producer/Consumer programming model motivated many of them, so its mechanism is described here. The original rules also took into consideration possible deadlock conditions that must be avoided.
+
+## The Next Chapter
+
+The next chapter describes, Data Link Layer Packets (DLLPs). We describe the use, format, and definition of the DLLP packet types and the details of their related fields. DLLPs are used to support Ack/Nak protocol, power management, flow control mechanism and can be used for vender defined purposes.
+
+## Introduction
+
+As with other protocols, PCI Express imposes ordering rules on transactions of the same traffic class (TC) moving through the fabric at the same time. Transactions with different TCs do not have ordering relationships. The reasons for these ordering rules related to transactions of the same TC include:
+
+• Maintaining compatibility with legacy buses (PCI, PCI‐X, and AGP).
+
+• Ensuring that the completion of transactions is deterministic and in the sequence intended by the programmer.
+
+## PCI Express 3.0 Technology
+
+• Avoiding deadlock conditions.
+
+• Maximize performance and throughput by minimizing read latencies and managing read and write ordering.
+
+Implementation of the specific PCI/PCIe transaction ordering is based on the following features:
+
+1. Producer/Consumer programming model on which the fundamental ordering rules are based.
+
+2. Relaxed Ordering option that allows an exception to this when the Requester knows that a transaction does not have any dependencies on previous transactions.
+
+3. ID Ordering option that allows a switches to permit requests from one device to move ahead of requests from another device because unrelated threads of execution are being performed by these two devices.
+
+4. Means for avoiding deadlock conditions and supporting PCI legacy implementations.
+
+## Definitions
+
+There are three general models for ordering transactions in a traffic flow:
+
+1. Strong Ordering: PCI Express requires strong ordering of transactions flowing through the fabric that have the same Traffic Class (TC) assignment. Transactions that have the same TC value assigned to them are mapped to a given VC, therefore the same rules apply to transactions within each VC. Consequently, when multiple TCs are assigned to the same VC all transactions are typically handled as a single TC, even though no ordering relationship exists between different TCs.
+
+2. Weak Ordering: Transactions stay in sequence unless reordering would be helpful. Maintaining the strong ordering relationship between transactions can result in all transactions being blocked due to dependencies associated with a given transaction model (e.g., The Producer/Consumer Model). Some of the blocked transactions very likely are not related to the dependencies and can safely be reordered ahead of blocking transactions.
+
+3. Relaxed Ordering: Transactions can be reordered, but only under certain controlled conditions. The benefit is improved performance like the weakordered model, but only when specified by software so as to avoid problems with dependencies. The drawback is that only some transactions will be optimized for performance. There is some overhead for software to enable transactions for Relaxed Ordering (RO).
+
+## Simplified Ordering Rules
+
+The 2.1 revision of the spec introduced a simplified version of the Ordering Table as shown in Table 8‐1 on page 289. The table can be segmented on a per topic basis as follows:
+
+• Producer/Consumer rules (page 290)
+
+• Relaxed Ordering rules (page 296)
+
+• Weak Ordering rules (page 299)
+
+• ID Ordering rules (page 301)
+
+• Deadlock avoidance (page 303)
+
+These sections provide details associated with the ordering models, operation, rationales, conditions and requirement.
+
+## Ordering Rules and Traffic Classes (TCs)
+
+PCI Express ordering rules apply to transactions of the same Traffic Class (TC). Transactions moving through the fabric that have different TCs have no ordering requirement and are considered to be associated with unrelated applications. As a result, there is no transaction ordering related performance degradation associated with packets of different TCs.
+
+Packets that do share the same TC may experience performance degradation as they flow through the PCIe fabric. This is because switches and devices must support ordering rules that may require packets to be delayed or forwarded in front of packets previously sent.
+
+As discussed in Chapter 7, entitled ʺQuality of Service,ʺ on page 245, transactions of different TC may map to the same VC. The TC‐to‐VC mapping configuration determines which packets of a given TC map to a specific VC. Even though the transaction ordering rules apply only to packets of the same TC, it may be simpler to design endpoint devices/switches/root complexes that apply the transaction ordering rules to all packets within a VC even though multiple TCs are mapped to the same VC.
+
+As one would expect, there are no ordering relationships between packets that map to different VCs no matter their TC.
+
+## Ordering Rules Based On Packet Type
+
+Ordering relationships defined by the PCIe spec are based on TLP type. TLPs are divided into three categories: 1) Posted, 2) Completion and 3) Non‐Posted TLPs.
+
+The Posted category of TLPs include memory write requests (MWr) and Messages (Msg/MsgD). Completion category of TLPs include Cpl and CplD. Non‐Posted category of TLPs include MRd, IORd, IOWr, CfgRd0, CfgRd1, CfgWr0 and CfgWr1.
+
+The transaction ordering rules are described by a table in the following section “The Simplified Ordering Rules Table” on page 288. As you will notice, the table shows TLPs listed according to the three categories mentioned above with their ordering relationships defined.
+
+## The Simplified Ordering Rules Table
+
+The table is organized in a Row Pass Column fashion. All of the rules are summarized following the Simplified Ordering Table. Each rule or group of rules define the actions that are required.
+
+In Table 8‐1 on page 289, columns 2 ‐ 5 represent transactions that have previously been delivered by a PCI Express device, while row A ‐ D represents a new transaction that has just arrived. For outbound transactions, the table specifies whether a transaction represented in the row (A ‐ D) is allowed to pass a previous transaction represented by the column (2 ‐ 5). A ‘No’ entry means the transaction in the row is not allowed to pass the transaction in the column. A ‘Yes’ entry means the transaction in the row must be allowed to pass the transaction in the column to avoid a deadlock. A ‘Yes/No’ entry means a transaction in a row is allowed to pass the transaction in the column but is not required to do so. The entries in the following have the meaning.
+
+Table 8‐1: Simplified Ordering Rules Table
+
+<table><tr><td rowspan="2" colspan="2">Row pass Column? (Col 1)</td><td rowspan="2">Posted Request (Col 2)</td><td colspan="2">Non-Posted Request</td><td rowspan="2">Completion (Col 5)</td></tr><tr><td>Read Request (Col 3)</td><td>NPR with Data (Col 4)</td></tr><tr><td colspan="2">Posted Request (Row A)</td><td>a) No b) Y/N</td><td>Yes</td><td>Yes</td><td>a) Y/Nb) Yes</td></tr><tr><td rowspan="2">Non-Posted Request</td><td>Read Request (Row B)</td><td>a) No b) Y/N</td><td>Y/N</td><td>Y/N</td><td>Y/N</td></tr><tr><td>NPR with Data (Row C)</td><td>a) No b) Y/N</td><td>Y/N</td><td>Y/N</td><td>Y/N</td></tr><tr><td colspan="2">Completion (Row D)</td><td>a) No b) Y/N</td><td>Yes</td><td>Yes</td><td>a) Y/Nb) No</td></tr></table>
+
+• A2a, B2a, C2a, D2a — to enforce the Producer/Consumer model, a subsequent transaction is not allowed to pass a Posted Request.
+
+• A2, D2b —If RO is set, then a Read Completion is permitted to pass a previously queued Memory Write or Message Request.
+
+A2b, B2b, C2b, D2b — if the optional IDO is being used, a subsequent transaction is allowed to pass a Posted Request, as long as their Requester IDs are different
+
+• A3, A4 — A Memory Write or Message Request must be allowed to pass Non‐Posted Requests to avoid deadlocks.
+
+• A5a — Posted Request is permitted but not required to pass Completions
+
+A5b — Deadlock avoidance case. In a PCIe‐to‐PCI/PCI‐X bridge, for transactions going from PCIe to PCI or PCI‐X, a Posted Request must be able to pass a Completion, or a deadlock may occur.
+
+• B3, B4, B5, C3, C4, C5, — These cases implement weak ordering without risking any ordering related problems.
+
+D3, D4 — Completions must be allowed to pass Read and I/O or Configuration Write Requests (Non‐Posted Requests) to avoid deadlocks.
+
+• D5a — Completions with different Transaction IDs may pass each other.
+
+D5b — Completions with the same Transaction ID are not allowed to pass each other. This ensures that multiple completions for a single request will remain in ascending address order.
+
+## Producer/Consumer Model
+
+This section describes the operation of the Producer/Consumer model and the associated ordering rules required for proper operation. Figure 8‐1 on page 291 simply illustrates a sample topology. Subsequent examples of this topology describe the operation of the Producer/Consumer model with proper ordering, followed by an example of the model failing due to improper ordering.
+
+The Producer/Consumer model is the common method for data delivery in PCI and PCIe. The model comprises five elements as depicted in Figure 8‐1:
+
+• Producer of data
+
+• Memory data buffer
+
+• Flag semaphore indicating data has been send by the Producer
+
+• Consumer of data
+
+• Status semaphore indicating Consumer has read data
+
+The specification states that the Producer/Consumer model will work regardless of the arrangement of all the elements involved. In this example, the Flag and Status elements reside in the same physical device, but could be located in different devices.
+
+Figure 8‐1: Example Producer/Consumer Topology  
+![](images/5eda80caf08f99026b670ecf9b0512d6f0256d429817f55a48074adb20abd139.jpg)
+
+## Producer/Consumer Sequence — No Errors
+
+Refer to Figure 8‐2 on page 293 during the following discussion. The example presumes that the Flag and Status element are cleared to start with. These semaphores are included within the same device in this example. The sequence of numbered events in the description below and depicted in Figure 8‐2 on page 293 reflect the correct ordering in this Part 1 sequence.
+
+1. In the example, a device called the Producer performs one or more Memory Write transactions (Posted Requests) targeting a Data Buffer in memory. Some delay can occur as the data flows through Posted buffers.
+
+2. The Consumer periodically checks the Flag by initiating a Memory Read transaction (Non‐Posted Request) to determine if data has been delivered by the Producer.
+
+3. The Flag semaphore is read by the device and a Memory Read Completion is returned to the Consumer, indicating that notification of data delivery has not been performed by the Producer (Flag = 0) yet.
+
+4. The Producer sends a Memory Write Transaction (Posted Request) to update the Flag to 1.
+
+5. Once again, the Consumer checks the Flag by performing the same transaction performed in step 2.
+
+6. When Flag semaphore is read this time, the Flag is set to 1, indicating to the Consumer, via the Completion, that all of the data has been delivered by the Producer to memory.
+
+7. Next, the Consumer performs a Memory Write transaction (Posted Request) to clear the Flag semaphore back to zero.
+
+Figure 8‐3 on page 294 continues the example in this Part 2 sequence.
+
+8. The Producer, having more data to send, periodically checks the Status semaphore by initiating a Memory Read transaction (Non‐Posted Request).
+
+9. The Status semaphore is read by the Producer and a Memory Read Completion is returned to the Producer, indicating that the Consumer has not read the memory buffer contents and updated Status (Status = 0).
+
+10. The Consumer, knowing that the memory buffer has data available, performs one or more Memory Read Requests (Non‐Posted Requests) to get the contents from the buffer.
+
+11. Memory contents are read and returned to the Consumer.
+
+12. Upon completing the data transfer, the Consumer initiates a Memory Write Request (Posted Request) to set the Status semaphore to a 1.
+
+13. Once again, the Producer checks the Status semaphore by delivering a Memory Read Request (Non‐Posted Request).
+
+14. The device reads the Status and this time it is set to 1. The Completion is returned to the Producer, thereby indicating data can be sent to Memory.
+
+15. The Producer sends a Memory Write to Clear the Status semaphore to 0.
+
+16. The sequence of events starting with step 1. is repeated by the Producer.
+
+Figure 8‐2: Producer/Consumer Sequence Example — Part 1  
+![](images/18c3d10494719e3f89351b1fca0e67124b2f0e9505a830ce4e2539dfcc615644.jpg)
+
+Figure 8‐3: Producer/Consumer Sequence Example — Part 2  
+![](images/dcada6a33b479b3fd6bb6c856cb1f96518aad2ce1a3930a6089a7acf08c27b7a.jpg)
+
+## Producer/Consumer Sequence — Errors
+
+The previous example was handled correctly without a discussion of the ordering rules; however it may have been apparent that race conditions can cause the Producer/Consumer sequence to fail. Figure 8‐4 on page 296 illustrates a simple sequence to demonstrate one of several problems that can arise without ordering rules being enforced. Refer to Figure Figure 8‐4 on page 296 during the following discussion.
+
+1. Producer performs a Memory Write request (Posted Request) to the memory buffer. Let us assume that the memory write data is temporarily stuck in the Switch upstream port Posted Flow Control buffer.
+
+2. The Producer sends a Memory Write Transaction (Posted Request) to update the Flag to 1.
+
+3. The Consumer initiates a Memory Read Request (Non‐Posted Request) to check if the Flag has been set to 1.
+
+4. The contents of the Flag is returned to the Consumer via a Completion.
+
+5. Knowing that data has been delivered to memory, the Consumer performs a memory read request to fetch the data. However, the Consumer is unaware that the data is temporarily stuck in a Posted Flow Control buffer due to lack of flow control credits associated with the link between the upstream switch port and the Root Complex. Consequently, the Consumer receives old data when the Completion is returned to the Consumer.
+
+The problem is avoided with ordering rules supported by virtual PCI bridges within the topology. In this example, when the Consumer performed the Memory Read transaction in steps 3 and 4, the Virtual PCI bridge at the upstream switch port should not allow the contents of the flag (Completion 4) to be forwarded ahead of the previously posted data.
+
+Figure 8‐4: Producer/Consumer Sequence with Error  
+![](images/a72088233844632187a0ea871c366d5abe37f6c1cdba555c193f92a7afad17dc.jpg)
+
+## Relaxed Ordering
+
+PCI Express supports the Relaxed Ordering (RO) mechanism added for PCI‐X. RO allows switches in the path between the Requester and Completer to reorder some transactions when doing so would improve performance.
+
+The ordering rules that support the Producer/Consumer model may result in transactions being blocked in cases when they’re unrelated to any Producer/ Consumer transaction sequence. To alleviate this problem, a transaction can have its RO attribute bit set, indicating that software verifies it to be unrelated to other transactions, and that allows it to be re‐ordered ahead of other transactions. For example, if a posted write is delayed because the target’s buffer space is unavailable, then all subsequent transactions must wait until that finally resolves and the write is delivered. If a subsequent transaction was known by software to be unrelated to previous ones and the RO bit was set to show that, then it could be allowed to go before the write without risking a problem.
+
+The RO bit (bit 5 of byte 2 of dword 0 in the TLP header as shown in Figure 8‐5 on page 297) may be used by the device if its device driver has enabled it to do so. Request packets are then allowed to use this attribute as directed by software when it requests that a packet be sent. When switches or the Root Complex see a packet with this attribute bit set, they have permission to reorder it although it’s not required that they should.
+
+Figure 8‐5: Relaxed Ordering Bit in a 32‐bit Header
+
+<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="6">+1</td><td colspan="5">+2</td><td colspan="5">+3</td><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TD</td><td>ER</td><td>Attr</td><td>AT</td><td colspan="12">Length</td></tr><tr><td>Byte 4</td><td colspan="8">Requester ID</td><td colspan="5">Tag</td><td colspan="2">Last DW BE</td><td colspan="9">1st DW BE</td></tr><tr><td>Byte 8</td><td colspan="22">Address [31:2]</td><td colspan="2">R</td></tr></table>
+
+## RO Effects on Memory Writes and Messages
+
+Switches and Root Complexes must observe the setting of the RO bit in transactions. Memory writes and Messages are both posted writes, both are received into the same Posted buffer, and both are subject to the same ordering requirements. When the RO bit is set, switches handle these transactions as follows:
+
+Switches are permitted to reorder memory write transactions just posted ahead of previously posted memory write transactions or message transactions. Similarly, message transactions just posted may be ordered ahead of previously posted memory write or message transactions. Switches must also forward the RO bit unmodified. The RO bit is ignored by PCI‐X bridges, which always forward writes in order (there would be little purpose in allowing them to go out of order anyway; if one is blocked for some reason, the next will be blocked, too). Another difference is that message transactions had not been defined for PCI‐X, either.
+
+The Root Complex is permitted to reorder posted write transactions (here it makes sense because the Root could write to different areas of memory so, if one area is busy it can write to a different one). Also, when receiving writes with RO set, the Root is permitted to write each byte to memory in any address order.
+
+## RO Effects on Memory Read Transactions
+
+All read transactions in PCI Express are handled as split transactions. When a device issues a memory read request with the RO bit set, the Completer returns the requested read data in a series of one or more split completion transactions, and uses the same RO setting as in the request. Switch behavior in this case is as follows:
+
+1. A switch that receives a memory read with RO forwards the request in the order received, and must not reorder it ahead of memory write transactions that were previously posted. That guarantees that all write transactions moving in the direction of the read request are pushed ahead of the read. This is part of the Producer/Consumer example shown earlier, and software may depend on this flushing action for proper operation. The RO bit must not be modified by the switch.
+
+2. When the Completer receives the memory read, it fetches the requested data and delivers one or more Completions that also have the RO bit set (its value is copied from the original request).
+
+3. A switch receiving the Completions is allowed to re‐order them ahead of previously posted memory writes moving in the direction of the Completion. If the writes were blocked (for example, due to flow control), then the Completions will be allowed to go ahead of them. Relaxed ordering in this case improves read performance. Table 8‐2 summarizes the relaxed ordering behavior allowed by switches.
+
+Table 8‐2: Transactions That Can Be Reordered Due to Relaxed Ordering
+
+<table><tr><td>These Transactions with RO=1 Can Pass</td><td>These Transactions</td></tr><tr><td>Memory Write Request</td><td>Memory Write Request</td></tr><tr><td>Message Request</td><td>Memory Write Request</td></tr><tr><td>Memory Write Request</td><td>Message Request</td></tr><tr><td>Message Request</td><td>Message Request</td></tr><tr><td>Read Completion</td><td>Memory Write Request</td></tr><tr><td>Read Completion</td><td>Message Request</td></tr></table>
+
+## Weak Ordering
+
+Temporary transaction blocking can occur when strong ordering rules are rigorously enforced. Modifications that don’t violate the Producer/Consumer programming model can eliminate some blocking conditions and improve link efficiency. Implementing the Weakly‐Ordered model can alleviate this problem.
+
+## Transaction Ordering and Flow Control
+
+The motivation behind splitting VC buffers of a given number into flow controlled sub‐buffers P, NP and CPL is because it simplifies processing of the transaction ordering rules once TLPs have been parsed or binned into their respective buffers. The transaction ordering processing logic then applies ordering rules between these three sub‐buffers or to each sub‐buffer.
+
+Since TLPs are binned into their respective three sub‐buffers in order to process transaction ordering rules, it is necessary to define the flow control mechanism between each virtual channel sub‐buffer (P, NP, CPL) of neighboring ports at opposite ends of the Link. In fact, you may recall that there is an independent flow control mechanism between Header (Hdr) and Data (D) sub‐buffers of each sub‐buffer category (P, NP, CPL) of each virtual channel number.
+
+## Transaction Stalls
+
+Strong ordering can result in instances where all transactions are blocked due to a single full receive buffer. For example, the ordering requirements for the Producer/Consumer model cannot be changed, but ordering for transactions that aren’t part of that model can. To improve performance, let’s consider a weaklyordered scheme; one that puts the minimal requirements on transaction ordering.
+
+This example depicts transmit and receive buffers associated with the delivery of transactions in a single direction for a single VC. Recall that each of the transaction types (Posted, Non‐Posted, and Completions) have independent flow control within the same VC. The numbers in the transmit buffers show the order in which these transactions were issued, and the non‐posted receive buffer is currently full. Consider the following sequence.
+
+1. Transaction 1 (memory read) is the next transaction to send, but there aren’t enough flow control credits so it must wait.
+
+2. Transaction 2 (posted memory write) is the next subsequent transaction. If strong ordering is enforced, a memory write must not pass a previously queued read transaction.
+
+3. This restriction applies to all subsequent transactions, too, with the result that they’re all stalled until the first one finishes.
+
+Figure 8‐6: Strongly Ordered Example Results in Temporary Stall  
+![](images/e8811b5ac8d644c2dce538c058ff5a627396058f0007b69c72555023238b5922.jpg)
+
+## VC Buffers Offer an Advantage
+
+Transaction ordering is managed within Virtual Channel buffers. These buffers are grouped into Posted, Non‐Posted, and Completion transactions, and flow control is managed independently for each group. That makes weak ordering more useful because, as in our example, even if one buffer was full, others could still have space available.
+
+## ID Based Ordering (IDO)
+
+Another opportunity for optimizing ordering and improving performance is related to the nature of traffic streams. Packets from different requesters are very unlikely to have dependencies; after all, one device could hardly know when the other had finished certain steps based on ordering because they could have different paths to their shared resource. Bearing this in mind, the 2.1 revision of the PCIe spec introduced what is called ID‐based Ordering to improve performance.
+
+## The Solution
+
+If the packet source isn’t taken into account for transaction ordering then performance can suffer, as shown in Figure 8‐7 on page 302. In the illustration, transaction 1 makes it way to the upstream port of the switch but is blocked from further progress by a buffer‐full condition for that packet type in the Root port (which would be indicated by insufficient Flow Control credits). To use the spec terminology, packets from the same Requester are called a TLP stream. In this example, the path shown for Transaction 1 might include several TLPs as part of a TLP stream. Transaction 2 then arrives at the same egress port and is also blocked from moving forward because it must stay in order with Transaction 1. Since the packets came from different sources, (different TLP streams) this delay is almost certainly unnecessary; it’s very unlikely they could have dependencies between them, but the normal ordering model doesn’t take this into account. To get improved performance, we need another option.
+
+The solution is simple: allow packets to be reordered if they don’t use the same Requester ID (or Completer ID, for Completion packets). This optional capability allows software to enable a device to use IDO and a switch port can recognize that the packets are part of different TLP streams. This is done by setting the enable bits in Device Control 2 Register.

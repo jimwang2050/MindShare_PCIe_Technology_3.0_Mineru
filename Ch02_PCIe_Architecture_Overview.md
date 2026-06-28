@@ -1221,7 +1221,7 @@ Receivers clock in the packet bits at the trained clock speeds as they arrive on
 </tr>
 </table>
 
-## Link Training and Initialization | 链路训练与初始化
+## 11.6 Link Training and Initialization | 11.6 链路训练与初始化
 
 <table>
 <tr>

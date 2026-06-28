@@ -648,7 +648,7 @@ Figure 12‐19: Gen3 CDR Logic | 图12‐19：Gen3 CDR逻辑
 | The Block Type Detection logic might then be used to take the extra two bits out of the deserializer that it needs to examine anyway, when a block boundary time is reached, ensuring that only 8‑bit bytes are delivered to the Elastic Buffer. | 然后，当达到块边界时刻时，可以使用块类型检测逻辑从解串器中取出它无论如何都需要检查的额外两个位，确保只将8位字节传递到弹性缓冲器。 |
 | Just to tie up all the loose ends on this discussion, the internal clock for the 8.0 GT/s data rate will actually be 8.0 GHz / 8.125 = 0.985 GHz. That results in slightly less than the 1.0 GB/s data rate that's usually used to describe the Gen3 bandwidth, but the difference is small enough (1.5% less than 1 GB/s) that it usually isn't mentioned. | 为了总结本次讨论的所有未尽之处，8.0 GT/s数据速率的内部时钟实际上将是8.0 GHz / 8.125 = 0.985 GHz。这导致略低于通常用于描述Gen3带宽的1.0 GB/s数据速率，但差异足够小（比1 GB/s低1.5%），因此通常不会提及。 |
 
-## Deserializer | 解串器
+## 11.3.3 Deserializer | 11.3.3 解串器
 
 | EN | ZH |
 |----|----|

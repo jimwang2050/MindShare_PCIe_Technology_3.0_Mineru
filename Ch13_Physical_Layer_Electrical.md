@@ -335,7 +335,7 @@ Figure 13-15: Receiver DC Common-Mode Voltage Adjustment | 图13-15：接收器D
 | ## De-emphasis Associated with Gen1 and Gen2 PCIe | ## 与Gen1和Gen2 PCIe相关的去加重 |
 | For 2.5 GT/s and 5.0 GT/s transmission, PCIe mandates the use of a fairly simply form of Transmitter equalization called de‑emphasis to reduce the effects of signal distortion along the Link transmission line. This distortion problem is always present but gets worse with increased frequency and lossy transmission lines. | 对于2.5 GT/s和5.0 GT/s的传输，PCIe强制要求使用一种相当简单的发射器均衡形式，称为去加重，以减少链路传输线上信号失真的影响。这种失真问题始终存在，但会随着频率增加和有损传输线而变得更加严重。 |
 
-## The Problem | 问题
+## 17.5.1 The Problem | 17.5.1 问题
 
 | EN | ZH |
 | --- | --- |

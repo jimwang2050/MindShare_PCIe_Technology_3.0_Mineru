@@ -455,7 +455,7 @@ $$
 |---|---|
 | For an example application of this equation, See "Stage 1 — Flow Control Following Initialization" on page 230. | 关于该方程的应用示例，请参见第230页的"阶段1 — 初始化后的流控"。 |
 
-## Receiver Elements | 接收器要素
+## 10.2.2 Receiver Elements | 10.2.2 接收器要素
 
 | EN | ZH |
 | --- | --- |

@@ -389,7 +389,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 |----|----|
 | ## Internal Errors | ## 内部错误 |
 
-## The Problem | 问题
+## 17.5.1 The Problem | 17.5.1 问题
 
 | EN | ZH |
 |---|---|
@@ -402,7 +402,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 | :-- | :-- |
 | ## PCI Express Technology | ## PCI Express 技术 |
 
-## The Solution | 解决方案
+## 8.7.1 The Solution | 8.7.1 解决方案
 
 | EN | ZH |
 |---|---|

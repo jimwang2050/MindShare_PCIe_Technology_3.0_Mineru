@@ -1609,7 +1609,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 |---|---|
 | Otherwise, after a 2ms timeout, the next state will be Detect unless the idle_to_rlock_transitioned variable is less than FFh, in which case the next state will be "Detailed Recovery Substates". For the transition to Recovery.RcvrLock, if the data rate is 8.0 GT/s the idle_to_rlock_transitioned variable is incremented by 1b, while for 2.5 or 5.0 GT/s it will be set to FFh. | 否则，在 2ms 超时后，下一状态将为 Detect，除非 idle_to_rlock_transitioned 变量小于 FFh，此时下一状态将为 "Detailed Recovery Substates"。对于向 Recovery.RcvrLock 的转换，若数据速率为 8.0 GT/s，则 idle_to_rlock_transitioned 变量加 1b；而对于 2.5 或 5.0 GT/s，该变量将被设为 FFh。 |
 
-## L0s State | L0s 状态
+## 1.5.2 L0s State | 1.5.2 L0s 状态
 
 | EN | ZH |
 |----|----|

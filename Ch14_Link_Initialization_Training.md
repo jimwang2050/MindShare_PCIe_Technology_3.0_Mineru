@@ -2,7 +2,6 @@
 
 | EN | ZH |
 |---|---|
-| # 14 Link Initialization & Training | # 14 链路初始化和训练 |
 
 ## The Previous Chapter | 上一章
 

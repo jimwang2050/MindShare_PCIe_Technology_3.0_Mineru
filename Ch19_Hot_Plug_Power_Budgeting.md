@@ -2,7 +2,6 @@
 
 | EN | ZH |
 |----|----|
-| # 19 Hot Plug and Power Budgeting | # 19 热插拔与电源预算 |
 
 | EN | ZH |
 |---|---|

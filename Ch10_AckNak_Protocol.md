@@ -200,7 +200,6 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 
 | EN | ZH |
 |---|---|
-| ## 32-Bit LCRC | ## 32位LCRC |
 | The transmitter also generates and appends a 32‑bit LCRC (Link CRC) based on the TLP contents (Sequence Number, Header, Data Payload and ECRC). | 发送端还会根据TLP内容（序列号、头部、数据负载和ECRC）生成并附加一个32位LCRC（链路CRC）。 |
 
 ## Replay (Retry) Buffer | 重放（重试）缓冲区
@@ -520,7 +519,6 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
 
 | EN | ZH |
 |---|---|
-| ## 2.5 GT/s Operation | ## 2.5 GT/s 操作 |
 | Table 10‐3: Gen1 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10‐3：Gen1 未调整的 AckNak\_LATENCY\_TIMER 值（符号时间） |
 
 <table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>237</td><td>128</td><td>73</td><td>67</td><td>58</td><td>48</td><td>33</td></tr><tr><td>256 Bytes</td><td>416</td><td>217</td><td>118</td><td>107</td><td>90</td><td>72</td><td>45</td></tr><tr><td>512 Bytes</td><td>559</td><td>289</td><td>154</td><td>86</td><td>109</td><td>86</td><td>52</td></tr><tr><td>1024 Bytes</td><td>1071</td><td>545</td><td>282</td><td>150</td><td>194</td><td>150</td><td>84</td></tr><tr><td>2048 Bytes</td><td>2095</td><td>1057</td><td>538</td><td>278</td><td>365</td><td>278</td><td>148</td></tr><tr><td>4096 Bytes</td><td>4143</td><td>2081</td><td>1050</td><td>534</td><td>706</td><td>534</td><td>276</td></tr></table>
@@ -533,7 +531,6 @@ Table 10‑4: Gen2 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表
 
 | EN | ZH |
 |---|---|
-| ## 5.0 GT/s Operation | ## 5.0 GT/s 操作 |
 | Table 10‑4: Gen2 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表 10‑4：Gen2 未调整 AckNak\_LATENCY\_TIMER 值（符号时间） |
 
 ## GT | s Operation
@@ -556,21 +553,18 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 
 | EN | ZH |
 |---|---|
-| ## 2.5 GT/s Operation | ## 2.5 GT/s 操作 |
 | Table 10-6: Gen1 Unadjusted REPLAY_TIMER Values in Symbol Times | 表 10-6：Gen1 未调整的 REPLAY_TIMER 值（以符号时间计） |
 
 <table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>711</td><td>384</td><td>219</td><td>201</td><td>174</td><td>144</td><td>99</td></tr><tr><td>256 Bytes</td><td>1248</td><td>651</td><td>354</td><td>321</td><td>270</td><td>216</td><td>135</td></tr><tr><td>512 Bytes</td><td>1677</td><td>867</td><td>462</td><td>258</td><td>327</td><td>258</td><td>156</td></tr><tr><td>1024 Bytes</td><td>3213</td><td>1635</td><td>846</td><td>450</td><td>582</td><td>450</td><td>252</td></tr><tr><td>2048 Bytes</td><td>6285</td><td>3171</td><td>1614</td><td>834</td><td>1095</td><td>834</td><td>444</td></tr><tr><td>4096 Bytes</td><td>12429</td><td>6243</td><td>3150</td><td>1602</td><td>2118</td><td>1602</td><td>828</td></tr></table>
 
 | EN | ZH |
 |---|---|
-| ## 5.0 GT/s Operation | ## 5.0 GT/s 操作 |
 | Table 10-7: Gen2 Unadjusted REPLAY_TIMER Values in Symbol Times | 表 10-7: Gen2 未调整的 REPLAY_TIMER 值（以符号时间计） |
 
 <table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>864</td><td>537</td><td>372</td><td>354</td><td>327</td><td>297</td><td>252</td></tr><tr><td>256 Bytes</td><td>1401</td><td>804</td><td>507</td><td>474</td><td>423</td><td>369</td><td>288</td></tr><tr><td>512 Bytes</td><td>1830</td><td>1020</td><td>615</td><td>411</td><td>480</td><td>411</td><td>309</td></tr><tr><td>1024 Bytes</td><td>3366</td><td>1788</td><td>999</td><td>603</td><td>735</td><td>603</td><td>405</td></tr><tr><td>2048 Bytes</td><td>6438</td><td>3324</td><td>1767</td><td>987</td><td>1248</td><td>987</td><td>597</td></tr><tr><td>4096 Bytes</td><td>12582</td><td>6396</td><td>3303</td><td>1755</td><td>2271</td><td>1755</td><td>981</td></tr></table>
 
 | EN | ZH |
 |----|----|
-| ## 8.0 GT/s Operation | ## 8.0 GT/s 操作 |
 | Table 10-8: Gen3 Unadjusted REPLAY_TIMER Values | 表 10-8：Gen3 未调整的 REPLAY_TIMER 值 |
 
 <table><tr><td>Max Payload</td><td>x1 Link</td><td>x2 Link</td><td>x4 Link</td><td>x8 Link</td><td>x12 Link</td><td>x16 Link</td><td>x32 Link</td></tr><tr><td>128 Bytes</td><td>999</td><td>672</td><td>507</td><td>489</td><td>462</td><td>432</td><td>387</td></tr><tr><td>256 Bytes</td><td>1536</td><td>939</td><td>642</td><td>609</td><td>558</td><td>504</td><td>423</td></tr><tr><td>512 Bytes</td><td>1965</td><td>1155</td><td>750</td><td>546</td><td>615</td><td>546</td><td>444</td></tr><tr><td>1024 Bytes</td><td>3501</td><td>1923</td><td>1134</td><td>738</td><td>870</td><td>738</td><td>540</td></tr><tr><td>2048 Bytes</td><td>6573</td><td>3459</td><td>1902</td><td>1122</td><td>1383</td><td>1122</td><td>732</td></tr><tr><td>4096 Bytes</td><td>12717</td><td>6531</td><td>3438</td><td>1890</td><td>2406</td><td>1890</td><td>1116</td></tr></table>

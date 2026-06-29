@@ -2,7 +2,6 @@
 
 | EN | ZH |
 |----|----|
-| ## 18 System Reset | ## 18 系统复位 |
 
 ## The Previous Chapter | 上一章
 

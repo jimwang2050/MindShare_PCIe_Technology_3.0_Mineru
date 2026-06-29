@@ -4,7 +4,6 @@
 
 | EN | ZH |
 | :--- | :--- |
-| # 12 Physical Layer ‐ Logical (Gen3) | # 12 物理层 — 逻辑子层（Gen3） |
 
 ## The Previous Chapter | 前一章
 

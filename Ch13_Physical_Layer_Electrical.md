@@ -2,7 +2,6 @@
 
 | EN | ZH |
 |---|---|
-| # 13 Physical Layer - Electrical | # 13 物理层 - 电气特性 |
 
 ## The Previous Chapter | 上一章
 
@@ -162,7 +161,6 @@ Figure 13-9: Separate Refclk Architecture | 图13-9：独立参考时钟架构
 
 | EN | ZH |
 | --- | --- |
-| ## 8.0 GT/s | ## 8.0 GT/s |
 | The same three clock architectures are described in the spec for this data rate, too. One difference is that two types of CDR are defined now: a 1st order CDR for the shared Refclk architecture, and a 2nd order CDR for the data clocked architecture. This just reflects the fact that, as it was for the lower data rates, the CDR for the data‐clocked architecture will need to be more sophisticated to be able to stay locked when the reference varies over a wide range for SSC. | 在该数据速率下，规范同样描述了相同的三种时钟架构。一个不同之处在于现在定义了两种类型的CDR：针对共享Refclk架构的一阶CDR，和针对数据时钟架构的二阶CDR。这仅仅反映了一个事实：与较低数据速率的情况一样，数据时钟架构的CDR需要更加复杂，以便在参考时钟因SSC发生大范围变化时能够保持锁定。 |
 
 | EN | ZH |
@@ -627,7 +625,6 @@ Table 13-3: Transmitter Specs | 表13-3：发送器规格
 
 | EN | ZH |
 | --- | --- |
-| ## 8.0 GT/s | ## 8.0 GT/s |
 | The method for testing the stressed eye at 8.0 GT/s is similar, but there are some differences. One difference is that the signal can't be evaluated at the device pin and so a replica channel is used to allow measuring the signal as it would appear at the pin if the device were an ideal termination. | GT/s 下的应力眼图测试方法类似，但存在一些差异。其中一个差异是无法在器件引脚处评估信号，因此使用复制通道来测量信号在器件为理想端接情况下引脚处呈现的样子。 |
 | In order to evaluate the Receiver's ability to perform equalization properly, it's recommended that multiple calibration channels with different insertion loss characteristics be used so the receiver can be tested in more than one environment. As with the transmitter at 8.0 GT/s, the calibration channel for the receiver consists of differential traces terminated at both ends with coaxial connectors. | 为了正确评估接收器执行均衡的能力，建议使用多个具有不同插入损耗特性的校准通道，以便在多种环境下测试接收器。与 8.0 GT/s 下的发送器一样，接收器的校准通道由两端端接同轴连接器的差分走线组成。 |
 | To establish the correct correlation between the channel and the receiver it's necessary to model what the receiver see internally after equalization has been applied. That means post processing is must be applied that will model what happens in the Receiver, including the following items, the details of which are described in the spec: | 为了建立通道与接收器之间的正确相关性，必须对接收器在应用均衡后在内部看到的情况进行建模。这意味着必须应用后处理来模拟接收器内部发生的情况，包括以下项目，其详细内容在规范中描述： |

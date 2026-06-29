@@ -4,7 +4,6 @@
 
 | EN | ZH |
 |---| - |
-| # 16 Power Management | # 16 电源管理 |
 ## The Previous Chapter | 上一章
 
 | EN | ZH |

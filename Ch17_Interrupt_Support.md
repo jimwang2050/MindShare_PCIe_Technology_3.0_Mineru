@@ -4,7 +4,6 @@
 
 | EN | ZH |
 |----|----|
-| # 17 Interrupt Support | # 17 中断支持 |
 
 ## The Previous Chapter | 上一章
 

@@ -4,7 +4,6 @@
 
 | EN | ZH |
 | --- | --- |
-| # 15 Error Detection and Handling | # 15 错误检测与处理 |
 
 | EN | ZH |
 |---|---|

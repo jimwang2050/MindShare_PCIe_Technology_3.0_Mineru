@@ -2121,6 +2121,6 @@ Figure 16-42: LTR - Change but no Update | 图16-42：LTR - 有变更但无更�
 
 
 Figure 16-43: LTR - Change with Update | 图16-43：LTR - 有变更且有更新
-Figure 16-44: LTR - Link Down Case | 图16-44：LTR - 链路断开情况
 <img src="images/part05_136e9cef633fd8eb73f5ca6102547677b3d0a2ec9d42d24f70a71d3a0f749284.jpg" width="700" alt="">
+Figure 16-44: LTR - Link Down Case | 图16-44：LTR - 链路断开情况
 <img src="images/part05_12783e2e6a2ae08def9894072cec50f6767a25f1e0f13dd8498973bcba537e86.jpg" width="700" alt="">

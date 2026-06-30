@@ -2,17 +2,6 @@
 
 # 16 Power Management
 
-<table style="border-collapse:collapse; width:100%;">
-  <thead>
-    <tr>
-      <th width="50%" style="border:1px solid #333; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #333; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
-
 ## The Previous Chapter | 上一章
 
 <table style="border-collapse:collapse; width:100%;">

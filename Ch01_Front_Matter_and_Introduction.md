@@ -8,7 +8,7 @@
 *(This chunk contains no translatable content — only a separator.)*
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-*(本分块无可翻译内容——仅包含分隔符。)*
+*(本分块无可翻译内容——仅数据包含分隔符。)*
 </td>
 </tr>
 </table>
@@ -209,7 +209,7 @@ Import raw scan data from other tools (e.g. lspci) to view in Arbor's decoded fo
 Decode info included for standard PCI, PCI-X and PCI Express structures
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-包含标准 PCI、PCI-X 和 PCI Express 结构的解码信息
+数据包含标准 PCI、PCI-X 和 PCI Express 结构的解码信息
 </td>
 </tr>
 <tr>
@@ -217,7 +217,7 @@ Decode info included for standard PCI, PCI-X and PCI Express structures
 Decode info included for some x86-based structures and device-specific registers
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-包含某些基于 x86 的结构和设备特定寄存器的解码信息
+数据包含某些基于 x86 的结构和设备特定寄存器的解码信息
 </td>
 </tr>
 <tr>
@@ -1129,7 +1129,7 @@ No Common Clock 45
 Packet-based Protocol 46
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-基于数据包的协议......46
+基于数据数据包的协议......46
 </td>
 </tr>
 <tr>
@@ -1233,7 +1233,7 @@ Transaction Layer 59
 TLP (Transaction Layer Packet) Basics 60
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-TLP (事务层包) 基础......60
+TLP (事务层数据包) 基础......60
 </td>
 </tr>
 <tr>
@@ -1241,7 +1241,7 @@ TLP (事务层包) 基础......60
 TLP Packet Assembly....62
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-TLP 包组装......62
+TLP 数据包组装......62
 </td>
 </tr>
 <tr>
@@ -1249,7 +1249,7 @@ TLP 包组装......62
 TLP Packet Disassembly....64
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-TLP 包拆解......64
+TLP 数据包拆解......64
 </td>
 </tr>
 <tr>
@@ -1329,7 +1329,7 @@ Data Link Layer....72
 DLLPs (Data Link Layer Packets)....73
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-DLLP (数据链路层包)......73
+DLLP (数据链路层数据包)......73
 </td>
 </tr>
 <tr>
@@ -1993,7 +1993,7 @@ Posted versus Non-Posted....150
 Header Fields Define Packet Format and Type....151
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-包头字段定义包格式与类型......151
+数据包头字段定义数据包格式与类型......151
 </td>
 </tr>
 <tr>
@@ -2009,7 +2009,7 @@ General....151
 Header Format/Type Field Encodings....153
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-包头格式/类型字段编码......153
+数据包头格式/类型字段编码......153
 </td>
 </tr>
 <tr>
@@ -2017,7 +2017,7 @@ Header Format/Type Field Encodings....153
 TLP Header Overview....154
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-TLP 包头概述......154
+TLP 数据包头概述......154
 </td>
 </tr>
 <tr>
@@ -2049,7 +2049,7 @@ Bus Number, Device Number, Function Number Limits....155
 Key TLP Header Fields in ID Routing....155
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-ID 路由中的关键 TLP 包头字段......155
+ID 路由中的关键 TLP 数据包头字段......155
 </td>
 </tr>
 <tr>
@@ -2081,7 +2081,7 @@ Address Routing....158
 Key TLP Header Fields in Address Routing....159
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-地址路由中的关键 TLP 包头字段......159
+地址路由中的关键 TLP 数据包头字段......159
 </td>
 </tr>
 <tr>
@@ -2161,7 +2161,7 @@ Only for Messages....163
 Key TLP Header Fields in Implicit Routing....164
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-隐式路由中的关键 TLP 包头字段......164
+隐式路由中的关键 TLP 数据包头字段......164
 </td>
 </tr>
 <tr>
@@ -2214,7 +2214,7 @@ Chapter 5: TLP Elements
 Introduction to Packet-Based Protocol....169
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-基于数据包协议的介绍....169
+基于数据数据包协议的介绍....169
 </td>
 </tr>
 <tr>
@@ -2230,7 +2230,7 @@ General....169
 Motivation for a Packet-Based Protocol....171
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-采用基于数据包协议的动机....171
+采用基于数据数据包协议的动机....171
 </td>
 </tr>
 <tr>
@@ -2238,7 +2238,7 @@ Motivation for a Packet-Based Protocol....171
 1. Packet Formats Are Well Defined....171
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-1. 数据包格式定义明确....171
+1. 数据数据包格式定义明确....171
 </td>
 </tr>
 <tr>
@@ -2246,7 +2246,7 @@ Motivation for a Packet-Based Protocol....171
 2. Framing Symbols Define Packet Boundaries....171
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-2. 帧符号定义数据包边界....171
+2. 帧符号定义数据数据包边界....171
 </td>
 </tr>
 <tr>
@@ -2254,7 +2254,7 @@ Motivation for a Packet-Based Protocol....171
 3. CRC Protects Entire Packet....172
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-3. CRC保护整个数据包....172
+3. CRC保护整个数据数据包....172
 </td>
 </tr>
 <tr>
@@ -2262,7 +2262,7 @@ Motivation for a Packet-Based Protocol....171
 Transaction Layer Packet (TLP) Details....172
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-事务层包(TLP)详细说明....172
+事务层数据包(TLP)详细说明....172
 </td>
 </tr>
 <tr>
@@ -2977,7 +2977,7 @@ Virtual Channels (VCs) ....247
 Assigning TCs to each VC — TC/VC Mapping ....248
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-将 TC 分配到各 VC — TC/VC 映射....248
+将 TC（流量类） 分配到各 VC（虚通道） — TC/VC 映射....248
 </td>
 </tr>
 <tr>
@@ -2985,7 +2985,7 @@ Assigning TCs to each VC — TC/VC Mapping ....248
 Determining the Number of VCs to be Used ....249
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-确定要使用的 VC 数量....249
+确定要使用的 VC（虚通道） 数量....249
 </td>
 </tr>
 <tr>
@@ -2993,7 +2993,7 @@ Determining the Number of VCs to be Used ....249
 Assigning VC Numbers (IDs) ....251
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-分配 VC 编号 (ID)....251
+分配 VC（虚通道） 编号 (ID)....251
 </td>
 </tr>
 <tr>
@@ -3017,7 +3017,7 @@ General....252
 Strict Priority VC Arbitration....253
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-严格优先级 VC 仲裁....253
+严格优先级 VC（虚通道） 仲裁....253
 </td>
 </tr>
 <tr>
@@ -3329,7 +3329,7 @@ Ordering Rules and Traffic Classes (TCs)....287
 Ordering Rules Based On Packet Type....288
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-基于包类型的排序规则....288
+基于数据包类型的排序规则....288
 </td>
 </tr>
 <tr>
@@ -3526,7 +3526,7 @@ General......309
 DLLP Packet Size is Fixed at 8 Bytes......310
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-DLLP 包大小固定为 8 字节......310
+DLLP 数据包大小固定为 8 字节......310
 </td>
 </tr>
 <tr>
@@ -3534,7 +3534,7 @@ DLLP 包大小固定为 8 字节......310
 DLLP Packet Types......311
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-DLLP 包类型......311
+DLLP 数据包类型......311
 </td>
 </tr>
 <tr>
@@ -4038,7 +4038,7 @@ Ack/Nak 处理的错误情形.... 349
 Recommended Priority To Schedule Packets.... 350
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-调度数据包的推荐优先级.... 350
+调度数据数据包的推荐优先级.... 350
 </td>
 </tr>
 <tr>
@@ -4243,7 +4243,7 @@ Byte Striping (for Wide Links).... 371
 Packet Format Rules.... 373
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-包格式规则.... 373
+数据包格式规则.... 373
 </td>
 </tr>
 <tr>
@@ -4283,7 +4283,7 @@ Example x4 Format.... 375
 Large Link-Width Packet Format Rules.... 376
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-大链路宽度包格式规则.... 376
+大链路宽度数据包格式规则.... 376
 </td>
 </tr>
 <tr>
@@ -4291,7 +4291,7 @@ Large Link-Width Packet Format Rules.... 376
 x8 Packet Format Example.... 376
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-x8包格式示例.... 376
+x8数据包格式示例.... 376
 </td>
 </tr>
 <tr>
@@ -4779,7 +4779,7 @@ Byte Un-Striping....402
 Filter and Packet Alignment Check....403
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-过滤与包对齐检查....403
+过滤与数据包对齐检查....403
 </td>
 </tr>
 <tr>
@@ -4923,7 +4923,7 @@ Framing Tokens....415
 Packets....415
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-包....415
+数据包....415
 </td>
 </tr>
 <tr>
@@ -4987,7 +4987,7 @@ Byte Striping x8 Example....424
 Nullified Packet x8 Example....425
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-空包 x8 示例....425
+空数据包 x8 示例....425
 </td>
 </tr>
 <tr>
@@ -5251,7 +5251,7 @@ Byte Un-Striping .... 445
 Packet Filtering .... 446
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-包过滤 .... 446
+数据包过滤 .... 446
 </td>
 </tr>
 <tr>
@@ -6981,7 +6981,7 @@ TLP 摘要 ..... 659
 Variant Bits Not Included in ECRC Mechanism ..... 659
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-ECRC 机制中不包含的可变位 ..... 659
+ECRC 机制中不数据包含的可变位 ..... 659
 </td>
 </tr>
 <tr>
@@ -7277,7 +7277,7 @@ Uncorrectable Error Masking....694
 Header Logging....695
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-包头记录....695
+数据包头记录....695
 </td>
 </tr>
 <tr>
@@ -9398,7 +9398,7 @@ Device to Device....903
 TPH Header Bits ....904
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-TPH 包头位 ....904
+TPH 数据包头位 ....904
 </td>
 </tr>
 <tr>
@@ -10088,7 +10088,7 @@ Glossary....973
 1-5 33 MHz PCI System, Including a PCI-to-PCI Bridge....18
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-1-5 33 MHz PCI 系统，包含 PCI-to-PCI 桥....18
+1-5 33 MHz PCI 系统，数据包含 PCI-to-PCI 桥....18
 </td>
 </tr>
 <tr>
@@ -10696,7 +10696,7 @@ Glossary....973
 4-14 Transaction Layer Packet Generic 3DW And 4DW Headers....152
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-4-14 事务层包通用 3DW 和 4DW 头....152
+4-14 事务层数据包通用 3DW 和 4DW 头....152
 </td>
 </tr>
 <tr>
@@ -10768,7 +10768,7 @@ Glossary....973
 5-1 TLP And DLLP Packets....170
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-5-1 TLP 和 DLLP 包....170
+5-1 TLP 和 DLLP 数据包....170
 </td>
 </tr>
 <tr>
@@ -11000,7 +11000,7 @@ Glossary....973
 6-16 Update Flow Control Packet Format and Contents....239
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-6-16 更新流控包格式和内容....239
+6-16 更新流控数据包格式和内容....239
 </td>
 </tr>
 <tr>
@@ -11024,7 +11024,7 @@ Glossary....973
 7-3 TC to VC Mapping Example....249
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-7-3 TC 到 VC 映射示例....249
+7-3 TC 到 VC（虚通道） 映射示例....249
 </td>
 </tr>
 <tr>
@@ -11032,7 +11032,7 @@ Glossary....973
 7-4 Multiple VCs Supported by a Device....250
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-7-4 设备支持的多个 VC....250
+7-4 设备支持的多个 VC（虚通道）....250
 </td>
 </tr>
 <tr>
@@ -11040,7 +11040,7 @@ Glossary....973
 7-5 Extended VCs Supported Field....251
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-7-5 扩展 VC 支持字段....251
+7-5 扩展 VC（虚通道） 支持字段....251
 </td>
 </tr>
 <tr>
@@ -11064,7 +11064,7 @@ Glossary....973
 7-8 Low-Priority Extended VCs....255
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-7-8 低优先级扩展 VC....255
+7-8 低优先级扩展 VC（虚通道）....255
 </td>
 </tr>
 <tr>
@@ -11096,7 +11096,7 @@ Glossary....973
 7-12 VC Arbitration Table Offset and Load VC Arbitration Table Fields....259
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-7-12 VC 仲裁表偏移和加载 VC 仲裁表字段....259
+7-12 VC 仲裁表偏移和加载 VC（虚通道） 仲裁表字段....259
 </td>
 </tr>
 <tr>
@@ -11104,7 +11104,7 @@ Glossary....973
 7-13 Loading the VC Arbitration Table Entries....260
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-7-13 加载 VC 仲裁表项....260
+7-13 加载 VC（虚通道） 仲裁表项....260
 </td>
 </tr>
 <tr>
@@ -11120,7 +11120,7 @@ Glossary....973
 7-15 Port Arbitration Tables for Each VC....263
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-7-15 每个 VC 的端口仲裁表....263
+7-15 每个 VC（虚通道） 的端口仲裁表....263
 </td>
 </tr>
 <tr>
@@ -11200,7 +11200,7 @@ Glossary....973
 7-25 Injection of Isochronous Packets....279
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-7-25 等时包的注入....279
+7-25 等时数据包的注入....279
 </td>
 </tr>
 <tr>
@@ -11296,7 +11296,7 @@ Glossary....973
 9-2 Generic Data Link Layer Packet Format....310
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-9-2 通用数据链路层包格式....310
+9-2 通用数据链路层数据包格式....310
 </td>
 </tr>
 <tr>
@@ -11512,7 +11512,7 @@ Glossary....973
 11-7 TLP and DLLP Packet Framing with Start and End Control Characters....371
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-11-7 使用起始和结束控制字符的 TLP 和 DLLP 包帧....371
+11-7 使用起始和结束控制字符的 TLP 和 DLLP 数据包帧....371
 </td>
 </tr>
 <tr>
@@ -11544,7 +11544,7 @@ Glossary....973
 11-11 x1 Packet Format....374
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-11-11 x1 包格式....374
+11-11 x1 数据包格式....374
 </td>
 </tr>
 <tr>
@@ -11552,7 +11552,7 @@ Glossary....973
 11-12 x4 Packet Format....375
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-11-12 x4 包格式....375
+11-12 x4 数据包格式....375
 </td>
 </tr>
 <tr>
@@ -11560,7 +11560,7 @@ Glossary....973
 11-13 x8 Packet Format....377
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-11-13 x8 包格式....377
+11-13 x8 数据包格式....377
 </td>
 </tr>
 <tr>
@@ -11768,7 +11768,7 @@ Glossary....973
 12-13 Gen3 x8 Nullified Packet....426
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-12-13 Gen3 x8 无效包....426
+12-13 Gen3 x8 无效数据包....426
 </td>
 </tr>
 <tr>
@@ -13973,7 +13973,7 @@ Glossary....973
 6 TLP Packet with ECRC Error
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-6 带有 ECRC 错误的 TLP 包
+6 带有 ECRC 错误的 TLP 数据包
 </td>
 </tr>
 <tr>
@@ -13981,7 +13981,7 @@ Glossary....973
 7 "Link Level" Groups TLP Packets with their Link Layer Response
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-7 "Link Level" 将 TLP 包与其链路层响应分组
+7 "Link Level" 将 TLP 数据包与其链路层响应分组
 </td>
 </tr>
 <tr>
@@ -13997,7 +13997,7 @@ Glossary....973
 9 "Compact View" Collapses Related Packets for Easy Viewing of Link Training
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-9 "Compact View" 折叠相关包以便于查看链路训练
+9 "Compact View" 折叠相关数据包以便于查看链路训练
 </td>
 </tr>
 <tr>
@@ -14319,7 +14319,7 @@ Posted与非Posted事务.... 150
 4-9 TLP Header Format and Type Field Encodings.... 153
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-TLP包头格式与Type字段编码.... 153
+TLP数据包头格式与Type字段编码.... 153
 </td>
 </tr>
 <tr>
@@ -14327,7 +14327,7 @@ TLP包头格式与Type字段编码.... 153
 4-10 Message Request Header Type Field Usage.... 165
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-消息请求包头Type字段用法.... 165
+消息请求数据包头Type字段用法.... 165
 </td>
 </tr>
 <tr>
@@ -14335,7 +14335,7 @@ TLP包头格式与Type字段编码.... 153
 5-1 TLP Header Type Field Defines Transaction Variant.... 174
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-TLP包头Type字段定义事务变体.... 174
+TLP数据包头Type字段定义事务变体.... 174
 </td>
 </tr>
 <tr>
@@ -14343,7 +14343,7 @@ TLP包头Type字段定义事务变体.... 174
 5-2 Generic Header Field Summary.... 176
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-通用包头字段摘要.... 176
+通用数据包头字段摘要.... 176
 </td>
 </tr>
 <tr>
@@ -14351,7 +14351,7 @@ TLP包头Type字段定义事务变体.... 174
 5-3 TLP Header Type and Format Field Encodings.... 179
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-TLP包头Type与Format字段编码.... 179
+TLP数据包头Type与Format字段编码.... 179
 </td>
 </tr>
 <tr>
@@ -14359,7 +14359,7 @@ TLP包头Type与Format字段编码.... 179
 5-4 IO Request Header Fields.... 186
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-IO请求包头字段.... 186
+IO请求数据包头字段.... 186
 </td>
 </tr>
 <tr>
@@ -14367,7 +14367,7 @@ IO请求包头字段.... 186
 5-5 4DW Memory Request Header Fields.... 189
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-4DW存储器请求包头字段.... 189
+4DW存储器请求数据包头字段.... 189
 </td>
 </tr>
 <tr>
@@ -14375,7 +14375,7 @@ IO请求包头字段.... 186
 5-6 Configuration Request Header Fields.... 194
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-配置请求包头字段.... 194
+配置请求数据包头字段.... 194
 </td>
 </tr>
 <tr>
@@ -14383,7 +14383,7 @@ IO请求包头字段.... 186
 5-7 Completion Header Fields.... 197
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-完成报文包头字段.... 197
+完成报文数据包头字段.... 197
 </td>
 </tr>
 <tr>
@@ -14391,7 +14391,7 @@ IO请求包头字段.... 186
 5-8 Message Request Header Fields.... 204
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-消息请求包头字段.... 204
+消息请求数据包头字段.... 204
 </td>
 </tr>
 <tr>
@@ -14847,7 +14847,7 @@ Status寄存器中与错误相关的字段.... 677
 15-6 Errors That Can Use Header Log Registers.... 695
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-可使用包头日志寄存器的错误.... 695
+可使用数据包头日志寄存器的错误.... 695
 </td>
 </tr>
 <tr>
@@ -15116,7 +15116,7 @@ ST表位置编码.... 907
 The MindShare Technology series includes the books listed in Table 1.
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-MindShare 技术丛书系列包含表 1 中所列的书籍。
+MindShare 技术丛书系列数据包含表 1 中所列的书籍。
 </td>
 </tr>
 </table>
@@ -15159,7 +15159,7 @@ The intended audience for this book is hardware and software design, verificatio
 To get the full benefit of this material, it's recommended that the reader have a reasonable background in PC architecture, including knowledge of an I/O bus and its related protocol. Because PCI Express maintains several levels of compatibility with the original PCI design, critical background information regarding PCI has been incorporated into this book. However, the reader may well find it beneficial to read the MindShare book PCI System Architecture.
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-为了充分利用本教材，建议读者具备一定的PC体系架构背景知识，包括对I/O总线及其相关协议的了解。由于PCI Express与原始PCI设计保持了多个层次的兼容性，本书已纳入了关于PCI的关键背景信息。不过，读者可能会发现阅读MindShare出版的《PCI System Architecture》一书也大有裨益。
+为了充分利用本教材，建议读者具备一定的PC体系架构背景知识，数据包括对I/O总线及其相关协议的了解。由于PCI Express与原始PCI设计保持了多个层次的兼容性，本书已纳入了关于PCI的关键背景信息。不过，读者可能会发现阅读MindShare出版的《PCI System Architecture》一书也大有裨益。
 </td>
 </tr>
 </table>
@@ -15180,7 +15180,7 @@ Topics covered in this book and chapter flow are as follows:
 Part 1: Big Picture. Provides an architectural perspective of the PCI Express technology by comparing and contrasting it with PCI and PCI‑X buses. It also introduces features of the PCI Express architecture. An overview of configuration space concepts plus methods of packet routing are described.
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-第一部分：全景概览。通过将 PCI Express 技术与 PCI 及 PCI‑X 总线进行对比，从架构视角审视 PCI Express 技术。同时介绍 PCI Express 架构的特性，并描述配置空间概念及数据包路由方法。
+第一部分：全景概览。通过将 PCI Express 技术与 PCI 及 PCI‑X 总线进行对比，从架构视角审视 PCI Express 技术。同时介绍 PCI Express 架构的特性，并描述配置空间概念及数据数据包路由方法。
 </td>
 </tr>
 <tr>
@@ -15188,7 +15188,7 @@ Part 1: Big Picture. Provides an architectural perspective of the PCI Express te
 Part 2: Transaction Layer. Includes high‑level packet (TLP) format and field definitions, along with Transaction Layer functions and responsibilities such as Quality of Service, Flow Control and Transaction Ordering.
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-第二部分：事务层。包括高层数据包（TLP）格式与字段定义，以及事务层的功能与职责，例如服务质量（Quality of Service）、流控（Flow Control）和事务排序（Transaction Ordering）。
+第二部分：事务层。数据包括高层数据数据包（TLP）格式与字段定义，以及事务层的功能与职责，例如服务质量（Quality of Service）、流控（Flow Control）和事务排序（Transaction Ordering）。
 </td>
 </tr>
 <tr>
@@ -15196,7 +15196,7 @@ Part 2: Transaction Layer. Includes high‑level packet (TLP) format and field d
 Part 3: Data Link Layer. Includes description of ACK/NAK error detection and correction mechanism of the Data Link Layer. DLLP format is also described.
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-第三部分：数据链路层。包括数据链路层的 ACK/NAK 错误检测与纠正机制的描述，同时也描述了 DLLP 的格式。
+第三部分：数据链路层。数据包括数据链路层的 ACK/NAK 错误检测与纠正机制的描述，同时也描述了 DLLP 的格式。
 </td>
 </tr>
 <tr>
@@ -15212,7 +15212,7 @@ Part 4: Physical Layer. Describes Lane management functions, as well as link tra
 Part 5: Additional System Topics. Discusses additional system topics of PCI Express, including error detection and handling, power management, interrupt handling, Hot Plug and Power Budgeting details. Additional changes made in the PCI Express 2.1 spec not described in earlier chapters are covered here.
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-第五部分：其他系统主题。讨论 PCI Express 的其他系统主题，包括错误检测与处理、电源管理、中断处理、热插拔（Hot Plug）和功率预算（Power Budgeting）细节。此处还涵盖了 PCI Express 2.1 规范中新增但在前面章节中未描述的变更。
+第五部分：其他系统主题。讨论 PCI Express 的其他系统主题，数据包括错误检测与处理、电源管理、中断处理、热插拔（Hot Plug）和功率预算（Power Budgeting）细节。此处还涵盖了 PCI Express 2.1 规范中新增但在前面章节中未描述的变更。
 </td>
 </tr>
 <tr>
@@ -15718,7 +15718,7 @@ Figure 1-1 on page 12 shows an older system based on a PCI bus.
 The system includes a North Bridge (called "north" because if the diagram is viewed as a map, it appears geographically north of the central PCI bus) that interfaces between the processor and the PCI bus.
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-该系统包含一个北桥（之所以称为"北桥"，是因为如果把该框图看作一张地图，它在地理上位于中央PCI总线的北方），它充当处理器与PCI总线之间的接口。
+该系统数据包含一个北桥（之所以称为"北桥"，是因为如果把该框图看作一张地图，它在地理上位于中央PCI总线的北方），它充当处理器与PCI总线之间的接口。
 </td>
 </tr>
 <tr>
@@ -15766,7 +15766,7 @@ Figure 1-1: Legacy PCI Bus-Based Platform | 图1-1：基于传统PCI总线的平
 In a PCI hierarchy each device on the bus may contain up to eight functions that all share the bus interface for that device, numbered 0-7 (a single-function device is always assigned function number 0).
 < | td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-在 PCI 层次结构中，总线上的每个设备最多可包含八个功能，这些功能全部共享该设备的总线接口，编号为 0-7（单功能设备始终分配功能编号 0）。
+在 PCI 层次结构中，总线上的每个设备最多可数据包含八个功能，这些功能全部共享该设备的总线接口，编号为 0-7（单功能设备始终分配功能编号 0）。
 </td>
 </tr>
 <tr>
@@ -16154,7 +16154,7 @@ PCI 错误处理
 PCI devices can optionally detect and report address and data phase parity errors during transactions. PCI generates "even parity" across most of the signals during a transaction by using the PAR signal. This means that if the number of set bits during an address or data phase is odd, the master device will set the PAR signal to make the parity "even." The target device receives the address or data and checks for errors. Parity errors are detectable only as long as an odd number of signals are affected causing the received number of ones to be odd. If a device detects a data phase parity error, it asserts PERR# (parity error). This is potentially a recoverable error since, for cases like a memory read, just repeating the transaction may resolve the problem. PCI does not include any automatic or hardware-based recovery mechanisms, though, so any attempts to resolve the error would be handled by software.
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-PCI 设备可以选择性地在事务期间检测并报告地址阶段和数据阶段的奇偶校验错误。PCI 在事务期间使用 PAR 信号对大多数信号生成"偶校验"。这意味着，如果在地址阶段或数据阶段中置位比特的数量为奇数，主设备将置位 PAR 信号以使校验为"偶"。目标设备接收地址或数据并检查错误。只有当受影响的信号数量为奇数（导致接收到的 1 的数量为奇数）时，才能检测到奇偶校验错误。如果设备检测到数据阶段的奇偶校验错误，它将断言 PERR#（奇偶校验错误）。这有可能是一种可恢复的错误，因为对于像存储器读取这样的情况，只需重复该事务即可解决问题。不过，PCI 不包含任何基于硬件的自动恢复机制，因此任何尝试解决该错误的操作都将由软件处理。
+PCI 设备可以选择性地在事务期间检测并报告地址阶段和数据阶段的奇偶校验错误。PCI 在事务期间使用 PAR 信号对大多数信号生成"偶校验"。这意味着，如果在地址阶段或数据阶段中置位比特的数量为奇数，主设备将置位 PAR 信号以使校验为"偶"。目标设备接收地址或数据并检查错误。只有当受影响的信号数量为奇数（导致接收到的 1 的数量为奇数）时，才能检测到奇偶校验错误。如果设备检测到数据阶段的奇偶校验错误，它将断言 PERR#（奇偶校验错误）。这有可能是一种可恢复的错误，因为对于像存储器读取这样的情况，只需重复该事务即可解决问题。不过，PCI 不数据包含任何基于硬件的自动恢复机制，因此任何尝试解决该错误的操作都将由软件处理。
 </td>
 </tr>
 </table>
@@ -16202,7 +16202,7 @@ PCI 架构支持三种地址空间，如第 26 页图 1-10 所示：存储器地
 PCI also introduced a third address space called configuration space that the CPU could only indirectly access. Each function contains internal registers for configuration space that allow software visibility and control of its addresses and resources in a standardized way, providing a true "plug and play" environment in the PC. Each PCI function may have up to 256 Bytes of configuration address space. Given that PCI supports up to 8 functions/device, 32 devices/bus and up to 256 buses/system, then the total amount of configuration space associated with a system is 256 Bytes/function x 8 functions/device x 32 devices/bus x 256 buses/system = 16MB of configuration space.
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-PCI 还引入了第三种地址空间，称为配置空间，CPU 只能间接访问该空间。每个功能包含用于配置空间的内部寄存器，这些寄存器以标准化的方式允许软件对其地址和资源进行可见性和控制，从而在 PC 中提供真正的"即插即用"环境。每个 PCI 功能最多可有 256 字节的配置地址空间。鉴于 PCI 最多支持每设备 8 个功能、每总线 32 个设备以及每系统最多 256 条总线，那么系统中配置空间的总量为：每功能 256 字节 x 每设备 8 个功能 x 每总线 32 个设备 x 每系统 256 条总线 = 16 MB 配置空间。
+PCI 还引入了第三种地址空间，称为配置空间，CPU 只能间接访问该空间。每个功能数据包含用于配置空间的内部寄存器，这些寄存器以标准化的方式允许软件对其地址和资源进行可见性和控制，从而在 PC 中提供真正的"即插即用"环境。每个 PCI 功能最多可有 256 字节的配置地址空间。鉴于 PCI 最多支持每设备 8 个功能、每总线 32 个设备以及每系统最多 256 条总线，那么系统中配置空间的总量为：每功能 256 字节 x 每设备 8 个功能 x 每总线 32 个设备 x 每系统 256 条总线 = 16 MB 配置空间。
 </td>
 </tr>
 <tr>
@@ -16256,7 +16256,7 @@ Figure 1-11: Configuration Address Register | 图1-11：配置地址寄存器
 Each PCI function contains up to 256 bytes of configuration space. The first 64 bytes of each function's configuration space contains a structure called the Header, while the remaining 192 Bytes support optional functionality. System configuration is first performed by Boot ROM firmware. After the OS loads, it may reconfigure the system and rearrange resource assignments, with the result that the process of system configuration may be done twice.
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-每个 PCI 功能最多包含 256 字节的配置空间。每个功能配置空间的前 64 字节包含一个称为头标区（Header）的结构，而其余 192 字节支持可选功能。系统配置首先由启动 ROM 固件执行。操作系统加载后，它可能会重新配置系统并重新安排资源分配，因此系统配置过程可能会执行两次。
+每个 PCI 功能最多数据包含 256 字节的配置空间。每个功能配置空间的前 64 字节数据包含一个称为头标区（Header）的结构，而其余 192 字节支持可选功能。系统配置首先由启动 ROM 固件执行。操作系统加载后，它可能会重新配置系统并重新安排资源分配，因此系统配置过程可能会执行两次。
 </td>
 </tr>
 <tr>
@@ -16264,7 +16264,7 @@ Each PCI function contains up to 256 bytes of configuration space. The first 64 
 There are two basic classes of PCI functions as defined by their header types. A Type 1 header identifies a function that is a bridge (as shown in Figure 1‑12 on page 28) and creates another bus in the topology, while a Type 0 header indicates a function that is NOT a bridge (as shown in Figure 1‑13 on page 29). This header type information is contained in a field by the same name in dword 3, byte 2, and should be one of the first things software checks when discovering which functions exist in the system (a process called "enumeration").
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-PCI 功能按其头标区类型分为两个基本类别。Type 1 头标区标识一个作为桥的功能（如图 1‑12 第 28 页所示），并在拓扑中创建另一条总线；而 Type 0 头标区表示一个非桥功能（如图 1‑13 第 29 页所示）。该头标区类型信息包含在双字 3、字节 2 的同名字段中，并且应当是软件在发现系统中存在哪些功能（该过程称为"枚举"）时最先检查的事项之一。
+PCI 功能按其头标区类型分为两个基本类别。Type 1 头标区标识一个作为桥的功能（如图 1‑12 第 28 页所示），并在拓扑中创建另一条总线；而 Type 0 头标区表示一个非桥功能（如图 1‑13 第 29 页所示）。该头标区类型信息数据包含在双字 3、字节 2 的同名字段中，并且应当是软件在发现系统中存在哪些功能（该过程称为"枚举"）时最先检查的事项之一。
 </td>
 </tr>
 </table>
@@ -16389,7 +16389,7 @@ To achieve higher speeds without changing the PCI signaling model, PCI‐X added
 An example of an Intel 7500 server chipset‐based system is shown in Figure 1‑15 on page 32. The MCH chip includes three additional high‐performance Hub Link 2.0 ports that are connected to three PCI‐X Hub 2 bridges (P64H2). Each
 </td>
 <td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-图1-15（第32页）展示了一个基于Intel 7500服务器芯片组的系统示例。MCH芯片包含三个额外的高性能Hub Link 2.0端口，分别连接到三个PCI-X Hub 2桥（P64H2）。每个
+图1-15（第32页）展示了一个基于Intel 7500服务器芯片组的系统示例。MCH芯片数据包含三个额外的高性能Hub Link 2.0端口，分别连接到三个PCI-X Hub 2桥（P64H2）。每个
 </td>
 </tr>
 </table>

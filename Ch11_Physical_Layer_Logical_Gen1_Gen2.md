@@ -6,7 +6,7 @@
 
 ## The Previous Chapter | 上一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -19,7 +19,7 @@
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -35,7 +35,7 @@
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -50,7 +50,7 @@
 
 ## 11.1 Physical Layer Overview | 11.1 物理层概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -67,7 +67,7 @@
 Figure 11‐1: PCIe Port Layers | 图11‐1：PCIe端口层  
 <img src="images/part03_1cdf4aaafebdcb2722ade98568b50daba0bc2fcaf66d07b8778a18993f196aac.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -88,7 +88,7 @@ Figure 11‐2: Logical and Electrical Sub‑Blocks of the Physical Layer | 图11
 
 ## 11.1.1 Observation | 11.1.1 观察
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -102,7 +102,7 @@ Figure 11‐2: Logical and Electrical Sub‑Blocks of the Physical Layer | 图11
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -122,7 +122,7 @@ Figure 11-3: Physical Layer Transmit Details | 图11-3：物理层发送详情
 
 <img src="images/part03_49dd79edac287dcebb3f480607ae981c2757c8266f681e738d764b9d66b794de.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -139,7 +139,7 @@ Figure 11-3: Physical Layer Transmit Details | 图11-3：物理层发送详情
 </table>
 
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
@@ -154,7 +154,7 @@ Figure 11-3: Physical Layer Transmit Details | 图11-3：物理层发送详情
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -175,7 +175,7 @@ Figure 11‐4: Physical Layer Receive Logic Details | 图11‐4：物理层接�
 
 ## 11.2 Transmit Logic Details (Gen1 and Gen2 Only) | 11.2 发送逻辑细节（仅 Gen1 和 Gen2）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -190,7 +190,7 @@ Figure 11‐4: Physical Layer Receive Logic Details | 图11‐4：物理层接�
 
 ## 11.2.1 Tx Buffer | 11.2.1 Tx 缓冲器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -207,7 +207,7 @@ Figure 11‐4: Physical Layer Receive Logic Details | 图11‐4：物理层接�
 
 ## 11.2.2 Mux and Control Logic | 11.2.2 多路选择器和控制逻辑
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -226,7 +226,7 @@ Figure 11-5: Physical Layer Transmit Logic Details (Gen1 and Gen2 Only) | 图11-
 
 <img src="images/part03_f7d851ea136ae0d53cc1b93b9e1de2bf2f18d2f11b6b4f0b34a6fa6d5b2f71af.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -253,7 +253,7 @@ Figure 11-7: TLP and DLLP Packet Framing with Start and End Control Characters |
 
 ## 11.2.3 Byte Striping (for Wide Links) | 11.2.3 字节条带化（宽链路）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -275,7 +275,7 @@ Figure 11-9: x4 Byte Striping | 图11-9：x4字节条带化
 
 <img src="images/part03_bcbeb4b9dc01a018d3f347a2af4b0464d494032a800dfaf2fff82ba83cdb5645.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -295,7 +295,7 @@ Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：DWord并行
 
 ## 11.2.4 Packet Format Rules | 11.2.4 数据包格式规则
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -310,7 +310,7 @@ Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：DWord并行
 
 ## 11.2.4.1 General Rules | 11.2.4.1 通用规则
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -329,7 +329,7 @@ Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：DWord并行
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -344,7 +344,7 @@ Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：DWord并行
 
 ## 11.2.4.2 Example: x1 Format | 11.2.4.2 示例：x1 格式
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -363,7 +363,7 @@ Figure 11-11: x1 Packet Format | 图11-11：x1数据包格式
 
 ## 11.2.4.3 x4 Format Rules | 11.2.4.3 x4 格式规则
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -380,7 +380,7 @@ Figure 11-11: x1 Packet Format | 图11-11：x1数据包格式
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -395,7 +395,7 @@ Figure 11-11: x1 Packet Format | 图11-11：x1数据包格式
 
 ## 11.2.4.4 x4 Format Example | 11.2.4.4 x4 格式示例
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -410,11 +410,11 @@ Figure 11-11: x1 Packet Format | 图11-11：x1数据包格式
 
 Figure 11-12: x4 Packet Format | 图11-12：x4数据包格式
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Lane0</td><td style="border:2px solid #000;">Lane1</td><td style="border:2px solid #000;">Lane2</td><td style="border:2px solid #000;">Lane3</td></tr><tr><td style="border:2px solid #000;">STP</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">LCRC</td></tr><tr><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">END</td></tr><tr><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SDP</td><td colspan="2" style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">END</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Lane0</td><td style="border:2px solid #000;">Lane1</td><td style="border:2px solid #000;">Lane2</td><td style="border:2px solid #000;">Lane3</td></tr><tr><td style="border:2px solid #000;">STP</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">LCRC</td></tr><tr><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">END</td></tr><tr><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SDP</td><td colspan="2" style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">END</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr></table>
 
 ## 11.2.4.5 Large Link-Width Packet Format Rules | 11.2.4.5 大链路宽度数据包格式规则
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -435,7 +435,7 @@ Figure 11-12: x4 Packet Format | 图11-12：x4数据包格式
 
 ## 11.2.4.6 x8 Packet Format Example | 11.2.4.6 x8 数据包格式示例
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -450,11 +450,11 @@ Figure 11-12: x4 Packet Format | 图11-12：x4数据包格式
 
 Figure 11-13: x8 Packet Format | 图11-13：x8数据包格式
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Time\Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">Lane 3</td><td style="border:2px solid #000;">Lane 4</td><td style="border:2px solid #000;">Lane 5</td><td style="border:2px solid #000;">Lane 6</td><td style="border:2px solid #000;">Lane 7</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">STP</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">END</td></tr><tr><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SDP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">END</td></tr><tr><td style="border:2px solid #000;">STP</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">LCRC</td></tr><tr><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">END</td><td style="border:2px solid #000;">PAD</td><td style="border:2px solid #000;">PAD</td><td style="border:2px solid #000;">PAD</td><td style="border:2px solid #000;">PAD</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Time\Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">Lane 3</td><td style="border:2px solid #000;">Lane 4</td><td style="border:2px solid #000;">Lane 5</td><td style="border:2px solid #000;">Lane 6</td><td style="border:2px solid #000;">Lane 7</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">STP</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">END</td></tr><tr><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">COM</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">SDP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">END</td></tr><tr><td style="border:2px solid #000;">STP</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;">Sequence</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">LCRC</td></tr><tr><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">END</td><td style="border:2px solid #000;">PAD</td><td style="border:2px solid #000;">PAD</td><td style="border:2px solid #000;">PAD</td><td style="border:2px solid #000;">PAD</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr><tr><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td><td style="border:2px solid #000;">Idle (00h)</td></tr></table>
 
 ## 11.2.5 Scrambler | 11.2.5 扰码器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -470,7 +470,7 @@ Figure 11-13: x8 Packet Format | 图11-13：x8数据包格式
 
 ## 11.2.5.1 Scrambler Algorithm | 11.2.5.1 扰码器算法
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -491,7 +491,7 @@ Figure 11-14: Scrambler | 图11-14：加扰器
 
 <img src="images/part03_1dccb2fc25412a566b1934abaecf51df9ba715b26a579a482342834d1d8f2b91.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -506,7 +506,7 @@ Figure 11-14: Scrambler | 图11-14：加扰器
 
 ## 11.2.5.2 Some Scrambler Implementation Rules | 11.2.5.2 一些扰码器实现规则
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -526,7 +526,7 @@ Figure 11-14: Scrambler | 图11-14：加扰器
 
 ## 11.2.5.3 Disabling Scrambling | 11.2.5.3 禁用加扰
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -544,7 +544,7 @@ Figure 11-14: Scrambler | 图11-14：加扰器
 
 ## 11.2.6.1 General | 11.2.6.1 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -559,7 +559,7 @@ Figure 11-14: Scrambler | 图11-14：加扰器
 
 ## 11.3.1 Receiver Equalization (Motivation) | 11.3.1 接收均衡（动机）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -584,7 +584,7 @@ Figure 11-15: Example of 8-bit Character 00h Encoding | 图11-15：8位字符00h
 
 ## 11.2.6.2 Properties of 10-bit Symbols | 11.2.6.2 10 位符号的属性
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -599,7 +599,7 @@ Figure 11-15: Example of 8-bit Character 00h Encoding | 图11-15：8位字符00h
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -619,7 +619,7 @@ Figure 11-15: Example of 8-bit Character 00h Encoding | 图11-15：8位字符00h
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -643,7 +643,7 @@ Figure 11-16: 8b/10b Nomenclature | 图11-16：8b/10b命名法
 
 ## 11.2.6.3 Disparity | 11.2.6.3 差异
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -660,7 +660,7 @@ Figure 11-16: 8b/10b Nomenclature | 图11-16：8b/10b命名法
 
 ## 11.2.6.4 Encoding Procedure | 11.2.6.4 编码过程
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -675,7 +675,7 @@ Figure 11-16: 8b/10b Nomenclature | 图11-16：8b/10b命名法
 
 ## PCI Express Technology | PCI Express技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -693,7 +693,7 @@ Figure 11-17: 8-bit to 10-bit (8b/10b) Encoder | 图11-17：8位到10位（8b/10
 
 <img src="images/part03_617e4056ba20b5bc1e60876252ee7489ce2c1b0067167e006b7996f804dae376.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -706,9 +706,9 @@ Figure 11-17: 8-bit to 10-bit (8b/10b) Encoder | 图11-17：8位到10位（8b/10
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">D or K Character</td><td style="border:2px solid #000;">Hex Byte</td><td style="border:2px solid #000;">Binary Bits HGF EDCBA</td><td style="border:2px solid #000;">Byte Name</td><td colspan="2" style="border:2px solid #000;">CRD - abcdei fghj</td><td colspan="2" style="border:2px solid #000;">CRD + abcdei fghj</td></tr><tr><td style="border:2px solid #000;">Data (D)</td><td style="border:2px solid #000;">6A</td><td style="border:2px solid #000;">011 01010</td><td style="border:2px solid #000;">D10.3</td><td colspan="2" style="border:2px solid #000;">010101 1100</td><td colspan="2" style="border:2px solid #000;">010101 0011</td></tr><tr><td style="border:2px solid #000;">Data (D)</td><td style="border:2px solid #000;">1B</td><td style="border:2px solid #000;">000 11011</td><td style="border:2px solid #000;">D27.0</td><td colspan="2" style="border:2px solid #000;">110110 0100</td><td colspan="2" style="border:2px solid #000;">001001 1011</td></tr><tr><td style="border:2px solid #000;">Data (D)</td><td style="border:2px solid #000;">F7</td><td style="border:2px solid #000;">111 10111</td><td style="border:2px solid #000;">D23.7</td><td colspan="2" style="border:2px solid #000;">111010 0001</td><td colspan="2" style="border:2px solid #000;">000101 1110</td></tr><tr><td style="border:2px solid #000;">Control (K)</td><td style="border:2px solid #000;">F7</td><td style="border:2px solid #000;">111 10111</td><td style="border:2px solid #000;">K23.7</td><td colspan="2" style="border:2px solid #000;">111010 1000</td><td colspan="2" style="border:2px solid #000;">000101 0111</td></tr><tr><td style="border:2px solid #000;">Control (K)</td><td style="border:2px solid #000;">BC</td><td style="border:2px solid #000;">101 11100</td><td style="border:2px solid #000;">K28.5</td><td colspan="2" style="border:2px solid #000;">001111 1010</td><td colspan="2" style="border:2px solid #000;">110000 0101</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">D or K Character</td><td style="border:2px solid #000;">Hex Byte</td><td style="border:2px solid #000;">Binary Bits HGF EDCBA</td><td style="border:2px solid #000;">Byte Name</td><td colspan="2" style="border:2px solid #000;">CRD - abcdei fghj</td><td colspan="2" style="border:2px solid #000;">CRD + abcdei fghj</td></tr><tr><td style="border:2px solid #000;">Data (D)</td><td style="border:2px solid #000;">6A</td><td style="border:2px solid #000;">011 01010</td><td style="border:2px solid #000;">D10.3</td><td colspan="2" style="border:2px solid #000;">010101 1100</td><td colspan="2" style="border:2px solid #000;">010101 0011</td></tr><tr><td style="border:2px solid #000;">Data (D)</td><td style="border:2px solid #000;">1B</td><td style="border:2px solid #000;">000 11011</td><td style="border:2px solid #000;">D27.0</td><td colspan="2" style="border:2px solid #000;">110110 0100</td><td colspan="2" style="border:2px solid #000;">001001 1011</td></tr><tr><td style="border:2px solid #000;">Data (D)</td><td style="border:2px solid #000;">F7</td><td style="border:2px solid #000;">111 10111</td><td style="border:2px solid #000;">D23.7</td><td colspan="2" style="border:2px solid #000;">111010 0001</td><td colspan="2" style="border:2px solid #000;">000101 1110</td></tr><tr><td style="border:2px solid #000;">Control (K)</td><td style="border:2px solid #000;">F7</td><td style="border:2px solid #000;">111 10111</td><td style="border:2px solid #000;">K23.7</td><td colspan="2" style="border:2px solid #000;">111010 1000</td><td colspan="2" style="border:2px solid #000;">000101 0111</td></tr><tr><td style="border:2px solid #000;">Control (K)</td><td style="border:2px solid #000;">BC</td><td style="border:2px solid #000;">101 11100</td><td style="border:2px solid #000;">K28.5</td><td colspan="2" style="border:2px solid #000;">001111 1010</td><td colspan="2" style="border:2px solid #000;">110000 0101</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -726,7 +726,7 @@ Figure 11-17: 8-bit to 10-bit (8b/10b) Encoder | 图11-17：8位到10位（8b/10
 
 Figure 11‐19: Example 8b/10b Transmission | 图11‐19：8b/10b传输示例
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -739,9 +739,9 @@ Figure 11‐19: Example 8b/10b Transmission | 图11‐19：8b/10b传输示例
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">D/K#</td><td style="border:2px solid #000;">Hex Byte</td><td style="border:2px solid #000;">Binary Bits HGF EDCBA</td><td style="border:2px solid #000;">Byte Name</td><td style="border:2px solid #000;">CRD – abcdei fghj</td><td style="border:2px solid #000;">CRD + abcdei fghj</td></tr><tr><td style="border:2px solid #000;">Control (K)</td><td style="border:2px solid #000;">BC</td><td style="border:2px solid #000;">101 11100</td><td style="border:2px solid #000;">K28.5</td><td style="border:2px solid #000;">001111 1010</td><td style="border:2px solid #000;">110000 0101</td></tr><tr><td style="border:2px solid #000;">Data (D)</td><td style="border:2px solid #000;">6A</td><td style="border:2px solid #000;">011 01010</td><td style="border:2px solid #000;">D10.3</td><td style="border:2px solid #000;">010101 1100</td><td style="border:2px solid #000;">010101 0011</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">D/K#</td><td style="border:2px solid #000;">Hex Byte</td><td style="border:2px solid #000;">Binary Bits HGF EDCBA</td><td style="border:2px solid #000;">Byte Name</td><td style="border:2px solid #000;">CRD – abcdei fghj</td><td style="border:2px solid #000;">CRD + abcdei fghj</td></tr><tr><td style="border:2px solid #000;">Control (K)</td><td style="border:2px solid #000;">BC</td><td style="border:2px solid #000;">101 11100</td><td style="border:2px solid #000;">K28.5</td><td style="border:2px solid #000;">001111 1010</td><td style="border:2px solid #000;">110000 0101</td></tr><tr><td style="border:2px solid #000;">Data (D)</td><td style="border:2px solid #000;">6A</td><td style="border:2px solid #000;">011 01010</td><td style="border:2px solid #000;">D10.3</td><td style="border:2px solid #000;">010101 1100</td><td style="border:2px solid #000;">010101 0011</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -754,9 +754,9 @@ Figure 11‐19: Example 8b/10b Transmission | 图11‐19：8b/10b传输示例
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td></tr><tr><td style="border:2px solid #000;">Character to be transmitted</td><td rowspan="2" style="border:2px solid #000;">-</td><td style="border:2px solid #000;">K28.5 (BCh)</td><td rowspan="2" style="border:2px solid #000;">+</td><td style="border:2px solid #000;">K28.5 (BCh)</td><td rowspan="2" style="border:2px solid #000;">-</td><td style="border:2px solid #000;">D10.3 (6Ah)</td><td rowspan="2" style="border:2px solid #000;">-</td></tr><tr><td style="border:2px solid #000;">Bit stream transmitted</td><td style="border:2px solid #000;">Yields 001111 1010 CRD is +</td><td style="border:2px solid #000;">Yields 110000 0101 CRD is -</td><td style="border:2px solid #000;">Yields 010101 1100 CRD is neutral</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td></tr><tr><td style="border:2px solid #000;">Character to be transmitted</td><td rowspan="2" style="border:2px solid #000;">-</td><td style="border:2px solid #000;">K28.5 (BCh)</td><td rowspan="2" style="border:2px solid #000;">+</td><td style="border:2px solid #000;">K28.5 (BCh)</td><td rowspan="2" style="border:2px solid #000;">-</td><td style="border:2px solid #000;">D10.3 (6Ah)</td><td rowspan="2" style="border:2px solid #000;">-</td></tr><tr><td style="border:2px solid #000;">Bit stream transmitted</td><td style="border:2px solid #000;">Yields 001111 1010 CRD is +</td><td style="border:2px solid #000;">Yields 110000 0101 CRD is -</td><td style="border:2px solid #000;">Yields 010101 1100 CRD is neutral</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -772,9 +772,9 @@ Figure 11‐19: Example 8b/10b Transmission | 图11‐19：8b/10b传输示例
 
 Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字符编码和定义
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Character Name</td><td style="border:2px solid #000;">8b/10b Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">K28.5</td><td style="border:2px solid #000;">First character in any ordered set. Also used by Rx to achieve Symbol lock during training.</td></tr><tr><td style="border:2px solid #000;">PAD</td><td style="border:2px solid #000;">K23.7</td><td style="border:2px solid #000;">Packet filler</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">K28.0</td><td style="border:2px solid #000;">Used in SKIP ordered set for Clock Tolerance Compensation</td></tr><tr><td style="border:2px solid #000;">STP</td><td style="border:2px solid #000;">K27.7</td><td style="border:2px solid #000;">Start of a TLP</td></tr><tr><td style="border:2px solid #000;">SDP</td><td style="border:2px solid #000;">K28.2</td><td style="border:2px solid #000;">Start of a DLLP</td></tr><tr><td style="border:2px solid #000;">END</td><td style="border:2px solid #000;">K29.7</td><td style="border:2px solid #000;">End of Good Packet</td></tr><tr><td style="border:2px solid #000;">EDB</td><td style="border:2px solid #000;">K30.7</td><td style="border:2px solid #000;">End of a bad or 'nullified' TLP.</td></tr><tr><td style="border:2px solid #000;">FTS</td><td style="border:2px solid #000;">K28.1</td><td style="border:2px solid #000;">Used to exit from L0s low power state to L0</td></tr><tr><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">K28.3</td><td style="border:2px solid #000;">Used to place Link into Electrical Idle state</td></tr><tr><td style="border:2px solid #000;">EIE</td><td style="border:2px solid #000;">K28.7</td><td style="border:2px solid #000;">Part of the Electrical Idle Exit Ordered Set sent prior to bringing the Link back to full power for speeds higher than 2.5 GT/s</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Character Name</td><td style="border:2px solid #000;">8b/10b Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">COM</td><td style="border:2px solid #000;">K28.5</td><td style="border:2px solid #000;">First character in any ordered set. Also used by Rx to achieve Symbol lock during training.</td></tr><tr><td style="border:2px solid #000;">PAD</td><td style="border:2px solid #000;">K23.7</td><td style="border:2px solid #000;">Packet filler</td></tr><tr><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">K28.0</td><td style="border:2px solid #000;">Used in SKIP ordered set for Clock Tolerance Compensation</td></tr><tr><td style="border:2px solid #000;">STP</td><td style="border:2px solid #000;">K27.7</td><td style="border:2px solid #000;">Start of a TLP</td></tr><tr><td style="border:2px solid #000;">SDP</td><td style="border:2px solid #000;">K28.2</td><td style="border:2px solid #000;">Start of a DLLP</td></tr><tr><td style="border:2px solid #000;">END</td><td style="border:2px solid #000;">K29.7</td><td style="border:2px solid #000;">End of Good Packet</td></tr><tr><td style="border:2px solid #000;">EDB</td><td style="border:2px solid #000;">K30.7</td><td style="border:2px solid #000;">End of a bad or 'nullified' TLP.</td></tr><tr><td style="border:2px solid #000;">FTS</td><td style="border:2px solid #000;">K28.1</td><td style="border:2px solid #000;">Used to exit from L0s low power state to L0</td></tr><tr><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">K28.3</td><td style="border:2px solid #000;">Used to place Link into Electrical Idle state</td></tr><tr><td style="border:2px solid #000;">EIE</td><td style="border:2px solid #000;">K28.7</td><td style="border:2px solid #000;">Part of the Electrical Idle Exit Ordered Set sent prior to bringing the Link back to full power for speeds higher than 2.5 GT/s</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -798,7 +798,7 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
 
 ## 11.2.7 Ordered Sets | 11.2.7 有序集
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -818,7 +818,7 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
 
 ## 11.2.11 Serializer | 11.2.11 串行器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -831,7 +831,7 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -847,7 +847,7 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
 
 ## 11.2.9 Transmit Clock (Tx Clock) | 11.2.9 发送时钟（Tx 时钟）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -862,7 +862,7 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
 
 ## 11.2.10 Miscellaneous Transmit Topics | 11.2.10 杂项发送主题
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -877,7 +877,7 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
 
 ## Logical Idle | 逻辑空闲
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -895,7 +895,7 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -912,11 +912,11 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
 
 Table 11‐2: Allowable Transmitter Signal Skew | 表11‐2：允许的发送器信号偏斜
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Spec Version</td><td style="border:2px solid #000;">Allowable Tx Skew</td></tr><tr><td style="border:2px solid #000;">Gen1</td><td style="border:2px solid #000;">1300 ps</td></tr><tr><td style="border:2px solid #000;">Gen2</td><td style="border:2px solid #000;">1300 ps</td></tr><tr><td style="border:2px solid #000;">Gen3</td><td style="border:2px solid #000;">1250 ps</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Spec Version</td><td style="border:2px solid #000;">Allowable Tx Skew</td></tr><tr><td style="border:2px solid #000;">Gen1</td><td style="border:2px solid #000;">1300 ps</td></tr><tr><td style="border:2px solid #000;">Gen2</td><td style="border:2px solid #000;">1300 ps</td></tr><tr><td style="border:2px solid #000;">Gen3</td><td style="border:2px solid #000;">1250 ps</td></tr></table>
 
 ## Clock Compensation | 时钟补偿
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -934,7 +934,7 @@ Table 11‐2: Allowable Transmitter Signal Skew | 表11‐2：允许的发送器
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -956,7 +956,7 @@ Figure 11‑20: SKIP Ordered Set | 图11‑20：SKIP有序集
 
 # Receive Logic Details (Gen1 and Gen2 Only) | 接收逻辑细节（仅Gen1和Gen2）
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Figure 11-21 shows the receiver logic of the Logical Physical Layer. This section describes packet processing from the time the data is received serially on each lane until the packet byte stream is clocked into the Data Link Layer.
@@ -971,7 +971,7 @@ Figure 11-21: Physical Layer Receive Logic Details (Gen1 and Gen2 Only) | 图11-
 
 <img src="images/part03_a0c8b62f2dab2bdd71b60110cee0583ece1f437673c39b9ff9313d893cba7e74.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -987,7 +987,7 @@ Figure 11-21: Physical Layer Receive Logic Details (Gen1 and Gen2 Only) | 图11-
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 For a detailed discussion of receiver characteristics, see section "Receiver Characteristics" on page 492.
@@ -1006,7 +1006,7 @@ Figure 11-22: Receiver Logic's Front End Per Lane | 图11-22：每条通道的�
 
 ## 11.2.6.1 General | 11.2.6.1 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1025,7 +1025,7 @@ Figure 11-22: Receiver Logic's Front End Per Lane | 图11-22：每条通道的�
 
 ## Achieving Bit Lock | 实现位锁
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1041,7 +1041,7 @@ Figure 11-22: Receiver Logic's Front End Per Lane | 图11-22：每条通道的�
 
 ## Losing Bit Lock | 丢失位锁定
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 If the Link is put in a low power state (such as L0s or L1) in which packet transmission ceases, the receiver will lose synchronization. To avoid having the error circuit see this as an error, the transmitter sends an electrical Idle ordered set (EIOS) before going to the lower power state to tell the receiver to de‐gate its input.
@@ -1054,7 +1054,7 @@ If the Link is put in a low power state (such as L0s or L1) in which packet tran
 
 ## Regaining Bit Lock | 重新获取位锁定
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1077,7 +1077,7 @@ If the Link is put in a low power state (such as L0s or L1) in which packet tran
 
 ## 11.2.6.1 General | 11.2.6.1 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1092,7 +1092,7 @@ If the Link is put in a low power state (such as L0s or L1) in which packet tran
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1107,7 +1107,7 @@ If the Link is put in a low power state (such as L0s or L1) in which packet tran
 
 ## Achieving Symbol Lock | 获取符号锁定
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When the receive logic starts receiving a bit stream, it is JABOB (just a bunch of bits) with no markers to differentiate Symbols or any boundaries. The receive logic must have a way to find the start and end of a 10-bit Symbol, and the Comma (COM) Symbol serves this purpose.
@@ -1118,7 +1118,7 @@ When the receive logic starts receiving a bit stream, it is JABOB (just a bunch 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The 10-bit encoding of the COM Symbol contains two bits of one polarity followed by five bits of the opposite polarity (0011111010b or 1100000101b), making it easily detectable. Recall that the COM Control character, like all other Control characters, is also not scrambled by the transmitter, and that ensures that the desired sequence will be seen at the receiver. Upon detection of the COM, the logic knows that the next bit received will be the first bit of the next 10-bit Symbol. At that point, the deserializer is said to have achieved 'Symbol Lock'.
@@ -1129,7 +1129,7 @@ COM符号的10位编码包含两个相同极性的比特后跟五个相反极性
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The COM Symbol is used to achieve Symbol Lock as follows:
@@ -1140,7 +1140,7 @@ COM符号用于实现符号锁定如下：
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 During Link training when the Link is first established or when re-training is needed, and TS1 and TS2 ordered sets are transmitted.
@@ -1151,7 +1151,7 @@ During Link training when the Link is first established or when re-training is n
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • When FTS ordered sets are sent to inform the receiver to change the state of the Link from L0s to L0.
@@ -1162,7 +1162,7 @@ During Link training when the Link is first established or when re-training is n
 </tr>
 </table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1177,7 +1177,7 @@ During Link training when the Link is first established or when re-training is n
 
 ## 99.2 Background | 99.2 背景
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1195,7 +1195,7 @@ During Link training when the Link is first established or when re-training is n
 
 ## Elastic Buffer's Role | 弹性缓冲器的作用
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To compensate for that worst‐case frequency difference, an elastic buffer (see Figure 11‐22 on page 394) is built into the receive path. Received Symbols are clocked into it using the recovered clock and clocked out using the receiver's local clock. The Elastic Buffer compensates for the frequency difference by adding or removing SKP Symbols. When a SKP ordered set arrives, logic watching the status of the elastic buffer makes an evaluation. If the local clock is running faster, Symbols are being clocked out faster than they're coming in, so the buffer will be approaching an underflow condition. The logic will compensate for this by appending an extra SKP Symbol to the ordered set when it arrives to quickly refill the buffer. On the other hand, if the recovered clock is running faster, the buffer will be approaching an overflow condition and the logic will compensate for that by deleting one of the SKP Symbols to quickly drain the buffer. These actions will make up for difference in rates of arrival and consumption of the Symbols and prevent any confusion or loss of data.
@@ -1206,7 +1206,7 @@ To compensate for that worst‐case frequency difference, an elastic buffer (see
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The transmitter periodically sends the SKIP ordered sets for this purpose. As the name implies, the SKP characters are really disposable characters. Deleting or adding a SKP Symbol prevents a buffer overflow or underflow in the elastic buffer and then they get discarded along with all the other control characters when the Symbols are forwarded to the next layer. Consequently, they use a little bandwidth but don't otherwise affect the flow of packets at all.
@@ -1217,7 +1217,7 @@ The transmitter periodically sends the SKIP ordered sets for this purpose. As th
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Although lost Symbols due to an Elastic Buffer overflow or underflow is an error condition, it's optional for receivers to check for this. If they do, and this situation occurs, a Receiver Error will be indicated to the Data Link Layer.
@@ -1228,7 +1228,7 @@ Although lost Symbols due to an Elastic Buffer overflow or underflow is an error
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The transmitter schedules a SKIP ordered set transmission once every 1180 to 1538 Symbol times. However, if the transmitter starts a maximum sized TLP transmission right at the 1538 Symbol time boundary when a SKIP ordered set is scheduled to be transmitted, the SKIP ordered set transmission is deferred. Receivers must be able to tolerate SKIP ordered sets that have a maximum separation dependent on the maximum packet payload size a device supports. The formula for the maximum number of Symbols (n) between SKIP ordered sets is: n = 1538 + (maximum packet payload size + 28)
@@ -1239,7 +1239,7 @@ The transmitter schedules a SKIP ordered set transmission once every 1180 to 153
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The number 28 in the equation is the TLP overhead. It is the largest number of Symbols that would be associated with the header (16 bytes), the optional ECRC (4 bytes), the LCRC (4 bytes), the sequence number (2 bytes) and the framing Symbols STP and END (2 bytes).
@@ -1254,7 +1254,7 @@ The number 28 in the equation is the TLP overhead. It is the largest number of S
 
 ## Flight Time Will Vary Between Lanes | 传输时间在各通道之间会有差异
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 For wide links, skew between lanes is an issue that can't be avoided and which must be compensated at the receiver. Symbols are sent simultaneously on all lanes using the same transmit clock, but they can't be expected to arrive at the receiver at precisely the same time. Sources of Lane-to-Lane skew include:
@@ -1277,7 +1277,7 @@ For wide links, skew between lanes is an issue that can't be avoided and which m
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When the serial bit streams carrying a packet arrive at the receiver, this Lane-to-Lane skew must be removed to receive the bytes in the correct order. This process is referred to as de-skewing the link.
@@ -1290,7 +1290,7 @@ When the serial bit streams carrying a packet arrive at the receiver, this Lane-
 
 ## Ordered sets Help De-Skewing | 有序集辅助去偏斜
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1307,7 +1307,7 @@ When the serial bit streams carrying a packet arrive at the receiver, this Lane-
 
 ## Receiver Lane-to-Lane De-Skew Capability | 接收器通道间去偏斜能力
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This could be done by adjusting an analog delay line on the incoming signals. Alternatively, it could be done after the elastic buffer, which has the advantage that the arrival time differences are now digitized to Symbol times by the local clock of the receiver (see Figure 11-23 on page 399). If the input to one lane makes it on a clock edge and another one doesn't, the early arrival COMs can simply be delayed by the appropriate number of Symbol clocks to line it up with the late arriving COMs. The fact that the maximum allowable skew at the receiver is a multiple of the clock periods infers that the spec writers probably had an implementation like this in mind (see Table 11-3 on page 399).
@@ -1320,9 +1320,9 @@ This could be done by adjusting an analog delay line on the incoming signals. Al
 
 Table 11-3: Allowable Receiver Signal Skew | 表11-3：允许的接收器信号偏斜
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Spec Version</td><td style="border:2px solid #000;">Allowable Rx Skew</td></tr><tr><td style="border:2px solid #000;">Gen1</td><td style="border:2px solid #000;">20 ns(5 clocks at 4ns per Symbol)</td></tr><tr><td style="border:2px solid #000;">Gen2</td><td style="border:2px solid #000;">8 ns(4 clocks at 2ns per Symbol)</td></tr><tr><td style="border:2px solid #000;">Gen3</td><td style="border:2px solid #000;">6 ns(4 clocks at 1.25ns per Symbol)</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Spec Version</td><td style="border:2px solid #000;">Allowable Rx Skew</td></tr><tr><td style="border:2px solid #000;">Gen1</td><td style="border:2px solid #000;">20 ns(5 clocks at 4ns per Symbol)</td></tr><tr><td style="border:2px solid #000;">Gen2</td><td style="border:2px solid #000;">8 ns(4 clocks at 2ns per Symbol)</td></tr><tr><td style="border:2px solid #000;">Gen3</td><td style="border:2px solid #000;">6 ns(4 clocks at 1.25ns per Symbol)</td></tr></table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In Gen3 mode there aren't any COM characters to use for de-skewing, but detecting Ordered Sets can still provide the necessary timing alignment.
@@ -1335,7 +1335,7 @@ In Gen3 mode there aren't any COM characters to use for de-skewing, but detectin
 
 ## De-Skew Opportunities | 反偏斜机会
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 An unambiguous pattern is needed on all lanes at the same time to perform deskewing and any ordered set will do. Link training sends these, but the SKIP ordered set is sent regularly during normal Link operation. Checking its arrival time allows the skew to be checked on an ongoing basis in case it might change based on temperature or voltage. If it does, the Link will need to transition to the Recovery LTSSM state to correct it. If that happens while packets are in flight, however, a receiver error may occur and a packet could be dropped, possibly resulting in replayed TLPs.
@@ -1354,7 +1354,7 @@ Figure 11‐23: Receiver's Link De‐Skew Logic | 图11‐23：接收器的链�
 
 ## 11.2.6.1 General | 11.2.6.1 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The first two generations of PCIe use 8b/10b, while Gen3 does not. Let's explore the operation of it first and then consider the difference for Gen3. Refer to Figure 11-24 on page 401. Each receiver Lane incorporates a 10b/8b decoder which is fed from the Elastic Buffer. The decoder is shown with two lookup tables (the D and K tables) to decode the 10-bit Symbol stream into 8-bit characters plus the D/K# signal. The state of the D/K# signal indicates that the received Symbol is a Data (D) character if a match for the received Symbol is found in the D table, or a Control (K) character if a match for the received Symbol is discovered in the K table.
@@ -1367,7 +1367,7 @@ PCIe的前两代使用8b/10b编码，而Gen3则不使用。我们首先探讨其
 
 ## Disparity Calculator | 失衡计算器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1382,7 +1382,7 @@ PCIe的前两代使用8b/10b编码，而Gen3则不使用。我们首先探讨其
 
 ## Code Violation and Disparity Error Detection | 码违例和失衡错误检测
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1397,7 +1397,7 @@ PCIe的前两代使用8b/10b编码，而Gen3则不使用。我们首先探讨其
 
 ## Code Violations | 代码违规
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 
@@ -1462,7 +1462,7 @@ PCIe的前两代使用8b/10b编码，而Gen3则不使用。我们首先探讨其
 
 ## Disparity Errors. | 失衡错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1479,11 +1479,11 @@ Figure 11‐24: 8b/10b Decoder per Lane | 图11‐24：每条通道的8b/10b解�
 <img src="images/part03_ce508842c25c7157ba376e1189dd79d55a2d6886fa9a898a14df7618f4153d5a.jpg" width="700" alt="">  
 Figure 11‐25: Example of Delayed Disparity Error Detection | 图11‐25：延迟不一致性错误检测示例
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td></tr><tr><td style="border:2px solid #000;">Transmitted Character Stream</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">D21.1</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">D23.5</td><td style="border:2px solid #000;">+</td></tr><tr><td style="border:2px solid #000;">Transmitted Bit Stream</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">101010 1001</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">010101 0101</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">111010 1010</td><td style="border:2px solid #000;">+</td></tr><tr><td style="border:2px solid #000;">Bit Stream After Error</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">101010 1011</td><td style="border:2px solid #000;">+</td><td style="border:2px solid #000;">010101 0101</td><td style="border:2px solid #000;">+</td><td style="border:2px solid #000;">111010 1010</td><td style="border:2px solid #000;">+</td></tr><tr><td style="border:2px solid #000;">Decoded Character Stream</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">D21.0</td><td style="border:2px solid #000;">+</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;">+</td><td style="border:2px solid #000;">Invalid</td><td style="border:2px solid #000;">+</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td><td style="border:2px solid #000;">Character</td><td style="border:2px solid #000;">CRD</td></tr><tr><td style="border:2px solid #000;">Transmitted Character Stream</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">D21.1</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">D23.5</td><td style="border:2px solid #000;">+</td></tr><tr><td style="border:2px solid #000;">Transmitted Bit Stream</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">101010 1001</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">010101 0101</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">111010 1010</td><td style="border:2px solid #000;">+</td></tr><tr><td style="border:2px solid #000;">Bit Stream After Error</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">101010 1011</td><td style="border:2px solid #000;">+</td><td style="border:2px solid #000;">010101 0101</td><td style="border:2px solid #000;">+</td><td style="border:2px solid #000;">111010 1010</td><td style="border:2px solid #000;">+</td></tr><tr><td style="border:2px solid #000;">Decoded Character Stream</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">D21.0</td><td style="border:2px solid #000;">+</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;">+</td><td style="border:2px solid #000;">Invalid</td><td style="border:2px solid #000;">+</td></tr></table>
 
 ## 12.4.5 Descrambler | 12.4.5 解扰器
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The descrambler is fed by the 8b/10b decoder. It only descrambles Data (D) characters associated with a TLP or DLLP (D/K# is high). It doesn't descramble Control (K) characters or ordered sets because they're not scrambled at the transmitter.
@@ -1496,7 +1496,7 @@ The descrambler is fed by the 8b/10b decoder. It only descrambles Data (D) chara
 
 ## Some Descrambler Implementation Rules: | 解扰器实现规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 On a multi-Lane Link, descramblers associated with each Lane must operate in concert, maintaining the same simultaneous value in each LFSR.
@@ -1506,7 +1506,7 @@ On a multi-Lane Link, descramblers associated with each Lane must operate in con
 </td>
 </tr>
 </table>
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Descrambling is applied to 'D' characters associated with TLP and DLLPs including the Logical Idle (00h) sequence. 'D' characters within ordered set are not descrambled.
@@ -1516,7 +1516,7 @@ Descrambling is applied to 'D' characters associated with TLP and DLLPs includin
 </td>
 </tr>
 </table>
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 'K' characters and ordered set characters bypass the descrambler logic.
@@ -1526,7 +1526,7 @@ Descrambling is applied to 'D' characters associated with TLP and DLLPs includin
 </td>
 </tr>
 </table>
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Compliance Pattern characters are not descrambled.
@@ -1536,7 +1536,7 @@ Compliance Pattern characters are not descrambled.
 </td>
 </tr>
 </table>
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When a COM character enters the descrambler, it reinitializes the LFSR value to FFFFh.
@@ -1546,7 +1546,7 @@ When a COM character enters the descrambler, it reinitializes the LFSR value to 
 </td>
 </tr>
 </table>
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 With one exception, the LFSR serially advances eight times for every character (D or K character) received. The LFSR does NOT advance on SKP characters associated with the SKIP ordered sets received. The reason the LFSR is not advanced on detecting SKPs is because there may be a difference between the number of SKP characters transmitted and the SKP characters exiting the Elastic Buffer (as discussed in "Receiver Clock Compensation Logic" on page 396).
@@ -1559,7 +1559,7 @@ With one exception, the LFSR serially advances eight times for every character (
 
 ## Disabling Descrambling | 禁用解扰
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 By default, descrambling is always enabled, but the spec allows it to be disabled for test and debug purposes although no standard software method is given for disabling it. If the descrambler receives at least two TS1/TS2 ordered sets with the "disable scrambling" bit set on all of its configured Lanes, it disables the descrambler.
@@ -1572,7 +1572,7 @@ By default, descrambling is always enabled, but the spec allows it to be disable
 
 ## 12.4.6 Byte Un-Striping | 12.4.6 字节解条带化
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Figure 11‐26 on page 403 shows eight character streams from the descramblers of a x8 Link being un‐striped into a single byte stream which is fed to the character filter logic.
@@ -1588,7 +1588,7 @@ Figure 11‐26: Example of x8 Byte Un‐Striping | 图11‐26：x8字节解条�
 
 ## 11.3.9 Filter and Packet Alignment Check | 11.3.9 过滤与包对齐检查
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1603,7 +1603,7 @@ Figure 11‐26: Example of x8 Byte Un‐Striping | 图11‐26：x8字节解条�
 
 ## 12.4.8 Receive Buffer (Rx Buffer) | 12.4.8 接收缓冲器（Rx 缓冲器）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1619,7 +1619,7 @@ Figure 11‐26: Example of x8 Byte Un‐Striping | 图11‐26：x8字节解条�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1637,7 +1637,7 @@ Figure 11‐26: Example of x8 Byte Un‐Striping | 图11‐26：x8字节解条�
 
 ## 11.2.6.1 General | 11.2.6.1 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Physical Layer errors are reported as Receiver Errors to the Data Link Layer. According to the spec, some errors must be checked and trigger a receiver error, while others are optional.
@@ -1648,7 +1648,7 @@ Physical Layer errors are reported as Receiver Errors to the Data Link Layer. Ac
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Required error checking:
@@ -1659,7 +1659,7 @@ Required error checking:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • 8b/10b decode errors: disparity error, illegal Symbol
@@ -1670,7 +1670,7 @@ Required error checking:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Optional error checking:
@@ -1681,7 +1681,7 @@ Optional error checking:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • Loss of Symbol lock (see "Achieving Symbol Lock" on page 396)
@@ -1692,7 +1692,7 @@ Optional error checking:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • Elastic Buffer overflow or underflow
@@ -1703,7 +1703,7 @@ Optional error checking:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • Lane deskew errors (see "Lane-to-Lane Skew" on page 398)
@@ -1714,7 +1714,7 @@ Optional error checking:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • Packets inconsistent with format rules
@@ -1727,7 +1727,7 @@ Optional error checking:
 
 ## 11.4.1 Response of Data Link Layer to Receiver Error | 11.4.1 数据链路层对接收器错误的响应
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1743,7 +1743,7 @@ Optional error checking:
 
 ## 11.5 Active State Power Management | 11.5 主动状态电源管理
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 There are several Link power states that allow power savings under certain conditions. These are L0s, L1, L2, and L3, which represent progressively lower power and also longer recovery time to get the link back to the fully‑operation state of L0. The L0s state can only be entered under hardware control, while L1 can be initiated by hardware or software. Since L0s and L1 can be controlled by hardware, they are referred to by the spec as ASPM (Active State Power Management) states. For more on the details of link and device power management see the section "Active State Power Management (ASPM)" on page 735.
@@ -1756,7 +1756,7 @@ There are several Link power states that allow power savings under certain condi
 
 ## 11.6 Link Training and Initialization | 11.6 链路训练和初始化
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>

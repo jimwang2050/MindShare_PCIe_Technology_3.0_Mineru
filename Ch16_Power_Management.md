@@ -4,7 +4,7 @@
 
 ## The Previous Chapter | 上一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -18,7 +18,7 @@
 
 ## This Chapter | 本章内容
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -34,7 +34,7 @@
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -49,7 +49,7 @@
 ## 16.1 Introduction | 16.1 引言
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -74,7 +74,7 @@
 
 ## 16.2 Power Management Primer | 16.2 电源管理入门
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -87,7 +87,7 @@
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -101,7 +101,7 @@
 </table>
 
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr><td style="border:2px solid #000;">Element</td><td style="border:2px solid #000;">Responsibility</td></tr>
 <tr><td style="border:2px solid #000;">OS</td><td style="border:2px solid #000;">Directs overall system power management by sending requests to the ACPI Driver, device driver, and the PCI Express Bus Driver. Applications that are power conservation-aware interact with the OS to accomplish device power management.</td></tr>
 <tr><td style="border:2px solid #000;">ACPI Driver</td><td style="border:2px solid #000;">Manages configuration, power management, and thermal control of embedded system devices that don't adhere to an industry-standard spec. Examples of this include chipset-specific registers, system board-specific registers to control power planes, etc. The PM registers within PCIe Functions (embedded or otherwise) are defined by the PCI PM spec and are therefore not managed by the ACPI driver, but rather by the PCI Express Bus Driver (see entry in this table).</td></tr>
@@ -113,7 +113,7 @@
 </table>
 ## 16.2.1 ACPI Spec Defines Overall PM | 16.2.1 ACPI 规范定义整体电源管理
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -126,7 +126,7 @@
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -140,9 +140,9 @@
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Power State</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">Working (G0/S0)</td><td style="border:2px solid #000;">The system is fully operational.</td></tr><tr><td style="border:2px solid #000;">Sleeping (G1)</td><td style="border:2px solid #000;">The system appears to be off and power consumption has been reduced. The amount of time it takes to return to the "Working" state is inversely proportional to the selected level of power conservation.S1 - caches flushed, CPU haltedS2 - same as S1 except that now CPU is powered off. Not commonly used because it's not much better than S3.S3 - (also called "Suspend to RAM" or "Standby") This is the same as S2 except that the system context is saved in memory and more of the system is shut down. When the system wakes up the CPU begins the full boot process but finds flags set in the CMOS memory that direct it to reload the context from RAM instead, and thus program execution can be resumed very quickly.S4 - (also called "Suspend to Disk" or "Hibernate") Similar to S3, except that now the system copies the system context to disk, and then removes power from the system, including main memory. This gives better power savings but the restart time will be longer because the context must be restored from the disk before resuming program execution.</td></tr><tr><td style="border:2px solid #000;">Soft Off (G2/S5)</td><td style="border:2px solid #000;">The system appears to be off and power consumption is minimal. It requires a full reboot to return to the "Working" state because the contents of memory have been lost, but there is still some power available to do the wakeup, such as by pressing the "Power" button on the system.</td></tr><tr><td style="border:2px solid #000;">Mechanical Off (G3)</td><td style="border:2px solid #000;">The system has been disconnected from all power sources and no power is available.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Power State</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">Working (G0/S0)</td><td style="border:2px solid #000;">The system is fully operational.</td></tr><tr><td style="border:2px solid #000;">Sleeping (G1)</td><td style="border:2px solid #000;">The system appears to be off and power consumption has been reduced. The amount of time it takes to return to the "Working" state is inversely proportional to the selected level of power conservation.S1 - caches flushed, CPU haltedS2 - same as S1 except that now CPU is powered off. Not commonly used because it's not much better than S3.S3 - (also called "Suspend to RAM" or "Standby") This is the same as S2 except that the system context is saved in memory and more of the system is shut down. When the system wakes up the CPU begins the full boot process but finds flags set in the CMOS memory that direct it to reload the context from RAM instead, and thus program execution can be resumed very quickly.S4 - (also called "Suspend to Disk" or "Hibernate") Similar to S3, except that now the system copies the system context to disk, and then removes power from the system, including main memory. This gives better power savings but the restart time will be longer because the context must be restored from the disk before resuming program execution.</td></tr><tr><td style="border:2px solid #000;">Soft Off (G2/S5)</td><td style="border:2px solid #000;">The system appears to be off and power consumption is minimal. It requires a full reboot to return to the "Working" state because the contents of memory have been lost, but there is still some power available to do the wakeup, such as by pressing the "Power" button on the system.</td></tr><tr><td style="border:2px solid #000;">Mechanical Off (G3)</td><td style="border:2px solid #000;">The system has been disconnected from all power sources and no power is available.</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -156,10 +156,10 @@
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">State</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">Mandatory. Device is fully operational and uses full power from the system. The 2.1 spec revision added another set of registers to support 32 substates under D0 referred to as Dynamic Power Allocation registers.</td></tr><tr><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">Optional. Low-power state in which device context may or may not be lost. No definition for this state is given, but it would represent a lower power state than D0 and higher than D2</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">Optional. Presumably a lower power state than D1 that attains greater power savings, but would incur a longer recovery delay and may cause Device to lose some context.</td></tr><tr><td style="border:2px solid #000;">D3</td><td style="border:2px solid #000;">Mandatory. Device is prepared for loss of power and context may be lost whether the power actually goes off or not. Recovery time will be longer than for D2, but power can be removed from the device gracefully in this state.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">State</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">Mandatory. Device is fully operational and uses full power from the system. The 2.1 spec revision added another set of registers to support 32 substates under D0 referred to as Dynamic Power Allocation registers.</td></tr><tr><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">Optional. Low-power state in which device context may or may not be lost. No definition for this state is given, but it would represent a lower power state than D0 and higher than D2</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">Optional. Presumably a lower power state than D1 that attains greater power savings, but would incur a longer recovery delay and may cause Device to lose some context.</td></tr><tr><td style="border:2px solid #000;">D3</td><td style="border:2px solid #000;">Mandatory. Device is prepared for loss of power and context may be lost whether the power actually goes off or not. Recovery time will be longer than for D2, but power can be removed from the device gracefully in this state.</td></tr></table>
 ## 16.2.2 Definition of Device Context | 16.2.2 设备上下文定义
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -183,7 +183,7 @@
 
 ## 16.2.3 Device-Class-Specific PM Specs | 16.2.3 设备类别特定电源管理规范
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -198,9 +198,9 @@
 
 Table 16‐4: Default Device Class PM States | 表16‐4：默认设备类别电源管理状态
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">State</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">Device is on, is running at full power, and is fully operational.</td></tr><tr><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">This optional state is only defined as being lower power than D0. It is not commonly used.</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">This optional state is only defined as being lower power than D1. It is not commonly used.</td></tr><tr><td style="border:2px solid #000;">D3</td><td style="border:2px solid #000;">Device consumes the minimum possible power and main power may be turned off. The only requirement is that, while power is still on, the device must be able to service a configuration command to re-enter D0. Power can be removed from the device in this state, and the device will experience a hardware reset when power is restored.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">State</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">Device is on, is running at full power, and is fully operational.</td></tr><tr><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">This optional state is only defined as being lower power than D0. It is not commonly used.</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">This optional state is only defined as being lower power than D1. It is not commonly used.</td></tr><tr><td style="border:2px solid #000;">D3</td><td style="border:2px solid #000;">Device consumes the minimum possible power and main power may be turned off. The only requirement is that, while power is still on, the device must be able to service a configuration command to re-enter D0. Power can be removed from the device in this state, and the device will experience a hardware reset when power is restored.</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -214,7 +214,7 @@ Table 16‐4: Default Device Class PM States | 表16‐4：默认设备类别电
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -228,7 +228,7 @@ Table 16‐4: Default Device Class PM States | 表16‐4：默认设备类别电
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -242,7 +242,7 @@ Table 16‐4: Default Device Class PM States | 表16‐4：默认设备类别电
 
 ## 16.2.4 PCI Express Bus Driver Accesses PM Registers | 16.2.4 PCI Express 总线驱动访问电源管理寄存器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -258,7 +258,7 @@ Table 16‐4: Default Device Class PM States | 表16‐4：默认设备类别电
 
 ## 16.2.5 ACPI Driver Controls Non-Standard Embedded Devices | 16.2.5 ACPI 驱动控制非标准嵌入式设备
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -274,7 +274,7 @@ Table 16‐4: Default Device Class PM States | 表16‐4：默认设备类别电
 Figure 16‑1: Relationship of OS, Device Drivers, Bus Driver, PCI Express Registers, and ACPI | 图16‑1：操作系统、设备驱动程序、总线驱动程序、PCI Express寄存器和ACPI的关系
 <img src="images/part05_e56787bf2760fc9b36b2e7de2390ae6f3bfe29b4224b5e0c3b3fc8ce09b456b4.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -288,7 +288,7 @@ Figure 16‑1: Relationship of OS, Device Drivers, Bus Driver, PCI Express Regis
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -306,10 +306,10 @@ Figure 16‑1: Relationship of OS, Device Drivers, Bus Driver, PCI Express Regis
 
 Figure 16-2: PCI Power Management Capability Register Set | 图16-2：PCI电源管理能力寄存器集
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="2" style="border:2px solid #000;">Power Management Capabilities (PMC)</td><td style="border:2px solid #000;">Pointer to Next Capability</td><td style="border:2px solid #000;">Capability ID 01h</td></tr><tr><td style="border:2px solid #000;">Data Register</td><td style="border:2px solid #000;">Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2" style="border:2px solid #000;">Control/Status Register (PMCSR)</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="2" style="border:2px solid #000;">Power Management Capabilities (PMC)</td><td style="border:2px solid #000;">Pointer to Next Capability</td><td style="border:2px solid #000;">Capability ID 01h</td></tr><tr><td style="border:2px solid #000;">Data Register</td><td style="border:2px solid #000;">Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2" style="border:2px solid #000;">Control/Status Register (PMCSR)</td></tr></table>
 ## 16.3.1 Device PM States | 16.3.1 设备电源管理状态
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -322,7 +322,7 @@ Figure 16-2: PCI Power Management Capability Register Set | 图16-2：PCI电源�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -341,13 +341,13 @@ Figure 16-2: PCI Power Management Capability Register Set | 图16-2：PCI电源�
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">LinkPMState</td><td style="border:2px solid #000;">FunctionPMState</td><td style="border:2px solid #000;">Registers or State that must be valid</td><td style="border:2px solid #000;">Power</td><td style="border:2px solid #000;">Actions permitted to Function</td><td style="border:2px solid #000;">Actions permitted by Function</td></tr><tr><td style="border:2px solid #000;">L0</td><td style="border:2px solid #000;">D0 un-initialized</td><td style="border:2px solid #000;">PME context **</td><td style="border:2px solid #000;">< 10W</td><td style="border:2px solid #000;">PCI Express config transactions.</td><td style="border:2px solid #000;">None</td></tr><tr><td style="border:2px solid #000;">L0L0s (required)*L1 (optional)*</td><td style="border:2px solid #000;">D0 active</td><td style="border:2px solid #000;">all</td><td style="border:2px solid #000;">full</td><td style="border:2px solid #000;">Any PCI Express transaction.</td><td style="border:2px solid #000;">Any transaction, interrupt, or PME. **</td></tr><tr><td style="border:2px solid #000;">L2/L3</td><td style="border:2px solid #000;">D0 active</td><td colspan="4" style="border:2px solid #000;">N/A***</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">LinkPMState</td><td style="border:2px solid #000;">FunctionPMState</td><td style="border:2px solid #000;">Registers or State that must be valid</td><td style="border:2px solid #000;">Power</td><td style="border:2px solid #000;">Actions permitted to Function</td><td style="border:2px solid #000;">Actions permitted by Function</td></tr><tr><td style="border:2px solid #000;">L0</td><td style="border:2px solid #000;">D0 un-initialized</td><td style="border:2px solid #000;">PME context **</td><td style="border:2px solid #000;">< 10W</td><td style="border:2px solid #000;">PCI Express config transactions.</td><td style="border:2px solid #000;">None</td></tr><tr><td style="border:2px solid #000;">L0L0s (required)*L1 (optional)*</td><td style="border:2px solid #000;">D0 active</td><td style="border:2px solid #000;">all</td><td style="border:2px solid #000;">full</td><td style="border:2px solid #000;">Any PCI Express transaction.</td><td style="border:2px solid #000;">Any transaction, interrupt, or PME. **</td></tr><tr><td style="border:2px solid #000;">L2/L3</td><td style="border:2px solid #000;">D0 active</td><td colspan="4" style="border:2px solid #000;">N/A***</td></tr></table>
 
 \* Active State Power Management
 \*\* If PME supported in this state.
 \*\*\* This combination of Bus/Function PM states not allowed.
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -364,7 +364,7 @@ Figure 16-2: PCI Power Management Capability Register Set | 图16-2：PCI电源�
 
 Figure 16-3: Dynamic Power Allocation Registers | 图16-3：动态功耗分配寄存器
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr><td colspan="2" style="border:2px solid #000;">PCIe Enhanced Capability Header</td><td style="border:2px solid #000;">Offset</td></tr>
 <tr><td colspan="2" style="border:2px solid #000;">DPA Capability Register</td><td style="border:2px solid #000;">000h</td></tr>
 <tr><td colspan="2" style="border:2px solid #000;">DPA Latency Indicator Register</td><td style="border:2px solid #000;">004h</td></tr>
@@ -374,7 +374,7 @@ Figure 16-3: Dynamic Power Allocation Registers | 图16-3：动态功耗分配�
 <tr><td style="border:2px solid #000;">Up to 02Ch</td></tr>
 </table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -387,7 +387,7 @@ Figure 16-3: Dynamic Power Allocation Registers | 图16-3：动态功耗分配�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -407,7 +407,7 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
 <img src="images/part05_f8a402cfb1b111948b6519c4926cd1f805434d361cbfc9ec79ec955bf366f3d805.jpg" width="700" alt="">
 <img src="images/part05_911a868787c582e3df9394c3532d48092653a2b8fbc0078a841baa80656a8f92.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -429,13 +429,13 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Link PM State</td><td style="border:2px solid #000;">Function PM State</td><td style="border:2px solid #000;">Registers or State that must be valid</td><td style="border:2px solid #000;">Power</td><td style="border:2px solid #000;">Actions permitted to Function</td><td style="border:2px solid #000;">Actions permitted by Function</td></tr><tr><td style="border:2px solid #000;">L1</td><td rowspan="2" style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">Device class-specific registers and PME context.*</td><td style="border:2px solid #000;">≤ D0 unini- tial- ized</td><td style="border:2px solid #000;">Config Requests and Messages. Link transi- tions back to L0 to ser- vice the request.</td><td style="border:2px solid #000;">PME Messages.** Though not typi- cally permitted, they would require the Link to transi- tion back to L0.</td></tr><tr><td style="border:2px solid #000;">L2-L3</td><td colspan="4" style="border:2px solid #000;">NA *</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Link PM State</td><td style="border:2px solid #000;">Function PM State</td><td style="border:2px solid #000;">Registers or State that must be valid</td><td style="border:2px solid #000;">Power</td><td style="border:2px solid #000;">Actions permitted to Function</td><td style="border:2px solid #000;">Actions permitted by Function</td></tr><tr><td style="border:2px solid #000;">L1</td><td rowspan="2" style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">Device class-specific registers and PME context.*</td><td style="border:2px solid #000;">≤ D0 unini- tial- ized</td><td style="border:2px solid #000;">Config Requests and Messages. Link transi- tions back to L0 to ser- vice the request.</td><td style="border:2px solid #000;">PME Messages.** Though not typi- cally permitted, they would require the Link to transi- tion back to L0.</td></tr><tr><td style="border:2px solid #000;">L2-L3</td><td colspan="4" style="border:2px solid #000;">NA *</td></tr></table>
 
 \* This combination of Bus/Function PM states not allowed.
 \*\* If PME supported in this state.
 ## 16.3.2 D2 State—Deep Sleep | 16.3.2 D2 状态—深度休眠
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -449,7 +449,7 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
 
 ## 16.3.3 PCI Express Technology | 16.3.3 PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -466,7 +466,7 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
 
 ## 16.3.4 Other characteristics of the D2 state include: | 16.3.4 D2 状态的其他特性包括：
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -488,12 +488,12 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
 
 **Table 16-7: D2 Power Management Policies**
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Link PM State</td><td style="border:2px solid #000;">Function PM State</td><td style="border:2px solid #000;">Registers and/or State that must be valid</td><td style="border:2px solid #000;">Power</td><td style="border:2px solid #000;">Actions permitted to Function</td><td style="border:2px solid #000;">Actions permitted by Function</td></tr><tr><td style="border:2px solid #000;">L1</td><td rowspan="2" style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">Device class-specific registers and PME context.*</td><td style="border:2px solid #000;">≤ next higher supported PM state or ≤ D0 uninitialized.</td><td style="border:2px solid #000;">Config Requests and transactions permitted by device class (typically none). This requires the Link to transition back to L0</td><td style="border:2px solid #000;">PME Messages.* Though not typically permitted, they would require the Link to transition back to L0.</td></tr><tr><td style="border:2px solid #000;">L2/L3</td><td colspan="4" style="border:2px solid #000;">N/A**</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Link PM State</td><td style="border:2px solid #000;">Function PM State</td><td style="border:2px solid #000;">Registers and/or State that must be valid</td><td style="border:2px solid #000;">Power</td><td style="border:2px solid #000;">Actions permitted to Function</td><td style="border:2px solid #000;">Actions permitted by Function</td></tr><tr><td style="border:2px solid #000;">L1</td><td rowspan="2" style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">Device class-specific registers and PME context.*</td><td style="border:2px solid #000;">≤ next higher supported PM state or ≤ D0 uninitialized.</td><td style="border:2px solid #000;">Config Requests and transactions permitted by device class (typically none). This requires the Link to transition back to L0</td><td style="border:2px solid #000;">PME Messages.* Though not typically permitted, they would require the Link to transition back to L0.</td></tr><tr><td style="border:2px solid #000;">L2/L3</td><td colspan="4" style="border:2px solid #000;">N/A**</td></tr></table>
 
 \* If PME supported in this state.
 \*\* This combination of Bus/Function PM states not allowed.
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -510,7 +510,7 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -529,13 +529,13 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
 
 **Table 16-8: D3<sub>hot</sub> Power Management Policies**
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bus PM State</td><td style="border:2px solid #000;">Function PM State</td><td style="border:2px solid #000;">Registers and/or State that must be valid</td><td style="border:2px solid #000;">Power</td><td style="border:2px solid #000;">Actions permitted to Function</td><td style="border:2px solid #000;">Actions permitted by Function</td></tr><tr><td style="border:2px solid #000;">L1</td><td rowspan="3" style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">PME context. **</td><td style="border:2px solid #000;">≤ next higher supported PM state or ≤ D0 uninitialized.</td><td style="border:2px solid #000;">PCI Express config transactions &amp; PME_Turn_Off broadcast message***(These can only occur after the Link transitions back to its L0 state.</td><td style="border:2px solid #000;">PME message**PME_TO_ACK message**PM_Enter_L23 DLLP***(These can occur only after the Link returns to L0)</td></tr><tr><td style="border:2px solid #000;">L2/L3 Ready</td><td colspan="4" style="border:2px solid #000;">L2/L3 Ready entered following the PME_Turn_Off handshake sequence, which prepares a device for power removal***</td></tr><tr><td style="border:2px solid #000;">L2/L3</td><td colspan="4" style="border:2px solid #000;">NA *</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bus PM State</td><td style="border:2px solid #000;">Function PM State</td><td style="border:2px solid #000;">Registers and/or State that must be valid</td><td style="border:2px solid #000;">Power</td><td style="border:2px solid #000;">Actions permitted to Function</td><td style="border:2px solid #000;">Actions permitted by Function</td></tr><tr><td style="border:2px solid #000;">L1</td><td rowspan="3" style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">PME context. **</td><td style="border:2px solid #000;">≤ next higher supported PM state or ≤ D0 uninitialized.</td><td style="border:2px solid #000;">PCI Express config transactions &amp; PME_Turn_Off broadcast message***(These can only occur after the Link transitions back to its L0 state.</td><td style="border:2px solid #000;">PME message**PME_TO_ACK message**PM_Enter_L23 DLLP***(These can occur only after the Link returns to L0)</td></tr><tr><td style="border:2px solid #000;">L2/L3 Ready</td><td colspan="4" style="border:2px solid #000;">L2/L3 Ready entered following the PME_Turn_Off handshake sequence, which prepares a device for power removal***</td></tr><tr><td style="border:2px solid #000;">L2/L3</td><td colspan="4" style="border:2px solid #000;">NA *</td></tr></table>
 
 \* This combination of Bus/Function PM states not allowed.
 \*\* If PME supported in this state.
 \*\*\* See "L2/L3 Ready Handshake Sequence" on page 764 for details regarding the sequence.
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -551,12 +551,12 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
 
 **Table 16-9: D3<sub>cold</sub> Power Management Policies**
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bus PM State</td><td style="border:2px solid #000;">Function PM State</td><td style="border:2px solid #000;">Registers and/or State that must be valid</td><td style="border:2px solid #000;">Power</td><td style="border:2px solid #000;">Actions permitted to Function</td><td style="border:2px solid #000;">Actions permitted by Function</td></tr><tr><td style="border:2px solid #000;">L2</td><td rowspan="2" style="border:2px solid #000;"> D3<sub>cold</sub> </td><td style="border:2px solid #000;">PME context*</td><td style="border:2px solid #000;">AUX Power</td><td rowspan="2" style="border:2px solid #000;">Bus reset only</td><td style="border:2px solid #000;">Signal Beacon or WAKE#**</td></tr><tr><td style="border:2px solid #000;">L3</td><td colspan="2" style="border:2px solid #000;">None</td><td style="border:2px solid #000;">None</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bus PM State</td><td style="border:2px solid #000;">Function PM State</td><td style="border:2px solid #000;">Registers and/or State that must be valid</td><td style="border:2px solid #000;">Power</td><td style="border:2px solid #000;">Actions permitted to Function</td><td style="border:2px solid #000;">Actions permitted by Function</td></tr><tr><td style="border:2px solid #000;">L2</td><td rowspan="2" style="border:2px solid #000;"> D3<sub>cold</sub> </td><td style="border:2px solid #000;">PME context*</td><td style="border:2px solid #000;">AUX Power</td><td rowspan="2" style="border:2px solid #000;">Bus reset only</td><td style="border:2px solid #000;">Signal Beacon or WAKE#**</td></tr><tr><td style="border:2px solid #000;">L3</td><td colspan="2" style="border:2px solid #000;">None</td><td style="border:2px solid #000;">None</td></tr></table>
 
 \* If PME supported in this state.
 \*\* The method used to signal a wake to restore clock and power depends on the form factor.
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -574,12 +574,12 @@ Figure 16-6: PCIe Function D-State Transitions | 图16-6：PCIe功能D状态转�
 <img src="images/part05_547d9d4a578662bb8ce1004893b67c56f49dee4a359dc4f7c52c1eb851b2d32e.jpg" width="700" alt="">
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">From State</td><td style="border:2px solid #000;">To State</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">D0 Uninitialized</td><td style="border:2px solid #000;">D0 Active</td><td style="border:2px solid #000;">Function has been completely configured and enabled by its driver.</td></tr><tr><td rowspan="3" style="border:2px solid #000;">D0 Active</td><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D1.</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D2.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to  D3<sub>hot</sub> .</td></tr><tr><td rowspan="3" style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">D0 Active</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D0.</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D2.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to  D3<sub>hot</sub> .</td></tr><tr><td rowspan="2" style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">D0 Active</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D0.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to  D3<sub>hot</sub> .</td></tr><tr><td rowspan="2" style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;"> D3<sub>cold</sub> </td><td style="border:2px solid #000;">Power is removed from the Function.</td></tr><tr><td style="border:2px solid #000;">D0 Uninitialized</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D0.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>cold</sub> </td><td style="border:2px solid #000;">D0 Uninitialized</td><td style="border:2px solid #000;">Power is restored to the Function.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">From State</td><td style="border:2px solid #000;">To State</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">D0 Uninitialized</td><td style="border:2px solid #000;">D0 Active</td><td style="border:2px solid #000;">Function has been completely configured and enabled by its driver.</td></tr><tr><td rowspan="3" style="border:2px solid #000;">D0 Active</td><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D1.</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D2.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to  D3<sub>hot</sub> .</td></tr><tr><td rowspan="3" style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">D0 Active</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D0.</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D2.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to  D3<sub>hot</sub> .</td></tr><tr><td rowspan="2" style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">D0 Active</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D0.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to  D3<sub>hot</sub> .</td></tr><tr><td rowspan="2" style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;"> D3<sub>cold</sub> </td><td style="border:2px solid #000;">Power is removed from the Function.</td></tr><tr><td style="border:2px solid #000;">D0 Uninitialized</td><td style="border:2px solid #000;">Software writes the PMCSR PowerState to D0.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>cold</sub> </td><td style="border:2px solid #000;">D0 Uninitialized</td><td style="border:2px solid #000;">Power is restored to the Function.</td></tr></table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Initial State</td><td style="border:2px solid #000;">Next State</td><td style="border:2px solid #000;">Minimum software-guaranteed delays</td></tr><tr><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">D0 or D1</td><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">200μs from new state setting to first access (including config accesses).</td></tr><tr><td style="border:2px solid #000;">D0, D1, or D2</td><td style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">10ms from new state setting to first access.</td></tr><tr><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">200μs from new state setting to first access.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">D0</td><td rowspan="2" style="border:2px solid #000;">10ms from new state setting to first access.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>cold</sub> </td><td style="border:2px solid #000;">D0</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Initial State</td><td style="border:2px solid #000;">Next State</td><td style="border:2px solid #000;">Minimum software-guaranteed delays</td></tr><tr><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">D0 or D1</td><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">200μs from new state setting to first access (including config accesses).</td></tr><tr><td style="border:2px solid #000;">D0, D1, or D2</td><td style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">10ms from new state setting to first access.</td></tr><tr><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">200μs from new state setting to first access.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>hot</sub> </td><td style="border:2px solid #000;">D0</td><td rowspan="2" style="border:2px solid #000;">10ms from new state setting to first access.</td></tr><tr><td style="border:2px solid #000;"> D3<sub>cold</sub> </td><td style="border:2px solid #000;">D0</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -595,9 +595,9 @@ Figure 16-6: PCIe Function D-State Transitions | 图16-6：PCIe功能D状态转�
 
 Figure 16‐7: PCI Function's PM Registers | 图16‐7：PCI功能的电源管理寄存器
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="2" style="border:2px solid #000;">Power Management Capabilities (PMC)</td><td style="border:2px solid #000;">Pointer to Next Capability</td><td style="border:2px solid #000;">Capability ID 01h</td></tr><tr><td style="border:2px solid #000;">Data Register</td><td style="border:2px solid #000;">Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2" style="border:2px solid #000;">Control/Status Register (PMCSR)</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="2" style="border:2px solid #000;">Power Management Capabilities (PMC)</td><td style="border:2px solid #000;">Pointer to Next Capability</td><td style="border:2px solid #000;">Capability ID 01h</td></tr><tr><td style="border:2px solid #000;">Data Register</td><td style="border:2px solid #000;">Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2" style="border:2px solid #000;">Control/Status Register (PMCSR)</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -612,10 +612,10 @@ Figure 16‐7: PCI Function's PM Registers | 图16‐7：PCI功能的电源管�
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bit(s)</td><td colspan="2" style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">31:27</td><td colspan="2" style="border:2px solid #000;">PME_Support field. Indicates in which PM states the Function is capable of sending a PME message. A zero in a bit indicates PME notification is not supported in the respective PM state.BitCorresponds to PM State27 D028 D129 D230  D3<sub>hot</sub> 31  D3<sub>cold</sub>  (Function requires aux power for PME logic and Wake signaling via beacon or WAKE# pin)Systems that support wake from  D3<sub>cold</sub>  must also support aux power and must use it to signal the wakeup.Bits 31, 30, and 27 must be set to 1b for virtual PCI-PCI Bridges implemented within Root and Switch Ports. This is required for ports that forward PME Messages.</td></tr><tr><td style="border:2px solid #000;">26</td><td colspan="2" style="border:2px solid #000;">D2_Support bit. 1 = Function supports the D2 PM state.</td></tr><tr><td style="border:2px solid #000;">25</td><td colspan="2" style="border:2px solid #000;">D1_Support bit. 1 = Function supports the D1 PM state.</td></tr><tr><td rowspan="10" style="border:2px solid #000;">24:22</td><td colspan="2" style="border:2px solid #000;">Aux_Current field. For a Function that supports generation of the PME message from the D3cold state, this field reports the current demand made upon the 3.3Vaux power source (see "Auxiliary Power" on page 775) by the Function's logic that retains the PME context information. This information is used by software to determine how many Functions can simultaneously be enabled for PME generation (based on the total amount of current each draws from the system 3.3Vaux power source and the power sourcing capability of the power source).If the Function does not support PME notification from within the D3cold PM state, this field is not implemented and always returns zero when read. Alternatively, a new feature defined by PCI Express permits devices that do not support PMEs to report the amount of Aux current they draw when enabled by the Aux Power PM Enable bit within the Device Control register.If the Function implements the Data register (see "Data Register" on page 731), this field always returns zeros when read. The Data register then takes precedence over this field in reporting the 3.3Vaux current requirements for the Function.If the Function supports PME notification from the D3cold state and does not implement the Data register, then the Aux_Current field reports the 3.3Vaux current requirements for the Function. It is encoded as follows:</td></tr><tr><td style="border:2px solid #000;">Bit24 23 22</td><td style="border:2px solid #000;">Max Current Required</td></tr><tr><td style="border:2px solid #000;">1 1 1</td><td style="border:2px solid #000;">375mA</td></tr><tr><td style="border:2px solid #000;">1 1 0</td><td style="border:2px solid #000;">320mA</td></tr><tr><td style="border:2px solid #000;">1 0 1</td><td style="border:2px solid #000;">270mA</td></tr><tr><td style="border:2px solid #000;">1 0 0</td><td style="border:2px solid #000;">220mA</td></tr><tr><td style="border:2px solid #000;">0 1 1</td><td style="border:2px solid #000;">160mA</td></tr><tr><td style="border:2px solid #000;">0 1 0</td><td style="border:2px solid #000;">100mA</td></tr><tr><td style="border:2px solid #000;">0 0 1</td><td style="border:2px solid #000;">55mA</td></tr><tr><td style="border:2px solid #000;">0 0 0</td><td style="border:2px solid #000;">0mA</td></tr><tr><td style="border:2px solid #000;">21</td><td style="border:2px solid #000;">Device-Specific Initialization (DSI) bit. A one in this bit indicates that immediately after entry into the D0 Uninitialized state, the Function requires additional configuration above and beyond setup of its PCI configuration Header registers before the Class driver can use the Function. Microsoft OSs do not use this bit. Rather, the determination and initialization is made by the Class driver.</td></tr><tr><td style="border:2px solid #000;">20</td><td style="border:2px solid #000;">Reserved.</td></tr><tr><td style="border:2px solid #000;">19</td><td style="border:2px solid #000;">PME Clock bit. Does not apply to PCI Express. Must be hardwired to 0.</td></tr><tr><td rowspan="2" style="border:2px solid #000;">18:16</td><td style="border:2px solid #000;">Version field. This field indicates the version of the PCI Bus PM Interface spec that the Function complies with.</td></tr><tr><td colspan="2" style="border:2px solid #000;">Bit18 17 16 Complies with Spec Version0 0 1 1.00 1 0 1.1 (required by PCI Express)</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bit(s)</td><td colspan="2" style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">31:27</td><td colspan="2" style="border:2px solid #000;">PME_Support field. Indicates in which PM states the Function is capable of sending a PME message. A zero in a bit indicates PME notification is not supported in the respective PM state.BitCorresponds to PM State27 D028 D129 D230  D3<sub>hot</sub> 31  D3<sub>cold</sub>  (Function requires aux power for PME logic and Wake signaling via beacon or WAKE# pin)Systems that support wake from  D3<sub>cold</sub>  must also support aux power and must use it to signal the wakeup.Bits 31, 30, and 27 must be set to 1b for virtual PCI-PCI Bridges implemented within Root and Switch Ports. This is required for ports that forward PME Messages.</td></tr><tr><td style="border:2px solid #000;">26</td><td colspan="2" style="border:2px solid #000;">D2_Support bit. 1 = Function supports the D2 PM state.</td></tr><tr><td style="border:2px solid #000;">25</td><td colspan="2" style="border:2px solid #000;">D1_Support bit. 1 = Function supports the D1 PM state.</td></tr><tr><td rowspan="10" style="border:2px solid #000;">24:22</td><td colspan="2" style="border:2px solid #000;">Aux_Current field. For a Function that supports generation of the PME message from the D3cold state, this field reports the current demand made upon the 3.3Vaux power source (see "Auxiliary Power" on page 775) by the Function's logic that retains the PME context information. This information is used by software to determine how many Functions can simultaneously be enabled for PME generation (based on the total amount of current each draws from the system 3.3Vaux power source and the power sourcing capability of the power source).If the Function does not support PME notification from within the D3cold PM state, this field is not implemented and always returns zero when read. Alternatively, a new feature defined by PCI Express permits devices that do not support PMEs to report the amount of Aux current they draw when enabled by the Aux Power PM Enable bit within the Device Control register.If the Function implements the Data register (see "Data Register" on page 731), this field always returns zeros when read. The Data register then takes precedence over this field in reporting the 3.3Vaux current requirements for the Function.If the Function supports PME notification from the D3cold state and does not implement the Data register, then the Aux_Current field reports the 3.3Vaux current requirements for the Function. It is encoded as follows:</td></tr><tr><td style="border:2px solid #000;">Bit24 23 22</td><td style="border:2px solid #000;">Max Current Required</td></tr><tr><td style="border:2px solid #000;">1 1 1</td><td style="border:2px solid #000;">375mA</td></tr><tr><td style="border:2px solid #000;">1 1 0</td><td style="border:2px solid #000;">320mA</td></tr><tr><td style="border:2px solid #000;">1 0 1</td><td style="border:2px solid #000;">270mA</td></tr><tr><td style="border:2px solid #000;">1 0 0</td><td style="border:2px solid #000;">220mA</td></tr><tr><td style="border:2px solid #000;">0 1 1</td><td style="border:2px solid #000;">160mA</td></tr><tr><td style="border:2px solid #000;">0 1 0</td><td style="border:2px solid #000;">100mA</td></tr><tr><td style="border:2px solid #000;">0 0 1</td><td style="border:2px solid #000;">55mA</td></tr><tr><td style="border:2px solid #000;">0 0 0</td><td style="border:2px solid #000;">0mA</td></tr><tr><td style="border:2px solid #000;">21</td><td style="border:2px solid #000;">Device-Specific Initialization (DSI) bit. A one in this bit indicates that immediately after entry into the D0 Uninitialized state, the Function requires additional configuration above and beyond setup of its PCI configuration Header registers before the Class driver can use the Function. Microsoft OSs do not use this bit. Rather, the determination and initialization is made by the Class driver.</td></tr><tr><td style="border:2px solid #000;">20</td><td style="border:2px solid #000;">Reserved.</td></tr><tr><td style="border:2px solid #000;">19</td><td style="border:2px solid #000;">PME Clock bit. Does not apply to PCI Express. Must be hardwired to 0.</td></tr><tr><td rowspan="2" style="border:2px solid #000;">18:16</td><td style="border:2px solid #000;">Version field. This field indicates the version of the PCI Bus PM Interface spec that the Function complies with.</td></tr><tr><td colspan="2" style="border:2px solid #000;">Bit18 17 16 Complies with Spec Version0 0 1 1.00 1 0 1.1 (required by PCI Express)</td></tr></table>
 ## 16.3.5 PM Control and Status Register (PMCSR) | 16.3.5 电源管理控制和状态寄存器（PMCSR）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -635,9 +635,9 @@ Figure 16‐7: PCI Function's PM Registers | 图16‐7：PCI功能的电源管�
 
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Value at Reset</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">31:24</td><td style="border:2px solid #000;">all zeros</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">See "Data Register" on page 731.</td></tr><tr><td style="border:2px solid #000;">23</td><td style="border:2px solid #000;">zero</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">Not used in PCI Express</td></tr><tr><td style="border:2px solid #000;">22</td><td style="border:2px solid #000;">zero</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">Not used in PCI Express</td></tr><tr><td style="border:2px solid #000;">21:16</td><td style="border:2px solid #000;">all zeros</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">Reserved</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">See Description.</td><td style="border:2px solid #000;">Read, Write one to clear, Sticky RW1CS</td><td style="border:2px solid #000;">PME_Status bit.Optional: only implemented if the Function supports PME notification, otherwise zero.This bit reflects whether the Function has experienced a PME (even if the PME_En bit in this register has disabled the Function's ability to send a PME message). If set to one, the Function has experienced a PME. Software clears this bit by writing a one to it.After reset, this bit is zero if the Function doesn't support PME in D3cold. If the Function does support PME in D3cold, this bit is indeterminate at initial OS boot time but after that reflects whether the Function has experienced a PME.If the Function supports PME from D3cold, the state of this bit must persist even if power is lost or the Function is reset (a sticky bit). This implies that an auxiliary power source keeps this logic active during these conditions (see "Auxiliary Power" on page 775).</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Value at Reset</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">31:24</td><td style="border:2px solid #000;">all zeros</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">See "Data Register" on page 731.</td></tr><tr><td style="border:2px solid #000;">23</td><td style="border:2px solid #000;">zero</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">Not used in PCI Express</td></tr><tr><td style="border:2px solid #000;">22</td><td style="border:2px solid #000;">zero</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">Not used in PCI Express</td></tr><tr><td style="border:2px solid #000;">21:16</td><td style="border:2px solid #000;">all zeros</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">Reserved</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">See Description.</td><td style="border:2px solid #000;">Read, Write one to clear, Sticky RW1CS</td><td style="border:2px solid #000;">PME_Status bit.Optional: only implemented if the Function supports PME notification, otherwise zero.This bit reflects whether the Function has experienced a PME (even if the PME_En bit in this register has disabled the Function's ability to send a PME message). If set to one, the Function has experienced a PME. Software clears this bit by writing a one to it.After reset, this bit is zero if the Function doesn't support PME in D3cold. If the Function does support PME in D3cold, this bit is indeterminate at initial OS boot time but after that reflects whether the Function has experienced a PME.If the Function supports PME from D3cold, the state of this bit must persist even if power is lost or the Function is reset (a sticky bit). This implies that an auxiliary power source keeps this logic active during these conditions (see "Auxiliary Power" on page 775).</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -666,7 +666,7 @@ Figure 16‐7: PCI Function's PM Registers | 图16‐7：PCI功能的电源管�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -682,13 +682,13 @@ Figure 16‐7: PCI Function's PM Registers | 图16‐7：PCI功能的电源管�
 Table 16‐13: PM Control/Status Register (PMCSR) Bit Assignments (Continued) | 表16‐13：电源管理控制/状态寄存器（PMCSR）位分配（续）
 表16‐13：PM控制/状态寄存器（PMCSR）位分配（续）
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Value at Reset</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">14:13</td><td style="border:2px solid #000;">Device-specific</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">Data_Scale field. Optional. If the Function does not implement the Data register this field is hardwired to return zeros.If the Data register is implemented, the Data_Scale field is mandatory and must be a read-only value representing the multiplier for it. The value and interpretation of the Data_Scale field depends on the data item selected to be viewed through the Data register by the Data_Select field.</td></tr><tr><td style="border:2px solid #000;">12:9</td><td style="border:2px solid #000;">0000b</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">Data_Select field. Optional. If the Function does not implement the Data register, this field is hardwired to return zeros.If the Data register is implemented, Data_Select is a mandatory read/write field. The value placed in this register selects the data to be viewed in the Data register. That value must then be multiplied by the value read from the Data_Scale field.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Value at Reset</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">14:13</td><td style="border:2px solid #000;">Device-specific</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">Data_Scale field. Optional. If the Function does not implement the Data register this field is hardwired to return zeros.If the Data register is implemented, the Data_Scale field is mandatory and must be a read-only value representing the multiplier for it. The value and interpretation of the Data_Scale field depends on the data item selected to be viewed through the Data register by the Data_Select field.</td></tr><tr><td style="border:2px solid #000;">12:9</td><td style="border:2px solid #000;">0000b</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">Data_Select field. Optional. If the Function does not implement the Data register, this field is hardwired to return zeros.If the Data register is implemented, Data_Select is a mandatory read/write field. The value placed in this register selects the data to be viewed in the Data register. That value must then be multiplied by the value read from the Data_Scale field.</td></tr></table>
 
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Value at Reset</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">See Description.</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">PME_En bit. Optional.1 = enable Function's ability to send PME messages when an event occurs.0 = disable.If the Function does not support the generation of PMEs from any power state, this bit always return zero when read.After reset, this bit is zero if the Function doesn't support PME from D3cold. If the Function supports PME from D3cold:·this bit is indeterminate at initial OS boot time.·otherwise, it enables or disables whether the Function can send a PME message in case a PME occurs.If the Function supports PME from D3cold, the state of this bit must persist while the Function remains in the D3cold state and during the transition from D3cold to the D0 Uninitialized state. This implies that the PME logic must use an aux power source to power this logic during these conditions.</td></tr><tr><td style="border:2px solid #000;">7:2</td><td style="border:2px solid #000;">all zeros</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">Reserved</td></tr><tr><td style="border:2px solid #000;">1:0</td><td style="border:2px solid #000;">00b</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">PowerState field. Mandatory. Software uses this field to read the current PM state of the Function or write a new PM state. If software selects a PM state not supported by the Function, the write completes normally but the data is discarded and no state change occurs.10 PM State0 0 D00 1 D11 0 D21 1 D3hot</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Value at Reset</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">See Description.</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">PME_En bit. Optional.1 = enable Function's ability to send PME messages when an event occurs.0 = disable.If the Function does not support the generation of PMEs from any power state, this bit always return zero when read.After reset, this bit is zero if the Function doesn't support PME from D3cold. If the Function supports PME from D3cold:·this bit is indeterminate at initial OS boot time.·otherwise, it enables or disables whether the Function can send a PME message in case a PME occurs.If the Function supports PME from D3cold, the state of this bit must persist while the Function remains in the D3cold state and during the transition from D3cold to the D0 Uninitialized state. This implies that the PME logic must use an aux power source to power this logic during these conditions.</td></tr><tr><td style="border:2px solid #000;">7:2</td><td style="border:2px solid #000;">all zeros</td><td style="border:2px solid #000;">Read Only</td><td style="border:2px solid #000;">Reserved</td></tr><tr><td style="border:2px solid #000;">1:0</td><td style="border:2px solid #000;">00b</td><td style="border:2px solid #000;">Read/Write</td><td style="border:2px solid #000;">PowerState field. Mandatory. Software uses this field to read the current PM state of the Function or write a new PM state. If software selects a PM state not supported by the Function, the write completes normally but the data is discarded and no state change occurs.10 PM State0 0 D00 1 D11 0 D21 1 D3hot</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -713,7 +713,7 @@ Table 16‐13: PM Control/Status Register (PMCSR) Bit Assignments (Continued) | 
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -731,13 +731,13 @@ Table 16‐13: PM Control/Status Register (PMCSR) Bit Assignments (Continued) | 
 
 Figure 16-8: PM Registers | 图16-8：PM寄存器
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="2" style="border:2px solid #000;">Power Management Capabilities (PMC)</td><td style="border:2px solid #000;">Pointer to Next Capability</td><td style="border:2px solid #000;">Capability ID 01h</td></tr><tr><td style="border:2px solid #000;">Data Register</td><td style="border:2px solid #000;">Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2" style="border:2px solid #000;">Control/Status Register (PMCSR)</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="2" style="border:2px solid #000;">Power Management Capabilities (PMC)</td><td style="border:2px solid #000;">Pointer to Next Capability</td><td style="border:2px solid #000;">Capability ID 01h</td></tr><tr><td style="border:2px solid #000;">Data Register</td><td style="border:2px solid #000;">Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2" style="border:2px solid #000;">Control/Status Register (PMCSR)</td></tr></table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Data Select Value</td><td style="border:2px solid #000;">Data Reported in Data Register</td><td style="border:2px solid #000;">Interpretation of Data Scale Field in PMCSR</td><td style="border:2px solid #000;">Units/Accuracy</td></tr><tr><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">Power consumed in D0</td><td rowspan="9" style="border:2px solid #000;">00b = unknown<br>01b = multiply by 0.1<br>10b = multiply by 0.01<br>11b = multiply by 0.001</td><td rowspan="9" style="border:2px solid #000;">Watts</td></tr><tr><td style="border:2px solid #000;">01h</td><td style="border:2px solid #000;">Power consumed in D1</td></tr><tr><td style="border:2px solid #000;">02h</td><td style="border:2px solid #000;">Power consumed in D2</td></tr><tr><td style="border:2px solid #000;">03h</td><td style="border:2px solid #000;">Power consumed in D3</td></tr><tr><td style="border:2px solid #000;">04h</td><td style="border:2px solid #000;">Power dissipated in D0</td></tr><tr><td style="border:2px solid #000;">05h</td><td style="border:2px solid #000;">Power dissipated in D1</td></tr><tr><td style="border:2px solid #000;">06h</td><td style="border:2px solid #000;">Power dissipated in D2</td></tr><tr><td style="border:2px solid #000;">07h</td><td style="border:2px solid #000;">Power dissipated in D3</td></tr><tr><td style="border:2px solid #000;">08h</td><td style="border:2px solid #000;">In a multi-function PCI device, Function 0 indicates power consumed by logic common to all Functions in the package.</td></tr><tr><td style="border:2px solid #000;">09h-0Fh</td><td style="border:2px solid #000;">Reserved for future use of Function 0 in a multi-function device.</td><td rowspan="2" style="border:2px solid #000;">Reserved</td><td rowspan="2" style="border:2px solid #000;">TBD</td></tr><tr><td style="border:2px solid #000;">08h-0Fh</td><td style="border:2px solid #000;">Reserved in single-function devices and Functions other than Function 0 in a multi-function device</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Data Select Value</td><td style="border:2px solid #000;">Data Reported in Data Register</td><td style="border:2px solid #000;">Interpretation of Data Scale Field in PMCSR</td><td style="border:2px solid #000;">Units/Accuracy</td></tr><tr><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">Power consumed in D0</td><td rowspan="9" style="border:2px solid #000;">00b = unknown<br>01b = multiply by 0.1<br>10b = multiply by 0.01<br>11b = multiply by 0.001</td><td rowspan="9" style="border:2px solid #000;">Watts</td></tr><tr><td style="border:2px solid #000;">01h</td><td style="border:2px solid #000;">Power consumed in D1</td></tr><tr><td style="border:2px solid #000;">02h</td><td style="border:2px solid #000;">Power consumed in D2</td></tr><tr><td style="border:2px solid #000;">03h</td><td style="border:2px solid #000;">Power consumed in D3</td></tr><tr><td style="border:2px solid #000;">04h</td><td style="border:2px solid #000;">Power dissipated in D0</td></tr><tr><td style="border:2px solid #000;">05h</td><td style="border:2px solid #000;">Power dissipated in D1</td></tr><tr><td style="border:2px solid #000;">06h</td><td style="border:2px solid #000;">Power dissipated in D2</td></tr><tr><td style="border:2px solid #000;">07h</td><td style="border:2px solid #000;">Power dissipated in D3</td></tr><tr><td style="border:2px solid #000;">08h</td><td style="border:2px solid #000;">In a multi-function PCI device, Function 0 indicates power consumed by logic common to all Functions in the package.</td></tr><tr><td style="border:2px solid #000;">09h-0Fh</td><td style="border:2px solid #000;">Reserved for future use of Function 0 in a multi-function device.</td><td rowspan="2" style="border:2px solid #000;">Reserved</td><td rowspan="2" style="border:2px solid #000;">TBD</td></tr><tr><td style="border:2px solid #000;">08h-0Fh</td><td style="border:2px solid #000;">Reserved in single-function devices and Functions other than Function 0 in a multi-function device</td></tr></table>
 ## 16.4 Introduction to Link Power Management | 16.4 链路电源管理简介
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -755,12 +755,12 @@ Figure 16-8: PM Registers | 图16-8：PM寄存器
 
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Downstream Component D-State</td><td style="border:2px solid #000;">Permissible Upstream Component D-State</td><td style="border:2px solid #000;">Permissible Interconnect State</td></tr><tr><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">L0, L0s &amp; L1 (optional)</td></tr><tr><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">D0-D1</td><td style="border:2px solid #000;">L1</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">D0-D2</td><td style="border:2px solid #000;">L1</td></tr><tr><td style="border:2px solid #000;">D3 hot</td><td style="border:2px solid #000;">D0-D3 hot</td><td style="border:2px solid #000;">L1, L2/L3 Ready</td></tr><tr><td style="border:2px solid #000;">D3 cold</td><td style="border:2px solid #000;">D0-D3 cold</td><td style="border:2px solid #000;">L2 (AUX Pwr), L3</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Downstream Component D-State</td><td style="border:2px solid #000;">Permissible Upstream Component D-State</td><td style="border:2px solid #000;">Permissible Interconnect State</td></tr><tr><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">D0</td><td style="border:2px solid #000;">L0, L0s &amp; L1 (optional)</td></tr><tr><td style="border:2px solid #000;">D1</td><td style="border:2px solid #000;">D0-D1</td><td style="border:2px solid #000;">L1</td></tr><tr><td style="border:2px solid #000;">D2</td><td style="border:2px solid #000;">D0-D2</td><td style="border:2px solid #000;">L1</td></tr><tr><td style="border:2px solid #000;">D3 hot</td><td style="border:2px solid #000;">D0-D3 hot</td><td style="border:2px solid #000;">L1, L2/L3 Ready</td></tr><tr><td style="border:2px solid #000;">D3 cold</td><td style="border:2px solid #000;">D0-D3 cold</td><td style="border:2px solid #000;">L2 (AUX Pwr), L3</td></tr></table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">State</td><td style="border:2px solid #000;">Description</td><td style="border:2px solid #000;">Software Directed?</td><td style="border:2px solid #000;">Active State Link PM</td><td style="border:2px solid #000;">Ref. Clocks</td><td style="border:2px solid #000;">Main Power</td><td style="border:2px solid #000;">PLL</td><td style="border:2px solid #000;">Vaux</td></tr><tr><td style="border:2px solid #000;">L0</td><td style="border:2px solid #000;">Fully Active</td><td style="border:2px solid #000;">Yes (D0)</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On/Off</td></tr><tr><td style="border:2px solid #000;">L0s</td><td style="border:2px solid #000;">Standby</td><td style="border:2px solid #000;">No</td><td style="border:2px solid #000;">Yes (D0)</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On/Off</td></tr><tr><td style="border:2px solid #000;">L1</td><td style="border:2px solid #000;">Low Power Standby</td><td style="border:2px solid #000;">Yes* (D1-D3 hot)</td><td style="border:2px solid #000;">Yes (option) (D0)</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On/Off</td><td style="border:2px solid #000;">On/Off</td></tr><tr><td style="border:2px solid #000;">L2/L3 Ready</td><td style="border:2px solid #000;">Staging for power removal</td><td style="border:2px solid #000;">Yes PME_Turn_Off handshake</td><td style="border:2px solid #000;">No</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On/Off</td><td style="border:2px solid #000;">On/Off</td></tr><tr><td style="border:2px solid #000;">L2</td><td style="border:2px solid #000;">Low Power Sleep</td><td style="border:2px solid #000;">Yes**</td><td style="border:2px solid #000;">No</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">On</td></tr><tr><td style="border:2px solid #000;">L3</td><td style="border:2px solid #000;">Off (Zero Power)</td><td style="border:2px solid #000;">N/A</td><td style="border:2px solid #000;">N/A</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">Off</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">State</td><td style="border:2px solid #000;">Description</td><td style="border:2px solid #000;">Software Directed?</td><td style="border:2px solid #000;">Active State Link PM</td><td style="border:2px solid #000;">Ref. Clocks</td><td style="border:2px solid #000;">Main Power</td><td style="border:2px solid #000;">PLL</td><td style="border:2px solid #000;">Vaux</td></tr><tr><td style="border:2px solid #000;">L0</td><td style="border:2px solid #000;">Fully Active</td><td style="border:2px solid #000;">Yes (D0)</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On/Off</td></tr><tr><td style="border:2px solid #000;">L0s</td><td style="border:2px solid #000;">Standby</td><td style="border:2px solid #000;">No</td><td style="border:2px solid #000;">Yes (D0)</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On/Off</td></tr><tr><td style="border:2px solid #000;">L1</td><td style="border:2px solid #000;">Low Power Standby</td><td style="border:2px solid #000;">Yes* (D1-D3 hot)</td><td style="border:2px solid #000;">Yes (option) (D0)</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On/Off</td><td style="border:2px solid #000;">On/Off</td></tr><tr><td style="border:2px solid #000;">L2/L3 Ready</td><td style="border:2px solid #000;">Staging for power removal</td><td style="border:2px solid #000;">Yes PME_Turn_Off handshake</td><td style="border:2px solid #000;">No</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On</td><td style="border:2px solid #000;">On/Off</td><td style="border:2px solid #000;">On/Off</td></tr><tr><td style="border:2px solid #000;">L2</td><td style="border:2px solid #000;">Low Power Sleep</td><td style="border:2px solid #000;">Yes**</td><td style="border:2px solid #000;">No</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">On</td></tr><tr><td style="border:2px solid #000;">L3</td><td style="border:2px solid #000;">Off (Zero Power)</td><td style="border:2px solid #000;">N/A</td><td style="border:2px solid #000;">N/A</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">Off</td><td style="border:2px solid #000;">Off</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -775,7 +775,7 @@ Figure 16-8: PM Registers | 图16-8：PM寄存器
 
 ## 16.5 Active State Power Management (ASPM) | 16.5 主动状态电源管理（ASPM）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -792,7 +792,7 @@ Figure 16-8: PM Registers | 图16-8：PM寄存器
 
 ## 16.5.1 Electrical Idle | 16.5.1 电气空闲
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -811,7 +811,7 @@ Figure 16-8: PM Registers | 图16-8：PM寄存器
 
 ## 16.5.1.1 Transmitter Entry to Electrical Idle | 16.5.1.1 发送器进入电气空闲
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -829,7 +829,7 @@ Figure 16-8: PM Registers | 图16-8：PM寄存器
 Figure 16-9: Gen1/Gen2 Mode EIOS Pattern | 图16-9：Gen1/Gen2模式EIOS模式
 <img src="images/part05_12d61c63aaefd1001bbe61a3afb4c33d2e2a960cb755c0683c0e38060722b510.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -847,7 +847,7 @@ Figure 16-10: Gen3 Mode EIOS Pattern | 图16-10：Gen3模式EIOS模式
 <img src="images/part05_c0710d12e256c474df2870cd8809c5c6bef9b26ebf839c0fdf6e3170a8318432.jpg" width="700" alt="">
 ## 16.5.1.2 Transmitter Exit from Electrical Idle | 16.5.1.2 发送器退出电气空闲
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -867,7 +867,7 @@ Figure 16-10: Gen3 Mode EIOS Pattern | 图16-10：Gen3模式EIOS模式
 Figure 16-11: Gen1/Gen2 Mode EIEOS Symbol Pattern | 图16-11：Gen1/Gen2模式EIEOS符号模式
 <img src="images/part05_baa1d13871ed11b0b0e824b9b4a63456f85f4b146081fa2d2f0d85d5d57d7b66.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -888,7 +888,7 @@ Figure 16-11: Gen1/Gen2 Mode EIEOS Symbol Pattern | 图16-11：Gen1/Gen2模式EI
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -906,7 +906,7 @@ Figure 16‐12: 128b/130b EIEOS Block | 图16‐12：128b/130b EIEOS块
 <img src="images/part05_ab0a327bb776c6382f4898d15ddd8bae0856b48ea3707239b288a58b11fa9f74.jpg" width="700" alt="">
 ## 16.5.1.3 Receiver Entry to Electrical Idle | 16.5.1.3 接收器进入电气空闲
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -923,9 +923,9 @@ Figure 16‐12: 128b/130b EIEOS Block | 图16‐12：128b/130b EIEOS块
 
 Table 16‑17: Electrical Idle Inference Conditions | 表16‑17：电气空闲推断条件
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">State</td><td style="border:2px solid #000;">2.5GT/s</td><td style="border:2px solid #000;">5.0 GT/s</td><td style="border:2px solid #000;">8.0 GT/s</td></tr><tr><td style="border:2px solid #000;">L0</td><td colspan="3" style="border:2px solid #000;">Absence of an FC Update or SOS in a 128μs window</td></tr><tr><td style="border:2px solid #000;">Recovery.RcvrCfg</td><td colspan="2" style="border:2px solid #000;">Absence of a TS1 or TS2 in a 1280 UI interval</td><td style="border:2px solid #000;">Absence of a TS1 or TS2 in a 4ms window</td></tr><tr><td style="border:2px solid #000;">Recovery.Speed (successful_speed_negotiation = 1b)</td><td colspan="2" style="border:2px solid #000;">Absence of a TS1 or TS2 in a 1280 UI interval</td><td style="border:2px solid #000;">Absence of a TS1 or TS2 in a 4680 UI interval</td></tr><tr><td style="border:2px solid #000;">Recovery.Speed (successful_speed_negotiation = 0b)</td><td style="border:2px solid #000;">Absence of an exit from Electrical Idle in a 2000 UI interval</td><td colspan="2" style="border:2px solid #000;">Absence of an exit from Electrical Idle in a 16000 UI interval</td></tr><tr><td style="border:2px solid #000;">Loopback.Active (as a slave)</td><td style="border:2px solid #000;">Absence of an exit from Electrical Idle in a 128μs window</td><td style="border:2px solid #000;">N/A</td><td style="border:2px solid #000;">N/A</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">State</td><td style="border:2px solid #000;">2.5GT/s</td><td style="border:2px solid #000;">5.0 GT/s</td><td style="border:2px solid #000;">8.0 GT/s</td></tr><tr><td style="border:2px solid #000;">L0</td><td colspan="3" style="border:2px solid #000;">Absence of an FC Update or SOS in a 128μs window</td></tr><tr><td style="border:2px solid #000;">Recovery.RcvrCfg</td><td colspan="2" style="border:2px solid #000;">Absence of a TS1 or TS2 in a 1280 UI interval</td><td style="border:2px solid #000;">Absence of a TS1 or TS2 in a 4ms window</td></tr><tr><td style="border:2px solid #000;">Recovery.Speed (successful_speed_negotiation = 1b)</td><td colspan="2" style="border:2px solid #000;">Absence of a TS1 or TS2 in a 1280 UI interval</td><td style="border:2px solid #000;">Absence of a TS1 or TS2 in a 4680 UI interval</td></tr><tr><td style="border:2px solid #000;">Recovery.Speed (successful_speed_negotiation = 0b)</td><td style="border:2px solid #000;">Absence of an exit from Electrical Idle in a 2000 UI interval</td><td colspan="2" style="border:2px solid #000;">Absence of an exit from Electrical Idle in a 16000 UI interval</td></tr><tr><td style="border:2px solid #000;">Loopback.Active (as a slave)</td><td style="border:2px solid #000;">Absence of an exit from Electrical Idle in a 128μs window</td><td style="border:2px solid #000;">N/A</td><td style="border:2px solid #000;">N/A</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -939,7 +939,7 @@ Table 16‑17: Electrical Idle Inference Conditions | 表16‑17：电气空闲�
 
 ## 16.5.1.4 Receiver Exit from Electrical Idle | 16.5.1.4 接收器退出电气空闲
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -958,7 +958,7 @@ Table 16‑17: Electrical Idle Inference Conditions | 表16‑17：电气空闲�
 Figure 16-13: ASPM Link State Transitions | 图16-13：ASPM链路状态转换
 <img src="images/part05_db088fbe98114f49d74254b7e1c01a9bc488da98525b305e1c281b900b76e5a7.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -974,7 +974,7 @@ Figure 16-13: ASPM Link State Transitions | 图16-13：ASPM链路状态转换
 Figure 16-14: ASPM Support | 图16-14：ASPM支持
 <img src="images/part05_79f98295c4ea5ad89a906334db32eb545e7c9393555f7d18c8b9aead71a26630.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -988,13 +988,13 @@ Figure 16-14: ASPM Support | 图16-14：ASPM支持
 
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Setting</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">00b</td><td style="border:2px solid #000;">L0s and L1 ASPM disabled</td></tr><tr><td style="border:2px solid #000;">01b</td><td style="border:2px solid #000;">L0s enabled and L1 disabled</td></tr><tr><td style="border:2px solid #000;">10b</td><td style="border:2px solid #000;">L1 enabled and L0s disabled</td></tr><tr><td style="border:2px solid #000;">11b</td><td style="border:2px solid #000;">Both L0s and L1 enabled</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Setting</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">00b</td><td style="border:2px solid #000;">L0s and L1 ASPM disabled</td></tr><tr><td style="border:2px solid #000;">01b</td><td style="border:2px solid #000;">L0s enabled and L1 disabled</td></tr><tr><td style="border:2px solid #000;">10b</td><td style="border:2px solid #000;">L1 enabled and L0s disabled</td></tr><tr><td style="border:2px solid #000;">11b</td><td style="border:2px solid #000;">Both L0s and L1 enabled</td></tr></table>
 
 Figure 16-15: Active State PM Control Field | 图16-15：活动状态电源管理控制字段
 <img src="images/part05_77e209a142c65d91bf56500642e273f00f0fc13f303078745de3ee810ce97cb7.jpg" width="700" alt="">
 ## 16.5.2 L0s State | 16.5.2 L0s 状态
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1007,7 +1007,7 @@ Figure 16-15: Active State PM Control Field | 图16-15：活动状态电源管�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1038,7 +1038,7 @@ Figure 16-15: Active State PM Control Field | 图16-15：活动状态电源管�
 
 ## 16.5.2.1 Exit from L0s State | 16.5.2.1 退出 L0s 状态
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1056,7 +1056,7 @@ Figure 16-15: Active State PM Control Field | 图16-15：活动状态电源管�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1074,7 +1074,7 @@ Figure 16-15: Active State PM Control Field | 图16-15：活动状态电源管�
 Figure 16-16: Only Upstream Ports Initiate L1 ASPM | 图16-16：仅上游端口发起L1 ASPM
 <img src="images/part05_b97e1cf9a99cb4c47612ac5db33e2f91c348baf38a8902028212a4000b10ebbe.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1088,7 +1088,7 @@ Figure 16-16: Only Upstream Ports Initiate L1 ASPM | 图16-16：仅上游端口�
 
 ## 16.5.2.2 Downstream Component Decides to Enter L1 ASPM | 16.5.2.2 下游组件决定进入 L1 ASPM
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1106,7 +1106,7 @@ Figure 16-16: Only Upstream Ports Initiate L1 ASPM | 图16-16：仅上游端口�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1125,7 +1125,7 @@ Figure 16-16: Only Upstream Ports Initiate L1 ASPM | 图16-16：仅上游端口�
 
 ## 16.5.2.3 Scenario 1: Both Ports Ready to Enter L1 ASPM State | 16.5.2.3 场景 1：两端端口均准备好进入 L1 ASPM 状态
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1143,7 +1143,7 @@ Figure 16-16: Only Upstream Ports Initiate L1 ASPM | 图16-16：仅上游端口�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1169,7 +1169,7 @@ Figure 16-16: Only Upstream Ports Initiate L1 ASPM | 图16-16：仅上游端口�
 Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM | 图16-17：进入L1活动状态电源管理所需的协商序列
 <img src="images/part05_a168403ad42ca4bdb2c1773513deeab401a0a1a8cbfe17143c8237f8e82d42da.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1191,7 +1191,7 @@ Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM | 图16-
 
 ## 16.5.2.4 Scenario 3: Downstream Component Receives TLP During Negotiation | 16.5.2.4 场景 3：下游组件在协商期间接收 TLP
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1209,7 +1209,7 @@ Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM | 图16-
 
 ## 16.5.2.5 Scenario 4: Upstream Component Receives TLP During Negotiation | 16.5.2.5 场景 4：上游组件在协商期间接收 TLP
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1223,7 +1223,7 @@ Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM | 图16-
 
 ## 16.5.2.6 Scenario 5: Upstream Component Rejects L1 Request | 16.5.2.6 场景 5：上游组件拒绝 L1 请求
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1244,7 +1244,7 @@ Figure 16-18: Negotiation Sequence Resulting in Rejection to Enter L1 ASPM State
 <img src="images/part05_c96eb6d51261fef2cded052c64c1056f7c4bdbb779b8c3e4aafe075d155e3d75.jpg" width="700" alt="">
 ## 16.5.2.7 Exit from L1 ASPM State | 16.5.2.7 退出 L1 ASPM 状态
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1262,7 +1262,7 @@ Figure 16-18: Negotiation Sequence Resulting in Rejection to Enter L1 ASPM State
 Figure 16‐19: Switch Behavior When Downstream Component Signals L1 Exit | 图16‐19：下游组件发出L1退出信号时的交换机行为
 <img src="images/part05_ce536b694cb408923fab6037c48a47737553110bea1482acb1b187050d0b03e3.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1279,7 +1279,7 @@ Figure 16‐19: Switch Behavior When Downstream Component Signals L1 Exit | 图1
 Figure 16‐20: Switch Behavior When Upstream Component Signals L1 Exit | 图16‐20：上游组件发出L1退出信号时的交换机行为
 <img src="images/part05_eadb4cfae045c7d72877e30ff8989d1e9352a010a66b692b5d75774c3be98549.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1294,7 +1294,7 @@ Figure 16‐20: Switch Behavior When Upstream Component Signals L1 Exit | 图16�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1314,7 +1314,7 @@ Figure 16‐20: Switch Behavior When Upstream Component Signals L1 Exit | 图16�
 Figure 16‐21: Config. Registers for ASPM Exit Latency Management and Reporting | 图16‐21：用于ASPM退出延迟管理和报告的配置寄存器
 <img src="images/part05_689e1b6acc803718d51b5d17ad3df2374c5fa89e449024415be45dd4f1a29f9c.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1327,7 +1327,7 @@ Figure 16‐21: Config. Registers for ASPM Exit Latency Management and Reporting
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1351,7 +1351,7 @@ Figure 16-22: Example of Total L1 Latency | 图16-22：L1总延迟示例
 <img src="images/part05_8961dee54e0ce29831b8a950cff03449f37bf7cb81237bcab49e719827a0f99a.jpg" width="700" alt="">
 ## 16.6 Software Initiated Link Power Management | 16.6 软件启动的链路电源管理
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1364,7 +1364,7 @@ Figure 16-22: Example of Total L1 Latency | 图16-22：L1总延迟示例
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1381,7 +1381,7 @@ Figure 16-22: Example of Total L1 Latency | 图16-22：L1总延迟示例
 Figure 16‑23: Devices Transition to L1 When Software Changes their Power Level from D0 | 图16‑23：软件将设备电源级别从D0变更时设备转换到L1
 <img src="images/part05_5e09bfe24dcb08db35d51671340b6b73826c3d79c24c40432f17f2d67edb51c4.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1395,7 +1395,7 @@ Figure 16‑23: Devices Transition to L1 When Software Changes their Power Level
 
 ## 16.6.1 Entering the L1 State | 16.6.1 进入 L1 状态
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1423,7 +1423,7 @@ Figure 16‑24: Procedure Used to Transition a Link from the L0 to L1 State | �
 <img src="images/part05_ea98afc53224b6998c6c3023ea503b6051188e4800409676486442c903438cdd.jpg" width="700" alt="">
 ## 16.6.2 Exiting the L1 State | 16.6.2 退出 L1 状态
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1440,7 +1440,7 @@ Figure 16‑24: Procedure Used to Transition a Link from the L0 to L1 State | �
 
 ## 16.6.3 L2/L3 Ready — Removing Power from the Link | 16.6.3 L2/L3 就绪 — 移除链路电源
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1458,7 +1458,7 @@ Figure 16-25: Link States Transitions Associated with Preparing Devices for Remo
 <img src="images/part05_2c9540144f970d6374d2245863bc321ad0c9fed42db8d6d9140b64734070eeef.jpg" width="700" alt="">
 ## 16.6.4 L2/L3 Ready Handshake Sequence | 16.6.4 L2/L3 就绪握手序列
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1484,7 +1484,7 @@ Figure 16-25: Link States Transitions Associated with Preparing Devices for Remo
 Figure 16-26: Negotiation for Entering L2/L3 Ready State | 图16-26：进入L2/L3就绪状态的协商
 <img src="images/part05_9adc2b8feff8cbe6076f4a3924391fe2ca8456f3d02396a2482c4f9dc33c5ed3.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1502,7 +1502,7 @@ Figure 16-26: Negotiation for Entering L2/L3 Ready State | 图16-26：进入L2/L
 Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed | 图16-27：电源移除时从L2/L3就绪状态的状态转换
 <img src="images/part05_bde116ad18e1f8f978a0a3d72252fcf97654804997457b4c61b5c704416df591.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1516,7 +1516,7 @@ Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed | 图16-2
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1530,7 +1530,7 @@ Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed | 图16-2
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1550,7 +1550,7 @@ Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed | 图16-2
 
 ## 16.7.1 The PME Message | 16.7.1 PME 报文
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1566,7 +1566,7 @@ Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed | 图16-2
 Figure 16-28: PME Message Format | 图16-28：PME消息格式
 <img src="images/part05_4e0193ca491c49c26bbfa3a0664a2ac9c0954a09db6d78678377fcb9266ff863.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1584,7 +1584,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 
 ## 16.7.2 The PME Sequence | 16.7.2 PME 序列
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1603,7 +1603,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1616,7 +1616,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1632,7 +1632,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 ## 16.7.3 The Problem | 16.7.3 问题
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1651,7 +1651,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 
 ## 16.7.4 The Solution | 16.7.4 解决方案
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1665,7 +1665,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 
 ## 16.7.5 The PME Context | 16.7.5 PME 上下文
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1679,7 +1679,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1695,7 +1695,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 
 ## 16.7.6 Waking Non-Communicating Links | 16.7.6 唤醒非通信链路
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1711,7 +1711,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1725,7 +1725,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1744,7 +1744,7 @@ Figure 16-29: WAKE# Signal Implementations | 图16-29：WAKE#信号实现
 <img src="images/part05_f2408966fcbddf9c62276c74421bb598bd2c9ec03d7c4b51010ccaa266a5f268.jpg" width="700" alt="">
 ## 16.7.7 Auxiliary Power | 16.7.7 辅助电源
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1761,7 +1761,7 @@ Figure 16-29: WAKE# Signal Implementations | 图16-29：WAKE#信号实现
 Figure 16-30: Auxiliary Current Enable for Devices Not Supporting PMEs | 图16-30：不支持PME设备的辅助电流使能
 <img src="images/part05_96429d035b462f2fe78aefdf7c0c249cd312c31f122d226d8c2c8f2aaa527083.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1774,7 +1774,7 @@ Figure 16-30: Auxiliary Current Enable for Devices Not Supporting PMEs | 图16-3
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1790,7 +1790,7 @@ Figure 16-30: Auxiliary Current Enable for Devices Not Supporting PMEs | 图16-3
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1804,7 +1804,7 @@ Figure 16-30: Auxiliary Current Enable for Devices Not Supporting PMEs | 图16-3
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1822,7 +1822,7 @@ Figure 16‑31: Poor System Idle Time | 图16‑31：较差的系统空闲时间
 Figure 16‑32: Improved System Idle Time | 图16‑32：改善后的系统空闲时间
 <img src="images/part05_3568037bc910ae8c02bdfddb6d5d44ff1820482aab8717544f7b73f815c2302c.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1839,7 +1839,7 @@ Figure 16‑32: Improved System Idle Time | 图16‑32：改善后的系统空�
 Figure 16-33: OBFF Signaling Example | 图16-33：OBFF信令示例
 <img src="images/part05_6388cd761b9de74638617d414f6183577891272c712bc5aa6fca383938c9af26.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1858,7 +1858,7 @@ Figure 16-33: OBFF Signaling Example | 图16-33：OBFF信令示例
 Figure 16-34: WAKE# Pin OBFF Signaling | 图16-34：WAKE#引脚OBFF信令
 <img src="images/part05_99e29ed82cbb0cb4b3990e5b61068894439a3148a609c9461a7990d02d41820f.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1880,7 +1880,7 @@ Figure 16-34: WAKE# Pin OBFF Signaling | 图16-34：WAKE#引脚OBFF信令
 Figure 16-35: OBFF Message Contents | 图16-35：OBFF消息内容
 <img src="images/part05_d778ca93d07da3cfa8df8a68e2fbceba580892f258433912ce239698e49bfbe4.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1897,7 +1897,7 @@ Figure 16-35: OBFF Message Contents | 图16-35：OBFF消息内容
 Figure 16-36: OBFF Support Indication | 图16-36：OBFF支持指示
 <img src="images/part05_9e862104fcc022c58db0305a7fa299134fd8d80288cdee7f84ca477179758789.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1914,7 +1914,7 @@ Figure 16-36: OBFF Support Indication | 图16-36：OBFF支持指示
 Figure 16-37: OBFF Enable Register | 图16-37：OBFF使能寄存器
 <img src="images/part05_9ca431fe83126fe8ade34898c4618229c1eae073eed73b5d755c169c1906c01a.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1927,7 +1927,7 @@ Figure 16-37: OBFF Enable Register | 图16-37：OBFF使能寄存器
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1943,7 +1943,7 @@ Figure 16-37: OBFF Enable Register | 图16-37：OBFF使能寄存器
 
 ## 16.8 LTR Registers | 16.8 LTR 寄存器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1961,7 +1961,7 @@ Figure 16-39: LTR Enable | 图16-39：LTR使能
 <img src="images/part05_3a953ecb972c353a8b6047610671a798f3716d0d7cc7eb8ddcdd5defa0c11df7.jpg" width="700" alt="">
 <img src="images/part05_58e135bd1ea08586e6b30f93ec632a90ad81b524fbf58866d4679f53ca3888d2.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1975,7 +1975,7 @@ Figure 16-39: LTR Enable | 图16-39：LTR使能
 
 ## 16.8.1 LTR Messages | 16.8.1 LTR 消息
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1993,7 +1993,7 @@ Figure 16-39: LTR Enable | 图16-39：LTR使能
 
 ## 16.8.2 Guidelines Regarding LTR Use | 16.8.2 LTR 使用指南
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -2029,7 +2029,7 @@ Figure 16-40: LTR Message Format | 图16-40：LTR消息格式
 <img src="images/part05_27130930bb399afbc02f675fb1f5a8c729d2102014b758834d9dbe6bbad836b0.jpg" width="700" alt="">
 ## 16.8.3 LTR Example | 16.8.3 LTR 示例
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -2045,7 +2045,7 @@ Figure 16-40: LTR Message Format | 图16-40：LTR消息格式
 Figure 16-41: LTR Example | 图16-41：LTR示例
 <img src="images/part05_9a29ad499c43ca63776097212ef8d2924b6a8c31c9fd9c2ddca3a4fce36f64bb.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -2061,7 +2061,7 @@ Figure 16-41: LTR Example | 图16-41：LTR示例
 Figure 16-42: LTR - Change but no Update | 图16-42：LTR - 有变更但无更新
 <img src="images/part05_139d4fe5a915e2915877754ea95c81e26aba0a59b345f7ce2ceddb2a281b7d0d.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -2074,7 +2074,7 @@ Figure 16-42: LTR - Change but no Update | 图16-42：LTR - 有变更但无更�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>

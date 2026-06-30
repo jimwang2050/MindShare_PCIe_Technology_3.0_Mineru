@@ -2,7 +2,7 @@
 
 ---
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 *(This chunk contains no translatable content — only a separator.)*
@@ -15,7 +15,7 @@
 
 ---
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Part part01 — `mindshare_part01_p0001-0180`
@@ -42,7 +42,7 @@ MindShare 技术丛书系列
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI Express Technology
@@ -58,7 +58,7 @@ PCI Express 技术
 
 # Comprehensive Guide to Generations 1.x, 2.x and 3.0 | 1.x、2.x 及 3.0 代综合指南
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Mike Jackson, Ravi Budruk
@@ -79,7 +79,7 @@ MindShare, Inc.
 
 # PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Comprehensive Guide to Generations 1.x, 2.x, 3.0
@@ -114,7 +114,7 @@ Ravi Budruk 著，Joe Winkles 与 Don Anderson 技术编辑
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MindShare Live Training and Self-Paced Training
@@ -127,9 +127,9 @@ MindShare 实时培训和自定进度培训
 
 MindShare offers a wide range of courses covering processors, buses, firmware, storage, graphics, programming, and more. The following table lists some of the key training areas available.
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Intel ArchitectureIntel Ivy Bridge ProcessorIntel 64 (x86) ArchitectureIntel QuickPath Interconnect (QPI)Computer Architecture</td><td style="border:2px solid #000;">Virtualization TechnologyPC VirtualizationIO Virtualization</td></tr><tr><td style="border:2px solid #000;">AMD ArchitectureAMD Opteron Processor (Bulldozer)AMD64 Architecture</td><td style="border:2px solid #000;">IO BusesPCI Express 3.0USB 3.0 / 2.0xHCI for USB</td></tr><tr><td style="border:2px solid #000;">Firmware TechnologyUEFI ArchitectureBIOS Essentials</td><td style="border:2px solid #000;">Storage TechnologySAS ArchitectureSerial ATA ArchitectureNVMe Architecture</td></tr><tr><td style="border:2px solid #000;">ARM ArchitectureARM Architecture</td><td style="border:2px solid #000;">Memory TechnologyModern DRAM Architecture</td></tr><tr><td style="border:2px solid #000;">Graphics ArchitectureGraphics Hardware Architecture</td><td style="border:2px solid #000;">High Speed DesignHigh Speed DesignEMI/EMC</td></tr><tr><td style="border:2px solid #000;">ProgrammingX86 Architecture ProgrammingX86 Assembly Language BasicsOpenCL Programming</td><td style="border:2px solid #000;">Surface-Mount Technology (SMT)SMT ManufacturingSMT Testing</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Intel ArchitectureIntel Ivy Bridge ProcessorIntel 64 (x86) ArchitectureIntel QuickPath Interconnect (QPI)Computer Architecture</td><td style="border:2px solid #000;">Virtualization TechnologyPC VirtualizationIO Virtualization</td></tr><tr><td style="border:2px solid #000;">AMD ArchitectureAMD Opteron Processor (Bulldozer)AMD64 Architecture</td><td style="border:2px solid #000;">IO BusesPCI Express 3.0USB 3.0 / 2.0xHCI for USB</td></tr><tr><td style="border:2px solid #000;">Firmware TechnologyUEFI ArchitectureBIOS Essentials</td><td style="border:2px solid #000;">Storage TechnologySAS ArchitectureSerial ATA ArchitectureNVMe Architecture</td></tr><tr><td style="border:2px solid #000;">ARM ArchitectureARM Architecture</td><td style="border:2px solid #000;">Memory TechnologyModern DRAM Architecture</td></tr><tr><td style="border:2px solid #000;">Graphics ArchitectureGraphics Hardware Architecture</td><td style="border:2px solid #000;">High Speed DesignHigh Speed DesignEMI/EMC</td></tr><tr><td style="border:2px solid #000;">ProgrammingX86 Architecture ProgrammingX86 Assembly Language BasicsOpenCL Programming</td><td style="border:2px solid #000;">Surface-Mount Technology (SMT)SMT ManufacturingSMT Testing</td></tr></table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Are your company's technical training needs being addressed in the most effective manner?
@@ -163,7 +163,7 @@ MindShare 提供大量自定进度培训形式（在线学习）的课程。我�
 
 ## Feature List | 功能列表
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Scan config space for all PCI-visible functions in system
@@ -248,7 +248,7 @@ All decode files and saved system scans are XML-based and open-format
 
 ## COMING SOON | 即将推出
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Decoded view of x86 structures (MSRs, ACPI, Paging, Virtualization, etc.)
@@ -269,7 +269,7 @@ MindShare Arbor 是一款计算机系统调试、验证、分析和学习工具�
 
 ## View Reference Info | 查看参考资料
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MindShare Arbor is an excellent reference tool to quickly look at standard PCI, PCI-X and PCIe structures. All the register and field definitions are up-to-date with the PCI Express 3.0. x86, ACPI and USB reference info will be coming soon as well.
@@ -282,7 +282,7 @@ MindShare Arbor 是一款出色的参考工具，可用于快速查看标准 PCI
 
 ## Decoding Standard and Custom Structures from a Live System | 从运行系统中解码标准与自定义结构
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MindShare Arbor can perform a scan of the system it is running on to record the config space from all PCI-visible functions and show it in a clean and intuitive decoded format. In addition to scanning PCI config space, MindShare Arbor can also be directed to read any memory address space and IO address space and display the collected data in the same decoded fashion.
@@ -295,7 +295,7 @@ MindShare Arbor 可以对运行所在系统执行扫描，记录所有 PCI 可�
 
 ## Run Rule Checks of Standard and Custom Structures | 对标准与自定义结构运行规则检查
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In addition to capturing and displaying headers and capability structures from PCI config space, Arbor can also check the settings of each field for errors (e.g. violates the spec) and non-optimal values (e.g. a PCIe link trained to something less than its max capability).
@@ -348,7 +348,7 @@ The rule checks are written in JavaScript. (Python support coming soon.)
 
 ## Write Capability | 写操作功能
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MindShare Arbor provides a very simple interface to directly edit a register in PCI config space, memory address space or IO address space. This can be done in the decoded view so you see what the meaning of each bit, or by simply writing a hex value to the target location.
@@ -359,7 +359,7 @@ MindShare Arbor 提供了一个非常简单的界面，可直接编辑 PCI 配�
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Saving System Scans (XML)
@@ -380,7 +380,7 @@ After a system scan has been performed, MindShare Arbor allows saving of that sy
 
 # PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Comprehensive Guide to Generations 1.x, 2.x, 3.0
@@ -433,7 +433,7 @@ The authors and publishers have taken care in preparation of this book, but make
 
 ## Library of Congress Cataloging-in-Publication Data | 美国国会图书馆出版编目数据
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Jackson, Mike and Budruk, Ravi PCI Express Technology / MindShare, Inc., Mike Jackson, Ravi Budruk....[et al.]
@@ -502,7 +502,7 @@ First Edition, First Printing, September, 2012
 
 ## Acknowledgments | 致谢
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Thanks to those who made significant contributions to this book:
@@ -598,7 +598,7 @@ Thanks also to the PCI SIG for giving permission to use some of the mechanical d
 
 ## About This Book | 关于本书
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1.0 - Initial eBook release
@@ -739,7 +739,7 @@ We Want Your Feedback .... 5
 
 ## Part One: The Big Picture | 第一部分：总览
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 1: Background
@@ -2200,7 +2200,7 @@ DLLP 与有序集不参与路由......166
 
 ## Part Two: Transaction Layer | 第二部分：事务层
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 5: TLP Elements
@@ -2835,7 +2835,7 @@ Receiver Elements....229
 
 ## Chapter 8: Transaction Ordering | 第 8 章：事务排序
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control Example....230
@@ -3464,7 +3464,7 @@ Deadlock Avoidance....303
 
 ## Part Three: Data Link Layer | 第三部分：数据链路层
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 
@@ -4165,7 +4165,7 @@ Example of Cut-Through Operation.... 356
 
 ## Part Four: Physical Layer | 第四部分：物理层
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 11: Physical Layer - Logical (Gen1 and Gen2)
@@ -6794,7 +6794,7 @@ Extended Synch....643
 
 ## Part Five: Additional System Topics | 第五部分：附加系统主题
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Part Five: Additional System Topics
@@ -6807,7 +6807,7 @@ Part Five: Additional System Topics
 
 Chapter 15: Error Detection and Handling
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 15: Error Detection and Handling
@@ -7332,7 +7332,7 @@ Example Flow of Software Error Investigation....699
 
 Chapter 16: Power Management
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 16: Power Management
@@ -8297,7 +8297,7 @@ LTR 示例....789
 
 Chapter 17: Interrupt Support
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 17: Interrupt Support
@@ -8694,7 +8694,7 @@ Example Legacy System....831
 
 Chapter 18: System Reset
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 18: System Reset
@@ -8835,7 +8835,7 @@ Reset Exit....846
 
 Chapter 19: Hot Plug and Power Budgeting
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 19: Hot Plug and Power Budgeting
@@ -9216,7 +9216,7 @@ The Power Budget Capabilities Register Set....883
 
 Chapter 20: Updates for Spec Revision 2.1
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 20: Updates for Spec Revision 2.1
@@ -9525,7 +9525,7 @@ Simplified Ordering Table ....914
 
 ## Appendices | 附录
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Appendix A: Debugging PCIe Traffic with LeCroy Tools
@@ -9986,7 +9986,7 @@ Notification of an Unsuccessful Lock....970
 
 ## Contents | 目录
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Summary of Locking Rules....970
@@ -12071,7 +12071,7 @@ Glossary....973
 
 ## Chapter 13: Physical Layer — Transmitter and Receiver | 第13章：物理层 — 发送器和接收器
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 13-28 Rx Bad Eye (No De-emphasis)
@@ -12172,7 +12172,7 @@ Glossary....973
 
 ## Chapter 14: Link Training and Status State Machine (LTSSM) | 第14章：链路训练和状态机（LTSSM）
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 14-1 Link Training and Status State Machine Location
@@ -12745,7 +12745,7 @@ Glossary....973
 
 ## Chapter 15: Error Handling | 第15章：错误处理
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 15-1 PCI Error Handling
@@ -13006,7 +13006,7 @@ Glossary....973
 
 ## Chapter 16: Power Management | 第16章：电源管理
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 16-1 Relationship of OS, Device Drivers, Bus Driver, PCI Express Registers, and ACPI
@@ -13363,7 +13363,7 @@ Glossary....973
 
 ## Chapter 17: Interrupts | 第17章：中断
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 17-1 PCI Interrupt Delivery
@@ -13552,7 +13552,7 @@ Glossary....973
 
 ## Chapter 18: Reset | 第18章：复位
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 18-1 PERST# Generation
@@ -13629,7 +13629,7 @@ Glossary....973
 
 ## Chapter 19: Hot Plug and Power Budgeting | 第19章：热插拔和功率预算
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 19-1 PCI Hot Plug Elements
@@ -13738,7 +13738,7 @@ Glossary....973
 
 ## Chapter 20: Multicast, TPH, and Resizable BAR | 第20章：多播、TPH 和可调整大小 BAR
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 20-1 Multicast System Example
@@ -13927,7 +13927,7 @@ Glossary....973
 
 ## Appendix: Analysis Tools and Test Equipment | 附录：分析工具与测试设备
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1 LeCroy Oscilloscope with ProtoSync Software Option
@@ -14044,7 +14044,7 @@ Glossary....973
 
 ## Appendix: Switch and Data Center Applications | 附录：交换机和数据中心应用
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1 MR-IOV Switch Usage
@@ -14097,7 +14097,7 @@ Glossary....973
 
 ## Appendix: Address Translation and Host Failover | 附录：地址转换与主机故障切换
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1 Enumeration Using Transparent Bridges
@@ -14182,7 +14182,7 @@ Glossary....973
 
 ## Appendix: Lock Sequence | 附录：锁定序列
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1 Lock Sequence Begins with Memory Read Lock Request
@@ -14201,7 +14201,7 @@ Glossary....973
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1 PC Architecture Book Series .... 1
@@ -15110,7 +15110,7 @@ ST表位置编码.... 907
 
 ## The MindShare Technology Series | MindShare 技术丛书系列
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The MindShare Technology series includes the books listed in Table 1.
@@ -15123,11 +15123,11 @@ MindShare 技术丛书系列包含表 1 中所列的书籍。
 
 Table 1: PC Architecture Book Series | 表1：PC架构丛书
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Category</td><td style="border:2px solid #000;">Title</td><td style="border:2px solid #000;">Edition</td><td style="border:2px solid #000;">ISBN</td></tr><tr><td rowspan="7" style="border:2px solid #000;">Processor Architectures</td><td style="border:2px solid #000;">x86 Instruction Set Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9770878-5-3</td></tr><tr><td style="border:2px solid #000;">The Unabridged Pentium 4</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-321-24656-X</td></tr><tr><td style="border:2px solid #000;">Pentium Pro and Pentium II System Architecture</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-201-30973-4</td></tr><tr><td style="border:2px solid #000;">Pentium Processor System Architecture</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-201-40992-5</td></tr><tr><td style="border:2px solid #000;">Protected Mode Software Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-55447-X</td></tr><tr><td style="border:2px solid #000;">80486 System Architecture</td><td style="border:2px solid #000;">3rd</td><td style="border:2px solid #000;">0-201-40994-1</td></tr><tr><td style="border:2px solid #000;">PowerPC 601 System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-40990-9</td></tr><tr><td rowspan="11" style="border:2px solid #000;">Interconnect Architectures</td><td style="border:2px solid #000;">PCI Express Technology 1.x, 2.x, 3.0</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9770878-6-0</td></tr><tr><td style="border:2px solid #000;">Universal Serial Bus System Architecture 3.0</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9836465-1-8</td></tr><tr><td style="border:2px solid #000;">HyperTransport 3.1 Interconnect Technology</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9770878-2-2</td></tr><tr><td style="border:2px solid #000;">PCI Express System Architecture</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-321-15630-7</td></tr><tr><td style="border:2px solid #000;">Universal Serial Bus System Architecture 2.0</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-201-46137-4</td></tr><tr><td style="border:2px solid #000;">HyperTransport System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-321-16845-3</td></tr><tr><td style="border:2px solid #000;">PCI-X System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-72682-3</td></tr><tr><td style="border:2px solid #000;">PCI System Architecture</td><td style="border:2px solid #000;">4th</td><td style="border:2px solid #000;">0-201-30974-2</td></tr><tr><td style="border:2px solid #000;">Firewire System Architecture: IEEE 1394a</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-201-48535-4</td></tr><tr><td style="border:2px solid #000;">EISA System Architecture</td><td style="border:2px solid #000;">Out-of-print</td><td style="border:2px solid #000;">0-201-40995-X</td></tr><tr><td style="border:2px solid #000;">ISA System Architecture</td><td style="border:2px solid #000;">3rd</td><td style="border:2px solid #000;">0-201-40996-8</td></tr><tr><td style="border:2px solid #000;">Network Architecture</td><td style="border:2px solid #000;">InfiniBand Network Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-321-11765-4</td></tr><tr><td rowspan="4" style="border:2px solid #000;">Other Architectures</td><td style="border:2px solid #000;">PCMCIA System Architecture: 16-Bit PC Cards</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-201-40991-7</td></tr><tr><td style="border:2px solid #000;">CardBus System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-40997-6</td></tr><tr><td style="border:2px solid #000;">Plug and Play System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-41013-3</td></tr><tr><td style="border:2px solid #000;">AGP System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-37964-3</td></tr><tr><td rowspan="2" style="border:2px solid #000;">Storage Technologies</td><td style="border:2px solid #000;">SAS Storage Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9770878-0-8</td></tr><tr><td style="border:2px solid #000;">SATA Storage Technology</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9770878-1-5</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Category</td><td style="border:2px solid #000;">Title</td><td style="border:2px solid #000;">Edition</td><td style="border:2px solid #000;">ISBN</td></tr><tr><td rowspan="7" style="border:2px solid #000;">Processor Architectures</td><td style="border:2px solid #000;">x86 Instruction Set Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9770878-5-3</td></tr><tr><td style="border:2px solid #000;">The Unabridged Pentium 4</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-321-24656-X</td></tr><tr><td style="border:2px solid #000;">Pentium Pro and Pentium II System Architecture</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-201-30973-4</td></tr><tr><td style="border:2px solid #000;">Pentium Processor System Architecture</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-201-40992-5</td></tr><tr><td style="border:2px solid #000;">Protected Mode Software Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-55447-X</td></tr><tr><td style="border:2px solid #000;">80486 System Architecture</td><td style="border:2px solid #000;">3rd</td><td style="border:2px solid #000;">0-201-40994-1</td></tr><tr><td style="border:2px solid #000;">PowerPC 601 System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-40990-9</td></tr><tr><td rowspan="11" style="border:2px solid #000;">Interconnect Architectures</td><td style="border:2px solid #000;">PCI Express Technology 1.x, 2.x, 3.0</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9770878-6-0</td></tr><tr><td style="border:2px solid #000;">Universal Serial Bus System Architecture 3.0</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9836465-1-8</td></tr><tr><td style="border:2px solid #000;">HyperTransport 3.1 Interconnect Technology</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9770878-2-2</td></tr><tr><td style="border:2px solid #000;">PCI Express System Architecture</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-321-15630-7</td></tr><tr><td style="border:2px solid #000;">Universal Serial Bus System Architecture 2.0</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-201-46137-4</td></tr><tr><td style="border:2px solid #000;">HyperTransport System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-321-16845-3</td></tr><tr><td style="border:2px solid #000;">PCI-X System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-72682-3</td></tr><tr><td style="border:2px solid #000;">PCI System Architecture</td><td style="border:2px solid #000;">4th</td><td style="border:2px solid #000;">0-201-30974-2</td></tr><tr><td style="border:2px solid #000;">Firewire System Architecture: IEEE 1394a</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-201-48535-4</td></tr><tr><td style="border:2px solid #000;">EISA System Architecture</td><td style="border:2px solid #000;">Out-of-print</td><td style="border:2px solid #000;">0-201-40995-X</td></tr><tr><td style="border:2px solid #000;">ISA System Architecture</td><td style="border:2px solid #000;">3rd</td><td style="border:2px solid #000;">0-201-40996-8</td></tr><tr><td style="border:2px solid #000;">Network Architecture</td><td style="border:2px solid #000;">InfiniBand Network Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-321-11765-4</td></tr><tr><td rowspan="4" style="border:2px solid #000;">Other Architectures</td><td style="border:2px solid #000;">PCMCIA System Architecture: 16-Bit PC Cards</td><td style="border:2px solid #000;">2nd</td><td style="border:2px solid #000;">0-201-40991-7</td></tr><tr><td style="border:2px solid #000;">CardBus System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-40997-6</td></tr><tr><td style="border:2px solid #000;">Plug and Play System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-41013-3</td></tr><tr><td style="border:2px solid #000;">AGP System Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">0-201-37964-3</td></tr><tr><td rowspan="2" style="border:2px solid #000;">Storage Technologies</td><td style="border:2px solid #000;">SAS Storage Architecture</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9770878-0-8</td></tr><tr><td style="border:2px solid #000;">SATA Storage Technology</td><td style="border:2px solid #000;">1st</td><td style="border:2px solid #000;">978-0-9770878-1-5</td></tr></table>
 
 ## Cautionary Note | 注意事项
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Please keep in mind that MindShare's books often describe rapidly changing technologies, and that's true for PCI Express as well. This book is a "snapshot" of the state of the technology at the time the book was completed. We make every effort to produce the books on a timely basis, but the next revision of the spec doesn't always arrive in time to be included in a book. This PCI Express book comprehends revision 3.0 of the PCI Express™ Base Specification released and trademarked by the PCISIG (PCI Special Interest Group).
@@ -15140,7 +15140,7 @@ Please keep in mind that MindShare's books often describe rapidly changing techn
 
 ## Intended Audience | 目标读者
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The intended audience for this book is hardware and software design, verification, and other support personnel. The tutorial approach taken may also make it useful to technical people who aren't directly involved.
@@ -15153,7 +15153,7 @@ The intended audience for this book is hardware and software design, verificatio
 
 ## Prerequisite Knowledge | 预备知识
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To get the full benefit of this material, it's recommended that the reader have a reasonable background in PC architecture, including knowledge of an I/O bus and its related protocol. Because PCI Express maintains several levels of compatibility with the original PCI design, critical background information regarding PCI has been incorporated into this book. However, the reader may well find it beneficial to read the MindShare book PCI System Architecture.
@@ -15166,7 +15166,7 @@ To get the full benefit of this material, it's recommended that the reader have 
 
 ## Book Topics and Organization | 本书主题与组织结构
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Topics covered in this book and chapter flow are as follows:
@@ -15267,7 +15267,7 @@ Part 6: Appendices.
 
 ## Documentation Conventions | 文档规范
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This section defines the typographical convention used throughout this book.
@@ -15280,7 +15280,7 @@ This section defines the typographical convention used throughout this book.
 
 ## PCI Express™ | PCI Express™
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI Express™ is a trademark of the PCI SIG, commonly abbreviated as "PCIe".
@@ -15293,7 +15293,7 @@ PCI Express™ 是 PCI-SIG 的商标，通常缩写为"PCIe"。
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hexadecimal Notation
@@ -15319,7 +15319,7 @@ All hex numbers are followed by a lower case "h." For example:
 
 ## Binary Notation | 二进制记法
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 All binary numbers are followed by a lower case "b." For example:
@@ -15336,7 +15336,7 @@ All binary numbers are followed by a lower case "b." For example:
 
 ## Decimal Notation | 十进制表示法
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Number without any suffix are decimal. When required for clarity, decimal numbers are followed by a lower case "d." Examples:
@@ -15373,7 +15373,7 @@ Number without any suffix are decimal. When required for clarity, decimal number
 
 ## Bits, Bytes and Transfers Notation | 比特、字节与传输记法
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This book represents bits with a lower-case "b" and bytes with an upper-case "B." For example:
@@ -15410,7 +15410,7 @@ Megatransfers/second = MT/s
 
 ## Bit Fields | 位字段
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Groups bits are represented with the high-order bits first followed by the low-order bits and enclosed by brackets. For example: [7:0] = bits 0 through 7
@@ -15423,7 +15423,7 @@ Groups bits are represented with the high-order bits first followed by the low-o
 
 ## Active Signal States | 有效信号状态
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Signals that are active low are followed by #, as in PERST# and WAKE#. Active high signals have no suffix, such as POWERGOOD.
@@ -15436,7 +15436,7 @@ Signals that are active low are followed by #, as in PERST# and WAKE#. Active hi
 
 ## Visit Our Web Site | 访问我们的网站
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Our web site, www.mindshare.com, lists all of our current courses and the delivery options available for each course:
@@ -15513,7 +15513,7 @@ Our books can be ordered in hard copy or eBook versions.
 
 ## We Want Your Feedback | 欢迎提供反馈意见
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MindShare values your comments and suggestions. Contact us at:
@@ -15616,7 +15616,7 @@ The Big Picture
 
 ## This Chapter | 本章
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This chapter reviews the PCI (Peripheral Component Interface) bus models that preceded PCI Express (PCIe) as a way of building a foundation for understanding PCI Express architecture. PCI and PCI-X (PCI-eXtended) are introduced and their basic features and characteristics are described, followed by a discussion of the motivation for migrating from those earlier parallel bus models to the serial bus model used by PCIe.
@@ -15629,7 +15629,7 @@ This chapter reviews the PCI (Peripheral Component Interface) bus models that pr
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The next chapter provides an introduction to the PCI Express architecture and is intended to serve as an "executive level" overview, covering all the basics of the architecture at a high level. It introduces the layered approach to PCIe port design given in the spec and describes the responsibilities of each layer.
@@ -15642,7 +15642,7 @@ The next chapter provides an introduction to the PCI Express architecture and is
 
 ## 99.1 Introduction | 99.1 引言
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Establishing a solid foundation in the technologies on which PCIe is built is a helpful first step to understanding it, and an overview of those architectures is presented here. Readers already familiar with PCI may prefer to skip to the next chapter. This background is only intended as a brief overview. For more depth and detail on PCI and PCI‑X, please refer to MindShare's books: PCI System Architecture, and PCI‑X System Architecture.
@@ -15663,7 +15663,7 @@ As an example of how this background can be helpful, the software used for PCIe 
 
 ## 1.2 PCI and PCI-X | 1.2 PCI 与 PCI-X
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The PCI (Peripheral Component Interface) bus was developed in the early 1990's to address the shortcomings of the peripheral buses that were used in PCs (personal computers) at the time. The standard at the time was IBM's AT (Advanced Technology) bus, referred to by other vendors as the ISA (Industry Standard Architecture) bus. ISA had been sufficient for the 286 16-bit machines for which it was designed, but additional bandwidth and improved capabilities, such plug-and-play, were needed for the newer 32-bit machines and their peripherals. Besides that, ISA used big connectors that had a high pin count. PC vendors recognized the need for a change and several alternate bus designs were proposed, such as IBM's MCA (Micro-Channel Architecture), the EISA bus (Extended ISA, proposed as an open standard by IBM competitors), and the VESA bus (Video Electronics Standards Association, proposed by video card vendors for video devices). However, all of these designs had drawbacks that prevented wide acceptance. Eventually, PCI was developed as an open standard by a consortium of major players in the PC market who formed a group called the PCISIG (PCI Special Interest Group). The performance of the newly-developed bus architecture was much higher than ISA, and it also defined a new set of registers within each device referred to as configuration space. These registers allowed software to see the memory and IO resources a device needed and assign each device addresses that wouldn't conflict with other addresses in the system. These features: open design, high speed, and software visibility and control, helped PCI overcome the obstacles that had limited ISA and other buses PCI quickly became the standard peripheral bus in PCs.
@@ -15692,11 +15692,11 @@ These earlier bus definitions are listed in Table 1-1 on page 11, which shows th
 
 Table 1-1:  Comparison of Bus Frequency, Bandwidth and Number of Slots | 表1-1：总线频率、带宽和插槽数量的比较
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bus Type</td><td style="border:2px solid #000;">Clock Frequency</td><td style="border:2px solid #000;">Peak Bandwidth 32-bit - 64-bit bus</td><td style="border:2px solid #000;">Number of Card Slots per Bus</td></tr><tr><td style="border:2px solid #000;">PCI</td><td style="border:2px solid #000;">33 MHz</td><td style="border:2px solid #000;">133 - 266 MB/s</td><td style="border:2px solid #000;">4-5</td></tr><tr><td style="border:2px solid #000;">PCI</td><td style="border:2px solid #000;">66 MHz</td><td style="border:2px solid #000;">266 - 533 MB/s</td><td style="border:2px solid #000;">1-2</td></tr><tr><td style="border:2px solid #000;">PCI-X 1.0</td><td style="border:2px solid #000;">66 MHz</td><td style="border:2px solid #000;">266 - 533 MB/s</td><td style="border:2px solid #000;">4</td></tr><tr><td style="border:2px solid #000;">PCI-X 1.0</td><td style="border:2px solid #000;">133 MHz</td><td style="border:2px solid #000;">533 - 1066 MB/s</td><td style="border:2px solid #000;">1-2</td></tr><tr><td style="border:2px solid #000;">PCI-X 2.0 (DDR)</td><td style="border:2px solid #000;">133 MHz</td><td style="border:2px solid #000;">1066 - 2132 MB/s</td><td style="border:2px solid #000;">1 (point-to-point bus)</td></tr><tr><td style="border:2px solid #000;">PCI-X 2.0 (QDR)</td><td style="border:2px solid #000;">133 MHz</td><td style="border:2px solid #000;">2132 - 4262 MB/s</td><td style="border:2px solid #000;">1 (point-to-point bus)</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bus Type</td><td style="border:2px solid #000;">Clock Frequency</td><td style="border:2px solid #000;">Peak Bandwidth 32-bit - 64-bit bus</td><td style="border:2px solid #000;">Number of Card Slots per Bus</td></tr><tr><td style="border:2px solid #000;">PCI</td><td style="border:2px solid #000;">33 MHz</td><td style="border:2px solid #000;">133 - 266 MB/s</td><td style="border:2px solid #000;">4-5</td></tr><tr><td style="border:2px solid #000;">PCI</td><td style="border:2px solid #000;">66 MHz</td><td style="border:2px solid #000;">266 - 533 MB/s</td><td style="border:2px solid #000;">1-2</td></tr><tr><td style="border:2px solid #000;">PCI-X 1.0</td><td style="border:2px solid #000;">66 MHz</td><td style="border:2px solid #000;">266 - 533 MB/s</td><td style="border:2px solid #000;">4</td></tr><tr><td style="border:2px solid #000;">PCI-X 1.0</td><td style="border:2px solid #000;">133 MHz</td><td style="border:2px solid #000;">533 - 1066 MB/s</td><td style="border:2px solid #000;">1-2</td></tr><tr><td style="border:2px solid #000;">PCI-X 2.0 (DDR)</td><td style="border:2px solid #000;">133 MHz</td><td style="border:2px solid #000;">1066 - 2132 MB/s</td><td style="border:2px solid #000;">1 (point-to-point bus)</td></tr><tr><td style="border:2px solid #000;">PCI-X 2.0 (QDR)</td><td style="border:2px solid #000;">133 MHz</td><td style="border:2px solid #000;">2132 - 4262 MB/s</td><td style="border:2px solid #000;">1 (point-to-point bus)</td></tr></table>
 
 ## 1.3 PCI Basics | 1.3 PCI 基础
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Basics of a PCI-Based System
@@ -15760,7 +15760,7 @@ Figure 1-1: Legacy PCI Bus-Based Platform | 图1-1：基于传统PCI总线的平
 
 ## 1.3.2 PCI Bus Initiator and Target | 1.3.2 PCI 总线发起方和目标
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In a PCI hierarchy each device on the bus may contain up to eight functions that all share the bus interface for that device, numbered 0-7 (a single-function device is always assigned function number 0).
@@ -15828,7 +15828,7 @@ Figure 1-2: PCI Bus Arbitration | 图1-2：PCI总线仲裁
 
 Figure 1-3 on page 15 represents a typical PCI bus cycle. PCI is synchronous, meaning events happen on clock edges, so the clock is shown at the top of the diagram and it's rising edges are marked with dotted lines because those are the times when signals are driven out or sampled. A brief description of what happens on the bus is as follows:
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Figure 1-3 on page 15 represents a typical PCI bus cycle.
@@ -15855,7 +15855,7 @@ A brief description of what happens on the bus is as follows:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. On clock edge 1, FRAME# (used to indicate when a bus access is in progress) and IRDY# (Initiator Ready for data) are both inactive, showing that the bus is idle. At the same time, GNT# is active, meaning the bus arbiter has selected this device to be the next initiator.
@@ -15922,7 +15922,7 @@ A brief description of what happens on the bus is as follows:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In keeping with the low cost design goal for PCI, several signals have more than one meaning on the bus to reduce the pin count. The 32 address and data signals are multiplexed and the C/BE# (Command/Byte Enable) signals share their four pins for the same reason. Although reducing the pin count is desirable, it's also the reason that PCI uses "turn-around cycles", which add more delay. It also precludes the option to pipeline transactions (sending the address for the next cycle while data for the previous one is delivered). Handshake signals like FRAME#, DEVSEL#, TRDY#, IRDY#, and STOP# control the timing of events during the transaction.
@@ -15937,7 +15937,7 @@ Figure 1-3: Simple PCI Bus Transfer | 图1-3：简单PCI总线传输
 
 <img src="images/part01_21c63a177c6e8db0027f681b5522a2d4059ea9a946ae3b050c3292fee37620d7.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Reflected-Wave Signaling
@@ -15968,7 +15968,7 @@ Figure 1-4: PCI Reflected-Wave Signaling | 图1-4：PCI反射波信令
 
 <img src="images/part01_6e57e6b5c72eb19d7c166337bcdfa03fc93f9f6ab824e5034f80c461d34fb019.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To connect more loads in a system, a PCI-to-PCI bridge is needed, as shown in Figure 1-5. By the time more modern chipsets were available, peripherals had grown so fast that their competition for access to the shared PCI bus was limiting their performance. PCI speeds didn't keep up, and it became a system bottleneck even though it was still very popular for peripherals. The solution to this problem was to move PCI out of the main path between system peripherals and memory, replacing the chipset interconnect with a proprietary solution (in this example, Intel's Hub Link interface).
@@ -15995,7 +15995,7 @@ Figure 1-5: 33 MHz PCI System, Including a PCI-to-PCI Bridge | 图1-5：33 MHz P
 
 ## 1.4.1 PCI Transaction Models | 1.4.1 PCI 事务模型
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI uses three models for data transfer just as previous bus models did: Programmed I/O (PIO), Peer‐to‐peer, and DMA. These models are illustrated in Figure 1‐6 on page 19 and described in the following sections.
@@ -16020,7 +16020,7 @@ Figure 1-6: PCI Transaction Models | 图1-6：PCI事务模型
 
 ## Direct Memory Access (DMA) | 直接存储器访问 (DMA)
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A more efficient method of transferring data is called DMA (direct memory access). In this model another device, called a DMA engine, handles the details of memory transfers to a peripheral on behalf of the processor, off-loading this tedious task. Once the CPU has programmed the starting address and byte count into it, the DMA engine handled the bus protocol and address sequencing on its own. This didn't involve any change to the PCI peripherals and allowed them to keep their low-cost designs. Later, improved integration allowed peripherals to integrate this DMA functionality locally, so they didn't need an external DMA engine. These devices were capable of handling their own bus transfers and were called Bus Master devices.
@@ -16041,7 +16041,7 @@ Figure 1-3 on page 15 is an example of a Bus Master transaction on PCI. The Nort
 
 ## Peer-to-Peer | 对等传输
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 If a device is capable of acting as a Bus Master, then another interesting option presents itself. One PCI Bus Master could initiate a transfer to another PCI device, with the result that the entire transaction remains local to the PCI bus and doesn't involve any other system resources. Since this transaction takes place between devices that are considered peers in the system, it's referred to as a peer‑to‑peer transaction. This has some obvious efficiencies because the rest of the system remains free to do other work. Nevertheless, it's rarely used in practice because the initiator and target don't often use the same format for the data unless both are made by the same vendor. Consequently, the data usually must first be sent to memory where the CPU can reformat it before it is then transferred to the target, defeating the goal of a peer‑to‑peer transfer.
@@ -16054,7 +16054,7 @@ If a device is capable of acting as a Bus Master, then another interesting optio
 
 ## 1.4.2 PCI Bus Arbitration | 1.4.2 PCI 总线仲裁
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Consider Figure 1‑2 on page 13. Since PCI devices today are almost all capable of being bus‑master, they are able to do both DMA and peer‑to‑peer transfers. In a shared bus architecture like PCI, they have to take turns on the bus, so a device that wants to initiate transactions must first request ownership of the bus from the bus arbiter. The arbiter sees all the current requests and uses an implementation‑specific algorithm to decide which Bus Master gets ownership of the bus next. The PCI spec doesn't describe this algorithm, but does state that it must be "fair" and not starve any device for access.
@@ -16077,7 +16077,7 @@ The arbiter can grant bus ownership to the next requesting device while the prev
 
 ## PCI Retry Protocol | PCI 重试协议
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When a PCI master initiates a transaction to access a target device and the target device is not ready, the target signals a transaction retry. This scenario is shown in Figure 1-7.
@@ -16091,7 +16091,7 @@ When a PCI master initiates a transaction to access a target device and the targ
 Figure 1-7: PCI Transaction Retry Mechanism | 图1-7：PCI事务重试机制
 <img src="images/part01_eb09c497d409916d80fddfa7593b59ef25bea7a1f6d93ebe7dce9fbf1e4e2690.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Consider the following example in which the North bridge initiates a memory read transaction to read data from the Ethernet device. The Ethernet target claims the bus cycle. However, the Ethernet target does not immediately have the data to return to the North bridge master. The Ethernet device has two choices by which to delay the data transfer. The first is to insert wait‑states in the data phase. If only a few wait‑states are needed, then the data is still transferred efficiently. If however the target device requires more time (more than 16 clocks from the beginning of the transaction), then the second option the target has is to signal a retry with a signal called STOP#. A retry tells the master to end the bus cycle prematurely without transferring data. Doing so prevents the bus from being held for a long time in wait‑states, which compromises the bus efficiency. The Bus Master that is retried by the target waits a minimum of 2 clocks and must once again arbitrate for use of the bus to re‑initiate the identical bus cycle. During the time that the Bus Master is retried, the arbiter can grant the bus to other requesting masters so that the PCI bus is more efficiently utilized. By the time the retried master is granted the bus and it re‑initiates the bus cycle, hopefully the target will claim the cycle and will be ready to transfer data. The bus cycle goes to completion with data transfer. Otherwise, if the target is still not ready, it retries the master's bus cycle again and the process is repeated until the master successfully transfers data.
@@ -16108,7 +16108,7 @@ Figure 1-8: PCI Transaction Disconnect Mechanism | 图1-8：PCI事务断开机�
 
 ## PCI Disconnect Protocol | PCI断开协议
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When a PCI master initiates a transaction to access a target device and if the target device is able to transfer at least one doubleword of data but cannot complete the entire data transfer, it disconnects the transaction at the point at which it cannot continue. This scenario is illustrated in Figure 1-8 on page 23.
@@ -16129,7 +16129,7 @@ Consider the following example in which the North bridge initiates a burst memor
 
 ## 1.4.4 PCI Interrupt Handling | 1.4.4 PCI 中断处理
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI devices use one of four sideband interrupt signals (INTA#, INTB#, INTC#, or INTD#) to send an interrupt request to the system. When one of the pins is asserted, the interrupt controller in a single‑CPU system responded by asserting the INTR (interrupt request) pin to the CPU. Later multi‑CPU designs needed to improve on the single wire input for interrupts and changed to an APIC (Advanced Programmable Interrupt Controller) model, in which the controller sends a message to the multiple CPUs instead of asserting the INTR pin to one of them. Regardless of the delivery model, an interrupted CPU must determine the source of the interrupt and then service the interrupt. The legacy model required several bus cycles for this and wasn't very efficient. The APIC model is better but also leaves room for improvement.
@@ -16140,7 +16140,7 @@ PCI 设备使用四条边带中断信号（INTA#、INTB#、INTC# 或 INTD#）之
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI Error Handling
@@ -16163,7 +16163,7 @@ Figure 1-9: PCI Error Handling | 图1-9：PCI错误处理
 
 <img src="images/part01_d101166c59da15ec294149d007b126d8c7247e132432f4912b28f3933e6bebf5.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 However, it's a different matter if a parity error is detected during the address phase. In this case the address was corrupted and the wrong target may have recognized the address. There's no way to tell what the corrupted address became or what devices on the bus did in response to it, so there's also no simple recovery. As a result, errors of this type result in the assertion of the SERR# (system error) pin, which typically results in a call to the system error handler. In older machines, this would often halt the system as a precaution, resulting in the "blue screen of death."
@@ -16188,7 +16188,7 @@ Figure 1-10: Address Space Mapping | 图1-10：地址空间映射
 
 ## 1.4.6 PCI Address Space Map | 1.4.6 PCI 地址空间映射
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI architecture supports 3 address spaces as shown in Figure 1-10 on page 26: memory, I/O and configuration address space. x86 processors can access memory and IO space directly. A PCI device maps into the processors memory address space and can either support 32 or 64 bit memory addressing. In I/O address space, PCI supports 32 bit addresses but, since x86 CPUs only used 16 bits for I/O space, many platforms limit the I/O space to 64 KB (16 bits worth).
@@ -16217,7 +16217,7 @@ Since an x86 CPU cannot access configuration space directly, it must do so indir
 
 ## 1.4.7 PCI Configuration Cycle Generation | 1.4.7 PCI 配置周期生成
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Since IO address space is limited, the legacy model was designed to be very conservative with addresses. The common way of doing that in IO space was to have one register for pointing to an internal location, and a second one for reading or writing the data. In PCI configuration that involves two steps.
@@ -16246,11 +16246,11 @@ Step 2: The CPU generates either an IO read or IO write to the Data Port at loca
 
 Figure 1-11: Configuration Address Register | 图1-11：配置地址寄存器
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">0CFBh</td><td style="border:2px solid #000;">0CFAh</td><td style="border:2px solid #000;">0CF9h</td><td style="border:2px solid #000;">0CF8h</td></tr><tr><td style="border:2px solid #000;">31 30</td><td style="border:2px solid #000;">24 23</td><td style="border:2px solid #000;">16 15</td><td style="border:2px solid #000;">11 10</td><td style="border:2px solid #000;">7 2 1 0</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Bus Number</td><td style="border:2px solid #000;">Device Number</td><td style="border:2px solid #000;">Function Number Doubleword 0 0</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">0CFBh</td><td style="border:2px solid #000;">0CFAh</td><td style="border:2px solid #000;">0CF9h</td><td style="border:2px solid #000;">0CF8h</td></tr><tr><td style="border:2px solid #000;">31 30</td><td style="border:2px solid #000;">24 23</td><td style="border:2px solid #000;">16 15</td><td style="border:2px solid #000;">11 10</td><td style="border:2px solid #000;">7 2 1 0</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Bus Number</td><td style="border:2px solid #000;">Device Number</td><td style="border:2px solid #000;">Function Number Doubleword 0 0</td></tr></table>
 
 ## 1.4.8 PCI Function Configuration Register Space | 1.4.8 PCI 功能配置寄存器空间
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Each PCI function contains up to 256 bytes of configuration space. The first 64 bytes of each function's configuration space contains a structure called the Header, while the remaining 192 Bytes support optional functionality. System configuration is first performed by Boot ROM firmware. After the OS loads, it may reconfigure the system and rearrange resource assignments, with the result that the process of system configuration may be done twice.
@@ -16281,7 +16281,7 @@ Figure 1-13: PCI Configuration Header Type 0 (not a Bridge) | 图1-13：PCI配�
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Details of the configuration register space and the enumeration process are described later. For now we simply want you to become familiar with the big picture of how all the parts fit together.
@@ -16301,7 +16301,7 @@ Figure 1-14: 66 MHz PCI Bus Based Platform | 图1-14：基于66 MHz PCI总线的
 
 ## 1.4.9 Higher-bandwidth PCI | 1.4.9 更高带宽的 PCI
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To support higher bandwidth, the PCI specification was updated to support both wider (64-bit) and faster (66 MHz) versions, achieving 533 MB/s.
@@ -16322,7 +16322,7 @@ Figure 1-14 shows an example of a 66 MHz, 64-bit PCI system.
 
 ## Limitations of 66 MHz PCI bus | 66 MHz PCI总线的局限
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 While the throughput of the bus was doubled at this speed relative to the 33 MHz bus, the diagram illustrates one of its major shortcomings: using the same reflected‑wave switching model with only half the timing budget meant that the loading on the bus had to be greatly reduced. The result was that only one add‑in card could be supported on each bus. Adding more devices meant adding more PCI bridges and buses, which would increase both cost and board real estate requirements. The 64‑bit PCI bus increases pin count, increasing system cost and lowering system reliability. In combination, it's easy to see why these factors limited the popularity of the 64‑bit or 66 MHz version of the PCI bus.
@@ -16333,7 +16333,7 @@ While the throughput of the bus was doubled at this speed relative to the 33 MHz
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Signal Timing Problems with the Parallel PCI Bus Model beyond 66 MHz
@@ -16362,7 +16362,7 @@ The PCI-X bus introduced in the next section takes the approach of registering a
 
 ## 1.5 Introducing PCI-X | 1.5 PCI-X 简介
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI‐X is backward compatible with PCI in both hardware and software, but provides better performance and higher efficiency. It uses the same connector format, so PCI‐X devices can be plugged into PCI slots and vice‐versa. And it uses the same configuration model, so device drivers, operating systems, and applications that run on a PCI system also run on a PCI‐X system.
@@ -16383,7 +16383,7 @@ To achieve higher speeds without changing the PCI signaling model, PCI‐X added
 
 ## 1.5.1 PCI-X System Example | 1.5.1 PCI-X 系统示例
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 An example of an Intel 7500 server chipset‐based system is shown in Figure 1‑15 on page 32. The MCH chip includes three additional high‐performance Hub Link 2.0 ports that are connected to three PCI‐X Hub 2 bridges (P64H2). Each
@@ -16396,7 +16396,7 @@ An example of an Intel 7500 server chipset‐based system is shown in Figure 1�
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 bridge supports two PCI‐X buses that can run at frequencies up to 133MHz. The Hub Link 2.0 can sustain the higher bandwidth requirements for PCI‐X traffic. Note that we have the same loading problem that we did for 66‐MHz PCI, resulting in a large number of buses needed to support more devices and a relatively expensive solution. The bandwidth is much higher now, though.
@@ -16416,7 +16416,7 @@ Figure 1‐15: 66 MHz/133 MHz PCI‐X Bus Based Platform | 图1‐15：基于66 
 <img src="images/part01_f418f43ac089b0da6d6f61dfc3aa3208ae33692a9564e237bc3afeb13c9c9acb.jpg" width="700" alt="">
 Figure 1‐16: Example PCI‐X Burst Memory Read Bus Cycle | 图1‐16：PCI-X突发存储器读总线周期示例
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Figure 1‐16 on page 33 shows an example of a PCI‐X burst memory read transaction. Note that PCI‐X does not allow Wait States after the first data phase. This is possible because the transfer size is now provided to the target device in the Attribute phase of the transaction, so the target devices knows exactly what is going to be required of him. In addition, most PCI‐X bus cycles are bursts and data is generally transferred in blocks of 128 Bytes. These features allow for more efficient bus utilization and device buffer management.
@@ -16427,7 +16427,7 @@ Figure 1‐16 on page 33 shows an example of a PCI‐X burst memory read transac
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI-X Features
@@ -16440,7 +16440,7 @@ PCI-X 特性
 
 ## Split-Transaction Model | 拆分事务模型
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In a conventional PCI read transaction, the Bus Master initiates a read to a target device on the bus. As described earlier, if the target is unprepared to finish the transaction it can either hold the bus with Wait States while fetching the data, or issue a Retry in the process of a Delayed Transaction.
@@ -16481,7 +16481,7 @@ Figure 1-17: PCI-X Split Transaction Protocol | 图1-17：PCI-X分离事务协�
 
 ## Message Signaled Interrupts | 消息信号中断 (MSI)
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI-X devices require MSI (Message Signaled Interrupt) capability, which was developed as a way to reduce or eliminate the need to share interrupts across multiple devices as was typically required in the legacy interrupt architecture.
@@ -16502,7 +16502,7 @@ To generate an interrupt request using MSI, a device initiates a memory write tr
 
 ## Transaction Attributes | 事务属性
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Finally, PCI-X also added another phase to the beginning of each transaction called the Attribute Phase (see Figure 1-16 on page 33). In this time slot the requester delivers information that can be used to help improve the efficiency of transactions on the bus, such as the byte count for this request and who the requester is (Bus:Device:Function number). In addition to those items, two new bits were added to help characterize this transaction: the "No Snoop" bit and the "Relaxed Ordering" bit.
@@ -16531,7 +16531,7 @@ Relaxed Ordering (RO): Normally, transactions are required to remain in the same
 
 ## 1.5.4 Higher Bandwidth PCI-X | 1.5.4 更高带宽的PCI-X
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Problems with the Common Clock Approach of PCI and PCI-X 1.0 Parallel Bus Model
@@ -16553,7 +16553,7 @@ An issue that becomes clear when trying to migrate a bus like PCI to higher spee
 <img src="images/part01_f13965b6aab47f4a646b6ae1c28b7e323cf21f21e8d71e09a970c5ce86320ba9.jpg" width="700" alt="">
 Figure 1‐18: Inherent Problems in a Parallel Design | 图1‐18：并行设计中的固有问题
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The first issue to note is signal skew. When multiple data bits are sent at once, they experience slightly different delays and arrive at slightly different times at the receiver. If that difference is too large, incorrect signal sampling with clock may occur at the receiver as shown in the diagram. A second issue is clock skew between multiple devices. The arrival time of the common clock at one device is not precisely the same as the arrival time at the other which further reduces the timing budget. Finally, a third issue relates to the time it takes for the signal to propagate from a transmitter to a receiver, called the flight time. The clock period or timing budget must be greater than the signal flight time. To ensure this, the board design is required to implement signal traces that are short enough such that signal propagation delays are smaller than the clock period. In many board designs, this short signal traces may not be realistic enough to design for.
@@ -16574,7 +16574,7 @@ To further improve performance in spite of these limitations, a couple of techni
 
 ## PCI-X 2.0 Source-Synchronous Model | PCI-X 2.0 源同步模型
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI-X 2.0 further increased the bandwidth of PCI-X. As before, the devices and connectors remained hardware and software backward compatible with PCI devices and connectors. To achieve the higher speeds, the bus uses a source-synchronous delivery model to support either Dual Data Rate (DDR) or Quad Data Rate (QDR).
@@ -16604,7 +16604,7 @@ It's important to note again that the very high-speed signal timing eliminates t
 Figure 1-19: Source-Synchronous Clocking Model | 图1-19：源同步时钟模型
 <img src="images/part01_3911a74a375e86d594f70fe7f7dcceff4c54b74d9cc5d0a6662b8e40e7940217.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Despite the improvements in bandwidth, efficiency and reliability that came with PCI-X (2.0), the parallel bus model was approaching its end of life and a new model was needed to address the relentless demand for higher bandwidth and lower cost. The new model chosen was a serial interface which is a drastically different bus from a physical perspective, but was still made to be software backwards compatible. We know this new model as PCI Express.

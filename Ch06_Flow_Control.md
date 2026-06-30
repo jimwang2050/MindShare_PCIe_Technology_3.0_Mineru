@@ -4,7 +4,7 @@
 
 ## The Previous Chapter | 上一章回顾
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The previous chapter discusses the three major classes of packets: Transaction Layer Packets (TLPs), Data Link Layer Packets (DLLPs) and Ordered Sets. This chapter describes the use, format, and definition of the variety of TLPs and the details of their related fields. DLLPs are described separately in Chapter 9, entitled "DLLP Elements," on page 307.
@@ -17,7 +17,7 @@ The previous chapter discusses the three major classes of packets: Transaction L
 
 ## This Chapter | 本章
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This chapter discusses the purposes and detailed operation of the Flow Control Protocol. Flow control is designed to ensure that transmitters never send Transaction Layer Packets (TLPs) that a receiver can't accept. This prevents receive buffer over-runs and eliminates the need for PCI-style inefficiencies like disconnects, retries, and wait-states.
@@ -30,7 +30,7 @@ This chapter discusses the purposes and detailed operation of the Flow Control P
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The next chapter discusses the mechanisms that support Quality of Service and describes the means of controlling the timing and bandwidth of different packets traversing the fabric. These mechanisms include application-specific software that assigns a priority value to every packet, and optional hardware that must be built into each device to enable managing transaction priority.
@@ -43,7 +43,7 @@ The next chapter discusses the mechanisms that support Quality of Service and de
 
 ## 6.1 Flow Control Concept | 6.1 流控概念
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Ports at each end of every PCIe Link must implement Flow Control. Before a packet can be transmitted, flow control checks must verify that the receiving port has sufficient buffer space to accept it. In parallel bus architectures like PCI, transactions are attempted without knowing whether the target is prepared to handle the data. If the request is rejected due to insufficient buffer space, the transaction is repeated (retried) until it completes. This is the "Delayed Transaction Model" of PCI and while it works the efficiency is poor.
@@ -108,7 +108,7 @@ Figure 6‑1: Location of Flow Control Logic | 图6‑1：流控逻辑位置
 
 ## 6.2 Flow Control Buffers and Credits | 6.2 流控缓冲与信用
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow control buffers are implemented for each VC resource supported by a port. Recall that ports at each end of the Link may not support the same number of VCs, therefore the maximum number of VCs configured and enabled by software is the highest common number between the two ports.
@@ -119,7 +119,7 @@ Flow control buffers are implemented for each VC resource supported by a port. R
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 VC Flow Control Buffer Organization
@@ -183,7 +183,7 @@ Figure 6-2: Flow Control Buffer Organization | 图6-2：流控缓冲组织
 
 ## 6.2.2 Flow Control Credits | 6.2.2 流控信用量
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Buffer space is reported by the receiver in units called Flow Control credits. The unit value of Flow Control Credits (FCCs) for header and data buffers are:
@@ -236,7 +236,7 @@ Flow Control DLLPs communicate this information, and do not require Flow Control
 
 ## 6.3 Initial Flow Control Advertisement | 6.3 初始流控通告
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 During Flow Control initialization, PCIe devices communicate their buffer sizes by "advertising" their buffer space via flow control credits. PCIe also defines an infinite Flow Control credit value that is required for some buffers. A receiver that advertises infinite buffer space is effectively guaranteeing that its buffer space will never overflow.
@@ -249,7 +249,7 @@ During Flow Control initialization, PCIe devices communicate their buffer sizes 
 
 ## 6.3.1 Minimum and Maximum Flow Control Advertisement | 6.3.1 最小和最大流控通告
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The specification defines the minimum number of credits that can be reported for the different Flow Control buffer types as listed in Table 6‑1. However, devices normally advertise considerably more credits than the minimum. Table 6‑2 on page 220 lists the maximum advertisement allowed by the specification.
@@ -262,13 +262,13 @@ The specification defines the minimum number of credits that can be reported for
 
 Table 6‑1: Required Minimum Flow Control Advertisements | 表6‑1：所需最小流控通告
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Credit Type</td><td style="border:2px solid #000;">Minimum Advertisement</td></tr><tr><td style="border:2px solid #000;">Posted Request Header (PH)</td><td style="border:2px solid #000;">1 unit. Credit Value = one 4DW HDR + Digest = 5DW.</td></tr><tr><td style="border:2px solid #000;">Posted Request Data (PD)</td><td style="border:2px solid #000;">Largest possible setting of the Max_Payload_Size in credits. Example: If the largest Max_Payload_Size value supported is 1024 bytes, the smallest permitted initial credit value would be 040h.</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request HDR (NPH)</td><td style="border:2px solid #000;">1 unit. Credit Value = one 4 DW HDR + Digest = 5DW.</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request Data (NPD)</td><td style="border:2px solid #000;">1 unit. Credit Value = 4DW.2 unit. Receivers supporting AtomicOp routing or AtomicOp Completer capability have credit value of 02h</td></tr><tr><td style="border:2px solid #000;">Completion HDR (CPLH)</td><td style="border:2px solid #000;">1 unit. Credit Value = one 3DW HDR + Digest = 4DW; for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's for Root Complex with no peer-to-peer support and Endpoints.</td></tr><tr><td style="border:2px solid #000;">Completion Data (CPLD)</td><td style="border:2px solid #000;">n unit. Value of largest possible setting of Max_Payload_Size or size of largest Read Request (which ever is smaller) divided by FC Unit Size (4DW); for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's; for Root Complex with no peer-to-peer support and Endpoints.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Credit Type</td><td style="border:2px solid #000;">Minimum Advertisement</td></tr><tr><td style="border:2px solid #000;">Posted Request Header (PH)</td><td style="border:2px solid #000;">1 unit. Credit Value = one 4DW HDR + Digest = 5DW.</td></tr><tr><td style="border:2px solid #000;">Posted Request Data (PD)</td><td style="border:2px solid #000;">Largest possible setting of the Max_Payload_Size in credits. Example: If the largest Max_Payload_Size value supported is 1024 bytes, the smallest permitted initial credit value would be 040h.</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request HDR (NPH)</td><td style="border:2px solid #000;">1 unit. Credit Value = one 4 DW HDR + Digest = 5DW.</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request Data (NPD)</td><td style="border:2px solid #000;">1 unit. Credit Value = 4DW.2 unit. Receivers supporting AtomicOp routing or AtomicOp Completer capability have credit value of 02h</td></tr><tr><td style="border:2px solid #000;">Completion HDR (CPLH)</td><td style="border:2px solid #000;">1 unit. Credit Value = one 3DW HDR + Digest = 4DW; for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's for Root Complex with no peer-to-peer support and Endpoints.</td></tr><tr><td style="border:2px solid #000;">Completion Data (CPLD)</td><td style="border:2px solid #000;">n unit. Value of largest possible setting of Max_Payload_Size or size of largest Read Request (which ever is smaller) divided by FC Unit Size (4DW); for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's; for Root Complex with no peer-to-peer support and Endpoints.</td></tr></table>
 
 Table 6‑2: Maximum Flow Control Advertisements | 表6‑2：最大流控通告
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Credit Type</td><td style="border:2px solid #000;">Maximum Advertisement</td></tr><tr><td style="border:2px solid #000;">Posted Request Header (PH)</td><td style="border:2px solid #000;">128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td style="border:2px solid #000;">Posted Request Data (PD)</td><td style="border:2px solid #000;">2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytes</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request HDR (NPH)</td><td style="border:2px solid #000;">128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request Data (NPD)</td><td style="border:2px solid #000;">The author's could not find a precise value for the maximum number of credits for Non-Posted Data. The maximum number of credits listed for Data is 2048. However, a more reasonable approach might use the Non-Posted header limit of 128 credits, because Non-Posted Data is always associated with Non-Posted Headers.</td></tr><tr><td style="border:2px solid #000;">Completion HDR (CPLH)</td><td style="border:2px solid #000;">128 units. 128 credits @ 5 DWs = 2,560 bytes. This in the limit for ports that do not originate transactions (e.g., Root Complex with peer-to-peer support and Switches).Infinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr><tr><td style="border:2px solid #000;">Completion Data (CPLD)</td><td style="border:2px solid #000;">2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by a device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytesInfinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Credit Type</td><td style="border:2px solid #000;">Maximum Advertisement</td></tr><tr><td style="border:2px solid #000;">Posted Request Header (PH)</td><td style="border:2px solid #000;">128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td style="border:2px solid #000;">Posted Request Data (PD)</td><td style="border:2px solid #000;">2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytes</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request HDR (NPH)</td><td style="border:2px solid #000;">128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request Data (NPD)</td><td style="border:2px solid #000;">The author's could not find a precise value for the maximum number of credits for Non-Posted Data. The maximum number of credits listed for Data is 2048. However, a more reasonable approach might use the Non-Posted header limit of 128 credits, because Non-Posted Data is always associated with Non-Posted Headers.</td></tr><tr><td style="border:2px solid #000;">Completion HDR (CPLH)</td><td style="border:2px solid #000;">128 units. 128 credits @ 5 DWs = 2,560 bytes. This in the limit for ports that do not originate transactions (e.g., Root Complex with peer-to-peer support and Switches).Infinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr><tr><td style="border:2px solid #000;">Completion Data (CPLD)</td><td style="border:2px solid #000;">2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by a device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytesInfinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr></table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Infinite Credits
@@ -311,7 +311,7 @@ Non-posted Write requests and return of Completion Status
 </tr>
 </table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -329,7 +329,7 @@ Non-posted Write requests and return of Completion Status
 
 ## 6.4.1.1 General | 6.4.1.1 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -346,7 +346,7 @@ Figure 6-3: Physical Layer Reports That It's Ready | 图6-3：物理层报告就
 
 <img src="images/part02_54e12e01aa03e4379dcd32828df148c16b032beeb09488f10af286ed8439b988.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -362,7 +362,7 @@ Figure 6-3: Physical Layer Reports That It's Ready | 图6-3：物理层报告就
 
 ## 6.4.1 The FC Initialization Sequence | 6.4.1 FC 初始化序列
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -379,7 +379,7 @@ Figure 6-4: The Data Link Control & Management State Machine | 图6-4：数据�
 
 <img src="images/part02_de91fb109446b91494463626952bd896773d600785c8df5647b5802d71a90c52.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -402,7 +402,7 @@ Figure 6‐6: Devices Send InitFC1 in the DL\_Init State | 图6‐6：设备在D
 
 ## 6.4.3 FC_Init2 Details | 6.4.3 FC_Init2 详情
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In this state a device continuously sends InitFC2 DLLPs. These are sent in the same sequence as the InitFC1s and contain the same credit information, but they also confirm that FC initialization has succeeded at the sender. Since the device has already registered the values from the neighbor it doesn't need any more credit information and will ignore any incoming InitFC1s while it waits to see InitFC2s. It can even send TLPs at this point, even though initialization hasn't completed for the other side of the Link, and this is indicated to the Transaction Layer by the DL_Up signal (See Figure 6-7).
@@ -425,7 +425,7 @@ Figure 6-7: FC Values Registered - Send InitFC2s, Report DL_Up | 图6-7：注册
 
 <img src="images/part02_5cd25435ccd57025b05bd860a7062084b0cb9f679e3881614c49a8de9c6fdea8.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 **Rate of FC_INIT1 and FC_INIT2 Transmission**
@@ -460,7 +460,7 @@ The specification defines the latency between sending FC_INIT DLLPs as follows:
 </tr>
 </table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -478,7 +478,7 @@ The specification defines the latency between sending FC_INIT DLLPs as follows:
 
 ## 6.4.1.1 General | 6.4.1.1 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -493,7 +493,7 @@ The specification defines the latency between sending FC_INIT DLLPs as follows:
 
 ## 6.5.1 The Flow Control Elements | 6.5.1 流控元素
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -511,7 +511,7 @@ Figure 6‑8: Flow Control Elements | 图6‑8：流控元素
 
 <img src="images/part02_42362f326051b32a1b6017a8abb20f54beafb43cc3ee1623bfd8213166cccb9a.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -532,7 +532,7 @@ $$
 C L - (C C + P T L P) \text { mod } 2 ^ {[ F i e l d S i z e ]} \leq 2 ^ {[ F i e l d S i z e ]} / 2
 $$
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -547,7 +547,7 @@ $$
 
 ## 6.5.2 Receiver Elements | 6.5.2 接收器要素
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -565,7 +565,7 @@ $$
 Figure 6‐9: Types and Format of Flow Control DLLPs | 图6‐9：流控DLLP的类型和格式
 <img src="images/part02_0faa0be1ab74190a28a3d4d08f3049c677e1a521ac64dd64196c85f12e87983d.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -583,7 +583,7 @@ Figure 6‐9: Types and Format of Flow Control DLLPs | 图6‐9：流控DLLP的�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -622,7 +622,7 @@ Figure 6‑11: Flow Control Elements After First TLP Sent | 图6‑11：发送�
 
 ## 6.5.1.1 Stage 2 — Flow Control Buffer Fills Up | 6.5.1.1 阶段2 — 流控缓冲器填满
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -643,7 +643,7 @@ Figure 6‐12: Flow Control Elements with Flow Control Buffer Filled | 图6‐12
 
 ## 6.5.1.2 Stage 3 — Counters Roll Over | 6.5.1.2 阶段3 — 计数器回绕
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -659,7 +659,7 @@ Figure 6‐12: Flow Control Elements with Flow Control Buffer Filled | 图6‐12
 Figure 6‐13: Flow Control Rollover Problem | 图6‐13：流控翻转问题
 <img src="images/part02_d7bbf66f20b0b0bc1d8c682e68c8ffe25f57b3d5de1d761943c1c05b36f70a67.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -683,7 +683,7 @@ Figure 6-14: Buffer Overflow Error Check | 图6-14：缓冲溢出错误检查
 
 ## 6.7 Flow Control Updates | 6.7 流控更新
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -704,7 +704,7 @@ Figure 6-15: Flow Control Update Example | 图6-15：流控更新示例
 
 ## 6.7.1 FC_Update DLLP 格式与内容 | 6.7.1 FC_Update DLLP Format and Content
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -720,7 +720,7 @@ Figure 6-15: Flow Control Update Example | 图6-15：流控更新示例
 Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更新流控数据包格式和内容
 <img src="images/part02_fde64227c5b68060559c40261e02f5492aa43e27e574a0e5eef46bd81625d69e.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -743,7 +743,7 @@ Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -757,7 +757,7 @@ Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -772,7 +772,7 @@ Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -788,7 +788,7 @@ Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更�
 
 ## 6.7.2 Calculating Update Frequency Based on Payload Size and Link Width | 6.7.2 根据有效载荷大小和链路宽度计算更新频率
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -805,7 +805,7 @@ $$
 \frac {(M a x P a y l o a d S i z e + T L P O v e r h e a d) \times U p d a t e F a c t o r}{L i n k W i d t h} + I n t e r n a l D e l a y
 $$
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -822,7 +822,7 @@ $$
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -837,17 +837,17 @@ $$
 
 Table 6‑3: Gen1 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6‑3：Gen1未调整的AckNak_LATENCY_TIMER值（符号时间）
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1Link</td><td style="border:2px solid #000;">x2Link</td><td style="border:2px solid #000;">x4Link</td><td style="border:2px solid #000;">x8Link</td><td style="border:2px solid #000;">x12Link</td><td style="border:2px solid #000;">x16Link</td><td style="border:2px solid #000;">x32Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">237UF=1.4</td><td style="border:2px solid #000;">128UF=1.4</td><td style="border:2px solid #000;">73UF=1.4</td><td style="border:2px solid #000;">67UF=2.5</td><td style="border:2px solid #000;">58UF=3.0</td><td style="border:2px solid #000;">48UF=3.0</td><td style="border:2px solid #000;">33UF=3.0</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">416FC=1.4</td><td style="border:2px solid #000;">217FC=1.4</td><td style="border:2px solid #000;">118UF=1.4</td><td style="border:2px solid #000;">107UF=2.5</td><td style="border:2px solid #000;">90UF=3.0</td><td style="border:2px solid #000;">72UF=3.0</td><td style="border:2px solid #000;">45UF=3.0</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">559UF=1.0</td><td style="border:2px solid #000;">289UF=1.0</td><td style="border:2px solid #000;">154UF=1.0</td><td style="border:2px solid #000;">86UF=1.0</td><td style="border:2px solid #000;">109UF=2.0</td><td style="border:2px solid #000;">86UF=2.0</td><td style="border:2px solid #000;">52UF=2.0</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1071UF=1.0</td><td style="border:2px solid #000;">545UF=1.0</td><td style="border:2px solid #000;">282UF=1.0</td><td style="border:2px solid #000;">150UF=1.0</td><td style="border:2px solid #000;">194UF=2.0</td><td style="border:2px solid #000;">150UF=2.0</td><td style="border:2px solid #000;">84UF=2.0</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2095UF=1.0</td><td style="border:2px solid #000;">1057UF=1.0</td><td style="border:2px solid #000;">538UF=1.0</td><td style="border:2px solid #000;">278UF=1.0</td><td style="border:2px solid #000;">365UF=2.0</td><td style="border:2px solid #000;">278UF=2.0</td><td style="border:2px solid #000;">148UF=2.0</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4143UF=1.0</td><td style="border:2px solid #000;">2081UF=1.0</td><td style="border:2px solid #000;">1050UF=1.0</td><td style="border:2px solid #000;">534UF=1.0</td><td style="border:2px solid #000;">706UF=2.0</td><td style="border:2px solid #000;">534UF=2.0</td><td style="border:2px solid #000;">276UF=2.0</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1Link</td><td style="border:2px solid #000;">x2Link</td><td style="border:2px solid #000;">x4Link</td><td style="border:2px solid #000;">x8Link</td><td style="border:2px solid #000;">x12Link</td><td style="border:2px solid #000;">x16Link</td><td style="border:2px solid #000;">x32Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">237UF=1.4</td><td style="border:2px solid #000;">128UF=1.4</td><td style="border:2px solid #000;">73UF=1.4</td><td style="border:2px solid #000;">67UF=2.5</td><td style="border:2px solid #000;">58UF=3.0</td><td style="border:2px solid #000;">48UF=3.0</td><td style="border:2px solid #000;">33UF=3.0</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">416FC=1.4</td><td style="border:2px solid #000;">217FC=1.4</td><td style="border:2px solid #000;">118UF=1.4</td><td style="border:2px solid #000;">107UF=2.5</td><td style="border:2px solid #000;">90UF=3.0</td><td style="border:2px solid #000;">72UF=3.0</td><td style="border:2px solid #000;">45UF=3.0</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">559UF=1.0</td><td style="border:2px solid #000;">289UF=1.0</td><td style="border:2px solid #000;">154UF=1.0</td><td style="border:2px solid #000;">86UF=1.0</td><td style="border:2px solid #000;">109UF=2.0</td><td style="border:2px solid #000;">86UF=2.0</td><td style="border:2px solid #000;">52UF=2.0</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1071UF=1.0</td><td style="border:2px solid #000;">545UF=1.0</td><td style="border:2px solid #000;">282UF=1.0</td><td style="border:2px solid #000;">150UF=1.0</td><td style="border:2px solid #000;">194UF=2.0</td><td style="border:2px solid #000;">150UF=2.0</td><td style="border:2px solid #000;">84UF=2.0</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2095UF=1.0</td><td style="border:2px solid #000;">1057UF=1.0</td><td style="border:2px solid #000;">538UF=1.0</td><td style="border:2px solid #000;">278UF=1.0</td><td style="border:2px solid #000;">365UF=2.0</td><td style="border:2px solid #000;">278UF=2.0</td><td style="border:2px solid #000;">148UF=2.0</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4143UF=1.0</td><td style="border:2px solid #000;">2081UF=1.0</td><td style="border:2px solid #000;">1050UF=1.0</td><td style="border:2px solid #000;">534UF=1.0</td><td style="border:2px solid #000;">706UF=2.0</td><td style="border:2px solid #000;">534UF=2.0</td><td style="border:2px solid #000;">276UF=2.0</td></tr></table>
 
 Table 6‑4: Gen2 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6‑4：Gen2未调整的AckNak_LATENCY_TIMER值（符号时间）
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1Link</td><td style="border:2px solid #000;">x2Link</td><td style="border:2px solid #000;">x4Link</td><td style="border:2px solid #000;">x8Link</td><td style="border:2px solid #000;">x12Link</td><td style="border:2px solid #000;">x16Link</td><td style="border:2px solid #000;">x32Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">288UF=1.4</td><td style="border:2px solid #000;">179UF=1.4</td><td style="border:2px solid #000;">124UF=1.4</td><td style="border:2px solid #000;">118UF=2.5</td><td style="border:2px solid #000;">109UF=3.0</td><td style="border:2px solid #000;">99UF=3.0</td><td style="border:2px solid #000;">84UF=3.0</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">467FC=1.4</td><td style="border:2px solid #000;">268FC=1.4</td><td style="border:2px solid #000;">169UF=1.4</td><td style="border:2px solid #000;">158UF=2.5</td><td style="border:2px solid #000;">141UF=3.0</td><td style="border:2px solid #000;">123UF=3.0</td><td style="border:2px solid #000;">96UF=3.0</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">610UF=1.0</td><td style="border:2px solid #000;">340UF=1.0</td><td style="border:2px solid #000;">205UF=1.0</td><td style="border:2px solid #000;">137UF=1.0</td><td style="border:2px solid #000;">160UF=2.0</td><td style="border:2px solid #000;">137UF=2.0</td><td style="border:2px solid #000;">103UF=2.0</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1122UF=1.0</td><td style="border:2px solid #000;">596UF=1.0</td><td style="border:2px solid #000;">333UF=1.0</td><td style="border:2px solid #000;">201UF=1.0</td><td style="border:2px solid #000;">245UF=2.0</td><td style="border:2px solid #000;">201UF=2.0</td><td style="border:2px solid #000;">135UF=2.0</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2146UF=1.0</td><td style="border:2px solid #000;">1108UF=1.0</td><td style="border:2px solid #000;">589UF=1.0</td><td style="border:2px solid #000;">329UF=1.0</td><td style="border:2px solid #000;">416UF=2.0</td><td style="border:2px solid #000;">329UF=2.0</td><td style="border:2px solid #000;">199UF=2.0</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4194UF=1.0</td><td style="border:2px solid #000;">2132UF=1.0</td><td style="border:2px solid #000;">1101UF=1.0</td><td style="border:2px solid #000;">585UF=1.0</td><td style="border:2px solid #000;">757UF=2.0</td><td style="border:2px solid #000;">585UF=2.0</td><td style="border:2px solid #000;">327UF=2.0</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1Link</td><td style="border:2px solid #000;">x2Link</td><td style="border:2px solid #000;">x4Link</td><td style="border:2px solid #000;">x8Link</td><td style="border:2px solid #000;">x12Link</td><td style="border:2px solid #000;">x16Link</td><td style="border:2px solid #000;">x32Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">288UF=1.4</td><td style="border:2px solid #000;">179UF=1.4</td><td style="border:2px solid #000;">124UF=1.4</td><td style="border:2px solid #000;">118UF=2.5</td><td style="border:2px solid #000;">109UF=3.0</td><td style="border:2px solid #000;">99UF=3.0</td><td style="border:2px solid #000;">84UF=3.0</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">467FC=1.4</td><td style="border:2px solid #000;">268FC=1.4</td><td style="border:2px solid #000;">169UF=1.4</td><td style="border:2px solid #000;">158UF=2.5</td><td style="border:2px solid #000;">141UF=3.0</td><td style="border:2px solid #000;">123UF=3.0</td><td style="border:2px solid #000;">96UF=3.0</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">610UF=1.0</td><td style="border:2px solid #000;">340UF=1.0</td><td style="border:2px solid #000;">205UF=1.0</td><td style="border:2px solid #000;">137UF=1.0</td><td style="border:2px solid #000;">160UF=2.0</td><td style="border:2px solid #000;">137UF=2.0</td><td style="border:2px solid #000;">103UF=2.0</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1122UF=1.0</td><td style="border:2px solid #000;">596UF=1.0</td><td style="border:2px solid #000;">333UF=1.0</td><td style="border:2px solid #000;">201UF=1.0</td><td style="border:2px solid #000;">245UF=2.0</td><td style="border:2px solid #000;">201UF=2.0</td><td style="border:2px solid #000;">135UF=2.0</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2146UF=1.0</td><td style="border:2px solid #000;">1108UF=1.0</td><td style="border:2px solid #000;">589UF=1.0</td><td style="border:2px solid #000;">329UF=1.0</td><td style="border:2px solid #000;">416UF=2.0</td><td style="border:2px solid #000;">329UF=2.0</td><td style="border:2px solid #000;">199UF=2.0</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4194UF=1.0</td><td style="border:2px solid #000;">2132UF=1.0</td><td style="border:2px solid #000;">1101UF=1.0</td><td style="border:2px solid #000;">585UF=1.0</td><td style="border:2px solid #000;">757UF=2.0</td><td style="border:2px solid #000;">585UF=2.0</td><td style="border:2px solid #000;">327UF=2.0</td></tr></table>
 
 Table 6‑5: Gen3 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6‑5：Gen3未调整的AckNak_LATENCY_TIMER值（符号时间）
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1 Link</td><td style="border:2px solid #000;">x2 Link</td><td style="border:2px solid #000;">x4 Link</td><td style="border:2px solid #000;">x8 Link</td><td style="border:2px solid #000;">x12 Link</td><td style="border:2px solid #000;">x16 Link</td><td style="border:2px solid #000;">x32 Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">333UF=1.4</td><td style="border:2px solid #000;">224UF=1.4</td><td style="border:2px solid #000;">169UF=1.4</td><td style="border:2px solid #000;">163UF=2.5</td><td style="border:2px solid #000;">154UF=3.0</td><td style="border:2px solid #000;">144UF=3.0</td><td style="border:2px solid #000;">129UF=3.0</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">512FC=1.4</td><td style="border:2px solid #000;">313FC=1.4</td><td style="border:2px solid #000;">214UF=1.4</td><td style="border:2px solid #000;">203UF=2.5</td><td style="border:2px solid #000;">186UF=3.0</td><td style="border:2px solid #000;">168UF=3.0</td><td style="border:2px solid #000;">141UF=3.0</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">655UF=1.0</td><td style="border:2px solid #000;">385UF=1.0</td><td style="border:2px solid #000;">250UF=1.0</td><td style="border:2px solid #000;">182UF=1.0</td><td style="border:2px solid #000;">205UF=2.0</td><td style="border:2px solid #000;">182UF=2.0</td><td style="border:2px solid #000;">148UF=2.0</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1167UF=1.0</td><td style="border:2px solid #000;">641UF=1.0</td><td style="border:2px solid #000;">378UF=1.0</td><td style="border:2px solid #000;">246UF=1.0</td><td style="border:2px solid #000;">290UF=2.0</td><td style="border:2px solid #000;">246UF=2.0</td><td style="border:2px solid #000;">180UF=2.0</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2191UF=1.0</td><td style="border:2px solid #000;">1153UF=1.0</td><td style="border:2px solid #000;">643UF=1.0</td><td style="border:2px solid #000;">374UF=1.0</td><td style="border:2px solid #000;">461UF=2.0</td><td style="border:2px solid #000;">374UF=2.0</td><td style="border:2px solid #000;">244UF=2.0</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4239UF=1.0</td><td style="border:2px solid #000;">2177UF=1.0</td><td style="border:2px solid #000;">1146UF=1.0</td><td style="border:2px solid #000;">630UF=1.0</td><td style="border:2px solid #000;">802UF=2.0</td><td style="border:2px solid #000;">630UF=2.0</td><td style="border:2px solid #000;">372UF=2.0</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1 Link</td><td style="border:2px solid #000;">x2 Link</td><td style="border:2px solid #000;">x4 Link</td><td style="border:2px solid #000;">x8 Link</td><td style="border:2px solid #000;">x12 Link</td><td style="border:2px solid #000;">x16 Link</td><td style="border:2px solid #000;">x32 Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">333UF=1.4</td><td style="border:2px solid #000;">224UF=1.4</td><td style="border:2px solid #000;">169UF=1.4</td><td style="border:2px solid #000;">163UF=2.5</td><td style="border:2px solid #000;">154UF=3.0</td><td style="border:2px solid #000;">144UF=3.0</td><td style="border:2px solid #000;">129UF=3.0</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">512FC=1.4</td><td style="border:2px solid #000;">313FC=1.4</td><td style="border:2px solid #000;">214UF=1.4</td><td style="border:2px solid #000;">203UF=2.5</td><td style="border:2px solid #000;">186UF=3.0</td><td style="border:2px solid #000;">168UF=3.0</td><td style="border:2px solid #000;">141UF=3.0</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">655UF=1.0</td><td style="border:2px solid #000;">385UF=1.0</td><td style="border:2px solid #000;">250UF=1.0</td><td style="border:2px solid #000;">182UF=1.0</td><td style="border:2px solid #000;">205UF=2.0</td><td style="border:2px solid #000;">182UF=2.0</td><td style="border:2px solid #000;">148UF=2.0</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1167UF=1.0</td><td style="border:2px solid #000;">641UF=1.0</td><td style="border:2px solid #000;">378UF=1.0</td><td style="border:2px solid #000;">246UF=1.0</td><td style="border:2px solid #000;">290UF=2.0</td><td style="border:2px solid #000;">246UF=2.0</td><td style="border:2px solid #000;">180UF=2.0</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2191UF=1.0</td><td style="border:2px solid #000;">1153UF=1.0</td><td style="border:2px solid #000;">643UF=1.0</td><td style="border:2px solid #000;">374UF=1.0</td><td style="border:2px solid #000;">461UF=2.0</td><td style="border:2px solid #000;">374UF=2.0</td><td style="border:2px solid #000;">244UF=2.0</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4239UF=1.0</td><td style="border:2px solid #000;">2177UF=1.0</td><td style="border:2px solid #000;">1146UF=1.0</td><td style="border:2px solid #000;">630UF=1.0</td><td style="border:2px solid #000;">802UF=2.0</td><td style="border:2px solid #000;">630UF=2.0</td><td style="border:2px solid #000;">372UF=2.0</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -860,7 +860,7 @@ Table 6‑5: Gen3 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>

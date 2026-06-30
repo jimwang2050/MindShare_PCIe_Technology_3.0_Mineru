@@ -4,7 +4,7 @@
 
 ## The Previous Chapter | 上一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -19,7 +19,7 @@
 
 ## This Chapter | 本章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -34,7 +34,7 @@
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -50,7 +50,7 @@
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -77,7 +77,7 @@
 
 ## 13.2 Component Interfaces | 13.2 组件接口
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -92,7 +92,7 @@
 
 ## 13.3 Physical Layer Electrical Overview | 13.3 物理层电气概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -109,7 +109,7 @@ Figure 13‑1: Electrical Sub‑Block of the Physical Layer | 图13‑1：物理
 
 <img src="images/part03_6e712889d05e8bc6546bed30964c5f60adf57a658cefb6fd8d3aa2a32cb575f5.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -126,7 +126,7 @@ Figure 13‑1: Electrical Sub‑Block of the Physical Layer | 图13‑1：物理
 
 ## 13.4 High Speed Signaling | 13.4 高速信令
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -155,7 +155,7 @@ Figure 13-3: Differential Common-Mode Noise Rejection | 图13-3：差分共模�
 
 ## 13.5 Clock Requirements | 13.5 时钟要求
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -170,7 +170,7 @@ Figure 13-3: Differential Common-Mode Noise Rejection | 图13-3：差分共模�
 
 ## 13.5.1.1 General | 13.5.1.1 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -186,7 +186,7 @@ Figure 13-3: Differential Common-Mode Noise Rejection | 图13-3：差分共模�
 
 ## 13.5.1 SSC (Spread Spectrum Clocking) | 13.5.1 SSC（扩频时钟）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -215,7 +215,7 @@ Figure 13-6: SSC Modulation Example | 图13-6：SSC调制示例
 
 ## 13.5.2 Refclk Overview | 13.5.2 Refclk 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -230,7 +230,7 @@ Figure 13-6: SSC Modulation Example | 图13-6：SSC调制示例
 
 ## 13.5.2.1 GT/s Overview | 13.5.2.1 GT/s 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -245,7 +245,7 @@ Figure 13-6: SSC Modulation Example | 图13-6：SSC调制示例
 
 ## 13.5.2.1 GT/s Overview | 13.5.2.1 GT/s 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -266,7 +266,7 @@ Figure 13-7: Shared Refclk Architecture | 图13-7：共享参考时钟架构
 
 <img src="images/part03_e4cb97067b2235c260bdec68100c3c4ef124a1bee60d02a289337ac7e6082030.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -283,7 +283,7 @@ Figure 13-8: Data Clocked Rx Architecture | 图13-8：数据时钟接收器架�
 
 <img src="images/part03_a4a0ac1c67cc820fac8d5ccbc7fb6b81caae2d0822361512cac4cb5353b3744d.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -302,7 +302,7 @@ Figure 13-9: Separate Refclk Architecture | 图13-9：独立参考时钟架构
 
 ## 13.5.2.1 GT/s Overview | 13.5.2.1 GT/s 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -315,7 +315,7 @@ Figure 13-9: Separate Refclk Architecture | 图13-9：独立参考时钟架构
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -328,7 +328,7 @@ Figure 13-9: Separate Refclk Architecture | 图13-9：独立参考时钟架构
 </table>
 
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
@@ -350,7 +350,7 @@ Figure 13-9: Separate Refclk Architecture | 图13-9：独立参考时钟架构
 
 ## 13.6.2 Tx Impedance Requirements | 13.6.2 发送器阻抗要求
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -367,7 +367,7 @@ Figure 13-9: Separate Refclk Architecture | 图13-9：独立参考时钟架构
 
 ## 13.6.3 ESD and Short Circuit Requirements | 13.6.3 ESD 和短路要求
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -381,7 +381,7 @@ Figure 13-9: Separate Refclk Architecture | 图13-9：独立参考时钟架构
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -394,7 +394,7 @@ Figure 13-9: Separate Refclk Architecture | 图13-9：独立参考时钟架构
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -411,7 +411,7 @@ Figure 13-9: Separate Refclk Architecture | 图13-9：独立参考时钟架构
 
 ## 13.6.4 Detecting Receiver Presence | 13.6.4 检测接收端是否存在
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -435,7 +435,7 @@ Figure 13-11: Receiver Detection Mechanism | 图13-11：接收器检测机制
 
 ## 13.6.5 Transmitter Voltages | 13.6.5 发送器电压
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -451,7 +451,7 @@ Figure 13-11: Receiver Detection Mechanism | 图13-11：接收器检测机制
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -467,7 +467,7 @@ Figure 13-11: Receiver Detection Mechanism | 图13-11：接收器检测机制
 
 ## 13.6.5.1 Full-Swing Differential Voltage | 13.6.5.1 全摆幅差分电压
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -487,7 +487,7 @@ Figure 13-11: Receiver Detection Mechanism | 图13-11：接收器检测机制
 Figure 13‐12: Differential Signaling | 图13‐12：差分信令  
 <img src="images/part03_73f0c474fb2a9c7c0d959aa0d16a529c0140c298b1cf169b2832c954585a3d29.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -506,7 +506,7 @@ Figure 13‐12: Differential Signaling | 图13‐12：差分信令
 Figure 13‐13: Differential Peak‐to‐Peak $( \mathrm { V _ { D I F F p - p } } )$ and Peak $( \mathrm { V _ { D I F F p } } )$ Voltages | 图13‐13：差分峰峰值 $(V_{DIFFp-p})$ 和峰值 $(V_{DIFFp})$ 电压  
 <img src="images/part03_b34668f0cb7eacadd364805b344324a4aca211fb770728fb99782e23f18b0927.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -523,7 +523,7 @@ Figure 13‐13: Differential Peak‐to‐Peak $( \mathrm { V _ { D I F F p - p }
 
 ## 13.6.6.1 Equalization Voltage | 13.6.6.1 均衡电压
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -540,7 +540,7 @@ Figure 13‐13: Differential Peak‐to‐Peak $( \mathrm { V _ { D I F F p - p }
 
 ## 13.6.6.2 Voltage Margining | 13.6.6.2 电压裕量调节
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -560,7 +560,7 @@ Figure 13-14: Transmit Margin Field in Link Control 2 Register | 图13-14：链�
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -574,7 +574,7 @@ Figure 13-14: Transmit Margin Field in Link Control 2 Register | 图13-14：链�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -589,7 +589,7 @@ Figure 13-14: Transmit Margin Field in Link Control 2 Register | 图13-14：链�
 
 ## 13.7.1 Receiver Impedance | 13.7.1 接收器阻抗
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -605,7 +605,7 @@ Figure 13-14: Transmit Margin Field in Link Control 2 Register | 图13-14：链�
 
 ## 13.7.2 Receiver DC Common Mode Voltage | 13.7.2 接收器 DC 共模电压
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -625,7 +625,7 @@ Figure 13-15: Receiver DC Common-Mode Voltage Adjustment | 图13-15：接收器D
 
 ## 13.7.3 Transmission Loss | 13.7.3 传输损耗
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -640,7 +640,7 @@ Figure 13-15: Receiver DC Common-Mode Voltage Adjustment | 图13-15：接收器D
 
 ## 13.7.4 AC Coupling | 13.7.4 交流耦合
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -656,7 +656,7 @@ Figure 13-15: Receiver DC Common-Mode Voltage Adjustment | 图13-15：接收器D
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -669,7 +669,7 @@ Figure 13-15: Receiver DC Common-Mode Voltage Adjustment | 图13-15：接收器D
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -685,7 +685,7 @@ Figure 13-15: Receiver DC Common-Mode Voltage Adjustment | 图13-15：接收器D
 
 ## 13.7.5 The Problem | 13.7.5 问题
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -698,7 +698,7 @@ Figure 13-15: Receiver DC Common-Mode Voltage Adjustment | 图13-15：接收器D
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -720,7 +720,7 @@ Figure 13-15: Receiver DC Common-Mode Voltage Adjustment | 图13-15：接收器D
 Figure 13‐16: Transmission with De‐emphasis | 图13‐16：带去加重的传输
 <img src="images/part03_919dddc80d72d4f41b62a20261e1a3e7397a965cfff2e94d4b428b99faa51e41.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -739,7 +739,7 @@ Figure 13‑17: Benefit of De‑emphasis at the Receiver | 图13‑17：接收�
 
 <img src="images/part03_380c4dd2edd4698564a37f946cc72580341e53019bac1720232d05e6aeacca71.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -759,7 +759,7 @@ Figure 13‑18: Benefit of De‑emphasis at Receiver Shown With Differential Sig
 
 ## 13.7.1 Solution for 5.0 GT/s | 13.7.1 5.0 GT/s 的解决方案
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -778,7 +778,7 @@ Figure 13‑19: De‑emphasis Options for 5.0 GT/s / 图 13‑19: 5.0 GT/s 的�
 
 <img src="images/part03_051c63803bd2009e8aa88e30fb76d6b3a6bcd3be96097b09d472ae55c73e6ef2.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -803,7 +803,7 @@ Reduced Swing (low transmission amplitude) / 减摆幅（低传输幅度）
 
 ## 13.7.2 Solution for 8.0 GT/s - Transmitter Equalization | 13.7.2 8.0 GT/s 的解决方案 — 发送器均衡
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -819,7 +819,7 @@ Reduced Swing (low transmission amplitude) / 减摆幅（低传输幅度）
 
 ## 13.7.3 Three-Tap Tx Equalizer Required | 13.7.3 需要三抽头发送器均衡器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -836,7 +836,7 @@ Figure 13-21: 3-Tap Tx Equalizer | 图13-21：3抽头发送均衡器
 
 <img src="images/part03_8cc47add9767109176331cea75028b8dd7f8b3dda229c06db9a8ecd53cbd9366.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -856,7 +856,7 @@ Figure 13-22: Tx 3-Tap Equalizer Shaping of an Output Pulse | 图13-22：发送3
 
 ## 13.7.4 Pre-shoot, De-emphasis, and Boost | 13.7.4 预冲、去加重和增强
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -881,7 +881,7 @@ Figure 13‐23: 8.0 GT/s Tx Voltage Levels | 图13‐23：8.0 GT/s发送器电�
 
 <img src="images/part03_1cc321a232e25a495c5515ba68fc237f3ebea8ddde3a6e3fb0fcfec8f7f2a798.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -896,9 +896,9 @@ Figure 13‐23: 8.0 GT/s Tx Voltage Levels | 图13‐23：8.0 GT/s发送器电�
 
 **Table 13-1: Tx Preset Encodings with Coefficients and Voltage Ratios**
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Preset Number</td><td style="border:2px solid #000;">Preshoot (dB)</td><td style="border:2px solid #000;">De-emphasis (dB)</td><td style="border:2px solid #000;"> $C_{-1}$ </td><td style="border:2px solid #000;"> $C_{+1}$ </td><td style="border:2px solid #000;">Va/Vd</td><td style="border:2px solid #000;">Vb/Vd</td><td style="border:2px solid #000;">Vc/Vd</td></tr><tr><td style="border:2px solid #000;">P4</td><td style="border:2px solid #000;">0.0.</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">1.000</td></tr><tr><td style="border:2px solid #000;">P1</td><td style="border:2px solid #000;">0.0.</td><td style="border:2px solid #000;">-3.5 +/- 1 dB</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">-0.167</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">0.668</td><td style="border:2px solid #000;">0.668</td></tr><tr><td style="border:2px solid #000;">P0</td><td style="border:2px solid #000;">0.0.</td><td style="border:2px solid #000;">-6.0 +/- 1.5 dB</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">-0.250</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">0.500</td><td style="border:2px solid #000;">0.500</td></tr><tr><td style="border:2px solid #000;">P9</td><td style="border:2px solid #000;">3.5 +/- 1 dB</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">-0.166</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">0.668</td><td style="border:2px solid #000;">0.668</td><td style="border:2px solid #000;">1.000</td></tr><tr><td style="border:2px solid #000;">P8</td><td style="border:2px solid #000;">3.5 +/- 1 dB</td><td style="border:2px solid #000;">-3.5 +/- 1 dB</td><td style="border:2px solid #000;">-0.125</td><td style="border:2px solid #000;">-0.125</td><td style="border:2px solid #000;">0.750</td><td style="border:2px solid #000;">0.500</td><td style="border:2px solid #000;">0.750</td></tr><tr><td style="border:2px solid #000;">P7</td><td style="border:2px solid #000;">3.5 +/- 1 dB</td><td style="border:2px solid #000;">-6.0 +/- 1.5 dB</td><td style="border:2px solid #000;">-0.100</td><td style="border:2px solid #000;">-0.200</td><td style="border:2px solid #000;">0.800</td><td style="border:2px solid #000;">0.400</td><td style="border:2px solid #000;">0.600</td></tr><tr><td style="border:2px solid #000;">P5</td><td style="border:2px solid #000;">1.9 +/- 1 dB</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">-0.100</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">0.800</td><td style="border:2px solid #000;">0.800</td><td style="border:2px solid #000;">1.000</td></tr><tr><td style="border:2px solid #000;">P6</td><td style="border:2px solid #000;">2.5 +/- 1 dB</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">-0.125</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">0.750</td><td style="border:2px solid #000;">0.750</td><td style="border:2px solid #000;">1.000</td></tr><tr><td style="border:2px solid #000;">P3</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">-2.5 +/- 1 dB</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">-0.125</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">0.750</td><td style="border:2px solid #000;">0.750</td></tr><tr><td style="border:2px solid #000;">P2</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">-4.4 +/- 1.5 dB</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">-0.200</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">0.600</td><td style="border:2px solid #000;">0.600</td></tr><tr><td style="border:2px solid #000;">P10</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">Defined by LF</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">(FS-LF) /2</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">Not fixed</td><td style="border:2px solid #000;">Not fixed</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Preset Number</td><td style="border:2px solid #000;">Preshoot (dB)</td><td style="border:2px solid #000;">De-emphasis (dB)</td><td style="border:2px solid #000;"> $C_{-1}$ </td><td style="border:2px solid #000;"> $C_{+1}$ </td><td style="border:2px solid #000;">Va/Vd</td><td style="border:2px solid #000;">Vb/Vd</td><td style="border:2px solid #000;">Vc/Vd</td></tr><tr><td style="border:2px solid #000;">P4</td><td style="border:2px solid #000;">0.0.</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">1.000</td></tr><tr><td style="border:2px solid #000;">P1</td><td style="border:2px solid #000;">0.0.</td><td style="border:2px solid #000;">-3.5 +/- 1 dB</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">-0.167</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">0.668</td><td style="border:2px solid #000;">0.668</td></tr><tr><td style="border:2px solid #000;">P0</td><td style="border:2px solid #000;">0.0.</td><td style="border:2px solid #000;">-6.0 +/- 1.5 dB</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">-0.250</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">0.500</td><td style="border:2px solid #000;">0.500</td></tr><tr><td style="border:2px solid #000;">P9</td><td style="border:2px solid #000;">3.5 +/- 1 dB</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">-0.166</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">0.668</td><td style="border:2px solid #000;">0.668</td><td style="border:2px solid #000;">1.000</td></tr><tr><td style="border:2px solid #000;">P8</td><td style="border:2px solid #000;">3.5 +/- 1 dB</td><td style="border:2px solid #000;">-3.5 +/- 1 dB</td><td style="border:2px solid #000;">-0.125</td><td style="border:2px solid #000;">-0.125</td><td style="border:2px solid #000;">0.750</td><td style="border:2px solid #000;">0.500</td><td style="border:2px solid #000;">0.750</td></tr><tr><td style="border:2px solid #000;">P7</td><td style="border:2px solid #000;">3.5 +/- 1 dB</td><td style="border:2px solid #000;">-6.0 +/- 1.5 dB</td><td style="border:2px solid #000;">-0.100</td><td style="border:2px solid #000;">-0.200</td><td style="border:2px solid #000;">0.800</td><td style="border:2px solid #000;">0.400</td><td style="border:2px solid #000;">0.600</td></tr><tr><td style="border:2px solid #000;">P5</td><td style="border:2px solid #000;">1.9 +/- 1 dB</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">-0.100</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">0.800</td><td style="border:2px solid #000;">0.800</td><td style="border:2px solid #000;">1.000</td></tr><tr><td style="border:2px solid #000;">P6</td><td style="border:2px solid #000;">2.5 +/- 1 dB</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">-0.125</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">0.750</td><td style="border:2px solid #000;">0.750</td><td style="border:2px solid #000;">1.000</td></tr><tr><td style="border:2px solid #000;">P3</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">-2.5 +/- 1 dB</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">-0.125</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">0.750</td><td style="border:2px solid #000;">0.750</td></tr><tr><td style="border:2px solid #000;">P2</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">-4.4 +/- 1.5 dB</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">-0.200</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">0.600</td><td style="border:2px solid #000;">0.600</td></tr><tr><td style="border:2px solid #000;">P10</td><td style="border:2px solid #000;">0.0</td><td style="border:2px solid #000;">Defined by LF</td><td style="border:2px solid #000;">0.000</td><td style="border:2px solid #000;">(FS-LF) /2</td><td style="border:2px solid #000;">1.000</td><td style="border:2px solid #000;">Not fixed</td><td style="border:2px solid #000;">Not fixed</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -918,7 +918,7 @@ Figure 13‐23: 8.0 GT/s Tx Voltage Levels | 图13‐23：8.0 GT/s发送器电�
 </table>
 
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <tbody>
       <tr><td width="50%" style="border:2px solid #000;background:#fff;padding:4px 8px;">Table 13-2: Tx Coefficient Table</td><td width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">表 13-2：发送器系数表</td></tr>
   </tbody>
@@ -926,9 +926,9 @@ Figure 13‐23: 8.0 GT/s Tx Voltage Levels | 图13‐23：8.0 GT/s发送器电�
 
 |----|----|---|---|
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" colspan="2" style="border:2px solid #000;">PS DEBoost</td><td colspan="7" style="border:2px solid #000;"> $C_{+1}$ </td></tr><tr><td style="border:2px solid #000;">0/24</td><td style="border:2px solid #000;">1/24</td><td style="border:2px solid #000;">2/24</td><td style="border:2px solid #000;">3/24</td><td style="border:2px solid #000;">4/24</td><td style="border:2px solid #000;">5/24</td><td style="border:2px solid #000;">6/24</td></tr><tr><td rowspan="7" style="border:2px solid #000;"> $C_{-1}$ </td><td style="border:2px solid #000;">0/24</td><td style="border:2px solid #000;">0.0 0.00.0</td><td style="border:2px solid #000;">0.0 -0.80.8</td><td style="border:2px solid #000;">0.0 -1.81.6</td><td style="border:2px solid #000;">0.0 -2.52.5</td><td style="border:2px solid #000;">0.0 -3.53.5</td><td style="border:2px solid #000;">0.0 -4.74.7</td><td style="border:2px solid #000;">0.0 -6.0-6.0</td></tr><tr><td style="border:2px solid #000;">1/24</td><td style="border:2px solid #000;">0.8 0.00.8</td><td style="border:2px solid #000;">0.8 -0.81.6</td><td style="border:2px solid #000;">0.9 -1.72.5</td><td style="border:2px solid #000;">1.0 -2.83.5</td><td style="border:2px solid #000;">1.2 -3.94.7</td><td style="border:2px solid #000;">1.3 -5.36.0</td><td style="border:2px solid #000;">1.6 -6.87.6</td></tr><tr><td style="border:2px solid #000;">2/24</td><td style="border:2px solid #000;">1.6 0.01.6</td><td style="border:2px solid #000;">1.7 -0.92.5</td><td style="border:2px solid #000;">1.9 -1.93.5</td><td style="border:2px solid #000;">2.2 -3.14.7</td><td style="border:2px solid #000;">2.5 -4.46.0</td><td style="border:2px solid #000;">2.9 -6.07.6</td><td style="border:2px solid #000;">3.5 -8.09.5</td></tr><tr><td style="border:2px solid #000;">3/24</td><td style="border:2px solid #000;">2.5 0.02.5</td><td style="border:2px solid #000;">2.8 -1.03.5</td><td style="border:2px solid #000;">3.1 -2.24.7</td><td style="border:2px solid #000;">3.5 -3.56.0</td><td style="border:2px solid #000;">4.1 -5.17.6</td><td style="border:2px solid #000;">4.9 -7.09.5</td><td style="border:2px solid #000;">-</td></tr><tr><td style="border:2px solid #000;">4/24</td><td style="border:2px solid #000;">3.5 0.03.5</td><td style="border:2px solid #000;">3.9 -1.24.7</td><td style="border:2px solid #000;">4.4 -2.56.0</td><td style="border:2px solid #000;">5.1 -4.17.6</td><td style="border:2px solid #000;">6.0 -6.09.5</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td></tr><tr><td style="border:2px solid #000;">5/24</td><td style="border:2px solid #000;">4.7 0.04.7</td><td style="border:2px solid #000;">5.3 -1.36.0</td><td style="border:2px solid #000;">6.0 -2.97.6</td><td style="border:2px solid #000;">7.0 -4.99.5</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td></tr><tr><td style="border:2px solid #000;">6/24</td><td style="border:2px solid #000;">6.0 0.06.0</td><td style="border:2px solid #000;">6.8 -1.67.6</td><td style="border:2px solid #000;">8.0 -3.59.5</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="2" colspan="2" style="border:2px solid #000;">PS DEBoost</td><td colspan="7" style="border:2px solid #000;"> $C_{+1}$ </td></tr><tr><td style="border:2px solid #000;">0/24</td><td style="border:2px solid #000;">1/24</td><td style="border:2px solid #000;">2/24</td><td style="border:2px solid #000;">3/24</td><td style="border:2px solid #000;">4/24</td><td style="border:2px solid #000;">5/24</td><td style="border:2px solid #000;">6/24</td></tr><tr><td rowspan="7" style="border:2px solid #000;"> $C_{-1}$ </td><td style="border:2px solid #000;">0/24</td><td style="border:2px solid #000;">0.0 0.00.0</td><td style="border:2px solid #000;">0.0 -0.80.8</td><td style="border:2px solid #000;">0.0 -1.81.6</td><td style="border:2px solid #000;">0.0 -2.52.5</td><td style="border:2px solid #000;">0.0 -3.53.5</td><td style="border:2px solid #000;">0.0 -4.74.7</td><td style="border:2px solid #000;">0.0 -6.0-6.0</td></tr><tr><td style="border:2px solid #000;">1/24</td><td style="border:2px solid #000;">0.8 0.00.8</td><td style="border:2px solid #000;">0.8 -0.81.6</td><td style="border:2px solid #000;">0.9 -1.72.5</td><td style="border:2px solid #000;">1.0 -2.83.5</td><td style="border:2px solid #000;">1.2 -3.94.7</td><td style="border:2px solid #000;">1.3 -5.36.0</td><td style="border:2px solid #000;">1.6 -6.87.6</td></tr><tr><td style="border:2px solid #000;">2/24</td><td style="border:2px solid #000;">1.6 0.01.6</td><td style="border:2px solid #000;">1.7 -0.92.5</td><td style="border:2px solid #000;">1.9 -1.93.5</td><td style="border:2px solid #000;">2.2 -3.14.7</td><td style="border:2px solid #000;">2.5 -4.46.0</td><td style="border:2px solid #000;">2.9 -6.07.6</td><td style="border:2px solid #000;">3.5 -8.09.5</td></tr><tr><td style="border:2px solid #000;">3/24</td><td style="border:2px solid #000;">2.5 0.02.5</td><td style="border:2px solid #000;">2.8 -1.03.5</td><td style="border:2px solid #000;">3.1 -2.24.7</td><td style="border:2px solid #000;">3.5 -3.56.0</td><td style="border:2px solid #000;">4.1 -5.17.6</td><td style="border:2px solid #000;">4.9 -7.09.5</td><td style="border:2px solid #000;">-</td></tr><tr><td style="border:2px solid #000;">4/24</td><td style="border:2px solid #000;">3.5 0.03.5</td><td style="border:2px solid #000;">3.9 -1.24.7</td><td style="border:2px solid #000;">4.4 -2.56.0</td><td style="border:2px solid #000;">5.1 -4.17.6</td><td style="border:2px solid #000;">6.0 -6.09.5</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td></tr><tr><td style="border:2px solid #000;">5/24</td><td style="border:2px solid #000;">4.7 0.04.7</td><td style="border:2px solid #000;">5.3 -1.36.0</td><td style="border:2px solid #000;">6.0 -2.97.6</td><td style="border:2px solid #000;">7.0 -4.99.5</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td></tr><tr><td style="border:2px solid #000;">6/24</td><td style="border:2px solid #000;">6.0 0.06.0</td><td style="border:2px solid #000;">6.8 -1.67.6</td><td style="border:2px solid #000;">8.0 -3.59.5</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td><td style="border:2px solid #000;">-</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -949,7 +949,7 @@ Figure 13‐23: 8.0 GT/s Tx Voltage Levels | 图13‐23：8.0 GT/s发送器电�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -964,7 +964,7 @@ Figure 13‐23: 8.0 GT/s Tx Voltage Levels | 图13‐23：8.0 GT/s发送器电�
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -982,7 +982,7 @@ Figure 13-24: Tx 3-Tap Equalizer Output | 图13-24：发送3抽头均衡器输�
 
 <img src="images/part04_2dae28f76ac39460f5a753008e94809f56d86f47ba3c1fc069ab9a128ad1d49b.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -997,7 +997,7 @@ Figure 13-24: Tx 3-Tap Equalizer Output | 图13-24：发送3抽头均衡器输�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1012,7 +1012,7 @@ Figure 13-24: Tx 3-Tap Equalizer Output | 图13-24：发送3抽头均衡器输�
 
 ## 13.5.1.1 General | 13.5.1.1 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1029,7 +1029,7 @@ Figure 13-25: Example Beacon Signal | 图13-25：信标信号示例
 
 <img src="images/part04_ff0f279a7f95be0c34cd718d7cb7b5d14f2e619c5cf3b9327597a56ec4ab8c59.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1045,7 +1045,7 @@ Figure 13-25: Example Beacon Signal | 图13-25：信标信号示例
 
 ## Properties of the Beacon Signal | Beacon 信号的特性
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1064,7 +1064,7 @@ Figure 13-25: Example Beacon Signal | 图13-25：信标信号示例
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1080,7 +1080,7 @@ Figure 13-25: Example Beacon Signal | 图13-25：信标信号示例
 ## 13.9.1 Jitter, Noise, and Signal Attenuation | 13.9.1 抖动、噪声与信号衰减
 ## 13.9.1 Jitter, Noise, and Signal Attenuation | 13.9.1 抖动、噪声与信号衰减
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1099,7 +1099,7 @@ Figure 13-25: Example Beacon Signal | 图13-25：信标信号示例
 
 ## 13.9.2 The Eye Test | 13.9.2 眼图测试
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1116,7 +1116,7 @@ Figure 13-25: Example Beacon Signal | 图13-25：信标信号示例
 
 ## 13.9.3 Normal Eye Diagram | 13.9.3 正常眼图
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1135,7 +1135,7 @@ Figure 13-26: Transmitter Eye Diagram / 图13-26：发送器眼图 | 图13-26：
 
 ## 13.9.4 Effects of Jitter | 13.9.4 抖动的影响
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1164,7 +1164,7 @@ Figure 13-28: Rx Bad Eye (No De-emphasis) | 图13-28：接收器不良眼图（�
 
 ## 13.10 Transmitter Driver Characteristics | 13.10 发送器驱动特性
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1179,11 +1179,11 @@ Figure 13-28: Rx Bad Eye (No De-emphasis) | 图13-28：接收器不良眼图（�
 
 Table 13-3: Transmitter Specs | 表13-3：发送器规格
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Item</td><td style="border:2px solid #000;">2.5 GT/s.</td><td style="border:2px solid #000;">5.0 GT/s</td><td style="border:2px solid #000;">8.0 GT/s</td><td style="border:2px solid #000;">Units</td><td style="border:2px solid #000;">Notes</td></tr><tr><td style="border:2px solid #000;">UI</td><td style="border:2px solid #000;">399.88(min)400.12(max)</td><td style="border:2px solid #000;">199.94(min)200.06(max)</td><td style="border:2px solid #000;">124.9625(min)125.0375(max)</td><td style="border:2px solid #000;">ps</td><td style="border:2px solid #000;">Unit Interval (bit time)</td></tr><tr><td style="border:2px solid #000;"> $T_{TX-EYE}$ </td><td style="border:2px solid #000;">0.75(min)</td><td style="border:2px solid #000;">0.75 (min)</td><td style="border:2px solid #000;">See notes</td><td style="border:2px solid #000;">UI</td><td style="border:2px solid #000;">Transmitter Eye, including all jitter sources. For 8.0 GT/s, five jitter sources are specified separately.</td></tr><tr><td style="border:2px solid #000;"> $T_{TX-RF-MIS-MATCH}$ </td><td style="border:2px solid #000;">Not Specified</td><td style="border:2px solid #000;">0.1 (max)</td><td style="border:2px solid #000;">Not Specified</td><td style="border:2px solid #000;">UI</td><td style="border:2px solid #000;">Rise and Fall time difference measured from 20% to 80% differentially.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-DIFFp-p}$ </td><td style="border:2px solid #000;">0.8 (min)1.2 (max)</td><td style="border:2px solid #000;">0.8 (min)1.2 (max)</td><td style="border:2px solid #000;">See Table 13-4</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Peak-to-peak differential voltage.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-DIFFp-p}LOW$ </td><td style="border:2px solid #000;">0.4 (min)1.2 (max)</td><td style="border:2px solid #000;">0.4 (min)1.2 (max)</td><td style="border:2px solid #000;">See Table 13-4</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Low-power voltage.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-DC-CM}$ </td><td style="border:2px solid #000;">0 to 3.6</td><td style="border:2px solid #000;">0 to 3.6</td><td style="border:2px solid #000;">0 to 3.6</td><td style="border:2px solid #000;">V</td><td style="border:2px solid #000;">DC common mode voltage at Tx pins.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-DE-RATIO-3.5dB}$ </td><td style="border:2px solid #000;">3 (min)4 (max)</td><td style="border:2px solid #000;">3 (min)4 (max)</td><td style="border:2px solid #000;">See Table 13-4</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Ratio for 3.5 dB de-emphasized bits.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-DE-RATIO-6dB}$ </td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">5.5 (min)6.5 (max)</td><td style="border:2px solid #000;">See Table 13-4</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Ratio for 6 dB de-emphasized bits.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Item</td><td style="border:2px solid #000;">2.5 GT/s.</td><td style="border:2px solid #000;">5.0 GT/s</td><td style="border:2px solid #000;">8.0 GT/s</td><td style="border:2px solid #000;">Units</td><td style="border:2px solid #000;">Notes</td></tr><tr><td style="border:2px solid #000;">UI</td><td style="border:2px solid #000;">399.88(min)400.12(max)</td><td style="border:2px solid #000;">199.94(min)200.06(max)</td><td style="border:2px solid #000;">124.9625(min)125.0375(max)</td><td style="border:2px solid #000;">ps</td><td style="border:2px solid #000;">Unit Interval (bit time)</td></tr><tr><td style="border:2px solid #000;"> $T_{TX-EYE}$ </td><td style="border:2px solid #000;">0.75(min)</td><td style="border:2px solid #000;">0.75 (min)</td><td style="border:2px solid #000;">See notes</td><td style="border:2px solid #000;">UI</td><td style="border:2px solid #000;">Transmitter Eye, including all jitter sources. For 8.0 GT/s, five jitter sources are specified separately.</td></tr><tr><td style="border:2px solid #000;"> $T_{TX-RF-MIS-MATCH}$ </td><td style="border:2px solid #000;">Not Specified</td><td style="border:2px solid #000;">0.1 (max)</td><td style="border:2px solid #000;">Not Specified</td><td style="border:2px solid #000;">UI</td><td style="border:2px solid #000;">Rise and Fall time difference measured from 20% to 80% differentially.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-DIFFp-p}$ </td><td style="border:2px solid #000;">0.8 (min)1.2 (max)</td><td style="border:2px solid #000;">0.8 (min)1.2 (max)</td><td style="border:2px solid #000;">See Table 13-4</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Peak-to-peak differential voltage.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-DIFFp-p}LOW$ </td><td style="border:2px solid #000;">0.4 (min)1.2 (max)</td><td style="border:2px solid #000;">0.4 (min)1.2 (max)</td><td style="border:2px solid #000;">See Table 13-4</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Low-power voltage.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-DC-CM}$ </td><td style="border:2px solid #000;">0 to 3.6</td><td style="border:2px solid #000;">0 to 3.6</td><td style="border:2px solid #000;">0 to 3.6</td><td style="border:2px solid #000;">V</td><td style="border:2px solid #000;">DC common mode voltage at Tx pins.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-DE-RATIO-3.5dB}$ </td><td style="border:2px solid #000;">3 (min)4 (max)</td><td style="border:2px solid #000;">3 (min)4 (max)</td><td style="border:2px solid #000;">See Table 13-4</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Ratio for 3.5 dB de-emphasized bits.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-DE-RATIO-6dB}$ </td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">5.5 (min)6.5 (max)</td><td style="border:2px solid #000;">See Table 13-4</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Ratio for 6 dB de-emphasized bits.</td></tr></table>
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1196,9 +1196,9 @@ Table 13-3: Transmitter Specs | 表13-3：发送器规格
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Item</td><td style="border:2px solid #000;">2.5 GT/s.</td><td style="border:2px solid #000;">5.0 GT/s</td><td style="border:2px solid #000;">8.0 GT/s</td><td style="border:2px solid #000;">Units</td><td style="border:2px solid #000;">Notes</td></tr><tr><td style="border:2px solid #000;"> $I_{TX-SHORT}$ </td><td style="border:2px solid #000;">90</td><td style="border:2px solid #000;">90</td><td style="border:2px solid #000;">90</td><td style="border:2px solid #000;">mA</td><td style="border:2px solid #000;">Total single-ended current Tx can supply when shorted to ground.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-IDLE-DIFF-AC-P}$ </td><td style="border:2px solid #000;">0 (min)20 (max)</td><td style="border:2px solid #000;">0 (min)20 (max)</td><td style="border:2px solid #000;">0 (min)20 (max)</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Peak differential voltage under Electrical Idle state of Link. Must include a bandpass filter passing frequencies from 10 KHz to 1.25 GHz.</td></tr><tr><td style="border:2px solid #000;"> $T_{TX-IDLE-MIN}$ </td><td style="border:2px solid #000;">20 (min)</td><td style="border:2px solid #000;">20 (min)</td><td style="border:2px solid #000;">20 (min)</td><td style="border:2px solid #000;">ns</td><td style="border:2px solid #000;">Minimum time a Transmitter must be in Electrical Idle.</td></tr><tr><td style="border:2px solid #000;"> $T_{TX-IDLE-SET-TO-IDLE}$ </td><td style="border:2px solid #000;">8 (max)</td><td style="border:2px solid #000;">8 (max)</td><td style="border:2px solid #000;">8 (max)</td><td style="border:2px solid #000;">ns</td><td style="border:2px solid #000;">Time allowed for Tx to meet Electrical Idle spec after last bit of required EIOSs.</td></tr><tr><td style="border:2px solid #000;"> $T_{TX-IDLE-TO-DIFF-DATA}$ </td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">ns</td><td style="border:2px solid #000;">Max time for Tx to meet differential transmission spec after Electrical Idle exit.</td></tr><tr><td style="border:2px solid #000;"> $Z_{TX-DIFF-DC}$ </td><td style="border:2px solid #000;">80 (min)120 (max)</td><td style="border:2px solid #000;">120 (max)</td><td style="border:2px solid #000;">120 (max)</td><td style="border:2px solid #000;">Ω</td><td style="border:2px solid #000;">DC differential Tx impedance. Typical value is 100 Ω. Min value for 5.0 and 8.0 GT/s is bounded by  $RL_{TX-DIFF}$ </td></tr><tr><td style="border:2px solid #000;"> $RL_{TX-DIFF}$ </td><td style="border:2px solid #000;">10 (min)</td><td style="border:2px solid #000;">10 (min) for 0.5-1.25 GHz8 (min) for &gt;1.25-2.5 GHz</td><td style="border:2px solid #000;">10 (min) for 0.5-1.25 GHz8 (min) for &gt;1.25 - 2.5 GHz4 (min) for &gt;2.5 to 4 GHz</td><td style="border:2px solid #000;">dB</td><td style="border:2px solid #000;">Tx package return loss. Note that the frequency is the signal on the wire. Note that at higher rates it becomes necessary to specify different parameters for different frequencies.</td></tr><tr><td style="border:2px solid #000;"> $C_{TX}$ </td><td style="border:2px solid #000;">75 (min)265 (max)</td><td style="border:2px solid #000;">75 (min)265 (max)</td><td style="border:2px solid #000;">176 (min)265 (max)</td><td style="border:2px solid #000;">nF</td><td style="border:2px solid #000;">Required AC coupling cap on each Lane placed in the media or in the component itself.</td></tr><tr><td style="border:2px solid #000;"> $L_{TX-SKEW}$ </td><td style="border:2px solid #000;">500 ps + 2 UI (max)</td><td style="border:2px solid #000;">500 ps + 4 UI (max)</td><td style="border:2px solid #000;">500 ps + 6 UI</td><td style="border:2px solid #000;">ps</td><td style="border:2px solid #000;">Skew between any two Lanes in the same Transmitter.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Item</td><td style="border:2px solid #000;">2.5 GT/s.</td><td style="border:2px solid #000;">5.0 GT/s</td><td style="border:2px solid #000;">8.0 GT/s</td><td style="border:2px solid #000;">Units</td><td style="border:2px solid #000;">Notes</td></tr><tr><td style="border:2px solid #000;"> $I_{TX-SHORT}$ </td><td style="border:2px solid #000;">90</td><td style="border:2px solid #000;">90</td><td style="border:2px solid #000;">90</td><td style="border:2px solid #000;">mA</td><td style="border:2px solid #000;">Total single-ended current Tx can supply when shorted to ground.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-IDLE-DIFF-AC-P}$ </td><td style="border:2px solid #000;">0 (min)20 (max)</td><td style="border:2px solid #000;">0 (min)20 (max)</td><td style="border:2px solid #000;">0 (min)20 (max)</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Peak differential voltage under Electrical Idle state of Link. Must include a bandpass filter passing frequencies from 10 KHz to 1.25 GHz.</td></tr><tr><td style="border:2px solid #000;"> $T_{TX-IDLE-MIN}$ </td><td style="border:2px solid #000;">20 (min)</td><td style="border:2px solid #000;">20 (min)</td><td style="border:2px solid #000;">20 (min)</td><td style="border:2px solid #000;">ns</td><td style="border:2px solid #000;">Minimum time a Transmitter must be in Electrical Idle.</td></tr><tr><td style="border:2px solid #000;"> $T_{TX-IDLE-SET-TO-IDLE}$ </td><td style="border:2px solid #000;">8 (max)</td><td style="border:2px solid #000;">8 (max)</td><td style="border:2px solid #000;">8 (max)</td><td style="border:2px solid #000;">ns</td><td style="border:2px solid #000;">Time allowed for Tx to meet Electrical Idle spec after last bit of required EIOSs.</td></tr><tr><td style="border:2px solid #000;"> $T_{TX-IDLE-TO-DIFF-DATA}$ </td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">ns</td><td style="border:2px solid #000;">Max time for Tx to meet differential transmission spec after Electrical Idle exit.</td></tr><tr><td style="border:2px solid #000;"> $Z_{TX-DIFF-DC}$ </td><td style="border:2px solid #000;">80 (min)120 (max)</td><td style="border:2px solid #000;">120 (max)</td><td style="border:2px solid #000;">120 (max)</td><td style="border:2px solid #000;">Ω</td><td style="border:2px solid #000;">DC differential Tx impedance. Typical value is 100 Ω. Min value for 5.0 and 8.0 GT/s is bounded by  $RL_{TX-DIFF}$ </td></tr><tr><td style="border:2px solid #000;"> $RL_{TX-DIFF}$ </td><td style="border:2px solid #000;">10 (min)</td><td style="border:2px solid #000;">10 (min) for 0.5-1.25 GHz8 (min) for &gt;1.25-2.5 GHz</td><td style="border:2px solid #000;">10 (min) for 0.5-1.25 GHz8 (min) for &gt;1.25 - 2.5 GHz4 (min) for &gt;2.5 to 4 GHz</td><td style="border:2px solid #000;">dB</td><td style="border:2px solid #000;">Tx package return loss. Note that the frequency is the signal on the wire. Note that at higher rates it becomes necessary to specify different parameters for different frequencies.</td></tr><tr><td style="border:2px solid #000;"> $C_{TX}$ </td><td style="border:2px solid #000;">75 (min)265 (max)</td><td style="border:2px solid #000;">75 (min)265 (max)</td><td style="border:2px solid #000;">176 (min)265 (max)</td><td style="border:2px solid #000;">nF</td><td style="border:2px solid #000;">Required AC coupling cap on each Lane placed in the media or in the component itself.</td></tr><tr><td style="border:2px solid #000;"> $L_{TX-SKEW}$ </td><td style="border:2px solid #000;">500 ps + 2 UI (max)</td><td style="border:2px solid #000;">500 ps + 4 UI (max)</td><td style="border:2px solid #000;">500 ps + 6 UI</td><td style="border:2px solid #000;">ps</td><td style="border:2px solid #000;">Skew between any two Lanes in the same Transmitter.</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1211,9 +1211,9 @@ Table 13-3: Transmitter Specs | 表13-3：发送器规格
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Symbol</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Units</td><td style="border:2px solid #000;">Notes</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-FS-NO-EQ}$ </td><td style="border:2px solid #000;">1300 (max)800 (min)</td><td style="border:2px solid #000;">mvPP</td><td style="border:2px solid #000;">No EQ is applied; measured using 64 zeros followed by 64 ones.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-RS-NO-EQ}$ </td><td style="border:2px solid #000;">1300 (max)</td><td style="border:2px solid #000;">mvPP</td><td style="border:2px solid #000;">No EQ is applied; measured using 64 zeros followed by 64 ones.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-BOOST-FS}$ </td><td style="border:2px solid #000;">8.0 (min)</td><td style="border:2px solid #000;">dB</td><td style="border:2px solid #000;">Tx boost ratio for full swing.(Assumes +/- 1.5 dB tolerance)</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-BOOST-RS}$ </td><td style="border:2px solid #000;">2.5 (min)</td><td style="border:2px solid #000;">dB</td><td style="border:2px solid #000;">Tx boost ratio for reduced swing.(Assumes +/- 1.0 dB tolerance)</td></tr><tr><td style="border:2px solid #000;"> $EQ_{TX-COEFF-RES}$ </td><td style="border:2px solid #000;">1/24 (max)1/63 (min)</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">Tx coefficient resolution</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Symbol</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Units</td><td style="border:2px solid #000;">Notes</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-FS-NO-EQ}$ </td><td style="border:2px solid #000;">1300 (max)800 (min)</td><td style="border:2px solid #000;">mvPP</td><td style="border:2px solid #000;">No EQ is applied; measured using 64 zeros followed by 64 ones.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-RS-NO-EQ}$ </td><td style="border:2px solid #000;">1300 (max)</td><td style="border:2px solid #000;">mvPP</td><td style="border:2px solid #000;">No EQ is applied; measured using 64 zeros followed by 64 ones.</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-BOOST-FS}$ </td><td style="border:2px solid #000;">8.0 (min)</td><td style="border:2px solid #000;">dB</td><td style="border:2px solid #000;">Tx boost ratio for full swing.(Assumes +/- 1.5 dB tolerance)</td></tr><tr><td style="border:2px solid #000;"> $V_{TX-BOOST-RS}$ </td><td style="border:2px solid #000;">2.5 (min)</td><td style="border:2px solid #000;">dB</td><td style="border:2px solid #000;">Tx boost ratio for reduced swing.(Assumes +/- 1.0 dB tolerance)</td></tr><tr><td style="border:2px solid #000;"> $EQ_{TX-COEFF-RES}$ </td><td style="border:2px solid #000;">1/24 (max)1/63 (min)</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">Tx coefficient resolution</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1228,7 +1228,7 @@ Table 13-3: Transmitter Specs | 表13-3：发送器规格
 
 ## 13.11.1 Stressed-Eye Testing | 13.11.1 压力眼图测试
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1243,7 +1243,7 @@ Table 13-3: Transmitter Specs | 表13-3：发送器规格
 
 ## and 5.0 GT | s
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1257,7 +1257,7 @@ Table 13-3: Transmitter Specs | 表13-3：发送器规格
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1278,7 +1278,7 @@ Table 13-3: Transmitter Specs | 表13-3：发送器规格
 
 ## 13.11.2 Receiver (Rx) Equalization | 13.11.2 接收器(Rx)均衡
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1296,7 +1296,7 @@ Table 13-3: Transmitter Specs | 表13-3：发送器规格
 
 ## Continuous-Time Linear Equalization (CTLE) | 连续时间线性均衡（CTLE）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1314,7 +1314,7 @@ Figure 13‑29: Rx Discrete‑Time Linear Equalizer (DLE) | 图13‑29：接收�
 
 <img src="images/part04_c702b47508b601c71b3f7f61b6c315bc3f9ff31e40de151ccf0aaff6f734418f.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1336,7 +1336,7 @@ Figure 13‑31: Effect of Rx Continuous‑Time Linear Equalizer (CTLE) on Receiv
 
 ## Decision Feedback Equalization (DFE) | 决策反馈均衡（DFE）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1358,7 +1358,7 @@ Figure 13‑32: Rx 1‑Tap DFE | 图13‑32：接收器1抽头DFE
 Figure 13‐33: Rx 2‐Tap DFE | 图13‐33：接收器2抽头DFE  
 <img src="images/part04_45f57f826e75b4a352ed2efa36b23babf0f157acd88549162f912e795adb3707.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1375,7 +1375,7 @@ Figure 13‐33: Rx 2‐Tap DFE | 图13‐33：接收器2抽头DFE
 
 ## 13.12 Receiver Characteristics | 13.12 接收器特性
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1390,7 +1390,7 @@ Figure 13‐33: Rx 2‐Tap DFE | 图13‐33：接收器2抽头DFE
 
 Figure 13‑34 on page 499 also illustrates some of the parameters listed in the table.
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <tbody>
       <tr><td width="50%" style="border:2px solid #000;background:#fff;padding:4px 8px;">PCI Express Technology</td><td width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">PCI Express 技术</td></tr>
   </tbody>
@@ -1398,12 +1398,12 @@ Figure 13‑34 on page 499 also illustrates some of the parameters listed in the
 
 <tr><td width="50%" style="border:2px solid #000;background:#fff;padding:4px 8px;">Table 13‐5: Common Receiver Characteristics</td><td width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">表13‐5：通用接收器特性</td></tr>
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Item</td><td style="border:2px solid #000;">2.5 GT/s.</td><td style="border:2px solid #000;">5.0 GT/s.</td><td style="border:2px solid #000;">8.0 GT/s</td><td style="border:2px solid #000;">Units</td><td style="border:2px solid #000;">Notes</td></tr><tr><td style="border:2px solid #000;">UI</td><td style="border:2px solid #000;">399.88(min)400.12(max)</td><td style="border:2px solid #000;">199.94(min)200.06(max)</td><td style="border:2px solid #000;">124.9625(min)125.0375(max)</td><td style="border:2px solid #000;">ps</td><td style="border:2px solid #000;">Unit Interval = bit time.</td></tr><tr><td style="border:2px solid #000;"> $T_{RX-EYE}$ </td><td style="border:2px solid #000;">0.4(min)</td><td colspan="2" style="border:2px solid #000;">Indirectly specified</td><td style="border:2px solid #000;">UI</td><td style="border:2px solid #000;">Minimum eye width for a BER or  $10^{-12}$ . At higher rates and long channels the eye is effectively closed, making external measurement impractical.</td></tr><tr><td style="border:2px solid #000;"> $V_{RX-EYE}$ </td><td style="border:2px solid #000;">300</td><td style="border:2px solid #000;">120 (CC)100 (DC)</td><td style="border:2px solid #000;">Not specified</td><td style="border:2px solid #000;">mVpp diff</td><td style="border:2px solid #000;">CC = common clocked, DC = data clocked</td></tr><tr><td style="border:2px solid #000;"> $V_{RX-DIFF-PP-CC}$ </td><td style="border:2px solid #000;">175(min)1200(max)</td><td style="border:2px solid #000;">120 (min)1200(max)</td><td style="border:2px solid #000;">Indirectly specified</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Peak-to-peak differential voltage sensitivity of common-clocked Receiver.</td></tr><tr><td style="border:2px solid #000;"> $V_{RX-DIFF-PP-DC}$ </td><td style="border:2px solid #000;">175(min)1200(max)</td><td style="border:2px solid #000;">100 (min)1200(max)</td><td style="border:2px solid #000;">Indirectly specified</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Peak-to-peak differential voltage sensitivity of data-clocked Receiver.</td></tr><tr><td style="border:2px solid #000;"> $V_{RX-IDLE-DET-DIFFp-p}$ </td><td colspan="3" style="border:2px solid #000;">65 (min) 175 (max)</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Electrical Idle detect threshold at the Receiver pins.</td></tr><tr><td style="border:2px solid #000;"> $Z_{RX-DIFF-DC}$ </td><td style="border:2px solid #000;">80(min)120(max)</td><td colspan="2" style="border:2px solid #000;">Covered by  $RL_{RX-DIFF}$ </td><td style="border:2px solid #000;">Ω</td><td style="border:2px solid #000;">At higher frequencies impedance can no longer be represented by a lumped-sum value and must be described in more detail.</td></tr><tr><td style="border:2px solid #000;"> $Z_{RX--DC}$  $L_{RX-SKEW}$ </td><td style="border:2px solid #000;">40(min)60(max)20</td><td style="border:2px solid #000;">40 (min)60 (max)8</td><td style="border:2px solid #000;">Bounded by  $RL_{RX-CM}$ 6</td><td style="border:2px solid #000;">Ωns</td><td style="border:2px solid #000;">DC impedance needed for Receiver Detect.Max Lane-to-Lane skew that a Receiver must be able to correct.</td></tr><tr><td style="border:2px solid #000;"> $RL_{RX--DIFF}$ </td><td style="border:2px solid #000;">10 (min)</td><td style="border:2px solid #000;">10 (min) for 0.05 - 1.25 GHz, 8 (min) for &gt;1.25 - 2.5 GHz</td><td style="border:2px solid #000;">10 (min) for 0.05 - 1.25 GHz, 8 (min) for &gt;1.25 - 2.5 GHz, 5 (min) for &gt;2.5 - 4.0 GHz</td><td style="border:2px solid #000;">dB</td><td style="border:2px solid #000;">Rx package + Si differential return loss</td></tr><tr><td style="border:2px solid #000;"> $RL_{RX--CM}$ </td><td style="border:2px solid #000;">6 (min)</td><td style="border:2px solid #000;">6 (min)</td><td style="border:2px solid #000;">6 (min) for 0.05 - 2.5 GHz, 5 (min) for &gt;2.5 - 4 GHz</td><td style="border:2px solid #000;">dB</td><td style="border:2px solid #000;">Common mode Rx return loss</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Item</td><td style="border:2px solid #000;">2.5 GT/s.</td><td style="border:2px solid #000;">5.0 GT/s.</td><td style="border:2px solid #000;">8.0 GT/s</td><td style="border:2px solid #000;">Units</td><td style="border:2px solid #000;">Notes</td></tr><tr><td style="border:2px solid #000;">UI</td><td style="border:2px solid #000;">399.88(min)400.12(max)</td><td style="border:2px solid #000;">199.94(min)200.06(max)</td><td style="border:2px solid #000;">124.9625(min)125.0375(max)</td><td style="border:2px solid #000;">ps</td><td style="border:2px solid #000;">Unit Interval = bit time.</td></tr><tr><td style="border:2px solid #000;"> $T_{RX-EYE}$ </td><td style="border:2px solid #000;">0.4(min)</td><td colspan="2" style="border:2px solid #000;">Indirectly specified</td><td style="border:2px solid #000;">UI</td><td style="border:2px solid #000;">Minimum eye width for a BER or  $10^{-12}$ . At higher rates and long channels the eye is effectively closed, making external measurement impractical.</td></tr><tr><td style="border:2px solid #000;"> $V_{RX-EYE}$ </td><td style="border:2px solid #000;">300</td><td style="border:2px solid #000;">120 (CC)100 (DC)</td><td style="border:2px solid #000;">Not specified</td><td style="border:2px solid #000;">mVpp diff</td><td style="border:2px solid #000;">CC = common clocked, DC = data clocked</td></tr><tr><td style="border:2px solid #000;"> $V_{RX-DIFF-PP-CC}$ </td><td style="border:2px solid #000;">175(min)1200(max)</td><td style="border:2px solid #000;">120 (min)1200(max)</td><td style="border:2px solid #000;">Indirectly specified</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Peak-to-peak differential voltage sensitivity of common-clocked Receiver.</td></tr><tr><td style="border:2px solid #000;"> $V_{RX-DIFF-PP-DC}$ </td><td style="border:2px solid #000;">175(min)1200(max)</td><td style="border:2px solid #000;">100 (min)1200(max)</td><td style="border:2px solid #000;">Indirectly specified</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Peak-to-peak differential voltage sensitivity of data-clocked Receiver.</td></tr><tr><td style="border:2px solid #000;"> $V_{RX-IDLE-DET-DIFFp-p}$ </td><td colspan="3" style="border:2px solid #000;">65 (min) 175 (max)</td><td style="border:2px solid #000;">mV</td><td style="border:2px solid #000;">Electrical Idle detect threshold at the Receiver pins.</td></tr><tr><td style="border:2px solid #000;"> $Z_{RX-DIFF-DC}$ </td><td style="border:2px solid #000;">80(min)120(max)</td><td colspan="2" style="border:2px solid #000;">Covered by  $RL_{RX-DIFF}$ </td><td style="border:2px solid #000;">Ω</td><td style="border:2px solid #000;">At higher frequencies impedance can no longer be represented by a lumped-sum value and must be described in more detail.</td></tr><tr><td style="border:2px solid #000;"> $Z_{RX--DC}$  $L_{RX-SKEW}$ </td><td style="border:2px solid #000;">40(min)60(max)20</td><td style="border:2px solid #000;">40 (min)60 (max)8</td><td style="border:2px solid #000;">Bounded by  $RL_{RX-CM}$ 6</td><td style="border:2px solid #000;">Ωns</td><td style="border:2px solid #000;">DC impedance needed for Receiver Detect.Max Lane-to-Lane skew that a Receiver must be able to correct.</td></tr><tr><td style="border:2px solid #000;"> $RL_{RX--DIFF}$ </td><td style="border:2px solid #000;">10 (min)</td><td style="border:2px solid #000;">10 (min) for 0.05 - 1.25 GHz, 8 (min) for &gt;1.25 - 2.5 GHz</td><td style="border:2px solid #000;">10 (min) for 0.05 - 1.25 GHz, 8 (min) for &gt;1.25 - 2.5 GHz, 5 (min) for &gt;2.5 - 4.0 GHz</td><td style="border:2px solid #000;">dB</td><td style="border:2px solid #000;">Rx package + Si differential return loss</td></tr><tr><td style="border:2px solid #000;"> $RL_{RX--CM}$ </td><td style="border:2px solid #000;">6 (min)</td><td style="border:2px solid #000;">6 (min)</td><td style="border:2px solid #000;">6 (min) for 0.05 - 2.5 GHz, 5 (min) for &gt;2.5 - 4 GHz</td><td style="border:2px solid #000;">dB</td><td style="border:2px solid #000;">Common mode Rx return loss</td></tr></table>
 
 Figure 13‐34: 2.5 GT/s Receiver Eye Diagram | 图13‐34：2.5 GT/s接收器眼图
 <img src="images/part04_0e1ba6929133847821c08dee65ad266dcebb572cf122864a25e701280aa45626.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1426,7 +1426,7 @@ Figure 13‐34: 2.5 GT/s Receiver Eye Diagram | 图13‐34：2.5 GT/s接收器�
 Figure 13‐35: L0 Full‐On Link State | 图13‐35：L0全开链路状态
 <img src="images/part04_04ca904080265fa3cc2c4f7e7bf528cd7c9356ae251927c45db7feece47dd87b.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1443,7 +1443,7 @@ Figure 13‐35: L0 Full‐On Link State | 图13‐35：L0全开链路状态
 
 <img src="images/part04_ac61d8de5e074f1846181f411164ce86ea06762b51712353f1c49a536f91edb0.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1465,7 +1465,7 @@ Figure 13‐35: L0 Full‐On Link State | 图13‐35：L0全开链路状态
 
 <img src="images/part04_f2eb75222b779ea3d269cc91f966c543e5c51e741130c7b285d27e610d68294b.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1486,7 +1486,7 @@ Figure 13‐35: L0 Full‐On Link State | 图13‐35：L0全开链路状态
 
 ## Chapter 13: Physical Layer - Electrical | 第13章：物理层 - 电气
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1506,7 +1506,7 @@ Figure 13‐35: L0 Full‐On Link State | 图13‐35：L0全开链路状态
 Figure 13‐39: L3 Link Off State | 图13‐39：L3链路关闭状态
 <img src="images/part04_f054908ce754c55d01c13c20ac60bd3326718258ee0fa4b349f2e6f460517870.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>

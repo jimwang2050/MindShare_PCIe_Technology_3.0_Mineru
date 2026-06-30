@@ -4,7 +4,7 @@
 
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -20,7 +20,7 @@
 
 ## This Chapter | 本章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -33,7 +33,7 @@
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -49,7 +49,7 @@
 
 ## 99.2 Background | 99.2 背景
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -73,7 +73,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 
 <img src="images/part04_96e292268e2b753cbc405dcf86fd1c1a976ad96315393e11aa968938fe54fbff.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -89,7 +89,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 
 ## 15.2 PCIe Error Definitions | 15.2 PCIe 错误定义
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -108,7 +108,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 
 ## 15.3 PCIe Error Reporting | 15.3 PCIe 错误报告
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -123,7 +123,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 
 ## 15.3.1 Baseline Error Reporting | 15.3.1 基线错误报告
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -140,7 +140,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 
 ## 15.10 Advanced Error Reporting (AER) | 15.10 高级错误报告（AER）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -157,7 +157,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 
 ## 15.4 Error Classes | 15.4 错误分类
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -175,7 +175,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -191,7 +191,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 
 ## 15.4.2 Uncorrectable Errors | 15.4.2 不可纠正错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -206,7 +206,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 
 ## Non-fatal Uncorrectable Errors | 非致命不可校正错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -221,7 +221,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 
 ## Fatal Uncorrectable Errors | 致命不可纠正错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -241,7 +241,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 ## 15.5 PCIe Error Checking Mechanisms | 15.5 PCIe 错误检查机制
 ## 15.5.2.1 PCIe Error Checking Mechanisms | 15.5.2.1 PCIe 错误检测机制
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -260,7 +260,7 @@ Figure 15-2: Scope of PCI Express Error Checking and Reporting | 图15-2：PCI E
 
 ## 15.5.1 CRC | 15.5.1 CRC
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -281,7 +281,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 
 ## 15.5.2 Error Checks by Layer | 15.5.2 按层级划分的错误检查
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -296,7 +296,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 
 ## 15.5.2.2 Physical Layer Errors | 15.5.2.2 物理层错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -316,7 +316,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 
 ## 15.5.2.3 Data Link Layer Errors | 15.5.2.3 数据链路层错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -335,7 +335,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -349,7 +349,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -375,7 +375,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 
 ## 15.6 Error Pollution | 15.6 错误传播
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -403,7 +403,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 
 ## 15.7 Sources of PCI Express Errors | 15.7 PCI Express 错误源
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -418,7 +418,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 
 ## 15.7.1 ECRC Generation and Checking | 15.7.1 ECRC 生成和校验
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -435,7 +435,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 
 <img src="images/part04_b94c6d345755f326e484b323f2ea936134bf9cacb5793f7b29cada81aee881fa.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -450,7 +450,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 
 ## 15.7.1.1 TLP Digest | 15.7.1.1 TLP 摘要
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -465,11 +465,11 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 
 Figure 15-5: TLP Digest Bit in a Completion Header | 图15-5：完成头中的TLP摘要位
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="5" style="border:2px solid #000;">+1</td><td colspan="4" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">THD</td><td style="border:2px solid #000;">EDP</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td><td colspan="2" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="13" style="border:2px solid #000;">Bytes 4-7 Vary with Type Field</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="13" style="border:2px solid #000;">Bytes 8-11 Vary with Type Field</td></tr><tr><td style="border:2px solid #000;">Byte 12</td><td colspan="13" style="border:2px solid #000;">Bytes 12-15 Vary with Type Field</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="5" style="border:2px solid #000;">+1</td><td colspan="4" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">THD</td><td style="border:2px solid #000;">EDP</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td><td colspan="2" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="13" style="border:2px solid #000;">Bytes 4-7 Vary with Type Field</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="13" style="border:2px solid #000;">Bytes 8-11 Vary with Type Field</td></tr><tr><td style="border:2px solid #000;">Byte 12</td><td colspan="13" style="border:2px solid #000;">Bytes 12-15 Vary with Type Field</td></tr></table>
 
 ## 15.7.1.2 Variant Bits Not Included in ECRC Mechanism | 15.7.1.2 ECRC 机制中不包含的变体比特
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
@@ -483,7 +483,7 @@ Figure 15-5: TLP Digest Bit in a Completion Header | 图15-5：完成头中的TL
 </table>
 
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
@@ -502,7 +502,7 @@ Figure 15-5: TLP Digest Bit in a Completion Header | 图15-5：完成头中的TL
 
 ## 15.7.2 Data Poisoning | 15.7.2 数据毒化
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -517,9 +517,9 @@ Figure 15-5: TLP Digest Bit in a Completion Header | 图15-5：完成头中的TL
 
 Figure 15-6: The Error/Poisoned Bit in a Completion Header | 图15-6：完成头中的错误/毒化位
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="6" style="border:2px solid #000;">+1</td><td colspan="6" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">TDP</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td><td colspan="5" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="16" style="border:2px solid #000;">Bytes 4-7 Vary with Type Field</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="16" style="border:2px solid #000;">Bytes 8-11 Vary with Type Field</td></tr><tr><td style="border:2px solid #000;">Byte 12</td><td colspan="16" style="border:2px solid #000;">Bytes 12-15 Vary with Type Field</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="6" style="border:2px solid #000;">+1</td><td colspan="6" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">TDP</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td><td colspan="5" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="16" style="border:2px solid #000;">Bytes 4-7 Vary with Type Field</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="16" style="border:2px solid #000;">Bytes 8-11 Vary with Type Field</td></tr><tr><td style="border:2px solid #000;">Byte 12</td><td colspan="16" style="border:2px solid #000;">Bytes 12-15 Vary with Type Field</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -543,7 +543,7 @@ Figure 15-6: The Error/Poisoned Bit in a Completion Header | 图15-6：完成头
 
 # Part part05 — `mindshare_part05_p0721-0900`
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -561,7 +561,7 @@ Figure 15-6: The Error/Poisoned Bit in a Completion Header | 图15-6：完成头
 
 Figure 15‐7: Completion Status Field within the Completion Header | 图15‐7：完成头中的完成状态字段
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -574,15 +574,15 @@ Figure 15‐7: Completion Status Field within the Completion Header | 图15‐7�
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="5" style="border:2px solid #000;">+1</td><td colspan="5" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt0 x 0</td><td style="border:2px solid #000;">Type0 1 0 1 0</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">TE</td><td style="border:2px solid #000;">P</td><td style="border:2px solid #000;">Att</td><td style="border:2px solid #000;">AT0 0</td><td colspan="2" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="11" style="border:2px solid #000;">Completer ID</td><td style="border:2px solid #000;">Compl Status</td><td colspan="2" style="border:2px solid #000;">Byte Count</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="8" style="border:2px solid #000;">Requester ID</td><td colspan="4" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Lower Address</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="5" style="border:2px solid #000;">+1</td><td colspan="5" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt0 x 0</td><td style="border:2px solid #000;">Type0 1 0 1 0</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">TE</td><td style="border:2px solid #000;">P</td><td style="border:2px solid #000;">Att</td><td style="border:2px solid #000;">AT0 0</td><td colspan="2" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="11" style="border:2px solid #000;">Completer ID</td><td style="border:2px solid #000;">Compl Status</td><td colspan="2" style="border:2px solid #000;">Byte Count</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="8" style="border:2px solid #000;">Requester ID</td><td colspan="4" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Lower Address</td></tr></table>
 
 Table 15‐1: Completion Code and Description | 表15‐1：完成码和描述
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Status Code</td><td style="border:2px solid #000;">Completion Status Definition</td></tr><tr><td style="border:2px solid #000;">000b</td><td style="border:2px solid #000;">Successful Completion (SC)</td></tr><tr><td style="border:2px solid #000;">001b</td><td style="border:2px solid #000;">Unsupported Request (UR) - error</td></tr><tr><td style="border:2px solid #000;">010b</td><td style="border:2px solid #000;">Configuration Request Retry Status (CRS)</td></tr><tr><td style="border:2px solid #000;">011b</td><td style="border:2px solid #000;">Completer Abort (CA) - error</td></tr><tr><td style="border:2px solid #000;">100b - 111b</td><td style="border:2px solid #000;">Reserved</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Status Code</td><td style="border:2px solid #000;">Completion Status Definition</td></tr><tr><td style="border:2px solid #000;">000b</td><td style="border:2px solid #000;">Successful Completion (SC)</td></tr><tr><td style="border:2px solid #000;">001b</td><td style="border:2px solid #000;">Unsupported Request (UR) - error</td></tr><tr><td style="border:2px solid #000;">010b</td><td style="border:2px solid #000;">Configuration Request Retry Status (CRS)</td></tr><tr><td style="border:2px solid #000;">011b</td><td style="border:2px solid #000;">Completer Abort (CA) - error</td></tr><tr><td style="border:2px solid #000;">100b - 111b</td><td style="border:2px solid #000;">Reserved</td></tr></table>
 
 ## 15.7.3.1 Unsupported Request (UR) Status | 15.7.3.1 不支持请求（UR）状态
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -605,7 +605,7 @@ Table 15‐1: Completion Code and Description | 表15‐1：完成码和描述
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -626,7 +626,7 @@ Table 15‐1: Completion Code and Description | 表15‐1：完成码和描述
 
 ## 15.7.3.2 Unexpected Completion | 15.7.3.2 意外完成
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -639,7 +639,7 @@ Table 15‐1: Completion Code and Description | 表15‐1：完成码和描述
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -662,7 +662,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 
 <tr><td width="50%" style="border:2px solid #000;background:#fff;padding:4px 8px;">If Requests need multiple Completions to return the requested data, a single Completion won't stop the timer. Instead, the timer continues to run until all the data has been returned regardless of how many Completions are needed. If only part of the data has been returned when the timeout occurs, the Requester may discard or keep that data.</td><td width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">如果请求需要多个完成报文来返回所请求的数据，单个完成报文不会停止定时器。相反，定时器会持续运行，直到所有数据返回完毕，无论需要多少个完成报文。如果在超时时仅返回了部分数据，请求者可以丢弃或保留该数据。</td></tr>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -682,7 +682,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 
 ## 15.7.5 Malformed TLP | 15.7.5 格式错误 TLP
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -725,7 +725,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -740,7 +740,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 
 ## 15.7.5 The Problem | 15.7.5 问题
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -756,7 +756,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -771,7 +771,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 
 ## 15.7.6 The Solution | 15.7.6 解决方案
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -787,7 +787,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 
 ## 15.8 How Errors are Reported | 15.8 错误如何报告
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -802,7 +802,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 
 ## 99.1 Introduction | 99.1 引言
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -820,7 +820,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 
 ## 15.8.2 Error Messages | 15.8.2 错误消息
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -839,13 +839,13 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 
 <tr><td width="50%" style="border:2px solid #000;background:#fff;padding:4px 8px;">Table 15‑2: Error Message Codes and Description</td><td width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">表15‑2：错误消息代码及描述</td></tr>
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Message Code</td><td style="border:2px solid #000;">Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">30h</td><td style="border:2px solid #000;">ERR_COR</td><td style="border:2px solid #000;">Device detected a correctable error. This is automatically corrected by hardware and doesn't require software attention. However, it can be helpful to report them anyway so software can watch for trends like an increasing number of correctable errors.</td></tr><tr><td style="border:2px solid #000;">31h</td><td style="border:2px solid #000;">ERR_NONFATAL</td><td style="border:2px solid #000;">Indicates an uncorrectable Non-Fatal error. No hardware correction mechanism was available but the Link is still working reliably. Software attention will be required to resolve the problem.</td></tr><tr><td style="border:2px solid #000;">33h</td><td style="border:2px solid #000;">ERR_FATAL</td><td style="border:2px solid #000;">Indicates an uncorrectable Fatal error. No hardware correction mechanism was available and Link operation has failed in some important respect. Software attention will be required and a reset of at least one device will probably be required to resolve this issue.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Message Code</td><td style="border:2px solid #000;">Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">30h</td><td style="border:2px solid #000;">ERR_COR</td><td style="border:2px solid #000;">Device detected a correctable error. This is automatically corrected by hardware and doesn't require software attention. However, it can be helpful to report them anyway so software can watch for trends like an increasing number of correctable errors.</td></tr><tr><td style="border:2px solid #000;">31h</td><td style="border:2px solid #000;">ERR_NONFATAL</td><td style="border:2px solid #000;">Indicates an uncorrectable Non-Fatal error. No hardware correction mechanism was available but the Link is still working reliably. Software attention will be required to resolve the problem.</td></tr><tr><td style="border:2px solid #000;">33h</td><td style="border:2px solid #000;">ERR_FATAL</td><td style="border:2px solid #000;">Indicates an uncorrectable Fatal error. No hardware correction mechanism was available and Link operation has failed in some important respect. Software attention will be required and a reset of at least one device will probably be required to resolve this issue.</td></tr></table>
 
 Figure 15‑9: Error Message Format | 图15‑9：错误消息格式
 
 <img src="images/part05_e11eb268e769b90e8b17d0d88202503e7f8b022dc2be7bae5d0d235cb4cd29eb.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -860,7 +860,7 @@ Figure 15‑9: Error Message Format | 图15‑9：错误消息格式
 
 ## Advisory Non-Fatal Errors | 建议性非致命错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -878,7 +878,7 @@ Figure 15-10: Device Capabilities Register | 图15-10：设备能力寄存器
 
 <img src="images/part05_2f22259e258dd5db345684099efb359e2ca311c7b373f2eecce5ca0ac02a9cab.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -893,7 +893,7 @@ Figure 15-10: Device Capabilities Register | 图15-10：设备能力寄存器
 
 ## Advisory Non-Fatal Cases | 建议性非致命情况
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -915,9 +915,9 @@ Figure 15‐11: Role‐Based Error Reporting Example | 图15‐11：基于角色
 
 Figure 15‐12: Advanced Source ID Register | 图15‐12：高级源ID寄存器
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="2" style="border:2px solid #000;">Error Source Identification Register of the AER Capability Structure</td></tr><tr><td style="border:2px solid #000;">31</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">ERR_FATAL/NONFATAL Source ID (ROS)</td><td style="border:2px solid #000;">ERR_COR Source ID (ROS)</td></tr><tr><td colspan="2" style="border:2px solid #000;">ROS: Read-Only and Sticky</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="2" style="border:2px solid #000;">Error Source Identification Register of the AER Capability Structure</td></tr><tr><td style="border:2px solid #000;">31</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">ERR_FATAL/NONFATAL Source ID (ROS)</td><td style="border:2px solid #000;">ERR_COR Source ID (ROS)</td></tr><tr><td colspan="2" style="border:2px solid #000;">ROS: Read-Only and Sticky</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -939,7 +939,7 @@ Figure 15‐12: Advanced Source ID Register | 图15‐12：高级源ID寄存器
 
 ## 15.9 Baseline Error Detection and Handling | 15.9 基线错误检测与处理
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -954,7 +954,7 @@ Figure 15‐12: Advanced Source ID Register | 图15‐12：高级源ID寄存器
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -967,7 +967,7 @@ Figure 15‐12: Advanced Source ID Register | 图15‐12：高级源ID寄存器
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -985,7 +985,7 @@ Figure 15‐12: Advanced Source ID Register | 图15‐12：高级源ID寄存器
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1005,9 +1005,9 @@ Figure 15‑13: Command Register in Configuration Header | 图15‑13：配置�
 
 Table 15‑3: Error‑Related Fields in Command Register | 表15‑3：命令寄存器中与错误相关的字段
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">SERR# Enable</td><td style="border:2px solid #000;">Setting this bit enables sending ERR_FATAL and ERR_NONFATAL error messages to the Root Complex. These are considered roughly analogous to asserting the System Error (SERR#) signal in PCI. For Type 1 headers (bridges), this bit controls the forwarding of ERR_FATAL and ERR_NONFATAL error messages from the secondary interface to the primary interface.This field has no affect over ERR_COR messages.</td></tr><tr><td style="border:2px solid #000;">Parity Error Response</td><td style="border:2px solid #000;">Setting this bit enables logging of poisoned TLPs in the Master Data Parity Error bit in the Status register. Poisoned packets indicate bad data and are roughly analogous to a PCI parity error.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">SERR# Enable</td><td style="border:2px solid #000;">Setting this bit enables sending ERR_FATAL and ERR_NONFATAL error messages to the Root Complex. These are considered roughly analogous to asserting the System Error (SERR#) signal in PCI. For Type 1 headers (bridges), this bit controls the forwarding of ERR_FATAL and ERR_NONFATAL error messages from the secondary interface to the primary interface.This field has no affect over ERR_COR messages.</td></tr><tr><td style="border:2px solid #000;">Parity Error Response</td><td style="border:2px solid #000;">Setting this bit enables logging of poisoned TLPs in the Master Data Parity Error bit in the Status register. Poisoned packets indicate bad data and are roughly analogous to a PCI parity error.</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1026,9 +1026,9 @@ Figure 15‑14: Status Register in Configuration Header | 图15‑14：配置头
 
 Table 15‑4: Error‑Related Fields in Status Register | 表15‑4：状态寄存器中与错误相关的字段
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Error-Related Bit</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">Detected Parity Error</td><td style="border:2px solid #000;">Set by the port that receives a poisoned TLP. This status bit is updated regardless of the state of the Parity Error Response bit.</td></tr><tr><td style="border:2px solid #000;">Signalled System Error</td><td style="border:2px solid #000;">Set by a port that has reported an Uncorrectable Error with ERR_FATAL or ERR_NONFATAL and the SERR# enable bit in the Command register was set.</td></tr><tr><td style="border:2px solid #000;">Received Master Abort</td><td style="border:2px solid #000;">Set by a Requester that receives a Completion with status of UR (Unsupported Request). This is considered analogous to a PCI master abort because the target did not "claim the transaction".</td></tr><tr><td style="border:2px solid #000;">Received Target Abort</td><td style="border:2px solid #000;">Set by a Requester that receives a Completion with status of CA (Completer Abort). This is analogous to a PCI target abort in that the target has had a programming violation or internal error condition.</td></tr><tr><td style="border:2px solid #000;">Signaled Target Abort</td><td style="border:2px solid #000;">Set by the Completer that handled a request (either posted or non-posted) as a Completer Abort. If it was a non-posted request, then a Completion with a Completion Status of CA is sent.</td></tr><tr><td style="border:2px solid #000;">Master Data Parity Error</td><td style="border:2px solid #000;">For Type 0 headers (e.g., Endpoints), this bit is set if the Parity Error Response bit in the Command register is set AND it either initiates a poisoned request OR receives a poisoned completion.For Type 1 headers (e.g., Switches and Root Ports), this bit is set if the Parity Error Response bit in the Command register is set AND it either initiates a poisoned request heading upstream OR receives a poisoned completion heading downstream.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Error-Related Bit</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">Detected Parity Error</td><td style="border:2px solid #000;">Set by the port that receives a poisoned TLP. This status bit is updated regardless of the state of the Parity Error Response bit.</td></tr><tr><td style="border:2px solid #000;">Signalled System Error</td><td style="border:2px solid #000;">Set by a port that has reported an Uncorrectable Error with ERR_FATAL or ERR_NONFATAL and the SERR# enable bit in the Command register was set.</td></tr><tr><td style="border:2px solid #000;">Received Master Abort</td><td style="border:2px solid #000;">Set by a Requester that receives a Completion with status of UR (Unsupported Request). This is considered analogous to a PCI master abort because the target did not "claim the transaction".</td></tr><tr><td style="border:2px solid #000;">Received Target Abort</td><td style="border:2px solid #000;">Set by a Requester that receives a Completion with status of CA (Completer Abort). This is analogous to a PCI target abort in that the target has had a programming violation or internal error condition.</td></tr><tr><td style="border:2px solid #000;">Signaled Target Abort</td><td style="border:2px solid #000;">Set by the Completer that handled a request (either posted or non-posted) as a Completer Abort. If it was a non-posted request, then a Completion with a Completion Status of CA is sent.</td></tr><tr><td style="border:2px solid #000;">Master Data Parity Error</td><td style="border:2px solid #000;">For Type 0 headers (e.g., Endpoints), this bit is set if the Parity Error Response bit in the Command register is set AND it either initiates a poisoned request OR receives a poisoned completion.For Type 1 headers (e.g., Switches and Root Ports), this bit is set if the Parity Error Response bit in the Command register is set AND it either initiates a poisoned request heading upstream OR receives a poisoned completion heading downstream.</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1045,11 +1045,11 @@ Table 15‑4: Error‑Related Fields in Status Register | 表15‑4：状态寄�
 
 Figure 15-15: PCI Express Capability Structure | 图15-15：PCI Express能力结构
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="15" style="border:2px solid #000;"></td><td style="border:2px solid #000;">PCI Express Capabilities Register</td><td style="border:2px solid #000;">Next Cap Pointer</td><td style="border:2px solid #000;">PCI Express Cap ID</td></tr><tr><td colspan="3" style="border:2px solid #000;">Device Capabilities Register</td></tr><tr><td style="border:2px solid #000;">Device Status</td><td colspan="2" style="border:2px solid #000;">Device Control</td></tr><tr><td colspan="3" style="border:2px solid #000;">Link Capabilities</td></tr><tr><td style="border:2px solid #000;">Link Status</td><td colspan="2" style="border:2px solid #000;">Link Control</td></tr><tr><td colspan="3" style="border:2px solid #000;">Slot Capabilities</td></tr><tr><td style="border:2px solid #000;">Slot Status</td><td colspan="2" style="border:2px solid #000;">Slot Control</td></tr><tr><td style="border:2px solid #000;">Root Capability</td><td colspan="2" style="border:2px solid #000;">Root Control</td></tr><tr><td colspan="3" style="border:2px solid #000;">Root Status</td></tr><tr><td colspan="3" style="border:2px solid #000;">Device Capabilities 2</td></tr><tr><td style="border:2px solid #000;">Device Status 2</td><td colspan="2" style="border:2px solid #000;">Device Control 2</td></tr><tr><td colspan="3" style="border:2px solid #000;">Link Capabilities 2</td></tr><tr><td style="border:2px solid #000;">Link Status 2</td><td colspan="2" style="border:2px solid #000;">Link Control 2</td></tr><tr><td colspan="3" style="border:2px solid #000;">Slot Capabilities 2</td></tr><tr><td style="border:2px solid #000;">Slot Status 2</td><td colspan="2" style="border:2px solid #000;">Slot Control 2</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="15" style="border:2px solid #000;"></td><td style="border:2px solid #000;">PCI Express Capabilities Register</td><td style="border:2px solid #000;">Next Cap Pointer</td><td style="border:2px solid #000;">PCI Express Cap ID</td></tr><tr><td colspan="3" style="border:2px solid #000;">Device Capabilities Register</td></tr><tr><td style="border:2px solid #000;">Device Status</td><td colspan="2" style="border:2px solid #000;">Device Control</td></tr><tr><td colspan="3" style="border:2px solid #000;">Link Capabilities</td></tr><tr><td style="border:2px solid #000;">Link Status</td><td colspan="2" style="border:2px solid #000;">Link Control</td></tr><tr><td colspan="3" style="border:2px solid #000;">Slot Capabilities</td></tr><tr><td style="border:2px solid #000;">Slot Status</td><td colspan="2" style="border:2px solid #000;">Slot Control</td></tr><tr><td style="border:2px solid #000;">Root Capability</td><td colspan="2" style="border:2px solid #000;">Root Control</td></tr><tr><td colspan="3" style="border:2px solid #000;">Root Status</td></tr><tr><td colspan="3" style="border:2px solid #000;">Device Capabilities 2</td></tr><tr><td style="border:2px solid #000;">Device Status 2</td><td colspan="2" style="border:2px solid #000;">Device Control 2</td></tr><tr><td colspan="3" style="border:2px solid #000;">Link Capabilities 2</td></tr><tr><td style="border:2px solid #000;">Link Status 2</td><td colspan="2" style="border:2px solid #000;">Link Control 2</td></tr><tr><td colspan="3" style="border:2px solid #000;">Slot Capabilities 2</td></tr><tr><td style="border:2px solid #000;">Slot Status 2</td><td colspan="2" style="border:2px solid #000;">Slot Control 2</td></tr></table>
 
 ## Enabling | Disabling Error Reporting
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1070,9 +1070,9 @@ Figure 15-15: PCI Express Capability Structure | 图15-15：PCI Express能力结
 
 Table 15-5: Default Classification of Errors | 表15-5：错误的默认分类
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Classification &amp; Severity</td><td style="border:2px solid #000;">Name of Error</td><td style="border:2px solid #000;">Layer Detected</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Receiver Error</td><td style="border:2px solid #000;">Physical</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Bad TLP</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Bad DLLP</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Replay Number Rollover</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Replay Timer Timeout</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Advisory Non-Fatal Error</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Corrected Internal Error</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Header Log Overflow</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">Poisoned TLP Received</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">ECRC Check Failed</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">Unsupported Request</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">Completion Timeout</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">Completer Abort</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">Unexpected Completion</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">ACS Violation</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">MC Blocked TLP</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">AtomicOps Egress Blocked</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">TLP Prefix Blocked</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Uncorrectable Internal Error (optional)</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Surprise Down (optional)</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Receiver Overflow (optional)</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">DLL Protocol Error</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Receiver Overflow</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Flow Control Protocol Error</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Malformed TLP</td><td style="border:2px solid #000;">Transaction</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Classification &amp; Severity</td><td style="border:2px solid #000;">Name of Error</td><td style="border:2px solid #000;">Layer Detected</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Receiver Error</td><td style="border:2px solid #000;">Physical</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Bad TLP</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Bad DLLP</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Replay Number Rollover</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Replay Timer Timeout</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Advisory Non-Fatal Error</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Corrected Internal Error</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Correctable</td><td style="border:2px solid #000;">Header Log Overflow</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">Poisoned TLP Received</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">ECRC Check Failed</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">Unsupported Request</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">Completion Timeout</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">Completer Abort</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">Unexpected Completion</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">ACS Violation</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">MC Blocked TLP</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">AtomicOps Egress Blocked</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Non Fatal</td><td style="border:2px solid #000;">TLP Prefix Blocked</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Uncorrectable Internal Error (optional)</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Surprise Down (optional)</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Receiver Overflow (optional)</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">DLL Protocol Error</td><td style="border:2px solid #000;">Link</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Receiver Overflow</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Flow Control Protocol Error</td><td style="border:2px solid #000;">Transaction</td></tr><tr><td style="border:2px solid #000;">Uncorrectable - Fatal</td><td style="border:2px solid #000;">Malformed TLP</td><td style="border:2px solid #000;">Transaction</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1091,7 +1091,7 @@ Figure 15-16: Device Control Register Fields Related to Error Handling | 图15-1
 
 <img src="images/part05_abff4ac07a5df4cd7836288008ac1d84d2871f591788eb322dd86aecfb722f95.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1110,7 +1110,7 @@ Figure 15-17: Device Status Register Bit Fields Related to Error Handling | 图1
 
 ## Root's Response to Error Message | 根复合体对错误消息的响应
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1130,7 +1130,7 @@ Figure 15-18: Root Control Register | 图15-18：根控制寄存器
 
 ## Link Errors | 链路错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1146,7 +1146,7 @@ Figure 15-18: Root Control Register | 图15-18：根控制寄存器
 Figure 15‐19: Link Control Register - Force Link Retraining | 图15‐19：链路控制寄存器 - 强制链路重训练
 <img src="images/part05_649269efb1ad663f08776f64ac1035728e1474145075826ddd7c6ee86ff01e77.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1164,7 +1164,7 @@ Figure 15‐20: Link Training Status in the Link Status Register | 图15‐20：
 
 ## 15.10 Advanced Error Reporting (AER) | 15.10 高级错误报告（AER）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1188,7 +1188,7 @@ Figure 15‐21: Advanced Error Capability Structure | 图15‐21：高级错误�
 
 ## 15.10.1 Advanced Error Capability and Control | 15.10.1 高级错误能力与控制
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1206,7 +1206,7 @@ Figure 15-22: The Advanced Error Capability and Control Register / 图 15-22：�
 
 <img src="images/part05_3ca4697d7f886bae3af8ad5f7601442b96b2173d624af06ceb2f44d7f4ef4be8.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1222,7 +1222,7 @@ Figure 15-22: The Advanced Error Capability and Control Register / 图 15-22：�
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1245,7 +1245,7 @@ Figure 15-22: The Advanced Error Capability and Control Register / 图 15-22：�
 
 ## 15.10.2 Handling Sticky Bits | 15.10.2 粘滞位的处理
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1260,7 +1260,7 @@ Figure 15-22: The Advanced Error Capability and Control Register / 图 15-22：�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1274,7 +1274,7 @@ Figure 15-22: The Advanced Error Capability and Control Register / 图 15-22：�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1292,7 +1292,7 @@ Figure 15-23: Advanced Correctable Error Status Register | 图15-23：高级可�
 
 <img src="images/part05_7960ee47707fb6e463d1dba0e4c1a04eebec4e0a8914514f311ba3797bd88e6b.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1308,7 +1308,7 @@ Figure 15-23: Advanced Correctable Error Status Register | 图15-23：高级可�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1325,7 +1325,7 @@ Figure 15-23: Advanced Correctable Error Status Register | 图15-23：高级可�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1341,11 +1341,11 @@ Figure 15-23: Advanced Correctable Error Status Register | 图15-23：高级可�
 
 Figure 15-24: Advanced Correctable Error Mask Register | 图15-24：高级可校正错误掩码寄存器
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="83" style="border:2px solid #000;">31</td><td rowspan="83" style="border:2px solid #000;">RsvdP</td><td style="border:2px solid #000;">16</td><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">13</td><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">11</td><td style="border:2px solid #000;">9</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">RsvdP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">RsvdP</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="5" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="4" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="4" style="border:2px solid #000;"></td><td colspan="3" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;"></td><td colspan="5" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="8" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="10" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="11" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td colspan="13" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td rowspan="22" style="border:2px solid #000;"></td><td rowspan="13" style="border:2px solid #000;"></td><td rowspan="13" style="border:2px solid #000;"></td><td rowspan="13" style="border:2px solid #000;"></td><td rowspan="13" style="border:2px solid #000;"></td><td rowspan="13" style="border:2px solid #000;"></td><td rowspan="13" colspan="7" style="border:2px solid #000;"></td></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr><td rowspan="6" style="border:2px solid #000;"></td><td rowspan="6" style="border:2px solid #000;"></td><td rowspan="6" style="border:2px solid #000;"></td></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr><td colspan="12" style="border:2px solid #000;">Header Log Overflow Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Corrected Internal Error Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Advisory Non-Fatal Error Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Replay Timer Timeout Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">REPLAY_NUM Rollover Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Bad DLLP Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Bad TLP Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Receiver Error Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Note: all bits designated RWS</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="83" style="border:2px solid #000;">31</td><td rowspan="83" style="border:2px solid #000;">RsvdP</td><td style="border:2px solid #000;">16</td><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">13</td><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">11</td><td style="border:2px solid #000;">9</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">RsvdP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">RsvdP</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="5" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="4" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="4" style="border:2px solid #000;"></td><td colspan="3" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;"></td><td colspan="5" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="8" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="10" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="11" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td colspan="13" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="7" style="border:2px solid #000;"></td></tr><tr><td rowspan="22" style="border:2px solid #000;"></td><td rowspan="13" style="border:2px solid #000;"></td><td rowspan="13" style="border:2px solid #000;"></td><td rowspan="13" style="border:2px solid #000;"></td><td rowspan="13" style="border:2px solid #000;"></td><td rowspan="13" style="border:2px solid #000;"></td><td rowspan="13" colspan="7" style="border:2px solid #000;"></td></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr><td rowspan="6" style="border:2px solid #000;"></td><td rowspan="6" style="border:2px solid #000;"></td><td rowspan="6" style="border:2px solid #000;"></td></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr><td colspan="12" style="border:2px solid #000;">Header Log Overflow Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Corrected Internal Error Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Advisory Non-Fatal Error Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Replay Timer Timeout Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">REPLAY_NUM Rollover Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Bad DLLP Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Bad TLP Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Receiver Error Mask</td></tr><tr><td colspan="12" style="border:2px solid #000;">Note: all bits designated RWS</td></tr></table>
 
 <tr><td width="50%" style="border:2px solid #000;background:#fff;padding:4px 8px;">Note: all bits designated RWS</td><td width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">注：所有位均标注为RWS</td></tr>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1359,7 +1359,7 @@ Figure 15-24: Advanced Correctable Error Mask Register | 图15-24：高级可校
 </table>
 
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
@@ -1377,7 +1377,7 @@ Figure 15‑25: Advanced Uncorrectable Error Status Register | 图15‑25：高�
 
 <img src="images/part05_2d325879f3b2adccdfa8d1f522d7066d2e408a25116c19b52595181df82df21d.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
@@ -1408,7 +1408,7 @@ Figure 15‑25: Advanced Uncorrectable Error Status Register | 图15‑25：高�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1427,7 +1427,7 @@ Figure 15‐26: Advanced Uncorrectable Error Severity Register | 图15‐26：�
 
 ## Uncorrectable Error Masking | 不可纠正错误屏蔽
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1446,7 +1446,7 @@ Figure 15-27: Advanced Uncorrectable Error Mask Register | 图15-27：高级不�
 
 ## 15.10.5 Header Logging | 15.10.5 报头记录
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1462,11 +1462,11 @@ Figure 15-27: Advanced Uncorrectable Error Mask Register | 图15-27：高级不�
 
 Table 15‐6: Errors That Can Use Header Log Registers / 表15‐6：可使用报头日志寄存器的错误 | 表15‐6：可使用报头日志寄存器的错误
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Name of Error</td><td style="border:2px solid #000;">Default Classification</td></tr><tr><td style="border:2px solid #000;">Poisoned TLP Received</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">ECRC Check Failed</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">Unsupported Request</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">Completer Abort</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">Unexpected Completion</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">ACS Violation</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">Malformed TLP</td><td style="border:2px solid #000;">Uncorrectable - Fatal</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Name of Error</td><td style="border:2px solid #000;">Default Classification</td></tr><tr><td style="border:2px solid #000;">Poisoned TLP Received</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">ECRC Check Failed</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">Unsupported Request</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">Completer Abort</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">Unexpected Completion</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">ACS Violation</td><td style="border:2px solid #000;">Uncorrectable - NonFatal</td></tr><tr><td style="border:2px solid #000;">Malformed TLP</td><td style="border:2px solid #000;">Uncorrectable - Fatal</td></tr></table>
 
 ## 15.10.6 Root Complex Error Tracking and Reporting | 15.10.6 根复合体错误跟踪和报告
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1481,7 +1481,7 @@ Table 15‐6: Errors That Can Use Header Log Registers / 表15‐6：可使用�
 
 ## Root Complex Error Status Registers | 根复合体错误状态寄存器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1508,7 +1508,7 @@ Figure 15-28: Root Error Status Register | 图15-28：根错误状态寄存器
 
 ## Advanced Source ID Register | 高级源ID寄存器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1523,9 +1523,9 @@ Figure 15-28: Root Error Status Register | 图15-28：根错误状态寄存器
 
 Figure 15-29: Advanced Source ID Register | 图15-29：高级源ID寄存器
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="2" style="border:2px solid #000;">31</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">ERR_FATAL/NONFATAL Source ID(ROS)</td><td style="border:2px solid #000;">ERR_COR Source ID(ROS)</td><td style="border:2px solid #000;"></td></tr><tr><td colspan="3" style="border:2px solid #000;">ROS: Read-Only and Sticky</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="2" style="border:2px solid #000;">31</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">ERR_FATAL/NONFATAL Source ID(ROS)</td><td style="border:2px solid #000;">ERR_COR Source ID(ROS)</td><td style="border:2px solid #000;"></td></tr><tr><td colspan="3" style="border:2px solid #000;">ROS: Read-Only and Sticky</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1541,11 +1541,11 @@ Figure 15-29: Advanced Source ID Register | 图15-29：高级源ID寄存器
 
 Figure 15-30: Advanced Root Error Command Register | 图15-30：高级根错误命令寄存器
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="19" style="border:2px solid #000;">31</td><td colspan="5" style="border:2px solid #000;">RsvdP</td></tr><tr><td rowspan="14" style="border:2px solid #000;"></td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td colspan="5" style="border:2px solid #000;">Fatal Error Reporting Enable</td></tr><tr><td colspan="5" style="border:2px solid #000;">Non-Fatal Error Reporting Enable</td></tr><tr><td colspan="5" style="border:2px solid #000;">Correctable Error Reporting Enable</td></tr><tr><td colspan="5" style="border:2px solid #000;">Note: all bits designated RW</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="19" style="border:2px solid #000;">31</td><td colspan="5" style="border:2px solid #000;">RsvdP</td></tr><tr><td rowspan="14" style="border:2px solid #000;"></td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td colspan="5" style="border:2px solid #000;">Fatal Error Reporting Enable</td></tr><tr><td colspan="5" style="border:2px solid #000;">Non-Fatal Error Reporting Enable</td></tr><tr><td colspan="5" style="border:2px solid #000;">Correctable Error Reporting Enable</td></tr><tr><td colspan="5" style="border:2px solid #000;">Note: all bits designated RW</td></tr></table>
 
 ## 15.11 Summary of Error Logging and Reporting | 15.11 错误记录与报告总结
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1565,7 +1565,7 @@ Figure 15-31: Flow Chart of Error Handling Within a Function / 图15-31：功能
 ## 15.12 Example Flow of Software Error Investigation | 15.12 软件错误调查的示例流程
 ## 软件错误调查的示例流程
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1580,7 +1580,7 @@ Figure 15-31: Flow Chart of Error Handling Within a Function / 图15-31：功能
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1604,7 +1604,7 @@ Figure 15-32: Error Investigation Example System | 图15-32：错误调查示例
 
 <img src="images/part05_f593e2fb9f91661bb82eece17272589f73a280f332d1222697b56f5162fa06ba.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>

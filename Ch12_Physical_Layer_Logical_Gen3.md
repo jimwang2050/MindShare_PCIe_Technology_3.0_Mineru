@@ -6,7 +6,7 @@
 
 ## The Previous Chapter | 前一章
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The previous chapter describes the Gen1/Gen2 logical sub-block of the Physical Layer. This layer prepares packets for serial transmission and recovery, and the several steps needed to accomplish this are described in detail. The chapter covers logic associated with the Gen1 and Gen2 protocol that use 8b/10b encoding/decoding.
@@ -19,7 +19,7 @@ The previous chapter describes the Gen1/Gen2 logical sub-block of the Physical L
 
 ## This Chapter | 本章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -37,7 +37,7 @@ The previous chapter describes the Gen1/Gen2 logical sub-block of the Physical L
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -52,7 +52,7 @@ The previous chapter describes the Gen1/Gen2 logical sub-block of the Physical L
 
 ## 12.1 Introduction to Gen3 | 12.1 Gen3 简介
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -71,9 +71,9 @@ The previous chapter describes the Gen1/Gen2 logical sub-block of the Physical L
 
 Table 12‑1: PCI Express Aggregate Bandwidth for Various Link Widths | 表12‑1：各种链路宽度的PCI Express聚合带宽
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Link Width</td><td style="border:2px solid #000;">x1</td><td style="border:2px solid #000;">x2</td><td style="border:2px solid #000;">x4</td><td style="border:2px solid #000;">x8</td><td style="border:2px solid #000;">x12</td><td style="border:2px solid #000;">x16</td><td style="border:2px solid #000;">x32</td></tr><tr><td style="border:2px solid #000;">Gen1 Bandwidth (GB /s)</td><td style="border:2px solid #000;">0.5</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">16</td></tr><tr><td style="border:2px solid #000;">Gen2 Bandwidth (GB/s)</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">16</td><td style="border:2px solid #000;">32</td></tr><tr><td style="border:2px solid #000;">Gen3 Bandwidth (GB/s)</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">16</td><td style="border:2px solid #000;">24</td><td style="border:2px solid #000;">32</td><td style="border:2px solid #000;">64</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Link Width</td><td style="border:2px solid #000;">x1</td><td style="border:2px solid #000;">x2</td><td style="border:2px solid #000;">x4</td><td style="border:2px solid #000;">x8</td><td style="border:2px solid #000;">x12</td><td style="border:2px solid #000;">x16</td><td style="border:2px solid #000;">x32</td></tr><tr><td style="border:2px solid #000;">Gen1 Bandwidth (GB /s)</td><td style="border:2px solid #000;">0.5</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">16</td></tr><tr><td style="border:2px solid #000;">Gen2 Bandwidth (GB/s)</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">16</td><td style="border:2px solid #000;">32</td></tr><tr><td style="border:2px solid #000;">Gen3 Bandwidth (GB/s)</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">16</td><td style="border:2px solid #000;">24</td><td style="border:2px solid #000;">32</td><td style="border:2px solid #000;">64</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -88,7 +88,7 @@ Table 12‑1: PCI Express Aggregate Bandwidth for Various Link Widths | 表12‑
 
 ## 12.1.1 New Encoding Model | 12.1.1 新的编码模型
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The logical part of the Physical Layer replaced the 8b/10b encoding with a new 128b/130b encoding scheme. Of course, this meant departing from the wellunderstood 8b/10b model used in many serial designs. Designers were willing to take this step to recover the 20% transmission overhead imposed by the 8b/10b encoding. Using 128b/130b means the Lanes are now delivering 8 bits/byte instead of 10 bits, and that means an 8.0 GT/s data rate that doubles the bandwidth. This equates to a bandwidth of 1 GB/s in each direction.
@@ -99,7 +99,7 @@ The logical part of the Physical Layer replaced the 8b/10b encoding with a new 1
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To illustrate the difference between these two encodings, first consider Figure 12-1 that shows the general 8b/10b packet construction. The arrows highlight the Control (K) characters representing the framing Symbols for the 8b/10b packets. Receivers know what to expect by recognizing these control characters. See "8b/10b Encoding" on page 380 to review the benefits of this encoding scheme.
@@ -114,7 +114,7 @@ Figure 12-1: 8b/10b Lane Encoding | 图12-1：8b/10b通道编码
 
 <img src="images/part03_8e8b2536712548b5cf71ff092a8397924fad2f41dec6a562ea8a300a3be336aa.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 By comparison, Figure 12-2 on page 410 shows the 128b/130b encoding. This encoding does not affect bytes being transferred, instead the characters are grouped into blocks of 16 bytes with a 2-bit Sync field at the beginning of each block. The 2-bit Sync field specifies whether the block includes Data (10b) or Ordered Sets (01b). Consequently, the Sync field indicates to the receiver what kind of traffic to expect and when it will begin. Ordered sets are similar to the 8b/10b version in that they must be driven on all the Lanes simultaneously. That requires getting the Lanes properly synchronized and this is part of the training process (see "Achieving Block Alignment" on page 438).
@@ -131,7 +131,7 @@ Figure 12-2: 128b/130b Block Encoding | 图12-2：128b/130b块编码
 
 ## 12.1.2 Sophisticated Signal Equalization | 12.1.2 先进的信号均衡
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The second change is made to the electrical sub‐block of the Physical Layer and involves more sophisticated signal equalization both at the transmit side of the Link and optionally at the receiver. Gen1 and Gen2 implementations use a fixed Tx de‐emphasis to achieve good signal quality. However, increasing transmission frequencies beyond 5 GT/s causes signal integrity problems to become more pronounced, requiring more transmitter and receiver compensation. This can be managed somewhat at the board level but the designers wanted to allow the external infrastructure to remain the same as much as possible, and instead placed the burden on the PHY transmitter and receiver circuits. For more details on signal conditioning, refer to “Solution for 8.0 GT/s  ‐  Transmitter Equalization” on page 474.
@@ -144,7 +144,7 @@ The second change is made to the electrical sub‐block of the Physical Layer an
 
 ## 12.2 Encoding for 8.0 GT/s | 12.2 GT/s编码
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 As previously discussed, the Gen3 128b/130b encoding method uses Link‐wide packets and per‐Lane block encoding. This section provides additional details regarding the encoding.
@@ -157,7 +157,7 @@ As previously discussed, the Gen3 128b/130b encoding method uses Link‐wide pac
 
 ## 12.2.1 Lane-Level Encoding | 12.2.1 通道级编码
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To illustrate the use of Blocks, consider Figure 12-3 on page 411, where a single-Lane Data Block is shown. At the beginning are the two Sync Header bits follower by 16 bytes (128 bits) of information resulting in 130 transmitted bits. The Sync Header simply defines whether a Data block (10b) or an Ordered Set (01b) is being sent. You may have noticed the Data Block in Figure 12-3 has a Sync Header value of 01 rather than the 10b value mentioned above. This is because the least significant bit of the Sync Header is sent first when transmitting the block across the link. Notice the symbols following the Sync Header are also sent with the least significant bit first.
@@ -174,7 +174,7 @@ Figure 12-3: Sync Header Data Block Example | 图12-3：同步头数据块示例
 
 ## 12.2.2 Block Alignment | 12.2.2 块对齐
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Like previous implementations, Gen3 achieves Bit Lock first and then attempts to establish Block Alignment locking. This requires receivers to find the Sync Header that demarcates the Block boundary. Transmitters establish this boundary by sending recognizable EIEOS patterns consisting of alternating bytes of 00h and FFh, as shown in Figure 12-4. Thus, the use of EIEOS has expanded from simply exiting Electrical Idle to also serving as the synchronizing mechanism that establishes Block Alignment. Note that the Sync Header bits immediately precede and follow the EIEOS (not shown in the illustration). See "Achieving Block Alignment" on page 438 for details regarding this process.
@@ -191,7 +191,7 @@ Figure 12-4: Gen3 Mode EIEOS Symbol Pattern | 图12-4：Gen3模式EIEOS符号模
 
 ## 12.2.3 Ordered Set Blocks | 12.2.3 有序集块
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Ordered Sets have much the same meaning they did in Gen1 and Gen2. They are used to manage Lane protocol. When an Ordered Set Block is sent it must appear on all the Lanes at the same time and almost always consists of 16 bytes with one exception. The one exception to this size rule is the SOS (SKP Ordered Set) which can have SKP Symbols added or removed in groups of four by clock compensation logic (associated with a Link Repeater for example) and can therefore legally be 8, 12, 16, 20, or 24 bytes long.
@@ -202,7 +202,7 @@ Ordered Sets have much the same meaning they did in Gen1 and Gen2. They are used
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The basic format of the Ordered Set Block is similar to the Data Block, except that the Sync Header bits are reversed, as shown in Figure 12-5 on page 412.
@@ -216,7 +216,7 @@ The basic format of the Ordered Set Block is similar to the Data Block, except t
 Figure 12-5: Gen3 x1 Ordered Set Block Example | 图12-5：Gen3 x1 有序集块示例
 <img src="images/part03_2a61d3f682f1caa8e4de362275bf4f8b6711758462a6e6f43aa4f9c94e9bacc6.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The spec defines seven Ordered Sets for Gen3 (one additional Ordered Set over Gen1 and Gen2 PCIe). In most cases, their functionality is the same as it was for the previous generations.
@@ -227,7 +227,7 @@ The spec defines seven Ordered Sets for Gen3 (one additional Ordered Set over Ge
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. SOS - Skip Ordered Set: used for clock compensation. See "Ordered Set Example - SOS" on page 426 for more detail.
@@ -238,7 +238,7 @@ The spec defines seven Ordered Sets for Gen3 (one additional Ordered Set over Ge
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 2. EIOS - Electrical Idle Ordered Set: used to enter Electrical Idle state.
@@ -249,7 +249,7 @@ The spec defines seven Ordered Sets for Gen3 (one additional Ordered Set over Ge
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 3. EIEOS - Electrical Idle Exit Ordered Set: used for two purposes now: — Electrical Idle Exit as before — Block alignment indicator for 8.0 GT/s.
@@ -260,7 +260,7 @@ The spec defines seven Ordered Sets for Gen3 (one additional Ordered Set over Ge
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 4. TS1 - Training Sequence 1 Ordered Set.
@@ -271,7 +271,7 @@ The spec defines seven Ordered Sets for Gen3 (one additional Ordered Set over Ge
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 5. TS2 - Training Sequence 2 Ordered Set.
@@ -282,7 +282,7 @@ The spec defines seven Ordered Sets for Gen3 (one additional Ordered Set over Ge
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 6. FTS - Fast Training Sequence Ordered Set.
@@ -293,7 +293,7 @@ The spec defines seven Ordered Sets for Gen3 (one additional Ordered Set over Ge
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 7. SDS - Start of Data Stream Ordered Set: new - see "Data Stream and Data Blocks" on page 413 for more.
@@ -306,7 +306,7 @@ The spec defines seven Ordered Sets for Gen3 (one additional Ordered Set over Ge
 
 ## Chapter 12: Physical Layer - Logical (Gen3) | 第12章：物理层 - 逻辑子层（Gen3）
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To give the reader an example of the Ordered Set structure, Figure 12‐6 shows the content of an FTS Ordered Set when running at 8.0 GT/s. An Ordered Set Block is only recognized as an Ordered Set by the Sync Header, and identified as an FTS type by the first Symbol in the Block. The right‐hand side of the figure lists the Ordered Set Identifiers (the first Symbol for each Ordered Set) that serve to identify the type of Ordered Set is being transmitted.
@@ -319,11 +319,11 @@ To give the reader an example of the Ordered Set structure, Figure 12‐6 shows 
 
 Figure 12‐6: Gen3 FTS Ordered Set Example | 图12‐6：Gen3 FTS有序集示例
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="2" style="border:2px solid #000;">FTS Ordered Set</td><td colspan="2" style="border:2px solid #000;">Ordered Set Identifiers</td></tr><tr><td style="border:2px solid #000;">Symbol</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Ordered Set</td><td style="border:2px solid #000;">First Symbol</td></tr><tr><td style="border:2px solid #000;">Sync Header</td><td style="border:2px solid #000;">01b</td><td style="border:2px solid #000;">EIEOS</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">EIOS</td><td style="border:2px solid #000;">66h</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">47h</td><td style="border:2px solid #000;">FTS</td><td style="border:2px solid #000;">55h</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">4Eh</td><td style="border:2px solid #000;">SDS</td><td style="border:2px solid #000;">E1</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">C7h</td><td style="border:2px solid #000;">TS1</td><td style="border:2px solid #000;">1Eh</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">CCh</td><td style="border:2px solid #000;">TS2</td><td style="border:2px solid #000;">2Dh</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">C6h</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">AAh</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">C9h</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">25h</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">6Eh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">9</td><td style="border:2px solid #000;">ECh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">88h</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">11</td><td style="border:2px solid #000;">7Fh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">80h</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">13</td><td style="border:2px solid #000;">8Dh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">8Bh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">8Eh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="2" style="border:2px solid #000;">FTS Ordered Set</td><td colspan="2" style="border:2px solid #000;">Ordered Set Identifiers</td></tr><tr><td style="border:2px solid #000;">Symbol</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Ordered Set</td><td style="border:2px solid #000;">First Symbol</td></tr><tr><td style="border:2px solid #000;">Sync Header</td><td style="border:2px solid #000;">01b</td><td style="border:2px solid #000;">EIEOS</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">EIOS</td><td style="border:2px solid #000;">66h</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">47h</td><td style="border:2px solid #000;">FTS</td><td style="border:2px solid #000;">55h</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">4Eh</td><td style="border:2px solid #000;">SDS</td><td style="border:2px solid #000;">E1</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">C7h</td><td style="border:2px solid #000;">TS1</td><td style="border:2px solid #000;">1Eh</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">CCh</td><td style="border:2px solid #000;">TS2</td><td style="border:2px solid #000;">2Dh</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">C6h</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">AAh</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">C9h</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">25h</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">6Eh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">9</td><td style="border:2px solid #000;">ECh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">88h</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">11</td><td style="border:2px solid #000;">7Fh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">80h</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">13</td><td style="border:2px solid #000;">8Dh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">8Bh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">8Eh</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr></table>
 
 ## 12.2.4 Data Stream and Data Blocks | 12.2.4 数据流和数据块
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -343,7 +343,7 @@ Figure 12‐6: Gen3 FTS Ordered Set Example | 图12‐6：Gen3 FTS有序集示�
 
 ## 12.2.5 Data Block Frame Construction | 12.2.5 数据块帧结构
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -363,7 +363,7 @@ Figure 12‑7: Gen3 x1 Frame Construction Example | 图12‑7：Gen3 x1帧构建
 
 <img src="images/part03_91f854394ed1f959138b8ef0bfb2ba9387ee27ad4e788d4f994102650a7a6f33.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -378,7 +378,7 @@ Figure 12‑7: Gen3 x1 Frame Construction Example | 图12‑7：Gen3 x1帧构建
 
 ## Framing Tokens | 成帧令牌
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -399,7 +399,7 @@ Figure 12‑7: Gen3 x1 Frame Construction Example | 图12‑7：Gen3 x1帧构建
 
 ## Packets | 数据包
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -421,7 +421,7 @@ Figure 12-8: Gen3 Frame Token Examples | 图12-8：Gen3帧令牌示例
 
 ## Transmitter Framing Requirements | 发送器组帧要求
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -446,7 +446,7 @@ Figure 12-8: Gen3 Frame Token Examples | 图12-8：Gen3帧令牌示例
 
 ## Receiver Framing Requirements | 接收器组帧要求
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -468,7 +468,7 @@ Figure 12-8: Gen3 Frame Token Examples | 图12-8：Gen3帧令牌示例
 
 ## • When an EDB is received: | 当收到 EDB 时：
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -486,7 +486,7 @@ Figure 12-8: Gen3 Frame Token Examples | 图12-8：Gen3帧令牌示例
 
 ## • When an EDS Token is received as the last DW of a Data Block: | 当 EDS 令牌作为数据块的最后一个 DW 收到时：
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -503,7 +503,7 @@ Figure 12-8: Gen3 Frame Token Examples | 图12-8：Gen3帧令牌示例
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -529,7 +529,7 @@ Figure 12-8: Gen3 Frame Token Examples | 图12-8：Gen3帧令牌示例
 
 ## 12.4 Recovery from Framing Errors | 12.4 从组帧错误恢复
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -554,7 +554,7 @@ Figure 12‐9: AER Correctable Error Register | 图12‐9：AER可校正错误�
 
 ## 12.3.1 Multiplexer | 12.3.1 多路选择器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -569,7 +569,7 @@ Figure 12‐9: AER Correctable Error Register | 图12‐9：AER可校正错误�
 
 ## 12.3.1 Multiplexer | 12.3.1 多路选择器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -590,7 +590,7 @@ Figure 12-10: Gen3 Physical Layer Transmitter Details | 图12-10：Gen3物理层
 
 <img src="images/part03_8654cb31b7255e03daa2c5e98e77d96d9193571f03ed508f3ca1b0eeaac0d48a.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -611,7 +611,7 @@ Figure 12-11: Gen3 Byte Striping x4 | 图12-11：Gen3 x4字节条带化
 
 ## 12.3.1.1 Byte Striping x8 Example | 12.3.1.1 字节条带化 x8 示例
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -627,9 +627,9 @@ Figure 12-11: Gen3 Byte Striping x4 | 图12-11：Gen3 x4字节条带化
 
 Figure 12‑12: Gen3 x8 Example: TLP Straddles Block Boundary | 图12‑12：Gen3 x8示例：TLP跨越块边界
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">Lane 3</td><td style="border:2px solid #000;">Lane 4</td><td style="border:2px solid #000;">Lane 5</td><td style="border:2px solid #000;">Lane 6</td><td style="border:2px solid #000;">Lane 7</td></tr><tr><td style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td colspan="4" style="border:2px solid #000;">STP Token: Length=7, CRC, Parity, Seq Num</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 1</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 3</td><td colspan="4" style="border:2px solid #000;">LCRC</td><td colspan="2" style="border:2px solid #000;">SDP Token</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 4</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 5</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 6</td><td colspan="4" style="border:2px solid #000;">STP Token: Length=23, CRC, Parity, Seq Num</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 1</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 7</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 3</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 15</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 18</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 19</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 20</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 21</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 1</td><td colspan="4" style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">Lane 3</td><td style="border:2px solid #000;">Lane 4</td><td style="border:2px solid #000;">Lane 5</td><td style="border:2px solid #000;">Lane 6</td><td style="border:2px solid #000;">Lane 7</td></tr><tr><td style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td colspan="4" style="border:2px solid #000;">STP Token: Length=7, CRC, Parity, Seq Num</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 1</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 3</td><td colspan="4" style="border:2px solid #000;">LCRC</td><td colspan="2" style="border:2px solid #000;">SDP Token</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 4</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 5</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 6</td><td colspan="4" style="border:2px solid #000;">STP Token: Length=23, CRC, Parity, Seq Num</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 1</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 7</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 3</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 15</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 18</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 19</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 20</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 21</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 1</td><td colspan="4" style="border:2px solid #000;">LCRC</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -643,7 +643,7 @@ Figure 12‑12: Gen3 x8 Example: TLP Straddles Block Boundary | 图12‑12：Gen
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -661,13 +661,13 @@ Figure 12‑12: Gen3 x8 Example: TLP Straddles Block Boundary | 图12‑12：Gen
 
 Figure 12-13: Gen3 x8 Nullified Packet | 图12-13：Gen3 x8无效数据包
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">Lane 3</td><td style="border:2px solid #000;">Lane 4</td><td style="border:2px solid #000;">Lane 5</td><td style="border:2px solid #000;">Lane 6</td><td style="border:2px solid #000;">Lane 7</td></tr><tr><td rowspan="2" style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td colspan="4" style="border:2px solid #000;">STP Token: Length=7, CRC, Parity, Seq Num</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 1</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 3</td><td colspan="4" style="border:2px solid #000;">LCRC</td><td colspan="2" style="border:2px solid #000;">SDP Token</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 4</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 5</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 6</td><td colspan="4" style="border:2px solid #000;">STP Token: Length=23, CRC, Parity, Seq Num</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 1</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 7</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 3</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 15</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 18</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 19</td><td style="border:2px solid #000;"></td></tr><tr><td rowspan="2" style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 20</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 21</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 1</td><td colspan="4" style="border:2px solid #000;">LCRC (inverted)</td><td style="border:2px solid #000;">EDB</td><td style="border:2px solid #000;">EDB</td><td style="border:2px solid #000;">EDB</td><td style="border:2px solid #000;">EDB</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">Lane 3</td><td style="border:2px solid #000;">Lane 4</td><td style="border:2px solid #000;">Lane 5</td><td style="border:2px solid #000;">Lane 6</td><td style="border:2px solid #000;">Lane 7</td></tr><tr><td rowspan="2" style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td colspan="4" style="border:2px solid #000;">STP Token: Length=7, CRC, Parity, Seq Num</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 1</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 3</td><td colspan="4" style="border:2px solid #000;">LCRC</td><td colspan="2" style="border:2px solid #000;">SDP Token</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 4</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 5</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 6</td><td colspan="4" style="border:2px solid #000;">STP Token: Length=23, CRC, Parity, Seq Num</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 1</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 7</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 3</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 15</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 18</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 19</td><td style="border:2px solid #000;"></td></tr><tr><td rowspan="2" style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">1</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 20</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">DW 21</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 1</td><td colspan="4" style="border:2px solid #000;">LCRC (inverted)</td><td style="border:2px solid #000;">EDB</td><td style="border:2px solid #000;">EDB</td><td style="border:2px solid #000;">EDB</td><td style="border:2px solid #000;">EDB</td></tr></table>
 
 ## Ordered Set Example - SOS | 有序集示例 - SOS
 
 ## 有序集示例 - SOS（Skip Ordered Set，跳过有序集）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -684,7 +684,7 @@ Figure 12-14: Gen3 x1 Ordered Set Construction | 图12-14：Gen3 x1有序集构�
 
 <img src="images/part03_8f9ed4213abfae04744382fae93180caecf64f5c57d5f21ee5268f276cb76735.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -701,13 +701,13 @@ Figure 12-14: Gen3 x1 Ordered Set Construction | 图12-14：Gen3 x1有序集构�
 
 Figure 12-15: Gen3 x8 Skip Ordered Set (SOS) Example | 图12-15：Gen3 x8 SKIP有序集（SOS）示例
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">Lane 3</td><td style="border:2px solid #000;">Lane 4</td><td style="border:2px solid #000;">Lane 5</td><td style="border:2px solid #000;">Lane 6</td><td style="border:2px solid #000;">Lane 7</td></tr><tr><td style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td colspan="4" style="border:2px solid #000;">STP Token: Length=7, CRC, Parity, Seq Num</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 1</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 3</td><td colspan="4" style="border:2px solid #000;">LCRC</td><td colspan="2" style="border:2px solid #000;">SDP Token</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 4</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 5</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 6</td><td colspan="2" style="border:2px solid #000;">SDP Token</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 7</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 15</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td colspan="4" style="border:2px solid #000;">EDS Token (End of Data Stream)</td></tr><tr><td style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">Symbol 3</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">Symbol 4</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td></tr><tr><td style="border:2px solid #000;">Symbol 5</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td></tr><tr><td style="border:2px solid #000;">Symbol 6</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td></tr><tr><td style="border:2px solid #000;">Symbol 7</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td></tr><tr><td style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">Lane 3</td><td style="border:2px solid #000;">Lane 4</td><td style="border:2px solid #000;">Lane 5</td><td style="border:2px solid #000;">Lane 6</td><td style="border:2px solid #000;">Lane 7</td></tr><tr><td style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td colspan="4" style="border:2px solid #000;">STP Token: Length=7, CRC, Parity, Seq Num</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 1</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 3</td><td colspan="4" style="border:2px solid #000;">LCRC</td><td colspan="2" style="border:2px solid #000;">SDP Token</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 4</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 5</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 6</td><td colspan="2" style="border:2px solid #000;">SDP Token</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">DLLP</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Symbol 7</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td></tr><tr><td style="border:2px solid #000;">Symbol 15</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td style="border:2px solid #000;">IDL</td><td colspan="4" style="border:2px solid #000;">EDS Token (End of Data Stream)</td></tr><tr><td style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">10</td></tr><tr><td style="border:2px solid #000;">Symbol 0</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">Symbol 3</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td><td style="border:2px solid #000;">SKP</td></tr><tr><td style="border:2px solid #000;">Symbol 4</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td><td style="border:2px solid #000;">SKP_END</td></tr><tr><td style="border:2px solid #000;">Symbol 5</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td></tr><tr><td style="border:2px solid #000;">Symbol 6</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td></tr><tr><td style="border:2px solid #000;">Symbol 7</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td><td style="border:2px solid #000;">LFSR</td></tr><tr><td style="border:2px solid #000;">Sync</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td><td style="border:2px solid #000;">01</td></tr></table>
 
 Table 12-2: Gen3 16-bit Skip Ordered Set Encoding | 表12-2：Gen3 16位SKIP有序集编码
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Symbol Number</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">0 to 11</td><td style="border:2px solid #000;">AAh</td><td style="border:2px solid #000;">SKP Symbol. Since Symbol 0 is the Ordered Set Identifier, this is seen as an SOS.</td></tr><tr><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">E1h</td><td style="border:2px solid #000;">SKP_END Symbol, which indicates that the SOS will be complete after 3 more Symbols</td></tr><tr><td style="border:2px solid #000;">13</td><td style="border:2px solid #000;">00-FFh</td><td style="border:2px solid #000;">a) If LTSSM state is Polling.Compliance: AAhb) Else if prior block was a Data Block:Bit [7] = Data ParityBit [6:0] = LFSR [22:16]c) ElseBit [7] = ~LFSR [22]Bit [6:0] = LFSR [22:16]</td></tr><tr><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">00-FFh</td><td style="border:2px solid #000;">a) If LTSSM state is Polling.Compliance: Error_Status [7:0]b) Else LFSR [15:8]</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">00-FFh</td><td style="border:2px solid #000;">a) If LTSSM state is Polling.Compliance: Error_Status [7:0]b) Else LFSR [7:0]</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Symbol Number</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">0 to 11</td><td style="border:2px solid #000;">AAh</td><td style="border:2px solid #000;">SKP Symbol. Since Symbol 0 is the Ordered Set Identifier, this is seen as an SOS.</td></tr><tr><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">E1h</td><td style="border:2px solid #000;">SKP_END Symbol, which indicates that the SOS will be complete after 3 more Symbols</td></tr><tr><td style="border:2px solid #000;">13</td><td style="border:2px solid #000;">00-FFh</td><td style="border:2px solid #000;">a) If LTSSM state is Polling.Compliance: AAhb) Else if prior block was a Data Block:Bit [7] = Data ParityBit [6:0] = LFSR [22:16]c) ElseBit [7] = ~LFSR [22]Bit [6:0] = LFSR [22:16]</td></tr><tr><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">00-FFh</td><td style="border:2px solid #000;">a) If LTSSM state is Polling.Compliance: Error_Status [7:0]b) Else LFSR [15:8]</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">00-FFh</td><td style="border:2px solid #000;">a) If LTSSM state is Polling.Compliance: Error_Status [7:0]b) Else LFSR [7:0]</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -722,7 +722,7 @@ Table 12-2: Gen3 16-bit Skip Ordered Set Encoding | 表12-2：Gen3 16位SKIP有�
 
 
 ## 12.3.1.3 Transmitter SOS Rules | 12.3.1.3 发送器 SOS 规则
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -740,7 +740,7 @@ Table 12-2: Gen3 16-bit Skip Ordered Set Encoding | 表12-2：Gen3 16位SKIP有�
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -753,7 +753,7 @@ Table 12-2: Gen3 16-bit Skip Ordered Set Encoding | 表12-2：Gen3 16位SKIP有�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -771,7 +771,7 @@ Table 12-2: Gen3 16-bit Skip Ordered Set Encoding | 表12-2：Gen3 16位SKIP有�
 
 ## Scrambling (扰码)
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -785,7 +785,7 @@ Table 12-2: Gen3 16-bit Skip Ordered Set Encoding | 表12-2：Gen3 16位SKIP有�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -803,7 +803,7 @@ Figure 12‑16: Gen3 Per‑Lane LFSR Scrambling Logic | 图12‑16：Gen3每条�
 
 <img src="images/part03_bad455e7c47ccc0aeb6a4e4ede3b81b3ae0bb5278249a47207e73a64ceb49369.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -818,9 +818,9 @@ Figure 12‑16: Gen3 Per‑Lane LFSR Scrambling Logic | 图12‑16：Gen3每条�
 
 Table 12‑3: Gen3 Scrambler Seed Values | 表12‑3：Gen3加扰器种子值
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Lane</td><td style="border:2px solid #000;">Seed Value</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">1DBFBCh</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0607BBh</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1EC760h</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">18C0DBh</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">010F12h</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">19CFC9h</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">0277CEh</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">1BB807h</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Lane</td><td style="border:2px solid #000;">Seed Value</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">1DBFBCh</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0607BBh</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1EC760h</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">18C0DBh</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">010F12h</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">19CFC9h</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">0277CEh</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">1BB807h</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -844,11 +844,11 @@ Figure 12‑17: Gen3 Single‑LFSR Scrambler | 图12‑17：Gen3单LFSR加扰器
 
 Table 12‑4: Gen3 Tap Equations for Single‑LFSR Scrambler | 表12‑4：Gen3单LFSR加扰器的抽头方程
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Lane Numbers</td><td style="border:2px solid #000;">Tap Equation</td></tr><tr><td style="border:2px solid #000;">0, 8, 16, 24</td><td style="border:2px solid #000;">D9 xor D13</td></tr><tr><td style="border:2px solid #000;">1, 9, 17, 25</td><td style="border:2px solid #000;">D1 xor D13</td></tr><tr><td style="border:2px solid #000;">2, 10, 18, 26</td><td style="border:2px solid #000;">D13 xor D22</td></tr><tr><td style="border:2px solid #000;">3, 11, 19, 27</td><td style="border:2px solid #000;">D1 xor D22</td></tr><tr><td style="border:2px solid #000;">4, 12, 20, 28</td><td style="border:2px solid #000;">D3 xor D22</td></tr><tr><td style="border:2px solid #000;">5, 13, 21, 29</td><td style="border:2px solid #000;">D1 xor D3</td></tr><tr><td style="border:2px solid #000;">6, 14, 22, 30</td><td style="border:2px solid #000;">D3 xor D9</td></tr><tr><td style="border:2px solid #000;">7, 15, 23, 31</td><td style="border:2px solid #000;">D1 xor D9</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Lane Numbers</td><td style="border:2px solid #000;">Tap Equation</td></tr><tr><td style="border:2px solid #000;">0, 8, 16, 24</td><td style="border:2px solid #000;">D9 xor D13</td></tr><tr><td style="border:2px solid #000;">1, 9, 17, 25</td><td style="border:2px solid #000;">D1 xor D13</td></tr><tr><td style="border:2px solid #000;">2, 10, 18, 26</td><td style="border:2px solid #000;">D13 xor D22</td></tr><tr><td style="border:2px solid #000;">3, 11, 19, 27</td><td style="border:2px solid #000;">D1 xor D22</td></tr><tr><td style="border:2px solid #000;">4, 12, 20, 28</td><td style="border:2px solid #000;">D3 xor D22</td></tr><tr><td style="border:2px solid #000;">5, 13, 21, 29</td><td style="border:2px solid #000;">D1 xor D3</td></tr><tr><td style="border:2px solid #000;">6, 14, 22, 30</td><td style="border:2px solid #000;">D3 xor D9</td></tr><tr><td style="border:2px solid #000;">7, 15, 23, 31</td><td style="border:2px solid #000;">D1 xor D9</td></tr></table>
 
 ## Scrambling Rules | ## 加扰规则
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -863,7 +863,7 @@ Table 12‑4: Gen3 Tap Equations for Single‑LFSR Scrambler | 表12‑4：Gen3�
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -891,7 +891,7 @@ Table 12‑4: Gen3 Tap Equations for Single‑LFSR Scrambler | 表12‑4：Gen3�
 
 ## 12.3.4 Serializer | 12.3.4 串行器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -906,7 +906,7 @@ Table 12‑4: Gen3 Tap Equations for Single‑LFSR Scrambler | 表12‑4：Gen3�
 
 ## 12.3.5 Mux for Sync Header Bits | 12.3.5 同步头位多路选择器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -921,7 +921,7 @@ Table 12‑4: Gen3 Tap Equations for Single‑LFSR Scrambler | 表12‑4：Gen3�
 
 ## 12.4 Gen3 Physical Layer Receive Logic | 12.4 Gen3 物理层接收逻辑
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -944,7 +944,7 @@ Table 12‑4: Gen3 Tap Equations for Single‑LFSR Scrambler | 表12‑4：Gen3�
 
 ## 12.4.1 Differential Receiver | 12.4.1 差分接收器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -963,7 +963,7 @@ Figure 12‐18: Gen3 Physical Layer Receiver Details | 图12‐18：Gen3物理�
 Figure 12‐19: Gen3 CDR Logic | 图12‐19：Gen3 CDR逻辑  
 <img src="images/part03_1ddda3e956f3a9df2b6dcb01c0428ae6647f941f2d5cc2f248c674bfe0709328.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -976,7 +976,7 @@ Figure 12‐19: Gen3 CDR Logic | 图12‐19：Gen3 CDR逻辑
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -995,7 +995,7 @@ Figure 12‐19: Gen3 CDR Logic | 图12‐19：Gen3 CDR逻辑
 
 ## 11.3.3 Deserializer | 11.3.3 解串器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1010,7 +1010,7 @@ Figure 12‐19: Gen3 CDR Logic | 图12‐19：Gen3 CDR逻辑
 
 ## Achieving Block Alignment | 实现块对齐
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1027,7 +1027,7 @@ Figure 12-20: EIEOS Symbol Pattern | 图12-20：EIEOS符号模式
 
 <img src="images/part03_6a6283dcc5b05d621aac80370026a98fc63dd6535e035d40f1ebc29eeec88f88.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1045,7 +1045,7 @@ Figure 12-20: EIEOS Symbol Pattern | 图12-20：EIEOS符号模式
 
 ## Block Type Detection | 块类型检测
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1059,7 +1059,7 @@ Figure 12-20: EIEOS Symbol Pattern | 图12-20：EIEOS符号模式
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1074,7 +1074,7 @@ Figure 12-20: EIEOS Symbol Pattern | 图12-20：EIEOS符号模式
 
 ## 99.2 Background | 99.2 背景
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1089,7 +1089,7 @@ Figure 12-20: EIEOS Symbol Pattern | 图12-20：EIEOS符号模式
 
 ## Elastic Buffer's Role | 弹性缓冲器的作用
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1106,7 +1106,7 @@ Figure 12-21: Gen3 Elastic Buffer Logic | 图12-21：Gen3弹性缓冲逻辑
 
 <img src="images/part03_c97d7681ed4be3655d8b1b1ee582daccaddd526f345ed89e9d9922c231c9b72b.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1122,7 +1122,7 @@ Figure 12-21: Gen3 Elastic Buffer Logic | 图12-21：Gen3弹性缓冲逻辑
 
 ## 12.4.4 Lane-to-Lane Skew | 12.4.4 通道间偏斜
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1137,7 +1137,7 @@ Figure 12-21: Gen3 Elastic Buffer Logic | 图12-21：Gen3弹性缓冲逻辑
 
 ## Flight Time Variance Between Lanes | 通道间飞行时间差异
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1156,7 +1156,7 @@ Figure 12-21: Gen3 Elastic Buffer Logic | 图12-21：Gen3弹性缓冲逻辑
 
 ## De-skew Opportunities | 去偏斜时机
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1175,7 +1175,7 @@ Figure 12-21: Gen3 Elastic Buffer Logic | 图12-21：Gen3弹性缓冲逻辑
 
 ## Receiver Lane-to-Lane De-skew Capability | 接收器通道间去偏斜能力
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1190,9 +1190,9 @@ Figure 12-21: Gen3 Elastic Buffer Logic | 图12-21：Gen3弹性缓冲逻辑
 
 Table 12‐5: Signal Skew Parameters | 表12‐5：信号偏斜参数
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Gen1</td><td style="border:2px solid #000;">Gen2</td><td style="border:2px solid #000;">Gen3</td></tr><tr><td style="border:2px solid #000;">Tx max skew</td><td style="border:2px solid #000;">1.3 ns</td><td style="border:2px solid #000;">1.3 ns</td><td style="border:2px solid #000;">1.1 ns</td></tr><tr><td style="border:2px solid #000;">Rx max skew</td><td style="border:2px solid #000;">20 ns</td><td style="border:2px solid #000;">8 ns</td><td style="border:2px solid #000;">6 ns</td></tr><tr><td style="border:2px solid #000;">Symbol time period</td><td style="border:2px solid #000;">4ns</td><td style="border:2px solid #000;">2ns</td><td style="border:2px solid #000;">1ns</td></tr><tr><td style="border:2px solid #000;">Rx skew expressed in Symbol Times</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">6</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Gen1</td><td style="border:2px solid #000;">Gen2</td><td style="border:2px solid #000;">Gen3</td></tr><tr><td style="border:2px solid #000;">Tx max skew</td><td style="border:2px solid #000;">1.3 ns</td><td style="border:2px solid #000;">1.3 ns</td><td style="border:2px solid #000;">1.1 ns</td></tr><tr><td style="border:2px solid #000;">Rx max skew</td><td style="border:2px solid #000;">20 ns</td><td style="border:2px solid #000;">8 ns</td><td style="border:2px solid #000;">6 ns</td></tr><tr><td style="border:2px solid #000;">Symbol time period</td><td style="border:2px solid #000;">4ns</td><td style="border:2px solid #000;">2ns</td><td style="border:2px solid #000;">1ns</td></tr><tr><td style="border:2px solid #000;">Rx skew expressed in Symbol Times</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">6</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1210,7 +1210,7 @@ Figure 12‐22: Receiver Link De‐Skew Logic | 图12‐22：接收器链路解�
 
 ## 12.4.5 Descrambler | 12.4.5 解扰器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1223,7 +1223,7 @@ Figure 12‐22: Receiver Link De‐Skew Logic | 图12‐22：接收器链路解�
 </table>
 
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
@@ -1237,7 +1237,7 @@ Figure 12‐22: Receiver Link De‐Skew Logic | 图12‐22：接收器链路解�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1253,7 +1253,7 @@ Figure 12‐22: Receiver Link De‐Skew Logic | 图12‐22：接收器链路解�
 
 ## 12.4.6 Byte Un-Striping | 12.4.6 字节解交错
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1272,7 +1272,7 @@ Figure 12-23: Physical Layer Receive Logic Details | 图12-23：物理层接收�
 
 ## 12.4.7 Packet Filtering | 12.4.7 数据包过滤
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1287,7 +1287,7 @@ Figure 12-23: Physical Layer Receive Logic Details | 图12-23：物理层接收�
 
 ## 12.4.8 Receive Buffer (Rx Buffer) | 12.4.8 接收缓冲器（Rx 缓冲器）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1300,7 +1300,7 @@ Figure 12-23: Physical Layer Receive Logic Details | 图12-23：物理层接收�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>

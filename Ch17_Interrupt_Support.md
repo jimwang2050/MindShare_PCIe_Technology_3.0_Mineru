@@ -6,7 +6,7 @@
 
 ## The Previous Chapter | 上一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -19,7 +19,7 @@
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -35,7 +35,7 @@
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -50,7 +50,7 @@
 
 ## 17.1 Interrupt Support Background | 17.1 中断支持背景
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -65,7 +65,7 @@
 
 ## 17.1.1.1 General | 17.1.1.1 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -82,7 +82,7 @@
 
 ## 17.1.1 Two Methods of Interrupt Delivery | 17.1.1 两种中断投递方式
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -101,7 +101,7 @@ Figure 17-1: PCI Interrupt Delivery | 图17-1：PCI中断传递
 
 <img src="images/part05_725b0a188c35dc149c85c12e66eccc0dddf4d89932beb419e1781eefccc5d4c4.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -119,7 +119,7 @@ Figure 17-2: Interrupt Delivery Options in PCIe System | 图17-2：PCIe系统中
 
 <img src="images/part05_981b211aa82038ad22c82db88bb070d177e6b8a2f94224ed268786d39066e70a.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -134,7 +134,7 @@ Figure 17-2: Interrupt Delivery Options in PCIe System | 图17-2：PCIe系统中
 
 ## 17.1.1.1 General | 17.1.1.1 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -158,7 +158,7 @@ Figure 17-3: Legacy Interrupt Example | 图17-3：传统中断示例
 
 ## 17.2.1 Changes to Support Multiple Processors | 17.2.1 支持多处理器的变更
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -182,7 +182,7 @@ Figure 17‑4: APIC Model for Interrupt Delivery | 图17‑4：中断传递的AP
 
 ## 17.2.2 Legacy PCI Interrupt Delivery | 17.2.2 传统 PCI 中断传递
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -200,7 +200,7 @@ Figure 17‑4: APIC Model for Interrupt Delivery | 图17‑4：中断传递的AP
 
 ## Device INTx# Pins | 设备 INTx# 引脚
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -224,7 +224,7 @@ Figure 17‑4: APIC Model for Interrupt Delivery | 图17‑4：中断传递的AP
 
 ## 17.2.2.2 Determining INTx# Pin Support | 17.2.2.2 确定 INTx# 引脚支持
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -243,7 +243,7 @@ Figure 17‑5: Interrupt Registers in PCI Configuration Header | 图17‑5：PCI
 
 ## 17.2.2.3 Interrupt Routing | 17.2.2.3 中断路由
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -259,7 +259,7 @@ Figure 17‑5: Interrupt Registers in PCI Configuration Header | 图17‑5：PCI
 
 ## 17.2.2.4 Associating the INTx# Line to an IRQ Number | 17.2.2.4 将 INTx# 线关联到 IRQ 号
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -278,7 +278,7 @@ Figure 17-6: INTx Signal Routing is Platform Specific | 图17-6：INTx信号路�
 
 ## 17.2.2.5 INTx# Signal Transmission | 17.2.2.5 INTx# 信号传输
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -303,7 +303,7 @@ Figure 17-8: Configuration Status Register — Interrupt Status Field | 图17-8�
 
 ## 17.2.3 Virtual INTx Signaling | 17.2.3 虚拟 INTx 信令
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -316,7 +316,7 @@ Figure 17-8: Configuration Status Register — Interrupt Status Field | 图17-8�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -334,7 +334,7 @@ Figure 17-8: Configuration Status Register — Interrupt Status Field | 图17-8�
 
 ## 17.2.3.1 Virtual INTx Wire Delivery | 17.2.3.1 虚拟 INTx 线传递
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -355,7 +355,7 @@ Figure 17-8: Configuration Status Register — Interrupt Status Field | 图17-8�
 Figure 17‐9: Example of INTx Messages to Virtualize INTA#‐INTD# Signal Transitions | 图17‐9：用于虚拟化INTA#-INTD#信号转换的INTx消息示例  
 <img src="images/part05_e54fb57f63b4fc4597cda9f8095c4c6c5cdcd465d3edbd4c61d0941ff432a9ee.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -374,7 +374,7 @@ Figure 17‐10: INTx Message Format and Type | 图17‐10：INTx消息格式和�
 
 ## 17.2.4 Mapping and Collapsing INTx Messages | 17.2.4 映射和合并 INTx 消息
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -389,7 +389,7 @@ Figure 17‐10: INTx Message Format and Type | 图17‐10：INTx消息格式和�
 
 ## 17.2.4.1 INTx Mapping | 17.2.4.1 INTx 映射
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -407,7 +407,7 @@ Figure 17‐10: INTx Message Format and Type | 图17‐10：INTx消息格式和�
 
 Table 17-1: INTx Message Mapping Across Virtual PCI-to-PCI Bridges / 表 17-1：跨虚拟 PCI-to-PCI 桥的 INTx 消息映射 | 表17-1：跨虚拟 PCI-to-PCI 桥的 INTx 消息映射
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Device Number of Delivering INTx</td><td style="border:2px solid #000;">INTx Message Type at Input</td><td style="border:2px solid #000;">INTx Message Type at Output</td></tr><tr><td rowspan="4" style="border:2px solid #000;">0, 4, 8, 12 etc.</td><td style="border:2px solid #000;">INTA</td><td style="border:2px solid #000;">INTA</td></tr><tr><td style="border:2px solid #000;">INTB</td><td style="border:2px solid #000;">INTB</td></tr><tr><td style="border:2px solid #000;">INTC</td><td style="border:2px solid #000;">INTC</td></tr><tr><td style="border:2px solid #000;">INTD</td><td style="border:2px solid #000;">INTD</td></tr><tr><td rowspan="4" style="border:2px solid #000;">1, 5, 9, 13 etc.</td><td style="border:2px solid #000;">INTA</td><td style="border:2px solid #000;">INTB</td></tr><tr><td style="border:2px solid #000;">INTB</td><td style="border:2px solid #000;">INTC</td></tr><tr><td style="border:2px solid #000;">INTC</td><td style="border:2px solid #000;">INTD</td></tr><tr><td style="border:2px solid #000;">INTD</td><td style="border:2px solid #000;">INTA</td></tr><tr><td rowspan="4" style="border:2px solid #000;">2, 6, 10, 14 etc.</td><td style="border:2px solid #000;">INTA</td><td style="border:2px solid #000;">INTC</td></tr><tr><td style="border:2px solid #000;">INTB</td><td style="border:2px solid #000;">INTD</td></tr><tr><td style="border:2px solid #000;">INTC</td><td style="border:2px solid #000;">INTA</td></tr><tr><td style="border:2px solid #000;">INTD</td><td style="border:2px solid #000;">INTB</td></tr><tr><td rowspan="4" style="border:2px solid #000;">3, 7, 11, 15 etc.</td><td style="border:2px solid #000;">INTA</td><td style="border:2px solid #000;">INTD</td></tr><tr><td style="border:2px solid #000;">INTB</td><td style="border:2px solid #000;">INTA</td></tr><tr><td style="border:2px solid #000;">INTC</td><td style="border:2px solid #000;">INTB</td></tr><tr><td style="border:2px solid #000;">INTD</td><td style="border:2px solid #000;">INTC</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Device Number of Delivering INTx</td><td style="border:2px solid #000;">INTx Message Type at Input</td><td style="border:2px solid #000;">INTx Message Type at Output</td></tr><tr><td rowspan="4" style="border:2px solid #000;">0, 4, 8, 12 etc.</td><td style="border:2px solid #000;">INTA</td><td style="border:2px solid #000;">INTA</td></tr><tr><td style="border:2px solid #000;">INTB</td><td style="border:2px solid #000;">INTB</td></tr><tr><td style="border:2px solid #000;">INTC</td><td style="border:2px solid #000;">INTC</td></tr><tr><td style="border:2px solid #000;">INTD</td><td style="border:2px solid #000;">INTD</td></tr><tr><td rowspan="4" style="border:2px solid #000;">1, 5, 9, 13 etc.</td><td style="border:2px solid #000;">INTA</td><td style="border:2px solid #000;">INTB</td></tr><tr><td style="border:2px solid #000;">INTB</td><td style="border:2px solid #000;">INTC</td></tr><tr><td style="border:2px solid #000;">INTC</td><td style="border:2px solid #000;">INTD</td></tr><tr><td style="border:2px solid #000;">INTD</td><td style="border:2px solid #000;">INTA</td></tr><tr><td rowspan="4" style="border:2px solid #000;">2, 6, 10, 14 etc.</td><td style="border:2px solid #000;">INTA</td><td style="border:2px solid #000;">INTC</td></tr><tr><td style="border:2px solid #000;">INTB</td><td style="border:2px solid #000;">INTD</td></tr><tr><td style="border:2px solid #000;">INTC</td><td style="border:2px solid #000;">INTA</td></tr><tr><td style="border:2px solid #000;">INTD</td><td style="border:2px solid #000;">INTB</td></tr><tr><td rowspan="4" style="border:2px solid #000;">3, 7, 11, 15 etc.</td><td style="border:2px solid #000;">INTA</td><td style="border:2px solid #000;">INTD</td></tr><tr><td style="border:2px solid #000;">INTB</td><td style="border:2px solid #000;">INTA</td></tr><tr><td style="border:2px solid #000;">INTC</td><td style="border:2px solid #000;">INTB</td></tr><tr><td style="border:2px solid #000;">INTD</td><td style="border:2px solid #000;">INTC</td></tr></table>
 
 Figure 17-11: Example of INTx Mapping | 图17-11：INTx映射示例
 
@@ -415,7 +415,7 @@ Figure 17-11: Example of INTx Mapping | 图17-11：INTx映射示例
 
 ## 17.2.4.2 INTx Collapsing | 17.2.4.2 INTx 合并
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -437,7 +437,7 @@ Figure 17-12: Switch Uses Bridge Mapping of INTx Messages | 图17-12：交换机
 
 ## 17.2.4.3 INTx Delivery Rules | 17.2.4.3 INTx 传递规则
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -460,7 +460,7 @@ Figure 17-12: Switch Uses Bridge Mapping of INTx Messages | 图17-12：交换机
 
 ## 17.3 The MSI Model | 17.3 MSI 模型
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -477,7 +477,7 @@ Figure 17-12: Switch Uses Bridge Mapping of INTx Messages | 图17-12：交换机
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -492,9 +492,9 @@ Figure 17-12: Switch Uses Bridge Mapping of INTx Messages | 图17-12：交换机
 
 Figure 17‑13: MSI Capability Structure Variations | 图17‑13：MSI能力结构变体
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="3" style="border:2px solid #000;">32-bit Address</td></tr><tr><td style="border:2px solid #000;">Message Control</td><td style="border:2px solid #000;">Next Capability Pointer</td><td style="border:2px solid #000;">Capability ID (05h) DW0</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [31:0]</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">DW1 DW2</td></tr><tr><td colspan="3" style="border:2px solid #000;">64-bit Address</td></tr><tr><td style="border:2px solid #000;">Message Control</td><td style="border:2px solid #000;">Next Capability Pointer</td><td style="border:2px solid #000;">Capability ID (05h) DW0</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [31:0]</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [63:32]</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">DW1 DW2 DW3</td></tr><tr><td colspan="3" style="border:2px solid #000;">32-bit Address with Per-Vector Masking</td></tr><tr><td style="border:2px solid #000;">Message Control</td><td style="border:2px solid #000;">Next Capability Pointer</td><td style="border:2px solid #000;">Capability ID (05h) DW0</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [31:0]</td></tr><tr><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">DW1 DW2 DW3 DW4</td></tr><tr><td colspan="3" style="border:2px solid #000;">Mask Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">Pending Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">64-bit Address with Per-Vector Masking</td></tr><tr><td style="border:2px solid #000;">Message Control</td><td style="border:2px solid #000;">Next Capability Pointer</td><td style="border:2px solid #000;">Capability ID (05h) DW0</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [31:0]</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [63:32]</td></tr><tr><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">DW1 DW2 DW3 DW4 DW5</td></tr><tr><td colspan="3" style="border:2px solid #000;">Mask Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">Pending Bits</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="3" style="border:2px solid #000;">32-bit Address</td></tr><tr><td style="border:2px solid #000;">Message Control</td><td style="border:2px solid #000;">Next Capability Pointer</td><td style="border:2px solid #000;">Capability ID (05h) DW0</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [31:0]</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">DW1 DW2</td></tr><tr><td colspan="3" style="border:2px solid #000;">64-bit Address</td></tr><tr><td style="border:2px solid #000;">Message Control</td><td style="border:2px solid #000;">Next Capability Pointer</td><td style="border:2px solid #000;">Capability ID (05h) DW0</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [31:0]</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [63:32]</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">DW1 DW2 DW3</td></tr><tr><td colspan="3" style="border:2px solid #000;">32-bit Address with Per-Vector Masking</td></tr><tr><td style="border:2px solid #000;">Message Control</td><td style="border:2px solid #000;">Next Capability Pointer</td><td style="border:2px solid #000;">Capability ID (05h) DW0</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [31:0]</td></tr><tr><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">DW1 DW2 DW3 DW4</td></tr><tr><td colspan="3" style="border:2px solid #000;">Mask Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">Pending Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">64-bit Address with Per-Vector Masking</td></tr><tr><td style="border:2px solid #000;">Message Control</td><td style="border:2px solid #000;">Next Capability Pointer</td><td style="border:2px solid #000;">Capability ID (05h) DW0</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [31:0]</td></tr><tr><td colspan="3" style="border:2px solid #000;">Message Address [63:32]</td></tr><tr><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">DW1 DW2 DW3 DW4 DW5</td></tr><tr><td colspan="3" style="border:2px solid #000;">Mask Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">Pending Bits</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -510,7 +510,7 @@ Figure 17‑13: MSI Capability Structure Variations | 图17‑13：MSI能力结�
 
 ## 17.3.1.1 Next Capability Pointer | 17.3.1.1 下一个能力指针
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -523,7 +523,7 @@ Figure 17‑13: MSI Capability Structure Variations | 图17‑13：MSI能力结�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -541,7 +541,7 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
 
 <img src="images/part05_8a6a4a0cfb491543536acd16ab4683bf466a7c142a36180b2f75f4e228ca4dd3.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -554,9 +554,9 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">MSI Enable</td><td style="border:2px solid #000;">Read/Write. State after reset is 0, indicating that the device's MSI capability is disabled.0 = Function isdisabledfrom using MSI. It must use MSI-X or else INTx Messages.1 = Function isenabledto use MSI to request service and won't use MSI-X or INTx Messages.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">MSI Enable</td><td style="border:2px solid #000;">Read/Write. State after reset is 0, indicating that the device's MSI capability is disabled.0 = Function isdisabledfrom using MSI. It must use MSI-X or else INTx Messages.1 = Function isenabledto use MSI to request service and won't use MSI-X or INTx Messages.</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -570,11 +570,11 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td rowspan="10" style="border:2px solid #000;">3:1</td><td rowspan="10" style="border:2px solid #000;">Multiple Message Capable</td><td style="border:2px solid #000;">Read-Only. System software reads this field to determine how many messages (interrupt vectors) the Function would like to use. The requested number of messages is a power of two, therefore a Function that would like three messages must request that four messages be allocated to it.</td></tr><tr><td style="border:2px solid #000;">Value Number of Messages Requested</td></tr><tr><td style="border:2px solid #000;">000b 1</td></tr><tr><td style="border:2px solid #000;">001b 2</td></tr><tr><td style="border:2px solid #000;">010b 4</td></tr><tr><td style="border:2px solid #000;">011b 8</td></tr><tr><td style="border:2px solid #000;">100b 16</td></tr><tr><td style="border:2px solid #000;">101b 32</td></tr><tr><td style="border:2px solid #000;">110b Reserved</td></tr><tr><td style="border:2px solid #000;">111b Reserved</td></tr><tr><td rowspan="10" style="border:2px solid #000;">6:4</td><td rowspan="10" style="border:2px solid #000;">Multiple Message Enable</td><td style="border:2px solid #000;">Read/Write. After system software reads the Multi-ple Message Capable field (previous row in this table) to see how many messages (interrupt vec-tors) are requested by the Function, it programs a 3-bit value in this field indicating the actual num-ber of messages allocated to the Function. The number allocated can be equal to or less than the number actually requested. The state of this field after reset is 000b.</td></tr><tr><td style="border:2px solid #000;">Value Number of Messages Requested</td></tr><tr><td style="border:2px solid #000;">000b 1</td></tr><tr><td style="border:2px solid #000;">001b 2</td></tr><tr><td style="border:2px solid #000;">010b 4</td></tr><tr><td style="border:2px solid #000;">011b 8</td></tr><tr><td style="border:2px solid #000;">100b 16</td></tr><tr><td style="border:2px solid #000;">101b 32</td></tr><tr><td style="border:2px solid #000;">110b Reserved</td></tr><tr><td style="border:2px solid #000;">111b Deferred</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td rowspan="10" style="border:2px solid #000;">3:1</td><td rowspan="10" style="border:2px solid #000;">Multiple Message Capable</td><td style="border:2px solid #000;">Read-Only. System software reads this field to determine how many messages (interrupt vectors) the Function would like to use. The requested number of messages is a power of two, therefore a Function that would like three messages must request that four messages be allocated to it.</td></tr><tr><td style="border:2px solid #000;">Value Number of Messages Requested</td></tr><tr><td style="border:2px solid #000;">000b 1</td></tr><tr><td style="border:2px solid #000;">001b 2</td></tr><tr><td style="border:2px solid #000;">010b 4</td></tr><tr><td style="border:2px solid #000;">011b 8</td></tr><tr><td style="border:2px solid #000;">100b 16</td></tr><tr><td style="border:2px solid #000;">101b 32</td></tr><tr><td style="border:2px solid #000;">110b Reserved</td></tr><tr><td style="border:2px solid #000;">111b Reserved</td></tr><tr><td rowspan="10" style="border:2px solid #000;">6:4</td><td rowspan="10" style="border:2px solid #000;">Multiple Message Enable</td><td style="border:2px solid #000;">Read/Write. After system software reads the Multi-ple Message Capable field (previous row in this table) to see how many messages (interrupt vec-tors) are requested by the Function, it programs a 3-bit value in this field indicating the actual num-ber of messages allocated to the Function. The number allocated can be equal to or less than the number actually requested. The state of this field after reset is 000b.</td></tr><tr><td style="border:2px solid #000;">Value Number of Messages Requested</td></tr><tr><td style="border:2px solid #000;">000b 1</td></tr><tr><td style="border:2px solid #000;">001b 2</td></tr><tr><td style="border:2px solid #000;">010b 4</td></tr><tr><td style="border:2px solid #000;">011b 8</td></tr><tr><td style="border:2px solid #000;">100b 16</td></tr><tr><td style="border:2px solid #000;">101b 32</td></tr><tr><td style="border:2px solid #000;">110b Reserved</td></tr><tr><td style="border:2px solid #000;">111b Deferred</td></tr></table>
 
 ## PCI Express 3.0 Technology | PCI Express 3.0 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -587,11 +587,11 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">64-bit Address Capable</td><td style="border:2px solid #000;">Read-Only.0 = Function does not implement the upper 32 bits of the Message Address register; only a 32-bit address is possible.1 = Function implements the upper 32 bits of the Message Address register and is capable of generating a 64-bit memory address.</td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">Per-Vector Masking Capable</td><td style="border:2px solid #000;">Read-Only.0 = Function does not implement the Mask Bit register or the Pending Bit register; software does NOT have the ability to mask individual interrupts with this capability structure.1 = Function does implement the Mask Bit register or the Pending Bit register; software does have the ability to mask individual interrupts with this capability structure.</td></tr><tr><td style="border:2px solid #000;">15:9</td><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Read-Only. Always zero.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">64-bit Address Capable</td><td style="border:2px solid #000;">Read-Only.0 = Function does not implement the upper 32 bits of the Message Address register; only a 32-bit address is possible.1 = Function implements the upper 32 bits of the Message Address register and is capable of generating a 64-bit memory address.</td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">Per-Vector Masking Capable</td><td style="border:2px solid #000;">Read-Only.0 = Function does not implement the Mask Bit register or the Pending Bit register; software does NOT have the ability to mask individual interrupts with this capability structure.1 = Function does implement the Mask Bit register or the Pending Bit register; software does have the ability to mask individual interrupts with this capability structure.</td></tr><tr><td style="border:2px solid #000;">15:9</td><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Read-Only. Always zero.</td></tr></table>
 
 ## 17.3.1.2 Message Address Register | 17.3.1.2 消息地址寄存器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -607,7 +607,7 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
 
 ## 17.3.1.3 Message Data Register | 17.3.1.3 消息数据寄存器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -621,7 +621,7 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -641,7 +641,7 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
 
 The following list specifies the steps taken by software to configure MSI interrupts for a PCI Express device. Refer to Figure 17‐15 on page 819.
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -658,7 +658,7 @@ The following list specifies the steps taken by software to configure MSI interr
 
 ## 17.3.3.1 Generating an MSI Interrupt | 17.3.3.1 生成 MSI 中断
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -684,7 +684,7 @@ Figure 17‐16 on page 821 illustrates the contents of an MSI Memory Write Trans
 
 第821页的图17-16展示了MSI存储器写事务头部和数据字段的内容。要点包括：
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -705,7 +705,7 @@ Figure 17‐16 on page 821 illustrates the contents of an MSI Memory Write Trans
 
 ## 17.3.4 Multiple Messages | 17.3.4 多消息
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -728,7 +728,7 @@ Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Deliver
 
 ## 17.4 The MSI-X Model | 17.4 MSI-X 模型
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -743,7 +743,7 @@ Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Deliver
 
 ## 17.1.1.1 General | 17.1.1.1 概述
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -762,7 +762,7 @@ Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Deliver
 
 ## MSI-X 能力结构 (Capability Structure)
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -777,17 +777,17 @@ Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Deliver
 
 Figure 17-17: MSI-X Capability Structure | 图17-17：MSI-X能力结构
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="2" style="border:2px solid #000;">Message Control</td><td style="border:2px solid #000;">Next Capability Pointer</td><td style="border:2px solid #000;">Capability ID (11h)</td></tr><tr><td colspan="3" style="border:2px solid #000;">MSI-X Table Offset</td><td style="border:2px solid #000;">Table BIR</td></tr><tr><td colspan="3" style="border:2px solid #000;">Pending Bit Array (PBA) Offset</td><td style="border:2px solid #000;">PBA BIR</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="2" style="border:2px solid #000;">Message Control</td><td style="border:2px solid #000;">Next Capability Pointer</td><td style="border:2px solid #000;">Capability ID (11h)</td></tr><tr><td colspan="3" style="border:2px solid #000;">MSI-X Table Offset</td><td style="border:2px solid #000;">Table BIR</td></tr><tr><td colspan="3" style="border:2px solid #000;">Pending Bit Array (PBA) Offset</td><td style="border:2px solid #000;">PBA BIR</td></tr></table>
 
 Table 17-3: Format and Usage of MSI-X Message Control Register | 表17-3：MSI-X消息控制寄存器格式和用法
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">10:0</td><td style="border:2px solid #000;">Table Size</td><td style="border:2px solid #000;">Read-Only. This field indicates the number of interrupt messages (vectors) that this Function supports. The value here is interpreted in an N-1 fashion, so a value of 0 means 1 vector. A value of 7 means 8 vectors. Each vector has its own entry in the MSI-X Table and its own bit in the Pending Bit Array.</td></tr><tr><td style="border:2px solid #000;">13:11</td><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Read-Only. Always zero.</td></tr><tr><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">Function Mask</td><td style="border:2px solid #000;">Read/Write. This field provides system software an easy way to mask all the interrupts from a Function. If this bit is cleared, interrupts can still be masked individually by setting the mask bit within each vector's MSI-X table entry.</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">MSI-X Enable</td><td style="border:2px solid #000;">Read/Write. State after reset is 0, indicating that the device's MSI-X capability is disabled. 0 = Function is disabled from using MSI-X. It must use MSI or INTx Messages. 1 = Function is enabled to use MSI-X to request service and won't use MSI or INTx Messages.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bit(s)</td><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">10:0</td><td style="border:2px solid #000;">Table Size</td><td style="border:2px solid #000;">Read-Only. This field indicates the number of interrupt messages (vectors) that this Function supports. The value here is interpreted in an N-1 fashion, so a value of 0 means 1 vector. A value of 7 means 8 vectors. Each vector has its own entry in the MSI-X Table and its own bit in the Pending Bit Array.</td></tr><tr><td style="border:2px solid #000;">13:11</td><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Read-Only. Always zero.</td></tr><tr><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">Function Mask</td><td style="border:2px solid #000;">Read/Write. This field provides system software an easy way to mask all the interrupts from a Function. If this bit is cleared, interrupts can still be masked individually by setting the mask bit within each vector's MSI-X table entry.</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">MSI-X Enable</td><td style="border:2px solid #000;">Read/Write. State after reset is 0, indicating that the device's MSI-X capability is disabled. 0 = Function is disabled from using MSI-X. It must use MSI or INTx Messages. 1 = Function is enabled to use MSI-X to request service and won't use MSI or INTx Messages.</td></tr></table>
 
 Figure 17-18: Location of MSI-X Table | 图17-18：MSI-X表位置
 
 <img src="images/part05_a61ab039fc1c25f2bb4bb5650ef5ba5316b371393361ed72f7fabaf2caff8faf.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -806,11 +806,11 @@ Figure 17-18: Location of MSI-X Table | 图17-18：MSI-X表位置
 
 Figure 17-19: MSI-X Table Entries | 图17-19：MSI-X表项
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">DW3</td><td style="border:2px solid #000;">DW2</td><td style="border:2px solid #000;">DW1</td><td style="border:2px solid #000;">DW0</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Vector Control</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">Upper Address</td><td style="border:2px solid #000;">Lower Address</td><td style="border:2px solid #000;">Entry 0</td></tr><tr><td style="border:2px solid #000;">Vector Control</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">Upper Address</td><td style="border:2px solid #000;">Lower Address</td><td style="border:2px solid #000;">Entry 1</td></tr><tr><td style="border:2px solid #000;">Vector Control</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">Upper Address</td><td style="border:2px solid #000;">Lower Address</td><td style="border:2px solid #000;">Entry 2</td></tr><tr><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Vector Control</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">Upper Address</td><td style="border:2px solid #000;">Lower Address</td><td style="border:2px solid #000;">Entry N-1</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">DW3</td><td style="border:2px solid #000;">DW2</td><td style="border:2px solid #000;">DW1</td><td style="border:2px solid #000;">DW0</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Vector Control</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">Upper Address</td><td style="border:2px solid #000;">Lower Address</td><td style="border:2px solid #000;">Entry 0</td></tr><tr><td style="border:2px solid #000;">Vector Control</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">Upper Address</td><td style="border:2px solid #000;">Lower Address</td><td style="border:2px solid #000;">Entry 1</td></tr><tr><td style="border:2px solid #000;">Vector Control</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">Upper Address</td><td style="border:2px solid #000;">Lower Address</td><td style="border:2px solid #000;">Entry 2</td></tr><tr><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;">....</td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">Vector Control</td><td style="border:2px solid #000;">Message Data</td><td style="border:2px solid #000;">Upper Address</td><td style="border:2px solid #000;">Lower Address</td><td style="border:2px solid #000;">Entry N-1</td></tr></table>
 
 ## 17.4.3 Pending Bit Array | 17.4.3 待处理位阵列
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -832,7 +832,7 @@ Figure 17-20: Pending Bit Array | 图17-20：待定位数组
 
 ## 17.5 Memory Synchronization When Interrupt Handler Entered | 17.5 进入中断处理程序时的内存同步 |
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -857,7 +857,7 @@ Figure 17-21: Memory Synchronization Problem | 图17-21：存储器同步问题
 
 ## 17.5.2 One Solution | 17.5.2 一种解决方案
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -876,7 +876,7 @@ Figure 17-21: Memory Synchronization Problem | 图17-21：存储器同步问题
 
 ## 17.5.3 An MSI Solution | 17.5.3 MSI 解决方案
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -895,7 +895,7 @@ Figure 17-21: Memory Synchronization Problem | 图17-21：存储器同步问题
 
 ## 17.5.4 Traffic Classes Must Match | 17.5.4 流量类别必须匹配
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -912,7 +912,7 @@ Figure 17-21: Memory Synchronization Problem | 图17-21：存储器同步问题
 Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
 <img src="images/part05_f4510f5bc1c4bdc1a4a120ba4d49872937b73e292092f5a5f4adf055e7e0aaac.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -930,7 +930,7 @@ Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
 
 ## MSI 可能导致错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -947,7 +947,7 @@ Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
 
 ### Bilingual Translation
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
@@ -970,7 +970,7 @@ Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
 
 ## 17.9 Special Consideration for Base System Peripherals | 17.9 基础系统外设的特殊考虑
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -985,7 +985,7 @@ Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>

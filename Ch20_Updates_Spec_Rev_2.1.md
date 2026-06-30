@@ -1,6 +1,6 @@
 # Ch20_Updates_Spec_Rev_2.1
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -15,7 +15,7 @@
 
 ## Previous Chapter | 上一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -30,7 +30,7 @@
 
 ## This Chapter | 本章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -45,7 +45,7 @@
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -60,7 +60,7 @@
 
 ## 20.1 Changes for PCIe Spec Rev 2.1 | 20.1 PCIe 规范 Rev 2.1 的变更
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -75,7 +75,7 @@
 
 ## 20.2 System Redundancy Improvement: Multi-casting | 20.2 系统冗余改进：多播
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -92,7 +92,7 @@ Figure 20‑1: Multicast System Example | 图20‑1：多播系统示例
 
 <img src="images/part06_c5b66a4706e3fd9144b74bc07b66e788abd7a2a5ad128535a1ee6bb81d80dc84.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -110,7 +110,7 @@ Figure 20‑2: Multicast Capability Registers | 图20‑2：多播能力寄存�
 
 <img src="images/part06_42362d1a7be73eba81745721c9bac8e9a5e97fac7aab87c3928bcf8aad990e93.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -126,7 +126,7 @@ Figure 20‑2: Multicast Capability Registers | 图20‑2：多播能力寄存�
 
 ## 20.2.1.1 Multicast Capability | 20.2.1.1 多播能力
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -143,7 +143,7 @@ Figure 20-3: Multicast Capability Register | 图20-3：多播能力寄存器
 
 <img src="images/part06_acd9d0fc86bfc589e7e16139f3306df457c9dc9f54cfd05e2675e116ee8c870e.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -158,7 +158,7 @@ Figure 20-3: Multicast Capability Register | 图20-3：多播能力寄存器
 
 ## 20.2.1.2 Multicast Control | 20.2.1.2 多播控制
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -175,7 +175,7 @@ Figure 20‐4: Multicast Control Register | 图20‐4：多播控制寄存器
 
 <img src="images/part06_486605100e9b5168197b06888191506149a26f486f353e24016131575dea7b88.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -192,7 +192,7 @@ Figure 20‐4: Multicast Control Register | 图20‐4：多播控制寄存器
 Figure 20‐5: Multicast Base Address Register | 图20‐5：多播基地址寄存器  
 <img src="images/part06_21c71727a30fb0a924fcceb103c2b76a35374e0512b4bcb9db3d80ef662a68c0.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -210,7 +210,7 @@ Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位�
 
 ## 20.2.1.3 MC Receive | 20.2.1.3 MC 接收
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -225,7 +225,7 @@ Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位�
 
 ## 20.2.1.4 MC Block All | 20.2.1.4 MC 全部阻止
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -240,7 +240,7 @@ Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位�
 
 ## 20.2.1.5 MC Block Untranslated | 20.2.1.5 MC 阻止未翻译
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -257,7 +257,7 @@ Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位�
 
 ## 20.2.2 Multicast Example | 20.2.2 多播示例
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -282,7 +282,7 @@ Figure 20-7: Multicast Address Example | 图20-7：多播地址示例
 
 ## 20.2.3 MC Overlay BAR | 20.2.3 MC 覆盖 BAR
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -298,11 +298,11 @@ Figure 20-7: Multicast Address Example | 图20-7：多播地址示例
 
 Figure 20‑8: Multicast Overlay BAR | 图20‑8：多播覆盖BAR
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">31</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">0</td></tr><tr><td colspan="2" style="border:2px solid #000;">MC_Overlay_BAR [31:6]</td><td colspan="2" style="border:2px solid #000;">MC_Overlay_Size</td></tr><tr><td colspan="4" style="border:2px solid #000;">MC_Overlay_BAR [63:32]</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">31</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">0</td></tr><tr><td colspan="2" style="border:2px solid #000;">MC_Overlay_BAR [31:6]</td><td colspan="2" style="border:2px solid #000;">MC_Overlay_Size</td></tr><tr><td colspan="4" style="border:2px solid #000;">MC_Overlay_BAR [63:32]</td></tr></table>
 
 ## 20.2.4 Overlay Example | 20.2.4 覆盖示例
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -322,7 +322,7 @@ Figure 20‐9: Overlay Example | 图20‐9：覆盖示例
 
 ## 20.2.5 Routing Multicast TLPs | 20.2.5 路由多播TLP
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -338,7 +338,7 @@ Figure 20‐9: Overlay Example | 图20‐9：覆盖示例
 
 ## 20.2.6 Congestion Avoidance | 20.2.6 拥塞避免
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -353,7 +353,7 @@ Figure 20‐9: Overlay Example | 图20‐9：覆盖示例
 
 ## 20.3 Performance Improvements | 20.3 性能改进
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -370,7 +370,7 @@ Figure 20‐9: Overlay Example | 图20‐9：覆盖示例
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -398,7 +398,7 @@ Figure 20‐10: Device Capabilities 2 Register | 图20‐10：设备能力2寄�
 
 ## 20.3.2 TPH (TLP Processing Hints) | 20.3.2 TPH（TLP 处理提示）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -411,7 +411,7 @@ Figure 20‐10: Device Capabilities 2 Register | 图20‐10：设备能力2寄�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -426,7 +426,7 @@ Figure 20‐10: Device Capabilities 2 Register | 图20‐10：设备能力2寄�
 
 ## 20.3.2.1 TPH Examples | 20.3.2.1 TPH 示例
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Device Write to Host Read. To help clarify the motivation for TPH, consider the example shown in Figure 20‐11 on page 901. Here the Endpoint is writing data into memory for later use by the CPU. The sequence is as follows:
@@ -437,7 +437,7 @@ Device Write to Host Read. To help clarify the motivation for TPH, consider the 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. First, the Endpoint sends a memory write TLP containing an address that maps to the system memory. The packet gets routed to the Root Complex (RC).
@@ -448,7 +448,7 @@ Device Write to Host Read. To help clarify the motivation for TPH, consider the 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 2. The RC recognizes this as an access to a cacheable memory space and pauses its progress while it snoops the CPU cache. This may result in a write‐back cycle from the CPU to update the system memory before the transaction can proceed, and this is shown as step 2a.
@@ -459,7 +459,7 @@ Device Write to Host Read. To help clarify the motivation for TPH, consider the 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 3. Once any write backs have finished, the RC allows the write to update the system memory.
@@ -470,7 +470,7 @@ Device Write to Host Read. To help clarify the motivation for TPH, consider the 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 4. At some point, the Endpoint notifies the CPU about data delivery.
@@ -481,7 +481,7 @@ Device Write to Host Read. To help clarify the motivation for TPH, consider the 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 5. Finally, the CPU fetches the data from memory to complete the sequence.
@@ -495,7 +495,7 @@ Device Write to Host Read. To help clarify the motivation for TPH, consider the 
 Figure 20‐11: TPH Example | 图20‐11：TPH示例  
 <img src="images/part06_46f8af8067dccb7f406e6b5f6312245c03cd2ee05a769589ed46a667c24b857d.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This sequence works but there's an opportunity for performance improvement by adding an intermediate cache in the system. To illustrate this, consider the example shown in Figure 20‐12 on page 902. From the perspective of the Endpoint, the operation is the same but the knows to handle it a differently. The steps now are as follows:
@@ -506,7 +506,7 @@ This sequence works but there's an opportunity for performance improvement by ad
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. The Endpoint does the same memory write but this time TPH bits are included. The write is forwarded to the RC by the Switch as before.
@@ -517,7 +517,7 @@ This sequence works but there's an opportunity for performance improvement by ad
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 2. The RC understands that this memory access must be snooped to the CPU as before. However, once the snoop has been handled, the RC is informed by the TPH bits to store this TLP in an intermediate cache rather than going to system memory.
@@ -528,7 +528,7 @@ This sequence works but there's an opportunity for performance improvement by ad
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 3. The Endpoint notifies the CPU that the data item has been delivered.
@@ -539,7 +539,7 @@ This sequence works but there's an opportunity for performance improvement by ad
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 4. The CPU reads from the specified address, but now the data is found in the intermediate cache and so the request does not go to system memory. This has the usual benefits we'd expect from a cache design: faster access time as well as reduced traffic for the system memory.
@@ -550,7 +550,7 @@ This sequence works but there's an opportunity for performance improvement by ad
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This is a simple Device Write to Host Read (DWHR) example to illustrate the concept but it wouldn't be hard to imagine a more complex system with a much larger topology in which there could be other caches placed in Switches or other locations to achieve the same benefits for other targets.
@@ -564,7 +564,7 @@ This is a simple Device Write to Host Read (DWHR) example to illustrate the conc
 Figure 20‐12: TPH Example with System Cache | 图20‐12：带系统缓存的TPH示例  
 <img src="images/part06_dc3acfa9fc127750cf49c912aa35a41135e7784dd6ba7e02af40a4f6c0852658.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Host Write to Device Read. To illustrate the concept going the other way (called Host Write to Device Read or HWDR), consider the example shown in Figure 20‐13 on page 903. In this example, the CPU initiates a memory write whose address targets the PCIe Endpoint in step one. The packet contains TPH bits that tell the RC that it should be stored in an intermediate cache near the target, instead of the cache in the RC that was used in the previous example. In this case a cache built into the Switch serves the purpose. The TLP is then forwarded on to the target Endpoint in step two. This model is beneficial when the data is updated infrequently but read often by the Endpoint. That allows several memory reads that would normally go to system memory to be handled by the cache instead, off loading both the Link from the Switch to the RC and the path to memory.
@@ -578,7 +578,7 @@ Host Write to Device Read. To illustrate the concept going the other way (called
 Figure 20‐13: TPH Usage for TLPs to Endpoint | 图20‐13：TPH在到端点的TLP中的使用  
 <img src="images/part06_8bdff8cf16b9c4b579a1b72f34cfe9194b15ca2028f765db20af4086de418717.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Device to Device. One last example is illustrated in Figure 20‐14 on page 904, where two Endpoints communicate with each other (called Device Read/ Write to Device Read/Write or D\*D\*) through a shared memory location that is directed by TPH bits to an intermediate cache. In this case, both may update different locations that they need to handle as "read mostly", or one Endpoint may update data that the other needs to read several times. In both cases, using the intermediate cache improves system performance.
@@ -589,7 +589,7 @@ Device to Device. One last example is illustrated in Figure 20‐14 on page 904,
 </tr>
 </table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -607,7 +607,7 @@ Device to Device. One last example is illustrated in Figure 20‐14 on page 904,
 
 ## 20.3.2.2 TPH Header Bits | 20.3.2.2 TPH 头部比特位
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -625,15 +625,15 @@ Device to Device. One last example is illustrated in Figure 20‐14 on page 904,
 
 Figure 20‐15: TPH Header Bits | 图20‐15：TPH头部位
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="4" style="border:2px solid #000;">+1</td><td colspan="4" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">F</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">T</td><td style="border:2px solid #000;">EP</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="8" style="border:2px solid #000;">Requester ID</td><td colspan="3" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">Last DW BE</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="12" style="border:2px solid #000;">Address [63:32]</td></tr><tr><td style="border:2px solid #000;">Byte 12</td><td colspan="12" style="border:2px solid #000;">Address [31:2]</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="4" style="border:2px solid #000;">+1</td><td colspan="4" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">F</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">T</td><td style="border:2px solid #000;">EP</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="8" style="border:2px solid #000;">Requester ID</td><td colspan="3" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">Last DW BE</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="12" style="border:2px solid #000;">Address [63:32]</td></tr><tr><td style="border:2px solid #000;">Byte 12</td><td colspan="12" style="border:2px solid #000;">Address [31:2]</td></tr></table>
 
 Table 20‐1: PH Encoding Table | 表20‐1：PH编码表
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">PH [1:0]</td><td style="border:2px solid #000;">Processing Hint</td><td style="border:2px solid #000;">Usage Model</td></tr><tr><td style="border:2px solid #000;">00b</td><td style="border:2px solid #000;">Bi-directional data structure</td><td style="border:2px solid #000;">Indicates frequent read/write access by Host and device.</td></tr><tr><td style="border:2px solid #000;">01b</td><td style="border:2px solid #000;">Requester</td><td style="border:2px solid #000;">D*D* (device-to-device transfers). Indicates frequent read/write access by device. The asterisk means either device could be reading or writing.</td></tr><tr><td style="border:2px solid #000;">10b</td><td style="border:2px solid #000;">Target</td><td style="border:2px solid #000;">DWHR, HWDR (device-to-host or host-to-device transfers). Indicates frequent read/write access by Host.</td></tr><tr><td style="border:2px solid #000;">11b</td><td style="border:2px solid #000;">Target with Priority</td><td style="border:2px solid #000;">Same as Target but with additional temporal re-use priority information. Indicates frequent read/write access by Host and high temporal locality for accessed data.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">PH [1:0]</td><td style="border:2px solid #000;">Processing Hint</td><td style="border:2px solid #000;">Usage Model</td></tr><tr><td style="border:2px solid #000;">00b</td><td style="border:2px solid #000;">Bi-directional data structure</td><td style="border:2px solid #000;">Indicates frequent read/write access by Host and device.</td></tr><tr><td style="border:2px solid #000;">01b</td><td style="border:2px solid #000;">Requester</td><td style="border:2px solid #000;">D*D* (device-to-device transfers). Indicates frequent read/write access by device. The asterisk means either device could be reading or writing.</td></tr><tr><td style="border:2px solid #000;">10b</td><td style="border:2px solid #000;">Target</td><td style="border:2px solid #000;">DWHR, HWDR (device-to-host or host-to-device transfers). Indicates frequent read/write access by Host.</td></tr><tr><td style="border:2px solid #000;">11b</td><td style="border:2px solid #000;">Target with Priority</td><td style="border:2px solid #000;">Same as Target but with additional temporal re-use priority information. Indicates frequent read/write access by Host and high temporal locality for accessed data.</td></tr></table>
 
 ## 20.3.2.3 Steering Tags | 20.3.2.3 导向标签
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -648,9 +648,9 @@ Table 20‐1: PH Encoding Table | 表20‐1：PH编码表
 
 Figure 20-16: TPH Requester Capability Structure | 图20-16：TPH请求者能力结构
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">PCI Express Capabilities Register</td><td style="border:2px solid #000;">Next Cap Pointer</td><td style="border:2px solid #000;">PCI Express Cap ID (17h)</td></tr><tr><td colspan="3" style="border:2px solid #000;">TPH Requester Capability Register</td></tr><tr><td colspan="3" style="border:2px solid #000;">TPH Requester Control Register</td></tr><tr><td colspan="3" style="border:2px solid #000;">TPH ST Table (optional)(Sized by number of ST entries)</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">PCI Express Capabilities Register</td><td style="border:2px solid #000;">Next Cap Pointer</td><td style="border:2px solid #000;">PCI Express Cap ID (17h)</td></tr><tr><td colspan="3" style="border:2px solid #000;">TPH Requester Capability Register</td></tr><tr><td colspan="3" style="border:2px solid #000;">TPH Requester Control Register</td></tr><tr><td colspan="3" style="border:2px solid #000;">TPH ST Table (optional)(Sized by number of ST entries)</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -666,7 +666,7 @@ Figure 20-16: TPH Requester Capability Structure | 图20-16：TPH请求者能力
 Figure 20‐17: TPH Capability and Control Registers | 图20‐17：TPH能力和控制寄存器
 <img src="images/part06_f2751ae1b9737f137986eecb5a887722e61077b755c3fb05ded33d3f0e06e0dd.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -679,11 +679,11 @@ Figure 20‐17: TPH Capability and Control Registers | 图20‐17：TPH能力和
 </table>
 
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bits [10:9]</td><td style="border:2px solid #000;">ST Table Location</td></tr><tr><td style="border:2px solid #000;">00b</td><td style="border:2px solid #000;">Not present</td></tr><tr><td style="border:2px solid #000;">01b</td><td style="border:2px solid #000;">Located in the Requester Capability structure</td></tr><tr><td style="border:2px solid #000;">10b</td><td style="border:2px solid #000;">Located in the MSI-X table</td></tr><tr><td style="border:2px solid #000;">11b</td><td style="border:2px solid #000;">Reserved</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bits [10:9]</td><td style="border:2px solid #000;">ST Table Location</td></tr><tr><td style="border:2px solid #000;">00b</td><td style="border:2px solid #000;">Not present</td></tr><tr><td style="border:2px solid #000;">01b</td><td style="border:2px solid #000;">Located in the Requester Capability structure</td></tr><tr><td style="border:2px solid #000;">10b</td><td style="border:2px solid #000;">Located in the MSI-X table</td></tr><tr><td style="border:2px solid #000;">11b</td><td style="border:2px solid #000;">Reserved</td></tr></table>
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -702,11 +702,11 @@ Figure 20‐17: TPH Capability and Control Registers | 图20‐17：TPH能力和
 
 Figure 20-18: TPH Capability ST Table | 图20-18：TPH能力ST表
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">ST Upper Entry (1)</td><td style="border:2px solid #000;">ST Lower Entry (1)</td><td style="border:2px solid #000;">ST Upper Entry (0)</td><td style="border:2px solid #000;">ST Lower Entry (0)</td></tr><tr><td style="border:2px solid #000;">ST Upper Entry (3)</td><td style="border:2px solid #000;">ST Lower Entry (3)</td><td style="border:2px solid #000;">ST Upper Entry (2)</td><td style="border:2px solid #000;">ST Lower Entry (2)</td></tr><tr><td style="border:2px solid #000;">ST Upper Entry(Table Size)</td><td style="border:2px solid #000;">ST Lower Entry(Table Size)</td><td style="border:2px solid #000;">ST Upper Entry(Table Size - 1)</td><td style="border:2px solid #000;">ST Lower Entry(Table Size - 1)</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">ST Upper Entry (1)</td><td style="border:2px solid #000;">ST Lower Entry (1)</td><td style="border:2px solid #000;">ST Upper Entry (0)</td><td style="border:2px solid #000;">ST Lower Entry (0)</td></tr><tr><td style="border:2px solid #000;">ST Upper Entry (3)</td><td style="border:2px solid #000;">ST Lower Entry (3)</td><td style="border:2px solid #000;">ST Upper Entry (2)</td><td style="border:2px solid #000;">ST Lower Entry (2)</td></tr><tr><td style="border:2px solid #000;">ST Upper Entry(Table Size)</td><td style="border:2px solid #000;">ST Lower Entry(Table Size)</td><td style="border:2px solid #000;">ST Upper Entry(Table Size - 1)</td><td style="border:2px solid #000;">ST Lower Entry(Table Size - 1)</td></tr></table>
 
 ## 20.3.2.4 TLP Prefixes | 20.3.2.4 TLP 前缀
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -721,11 +721,11 @@ Figure 20-18: TPH Capability ST Table | 图20-18：TPH能力ST表
 
 Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="5" style="border:2px solid #000;">+1</td><td colspan="5" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">TDP</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td><td colspan="2" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="9" style="border:2px solid #000;">Requester ID</td><td colspan="3" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">Last DWBE</td><td style="border:2px solid #000;">1st DWBE</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="14" style="border:2px solid #000;">Address [63:32]</td></tr><tr><td style="border:2px solid #000;">Byte 12</td><td colspan="13" style="border:2px solid #000;">Address [31:2]</td><td style="border:2px solid #000;">PH</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="5" style="border:2px solid #000;">+1</td><td colspan="5" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">TDP</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td><td colspan="2" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="9" style="border:2px solid #000;">Requester ID</td><td colspan="3" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">Last DWBE</td><td style="border:2px solid #000;">1st DWBE</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="14" style="border:2px solid #000;">Address [63:32]</td></tr><tr><td style="border:2px solid #000;">Byte 12</td><td colspan="13" style="border:2px solid #000;">Address [31:2]</td><td style="border:2px solid #000;">PH</td></tr></table>
 
 ## 20.3.3 IDO (ID-based Ordering) | 20.3.3 IDO（基于 ID 的排序）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -740,7 +740,7 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 
 ## 20.3.4 ARI (Alternative Routing-ID Interpretation) | 20.3.4 ARI（替代路由ID解读）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -761,7 +761,7 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 
 ## 20.4 Power Management Improvements | 20.4 电源管理改进
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -776,7 +776,7 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 
 ## 20.4.1 DPA (Dynamic Power Allocation) | 20.4.1 DPA（动态功率分配）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -789,7 +789,7 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -805,7 +805,7 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 
 ## 20.4.3 OBFF (Optimized Buffer Flush and Fill) | 20.4.3 OBFF（优化缓冲区刷新与填充）
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Similarly, allowing the system to report the preferred time slots during which Endpoints should or should not initiate DMA or interrupt traffic helps coordinate system sleep times and improve power management. For more on this, see "OBFF (Optimized Buffer Flush and Fill)" on page 776.
@@ -818,7 +818,7 @@ Similarly, allowing the system to report the preferred time slots during which E
 
 ## 20.4.4 ASPM Options | 20.4.4 ASPM 选项
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -831,7 +831,7 @@ Similarly, allowing the system to report the preferred time slots during which E
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -847,7 +847,7 @@ Similarly, allowing the system to report the preferred time slots during which E
 
 ## 20.5.1 Internal Error Reporting | 20.5.1 内部错误报告
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -864,7 +864,7 @@ Similarly, allowing the system to report the preferred time slots during which E
 
 ## 20.5.2 Resizable BARs | 20.5.2 可调整大小的 BAR
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -887,7 +887,7 @@ Figure 20‐20: Resizable BAR Registers / 图 20‐20：可调整大小的 BAR �
 
 ## 20.5.2.1 Capability Register | 20.5.2.1 能力寄存器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -910,7 +910,7 @@ Figure 20-21: Resizable BAR Capability Register | 图20-21：可调整大小BAR�
 
 ## Control Register | 控制寄存器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -926,7 +926,7 @@ Figure 20-21: Resizable BAR Capability Register | 图20-21：可调整大小BAR�
 Figure 20‐22: Resizable BAR Control Register | 图20‐22：可调整大小BAR控制寄存器  
 <img src="images/part06_42bf9a29173342c26de98486d6e42bd79800d8d24142e1b7d08dbf44d33b0d18.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -942,7 +942,7 @@ Figure 20‐22: Resizable BAR Control Register | 图20‐22：可调整大小BAR
 Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置头中的BAR  
 <img src="images/part06_bf5642ad8ee7bab529f8d109c732bdbc9185d3392acba41074c0bbe132d75e17.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -957,7 +957,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -970,7 +970,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -984,7 +984,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1002,7 +1002,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1017,7 +1017,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 
 ## 99.2.1 RTL Simulation Perspective | 99.2.1 RTL 仿真视角
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1032,7 +1032,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 
 ## 99.2.2 PCI Express RTL Bus Monitor | 99.2.2 PCI Express RTL 总线监视器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1047,7 +1047,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 
 ## 99.2.3 RTL vector export to PETracer Application | 99.2.3 RTL 向量导出到 PETracer 应用
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1061,7 +1061,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1074,7 +1074,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1099,7 +1099,7 @@ Figure A‐1: LeCroy Oscilloscope with ProtoSync Software Option | 图A‐1：�
 
 ## 99.3.2 Protocol Analyzer | 99.3.2 协议分析仪
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1116,7 +1116,7 @@ Figure A‐1: LeCroy Oscilloscope with ProtoSync Software Option | 图A‐1：�
 
 ## 99.3.3 Logic Analyzer | 99.3.3 逻辑分析仪
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1134,7 +1134,7 @@ Figure A‐1: LeCroy Oscilloscope with ProtoSync Software Option | 图A‐1：�
 
 ## 99.4 Using a Protocol Analyzer Probing Option | 99.4 使用协议分析仪探测选项
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1152,7 +1152,7 @@ Figure A‐1: LeCroy Oscilloscope with ProtoSync Software Option | 图A‐1：�
 Figure A-2: LeCroy PCI Express Slot Interposer x16 | 图A-2：LeCroy PCI Express插槽内插板x16
 <img src="images/part06_a824c247f5e1832ba1a0dbda8bbb952b76f4d98b36a17a519855edf0c26c7b6b.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1168,7 +1168,7 @@ Figure A-2: LeCroy PCI Express Slot Interposer x16 | 图A-2：LeCroy PCI Express
 Figure A-3: LeCroy XMC, AMC, and Mini Card Interposers | 图A-3：LeCroy XMC、AMC和Mini Card内插板
 <img src="images/part06_3f1f3177d7c3580d03ba2a269ede7721fdde0649868789d2a6b3c7a14db806fc.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1184,7 +1184,7 @@ Figure A-3: LeCroy XMC, AMC, and Mini Card Interposers | 图A-3：LeCroy XMC、A
 Figure A-4: LeCroy PCI Express Gen3 Mid-Bus Probe | 图A-4：LeCroy PCI Express Gen3总线中间探头
 <img src="images/part06_aed82c2e0e0bf42268178501d60cb2b67f960d5425e46a46c4614d4e07e33693.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1200,7 +1200,7 @@ Figure A-4: LeCroy PCI Express Gen3 Mid-Bus Probe | 图A-4：LeCroy PCI Express 
 Figure A-5: LeCroy PCI Express Gen2 Flying Lead Probe | 图A-5：LeCroy PCI Express Gen2飞线探头
 <img src="images/part06_e0acc98dd94fc30917b013f3fa880ff6d4fe74690d210017a30826eba95c6b7b.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1213,7 +1213,7 @@ Figure A-5: LeCroy PCI Express Gen2 Flying Lead Probe | 图A-5：LeCroy PCI Expr
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1229,7 +1229,7 @@ Figure A-5: LeCroy PCI Express Gen2 Flying Lead Probe | 图A-5：LeCroy PCI Expr
 Figure A-6: TLP Packet with ECRC Error | 图A-6：含ECRC错误的TLP数据包  
 <img src="images/part06_f3e8b4f925f7ce5f9643abfcc72742fb65a76e3ab12cb80a2a8c566723277857.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1245,7 +1245,7 @@ Figure A-6: TLP Packet with ECRC Error | 图A-6：含ECRC错误的TLP数据包
 Figure A-7: "Link Level" Groups TLP Packets with their Link Layer Response | 图A-7："链路级别"将TLP数据包与其链路层响应分组  
 <img src="images/part06_43b8b3cb9fa74ebf5301ea58b79b5983ba93e4ba6f20884125f2f8199d058563.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1261,7 +1261,7 @@ Figure A-7: "Link Level" Groups TLP Packets with their Link Layer Response | 图
 Figure A-8: "Split Level" Groups Completions with Associated Non-Posted Request | 图A-8："拆分级别"将完成与关联的非投递请求分组  
 <img src="images/part06_699bc3cab83166595fc0510017c197434f2f8de24a18d2e3c63d35088df90ce7.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1277,7 +1277,7 @@ Figure A-8: "Split Level" Groups Completions with Associated Non-Posted Request 
 Figure A-9: "Compact View" Collapses Related Packets for Easy Viewing of Link Training | 图A-9："紧凑视图"折叠相关数据包以便于查看链路训练  
 <img src="images/part06_6557f747b954daf86767a3c0fcec6605bd1f0203374312f9dd0f6292a29d92f5.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1299,7 +1299,7 @@ Figure A-10: LTSSM Graph Shows Link State Transitions Across the Trace | 图A-10
 
 ## 99.5.3 Flow Control Credit Tracking | 99.5.3 流控信用跟踪
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1319,7 +1319,7 @@ Figure A-11: Flow Control Credit Tracking | 图A-11：流控信用量跟踪
 
 ## 99.5.4 Bit Tracer | 99.5.4 位追踪器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1337,7 +1337,7 @@ Figure A-11: Flow Control Credit Tracking | 图A-11：流控信用量跟踪
 Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer视图
 <img src="images/part06_32acbc40b344bfad018991596c20bdb96beda691ecf83baa5112b5024563895a.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1351,7 +1351,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1365,7 +1365,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1380,7 +1380,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 
 ## 99.6.1 Pre-Silicon | 99.6.1 硅前
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1393,7 +1393,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1408,7 +1408,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 
 ## Exerciser Card | 练习卡
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1427,7 +1427,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 Figure A‐13: LeCroy Gen3 PETrainer Exerciser Card | 图A‐13：LeCroy Gen3 PETrainer训练卡  
 <img src="images/part06_fe9de6f68b8c2df77585c842703d289e746b886d39f06a0ac25f2aa98dea6289.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1448,7 +1448,7 @@ Figure A‑14: LeCroy Gen2 Protocol Test Card (PTC) | 图A‑14：LeCroy Gen2协
 
 ## 99.7 Conclusion | 99.7 结论
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1464,7 +1464,7 @@ Figure A‑14: LeCroy Gen2 Protocol Test Card (PTC) | 图A‑14：LeCroy Gen2协
 
 # Appendix B: Markets & Applications for PCI Express
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1480,7 +1480,7 @@ Figure A‑14: LeCroy Gen2 Protocol Test Card (PTC) | 图A‑14：LeCroy Gen2协
 
 ## 99.1 Introduction | 99.1 引言
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1503,7 +1503,7 @@ Figure A‑14: LeCroy Gen2 Protocol Test Card (PTC) | 图A‑14：LeCroy Gen2协
 
 ## Chapter : Appendix B: Markets & Applications for PCI | 附录 B：PCI 市场与应用
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1518,7 +1518,7 @@ Figure A‑14: LeCroy Gen2 Protocol Test Card (PTC) | 图A‑14：LeCroy Gen2协
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1538,7 +1538,7 @@ Figure B-1: MR-IOV Switch Usage | 图B-1：MR-IOV交换机用途
 
 <img src="images/part06_96a163a352f0d6bdfeb152fbc9235f345889ca2e07d1390c473b1baeca0607a0.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1554,7 +1554,7 @@ Figure B-1: MR-IOV Switch Usage | 图B-1：MR-IOV交换机用途
 ## 99.3 Multi-Root (MR) PCIe Switch Solution | 99.3 多根（MR）PCIe 交换机解决方案
 ## 99.3 Multi-Root (MR) PCIe Switch Solution | 99.3 多根(MR)PCIe交换机解决方案
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1572,7 +1572,7 @@ Figure 0‑2:  MR‑IOV Switch Internal Architecture | 图0‑2：MR-IOV交换�
 
 <img src="images/part06_01e23cd1e85edb410102ef8a999ae1c6cf5d91d36573530905b263a357eee4ed.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1593,7 +1593,7 @@ Figure B-3: PCIe in a Data Center for HPC Applications | 图B-3：数据中心�
 
 ## SSD | Storage IO Expansion Boxes / SSD/存储IO扩展盒
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1606,7 +1606,7 @@ Figure B-3: PCIe in a Data Center for HPC Applications | 图B-3：数据中心�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1624,7 +1624,7 @@ Figure B-4: PCIe Switch Application in an SSD Add-In Card | 图B-4：SSD插件�
 
 <img src="images/part06_ee09497ae91f0c372cb1e5b1789454ff566cf497563f6a3015a06f2498251497.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1641,7 +1641,7 @@ Figure B-5: Server Motherboard Use PCIe Switches | 图B-5：使用PCIe交换机�
 
 <img src="images/part06_45025c5c26c2077c2b463bbfdb015444fe94580e8ecded23a65f5e8088c33341.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1660,7 +1660,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 
 ## 99.7 Conclusion | 99.7 结论
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1676,7 +1676,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 
 # Implementing Intelligent Adapters and Multi‐Host Systems With PCI Express Technology
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1692,7 +1692,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 
 ## 99.1 Introduction | 99.1 引言
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1706,7 +1706,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1721,7 +1721,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 
 ## 99.2.1 Intelligent Adapters | 99.2.1 智能适配器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1737,7 +1737,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 
 ## 99.2.2 Host Failover | 99.2.2 主机故障切换
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1754,7 +1754,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 
 ## Chapter : Appendix C: Implementing Intelligent Adapt- | 附录 C：实现智能适配器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1769,7 +1769,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 
 ## 99.2.3 Multiprocessor Systems | 99.2.3 多处理器系统
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1789,7 +1789,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 
 ## 99.3 The History Multi-Processor Implementations Using PCI | 99.3 使用 PCI 的多处理器实现历史
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1812,7 +1812,7 @@ Figure C-1: Enumeration Using Transparent Bridges | 图C-1：使用透明桥的�
 
 ## Implementing Multi-host | Intelligent Adapters in PCI Express Base Systems / 在 PCI Express 基础系统中实现多主机/智能适配器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1834,7 +1834,7 @@ Address translation can be done by Direct Address Translation (essentially repla
 
 Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple windows spread across system memory space for packet originated in a local I/O processor's domain, as well as Direct Address Translation used to create a single window in the opposite direction.
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1847,7 +1847,7 @@ Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple 
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1863,7 +1863,7 @@ Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple 
 
 <img src="images/part06_16233cf40f4625514aa729e0d5e6ef58d10bffece04650cd6f5ca16551038551.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1881,7 +1881,7 @@ Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple 
 ## 99.4.1 Example: Implementing Intelligent Adapters in a PCI Express Base System | 99.4.1 示例：在 PCI Express 基础系统中实现智能适配器
 ## 示例：在 PCI Express 基础系统中实现智能适配器
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1901,7 +1901,7 @@ Figure C-4: Intelligent Adapters in PCI and PCI Express Systems | 图C-4：PCI�
 
 <img src="images/part06_0e0303807b2f7dda9278e3b16af14b791f92f12d8fda9ad48de3811f454afdbb.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1921,7 +1921,7 @@ Figure C-4: Intelligent Adapters in PCI and PCI Express Systems | 图C-4：PCI�
 ## 99.4.2 Example: Implementing Host Failover in a PCI Express System | 99.4.2 示例：在 PCI Express 系统中实现主机故障切换
 ## 示例：在PCI Express系统中实现主机故障切换
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1938,7 +1938,7 @@ Figure C-5: Host Failover in PCI and PCI Express Systems | 图C-5：PCI和PCI Ex
 
 <img src="images/part06_dcdfbe316f4856a23c1d4583b50d833827e3691ebefb4bde0b61800919d42d50.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1955,7 +1955,7 @@ Figure C-5: Host Failover in PCI and PCI Express Systems | 图C-5：PCI和PCI Ex
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1973,7 +1973,7 @@ Figure C-5: Host Failover in PCI and PCI Express Systems | 图C-5：PCI和PCI Ex
 
 <img src="images/part06_3e90664de5b3fa4c38071f2bcf85d67cc73ba20b85766b70b400fce321e4722b.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -1988,7 +1988,7 @@ Figure C-5: Host Failover in PCI and PCI Express Systems | 图C-5：PCI和PCI Ex
 
 ## PCI Express 3.0 Technology | PCI Express 3.0 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -2010,7 +2010,7 @@ Figure C-7: Dual-Star Fabric | 图C-7：双星型结构
 
 ## 99.5 Summary | 99.5 总结
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Through non-transparent bridging, PCI Express Base offers vendors the ability to integrate intelligent adapters and multi-host systems into their next generation designs. This appendix demonstrated how these features will be deployed using de-facto standard techniques adopted in the PCI environment and showed how they would be utilized for various applications. Because of this, we can expect this methodology to become the industry standard in the PCI Express paradigm.
@@ -2023,7 +2023,7 @@ Through non-transparent bridging, PCI Express Base offers vendors the ability to
 
 ## 99.6 Address Translation | 99.6 地址翻译
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This section provides an in-depth description of how systems that use nontransparent bridges communicate using address translation. We provide details about the mechanism by which systems determine not only the size of the memory allocated, but also about how memory pointers are employed. Implementations using both Direct Address Translation as well as Lookup Table Based Address Translation are discussed. By using the same standardized architectural implementation of non transparent bridging popularized in the PCI paradigm into the PCI Express environment, interconnect vendors can speed market adoption of PCI Express into markets requiring intelligent adapters, host failover and multihost capabilities.
@@ -2034,7 +2034,7 @@ This section provides an in-depth description of how systems that use nontranspa
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The transparent bridge uses base and limit registers in I/O space, non-prefetchable memory space, and prefetchable memory space to map transactions in the downstream direction across the bridge. All downstream devices are required to be mapped in contiguous address regions such that a single aperture in each space is sufficient. Upstream mapping is done via inverse decoding relative to the same registers. A transparent bridge does not translate the addresses of forwarded transactions/packets.
@@ -2045,7 +2045,7 @@ The transparent bridge uses base and limit registers in I/O space, non-prefetcha
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The non-transparent bridges use the standard set of BARs in their Type 0 CSR header to define apertures into the memory space on the other side of the bridge. There are two sets of BARs: one on the Primary side and one on the Secondary. BARs define resource apertures that allow the forwarding of transactions to the opposite (other side) interface.
@@ -2056,7 +2056,7 @@ The non-transparent bridges use the standard set of BARs in their Type 0 CSR hea
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 For each BAR bridge there exists a set of associated control and setup registers usually writable from the other side of the bridge. Each BAR has a "setup" register, which defines the size and type of its aperture, and an address translation register. Some bars also have a limit register that can be used to restrict its aperture's size. These registers need to be programmed prior to allowing access from outside the local subsystem. This is typically done by software running on a local processor or by loading the registers from EEPROM.
@@ -2067,7 +2067,7 @@ For each BAR bridge there exists a set of associated control and setup registers
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In PCI Express, the Transaction ID fields of packets passing through these apertures are also translated to support Device ID routing. These Device IDs are used to route completions to non-posted requests and ID routed messages.
@@ -2078,7 +2078,7 @@ In PCI Express, the Transaction ID fields of packets passing through these apert
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The transparent bridge forwards CSR transactions in the downstream direction according to the secondary and subordinate bus number registers, converting Type 1 CSRs to Type 0 CSRs as required. The non-transparent bridge accepts only those CSR transactions addressed to it and returns an unsupported request response to all others.
@@ -2091,7 +2091,7 @@ The transparent bridge forwards CSR transactions in the downstream direction acc
 
 ## 99.6.1 Direct Address Translation | 99.6.1 直接地址翻译
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The addresses of all upstream and downstream transactions are translated (except BARs accessing CSRs). With the exception of the cases in the following two sections, addresses that are forwarded from one interface to the other are translated by adding a Base Address to their offset within the BAR that they landed in as seen in Figure C-0-8 on page 959. The BAR Base Translation Registers are used to set up these base translations for the individual BARs.
@@ -2108,7 +2108,7 @@ Figure C-8: Direct Address Translation | 图C-8：直接地址转换
 
 ## 99.6.2 Lookup Table Based Address Translation | 99.6.2 基于查找表的地址转换
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Following the de facto standard adopted by the PCI community, PCI Express should provide several BARs for the purposes of allocating resources. All BARs contain the memory allocation; however, in accordance with PCI industry conventions, BAR 0 contains the CSR information whereas BAR1 contains I/O information, BAR 2 and BAR 3 are utilized for Lookup Table Based Translation. BAR 4 and BAR 5 are utilized for Direct Address Translations.
@@ -2119,7 +2119,7 @@ Following the de facto standard adopted by the PCI community, PCI Express should
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 On the secondary side, BAR3 uses a special lookup table based address translation for transactions that fall inside its window as seen in Figure C‐0‐9 on page 960. The lookup table provides more flexibility in secondary bus local addresses to primary bus addresses. The location of the index field with the address bus is programmable to adjust aperture size.
@@ -2135,7 +2135,7 @@ Figure 0‐9: Lookup Table Based Translation | 图0‐9：基于查找表的转�
 
 ## 99.6.3 Downstream BAR Limit Registers | 99.6.3 下游BAR限制寄存器
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The two downstream BARs on the primary side (BAR2/3 and BAR4/5) also have Limit registers, programmable from the local side, to further restrict the size of the window they expose, as seen in Figure C‐0‐10 on page 961. BARs can only be assigned memory resources in "power of two" granularity. The limit registers provide a means to obtain better granularity by "capping" the size of the BAR within the "power of two" granularity. Only transactions below the Limit registers are forwarded to the secondary bus. Transactions above the limit are discarded or return 0xFFFFFFFF, or a master abort equivalent packet, on reads.
@@ -2151,7 +2151,7 @@ Figure 0‐10: Use of Limit Register | 图0‐10：限制寄存器的使用
 
 ## 99.6.4 Forwarding 64bit Address Memory Transactions | 99.6.4 转发64位地址存储器事务
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Certain BARs can be configured to work in pairs to provide the base address and translation for transactions containing 64-bit addresses. Transactions that hit within these 64-bit BARs are forwarded using Direct Address Translation. As in the case of 32 bit transactions, when a memory transaction is forwarded from the primary to the secondary bus, the primary address can be mapped to another address in the secondary bus domain. The mapping is performed by substituting a new base address for the base of the original address.
@@ -2162,7 +2162,7 @@ Certain BARs can be configured to work in pairs to provide the base address and 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A 64-bit BAR pair on the system side of the bridge is used to translate a window of 64-bit addresses in packets originated on the system side of the bridge down below 232 in local space.
@@ -2177,7 +2177,7 @@ A 64-bit BAR pair on the system side of the bridge is used to translate a window
 
 ## 99.1 Introduction | 99.1 引言
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Native PCI Express implementations do not support the old lock protocol. Support for Locked transaction sequences only exists to support legacy device software executing on the host processor that performs a locked RMW (read-modify-write) operation on a memory location in a legacy PCI device. This chapter defines the protocol defined by PCI Express for this legacy support of locked access sequences that target legacy devices. Failure to support lock may result in deadlocks.
@@ -2190,7 +2190,7 @@ Native PCI Express implementations do not support the old lock protocol. Support
 
 ## 99.2 Background | 99.2 背景
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI Express supports atomic or uninterrupted transaction sequences (usually described as an atomic read-modify-write sequence) for legacy devices only. Native PCIe devices don't support this at all and will return a Completion with UR (Unsupported Request) status if they receive a locked Request.
@@ -2201,7 +2201,7 @@ PCI Express仅对遗留设备支持原子或不可中断的事务序列（通常
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Locked operations consist of the basic RMW sequence, that is:
@@ -2212,7 +2212,7 @@ Locked operations consist of the basic RMW sequence, that is:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. One or more memory reads from the target location to obtain the value.
@@ -2223,7 +2223,7 @@ Locked operations consist of the basic RMW sequence, that is:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 2. The modification of the data in a processor register.
@@ -2234,7 +2234,7 @@ Locked operations consist of the basic RMW sequence, that is:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 3. One or more writes to write the modified value back to the target memory location.
@@ -2245,7 +2245,7 @@ Locked operations consist of the basic RMW sequence, that is:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This transaction sequence must be performed such that no other accesses are permitted to the target locations (or device) during the locked sequence. This requires blocking other transactions during the operation. This can potentially result in deadlocks and poor performance.
@@ -2258,7 +2258,7 @@ This transaction sequence must be performed such that no other accesses are perm
 
 ## PCI Express Technology | PCI Express技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The devices required to support locked sequences are:
@@ -2269,7 +2269,7 @@ The devices required to support locked sequences are:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • The Root Complex.
@@ -2280,7 +2280,7 @@ The devices required to support locked sequences are:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • Any Switches in the path to a Legacy Device that may be the target of a locked transaction series.
@@ -2291,7 +2291,7 @@ The devices required to support locked sequences are:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • PCIe-to-PCI Bridge or PCIe-to-PCI-X Bridge.
@@ -2302,7 +2302,7 @@ The devices required to support locked sequences are:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • Any Legacy Device whose driver issues locked transactions to memory residing within the legacy device.
@@ -2313,7 +2313,7 @@ The devices required to support locked sequences are:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Locking in the PCI environment is achieved by the use of the LOCK# signal. The equivalent functionality in PCIe is accomplished by using a specific Request that emulates the LOCK# signal functionality.
@@ -2326,7 +2326,7 @@ Locking in the PCI environment is achieved by the use of the LOCK# signal. The e
 
 ## 99.3 The PCI Express Lock Protocol | 99.3 PCI Express锁定协议
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The only source of lock supported by PCI Express is the system processor acting through the Root Complex. A locked operation is performed between a Root Port and the Legacy Endpoint. In most systems, the legacy device is typically a PCI Express-to-PCI or PCI Express-to-PCI-X bridge. Only one locked sequence at a time is supported for a given hierarchical path.
@@ -2337,7 +2337,7 @@ PCI Express支持的唯一锁定源是通过根复合体进行操作的系统处
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Locked transactions are constrained to use only Traffic Class 0 and Virtual Channel 0. Transactions with other TC values that map to a VC other than zero are permitted to traverse the fabric without regard to the locked operation, but transactions that map to VC0 are affected by the lock rules described here.
@@ -2350,7 +2350,7 @@ Locked transactions are constrained to use only Traffic Class 0 and Virtual Chan
 
 ## Lock Messages — The Virtual Lock Signal | 锁定消息——虚拟锁定信号
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI Express defines the following transactions that, together, act as a virtual wire and replace the LOCK# signal.
@@ -2361,7 +2361,7 @@ PCI Express定义了以下事务，它们共同起到虚拟导线的作用并取
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Read Lock Request (MRdLk) — Originates a locked sequence. The first MRdLk transaction blocks other Requests in VC0 from reaching the target device. One or more of these locked read requests may be issued during the sequence.
@@ -2372,7 +2372,7 @@ Memory Read Lock Request (MRdLk) — Originates a locked sequence. The first MRd
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Read Lock Completion with Data (CplDLk) — Returns data and confirms that the path to the target is locked. A successful read Completion that returns data for the first Memory Read Lock request results in the path between the Root Complex and the target device being locked. That is, transactions traversing the same path from other ports are blocked from reaching either the root port or the target port. Transactions being routed in buffers for VC1-VC7 are unaffected by the lock.
@@ -2383,7 +2383,7 @@ Memory Read Lock Completion with Data (CplDLk) — Returns data and confirms tha
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Read Lock Completion without Data (CplLK) — A Completion without a data payload indicates that the lock sequence cannot complete currently and the path remains unlocked.
@@ -2394,7 +2394,7 @@ Memory Read Lock Completion without Data (CplLK) — A Completion without a data
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Unlock Message — An unlock message is issued by the Root Complex from the locked root port. This message unlocks the path between the root port and the target port.
@@ -2407,7 +2407,7 @@ Unlock Message — An unlock message is issued by the Root Complex from the lock
 
 ## The Lock Protocol Sequence — an Example | 锁定协议序列——示例
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This section explains the PCI Express lock protocol by example. The example includes the following devices:
@@ -2418,7 +2418,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • The Root Complex that initiates the Locked transaction series on behalf of the host processor.
@@ -2429,7 +2429,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • A Switch in the path between the root port and targeted legacy endpoint.
@@ -2440,7 +2440,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • A PCI Express-to-PCI Bridge in the path to the target.
@@ -2451,7 +2451,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • The target PCI device whose Device Driver initiated the locked RMW.
@@ -2462,7 +2462,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • A PCI Express endpoint is included to describe Switch behavior during lock.
@@ -2473,7 +2473,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In this example, the locked operation completes normally. The steps that occur during the operation are described in the two sections that follow.
@@ -2486,7 +2486,7 @@ In this example, the locked operation completes normally. The steps that occur d
 
 ## The Memory Read Lock Operation | 存储器读锁定操作
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Figure E-1 on page 967 illustrates the first step in the Locked transaction series (i.e., the initial memory read to obtain the semaphore):
@@ -2497,7 +2497,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. The CPU initiates the locked sequence (a Locked Memory Read) as a result of a driver executing a locked RMW instruction that targets a PCI target.
@@ -2508,7 +2508,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 2. The Root Port issues a Memory Read Lock Request from port 2. The Root Complex is always the source of a locked sequence.
@@ -2519,7 +2519,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 3. The Switch receives the lock request on its upstream port and forwards the request to the target egress port (3). The switch, upon forwarding the request to the egress port, must block all requests from ports other than the ingress port (1) from being sent from the egress port.
@@ -2530,7 +2530,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 4. A subsequent peer-to-peer transfer from the illustrated PCI Express endpoint to the PCI bus (switch port 2 to switch port 3) would be blocked until the lock is cleared. Note that the lock is not yet established in the other direction. Transactions from the PCI Express endpoint could be sent to the Root Complex.
@@ -2541,7 +2541,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 5. The Memory Read Lock Request is sent from the Switch's egress port to the PCI Express-to-PCI Bridge. This bridge will implement PCI lock semantics (See the MindShare book entitled PCI System Architecture, Fourth Edition, for details regarding PCI lock).
@@ -2552,7 +2552,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 6. The bridge performs the Memory Read transaction on the PCI bus with the PCI LOCK# signal asserted. The target memory device returns the requested semaphore data to the bridge.
@@ -2563,7 +2563,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 7. Read data is returned to the Bridge and is delivered back to the Switch via a Memory Read Lock Completion with Data (CplDLk).
@@ -2574,7 +2574,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 8. The switch uses ID routing to return the packet upstream towards the host processor. When the CplDLk packet is forwarded to the upstream port of the Switch, it establishes a lock in the upstream direction to prevent traffic from other ports from being routed upstream. The PCI Express endpoint is completely blocked from sending any transaction to the Switch ports via the path of the locked operation. Note that transfers between Switch ports not involved in the locked operation would be permitted (not shown in this example).
@@ -2585,7 +2585,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 9. Upon detecting the CplDLk packet, the Root Complex knows that the lock has been established along the path between it and the target device, and the completion data is sent to the CPU.
@@ -2601,7 +2601,7 @@ Figure D-1: Lock Sequence Begins with Memory Read Lock Request | 图D-1：锁定
 
 ## Read Data Modified and Written to Target and Lock Completes | 读数据被修改并写入目标，锁定完成
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The device driver receives the semaphore value, alters it, and then initiates a memory write to update the semaphore within the memory of the legacy PCI device. Figure E-2 on page 969 illustrates the write sequence followed by the Root Complex's transmission of the Unlock message that releases the lock:
@@ -2612,7 +2612,7 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 10. The Root Complex issues the Memory Write Request across the locked path to the target device.
@@ -2623,7 +2623,7 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 11. The Switch forwards the transaction to the target egress port (3). The memory address of the Memory Write must be the same as the initial Memory Read request.
@@ -2634,7 +2634,7 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 12. The bridge forwards the transaction to the PCI bus.
@@ -2645,7 +2645,7 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 13. The target device receives the memory write data.
@@ -2656,7 +2656,7 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 14. Once the Memory Write transaction is sent from the Root Complex, it sends an Unlock message to instruct the Switches and any PCI/PCI-X bridges in the locked path to release the lock. Note that the Root Complex presumes the operation has completed normally (because memory writes are posted and no Completion is returned to verify success).
@@ -2667,7 +2667,7 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 15. The Switch receives the Unlock message, unlocks its ports and forwards the message to the egress port that was locked to notify any other Switches and/or bridges in the locked path that the lock must be cleared.
@@ -2678,7 +2678,7 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 16. Upon detecting the Unlock message, the bridge must also release the lock on the PCI bus.
@@ -2694,7 +2694,7 @@ Figure D-2: Lock Completes with Memory Write Followed by Unlock Message | 图D-2
 
 ## 99.3.3 Notification of an Unsuccessful Lock | 99.3.3 不成功锁定的通知
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A locked transaction series is aborted when the initial Memory Read Lock Request receives a Completion packet with no data (CplLk). This means that the locked sequence must terminate because no data was returned. This could result from an error associated with the memory read transaction, or perhaps the target device is busy and cannot respond at this time.
@@ -2707,7 +2707,7 @@ A locked transaction series is aborted when the initial Memory Read Lock Request
 
 ## 99.4 Summary of Locking Rules | 99.4 锁定规则总结
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Following is a list of ordering rules that apply to the Root Complex, Switches, and Bridges.
@@ -2720,7 +2720,7 @@ Following is a list of ordering rules that apply to the Root Complex, Switches, 
 
 ## 99.4.1 Rules Related To the Initiation and Propagation of Locked Transactions | 99.4.1 与锁定事务发起和传播相关的规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Locked Requests which are completed with a status other than Successful Completion do not establish lock.
@@ -2731,7 +2731,7 @@ Locked Requests which are completed with a status other than Successful Completi
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Regardless of the status of any of the Completions associated with a locked sequence, all locked sequences and attempted locked sequences must be terminated by the transmission of an Unlock Message.
@@ -2742,7 +2742,7 @@ Regardless of the status of any of the Completions associated with a locked sequ
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MRdLk, CplDLk and Unlock semantics are allowed only for the default Traffic Class (TC0).
@@ -2753,7 +2753,7 @@ MRdLk、CplDLk和解锁语义仅允许用于默认流量类（TC0）。
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • Only one locked transaction sequence attempt may be in progress at a given time within a single hierarchy domain.
@@ -2764,7 +2764,7 @@ MRdLk、CplDLk和解锁语义仅允许用于默认流量类（TC0）。
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Any device which is not involved in the locked sequence must ignore the Unlock Message.
@@ -2775,7 +2775,7 @@ Any device which is not involved in the locked sequence must ignore the Unlock M
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The initiation and propagation of a locked transaction sequence through the PCI Express fabric is performed as follows:
@@ -2786,7 +2786,7 @@ The initiation and propagation of a locked transaction sequence through the PCI 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • A locked transaction sequence is started with a MRdLk Request:
@@ -2797,7 +2797,7 @@ The initiation and propagation of a locked transaction sequence through the PCI 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 — Any successive reads associated with the locked transaction sequence must also use MRdLk Requests.
@@ -2808,7 +2808,7 @@ The initiation and propagation of a locked transaction sequence through the PCI 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Completions for any successful MRdLk Request use the CplDLk Completion type, or the CPlLk Completion type for unsuccessful Requests.
@@ -2819,7 +2819,7 @@ The Completions for any successful MRdLk Request use the CplDLk Completion type,
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 If any read associated with a locked sequence is completed unsuccessfully, the Requester must assume that the atomicity of the lock is no longer assured, and that the path between the Requester and Completer is no longer locked.
@@ -2830,7 +2830,7 @@ If any read associated with a locked sequence is completed unsuccessfully, the R
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • All writes associated with a locked sequence must use MWr Requests.
@@ -2841,7 +2841,7 @@ If any read associated with a locked sequence is completed unsuccessfully, the R
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Unlock Message is used to indicate the end of a locked sequence. A Switch propagates Unlock Messages through the locked Egress Port.
@@ -2852,7 +2852,7 @@ The Unlock Message is used to indicate the end of a locked sequence. A Switch pr
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Upon receiving an Unlock Message, a legacy Endpoint or Bridge must unlock itself if it is in a locked state. If it is not locked, or if the Receiver is a PCI Express Endpoint or Bridge which does not support lock, the Unlock Message is ignored and discarded.
@@ -2865,7 +2865,7 @@ Upon receiving an Unlock Message, a legacy Endpoint or Bridge must unlock itself
 
 ## 99.4.2 Rules Related to Switches | 99.4.2 与交换机相关的规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Switches must detect transactions associated with locked sequences from other transactions to prevent other transactions from interfering with the lock and potentially causing deadlock. The following rules cover how this is done. Note that locked accesses are limited to TC0, which is always mapped to VC0.
@@ -2876,7 +2876,7 @@ Switches must detect transactions associated with locked sequences from other tr
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When a Switch propagates a MRdLk Request from an Ingress Port to the Egress Port, it must block all Requests which map to the default Virtual Channel (VC0) from being propagated to the Egress Port. If a subsequent MRdLk Request is received at this Ingress Port addressing a different Egress Port, the behavior of the Switch is undefined. Note that this sort of split-lock access is not supported by PCI Express and software must not cause such a locked access. System deadlock may result from such accesses.
@@ -2887,7 +2887,7 @@ When a Switch propagates a MRdLk Request from an Ingress Port to the Egress Port
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When the CplDLk for the first MRdLk Request is returned, if the Completion indicates a Successful Completion status, the Switch must block all Requests from all other Ports from being propagated to either of the Ports involved in the locked access, except for Requests which map to channels other than VC0 on the Egress Port.
@@ -2898,7 +2898,7 @@ When the CplDLk for the first MRdLk Request is returned, if the Completion indic
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The two Ports involved in the locked sequence must remain blocked until the Switch receives the Unlock Message (at the Ingress Port which received the initial MRdLk Request)
@@ -2909,7 +2909,7 @@ The two Ports involved in the locked sequence must remain blocked until the Swit
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 — The Unlock Message must be forwarded to the locked Egress Port.
@@ -2920,7 +2920,7 @@ The two Ports involved in the locked sequence must remain blocked until the Swit
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 — The Unlock Message may be broadcast to all other Ports.
@@ -2931,7 +2931,7 @@ The two Ports involved in the locked sequence must remain blocked until the Swit
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Ingress Port is unblocked once the Unlock Message arrives, and the Egress Port(s) which were blocked are unblocked following the transmission of the Unlock Message out of the Egress Port(s). Ports that were not involved in the locked access are unaffected by the Unlock Message.
@@ -2944,7 +2944,7 @@ The Ingress Port is unblocked once the Unlock Message arrives, and the Egress Po
 
 ## 99.4.3 Rules Related To PCI Express/PCI Bridges | 99.4.3 与PCI Express/PCI桥相关的规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The requirements for PCI Express/PCI Bridges are similar to those for Switches, except that, because these Bridges only use TC0 and VC0, all other traffic is blocked during the locked access. Requirements on the PCI bus side are described in the MindShare book, PCI System Architecture, Fourth Edition.
@@ -2957,7 +2957,7 @@ The requirements for PCI Express/PCI Bridges are similar to those for Switches, 
 
 ## 99.4.4 Rules Related To the Root Complex | 99.4.4 与根复合体相关的规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A Root Complex is permitted to support locked transactions as a Requester. If locked transactions are supported, a Root Complex must follow the rules already described to perform a locked access. The mechanism(s) used by the Root Complex to interface to the host processor's FSB (Front-Side Bus) are outside the scope of the spec.
@@ -2970,7 +2970,7 @@ A Root Complex is permitted to support locked transactions as a Requester. If lo
 
 ## 99.4.5 Rules Related To Legacy Endpoints | 99.4.5 与遗留端点相关的规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Legacy Endpoints are permitted to support locked accesses, although their use is discouraged. If locked accesses are supported, legacy Endpoints must handle them as follows:
@@ -2981,7 +2981,7 @@ Legacy Endpoints are permitted to support locked accesses, although their use is
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The legacy Endpoint becomes locked when it transmits the first Completion for the first read request of the locked transaction series access with a Successful Completion status:
@@ -2992,7 +2992,7 @@ The legacy Endpoint becomes locked when it transmits the first Completion for th
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 — If the completion status is not Successful Completion, the legacy Endpoint does not become locked.
@@ -3003,7 +3003,7 @@ The legacy Endpoint becomes locked when it transmits the first Completion for th
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 — Once locked, the legacy Endpoint must remain locked until it receives the Unlock Message.
@@ -3014,7 +3014,7 @@ The legacy Endpoint becomes locked when it transmits the first Completion for th
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 While locked, a legacy Endpoint must not issue any Requests using Traffic Classes which map to the default Virtual Channel (VC0). Note that this requirement applies to all possible sources of Requests within the Endpoint, in the case where there is more than one possible source of Requests. Requests may be issued using TCs which map to VCs other than VC0.
@@ -3027,7 +3027,7 @@ While locked, a legacy Endpoint must not issue any Requests using Traffic Classe
 
 ## 99.4.6 Rules Related To PCI Express Endpoints | 99.4.6 与PCI Express端点相关的规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Native PCI Express Endpoints do not support lock. A PCI Express Endpoint must treat a MRdLk Request as an Unsupported Request.
@@ -3042,7 +3042,7 @@ Native PCI Express Endpoints do not support lock. A PCI Express Endpoint must tr
 
 ## 99.1 Introduction | 99.1 引言
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Native PCI Express implementations do not support the old lock protocol. Support for Locked transaction sequences only exists to support legacy device software executing on the host processor that performs a locked RMW (read-modify-write) operation on a memory location in a legacy PCI device. This chapter defines the protocol defined by PCI Express for this legacy support of locked access sequences that target legacy devices. Failure to support lock may result in deadlocks.
@@ -3055,7 +3055,7 @@ Native PCI Express implementations do not support the old lock protocol. Support
 
 ## 99.2 Background | 99.2 背景
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI Express supports atomic or uninterrupted transaction sequences (usually described as an atomic read‐modify‐write sequence) for legacy devices only. Native PCIe devices don't support this at all and will return a Completion with UR (Unsupported Request) status if they receive a locked Request.
@@ -3066,7 +3066,7 @@ PCI Express仅在传统设备中支持原子性或不可中断的事务序列（
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Locked operations consist of the basic RMW sequence, that is:
@@ -3077,7 +3077,7 @@ Locked operations consist of the basic RMW sequence, that is:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. One or more memory reads from the target location to obtain the value.
@@ -3088,7 +3088,7 @@ Locked operations consist of the basic RMW sequence, that is:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 2. The modification of the data in a processor register.
@@ -3099,7 +3099,7 @@ Locked operations consist of the basic RMW sequence, that is:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 3. One or more writes to write the modified value back to the target memory location.
@@ -3110,7 +3110,7 @@ Locked operations consist of the basic RMW sequence, that is:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This transaction sequence must be performed such that no other accesses are permitted to the target locations (or device) during the locked sequence. This requires blocking other transactions during the operation. This can potentially result in deadlocks and poor performance.
@@ -3123,7 +3123,7 @@ This transaction sequence must be performed such that no other accesses are perm
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The devices required to support locked sequences are:
@@ -3150,7 +3150,7 @@ The devices required to support locked sequences are:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Locking in the PCI environment is achieved by the use of the LOCK# signal. The equivalent functionality in PCIe is accomplished by using a specific Request that emulates the LOCK# signal functionality.
@@ -3163,7 +3163,7 @@ Locking in the PCI environment is achieved by the use of the LOCK# signal. The e
 
 ## 99.3 The PCI Express Lock Protocol | 99.3 PCIe 锁定协议
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The only source of lock supported by PCI Express is the system processor acting through the Root Complex. A locked operation is performed between a Root Port and the Legacy Endpoint. In most systems, the legacy device is typically a PCI Express-to-PCI or PCI Express-to-PCI-X bridge. Only one locked sequence at a time is supported for a given hierarchical path.
@@ -3174,7 +3174,7 @@ PCI Express 支持的锁定唯一来源是通过根复合体（Root Complex）�
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Locked transactions are constrained to use only Traffic Class 0 and Virtual Channel 0. Transactions with other TC values that map to a VC other than zero are permitted to traverse the fabric without regard to the locked operation, but transactions that map to VC0 are affected by the lock rules described here.
@@ -3187,7 +3187,7 @@ Locked transactions are constrained to use only Traffic Class 0 and Virtual Chan
 
 ## Lock Messages — The Virtual Lock Signal | 锁消息 — 虚拟锁定信号
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI Express defines the following transactions that, together, act as a virtual wire and replace the LOCK# signal.
@@ -3198,7 +3198,7 @@ PCI Express 定义了以下事务，它们共同充当虚拟连线并取代 LOCK
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Read Lock Request (MRdLk) — Originates a locked sequence. The first MRdLk transaction blocks other Requests in VC0 from reaching the target device. One or more of these locked read requests may be issued during the sequence.
@@ -3209,7 +3209,7 @@ Memory Read Lock Request (MRdLk) — Originates a locked sequence. The first MRd
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Read Lock Completion with Data (CplDLk) — Returns data and confirms that the path to the target is locked. A successful read Completion that returns data for the first Memory Read Lock request results in the path between the Root Complex and the target device being locked. That is, transactions traversing the same path from other ports are blocked from reaching either the root port or the target port. Transactions being routed in buffers for VC1-VC7 are unaffected by the lock.
@@ -3220,7 +3220,7 @@ Memory Read Lock Completion with Data (CplDLk) — Returns data and confirms tha
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Read Lock Completion without Data (CplLK) — A Completion without a data payload indicates that the lock sequence cannot complete currently and the path remains unlocked.
@@ -3231,7 +3231,7 @@ Memory Read Lock Completion without Data (CplLK) — A Completion without a data
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Unlock Message — An unlock message is issued by the Root Complex from the locked root port. This message unlocks the path between the root port and the target port.
@@ -3244,7 +3244,7 @@ Unlock Message — An unlock message is issued by the Root Complex from the lock
 
 ## The Lock Protocol Sequence — an Example | 锁协议序列示例
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This section explains the PCI Express lock protocol by example. The example includes the following devices:
@@ -3255,7 +3255,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • The Root Complex that initiates the Locked transaction series on behalf of the host processor.
@@ -3266,7 +3266,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • A Switch in the path between the root port and targeted legacy endpoint.
@@ -3277,7 +3277,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • A PCI Express‐to‐PCI Bridge in the path to the target.
@@ -3288,7 +3288,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • The target PCI device who's Device Driver initiated the locked RMW.
@@ -3299,7 +3299,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • A PCI Express endpoint is included to describe Switch behavior during lock.
@@ -3310,7 +3310,7 @@ This section explains the PCI Express lock protocol by example. The example incl
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In this example, the locked operation completes normally. The steps that occur during the operation are described in the two sections that follow.
@@ -3323,7 +3323,7 @@ In this example, the locked operation completes normally. The steps that occur d
 
 ## The Memory Read Lock Operation | 存储器读锁定操作
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Figure E-1 on page 967 illustrates the first step in the Locked transaction series (i.e., the initial memory read to obtain the semaphore):
@@ -3334,7 +3334,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. The CPU initiates the locked sequence (a Locked Memory Read) as a result of a driver executing a locked RMW instruction that targets a PCI target.
@@ -3345,7 +3345,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 2. The Root Port issues a Memory Read Lock Request from port 2. The Root Complex is always the source of a locked sequence.
@@ -3356,7 +3356,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 3. The Switch receives the lock request on its upstream port and forwards the request to the target egress port (3). The switch, upon forwarding the request to the egress port, must block all requests from ports other than the ingress port (1) from being sent from the egress port.
@@ -3367,7 +3367,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 4. A subsequent peer-to-peer transfer from the illustrated PCI Express endpoint to the PCI bus (switch port 2 to switch port 3) would be blocked until the lock is cleared. Note that the lock is not yet established in the other direction. Transactions from the PCI Express endpoint could be sent to the Root Complex.
@@ -3380,7 +3380,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 
 ## PCI Express Technology | PCI Express技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 5. The Memory Read Lock Request is sent from the Switch's egress port to the PCI Express‐to‐PCI Bridge. This bridge will implement PCI lock semantics (See the MindShare book entitled PCI System Architecture, Fourth Edition, for details regarding PCI lock).
@@ -3391,7 +3391,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 6. The bridge performs the Memory Read transaction on the PCI bus with the PCI LOCK# signal asserted. The target memory device returns the requested semaphore data to the bridge.
@@ -3402,7 +3402,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 7. Read data is returned to the Bridge and is delivered back to the Switch via a Memory Read Lock Completion with Data (CplDLk).
@@ -3413,7 +3413,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 8. The switch uses ID routing to return the packet upstream towards the host processor. When the CplDLk packet is forwarded to the upstream port of the Switch, it establishes a lock in the upstream direction to prevent traffic from other ports from being routed upstream. The PCI Express endpoint is completely blocked from sending any transaction to the Switch ports via the path of the locked operation. Note that transfers between Switch ports not involved in the locked operation would be permitted (not shown in this example).
@@ -3424,7 +3424,7 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 9. Upon detecting the CplDLk packet, the Root Complex knows that the lock has been established along the path between it and the target device, and the completion data is sent to the CPU.
@@ -3440,7 +3440,7 @@ Figure D‐1: Lock Sequence Begins with Memory Read Lock Request | 图D‐1：�
 
 ## Read Data Modified and Written to Target and Lock Completes | 读取数据修改后写入目标并完成锁定
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The device driver receives the semaphore value, alters it, and then initiates a memory write to update the semaphore within the memory of the legacy PCI device. Figure E-2 on page 969 illustrates the write sequence followed by the
@@ -3453,7 +3453,7 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 
 ## PCI Express Technology | PCI Express技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Root Complex's transmission of the Unlock message that releases the lock:
@@ -3464,7 +3464,7 @@ Root Complex's transmission of the Unlock message that releases the lock:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 10. The Root Complex issues the Memory Write Request across the locked path to the target device.
@@ -3475,7 +3475,7 @@ Root Complex's transmission of the Unlock message that releases the lock:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 11. The Switch forwards the transaction to the target egress port (3). The memory address of the Memory Write must be the same as the initial Memory Read request.
@@ -3486,7 +3486,7 @@ Root Complex's transmission of the Unlock message that releases the lock:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 12. The bridge forwards the transaction to the PCI bus.
@@ -3497,7 +3497,7 @@ Root Complex's transmission of the Unlock message that releases the lock:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 13. The target device receives the memory write data.
@@ -3508,7 +3508,7 @@ Root Complex's transmission of the Unlock message that releases the lock:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 14. Once the Memory Write transaction is sent from the Root Complex, it sends an Unlock message to instruct the Switches and any PCI/PCI‐X bridges in the locked path to release the lock. Note that the Root Complex presumes the operation has completed normally (because memory writes are posted and no Completion is returned to verify success).
@@ -3519,7 +3519,7 @@ Root Complex's transmission of the Unlock message that releases the lock:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 15. The Switch receives the Unlock message, unlocks its ports and forwards the message to the egress port that was locked to notify any other Switches and/ or bridges in the locked path that the lock must be cleared.
@@ -3530,7 +3530,7 @@ Root Complex's transmission of the Unlock message that releases the lock:
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 16. Upon detecting the Unlock message, the bridge must also release the lock on the PCI bus.
@@ -3546,7 +3546,7 @@ Figure D‐2: Lock Completes with Memory Write Followed by Unlock Message | 图D
 
 ## 99.3.3 Notification of an Unsuccessful Lock | 99.3.3 锁定失败通知
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A locked transaction series is aborted when the initial Memory Read Lock Request receives a Completion packet with no data (CplLk). This means that the locked sequence must terminate because no data was returned. This could result from an error associated with the memory read transaction, or perhaps the target device is busy and cannot respond at this time.
@@ -3559,7 +3559,7 @@ A locked transaction series is aborted when the initial Memory Read Lock Request
 
 ## 99.4 Summary of Locking Rules | 99.4 锁定规则总结
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Following is a list of ordering rules that apply to the Root Complex, Switches, and Bridges.
@@ -3572,7 +3572,7 @@ Following is a list of ordering rules that apply to the Root Complex, Switches, 
 
 ## 99.4.1 Rules Related To the Initiation and Propagation of Locked Transactions | 99.4.1 锁定事务的发起与传播相关规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Locked Requests which are completed with a status other than Successful Completion do not establish lock.
@@ -3583,7 +3583,7 @@ Locked Requests which are completed with a status other than Successful Completi
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Regardless of the status of any of the Completions associated with a locked sequence, all locked sequences and attempted locked sequences must be terminated by the transmission of an Unlock Message.
@@ -3594,7 +3594,7 @@ Regardless of the status of any of the Completions associated with a locked sequ
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MRdLk, CplDLk and Unlock semantics are allowed only for the default Traffic Class (TC0).
@@ -3605,7 +3605,7 @@ MRdLk、CplDLk 和 Unlock 语义仅允许用于默认流量类 (TC0)。
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • Only one locked transaction sequence attempt may be in progress at a given time within a single hierarchy domain.
@@ -3616,7 +3616,7 @@ MRdLk、CplDLk 和 Unlock 语义仅允许用于默认流量类 (TC0)。
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Any device which is not involved in the locked sequence must ignore the Unlock Message.
@@ -3627,7 +3627,7 @@ Any device which is not involved in the locked sequence must ignore the Unlock M
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The initiation and propagation of a locked transaction sequence through the PCI Express fabric is performed as follows:
@@ -3638,7 +3638,7 @@ The initiation and propagation of a locked transaction sequence through the PCI 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • A locked transaction sequence is started with a MRdLk Request:
@@ -3649,7 +3649,7 @@ The initiation and propagation of a locked transaction sequence through the PCI 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 — Any successive reads associated with the locked transaction sequence must also use MRdLk Requests.
@@ -3660,7 +3660,7 @@ The initiation and propagation of a locked transaction sequence through the PCI 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Completions for any successful MRdLk Request use the CplDLk Completion type, or the CplLk Completion type for unsuccessful Requests.
@@ -3671,7 +3671,7 @@ The Completions for any successful MRdLk Request use the CplDLk Completion type,
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 If any read associated with a locked sequence is completed unsuccessfully, the Requester must assume that the atomicity of the lock is no longer assured, and that the path between the Requester and Completer is no longer locked.
@@ -3682,7 +3682,7 @@ If any read associated with a locked sequence is completed unsuccessfully, the R
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • All writes associated with a locked sequence must use MWr Requests.
@@ -3693,7 +3693,7 @@ If any read associated with a locked sequence is completed unsuccessfully, the R
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Unlock Message is used to indicate the end of a locked sequence. A Switch propagates Unlock Messages through the locked Egress Port.
@@ -3704,7 +3704,7 @@ The Unlock Message is used to indicate the end of a locked sequence. A Switch pr
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Upon receiving an Unlock Message, a legacy Endpoint or Bridge must unlock itself if it is in a locked state. If it is not locked, or if the Receiver is a PCI Express Endpoint or Bridge which does not support lock, the Unlock Message is ignored and discarded.
@@ -3717,7 +3717,7 @@ Upon receiving an Unlock Message, a legacy Endpoint or Bridge must unlock itself
 
 ## 99.4.2 Rules Related to Switches | 99.4.2 与交换机相关的规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Switches must detect transactions associated with locked sequences from other transactions to prevent other transactions from interfering with the lock and potentially causing deadlock. The following rules cover how this is done. Note that locked accesses are limited to TC0, which is always mapped to VC0.
@@ -3728,7 +3728,7 @@ Switches must detect transactions associated with locked sequences from other tr
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When a Switch propagates a MRdLk Request from an Ingress Port to the Egress Port, it must block all Requests which map to the default Virtual Channel (VC0) from being propagated to the Egress Port. If a subsequent MRdLk Request is received at this Ingress Port addressing a different Egress Port, the behavior of the Switch is undefined. Note that this sort of split-lock access is not supported by PCI Express and software must not cause such a locked access. System deadlock may result from such accesses.
@@ -3739,7 +3739,7 @@ When a Switch propagates a MRdLk Request from an Ingress Port to the Egress Port
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When the CplDLk for the first MRdLk Request is returned, if the Completion indicates a Successful Completion status, the Switch must block all Requests from all other Ports from being propagated to either of the Ports involved in the locked access, except for Requests which map to channels other than VC0 on the Egress Port.
@@ -3750,7 +3750,7 @@ When the CplDLk for the first MRdLk Request is returned, if the Completion indic
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The two Ports involved in the locked sequence must remain blocked until the Switch receives the Unlock Message (at the Ingress Port which received the initial MRdLk Request)
@@ -3769,7 +3769,7 @@ The two Ports involved in the locked sequence must remain blocked until the Swit
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Ingress Port is unblocked once the Unlock Message arrives, and the Egress Port(s) which were blocked are unblocked following the transmission of the Unlock Message out of the Egress Port(s). Ports that were not involved in the locked access are unaffected by the Unlock Message.
@@ -3782,7 +3782,7 @@ The Ingress Port is unblocked once the Unlock Message arrives, and the Egress Po
 
 ## 99.4.3 Rules Related To PCI Express/PCI Bridges | 99.4.3 PCI Express/PCI 桥相关规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The requirements for PCI Express/PCI Bridges are similar to those for Switches, except that, because these Bridges only use TC0 and VC0, all other traffic is blocked during the locked access. Requirements on the PCI bus side are described in the MindShare book, PCI System Architecture, Fourth Edition.
@@ -3795,7 +3795,7 @@ PCI Express/PCI 桥的需求与交换机类似，不同之处在于，由于这�
 
 ## 99.4.4 Rules Related To the Root Complex | 99.4.4 与根复合体相关的规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A Root Complex is permitted to support locked transactions as a Requester. If locked transactions are supported, a Root Complex must follow the rules already described to perform a locked access. The mechanism(s) used by the Root Complex to interface to the host processor's FSB (Front‐Side Bus) are outside the scope of the spec.
@@ -3808,7 +3808,7 @@ A Root Complex is permitted to support locked transactions as a Requester. If lo
 
 ## 99.4.5 Rules Related To Legacy Endpoints | 99.4.5 与传统端点相关的规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Legacy Endpoints are permitted to support locked accesses, although their use is discouraged. If locked accesses are supported, legacy Endpoints must handle them as follows:
@@ -3819,7 +3819,7 @@ Legacy Endpoints are permitted to support locked accesses, although their use is
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The legacy Endpoint becomes locked when it transmits the first Completion for the first read request of the locked transaction series access with a Successful Completion status:
@@ -3830,7 +3830,7 @@ The legacy Endpoint becomes locked when it transmits the first Completion for th
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 — If the completion status is not Successful Completion, the legacy Endpoint does not become locked.
@@ -3841,7 +3841,7 @@ The legacy Endpoint becomes locked when it transmits the first Completion for th
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 — Once locked, the legacy Endpoint must remain locked until it receives the Unlock Message.
@@ -3852,7 +3852,7 @@ The legacy Endpoint becomes locked when it transmits the first Completion for th
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 While locked, a legacy Endpoint must not issue any Requests using Traffic Classes which map to the default Virtual Channel (VC0). Note that this requirement applies to all possible sources of Requests within the Endpoint, in the case where there is more than one possible source of Requests. Requests may be issued using TCs which map to VCs other than VC0.
@@ -3865,7 +3865,7 @@ While locked, a legacy Endpoint must not issue any Requests using Traffic Classe
 
 ## 99.4.6 Rules Related To PCI Express Endpoints | 99.4.6 与PCI Express端点相关的规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Native PCI Express Endpoints do not support lock. A PCI Express Endpoint must treat a MRdLk Request as an Unsupported Request.
@@ -3880,7 +3880,7 @@ Native PCI Express Endpoints do not support lock. A PCI Express Endpoint must tr
 
 ## 128b/130b Encoding | 128b/130b编码
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This isn't encoding in the same sense as 8b/10b. Instead, the transmitter sends information in Blocks that consist of 16 raw bytes in a row, preceded by a 2-bit Sync field that indicates whether the Block is to be considered as a Data Block or an Ordered Set Block. This scheme was introduced with Gen3, primarily to allow the Link bandwidth to double without doubling the clock rate. It provides better bandwidth utilization but sacrifices some benefits that 8b/10b provided for receivers.
@@ -3893,7 +3893,7 @@ This isn't encoding in the same sense as 8b/10b. Instead, the transmitter sends 
 
 ## 11.2.6 8b/10b Encoding | 11.2.6 8b/10b编码
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Encoding scheme developed many years ago that's used in many serial transports today. It was designed to help receivers recover the clock and data from the incoming signal, but it also reduces available bandwidth at the receiver by 20%. This scheme is used with the earlier versions of PCIe: Gen1 and Gen2.
@@ -3906,7 +3906,7 @@ Encoding scheme developed many years ago that's used in many serial transports t
 
 ## ACK/NAK Protocol | ACK/NAK协议
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Acknowledge/Negative Acknowledge mechanism by which the Data Link Layer reports whether TLPs have experienced any errors during transmission. If so, a NAK is returned to the sender to request a replay of the failed TLPs. If not, an ACK is returned to indicate that one or more TLPs have arrived safely.
@@ -3919,7 +3919,7 @@ The Acknowledge/Negative Acknowledge mechanism by which the Data Link Layer repo
 
 ## ACPI | ACPI
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Advanced Configuration and Power Interface. Specifies the various system and device power states.
@@ -3932,7 +3932,7 @@ Advanced Configuration and Power Interface. Specifies the various system and dev
 
 ## ACS | ACS
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Access Control Services.
@@ -3945,7 +3945,7 @@ Access Control Services.
 
 ## ARI | ARI
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Alternative Routing-ID Interpretation; optional feature that allows Endpoints to have more Functions that the 8 allowed normally.
@@ -3958,7 +3958,7 @@ Alternative Routing-ID Interpretation; optional feature that allows Endpoints to
 
 ## ASPM | ASPM
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Active State Power Management: When enabled, this allows hardware to make changes to the Link power state from L0 to L0s or L1 or both.
@@ -3971,7 +3971,7 @@ Active State Power Management: When enabled, this allows hardware to make change
 
 ## 20.3.1 AtomicOps | 20.3.1 AtomicOps
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Atomic Operations; three new Requests added with the 2.1 spec revision. These carry out multiple operations that are guaranteed to take place without interruption within the target device.
@@ -3984,7 +3984,7 @@ Atomic Operations; three new Requests added with the 2.1 spec revision. These ca
 
 ## Bandwidth Management | 带宽管理
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hardware-initiated changes to Link speed or width for the purpose of power conservation or reliability.
@@ -3997,7 +3997,7 @@ Hardware-initiated changes to Link speed or width for the purpose of power conse
 
 ## BAR | BAR
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Base Address Register. Used by Functions to indicate the type and size of their local memory and IO space.
@@ -4010,7 +4010,7 @@ Base Address Register. Used by Functions to indicate the type and size of their 
 
 ## Beacon | Beacon
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Low-frequency in-band signal used by Devices whose main power has been shut off to signal that an event has occurred for which they need to have the power restored. This can be sent across the Link when the Link is in the L2 state.
@@ -4023,7 +4023,7 @@ Low-frequency in-band signal used by Devices whose main power has been shut off 
 
 ## BER | BER
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Bit Error Rate or Ratio; a measure of signal integrity based on the number of transmission bit errors seen within a time period.
@@ -4036,7 +4036,7 @@ Bit Error Rate or Ratio; a measure of signal integrity based on the number of tr
 
 ## Bit Lock | 位锁定
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The process of acquiring the transmitter's precise clock frequency at the receiver. This is done in the CDR logic and is one of the first steps in Link Training.
@@ -4049,7 +4049,7 @@ The process of acquiring the transmitter's precise clock frequency at the receiv
 
 ## Block | 数据块
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The 130-bit unit sent by a Gen3 transmitter, made up of a 2-bit Sync Field followed by a group of 16 bytes.
@@ -4062,7 +4062,7 @@ Gen3发送器发送的130位单元，由2位同步字段后跟16字节组成。
 
 ## Block Lock | 数据块锁定
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Finding the Block boundaries at the Receiver when using 128b/130b encoding so as to recognize incoming Blocks. The process involves three phases. First, search the incoming stream for an EIEOS (Electrical Idle Exit Ordered Set) and adjust the internal Block boundary to match it. Next, search for the SDS (Start Data Stream) Ordered Set. After that, the receiver is locked into the Block boundary.
@@ -4075,7 +4075,7 @@ Finding the Block boundaries at the Receiver when using 128b/130b encoding so as
 
 ## Bridge | 桥
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A Function that acts as the interface between two buses. Switches and the Root Complex will implement bridges on their Ports to enable packet routing, and a bridge can also be made to connect between different protocols, such as between PCIe and PCI.
@@ -4088,7 +4088,7 @@ A Function that acts as the interface between two buses. Switches and the Root C
 
 ## 12.3.2 Byte Striping | 12.3.2 字节条带化
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Spreading the output byte stream across all available Lanes. All available Lanes are used whenever sending bytes.
@@ -4101,7 +4101,7 @@ Spreading the output byte stream across all available Lanes. All available Lanes
 
 ## CC | CC
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Credits Consumed: Number of credits already used by the transmitter when calculating Flow Control.
@@ -4114,7 +4114,7 @@ Credits Consumed: Number of credits already used by the transmitter when calcula
 
 ## CDR | CDR
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Clock and Data Recovery logic used to recover the Transmitter clock from the incoming bit stream and then sample the bits to recognize patterns. For 8b/10b, that pattern, found in the COM, FTS, and EIEOS symbols, allows the logic to acquire Symbol Lock. For 128b/130b the EIEOS sequence is used to acquire Block Lock by going through the three phases of locking.
@@ -4127,7 +4127,7 @@ Clock and Data Recovery logic used to recover the Transmitter clock from the inc
 
 ## Character | 字符
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Term used to describe the 8-bit values to be communicated between Link neighbors. For Gen1 and Gen2, these are a mix of ordinary data bytes (labeled as D characters) and special control values (labeled as K characters). For Gen3 there are no control characters because 8b/10b encoding is no longer used. In that case, the characters all appear as data bytes.
@@ -4140,7 +4140,7 @@ Term used to describe the 8-bit values to be communicated between Link neighbors
 
 ## Credit Limit | 信用上限
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Credit Limit: Flow Control credits seen as available from the transmitter's perspective. Checked to verify whether enough credits are available to send a TLP.
@@ -4153,7 +4153,7 @@ Credit Limit: Flow Control credits seen as available from the transmitter's pers
 
 ## Control Character | 控制字符
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 These are special characters (labeled as "K" characters) used in 8b/10b encoding that facilitate Link training and Ordered Sets. They are not used in Gen3, where there is no distinction between characters.
@@ -4166,7 +4166,7 @@ These are special characters (labeled as "K" characters) used in 8b/10b encoding
 
 ## 15.4.1 Correctable Errors | 15.4.1 可纠正错误
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Errors that are corrected automatically by hardware and don't require software attention.
@@ -4179,7 +4179,7 @@ Errors that are corrected automatically by hardware and don't require software a
 
 ## CR | CR
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Credits Required - this is the sum of CC and PTLP.
@@ -4192,7 +4192,7 @@ Credits Required - this is the sum of CC and PTLP.
 
 ## 15.5.1 CRC | 15.5.1 CRC
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Cyclic Redundancy Code; added to TLPs and DLLPs to allow verifying error-free transmission. The name means that the patterns are cyclic in nature and are redundant (they don't add any extra information). The codes don't contain enough information to permit automatic error correction, but provide robust error detection.
@@ -4205,7 +4205,7 @@ Cyclic Redundancy Code; added to TLPs and DLLPs to allow verifying error-free tr
 
 ## Cut-Through Mode | 直通模式
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Mechanism by which a Switch allows a TLP to pass through, forwarded from an ingress Port to an egress Port without storing it first to check for errors. This involves a risk, since the TLP may be found to have errors after part of it has already been forwarded to the egress Port. In that case, the end of the packet is modified in the Data Link Layer to have an LCRC value that is inverted from what it should be, and also modified at the Physical Layer to have an End Bad (EDB) framing symbol for 8b/10b encoding or an EDB token for 128b/130b encoding. The combination tells the receiver that the packet has been nullified and should be discarded without sending an ACK/NAK response.
@@ -4218,7 +4218,7 @@ Mechanism by which a Switch allows a TLP to pass through, forwarded from an ingr
 
 ## Data Characters | 数据字符
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Characters (labeled as "D" characters) that represent ordinary data and are distinguished from control characters in 8b/10b. For Gen3, there is no distinction between characters.
@@ -4231,7 +4231,7 @@ Characters (labeled as "D" characters) that represent ordinary data and are dist
 
 ## Data Stream | 数据流
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The flow of data Blocks for Gen3 operation. The stream is entered by an SDS (Start of Data Stream Ordered Set) and exited with an EDS (End of Data Stream token). During a Data Stream, only data Blocks or the SOS are expected. When any other Ordered Sets are needed, the Data Stream must be exited and only re-entered when more data Blocks are ready to send. Starting a Data Stream is equivalent to entering the L0 Link state, since Ordered Sets are only sent while in other LTSSM states, like Recovery.
@@ -4244,7 +4244,7 @@ Gen3操作的数据块流。通过SDS(启动数据流有序集)进入数据流�
 
 ## De-emphasis | 去加重
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The process of reducing the transmitter voltage for repeated bits in a stream. This has the effect of de-emphasizing the low-frequency components of the signal that are known to cause trouble in a transmission medium and thus improves the signal integrity at the receiver.
@@ -4257,7 +4257,7 @@ The process of reducing the transmitter voltage for repeated bits in a stream. T
 
 ## Digest | 摘要
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Another name for the ECRC (End-to-End CRC) value that can optionally be appended to a TLP when it's created in the Transaction Layer.
@@ -4270,7 +4270,7 @@ ECRC(端到端CRC)值的另一个名称，该值可以在事务层创建TLP时�
 
 ## DLCMSM | DLCMSM
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Data Link Control and Management State Machine; manages the Link Layer training process (which is primarily Flow Control initialization).
@@ -4283,7 +4283,7 @@ Data Link Control and Management State Machine; manages the Link Layer training 
 
 ## DLLP | DLLP
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Data Link Layer Packet. These are created in the Data Link Layer and are forwarded to the Physical Layer but are not seen by the Transaction Layer.
@@ -4296,7 +4296,7 @@ Data Link Layer Packet. These are created in the Data Link Layer and are forward
 
 ## DPA | DPA
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Dynamic Power Allocation; a new set of configuration registers with the 2.1 spec revision that defines 32 power substates under the D0 device power state, making it easier for software to control device power options.
@@ -4309,7 +4309,7 @@ Dynamic Power Allocation; a new set of configuration registers with the 2.1 spec
 
 ## DSP (Downstream Port) | DSP(下游端口)
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Port that faces downstream, like a Root Port or a Switch Downstream Port. This distinction is meaningful in the LTSSM because the Ports have assigned roles during some states.
@@ -4322,7 +4322,7 @@ Port that faces downstream, like a Root Port or a Switch Downstream Port. This d
 
 ## ECRC | ECRC
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 End-to-End CRC value, optionally appended to a TLP when it's created in the Transaction Layer. This enables a receiver to verify reliable packet transport from source to destination, regardless of how many Links were crossed to get there.
@@ -4335,7 +4335,7 @@ End-to-End CRC value, optionally appended to a TLP when it's created in the Tran
 
 ## Egress Port | 出口端口
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Port that has outgoing traffic.
@@ -4348,7 +4348,7 @@ Port that has outgoing traffic.
 
 ## Elastic Buffer | 弹性缓冲器
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Part of the CDR logic, this buffer enables the receiver to compensate for the difference between the transmitter and receiver clocks.
@@ -4361,7 +4361,7 @@ CDR逻辑的一部分，此缓冲器使接收器能够补偿发送器和接收�
 
 ## EMI | EMI
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Electro-Magnetic Interference: the emitted electrical noise from a system. For PCIe, both SSC and scrambling are used to attack it.
@@ -4374,7 +4374,7 @@ Electro-Magnetic Interference: the emitted electrical noise from a system. For P
 
 ## Endpoint | 端点
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCIe Function that is at the bottom of the PCI Inverted-Tree structure.
@@ -4387,7 +4387,7 @@ PCIe Function that is at the bottom of the PCI Inverted-Tree structure.
 
 ## Enumeration | 枚举
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The process of system discovery in which software reads all of the expected configuration locations to learn which PCI-configurable Functions are visible and thus present in the system.
@@ -4400,7 +4400,7 @@ The process of system discovery in which software reads all of the expected conf
 
 ## Equalization | 均衡
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The process of adjusting Tx and Rx values to compensate for actual or expected signal distortion through the transmission media. For Gen1 and Gen2, this takes the form of Tx De-emphasis. For Gen3, an active evaluation process is introduced to test the signaling environment and adjust the Tx settings accordingly, and optional Rx equalization is mentioned.
@@ -4413,7 +4413,7 @@ The process of adjusting Tx and Rx values to compensate for actual or expected s
 
 ## Flow Control | 流控
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Mechanism by which transmitters avoid the risk of having packets rejected at a receiver due to lack of buffer space. The receiver sends periodic updates about available buffer space and the transmitter verifies that enough is available before attempting to send a packet.
@@ -4426,7 +4426,7 @@ Mechanism by which transmitters avoid the risk of having packets rejected at a r
 
 ## FLR | FLR
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Function-Level Reset.
@@ -4439,7 +4439,7 @@ Function-Level Reset.
 
 ## Framing Symbols | 帧定界符号
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The "start" and "end" control characters used in 8b/10b encoding that indicate the boundaries of a TLP or DLLP.
@@ -4452,7 +4452,7 @@ The "start" and "end" control characters used in 8b/10b encoding that indicate t
 
 ## Gen1 | Gen1
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Generation 1, meaning designs created to be compliant with the 1.x version of the PCIe spec.
@@ -4465,7 +4465,7 @@ Generation 1, meaning designs created to be compliant with the 1.x version of th
 
 ## Gen1, Gen2, Gen3 | Gen1, Gen2, Gen3
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Abbreviations for the revisions of the PCIe spec. Gen1 = rev 1.x, Gen2 = rev 2.x, and Gen3 = rev 3.0.
@@ -4478,7 +4478,7 @@ PCIe规范修订版的缩写。Gen1 = rev 1.x, Gen2 = rev 2.x, Gen3 = rev 3.0。
 
 ## Gen2 | Gen2
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Generation 2, meaning designs created to be compliant with the 2.x version of the PCIe spec.
@@ -4491,7 +4491,7 @@ Generation 2, meaning designs created to be compliant with the 2.x version of th
 
 ## Gen3 | Gen3
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Generation 3, meaning designs created to be compliant with the 3.x version of the PCIe spec.
@@ -4504,7 +4504,7 @@ Generation 3, meaning designs created to be compliant with the 3.x version of th
 
 ## IDO | IDO
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 ID-based Ordering; when enabled, this allows TLPs from different Requesters to be forwarded out of order with respect to each other. The goal is to improve latency and performance.
@@ -4517,7 +4517,7 @@ ID-based Ordering; when enabled, this allows TLPs from different Requesters to b
 
 ## 4.6.3 Implicit Routing | 4.6.3 隐式路由
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 TLPs whose routing is understood without reference to an address or ID. Only Message requests have the option to use this type of routing.
@@ -4530,7 +4530,7 @@ TLPs whose routing is understood without reference to an address or ID. Only Mes
 
 ## Ingress Port | 入口端口
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Port that has incoming traffic.
@@ -4543,7 +4543,7 @@ Port that has incoming traffic.
 
 ## ISI | ISI
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Inter-Symbol Interference; the effect on one bit time that is caused by the recent bits that preceded it.
@@ -4556,7 +4556,7 @@ Inter-Symbol Interference; the effect on one bit time that is caused by the rece
 
 ## Lane | 通道
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The two differential pairs that allow a transmit and receive path of one bit between two Ports. A Link can consist of just one Lane or it may contain as many as 32 Lanes.
@@ -4569,7 +4569,7 @@ The two differential pairs that allow a transmit and receive path of one bit bet
 
 ## 12.4.4 Lane-to-Lane Skew | 12.4.4 通道间偏移
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Difference in arrival times for bits on different Lanes. Receivers are required to detect this and correct it internally.
@@ -4582,7 +4582,7 @@ Difference in arrival times for bits on different Lanes. Receivers are required 
 
 ## Legacy Endpoint | 传统端点
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 An Endpoint that carries any of three legacy items forward: support for IO transactions, support for local 32-bit-only prefetchable memory space, or support for the locked transactions.
@@ -4595,7 +4595,7 @@ An Endpoint that carries any of three legacy items forward: support for IO trans
 
 ## LFSR | LFSR
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Linear-Feedback Shift Register; creates a pseudo-random pattern used to facilitate scrambling.
@@ -4608,7 +4608,7 @@ Linear-Feedback Shift Register; creates a pseudo-random pattern used to facilita
 
 ## Link | 链路
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Interface between two Ports, made up of one or more Lanes.
@@ -4621,7 +4621,7 @@ Interface between two Ports, made up of one or more Lanes.
 
 ## LTR | LTR
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Latency-Tolerance Reporting; mechanism that allows devices to report to the system how quickly they need to get service when they send a Request. Longer latencies afford more power management options to the system.
@@ -4634,7 +4634,7 @@ Latency-Tolerance Reporting; mechanism that allows devices to report to the syst
 
 ## LTSSM | LTSSM
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Link Training and Status State Machine; manages the training process for the Physical Layer.
@@ -4647,7 +4647,7 @@ Link Training and Status State Machine; manages the training process for the Phy
 
 ## Non-posted Request | 非转发请求
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A Request that expects to receive a Completion in response. For example, any read request would be non-posted.
@@ -4660,7 +4660,7 @@ A Request that expects to receive a Completion in response. For example, any rea
 
 ## Non-prefetchable Memory | 不可预取存储器
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory that exhibits side effects when read. For example, a status register that automatically self-clears when read. Such data is not safe to prefetch since, if the requester never requested the data and it was discarded, it would be lost to the system. This was an important distinction for PCI bridges, which had to guess about the data size on reads. If they knew it was safe to speculatively read ahead in the memory space, they could guess a larger number and achieve better efficiency. The distinction is much less interesting for PCIe, since the exact byte count for a transfer is included in the TLP, but maintaining it allows backward compatibility.
@@ -4673,7 +4673,7 @@ Memory that exhibits side effects when read. For example, a status register that
 
 ## Nullified Packet | 作废的数据包
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When a transmitter recognizes that a packet has an error and should not have been sent, the packet can be "nullified", meaning it should be discarded and the receiver should behave as if it had never been sent. This problem can arise when using "cut-through" operation on a Switch.
@@ -4686,7 +4686,7 @@ When a transmitter recognizes that a packet has an error and should not have bee
 
 ## OBFF | OBFF
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Optimized Buffer Flush and Fill; mechanism that allows the system to tell devices about the best times to initiate traffic. If devices send requests during optimal times and not during other times system power management will be improved.
@@ -4699,7 +4699,7 @@ Optimized Buffer Flush and Fill; mechanism that allows the system to tell device
 
 ## Ordered Sets | 有序集
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Groups of Symbols sent as Physical Layer communication for Lane management. These often consist of just control characters for 8b/10b encoding. They are created in the Physical Layer of the sender and consumed in the Physical Layer of the receiver without being visible to the other layers at all.
@@ -4712,7 +4712,7 @@ Groups of Symbols sent as Physical Layer communication for Lane management. Thes
 
 ## PCI | PCI
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Peripheral Component Interface. Designed to replace earlier bus designs used in PCs, such as ISA.
@@ -4725,7 +4725,7 @@ Peripheral Component Interface. Designed to replace earlier bus designs used in 
 
 ## PCI-X | PCI-X
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI eXtended. Designed to correct the shortcomings of PCI and enable higher speeds.
@@ -4738,7 +4738,7 @@ PCI eXtended. Designed to correct the shortcomings of PCI and enable higher spee
 
 ## PME | PME
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Power Management Event; message from a device indicating that power-related service is needed.
@@ -4751,7 +4751,7 @@ Power Management Event; message from a device indicating that power-related serv
 
 ## Poisoned TLP | 毒化TLP
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Packet whose data payload was known to be bad when it was created. Sending the packet with bad data can be helpful as an aid to diagnosing the problem and determining a solution for it.
@@ -4764,7 +4764,7 @@ Packet whose data payload was known to be bad when it was created. Sending the p
 
 ## Polarity Inversion | 极性反转
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The receiver's signal polarity is permitted to be connected backwards to support cases when doing so would simplify board layout. The receiver is required to detect this condition and internally invert the signal to correct it during Link Training.
@@ -4777,7 +4777,7 @@ The receiver's signal polarity is permitted to be connected backwards to support
 
 ## Port | 端口
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Input/output interface to a PCIe Link.
@@ -4790,7 +4790,7 @@ PCIe链路的输入/输出接口。
 
 ## Posted Request | 转发请求
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A Request packet for which no completion is expected. There are only two such requests defined by the spec: Memory Writes and Messages.
@@ -4803,7 +4803,7 @@ A Request packet for which no completion is expected. There are only two such re
 
 ## Prefetchable Memory | 可预取存储器
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory that has no side-effects as a result of being read. That property makes it safe to prefetch since, if it's discarded by the intermediate buffer, it can always be read again later if needed. This was an important distinction for PCI bridges, which had to guess about the data size on reads. Prefetchable space allowed speculatively reading more data and gave a chance for better efficiency. The distinction is much less interesting for PCIe, since the exact byte count for a transfer is included in the TLP, but maintaining it allows backward compatibility.
@@ -4816,7 +4816,7 @@ Memory that has no side-effects as a result of being read. That property makes i
 
 ## PTLP | PTLP
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Pending TLP - Flow Control credits needed to send the current TLP.
@@ -4829,7 +4829,7 @@ Pending TLP - Flow Control credits needed to send the current TLP.
 
 ## QoS | QoS
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Quality of Service; the ability of the PCIe topology to assign different priorities for different packets. This could just mean giving preference to packets at arbitration points, but in more complex systems, it allows making bandwidth and latency guarantees for packets.
@@ -4842,7 +4842,7 @@ Quality of Service; the ability of the PCIe topology to assign different priorit
 
 ## Requester ID | 请求方ID
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The configuration address of the Requester for a transaction, meaning the BDF (Bus, Device, and Function number) that corresponds to it. This will be used by the Completer as the return address for the resulting completion packet.
@@ -4855,7 +4855,7 @@ The configuration address of the Requester for a transaction, meaning the BDF (B
 
 ## Root Complex | 根复合体
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The components that act as the interface between the CPU cores in the system and the PCIe topology. This can consist of one or more chips and may be simple or complex. From the PCIe perspective, it serves as the root of the inverted tree structure that backward-compatibility with PCI demands.
@@ -4868,7 +4868,7 @@ The components that act as the interface between the CPU cores in the system and
 
 ## Run Length | 游程长度
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The number of consecutive ones or zeros in a row. For 8b/10b encoding the run length is limited to 5 bits. For 128b/130b, there is no defined limit, but the modified scrambling scheme it uses is intended to compensate for that.
@@ -4881,7 +4881,7 @@ The number of consecutive ones or zeros in a row. For 8b/10b encoding the run le
 
 ## 12.3.3 Scrambling | 12.3.3 加扰
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The process of randomizing the output bit stream to avoid repeated patterns on the Link and thus reduce EMI. Scrambling can be turned off for Gen1 and Gen2 to allow specifying patterns on the Link, but it cannot be turned off for Gen3 because it does other work at that speed and the Link is not expected to be able to work reliably without it.
@@ -4894,7 +4894,7 @@ The process of randomizing the output bit stream to avoid repeated patterns on t
 
 ## SOS | SOS
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Skip Ordered Set - used to compensate for the slight frequency difference between Tx and Rx.
@@ -4907,7 +4907,7 @@ Skip Ordered Set - used to compensate for the slight frequency difference betwee
 
 ## SSC | SSC
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Spread-Spectrum Clocking. This is a method of reducing EMI in a system by allowing the clock frequency to vary back and forth across an allowed range. This spreads the emitted energy across a wider range of frequencies and thus avoids the problem of having too much EMI energy concentrated in one particular frequency.
@@ -4920,7 +4920,7 @@ Spread-Spectrum Clocking. This is a method of reducing EMI in a system by allowi
 
 ## Sticky Bits | 粘滞位
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Status bits whose value survives a reset. This characteristic is useful for maintaining status information when errors are detected by a Function downstream of a Link that is no longer operating correctly. The failed Link must be reset to gain access to the downstream Functions, and the error status information in its registers must survive that reset to be available to software.
@@ -4933,7 +4933,7 @@ Status bits whose value survives a reset. This characteristic is useful for main
 
 ## Switch | 交换机
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A device containing multiple Downstream Ports and one Upstream Port that is able to route traffic between its Ports.
@@ -4946,7 +4946,7 @@ A device containing multiple Downstream Ports and one Upstream Port that is able
 
 ## Symbol | 符号
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Encoded unit sent across the Link. For 8b/10b these are the 10-bit values that result from encoding, while for 128b/130b they're 8-bit values.
@@ -4959,7 +4959,7 @@ Encoded unit sent across the Link. For 8b/10b these are the 10-bit values that r
 
 ## Symbol Lock | 符号锁定
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Finding the Symbol boundaries at the Receiver when using 8b/10b encoding so as to recognize incoming Symbols and thus the contents of packets.
@@ -4972,7 +4972,7 @@ Finding the Symbol boundaries at the Receiver when using 8b/10b encoding so as t
 
 ## Symbol time | 符号时间
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The time it takes to send one symbol across the Link - 4ns for Gen1, 2ns for Gen2, and 1ns for Gen3.
@@ -4985,7 +4985,7 @@ The time it takes to send one symbol across the Link - 4ns for Gen1, 2ns for Gen
 
 ## TLP | TLP
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Transaction Layer Packet. These are created in the Transaction Layer and passed through the other layers.
@@ -4998,7 +4998,7 @@ Transaction Layer Packet. These are created in the Transaction Layer and passed 
 
 ## Token | 令牌
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Identifier of the type of information being delivered during a Data Stream when operating at Gen3 speed.
@@ -5011,7 +5011,7 @@ Identifier of the type of information being delivered during a Data Stream when 
 
 ## TPH | TPH
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 TLP Processing Hints; these help system routing agents make choices to improve latency and traffic congestion.
@@ -5024,7 +5024,7 @@ TLP处理提示；帮助系统路由代理做出选择以改善延迟和流量�
 
 ## UI | UI
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Unit Interval; the time it takes to send one bit across the Link - 0.4ns for Gen1, 0.2ns for Gen2, 0.125ns for Gen3.
@@ -5037,7 +5037,7 @@ Unit Interval; the time it takes to send one bit across the Link - 0.4ns for Gen
 
 ## 15.4.2 Uncorrectable Errors | 15.4.2 不可纠正错误
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Errors that can't be corrected by hardware and thus will ordinarily require software attention to resolve. These are divided into Fatal errors - those that render further Link operation unreliable, and Non-fatal errors - those that do not affect the Link operation in spite of the problem that was detected.
@@ -5050,7 +5050,7 @@ Errors that can't be corrected by hardware and thus will ordinarily require soft
 
 ## USP | USP
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Upstream Port, meaning a Port that faces upstream, as for an Endpoint or a Switch Upstream Port. This distinction is meaningful in the LTSSM because the Ports have assigned roles during Configuration and Recovery.
@@ -5063,7 +5063,7 @@ Upstream Port, meaning a Port that faces upstream, as for an Endpoint or a Switc
 
 ## Variables | 变量
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A number of flags are used to communicate events and status between hardware layers. These are specific to state transitions in the hardware are not usually visible to software. Some examples: — LinkUp - Indication from the Physical Layer to the Data Link Layer that training has completed and the Physical Layer is now operational. — idle_to_rlock_transitioned - This counter tracks the number of times the LTSSM has transitioned from Configuration.Idle to the Recovery.RcvrLock state. Any time the process of recognizing TS2s to leave Configuration doesn't work, the LTSSM transitions to Recovery to take appropriate steps. If it still doesn't work after 256 passes through Recovery (counter reaches FFh), then it goes back to Detect to start over. It may be that some Lanes are not working.
@@ -5076,7 +5076,7 @@ A number of flags are used to communicate events and status between hardware lay
 
 ## WAKE# | WAKE#
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Side-band pin used to signal to the system that the power should be restored. It's used instead of the Beacon in systems where power conservation is an important consideration.
@@ -5093,7 +5093,7 @@ Side-band pin used to signal to the system that the power should be restored. It
 
 ## A | A
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 AC Coupling 468 ACK 318 Ack 311 ACK DLLP 75, 312 ACK/NAK DLLP 312 ACK/NAK Latency 328 ACK/NAK Protocol 318, 320, 329, 973 Ack/Nak Protocol 74 ACKD_SEQ Count 323 ACKNAK_Latency_Timer 328, 343 ACPI 711, 973 ACPI Driver 706 ACPI Machine Language 712 ACPI Source Language 712 ACPI spec 705 ACPI tables 712 ACS 973 Active State Power Management 405, 735 Address Routing 158 Address Space 121 Address Translation 958, 959 Advanced Correctable Error Reporting 690 Advanced Correctable Error Status 689 Advanced Correctable Errors 688 Advanced Error Reporting 685 Advanced Source ID Register 697 Advanced Uncorrectable Error Handling 691 Advanced Uncorrectable Error Status 691 Aggregate Bandwidth 408 Alternative Routing-ID Interpretation 909 AML 712 AML token interpreter 712 Arbitration 20, 270 Arbor 117 Architecture Overview 39 ARI 909, 974 ASL 712 ASPM 735, 742, 910, 974 ASPM Exit Latency 756, 757 Assert_INTx messages 806 Async Notice of Slot Status Change 876
@@ -5104,7 +5104,7 @@ AC Coupling — 交流耦合 468 ACK 318 Ack 311 ACK DLLP 75, 312 ACK/NAK DLLP 3
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 AtomicOp 150 AtomicOps 897, 974 Attention Button 854, 862 Attention Indicator 854, 859 Aux_Current field 726
@@ -5117,7 +5117,7 @@ AtomicOp 150 原子操作 897, 974 注意力按钮 854, 862 注意力指示灯 8
 
 ## B | B
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Bandwidth 42 Bandwidth Congestion 281 Bandwidth Management 974 BAR 126, 960, 974 Base Address Registers 126 Base and Limit Registers 136 BDF 85 Beacon 483, 772, 974 BER 974 BIOS 712, 853 Bit Lock 78, 395, 507, 742, 974 Bit Tracer 929 Block 974 Block Alignment 435 Block Encoding 410 Block Lock 507, 975 Boost 476 Bridge 975 Bus 85 Bus Master 20 Bus Number register 93 Byte Count Modified 201 Byte Enables 181 Byte Striping 371, 372, 373, 975 byte striping 371 Byte Striping logic 365 Byte Un-Striping 402
@@ -5130,7 +5130,7 @@ Bandwidth 42 Bandwidth Congestion 281 Bandwidth Management 974 BAR 126, 960, 974
 
 ## C | C (索引)
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Capabilities List bit 818
@@ -5743,7 +5743,7 @@ Cut-Through Mode 976
 
 ## D | D
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 D0 709, 710, 714, 734 D0 Active 714 D0 Uninitialized 714 D1 709, 710, 716, 734 D1\_Support bit 725 D2 709, 710, 717, 734 D2\_Support bit 725 D3 709, 710, 719 D3cold 721, 734 D3hot 719, 734 Data Characters 976 Data Link Layer 55, 72 Data Link Layer Packet 72 Data Link Layer Packet Format 310 Data Link Layer Packets 73 Data Poisoning 660 Data Register 731 Data Stream 977 Data\_Scale field 729 Data\_Select field 729 DC Common Mode 462 DC Common Mode Voltage 466 DC Common-Mode Voltage 467 Deadlock Avoidance 303 Deassert\_INTx messages 806 Debugging PCIe Traffic 917 Decision Feedback Equalization 495 De-emphasis 450, 468, 469, 471, 476, 977 De-Scrambler 367 Deserializer 395 De-Skew 399 Detect State 519, 522 Detect.Active 524 Detect.Quiet 523 Device 85 Device Capabilities 2 Register 899 Device Capabilities Register 873 Device Context 709 Device Core 59 Device core 55 Device Driver 706 device driver 853 Device Layers 54 Device PM States 713 device PM states 709 Device Status Register 681 Device-Specific Initialization (DSI) bit 727 DFE 493, 495, 497 Differential Driver 389 Differential Receiver 393, 435, 451 Differential Signaling 463 Differential Signals 44 Differential Transmitter 451 Digest 180, 977 Direct Address Translation 949
@@ -5754,7 +5754,7 @@ D0 709, 710, 714, 734 D0 Active 714 D0 Uninitialized 714 D1 709, 710, 716, 734 D
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Disable State 521, 613 Discrete Time Linear Equalizer 493 Discrete-Time Linear Equalizer 494 Disparity 383 Disparity Error Detection 400 DLCMSM 977 DLE 493, 494 DLL 437 DLLP 73, 170, 238, 308, 311, 977 DLLP Elements 307 DMA 937 DPA 910, 977 Driver Characteristics 489 DSI bit 727 DSP 977 D-State Transitions 722 Dual Simplex 363 Dual-Simplex 40 Dual-Star Fabric 957 Dynamic Bandwidth Changes 618 Dynamic Link Speed Changes 619 Dynamic Link Width Changes 629 Dynamic Power Allocation 910
@@ -5767,7 +5767,7 @@ Disable State 521, 613 Discrete Time Linear Equalizer 493 Discrete-Time Linear E
 
 ## E | E
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 ECRC 63, 180, 978 ECRC Generation and Checking 657
@@ -5778,7 +5778,7 @@ ECRC 63, 180, 978 ECRC 生成与检查 657
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 EDB 373, 387
@@ -5789,7 +5789,7 @@ EDB 373, 387
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Egress Port 978
@@ -5800,7 +5800,7 @@ Egress Port 978
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 EIE 387
@@ -5811,7 +5811,7 @@ EIE 387
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 EIEOS 389, 739, 740
@@ -5822,7 +5822,7 @@ EIEOS 389, 739, 740
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 EIOS 388, 737
@@ -5833,7 +5833,7 @@ EIOS 388, 737
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Elastic Buffer 366, 435, 978
@@ -5844,7 +5844,7 @@ Elastic Buffer 366, 435, 978
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Electrical Idle 388, 736, 738, 741
@@ -5855,7 +5855,7 @@ Electrical Idle 388, 736, 738, 741
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Electrical Idle Exit Ordered Set 389
@@ -5866,7 +5866,7 @@ Electrical Idle Exit Ordered Set 389
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Electrical Idle Ordered Set 388
@@ -5877,7 +5877,7 @@ Electrical Idle Ordered Set 388
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 EMI 77, 978
@@ -5888,7 +5888,7 @@ EMI 77, 978
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Encoding 410
@@ -5899,7 +5899,7 @@ Encoding 410
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 END 373, 387
@@ -5910,7 +5910,7 @@ END 373, 387
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Endpoint 978
@@ -5921,7 +5921,7 @@ Endpoint 978
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 End-to-End CRC 180
@@ -5932,7 +5932,7 @@ End-to-End CRC 180
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Enhanced Configuration Access Mechanism 96
@@ -5943,7 +5943,7 @@ Enhanced Configuration Access Mechanism 96
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Enumeration 51, 104, 978
@@ -5954,7 +5954,7 @@ Enumeration 51, 104, 978
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Equalization 474, 978
@@ -5965,7 +5965,7 @@ Equalization 474, 978
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Equalization - Phase 0 578
@@ -5976,7 +5976,7 @@ Equalization - Phase 0 578
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Equalization - Phase 1 581
@@ -5987,7 +5987,7 @@ Equalization - Phase 1 581
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Equalization - Phase 2 583
@@ -5998,7 +5998,7 @@ Equalization - Phase 2 583
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Equalization - Phase 3 586
@@ -6009,7 +6009,7 @@ Equalization - Phase 3 586
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Equalization Control 513
@@ -6020,7 +6020,7 @@ Equalization Control 513
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Equalization Control Registers 579
@@ -6031,7 +6031,7 @@ Equalization Control Registers 579
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Equalizer 475
@@ -6042,7 +6042,7 @@ Equalizer 475
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Equalizer Coefficients 479
@@ -6053,7 +6053,7 @@ Equalizer Coefficients 479
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Error Classifications 651
@@ -6064,7 +6064,7 @@ Error Classifications 651
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Error Handling 282, 699
@@ -6075,7 +6075,7 @@ Error Handling 282, 699
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Error Isolation 937
@@ -6086,7 +6086,7 @@ Error Isolation 937
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Error Messages 209, 668
@@ -6097,7 +6097,7 @@ Error Messages 209, 668
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 ESD 459
@@ -6108,7 +6108,7 @@ ESD 459
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 ESD standards 448
@@ -6119,7 +6119,7 @@ ESD 标准 448
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Exerciser Card 931
@@ -6130,7 +6130,7 @@ Exerciser Card 931
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Extended Configuration Space 89
@@ -6141,7 +6141,7 @@ Extended Configuration Space 89
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Eye Diagram 486
@@ -6154,7 +6154,7 @@ Eye Diagram 486
 
 ## F | F
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Failover 942, 944, 952
@@ -6165,7 +6165,7 @@ Failover 942, 944, 952
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 FC Initialization 223
@@ -6176,7 +6176,7 @@ FC初始化 223
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 FC Initialization Sequence 223
@@ -6187,7 +6187,7 @@ FC初始化序列 223
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 FC_Init1 224
@@ -6198,7 +6198,7 @@ FC_Init1 224
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 FC_Init2 225
@@ -6209,7 +6209,7 @@ FC_Init2 225
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 FC_Update 238
@@ -6220,7 +6220,7 @@ FC_Update 238
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 First DW Byte Enables 178, 181
@@ -6231,7 +6231,7 @@ First DW Byte Enables 178, 181
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control 72, 76, 215, 217, 299, 928, 978
@@ -6242,7 +6242,7 @@ Flow Control 72, 76, 215, 217, 299, 928, 978
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control Buffer 217, 229
@@ -6253,7 +6253,7 @@ Flow Control Buffer 217, 229
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control Buffers 217
@@ -6264,7 +6264,7 @@ Flow Control Buffers 217
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control Credits 216, 219
@@ -6275,7 +6275,7 @@ Flow Control Credits 216, 219
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control Elements 227, 231
@@ -6286,7 +6286,7 @@ Flow Control Elements 227, 231
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control Initialization 227, 230, 237
@@ -6297,7 +6297,7 @@ Flow Control Initialization 227, 230, 237
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control Packet 239
@@ -6308,7 +6308,7 @@ Flow Control Packet 239
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control Packet Format 314
@@ -6319,7 +6319,7 @@ Flow Control Packet Format 314
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control Update Frequency 239
@@ -6330,7 +6330,7 @@ Flow Control Update Frequency 239
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flow Control Updates 237
@@ -6341,7 +6341,7 @@ Flow Control Updates 237
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 FLR 842, 844, 845, 978
@@ -6352,7 +6352,7 @@ FLR 842, 844, 845, 978
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Flying Lead Probe 924
@@ -6363,7 +6363,7 @@ Flying Lead Probe 924
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Format Field 179
@@ -6374,7 +6374,7 @@ Format Field 179
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Framing Symbols 171, 979
@@ -6385,7 +6385,7 @@ Framing Symbols 171, 979
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 FTS 387
@@ -6396,7 +6396,7 @@ FTS 387
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 FTS Ordered Set 388
@@ -6407,7 +6407,7 @@ FTS有序集 388
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 FTSOS 388
@@ -6418,7 +6418,7 @@ FTSOS 388
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Function 85
@@ -6429,7 +6429,7 @@ Function 85
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Function Level Reset 842, 843
@@ -6440,7 +6440,7 @@ Function Level Reset 842, 843
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Function PM State Transitions 722
@@ -6451,7 +6451,7 @@ Function PM State Transitions 722
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Function State Transition Delays 724
@@ -6462,7 +6462,7 @@ Function State Transition Delays 724
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Fundamental Reset 834
@@ -6475,7 +6475,7 @@ Fundamental Reset 834
 
 ## G | G
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Gen1 43, 77, 979<br>
@@ -6494,7 +6494,7 @@ Gen3 产品 第936页
 
 ## H | H
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 handler 712
@@ -6505,7 +6505,7 @@ handler 712
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hardware Based Fixed Arbitration 256
@@ -6516,7 +6516,7 @@ Hardware Based Fixed Arbitration 256
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hardware Fixed VC Arbitration 257
@@ -6527,7 +6527,7 @@ Hardware Fixed VC Arbitration 257
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hardware-Fixed Port Arbitration 265
@@ -6538,7 +6538,7 @@ Hardware-Fixed Port Arbitration 265
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Header Type 0 29
@@ -6549,7 +6549,7 @@ Header Type 0 29
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Header Type 1 28
@@ -6560,7 +6560,7 @@ Header Type 1 28
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Header Type/Format Field 178
@@ -6571,7 +6571,7 @@ Header Type/Format Field 178
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 High Speed Signaling 451
@@ -6582,7 +6582,7 @@ High Speed Signaling 451
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 host/PCI bridge 94
@@ -6593,7 +6593,7 @@ host/PCI bridge 94
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hot Plug 847, 852
@@ -6604,7 +6604,7 @@ Hot Plug 847, 852
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hot Plug Controller 863
@@ -6615,7 +6615,7 @@ Hot Plug Controller 863
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hot Plug Elements 852
@@ -6626,7 +6626,7 @@ Hot Plug Elements 852
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hot Plug Messages 211
@@ -6637,7 +6637,7 @@ Hot Plug Messages 211
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hot Reset 839
@@ -6648,7 +6648,7 @@ Hot Reset 839
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hot Reset State 521, 612
@@ -6659,7 +6659,7 @@ Hot Reset State 521, 612
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hot-Plug 116, 853
@@ -6670,7 +6670,7 @@ Hot-Plug 116, 853
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hot-Plug Controller 853, 864
@@ -6681,7 +6681,7 @@ Hot-Plug Controller 853, 864
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 hot-plug primitives 874
@@ -6692,7 +6692,7 @@ hot-plug primitives 874
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hot-Plug Service 852
@@ -6703,7 +6703,7 @@ Hot-Plug Service 852
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hot-Plug System Driver 852
@@ -6714,7 +6714,7 @@ Hot-Plug System Driver 852
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 HPC Applications 940
@@ -6725,7 +6725,7 @@ HPC 应用 940
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Hub Link 32
@@ -6738,7 +6738,7 @@ Hub Link 32
 
 ## I | I
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 ID Based Ordering 301
@@ -7087,7 +7087,7 @@ Isochronous Transaction Support 272
 
 ## J | J
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Jitter 485, 487
@@ -7100,7 +7100,7 @@ Jitter 485, 487
 
 ## L | L
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 L0 State 500, 520, 568 L0s 744 L0s Receiver State Machine 605 L0s State 520, 603, 744 L0s Transmitter State Machine 603 L1 ASPM 736, 747 L1 ASPM Negotiation 748 L1 ASPM State 747 L1 State 520, 607, 760 L2 State 521, 609, 767 L2/L3 Ready 767 L2/L3 Ready state 763, 764 Lane 40, 78, 365, 979 Lane # 511 Lane Number Negotiation 543, 547 Lane Reversal 507 Lane-Level Encoding 410 Lane-to-Lane de-skew 78 Lane-to-Lane Skew 979 Last DW Byte Enables 178, 181 Latency Tolerance Reporting 910 LCRC 63, 325, 329 LeCroy 922, 923, 933 LeCroy Tools 917 Legacy Endpoint 816, 979 Legacy Endpoints 972 LFSR 980
@@ -7111,7 +7111,7 @@ L0 状态 500, 520, 568 L0s 744 L0s 接收器状态机 605 L0s 状态 520, 603, 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Link 40, 980 Link # 511 Link Capabilities 2 Register 640 Link Capability Register 743 Link Configuration - Failed Lane 549 Link Control 841 Link Data Rate 509 Link data rate 78 Link Equalization 577 Link Errors 683 Link Flow Control-Related Errors 666 Link Number Negotiation 542, 546 Link Power Management 733 Link Status Register 641 Link Training and Initialization 78 Link Training and Status State Machine (LTSSM) 518 Link Upconfigure Capability 512 Link Width 507 Link width 78 Link Width Change 570 Link Width Change Example 630 Lock 964 Locked Reads 66 Locked Transaction 209
@@ -7122,7 +7122,7 @@ Link 40, 980 Link # 511 Link Capabilities 2 Register 640 Link Capability Registe
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Locked Transactions 963 Logic Analyzer 921 Logical Idle Sequence 370 Loopback Master 615 Loopback Slave 616 Loopback State 521, 613 Loopback.Active 617 Loopback.Entry 614 Loopback.Exit 618 Low-priority VC Arbitration 255 LTR 784, 910, 980 LTR Messages 786 LTR Registers 784 LTSSM 507, 518, 839, 927, 980
@@ -7135,7 +7135,7 @@ Locked Transactions 963 Logic Analyzer 921 Logical Idle Sequence 370 Loopback Ma
 
 ## M | M
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Malformed TLP 666
@@ -7146,7 +7146,7 @@ Malformed TLP 666
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Address Space 122
@@ -7157,7 +7157,7 @@ Memory Address Space 122
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Read 150
@@ -7168,7 +7168,7 @@ Memory Read 150
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Read Lock 150
@@ -7179,7 +7179,7 @@ Memory Read Lock 150
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Request Packet 188
@@ -7190,7 +7190,7 @@ Memory Request Packet 188
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Requests 188
@@ -7201,7 +7201,7 @@ Memory Requests 188
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Write 150
@@ -7212,7 +7212,7 @@ Memory Write 150
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory Writes 69
@@ -7223,7 +7223,7 @@ Memory Writes 69
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Message 151
@@ -7234,7 +7234,7 @@ Message 151
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Message Address Register 816
@@ -7245,7 +7245,7 @@ Message Address Register 816
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Message Address register 816, 818
@@ -7256,7 +7256,7 @@ Message Address register 816, 818
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Message Control Register 814
@@ -7267,7 +7267,7 @@ Message Control Register 814
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Message Control register 814, 818
@@ -7278,7 +7278,7 @@ Message Control register 814, 818
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Message Data register 817, 818
@@ -7289,7 +7289,7 @@ Message Data register 817, 818
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Message Request Packet 203
@@ -7300,7 +7300,7 @@ Message Request Packet 203
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Message Requests 70, 203
@@ -7311,7 +7311,7 @@ Message Requests 70, 203
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Message Writes 70
@@ -7322,7 +7322,7 @@ Message Writes 70
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Messages 148
@@ -7333,7 +7333,7 @@ Messages 148
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Mid-Bus Probe 923
@@ -7344,7 +7344,7 @@ Mid-Bus Probe 923
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MindShare Arbor 117
@@ -7355,7 +7355,7 @@ MindShare Arbor 117
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Miniport Driver 706
@@ -7366,7 +7366,7 @@ Miniport Driver 706
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MMIO 123
@@ -7377,7 +7377,7 @@ MMIO 123
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Modified Compliance Pattern 537
@@ -7388,7 +7388,7 @@ Modified Compliance Pattern 537
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Modified Compliance Pattern - 8b/10b 532
@@ -7399,7 +7399,7 @@ Modified Compliance Pattern - 8b/10b 532
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MR-IOV 937, 939
@@ -7410,7 +7410,7 @@ MR-IOV 937, 939
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MSI Capability Register 812
@@ -7421,7 +7421,7 @@ MSI能力寄存器 812
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MSI Configuration 817
@@ -7432,7 +7432,7 @@ MSI配置 817
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multicast 893, 896
@@ -7443,7 +7443,7 @@ Multicast 893, 896
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multicast Capabilities 163
@@ -7454,7 +7454,7 @@ Multicast Capabilities 163
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multicast Capability Registers 889
@@ -7465,7 +7465,7 @@ Multicast Capability Registers 889
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multi-casting 888
@@ -7476,7 +7476,7 @@ Multi-casting 888
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multi-Function Arbitration 272
@@ -7487,7 +7487,7 @@ Multi-Function Arbitration 272
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multi-Host System 96
@@ -7498,7 +7498,7 @@ Multi-Host System 96
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multi-Host Systems 943
@@ -7509,7 +7509,7 @@ Multi-Host Systems 943
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multiple Message Capable field 818
@@ -7520,7 +7520,7 @@ Multiple Message Capable字段 818
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multiple Messages 820
@@ -7531,7 +7531,7 @@ Multiple Messages 820
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multi-Root 938
@@ -7542,7 +7542,7 @@ Multi-Root 938
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multi-Root Enumeration 114
@@ -7553,7 +7553,7 @@ Multi-Root Enumeration 114
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multi-Root System 97, 116

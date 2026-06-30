@@ -4,7 +4,7 @@
 
 ## The Previous Chapter | 上一章回顾
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The previous chapter provides a thorough introduction to the PCI Express architecture and is intended to serve as an "executive level" overview. It introduces the layered approach to PCIe port design described in the spec. The various packet types are introduced along with the transaction protocol.
@@ -17,7 +17,7 @@ The previous chapter provides a thorough introduction to the PCI Express archite
 
 ## This Chapter | 本章内容
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This chapter provides an introduction to configuration in the PCIe environment. This includes the space in which a Function's configuration registers are implemented, how a Function is discovered, how configuration transactions are generated and routed, the difference between PCI-compatible configuration space and PCIe extended configuration space, and how software differentiates between an Endpoint and a Bridge.
@@ -30,7 +30,7 @@ This chapter provides an introduction to configuration in the PCIe environment. 
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The next chapter describes the purpose and methods of a function requesting memory or IO address space through Base Address Registers (BARs) and how software initializes them. The chapter describes how bridge Base/Limit registers are initialized, thus allowing switches to route TLPs through the PCIe fabric.
@@ -43,7 +43,7 @@ The next chapter describes the purpose and methods of a function requesting memo
 
 ## 3.1 Definition of Bus, Device and Function | 3.1 总线、设备与功能的定义
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Just as in PCI, every PCIe Function is uniquely identified by the Device it resides within and the Bus to which the Device connects. This unique identifier is commonly referred to as a 'BDF'. Configuration software is responsible for detecting every Bus, Device and Function (BDF) within a given topology. The following sections discuss the primary BDF characteristics in the context of a sample PCIe topology. Figure 3-1 on page 87 depicts a PCIe topology that highlights the Buses, Devices and Functions implemented in a sample system. Later in this chapter the process of assigning Bus and Device Numbers is explained.
@@ -56,7 +56,7 @@ Just as in PCI, every PCIe Function is uniquely identified by the Device it resi
 
 ## 3.1.1 PCIe Buses | 3.1.1 PCIe 总线
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Up to 256 Bus Numbers can be assigned by configuration software.
@@ -133,7 +133,7 @@ This is referred to as a "depth first search" and is described in detail in "Enu
 
 ## 3.1.2 PCIe Devices | 3.1.2 PCIe 设备
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCIe permits up to 32 device attachments on a single PCI bus, however, the point‐to‐point nature of PCIe means only a single device can be attached directly to a PCIe link and that device will always end up being Device 0. Root Complexes and Switches have Virtual PCI buses which do allow multiple Devices being "attached" to the bus. Each Device must implement Function 0 and may contain a collection of up to eight Functions. When two or more Functions are implemented the Device is called a multi‐function device.
@@ -150,7 +150,7 @@ Figure 3-1: Example System | 图3-1：示例系统
 
 ## 3.1.3 PCIe Functions | 3.1.3 PCIe 功能
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 As previously discussed Functions are designed into every Device. These Functions may include hard drive interfaces, display controllers, ethernet controllers, USB controllers, etc. Devices that have multiple Functions do not need to be implemented sequentially. For example, a Device might implement Functions 0, 2, and 7. As a result, when configuration software detects a multifunction device, each of the possible Functions must be checked to learn which of them are present. Each Function also has its own configuration address space that is used to setup the resources associated with the Function.
@@ -163,7 +163,7 @@ As previously discussed Functions are designed into every Device. These Function
 
 ## 3.2 Configuration Address Space | 3.2 配置地址空间
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The first PCs required users to set switches and jumpers to assign resources for each card installed and this frequently resulted in conflicting memory, IO and interrupt settings. The subsequent IO architectures, Extended ISA (EISA) and the IBM PS2 systems, were the first to implemented plug and play architectures. In these architectures configuration files were shipped with each plug-in card that allowed system software to assign basic resources. PCI extended this capability by implementing standardized configuration registers that permit generic shrink-wrapped OSs to manage virtually all system resources. Having a standard way to enable error reporting, interrupt delivery, address mapping and more, allows one entity, the configuration software, to allocate and configure the system resources which virtually eliminates resource conflicts.
@@ -182,7 +182,7 @@ PCI为每个功能定义了一块专用的配置地址空间。映射到配置�
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI-Compatible Space
@@ -231,7 +231,7 @@ Figure 3-2: PCI Compatible Configuration Register Space | 图3-2：PCI兼容配�
 
 ## 3.2.2 Extended Configuration Space | 3.2.2 扩展配置空间
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Refer to Figure 3‑3 on page 90 during this discussion. When PCIe was introduced, there was not enough room in the original 256‑byte configuration region to contain all the new capability structures needed. So the size of configuration space was expanded from 256 bytes per function to 4KB, called the Extended Configuration Space. The 960‑dword Extended Configuration area is only accessible using the Enhanced configuration mechanism and is therefore not visible to legacy PCI software. It contains additional optional Extended Capability registers for PCIe such as those listed in Figure 3‑3 (not a complete list).
@@ -245,7 +245,7 @@ Refer to Figure 3‑3 on page 90 during this discussion. When PCIe was introduce
 Figure 3‑3: 4KB Configuration Space per PCI Express Function | 图3‑3：每个PCI Express功能的4KB配置空间
 <img src="images/part01_1942869259537b7f4b2e0c2773f830739adecc65a9d75ed0e60a239556142560.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Host-to-PCI Bridge Configuration Registers
@@ -258,7 +258,7 @@ Host-to-PCI Bridge Configuration Registers
 
 ## 3.4.3 General | 3.4.3 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Host-to-PCI bridge's configuration registers don't have to be accessible using either of the configuration mechanisms mentioned in the previous section. Instead, it's typically implemented as device-specific registers in memory address space, which is known by the platform firmware. However, its configuration register layout and usage must adhere to the standard Type 0 template defined by the PCI 2.3 specification.
@@ -271,7 +271,7 @@ The Host-to-PCI bridge's configuration registers don't have to be accessible usi
 
 ## 3.3.1 Only the Root Sends Configuration Requests | 3.3.1 仅根复合体发送配置请求
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The specification states that only the Root Complex is permitted to originate Configuration Requests. It acts as the system processor's liaison to inject Requests into the fabric and pass Completions back. The ability to originate configuration transactions is restricted to the processor through the Root Complex to avoid the anarchy that could result if any device had the ability to change the configuration of other devices.
@@ -290,7 +290,7 @@ Since only the Root can initiate these requests, they also can only move downstr
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Generating Configuration Transactions
@@ -327,7 +327,7 @@ The enhanced configuration mechanism, using memory-mapped accesses.
 
 ## 3.4.1 Legacy PCI Mechanism | 3.4.1 传统 PCI 机制
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The PCI spec defined an IO‑indirect method for instructing the system (the Root Complex or its equivalent) to perform PCI configuration accesses. As it happened, the dominant PC processors (Intel x86) were only designed to address 64KB of IO address space. By the time PCI was defined, this limited IO space had become badly cluttered and only a few address ranges remained available: 0800h ‑ 08FFh and 0C00h ‑ 0CFFh. Consequently, it wasn't feasible to map the configuration registers for all the possible Functions directly into IO space. At the same time, memory address space was also limited in size and mapping all of configuration space into memory address space was not seen as a good solution either. So the spec writers chose a commonly‑used solution to this problem, use indirect address mapping instead. To do this, one register holds the target address, while a second holds the data going to or coming from the target. A write to the address register, followed by a read or write to the data register, causes a single read or write transaction to the correct internal address for the target function. This solves the problem of limited address space nicely, but it means that two IO accesses are needed to create one configuration access.
@@ -356,12 +356,12 @@ Accessing a Function's PCI‑compatible configuration registers is accomplished 
 
 Figure 3-4: Configuration Address Port at 0CF8h | 图3-4：0CF8h处的配置地址端口
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">31</td><td style="border:2px solid #000;">30</td><td style="border:2px solid #000;">24</td><td style="border:2px solid #000;">23</td><td style="border:2px solid #000;">16</td><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">11</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Bus Number</td><td style="border:2px solid #000;">Device Number</td><td style="border:2px solid #000;">Function Number</td><td colspan="4" style="border:2px solid #000;">Doubleword</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;"></td></tr><tr><td colspan="13" style="border:2px solid #000;">Register pointer (64 DW)Should always be zerosEnable Configuration Space Mapping1 = enabled</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">31</td><td style="border:2px solid #000;">30</td><td style="border:2px solid #000;">24</td><td style="border:2px solid #000;">23</td><td style="border:2px solid #000;">16</td><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">11</td><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Bus Number</td><td style="border:2px solid #000;">Device Number</td><td style="border:2px solid #000;">Function Number</td><td colspan="4" style="border:2px solid #000;">Doubleword</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;"></td></tr><tr><td colspan="13" style="border:2px solid #000;">Register pointer (64 DW)Should always be zerosEnable Configuration Space Mapping1 = enabled</td></tr></table>
 
 
 ## 3.4.1.1 Configuration Address Port | 3.4.1.1 配置地址端口
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Configuration Address Port only latches information when the processor performs a full 32‑bit write to the port, as shown in Figure 3‑4, and a 32‑bit read from the port returns its contents. The information written to the Configuration Address Port must conform to the following template (illustrated in Figure 3‑4) and described on the facing page.
@@ -430,7 +430,7 @@ Bit [31] must be set to 1b to enable translation of the subsequent IO access to 
 
 ## 3.4.1.2 Bus Compare and Data Port Usage | 3.4.1.2 总线比较与数据端口使用
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Host Bridge within the Root Complex, shown in Figure 3-5 on page 95, implements a Secondary Bus Number register and a Subordinate Bus Number register. The Secondary Bus Number is the bus number of the bus immediately beneath the bridge. The Subordinate Bus Number is the target bus number that lives downstream of the bridge.
@@ -467,7 +467,7 @@ If the target bus is larger than the bridge's Secondary Bus number, but less tha
 
 ## 3.4.1.3 Single Host System | 3.4.1.3 单主机系统
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The information written to the Configuration Address Port is latched by the Host/PCI bridge within the Root Complex, as shown in Figure 3‑1 on page 87. If bit 31 is 1b and the target bus is within the downstream range of bus numbers, the bridge translates a subsequent processor access targeting its Configuration Data Port into a configuration request on bus 0. The processor then initiates an IO read or write transaction to the Configuration Data Port at 0CFCh. This causes the bridge to generate a Configuration Request that is a read when the IO access to the Configuration Data Port was a read, or a Configuration write if the IO access was a write. It will be a Type 0 configuration transaction if the target bus is bus 0, or a Type 1 for another bus within the range, or not forwarded at all if the target bus is outside of the range.
@@ -484,7 +484,7 @@ The information written to the Configuration Address Port is latched by the Host
 Figure 3-5: Single-Root System | 图3-5：单根系统
 <img src="images/part01_df2188df034fe579e0116e8395740a1fa34157f569381757ab46ce9c517acb04.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Multi-Host System
@@ -547,7 +547,7 @@ o 否则，将其转换为Type 1配置访问。
 
 ## 3.4.3 General | 3.4.3 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When the spec writers were choosing how PCI‐X and, later, PCIe, would access Configuration space, there were two concerns. First, the 256‐byte space per Function limited vendors who wanted to put proprietary information there, as well as future spec writers who would need room for more standardized capability structures. To solve that problem, the space was simply extended from 256 bytes to 4KB per Function. Secondly, when PCI was developed there were few multi‐processor systems in use. When there's only one CPU and it's only running one thread, the fact that the old model takes two steps to generate one access isn't a problem. But newer machines using multi‐core, multi‐threaded CPUs present a problem for the IO‐indirect model because there's nothing to stop multiple threads from trying to access Configuration space at the same time. Consequently, the two‐step model will no longer work without some locking semantics. With no locking semantics, once thread A writes a value into the
@@ -560,7 +560,7 @@ When the spec writers were choosing how PCI‐X and, later, PCIe, would access C
 
 ## Chapter 3: Configuration Overview | 第3章：配置概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Configuration Address Port (CF8h), there is nothing to prevent thread B from overwriting that value before thread A can perform its corresponding access to the Configuration Data Port (CFCh).
@@ -574,7 +574,7 @@ Configuration Address Port (CF8h), there is nothing to prevent thread B from ove
 Figure 3-6: Multi-Root System | 图3-6：多根系统
 <img src="images/part01_80b2221c6585811b98bd6ab6018000cfeac331007436eabe94f83b1266da2ab0.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To solve this new problem, the spec writers decided to take a different approach. Rather than try to conserve address space, they would create a single-step, uninterruptable process by mapping all of configuration space into memory addresses. That allows a single command sequence, since one memory request in the specified address range will generate one Configuration Request on the bus. The trade-off now is address size. Mapping 4KB per Function for all the possible implementations requires allocating 256MB of memory address space. The difference in that regard today is that modern architectures typically support anywhere between 36 and 48 bits of physical memory address space. With these memory address space sizes, 256MB is insignificant.
@@ -595,7 +595,7 @@ To handle this mapping, each Function's 4KB configuration space starts at a 4KB-
 
 ## 3.4.2 Some Rules | 3.4.2 一些规则
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A Root Complex is not required to support an access to enhanced configuration memory space if it crosses a dword address boundary (straddles two adjacent memory dwords). Nor are they required to support the bus locking protocol that some processor types use for an atomic, or uninterrupted series of commands. Software should avoid both of these situations when accessing configuration space unless it is known that the Root Complex does support them.
@@ -608,11 +608,11 @@ A Root Complex is not required to support an access to enhanced configuration me
 
 Table 3-1: Enhanced Configuration Mechanism Memory-Mapped Address Range | 表3-1：增强配置机制存储器映射地址范围
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Memory Address Bit Field</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">A[63:28]</td><td style="border:2px solid #000;">Upper bits of the 256MB-aligned base address of the 256MB memory-mapped address range allocated for the Enhanced Configuration Mechanism. The manner in which the base address is allocated is implementation-specific. It is supplied to the OS by system firmware (typically through the ACPI tables).</td></tr><tr><td style="border:2px solid #000;">A[27:20]</td><td style="border:2px solid #000;">Target Bus Number (0 - 255).</td></tr><tr><td style="border:2px solid #000;">A[19:15]</td><td style="border:2px solid #000;">Target Device Number (0 - 31).</td></tr><tr><td style="border:2px solid #000;">A[14:12]</td><td style="border:2px solid #000;">Target Function Number (0 - 7).</td></tr><tr><td style="border:2px solid #000;">A[11:2]</td><td style="border:2px solid #000;">A[11:2] this range can address one of 1024 dwords, whereas the legacy method is limited to only address one of 64 dwords.</td></tr><tr><td style="border:2px solid #000;">A[1:0]</td><td style="border:2px solid #000;">Defines the access size and the Byte Enable setting.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Memory Address Bit Field</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">A[63:28]</td><td style="border:2px solid #000;">Upper bits of the 256MB-aligned base address of the 256MB memory-mapped address range allocated for the Enhanced Configuration Mechanism. The manner in which the base address is allocated is implementation-specific. It is supplied to the OS by system firmware (typically through the ACPI tables).</td></tr><tr><td style="border:2px solid #000;">A[27:20]</td><td style="border:2px solid #000;">Target Bus Number (0 - 255).</td></tr><tr><td style="border:2px solid #000;">A[19:15]</td><td style="border:2px solid #000;">Target Device Number (0 - 31).</td></tr><tr><td style="border:2px solid #000;">A[14:12]</td><td style="border:2px solid #000;">Target Function Number (0 - 7).</td></tr><tr><td style="border:2px solid #000;">A[11:2]</td><td style="border:2px solid #000;">A[11:2] this range can address one of 1024 dwords, whereas the legacy method is limited to only address one of 64 dwords.</td></tr><tr><td style="border:2px solid #000;">A[1:0]</td><td style="border:2px solid #000;">Defines the access size and the Byte Enable setting.</td></tr></table>
 
 ## 3.5 Configuration Requests | 3.5 配置请求
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Two request types, Type 0 or Type 1, may be generated by bridges in response to a configuration access. The type used depends on whether the target Bus number matches the bridge's Secondary Bus Number, as described below.
@@ -625,7 +625,7 @@ Two request types, Type 0 or Type 1, may be generated by bridges in response to 
 
 ## 3.5.1 Type 0 Configuration Request | 3.5.1 Type 0 配置请求
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 If the target bus number matches the Secondary Bus Number, a Type 0 configuration read or write is forwarded to the secondary bus and:
@@ -670,12 +670,12 @@ Figure 3-7 illustrates the Type 0 configuration read and write Request header fo
 
 Figure 3-7: Type 0 Configuration Read and Write Request Headers | 图3-7：Type 0配置读写请求头
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="19" style="border:2px solid #000;">Type 0 Configuration Read</td></tr><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="3" style="border:2px solid #000;">+0</td><td colspan="6" style="border:2px solid #000;">+1</td><td colspan="4" style="border:2px solid #000;">+2</td><td colspan="5" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Length0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="11" style="border:2px solid #000;">Requester ID</td><td colspan="4" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">Last BE0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="4" style="border:2px solid #000;">Bus Number</td><td colspan="4" style="border:2px solid #000;">Device Number</td><td colspan="3" style="border:2px solid #000;">Function Number</td><td style="border:2px solid #000;">R</td><td colspan="5" style="border:2px solid #000;">Register Number</td><td style="border:2px solid #000;">R</td></tr><tr><td colspan="19" style="border:2px solid #000;">Type 0 Configuration Write</td></tr><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="3" style="border:2px solid #000;">+0</td><td colspan="8" style="border:2px solid #000;">+1</td><td colspan="4" style="border:2px solid #000;">+2</td><td colspan="3" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt0</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Type0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Length0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="11" style="border:2px solid #000;">Requester ID</td><td colspan="4" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">Last BE0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="4" style="border:2px solid #000;">Bus Number</td><td colspan="4" style="border:2px solid #000;">Device Number</td><td colspan="3" style="border:2px solid #000;">Function Number</td><td style="border:2px solid #000;">R</td><td colspan="5" style="border:2px solid #000;">Register Number</td><td style="border:2px solid #000;">R</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="19" style="border:2px solid #000;">Type 0 Configuration Read</td></tr><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="3" style="border:2px solid #000;">+0</td><td colspan="6" style="border:2px solid #000;">+1</td><td colspan="4" style="border:2px solid #000;">+2</td><td colspan="5" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Length0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="11" style="border:2px solid #000;">Requester ID</td><td colspan="4" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">Last BE0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="4" style="border:2px solid #000;">Bus Number</td><td colspan="4" style="border:2px solid #000;">Device Number</td><td colspan="3" style="border:2px solid #000;">Function Number</td><td style="border:2px solid #000;">R</td><td colspan="5" style="border:2px solid #000;">Register Number</td><td style="border:2px solid #000;">R</td></tr><tr><td colspan="19" style="border:2px solid #000;">Type 0 Configuration Write</td></tr><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="3" style="border:2px solid #000;">+0</td><td colspan="8" style="border:2px solid #000;">+1</td><td colspan="4" style="border:2px solid #000;">+2</td><td colspan="3" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt0</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Type0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Length0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="11" style="border:2px solid #000;">Requester ID</td><td colspan="4" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">Last BE0</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="4" style="border:2px solid #000;">Bus Number</td><td colspan="4" style="border:2px solid #000;">Device Number</td><td colspan="3" style="border:2px solid #000;">Function Number</td><td style="border:2px solid #000;">R</td><td colspan="5" style="border:2px solid #000;">Register Number</td><td style="border:2px solid #000;">R</td></tr></table>
 
 ## 3.5.2 Type 1 Configuration Request | 3.5.2 Type 1 配置请求
 
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When a bridge sees a configuration access whose target bus number does not match its Secondary Bus Number but is in the range between its Secondary and Subordinate Bus Numbers, it forwards the packet as a Type 1 Request to its Secondary Bus. Devices that are not bridges (Endpoints) know to ignore Type 1 Requests since the target resides on a different bus, but bridges that see it will make the same comparison of the target bus number to the range of buses downstream (see Figure 3‑1 on page 87 and Figure 3‑6 on page 97).
@@ -686,7 +686,7 @@ When a bridge sees a configuration access whose target bus number does not match
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 If the target bus matches the Bridge's secondary bus, the packet is converted from Type 1 to Type 0 and passed to the secondary bus. Devices local to that bus then check the packet header as previously described.
@@ -697,7 +697,7 @@ If the target bus matches the Bridge's secondary bus, the packet is converted fr
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 If the target bus is not the Bridge's secondary bus but is within its range, the packet is forwarded to the Bridge's secondary bus as a Type 1 Request.
@@ -719,7 +719,7 @@ Type 1 Configuration Write
 
 ## 3.6 Example PCI-Compatible Configuration Access | 3.6 PCI兼容配置访问示例
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Refer to Figure 3-9 on page 104. To illustrate the concept of generating a Configuration Request using the legacy CF8h/CFCh mechanism, consider the following x86 assembly code sample, which will cause the Root Complex to perform a 2-byte read from Bus 4, Device 0, Function 0, Register 0 (Vendor ID).
@@ -738,7 +738,7 @@ mov dx,0CFCh ; set dx = config data port address
 in ax,dx ;2-byte read from config data port
 ```
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. The out instruction generates an IO write from the processor targeting the Configuration Address Port in the Root Complex Host bridge (0CF8h), as shown in Figure 3-4 on page 92.
@@ -847,7 +847,7 @@ in ax,dx ;2-byte read from config data port
 
 ## 3.7 Example Enhanced Configuration Access | 3.7 增强型配置访问示例
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Refer to Figure 3-9 on page 104. The following x86 code sample causes the Root Complex to perform a read from Bus 4, Device 0, Function 0, Register 0 (Vendor ID). Before this will work, the Host Bridge must have been assigned a base address value. This example assumes that the 256MB-aligned base address of the Enhanced Configuration memory-mapped range is E0000000h:
@@ -862,7 +862,7 @@ Refer to Figure 3-9 on page 104. The following x86 code sample causes the Root C
 mov ax,[E0400000h];memory-mapped Config read
 ```
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Address bits 63:28 indicate the upper 36 bits of the 256MB-aligned base address of the overall Enhanced Configuration address range (in this case, 00000000 E0000000h).
@@ -927,7 +927,7 @@ Figure 3-9: Example Configuration Read Access | 图3-9：配置读访问示例
 
 ## 3.8 Enumeration - Discovering the Topology | 3.8 枚举——发现拓扑结构
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 After a system reset or power up, configuration software has to scan the PCIe fabric to discover the machine topology and learn how the fabric is populated. Before that happens, as shown in Figure 3‑10 on page 105, the only thing that software can know for sure is that there will be a Host/PCI bridge and that bus number 0 will be on the secondary side of that bridge. Note that the upstream side of a bridge device is called its primary bus, while the downstream side is referred to as its secondary bus. The process of scanning the PCI Express fabric to discover its topology is referred to as the enumeration process.
@@ -944,7 +944,7 @@ Figure 3‑10: Topology View At Startup | 图3‑10：启动时的拓扑视图
 
 ## 3.8.1 Discovering the Presence or Absence of a Function | 3.8.1 发现功能的存在或缺失
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The configuration software executing on the processor normally discovers the existence of a Function by reading from its Vendor ID register. A unique 16‑bit value is assigned to each vendor by the PCI‑SIG and is hardwired into the Vendor ID register of each Function designed by that vendor. By reading this register in all of the possible combinations of Bus, Device, and Function numbers in the system, enumeration software can search through the entire topology to learn which devices are present. This process is fairly simple, but there are two problems that can arise: a targeted device may not be present, or it may be present but unprepared to respond. Handling these two cases is described next.
@@ -957,7 +957,7 @@ The configuration software executing on the processor normally discovers the exi
 
 ## 3.8.1 Device not Present | 3.8.1 设备不存在
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 It can happen several times during the process of discovery that the targeted device doesn't actually exist in the system and when that happens it needs to be understood correctly. In PCI, the Configuration Read Request would timeout on the bus and generate a Master Abort error condition. Since no device was driving the bus and all the signals were pulled up, the data bits on the bus would be seen as all ones and that would become the data value seen. The resulting Vendor ID of FFFFh is reserved. If enumeration software saw that result for the read, it understood that the device wasn't present. Since this wasn't really an error condition, the Master Abort would not be reported as an error during the enumeration process.
@@ -986,7 +986,7 @@ It's important to avoid accidentally reporting an error for this case. Even thou
 
 ## 3.8.2 Device not Ready | 3.8.2 设备未就绪
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Another problem that can arise is that the targeted device is present but isn't ready to respond to a configuration access. There is a timing consideration for configuration because of the time it takes devices to prepare for access. If the data rate is 5.0 GT/s or less, software must wait 100ms after reset before initiating a Configuration Request. If the rate is higher than 5.0 GT/s (Gen3 speed), software must wait until 100ms after Link training completes before attempting this. The reason for the longer delay for the higher speeds is that the Gen3 Equalization Process during Link training can take a long time (on the order of 50ms; see "Link Equalization Overview" on page 577 for more on this topic).
@@ -1043,7 +1043,7 @@ Figure 3-11: Root Control Register in PCIe Capability Block | 图3-11：PCIe能�
 
 ## 3.8.2 Determining if a Function is an Endpoint or Bridge | 3.8.2 确定一个功能是端点还是桥
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 A critical part of the enumeration process is being able to determine if a function is a bridge or an endpoint. As seen in Figure 3‐12 on page 108, the lower 7 bits of the Header Type register (offset 0Eh in config space header) identify the basic category of the Function, and three values are defined:
@@ -1091,7 +1091,7 @@ Figure 3‐12: Header Type Register | 图3‐12：头类型寄存器
 
 ## 3.9 Single Root Enumeration Example | 3.9 单根枚举示例
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Now that we've discussed the basic elements involved in the enumeration process, let's walk through an example of the process. Figure 3-13 on page 113 illustrates an example system after the buses and devices have been enumerated. The discussion that follows assumes that the configuration software uses either of the two configuration access mechanisms defined in this chapter to achieve this result. At startup time, the configuration software executing on the processor performs enumeration as described below.
@@ -1504,7 +1504,7 @@ The bridge is now aware that the number of the bus directly attached downstream 
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 • Primary Bus Number Register = 6
@@ -1677,7 +1677,7 @@ Figure 3-13: Single-Root System | 图3-13：单根系统
 
 ## 3.4.3 General | 3.4.3 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Consider the Multi-Root System shown in Figure 3-14 on page 116.
@@ -1738,7 +1738,7 @@ In the illustration, each Root Complex is a chipset member and one of them is de
 
 ## 3.10.1 Multi-Root Enumeration Process | 3.10.1 多根枚举过程
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 During enumeration of the left-hand tree structure in Figure 3-14 on page 116, the Host/PCI bridge in the secondary Root Complex ignores all configuration accesses because the targeted bus number is no greater than 9. Note that, although detected and numbered, Bus 8 has no device attached. Once that enumeration process has been completed, the enumeration software takes the following steps to enumerate the secondary Root Complex:
@@ -1829,7 +1829,7 @@ The bridge is now aware that the number of the bus directly attached to its down
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 PCI Express Technology
@@ -1845,7 +1845,7 @@ Figure 3-14: Multi-Root System | 图3-14：多根系统
 
 ## 3.11 Hot-Plug Considerations | 3.11 热插拔考虑因素
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In a hot-plug environment, meaning one in which add-in cards can be added or removed during runtime, the situation illustrated by Bus number 8 in Figure 3-14 on page 116 can potentially cause trouble.
@@ -1928,7 +1928,7 @@ In most cases, leaving a bus number gap will not be an issue since the system ca
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MindShare Arbor: Debug/Validation/Analysis and Learning Software Tool
@@ -1941,7 +1941,7 @@ MindShare Arbor：调试/验证/分析及学习软件工具
 
 ## 3.4.3 General | 3.4.3 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 MindShare Arbor is a computer system debug, validation, analysis and learning tool that allows the user to read and write any memory, IO or configuration space address. The data from these address spaces can be viewed in a clean and informative style.
@@ -1982,7 +1982,7 @@ Figure 3-15: Partial Screenshot of MindShare Arbor | 图3-15：MindShare Arbor�
 
 ## 3.12.1 MindShare Arbor Feature List | 3.12.1 MindShare Arbor 功能列表
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Description of all config registers included in the PCIe 3.0 spec

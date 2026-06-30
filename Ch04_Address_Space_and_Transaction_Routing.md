@@ -4,7 +4,7 @@
 
 ## The Previous Chapter | 前一章
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The previous chapter provides an introduction to configuration in the PCI Express environment. This includes the space in which a Function's configuration registers are implemented, how a Function is discovered, how configuration transactions are generated and routed, the difference between PCI-compatible configuration space and PCIe extended configuration space, and how software differentiates between an Endpoint and a Bridge.
@@ -17,7 +17,7 @@ The previous chapter provides an introduction to configuration in the PCI Expres
 
 ## This Chapter | 本章内容
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This chapter describes the purpose and methods of a function requesting address space (either memory address space or IO address space) through Base Address Registers (BARs) and how software must setup the Base/Limit registers in all bridges to route TLPs from a source port to the correct destination port. The general concepts of TLP routing in PCI Express are also discussed, including address-based routing, ID-based routing and implicit routing.
@@ -30,7 +30,7 @@ This chapter describes the purpose and methods of a function requesting address 
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The next chapter describes Transaction Layer Packet (TLP) content in detail. We describe the use, format, and definition of the TLP packet types and the details of their related fields.
@@ -41,7 +41,7 @@ The next chapter describes Transaction Layer Packet (TLP) content in detail. We 
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 I Need An Address
@@ -64,7 +64,7 @@ Almost all devices have internal registers or storage locations that software (a
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 the device itself. This means these internal locations need to be addressable. Software must be able to perform a read or write operation with an address that will access the appropriate internal location within the targeted device. In order to make this work, these internal locations need to be assigned addresses from one of the address spaces supported in the system.
@@ -109,7 +109,7 @@ PCI Express 支持与 PCI 完全相同的三种地址空间：
 
 ## 4.1.1 Configuration Space | 4.1.1 配置空间
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 As we saw in Chapter 1, configuration space was introduced with PCI to allow software to control and check the status of devices in a standardized way. PCI Express was designed to be software backwards compatible with PCI, so configuration space is still supported and used for the same reason as it was in PCI. More info about configuration space (purpose of, how to access, size, contents, etc.) can be found in Chapter 3.
@@ -128,7 +128,7 @@ Even though configuration space was originally meant to hold standardized struct
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Memory and IO Address Spaces
@@ -141,7 +141,7 @@ Memory and IO Address Spaces
 
 ## 4.1.2 General | 4.1.2 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In the early days of PCs, the internal registers/storage in IO devices were accessed via IO address space (as defined by Intel). However, because of several limitations and undesirable effects related to IO address space, that we will not be going into here, that address space quickly lost favor with software and hardware vendors. This resulted in the internal registers/storage of IO devices being mapped into memory address space (commonly referred to as memory-mapped IO, or MMIO). However, because early software was written to use IO address space to access internal registers/storage on IO devices, it became common practice to map the same set of device-specific registers in memory
@@ -154,7 +154,7 @@ In the early days of PCs, the internal registers/storage in IO devices were acce
 
 ## Chapter 4: Address Space & Transaction Routing | 第4章：地址空间和事务路由
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 address space as well as in IO address space. This allows new software to access the internal locations of a device using memory address space (MMIO), while allowing legacy (old) software to continue to function because it can still access the internal registers of devices using IO address space.
@@ -194,7 +194,7 @@ The mapping example in Figure 4-1 is only showing MMIO and IO space being claime
 
 ## Prefetchable vs. Non-prefetchable Memory Space | 可预取内存空间与不可预取内存空间
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Figure 4-1 shows two different types of MMIO being claimed by PCIe devices: Prefetchable MMIO (P-MMIO) and Non-Prefetchable MMIO (NP-MMIO). It's important to describe the distinction between prefetchable and non-prefetchable memory space. Prefetchable space has two very well defined attributes:
@@ -255,7 +255,7 @@ Figure 4-1: Generic Memory And IO Address Maps | 图4-1：通用存储器和IO�
 
 ## 4.1.2 General | 4.1.2 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Each device in a system may have different requirements in terms of the amount and type of address space needed. For example, one device may have 256 bytes worth of internal registers | storage that should be accessible through IO address space and another device may have 16KB of internal registers/storage that should be accessible through MMIO.
@@ -317,7 +317,7 @@ Not all BARs have to be implemented. If a device does not need all the BARs to m
 Figure 4‐2: BARs in Configuration Space | 图4‐2：配置空间中的BAR
 <img src="images/part02_0754b36296a00a43f0467a2571863dc6744e5c61e356c6ed1820fa1e873af09d.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Once the BARs have been programmed, the internal registers or local memory within the device can be accessed via the address ranges programmed into the BARs. Anytime the device sees a request with an address that maps to one of its BARs, it will accept that request because it is the target.
@@ -331,7 +331,7 @@ Once the BARs have been programmed, the internal registers or local memory withi
 Figure 4‐3: PCI Express Devices And Type 0 And Type 1 Header Use | 图4‐3：PCI Express设备与Type 0和Type 1头的使用
 <img src="images/part02_880d7b01ffbe102c74937fdb9de0855f5ef6606ba36a5ca59c0258f40509fd4c.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 BAR Example 1: 32-bit Memory Address Space Request
@@ -392,7 +392,7 @@ At this point the configuration of BAR0 is complete. Once software enables memor
 
 Table 4-1: Results of Reading the BAR after Writing All 1s To It | 表4-1：写入全1后读取BAR的结果
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">BAR Bits</td><td style="border:2px solid #000;">Meaning</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td style="border:2px solid #000;">2:1</td><td style="border:2px solid #000;">Read as 00b indicating the target only supports decoding a 32-bit address</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">Read as 0b, indicating request is for non-prefetchable memory (meaning reads do have side-effects); NP-MMIO</td></tr><tr><td style="border:2px solid #000;">11:4</td><td style="border:2px solid #000;">Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td style="border:2px solid #000;">31:12</td><td style="border:2px solid #000;">Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Since bit 12 is the least significant bit that could be written, the memory size requested is  $2^{12} = 4KB$ .</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">BAR Bits</td><td style="border:2px solid #000;">Meaning</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td style="border:2px solid #000;">2:1</td><td style="border:2px solid #000;">Read as 00b indicating the target only supports decoding a 32-bit address</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">Read as 0b, indicating request is for non-prefetchable memory (meaning reads do have side-effects); NP-MMIO</td></tr><tr><td style="border:2px solid #000;">11:4</td><td style="border:2px solid #000;">Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td style="border:2px solid #000;">31:12</td><td style="border:2px solid #000;">Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Since bit 12 is the least significant bit that could be written, the memory size requested is  $2^{12} = 4KB$ .</td></tr></table>
 
 Figure 4-4: 32-Bit Non-Prefetchable Memory BAR Set Up | 图4-4：32位非预取存储器BAR设置
 
@@ -400,7 +400,7 @@ Figure 4-4: 32-Bit Non-Prefetchable Memory BAR Set Up | 图4-4：32位非预取�
 
 ## 4.2.2 BAR Example 2: 64-bit Memory Address Space Request | 4.2.2 BAR 示例 2: 64 位存储器地址空间请求
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In the previous example, we saw BAR0 being used to request non-prefetchable memory address space (NP-MMIO). In this example, as shown in Figure 4-5 on page 132, BAR1 and BAR2 are being used to request a 64MB block of prefetchable memory address space. Two sequential BARs are being used here because the device supports a 64-bit address for this request, meaning that software can allocate the requested address space above the 4GB address boundary if it wants to (but that is not a requirement). Since the address can be a 64-bit address, two sequential BARs must be used together.
@@ -457,11 +457,11 @@ Figure 4-5: 64-Bit Prefetchable Memory BAR Set Up | 图4-5：64位可预取存�
 
 Table 4-2: Results Of Reading the BAR Pair after Writing All 1s To Both | 表4-2：写入全1后读取BAR对的结果
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">BAR</td><td style="border:2px solid #000;">BAR Bits</td><td style="border:2px solid #000;">Meaning</td></tr><tr><td style="border:2px solid #000;">Lower</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td style="border:2px solid #000;">Lower</td><td style="border:2px solid #000;">2:1</td><td style="border:2px solid #000;">Read as 10b indicating the target supports a 64-bit address decoder, and that the next sequential BAR contains the upper 32 bits of the address information.</td></tr><tr><td style="border:2px solid #000;">Lower</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">Read as 1b, indicating request is for prefetchable memory (meaning reads do not have side-effects); P-MMIO</td></tr><tr><td style="border:2px solid #000;">Lower</td><td style="border:2px solid #000;">25:4</td><td style="border:2px solid #000;">Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td style="border:2px solid #000;">Lower</td><td style="border:2px solid #000;">31:26</td><td style="border:2px solid #000;">Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Note that because bit 26 was the least significant writable bit, the memory address space request size is $2^{26}$, or 64MB.</td></tr><tr><td style="border:2px solid #000;">Upper</td><td style="border:2px solid #000;">31:0</td><td style="border:2px solid #000;">Read as all 1s. These bits will be used as the upper 32 bits of the 64-bit start address programmed by system software.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">BAR</td><td style="border:2px solid #000;">BAR Bits</td><td style="border:2px solid #000;">Meaning</td></tr><tr><td style="border:2px solid #000;">Lower</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Read as 0b, indicating a memory request. Since this is a memory request, bits 3:1 also have an encoded meaning.</td></tr><tr><td style="border:2px solid #000;">Lower</td><td style="border:2px solid #000;">2:1</td><td style="border:2px solid #000;">Read as 10b indicating the target supports a 64-bit address decoder, and that the next sequential BAR contains the upper 32 bits of the address information.</td></tr><tr><td style="border:2px solid #000;">Lower</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">Read as 1b, indicating request is for prefetchable memory (meaning reads do not have side-effects); P-MMIO</td></tr><tr><td style="border:2px solid #000;">Lower</td><td style="border:2px solid #000;">25:4</td><td style="border:2px solid #000;">Read as all 0s, indicating the size of the request (these bits are hard-coded to 0)</td></tr><tr><td style="border:2px solid #000;">Lower</td><td style="border:2px solid #000;">31:26</td><td style="border:2px solid #000;">Read as all 1s because software has not yet programmed the upper bits with a start address for the block. Note that because bit 26 was the least significant writable bit, the memory address space request size is $2^{26}$, or 64MB.</td></tr><tr><td style="border:2px solid #000;">Upper</td><td style="border:2px solid #000;">31:0</td><td style="border:2px solid #000;">Read as all 1s. These bits will be used as the upper 32 bits of the 64-bit start address programmed by system software.</td></tr></table>
 
 ## 4.2.3 BAR Example 3: IO Address Space Request | 4.2.3 BAR 示例 3：IO 地址空间请求
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Continuing from the previous two examples, this same function is also requesting IO space, as shown in Figure 4‑6 on page 134. In the diagram, the requesting BAR (BAR3 in the example) is shown at three points in the configuration process:
@@ -510,11 +510,11 @@ Figure 4‑6: IO BAR Set Up | 图4‑6：IO BAR设置
 
 Table 4‑3: Results Of Reading the IO BAR after Writing All 1s To It | 表4‑3：写入全1后读取IO BAR的结果
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">BAR Bits</td><td style="border:2px solid #000;">Meaning</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Read as 1b, indicating an IO request. Since this is an IO request, bit 1 is reserved.</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">Reserved. Hard-coded to 0b.</td></tr><tr><td style="border:2px solid #000;">7:2</td><td style="border:2px solid #000;">Read as 0s Indicates size of the request (these bits are hard-coded to 0)</td></tr><tr><td style="border:2px solid #000;">31:8</td><td style="border:2px solid #000;">Read as 1s because software has not yet programmed the upper bits with a start address for the block. Note that because bit 8 was the least significant writable bit, the IO request size is $2^{8}$, or 256 bytes.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">BAR Bits</td><td style="border:2px solid #000;">Meaning</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Read as 1b, indicating an IO request. Since this is an IO request, bit 1 is reserved.</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">Reserved. Hard-coded to 0b.</td></tr><tr><td style="border:2px solid #000;">7:2</td><td style="border:2px solid #000;">Read as 0s Indicates size of the request (these bits are hard-coded to 0)</td></tr><tr><td style="border:2px solid #000;">31:8</td><td style="border:2px solid #000;">Read as 1s because software has not yet programmed the upper bits with a start address for the block. Note that because bit 8 was the least significant writable bit, the IO request size is $2^{8}$, or 256 bytes.</td></tr></table>
 
 ## 4.2.4 All BARs Must Be Evaluated Sequentially | 4.2.4 所有BAR必须按顺序评估
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 After going through the previous three examples, it becomes clear that software must evaluate BARs in a sequential fashion.
@@ -543,7 +543,7 @@ All BARs must be evaluated, even if software finds a BAR that is not being used.
 
 ## 4.5.2 Resizable BARs | 4.5.2 可调整大小的 BAR | 20.5.2 可调整大小的 BAR
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The 2.1 version of the PCI Express specification added support for changing the size of the requested address space in the BARs by defining a new capability structure in extended config space. The new structure allows the function to advertise what address space sizes it can operate with and then have software enable one of the sizes based on the available system resources. For example, if a function would ideally like to have 2GB of prefetchable memory address space, but it could still operate with only 1GB, 512MB or 256MB of P‑MMIO, system software may only enable the function to request 256MB of address space if software would not be able to accommodate a request of a larger size.
@@ -558,7 +558,7 @@ PCI Express 规范 2.1 版通过在扩展配置空间中定义一种新的能力
 
 ## 4.1.2 General | 4.1.2 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Once a function's BARs are programmed, the function knows what address range(s) it owns, which means that function will claim any transactions it sees that is targeting an address range it owns, an address range programmed into one of its BARs.
@@ -593,7 +593,7 @@ If the request is targeting an address that is owned by a BAR in a function bene
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 It is the Base and Limit registers in the Type 1 headers that are programmed with the range of addresses that live beneath this bridge.
@@ -624,7 +624,7 @@ Three sets of registers are needed because there can be three separate address r
 - Non-Prefetchable Memory space (NP-MMIO)
 - IO space (IO)
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To explain how these Base and Limit registers work, let's continue the example from the previous section and place that programmed function (an endpoint) beneath a switch as shown in Figure 4-7 on page 137.
@@ -643,7 +643,7 @@ The figure also lists the address ranges owned by the BARs of that function.
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The Base and Limit registers of every bridge upstream of the endpoint will need to be programmed, but to start out, we're going to focus on the bridge that is connected to the endpoint (Port B).
@@ -659,7 +659,7 @@ Figure 4-7: Example Topology for Setting Up Base and Limit Values | 图4-7：设
 
 ## 4.3.1 Prefetchable Range (P-MMIO) | 4.3.1 可预取范围 (P-MMIO)
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Type 1 headers have two pairs of prefetchable memory base/limit registers. The Prefetchable Memory Base/Limit registers store address info for the lower 32 bits of the prefetchable address range. If this bridge supports decoding 64-bit addresses, then the Prefetchable Memory Base/Limit Upper 32 Bits registers are also used and hold the upper 32 bits (bits [63:32]) of the address range. Figure 4-8 on page 138 shows the values software would program into these registers to indicate that the prefetchable address range of 2\_4000\_0000h - 2\_43FF\_FFFFh lives beneath that bridge (Port B). The meaning of each field in those registers is summarized in Table 4-4.
@@ -672,11 +672,11 @@ Type 1 头中有两对可预取存储器基址/上限寄存器。可预取存储
 
 Figure 4-8: Example Prefetchable Memory Base/Limit Register Values | 图4-8：可预取存储器基址/限制寄存器值示例
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="2" style="border:2px solid #000;">Device ID</td><td colspan="2" style="border:2px solid #000;">Vendor ID</td></tr><tr><td colspan="2" style="border:2px solid #000;">Status</td><td colspan="2" style="border:2px solid #000;">Command</td></tr><tr><td colspan="3" style="border:2px solid #000;">Class Code</td><td style="border:2px solid #000;">Rev ID</td></tr><tr><td style="border:2px solid #000;">BIST</td><td style="border:2px solid #000;">Header Type</td><td style="border:2px solid #000;">Latency Timer</td><td style="border:2px solid #000;">Cache Line Size</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 0 (BAR0)</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 1 (BAR1)</td></tr><tr><td style="border:2px solid #000;">Secondary Lat Timer</td><td style="border:2px solid #000;">Subordinate Bus #</td><td style="border:2px solid #000;">Secondary Bus #</td><td style="border:2px solid #000;">Primary Bus #</td></tr><tr><td colspan="2" style="border:2px solid #000;">Secondary Status</td><td style="border:2px solid #000;">IO Limit</td><td style="border:2px solid #000;">IO Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Limit</td><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Limit</td><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Base</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2" style="border:2px solid #000;">IO Limit Upper 16 Bits</td><td colspan="2" style="border:2px solid #000;">IO Base Upper 16 Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Capability Pointer</td></tr><tr><td colspan="4" style="border:2px solid #000;">Expansion ROM Base Address</td></tr><tr><td colspan="2" style="border:2px solid #000;">Bridge Control</td><td style="border:2px solid #000;">Interrupt Pin</td><td style="border:2px solid #000;">Interrupt Line</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="2" style="border:2px solid #000;">Device ID</td><td colspan="2" style="border:2px solid #000;">Vendor ID</td></tr><tr><td colspan="2" style="border:2px solid #000;">Status</td><td colspan="2" style="border:2px solid #000;">Command</td></tr><tr><td colspan="3" style="border:2px solid #000;">Class Code</td><td style="border:2px solid #000;">Rev ID</td></tr><tr><td style="border:2px solid #000;">BIST</td><td style="border:2px solid #000;">Header Type</td><td style="border:2px solid #000;">Latency Timer</td><td style="border:2px solid #000;">Cache Line Size</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 0 (BAR0)</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 1 (BAR1)</td></tr><tr><td style="border:2px solid #000;">Secondary Lat Timer</td><td style="border:2px solid #000;">Subordinate Bus #</td><td style="border:2px solid #000;">Secondary Bus #</td><td style="border:2px solid #000;">Primary Bus #</td></tr><tr><td colspan="2" style="border:2px solid #000;">Secondary Status</td><td style="border:2px solid #000;">IO Limit</td><td style="border:2px solid #000;">IO Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Limit</td><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Limit</td><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Base</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2" style="border:2px solid #000;">IO Limit Upper 16 Bits</td><td colspan="2" style="border:2px solid #000;">IO Base Upper 16 Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Capability Pointer</td></tr><tr><td colspan="4" style="border:2px solid #000;">Expansion ROM Base Address</td></tr><tr><td colspan="2" style="border:2px solid #000;">Bridge Control</td><td style="border:2px solid #000;">Interrupt Pin</td><td style="border:2px solid #000;">Interrupt Line</td></tr></table>
 
 <img src="images/part02_85465c6b3a80c51edb75d9f4ed61ee62e089c610bea78ae06cd89b5276746731.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 4: Address Space &amp; Transaction Routing
@@ -689,11 +689,11 @@ Chapter 4: Address Space &amp; Transaction Routing
 
 Table 4-4: Example Prefetchable Memory Base/Limit Register Meanings | 表4-4：可预取存储器基址/限制寄存器含义示例
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Register</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Use</td></tr><tr><td style="border:2px solid #000;">Prefetchable Memory Base</td><td style="border:2px solid #000;">4001h</td><td style="border:2px solid #000;">The upper 12 bits of this register hold the upper 12 bits of the 32-bit BASE address (bits [31:20]). The lower 20 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 1MB boundary.The lower 4 bits of this register indicate whether a 64-bit address decoder is supported in the bridge, meaning the Upper Base/Limit Registers are used.</td></tr><tr><td style="border:2px solid #000;">Prefetchable Memory Limit</td><td style="border:2px solid #000;">43F1h</td><td style="border:2px solid #000;">Similarly, the upper 12 bits of this register hold the upper 12 bits of the 32-bit LIMIT address (bits [31:20]). The lower 20 bits of the limit address are all implied to be all Fs.The lower 4 bits of this register have the same meaning as the lower 4 bits of the base register.</td></tr><tr><td style="border:2px solid #000;">Prefetchable Memory Base Upper 32 Bits</td><td style="border:2px solid #000;">00000002h</td><td style="border:2px solid #000;">Holds the upper 32 bits of the 64-bit BASE address for Prefetchable Memory downstream of this port.</td></tr><tr><td style="border:2px solid #000;">Prefetchable Memory Limit Upper 32 Bits</td><td style="border:2px solid #000;">00000002h</td><td style="border:2px solid #000;">Holds the upper 32 bits of the 64-bit LIMIT address for Prefetchable Memory downstream of this port.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Register</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Use</td></tr><tr><td style="border:2px solid #000;">Prefetchable Memory Base</td><td style="border:2px solid #000;">4001h</td><td style="border:2px solid #000;">The upper 12 bits of this register hold the upper 12 bits of the 32-bit BASE address (bits [31:20]). The lower 20 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 1MB boundary.The lower 4 bits of this register indicate whether a 64-bit address decoder is supported in the bridge, meaning the Upper Base/Limit Registers are used.</td></tr><tr><td style="border:2px solid #000;">Prefetchable Memory Limit</td><td style="border:2px solid #000;">43F1h</td><td style="border:2px solid #000;">Similarly, the upper 12 bits of this register hold the upper 12 bits of the 32-bit LIMIT address (bits [31:20]). The lower 20 bits of the limit address are all implied to be all Fs.The lower 4 bits of this register have the same meaning as the lower 4 bits of the base register.</td></tr><tr><td style="border:2px solid #000;">Prefetchable Memory Base Upper 32 Bits</td><td style="border:2px solid #000;">00000002h</td><td style="border:2px solid #000;">Holds the upper 32 bits of the 64-bit BASE address for Prefetchable Memory downstream of this port.</td></tr><tr><td style="border:2px solid #000;">Prefetchable Memory Limit Upper 32 Bits</td><td style="border:2px solid #000;">00000002h</td><td style="border:2px solid #000;">Holds the upper 32 bits of the 64-bit LIMIT address for Prefetchable Memory downstream of this port.</td></tr></table>
 
 ## 4.3.2 Non-Prefetchable Range (NP-MMIO) | 4.3.2 不可预取范围 (NP-MMIO)
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Unlike the prefetchable memory range, the non-prefetchable memory range can only support 32-bit addresses. So there is only one register for the base and one register for the limit. Following the example in Figure 4-7, the Non-Prefetchable Memory Base/Limit registers of Port B would be programmed with the values shown in Figure 4-9 on page 140. The meaning of these values is summarized in Table 4-5.
@@ -707,7 +707,7 @@ Unlike the prefetchable memory range, the non-prefetchable memory range can only
 Figure 4-9: Example Non-Prefetchable Memory Base/Limit Register Values | 图4-9：非预取存储器基址/限制寄存器值示例
 Type 1 Header
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="2" style="border:2px solid #000;">Device ID</td><td colspan="2" style="border:2px solid #000;">Vendor ID</td></tr><tr><td colspan="2" style="border:2px solid #000;">Status</td><td colspan="2" style="border:2px solid #000;">Command</td></tr><tr><td colspan="3" style="border:2px solid #000;">Class Code</td><td style="border:2px solid #000;">Rev ID</td></tr><tr><td style="border:2px solid #000;">BIST</td><td style="border:2px solid #000;">Header Type</td><td style="border:2px solid #000;">Latency Timer</td><td style="border:2px solid #000;">Cache Line Size</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 0 (BAR0)</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 1 (BAR1)</td></tr><tr><td style="border:2px solid #000;">Secondary Lat Timer</td><td style="border:2px solid #000;">Subordinate Bus #</td><td style="border:2px solid #000;">Secondary Bus #</td><td style="border:2px solid #000;">Primary Bus #</td></tr><tr><td colspan="2" style="border:2px solid #000;">Secondary Status</td><td style="border:2px solid #000;">IO Limit</td><td style="border:2px solid #000;">IO Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Limit</td><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Limit</td><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Base</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2" style="border:2px solid #000;">IO Limit Upper 16 Bits</td><td colspan="2" style="border:2px solid #000;">IO Base Upper 16 Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Capability Pointer</td></tr><tr><td colspan="4" style="border:2px solid #000;">Expansion ROM Base Address</td></tr><tr><td colspan="2" style="border:2px solid #000;">Bridge Control</td><td style="border:2px solid #000;">Interrupt Pin</td><td style="border:2px solid #000;">Interrupt Line</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="2" style="border:2px solid #000;">Device ID</td><td colspan="2" style="border:2px solid #000;">Vendor ID</td></tr><tr><td colspan="2" style="border:2px solid #000;">Status</td><td colspan="2" style="border:2px solid #000;">Command</td></tr><tr><td colspan="3" style="border:2px solid #000;">Class Code</td><td style="border:2px solid #000;">Rev ID</td></tr><tr><td style="border:2px solid #000;">BIST</td><td style="border:2px solid #000;">Header Type</td><td style="border:2px solid #000;">Latency Timer</td><td style="border:2px solid #000;">Cache Line Size</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 0 (BAR0)</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 1 (BAR1)</td></tr><tr><td style="border:2px solid #000;">Secondary Lat Timer</td><td style="border:2px solid #000;">Subordinate Bus #</td><td style="border:2px solid #000;">Secondary Bus #</td><td style="border:2px solid #000;">Primary Bus #</td></tr><tr><td colspan="2" style="border:2px solid #000;">Secondary Status</td><td style="border:2px solid #000;">IO Limit</td><td style="border:2px solid #000;">IO Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Limit</td><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Limit</td><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Base</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2" style="border:2px solid #000;">IO Limit Upper 16 Bits</td><td colspan="2" style="border:2px solid #000;">IO Base Upper 16 Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Capability Pointer</td></tr><tr><td colspan="4" style="border:2px solid #000;">Expansion ROM Base Address</td></tr><tr><td colspan="2" style="border:2px solid #000;">Bridge Control</td><td style="border:2px solid #000;">Interrupt Pin</td><td style="border:2px solid #000;">Interrupt Line</td></tr></table>
 
 <img src="images/part02_b5ee420b6ebab86a49bcce4a1dabefa73c1033141db7c92cc24041fcaeb9a66c.jpg" width="700" alt="">
 
@@ -715,9 +715,9 @@ Non-Prefetchable Memory Range: F900\_0000h - F90F\_FFFFh
 
 Table 4-5: Example Non-Prefetchable Memory Base/Limit Register Meanings | 表4-5：非预取存储器基址/限制寄存器含义示例
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Register</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Use</td></tr><tr><td style="border:2px solid #000;">(Non-Prefetchable) Memory Base</td><td style="border:2px solid #000;">F900h</td><td style="border:2px solid #000;">The upper 12 bits of this register hold the upper 12 bits of the 32-bit BASE address (bits [31:20]). The lower 20 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 1MB boundary.The lower 4 bits of this register must be 0s.</td></tr><tr><td style="border:2px solid #000;">(Non-Prefetchable) Memory Limit</td><td style="border:2px solid #000;">F900h</td><td style="border:2px solid #000;">Similarly, the upper 12 bits of this register hold the upper 12 bits of the 32-bit LIMIT address (bits [31:20]). The lower 20 bits of the limit address are all implied to be all Fs.The lower 4 bits of this register must be 0s.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Register</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Use</td></tr><tr><td style="border:2px solid #000;">(Non-Prefetchable) Memory Base</td><td style="border:2px solid #000;">F900h</td><td style="border:2px solid #000;">The upper 12 bits of this register hold the upper 12 bits of the 32-bit BASE address (bits [31:20]). The lower 20 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 1MB boundary.The lower 4 bits of this register must be 0s.</td></tr><tr><td style="border:2px solid #000;">(Non-Prefetchable) Memory Limit</td><td style="border:2px solid #000;">F900h</td><td style="border:2px solid #000;">Similarly, the upper 12 bits of this register hold the upper 12 bits of the 32-bit LIMIT address (bits [31:20]). The lower 20 bits of the limit address are all implied to be all Fs.The lower 4 bits of this register must be 0s.</td></tr></table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 This example shows an interesting case where the non-prefetchable address range programmed in Port B's configuration space indicates a much larger range (1MB) than the NP-MMIO range (4KB) owned by the endpoint living downstream. This is because the memory base/limit registers in the Type 1 header, can only be used to specify address bits 20 and above ([31:20]). The lower 20 address bits, [19:0], are implied. So the smallest address range that can be specified with the memory base/limit registers is 1MB.
@@ -739,7 +739,7 @@ In our example, the endpoint requested, and was granted, 4KB of NP-MMIO (F900\_0
 ## 4.3.3 IO Range | 4.3.3 IO 范围
 
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Like with the prefetchable memory range, Type 1 headers have two pairs of IO base/limit registers. The IO Base/Limit registers store address info for the lower 16 bits of the IO address range. If this bridge supports decoding 32‑bit IO addresses (which is rare in real‑world devices), then the IO Base/Limit Upper 16 Bits registers are also used and hold the upper 16 bits (bits [31:16]) of the IO address range. Following our example, Figure 4‑10 on page 142 shows the values software would program into these registers to indicate that the IO address range of 4000h ‑ 4FFFh lives beneath that bridge (Port B). The meaning of each field in those registers is summarized in Table 4‑6.
@@ -752,15 +752,15 @@ Like with the prefetchable memory range, Type 1 headers have two pairs of IO bas
 
 Figure 4-10: Example IO Base/Limit Register Values | 图4-10：IO基址/限制寄存器值示例
 
-<table style="border-collapse:collapse;width:100%"><tr><td colspan="2" style="border:2px solid #000;">Device ID</td><td colspan="2" style="border:2px solid #000;">Vendor ID</td></tr><tr><td colspan="2" style="border:2px solid #000;">Status</td><td colspan="2" style="border:2px solid #000;">Command</td></tr><tr><td colspan="3" style="border:2px solid #000;">Class Code</td><td style="border:2px solid #000;">RevID</td></tr><tr><td style="border:2px solid #000;">BIST</td><td style="border:2px solid #000;">Header Type</td><td style="border:2px solid #000;">Latency Timer</td><td style="border:2px solid #000;">Cache Line Size</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 0 (BAR0)</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 1 (BAR1)</td></tr><tr><td style="border:2px solid #000;">Secondary Lat Timer</td><td style="border:2px solid #000;">Subordinate Bus #</td><td style="border:2px solid #000;">Secondary Bus #</td><td style="border:2px solid #000;">Primary Bus #</td></tr><tr><td colspan="2" style="border:2px solid #000;">Secondary Status</td><td style="border:2px solid #000;">IO Limit</td><td style="border:2px solid #000;">IO Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Limit</td><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Limit</td><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Base</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2" style="border:2px solid #000;">IO Limit Upper 16 Bits</td><td colspan="2" style="border:2px solid #000;">IO Base Upper 16 Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Capability Pointer</td></tr><tr><td colspan="4" style="border:2px solid #000;">Expansion ROM Base Address</td></tr><tr><td colspan="2" style="border:2px solid #000;">Bridge Control</td><td style="border:2px solid #000;">Interrupt Pin</td><td style="border:2px solid #000;">Interrupt Line</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="2" style="border:2px solid #000;">Device ID</td><td colspan="2" style="border:2px solid #000;">Vendor ID</td></tr><tr><td colspan="2" style="border:2px solid #000;">Status</td><td colspan="2" style="border:2px solid #000;">Command</td></tr><tr><td colspan="3" style="border:2px solid #000;">Class Code</td><td style="border:2px solid #000;">RevID</td></tr><tr><td style="border:2px solid #000;">BIST</td><td style="border:2px solid #000;">Header Type</td><td style="border:2px solid #000;">Latency Timer</td><td style="border:2px solid #000;">Cache Line Size</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 0 (BAR0)</td></tr><tr><td colspan="4" style="border:2px solid #000;">Base Address 1 (BAR1)</td></tr><tr><td style="border:2px solid #000;">Secondary Lat Timer</td><td style="border:2px solid #000;">Subordinate Bus #</td><td style="border:2px solid #000;">Secondary Bus #</td><td style="border:2px solid #000;">Primary Bus #</td></tr><tr><td colspan="2" style="border:2px solid #000;">Secondary Status</td><td style="border:2px solid #000;">IO Limit</td><td style="border:2px solid #000;">IO Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Limit</td><td colspan="2" style="border:2px solid #000;">(Non-Prefetchable) Memory Base</td></tr><tr><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Limit</td><td colspan="2" style="border:2px solid #000;">Prefetchable Memory Base</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Base Upper 32 Bits</td></tr><tr><td colspan="4" style="border:2px solid #000;">Prefetchable Memory Limit Upper 32 Bits</td></tr><tr><td colspan="2" style="border:2px solid #000;">IO Limit Upper 16 Bits</td><td colspan="2" style="border:2px solid #000;">IO Base Upper 16 Bits</td></tr><tr><td colspan="3" style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Capability Pointer</td></tr><tr><td colspan="4" style="border:2px solid #000;">Expansion ROM Base Address</td></tr><tr><td colspan="2" style="border:2px solid #000;">Bridge Control</td><td style="border:2px solid #000;">Interrupt Pin</td><td style="border:2px solid #000;">Interrupt Line</td></tr></table>
 
 <img src="images/part02_38a387246db1e2abb691885e5a75d06270c47bffec7d92eb9c23ededa1be4c6a.jpg" width="700" alt="">
 
 Table 4-6: Example IO Base/Limit Register Meanings | 表4-6：IO基址/限制寄存器含义示例
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Register</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Use</td></tr><tr><td style="border:2px solid #000;">IO Base</td><td style="border:2px solid #000;">40h</td><td style="border:2px solid #000;">The upper 4 bits of this register hold the upper 4 bits of the 16-bit BASE address (bits [15:12]). The lower 12 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 4KB boundary. The lower 4 bits of this register indicate whether a 32-bit IO address decoder is supported in the bridge, meaning the Upper Base/ Limit Registers are used.</td></tr><tr><td style="border:2px solid #000;">IO Limit</td><td style="border:2px solid #000;">40h</td><td style="border:2px solid #000;">Similarly, the upper 4 bits of this register hold the upper 4 bits of the 16-bit LIMIT address (bits [15:12]). The lower 12 bits of the limit address are all implied to be all Fs. The lower 4 bits of this register have the same meaning as the lower 4 bits of the base regis- ter.</td></tr><tr><td style="border:2px solid #000;">IO Base Upper 16 Bits</td><td style="border:2px solid #000;">0000h</td><td style="border:2px solid #000;">Holds the upper 16 bits of the 32-bit BASE address for IO downstream of this port.</td></tr><tr><td style="border:2px solid #000;">IO Limit Upper 16 Bits</td><td style="border:2px solid #000;">0000h</td><td style="border:2px solid #000;">Holds the upper 16 bits of the 32-bit LIMIT address for IO downstream of this port.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Register</td><td style="border:2px solid #000;">Value</td><td style="border:2px solid #000;">Use</td></tr><tr><td style="border:2px solid #000;">IO Base</td><td style="border:2px solid #000;">40h</td><td style="border:2px solid #000;">The upper 4 bits of this register hold the upper 4 bits of the 16-bit BASE address (bits [15:12]). The lower 12 bits of the base address are implied to be all 0s, meaning the base address is always aligned on a 4KB boundary. The lower 4 bits of this register indicate whether a 32-bit IO address decoder is supported in the bridge, meaning the Upper Base/ Limit Registers are used.</td></tr><tr><td style="border:2px solid #000;">IO Limit</td><td style="border:2px solid #000;">40h</td><td style="border:2px solid #000;">Similarly, the upper 4 bits of this register hold the upper 4 bits of the 16-bit LIMIT address (bits [15:12]). The lower 12 bits of the limit address are all implied to be all Fs. The lower 4 bits of this register have the same meaning as the lower 4 bits of the base regis- ter.</td></tr><tr><td style="border:2px solid #000;">IO Base Upper 16 Bits</td><td style="border:2px solid #000;">0000h</td><td style="border:2px solid #000;">Holds the upper 16 bits of the 32-bit BASE address for IO downstream of this port.</td></tr><tr><td style="border:2px solid #000;">IO Limit Upper 16 Bits</td><td style="border:2px solid #000;">0000h</td><td style="border:2px solid #000;">Holds the upper 16 bits of the 32-bit LIMIT address for IO downstream of this port.</td></tr></table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In this example, we see another situation where the address range programmed into the upstream bridge far exceeds the actual address range owned by the downstream function. The endpoint in our example owns 256 bytes of IO address space (specifically 4000h ‑ 40FFh). Port B has been programmed with values indicating that 4KB of IO address space lives downstream (addresses 4000h ‑ 4FFFh). Again, this is simply a limitation of Type 1 headers. For IO address space, the lower 12 bits (bits [11:0]) have implied values, so the smallest range of IO addresses that can be specified is 4KB. This limitation turns out to be more serious than the 1MB minimum window for memory ranges. In x86‑based (Intel compatible) systems, the processors only support 16 bits of IO address space, and since only bits [15:12] of the IO address range can be specified in a bridge, that means that there can be a maximum of 16 (2<sup>4</sup>) different IO address ranges in a system.
@@ -773,7 +773,7 @@ In this example, we see another situation where the address range programmed int
 
 ## 4.3.4 Unused Base and Limit Registers | 4.3.4 未使用基址和限制寄存器
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Not every PCIe device will use all three types of address space. In fact, the PCI Express specification actually discourages the use of IO address space, indicating that it is only supported for legacy reasons and may be deprecated in a future revision of the spec.
@@ -807,7 +807,7 @@ Figure 4-11: Final Example Address Routing Setup | 图4-11：最终示例地址�
 
 ## 4.4 Sanity Check: Registers Used For Address Routing | 4.4 正确性检查：用于地址路由的寄存器
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To ensure that you understand the rules and methods for setting up BARs and Base/Limit registers, please look over Figure 4-11 on page 145 to make sure it makes sense.
@@ -852,7 +852,7 @@ Base/Limit 寄存器仅表示位于该桥下游的地址。
 
 ## 4.5 TLP Routing Basics | 4.5 TLP 路由基础
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 The purpose of setting up the BARs and Base/Limit registers as described in the previous sections, is to ensure that traffic targeting a function will be routed correctly so the targeted function can see the transactions and claim them. In shared‐bus architectures like PCI, all the traffic is visible to every device. The only time routing of requests happens is when the target is on another bus and must cross a bridge. Since PCIe Links are point‐to‐point, more routing will be needed to deliver transactions between devices.
@@ -866,7 +866,7 @@ The purpose of setting up the BARs and Base/Limit registers as described in the 
 Figure 4‐12: Multi‐Port PCIe Devices Have Routing Responsibilities | 图4‐12：多端口PCIe设备具有路由职责
 <img src="images/part02_b4840c3bc05898076b5ecfd8382467f308afe9b0354e12a5aa7cce3cc0ed8f92.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 As illustrated in Figure 4‐12 on page 146, a PCI Express topology consists of independent, point‐to‐point links connecting each device with one or more neighbors. As traffic arrives at the inbound side of a link interface (called the ingress port), the port checks for errors, then makes one of three decisions:
@@ -903,7 +903,7 @@ As illustrated in Figure 4‐12 on page 146, a PCI Express topology consists of 
 
 ## 4.5.1 Receivers Check For Three Types of Traffic | 4.5.1 接收器检查三种类型的流量
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Assuming a link is fully operational, the receiver interface of each device (ingress port) must detect and evaluate the arrival of the three types of link traffic: Ordered Sets, Data Link Layer Packets (DLLPs), and Transaction Layer Packets (TLPs). Ordered Sets and DLLPs are local to a link and thus are never routed to another link. TLPs can and do move from link to link, based on routing information contained in the packet headers.
@@ -916,7 +916,7 @@ Assuming a link is fully operational, the receiver interface of each device (ing
 
 ## 4.5.2 Routing Elements | 4.5.2 路由元素
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Devices with multiple ports, like Root Complexes and Switches, can forward TLPs between the ports and are sometimes called Routing Agents or Routing Elements. They accept TLPs that target internal resources and forward TLPs between ingress and egress ports.
@@ -947,7 +947,7 @@ Endpoints have only one Link and never expect to see ingress traffic other than 
 
 ## 4.1.2 General | 4.1.2 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 TLPs can be routed based on address (either memory or IO), based on ID (meaning Bus, Device, Function number), or routed implicitly. The routing method used is based on the TLP type. Table 4‑7 on page 147 summarizes the TLP types and the routing methods used for each.
@@ -960,9 +960,9 @@ TLP可以基于地址（存储器或IO）进行路由，也可以基于ID（即�
 
 Table 4‑7: PCI Express TLP Types And Routing Methods | 表4‑7：PCI Express TLP类型和路由方法
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">TLP Type</td><td style="border:2px solid #000;">Routing Method Used</td></tr><tr><td style="border:2px solid #000;">Memory Read [Lock], Memory Write, AtomicOp</td><td style="border:2px solid #000;">Address Routing</td></tr><tr><td style="border:2px solid #000;">IO Read and Write</td><td style="border:2px solid #000;">Address Routing</td></tr><tr><td style="border:2px solid #000;">Configuration Read and Write</td><td style="border:2px solid #000;">ID Routing</td></tr><tr><td style="border:2px solid #000;">Message, Message With Data</td><td style="border:2px solid #000;">Address Routing, ID Routing, or Implicit routing</td></tr><tr><td style="border:2px solid #000;">Completion, Completion With Data</td><td style="border:2px solid #000;">ID Routing</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">TLP Type</td><td style="border:2px solid #000;">Routing Method Used</td></tr><tr><td style="border:2px solid #000;">Memory Read [Lock], Memory Write, AtomicOp</td><td style="border:2px solid #000;">Address Routing</td></tr><tr><td style="border:2px solid #000;">IO Read and Write</td><td style="border:2px solid #000;">Address Routing</td></tr><tr><td style="border:2px solid #000;">Configuration Read and Write</td><td style="border:2px solid #000;">ID Routing</td></tr><tr><td style="border:2px solid #000;">Message, Message With Data</td><td style="border:2px solid #000;">Address Routing, ID Routing, or Implicit routing</td></tr><tr><td style="border:2px solid #000;">Completion, Completion With Data</td><td style="border:2px solid #000;">ID Routing</td></tr></table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Messages are the only TLP type that support more than one routing method. Most of the message TLPs defined in the PCI Express spec use implicit routing, however, the vendor‑defined messages could use address routing or ID routing if desired.
@@ -975,7 +975,7 @@ Messages are the only TLP type that support more than one routing method. Most o
 
 ## 4.5.2 Purpose of Implicit Routing and Messages | 4.5.2 隐式路由和报文的目的
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 In implicit routing, neither address or ID routing information applies; instead, the packet is routed based on a code in the packet header indicating a destination with a known location in the topology, such as the Root Complex. This simplifies routing of messages in the cases where a type of implicit routing applies.
@@ -1012,7 +1012,7 @@ The different types of implicit routing can be found in "Implicit Routing" on pa
 
 ## 4.5.4 Split Transaction Protocol | 4.5.4 拆分事务协议
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Like most other serial technologies, PCI Express uses the split transaction protocol which allows a target device to receive one or more requests and then respond to each request with a separate completion. This is a significant improvement over the PCI bus protocol that used wait-states or delayed transactions (retries) to deal with latencies in accessing targets. Instead of testing to see when the target becomes ready to do a long-latency transfer, the target initiates the response whenever it's ready. This results in at least two separate TLPs per transaction - the Request and the Completion (as will be discussed later, a single read request may result in multiple completion TLPs being sent back). Figure 4-13 on page 149 illustrates the Request-Completion components of a split transaction. This example shows software reading data from an Endpoint.
@@ -1029,7 +1029,7 @@ Figure 4-13: PCI Express Transaction Request And Completion TLPs | 图4-13：PCI
 
 ## 4.5.5 Posted versus Non-Posted | 4.5.5 Posted 与非 Posted 事务
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To mitigate the penalty of the Request-Completion latency, memory write transactions are posted, meaning the transaction is considered completed from the Requester's perspective as soon as the request leaves the Requester. If helpful, you can associate the term "posting" with the postal system, where posting a memory write is analogous to posting a letter in the mail. Once you've placed a letter in the postal box you put your faith in the system to deliver it and don't wait for verification of delivery. This approach can be much faster than waiting for the entire Request-Completion transit, but -- as in all posting schemes -- uncertainty exists concerning when (and if) the transaction completed successfully at the ultimate recipient.
@@ -1058,9 +1058,9 @@ In summary, non-posted transactions require a completion. Posted transactions do
 
 Table 4-8: Posted and Non-Posted Transactions | 表4-8：投递和非投递事务
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Request</td><td style="border:2px solid #000;">How Request Is Handled</td></tr><tr><td style="border:2px solid #000;">Memory Write</td><td style="border:2px solid #000;">All memory write requests are posted. No completions are expected or sent.</td></tr><tr><td style="border:2px solid #000;">Memory Read Memory Read Lock</td><td style="border:2px solid #000;">All memory read requests are non-posted. A completion with data (made of one or more TLPs) will be returned by the Completer to deliver both the requested data and the status of the memory read. In the event of an error, a completion without data will be returned reporting the status.</td></tr><tr><td style="border:2px solid #000;">AtomicOp</td><td style="border:2px solid #000;">All AtomicOp requests are non-posted. A completion with data will be returned by the Completer containing the original value of the target location.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Request</td><td style="border:2px solid #000;">How Request Is Handled</td></tr><tr><td style="border:2px solid #000;">Memory Write</td><td style="border:2px solid #000;">All memory write requests are posted. No completions are expected or sent.</td></tr><tr><td style="border:2px solid #000;">Memory Read Memory Read Lock</td><td style="border:2px solid #000;">All memory read requests are non-posted. A completion with data (made of one or more TLPs) will be returned by the Completer to deliver both the requested data and the status of the memory read. In the event of an error, a completion without data will be returned reporting the status.</td></tr><tr><td style="border:2px solid #000;">AtomicOp</td><td style="border:2px solid #000;">All AtomicOp requests are non-posted. A completion with data will be returned by the Completer containing the original value of the target location.</td></tr></table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 4: Address Space &amp; Transaction Routing
@@ -1073,9 +1073,9 @@ Chapter 4: Address Space &amp; Transaction Routing
 
 Table 4-8: Posted and Non-Posted Transactions (Continued) | 表4-8：投递和非投递事务（续）
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Request</td><td style="border:2px solid #000;">How Request Is Handled</td></tr><tr><td style="border:2px solid #000;">IO ReadIO Write</td><td style="border:2px solid #000;">All IO requests are non-posted. A completion without data will be returned for writes or failed reads, and a completion with data will be returned for successful reads.</td></tr><tr><td style="border:2px solid #000;">Configuration ReadConfiguration Write</td><td style="border:2px solid #000;">All configuration requests are non-posted. A completion without data will be returned for writes and failed reads, while a completion with data will be returned for successful reads.</td></tr><tr><td style="border:2px solid #000;">Message</td><td style="border:2px solid #000;">All messages are posted. The routing method depends on the Message type, but they&#x27;re all considered posted requests.</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Request</td><td style="border:2px solid #000;">How Request Is Handled</td></tr><tr><td style="border:2px solid #000;">IO ReadIO Write</td><td style="border:2px solid #000;">All IO requests are non-posted. A completion without data will be returned for writes or failed reads, and a completion with data will be returned for successful reads.</td></tr><tr><td style="border:2px solid #000;">Configuration ReadConfiguration Write</td><td style="border:2px solid #000;">All configuration requests are non-posted. A completion without data will be returned for writes and failed reads, while a completion with data will be returned for successful reads.</td></tr><tr><td style="border:2px solid #000;">Message</td><td style="border:2px solid #000;">All messages are posted. The routing method depends on the Message type, but they&#x27;re all considered posted requests.</td></tr></table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Header Fields Define Packet Format and Type
@@ -1088,7 +1088,7 @@ Header Fields Define Packet Format and Type
 
 ## 4.1.2 General | 4.1.2 概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 As shown in Figure 4-14 on page 152, each TLP contains a three or four doubleword (12 or 16 byte) header. This includes Format and Type fields that define the content of the rest of the header and indicate the routing method to be used for the TLP as it traverses the topology.
@@ -1102,7 +1102,7 @@ As shown in Figure 4-14 on page 152, each TLP contains a three or four doublewor
 Figure 4-14: Transaction Layer Packet Generic 3DW And 4DW Headers | 图4-14：事务层数据包通用3DW和4DW头
 <img src="images/part02_fec46d2d1fd69f8fd6b71b51ac36f4f1abfbb4b8e904d4b9e043ef0ce0204668.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 4: Address Space and Transaction Routing
@@ -1113,7 +1113,7 @@ Chapter 4: Address Space and Transaction Routing
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Header Format/Type Field Encodings
@@ -1134,11 +1134,11 @@ Table 4-9 on page 153 below summarizes the encodings used in TLP header Format a
 
 Table 4-9: TLP Header Format and Type Field Encodings | 表4-9：TLP头格式与类型字段编码
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;">FMT[2:0]</td><td style="border:2px solid #000;">TYPE [4:0]</td></tr><tr><td style="border:2px solid #000;">Memory Read Request (MRd)</td><td style="border:2px solid #000;">000 = 3DW, no data001 = 4DW, no data</td><td style="border:2px solid #000;">0 0000</td></tr><tr><td style="border:2px solid #000;">Memory Read Lock Request (MRdLk)</td><td style="border:2px solid #000;">000 = 3DW, no data001 = 4DW, no data</td><td style="border:2px solid #000;">0 0001</td></tr><tr><td style="border:2px solid #000;">Memory Write Request (MWr)</td><td style="border:2px solid #000;">010 = 3DW, w/data011 = 4DW, w/data</td><td style="border:2px solid #000;">0 0000</td></tr><tr><td style="border:2px solid #000;">IO Read Request (IORd)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">00010</td></tr><tr><td style="border:2px solid #000;">IO Write Request (IOWr)</td><td style="border:2px solid #000;">010 = 3DW, w/data</td><td style="border:2px solid #000;">0 0010</td></tr><tr><td style="border:2px solid #000;">Config Type 0 Read Request (CfgRd0)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 0100</td></tr><tr><td style="border:2px solid #000;">Config Type 0 Write Request (CfgWr0)</td><td style="border:2px solid #000;">010 = 3DW, w/data</td><td style="border:2px solid #000;">0 0100</td></tr><tr><td style="border:2px solid #000;">Config Type 1 Read Request (CfgRd1)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 0101</td></tr><tr><td style="border:2px solid #000;">Config Type 1 Write Request (CfgWr1)</td><td style="border:2px solid #000;">010 = 3DW, w/data</td><td style="border:2px solid #000;">0 0101</td></tr><tr><td style="border:2px solid #000;">Message Request (Msg)</td><td style="border:2px solid #000;">001 = 4DW, no data</td><td style="border:2px solid #000;">1 0RRR* (for RRR, see routing subfield in "Message Type Field Summary" on page 164)</td></tr><tr><td style="border:2px solid #000;">Message Request w/Data (MsgD)</td><td style="border:2px solid #000;">011 = 4DW, w/data</td><td style="border:2px solid #000;">1 0RRR* (for RRR, see routing subfield in "Message Type Field Summary" on page 164)</td></tr><tr><td style="border:2px solid #000;">Completion (Cpl)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 1010</td></tr><tr><td style="border:2px solid #000;">Completion W/Data (CplD)</td><td style="border:2px solid #000;">010 = 3DW, w/ data</td><td style="border:2px solid #000;">0 1010</td></tr><tr><td style="border:2px solid #000;">Completion-Locked (CplLk)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 1011</td></tr><tr><td style="border:2px solid #000;">Completion w/Data (CplDLk)</td><td style="border:2px solid #000;">010 = 3DW, w/ data</td><td style="border:2px solid #000;">0 1011</td></tr><tr><td style="border:2px solid #000;">Fetch and Add AtomicOp Request (FetchAdd)</td><td style="border:2px solid #000;">010 = 3DW, w/data011 = 4DW, w/data</td><td style="border:2px solid #000;">0 1100</td></tr><tr><td style="border:2px solid #000;">Unconditional Swap AtomicOp Request (Swap)</td><td style="border:2px solid #000;">010 = 3DW, w/data011 = 4DW, w/data</td><td style="border:2px solid #000;">0 1101</td></tr><tr><td style="border:2px solid #000;">Compare and Swap AtomicOp Request (CAS)</td><td style="border:2px solid #000;">010 = 3DW, w/data011 = 4DW, w/data</td><td style="border:2px solid #000;">0 1110</td></tr><tr><td style="border:2px solid #000;">Local TLP Prefix (LPrfx)</td><td style="border:2px solid #000;">100 = 1DW</td><td style="border:2px solid #000;">0 LLLL</td></tr><tr><td style="border:2px solid #000;">End-to-End TLP Prefix (EPrfx)</td><td style="border:2px solid #000;">100 = 1DW</td><td style="border:2px solid #000;">1 EEEE</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;">FMT[2:0]</td><td style="border:2px solid #000;">TYPE [4:0]</td></tr><tr><td style="border:2px solid #000;">Memory Read Request (MRd)</td><td style="border:2px solid #000;">000 = 3DW, no data001 = 4DW, no data</td><td style="border:2px solid #000;">0 0000</td></tr><tr><td style="border:2px solid #000;">Memory Read Lock Request (MRdLk)</td><td style="border:2px solid #000;">000 = 3DW, no data001 = 4DW, no data</td><td style="border:2px solid #000;">0 0001</td></tr><tr><td style="border:2px solid #000;">Memory Write Request (MWr)</td><td style="border:2px solid #000;">010 = 3DW, w/data011 = 4DW, w/data</td><td style="border:2px solid #000;">0 0000</td></tr><tr><td style="border:2px solid #000;">IO Read Request (IORd)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">00010</td></tr><tr><td style="border:2px solid #000;">IO Write Request (IOWr)</td><td style="border:2px solid #000;">010 = 3DW, w/data</td><td style="border:2px solid #000;">0 0010</td></tr><tr><td style="border:2px solid #000;">Config Type 0 Read Request (CfgRd0)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 0100</td></tr><tr><td style="border:2px solid #000;">Config Type 0 Write Request (CfgWr0)</td><td style="border:2px solid #000;">010 = 3DW, w/data</td><td style="border:2px solid #000;">0 0100</td></tr><tr><td style="border:2px solid #000;">Config Type 1 Read Request (CfgRd1)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 0101</td></tr><tr><td style="border:2px solid #000;">Config Type 1 Write Request (CfgWr1)</td><td style="border:2px solid #000;">010 = 3DW, w/data</td><td style="border:2px solid #000;">0 0101</td></tr><tr><td style="border:2px solid #000;">Message Request (Msg)</td><td style="border:2px solid #000;">001 = 4DW, no data</td><td style="border:2px solid #000;">1 0RRR* (for RRR, see routing subfield in "Message Type Field Summary" on page 164)</td></tr><tr><td style="border:2px solid #000;">Message Request w/Data (MsgD)</td><td style="border:2px solid #000;">011 = 4DW, w/data</td><td style="border:2px solid #000;">1 0RRR* (for RRR, see routing subfield in "Message Type Field Summary" on page 164)</td></tr><tr><td style="border:2px solid #000;">Completion (Cpl)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 1010</td></tr><tr><td style="border:2px solid #000;">Completion W/Data (CplD)</td><td style="border:2px solid #000;">010 = 3DW, w/ data</td><td style="border:2px solid #000;">0 1010</td></tr><tr><td style="border:2px solid #000;">Completion-Locked (CplLk)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 1011</td></tr><tr><td style="border:2px solid #000;">Completion w/Data (CplDLk)</td><td style="border:2px solid #000;">010 = 3DW, w/ data</td><td style="border:2px solid #000;">0 1011</td></tr><tr><td style="border:2px solid #000;">Fetch and Add AtomicOp Request (FetchAdd)</td><td style="border:2px solid #000;">010 = 3DW, w/data011 = 4DW, w/data</td><td style="border:2px solid #000;">0 1100</td></tr><tr><td style="border:2px solid #000;">Unconditional Swap AtomicOp Request (Swap)</td><td style="border:2px solid #000;">010 = 3DW, w/data011 = 4DW, w/data</td><td style="border:2px solid #000;">0 1101</td></tr><tr><td style="border:2px solid #000;">Compare and Swap AtomicOp Request (CAS)</td><td style="border:2px solid #000;">010 = 3DW, w/data011 = 4DW, w/data</td><td style="border:2px solid #000;">0 1110</td></tr><tr><td style="border:2px solid #000;">Local TLP Prefix (LPrfx)</td><td style="border:2px solid #000;">100 = 1DW</td><td style="border:2px solid #000;">0 LLLL</td></tr><tr><td style="border:2px solid #000;">End-to-End TLP Prefix (EPrfx)</td><td style="border:2px solid #000;">100 = 1DW</td><td style="border:2px solid #000;">1 EEEE</td></tr></table>
 
 ## 4.5.7 TLP Header Overview | 4.5.7 TLP 头部概述
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When TLPs are received at an ingress port, they are first checked for errors at the Physical and Data Link Layers. If there are no errors, the TLP is examined at the Transaction Layer to learn which routing method is to be used. The basic steps are:
@@ -1175,7 +1175,7 @@ When TLPs are received at an ingress port, they are first checked for errors at 
 
 ## 4.6 Applying Routing Mechanisms | 4.6 应用路由机制
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Once the system addresses have been configured and transactions are enabled, devices examine incoming TLPs and use the corresponding configuration fields to route the packet. The following sections describe the basic features/functionality of each routing mechanism used in routing TLPs through the PCI Express fabric.
@@ -1188,7 +1188,7 @@ Once the system addresses have been configured and transactions are enabled, dev
 
 ## 4.6.1 ID Routing | 4.6.1 ID 路由
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 ID routing is used to target the logical position - Bus Number, Device Number, Function Number (typically referred to as BDF), of a Function within the topology. It's compatible with routing methods used in the PCI and PCI-X protocols for configuration transactions. In PCIe, it is still used for routing configuration packets and is also used to route completions and some messages.
@@ -1199,7 +1199,7 @@ ID 路由用于定位拓扑中某个功能（Function）的逻辑位置——即
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 **Bus Number, Device Number, Function Number Limits**
@@ -1244,7 +1244,7 @@ PCI Express支持与PCI和PCI‑X相同的拓扑限制：
 
 ## Key TLP Header Fields in ID Routing | ID 路由中的关键 TLP 头部字段
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 If the Type field in a received TLP indicates ID routing is to be used, then the ID fields in the header (Bus, Device, Function) are used to perform the routing check. There are two cases: ID routing with a 3DW header and ID routing with a 4DW header (only possible in messages). Figure 4-15 on page 156 illustrates a TLP using ID routing and the 3DW header, while Figure 4-16 on page 156 shows the 4DW header for ID routing.
@@ -1264,7 +1264,7 @@ Figure 4-16: 4DW TLP Header - ID Routing Fields | 图4-16：4DW TLP头 - ID路�
 
 ## Endpoints: One Check | 端点：单一检查
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 For ID routing, an Endpoint simply checks the ID field in the packet header against its own BDF. Each function "captures" its own Bus and Device Number every time a Type 0 configuration write is seen on its link from bytes 8-9 in the TLP Header. Where the captured Bus and Device Number information should be stored is not specified, only that functions must save it. The saved Bus and
@@ -1275,7 +1275,7 @@ For ID routing, an Endpoint simply checks the ID field in the packet header agai
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 4: Address Space & Transaction Routing
@@ -1294,7 +1294,7 @@ Device numbers are used as the Requester ID in TLP requests that this Endpoint i
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Switches (Bridges): Two Checks Per Port
@@ -1335,7 +1335,7 @@ Figure 4-17: Switch Checks Routing Of An Inbound TLP Using ID Routing | 图4-17�
 
 ## 4.6.2 Address Routing | 4.6.2 地址路由
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 TLPs that use address routing refer to the same memory (system memory and memory‑mapped IO) and IO address maps that PCI and PCI‑X transactions do. Memory requests targeting an address below 4GB (i.e. a 32‑bit address) must use a 3DW header, and requests targeting an address above 4GB (i.e. a 64‑bit address) must use a 4DW header. IO requests are restricted to 32‑bit addresses and are only implemented to support legacy functionality.
@@ -1348,7 +1348,7 @@ TLPs that use address routing refer to the same memory (system memory and memory
 
 ## Key TLP Header Fields in Address Routing | 地址路由中的关键 TLP 头标字段
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 When the Type field indicates address routing is to be used for a TLP, then the Address Fields in the header are used to perform the routing check. These can be 32‑bit addresses or 64‑bit addresses.
@@ -1384,7 +1384,7 @@ Figure 4‑19: 4DW TLP Header — Address Routing Fields | 图4‑19：4DW TLP�
 
 ## Endpoint Address Checking | 端点地址检查
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 If an Endpoint receives a TLP that uses address routing then it checks the address in the header against each of its implemented Base Address Registers (BARs) in its configuration header, as shown in Figure 4-20. Since Endpoints only have one link interface, it will either accept the packet or reject it. The Endpoint will accept the packet if the target address in the TLP matches one of the ranges programmed into its BARs. More info on how the BARs are used can be found in section "Base Address Registers (BARs)" on page 126.
@@ -1395,7 +1395,7 @@ If an Endpoint receives a TLP that uses address routing then it checks the addre
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Chapter 4: Address Space & Transaction Routing
@@ -1413,7 +1413,7 @@ Figure 4-20: Endpoint Checks Incoming TLP Address | 图4-20：端点检查入站
 ## Switch Routing | 交换机路由
 
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 If an incoming TLP uses address routing, a Switch Port first checks to see if the address is local within the Port itself by comparing the address in the packet header against its two BARs in its Type 1 configuration header, as shown in Step 1 of Figure 4-21 on page 162. If it matches one of these BARs, the switch port is the target of the TLP and consumes the packet. If not, the port then checks its Base/Limit register pairs to see if the TLP is targeting a function beneath (downstream of) this bridge. If the Request targets IO space, it will check the IO Base and Limit registers, as shown in Step 2a. However, if the Request targets memory space, it will check the Nonprefetchable Memory Base/Limit registers and the Prefetchable Memory Base/Limit registers, as indicated by Step 2b in Figure 4-21 on page 162. More info on how the Base/Limit register pairs are evaluated can be found in section "Base and Limit Registers" on page 136.
@@ -1427,7 +1427,7 @@ If an incoming TLP uses address routing, a Switch Port first checks to see if th
 Figure 4-21: Switch Checks Routing Of An Inbound TLP Using Address | 图4-21：交换机使用地址检查入站TLP的路由
 <img src="images/part02_47521d33eb88e6a8aa297bb7e9520c2500d1748e9639be55d27495f09b5b3353.jpg" width="700" alt="">
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 To understand routing of address-based TLPs in switches, it is good to remember that each switch port is its own bridge. Below are the steps that a bridge (switch port) takes upon receiving an address-based TLP:
@@ -1440,7 +1440,7 @@ To understand routing of address-based TLPs in switches, it is good to remember 
 
 ## Downstream Traveling TLPs (Received on Primary Interface) | 下游传输的TLP（在主接口上接收）
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. IF the target address in the TLP matches one of the BARs, then this bridge (switch port) consumes the TLP because it is the target of the TLP.
@@ -1469,7 +1469,7 @@ To understand routing of address-based TLPs in switches, it is good to remember 
 
 ## Upstream Traveling TLPs (Received on Secondary Interface) | 向上游传输的 TLP（在次级接口上接收）
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 1. IF the target address in the TLP matches one of the BARs, then this bridge (switch port) consumes the TLP because it is the target of the TLP.
@@ -1498,7 +1498,7 @@ To understand routing of address-based TLPs in switches, it is good to remember 
 
 ## Multicast Capabilities | 组播能力
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 
@@ -1543,7 +1543,7 @@ More info can be found on the multicast functionality in the section on "Multica
 
 ## 4.6.3 Implicit Routing | 4.6.3 隐式路由
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Implicit routing, used in some message packets, is based on the awareness of routing elements that the topology has upstream and downstream directions and a single Root Complex at the top. This allows some simple routing methods without the need to assign a target address or ID. Since the Root Complex generally integrates power management, interrupt, and error handling logic, it is either the source or recipient of most PCI Express messages.
@@ -1554,7 +1554,7 @@ Implicit routing, used in some message packets, is based on the awareness of rou
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 **Only for Messages**
@@ -1635,7 +1635,7 @@ Figure 4-22: 4DW Message TLP Header - Implicit Routing Fields | 图4-22：4DW消
 
 ## Key TLP Header Fields in Implicit Routing | 隐式路由中的关键 TLP 头字段
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 For implicit routing, the routing sub-field in the header is used to determine the message destination. Figure 4-22 on page 164 illustrates a message TLP using implicit routing.
@@ -1648,7 +1648,7 @@ For implicit routing, the routing sub-field in the header is used to determine t
 
 ## Message Type Field Summary | 消息类型字段总结
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Table 4-10 on page 165 shows how the TLP header Type field for Messages is interpreted. As shown, the upper two bits indicate the packet is a Message while the lower three bits specify the routing method to apply. Note that Message TLPs always use a 4DW header regardless of the routing option selected.
@@ -1669,11 +1669,11 @@ For address routing, bytes 8-15 contain up to a 64-bit address, and for ID routi
 
 Table 4-10: Message Request Header Type Field Usage | 表4-10：消息请求头类型字段用法
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Type Field Bits</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">Bit 4:3</td><td style="border:2px solid #000;">Defines the type of transaction: $10b = \text{Message TLP}$ </td></tr><tr><td style="border:2px solid #000;">Bit 2:0</td><td style="border:2px solid #000;">Message Routing Subfield R[2:0] $\bullet$  000b = Implicit - Route to the Root Complex $\bullet$  001b = Route by Address (bytes 8-15 of header contain address) $\bullet$  010b = Route by ID (bytes 8-9 of header contain ID) $\bullet$  011b = Implicit - Broadcast downstream $\bullet$  100b = Implicit - Local: terminate at receiver $\bullet$  101b = Implicit - Gather &amp; route to the Root Complex $\bullet$  110b - 111b = Reserved: terminate at receiver</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Type Field Bits</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">Bit 4:3</td><td style="border:2px solid #000;">Defines the type of transaction: $10b = \text{Message TLP}$ </td></tr><tr><td style="border:2px solid #000;">Bit 2:0</td><td style="border:2px solid #000;">Message Routing Subfield R[2:0] $\bullet$  000b = Implicit - Route to the Root Complex $\bullet$  001b = Route by Address (bytes 8-15 of header contain address) $\bullet$  010b = Route by ID (bytes 8-9 of header contain ID) $\bullet$  011b = Implicit - Broadcast downstream $\bullet$  100b = Implicit - Local: terminate at receiver $\bullet$  101b = Implicit - Gather &amp; route to the Root Complex $\bullet$  110b - 111b = Reserved: terminate at receiver</td></tr></table>
 
 ## Endpoint Handling | 端点处理
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 For implicit routing, an Endpoint simply checks whether the routing sub‑field is appropriate for it. For example, an Endpoint will accept a Broadcast Message or a Message that terminates at the receiver; but not Messages that implicitly target the Root Complex.
@@ -1686,7 +1686,7 @@ For implicit routing, an Endpoint simply checks whether the routing sub‑field 
 
 ## Switch Handling | 交换机处理
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 Routing elements like Switches consider the port on which the TLP arrived on and whether the routing sub‐field code is appropriate for it. For example:
@@ -1715,7 +1715,7 @@ Routing elements like Switches consider the port on which the TLP arrived on and
 
 ## PCI Express Technology | PCI Express 技术
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 3. If an implicitly routed Message indicates it should terminate at the receiver, then the receiving switch port will consume the message rather than forward it.
@@ -1734,7 +1734,7 @@ Routing elements like Switches consider the port on which the TLP arrived on and
 </tr>
 </table>
 
-<table style="border-collapse:collapse;width:100%">
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:2px solid #000;">
 DLLPs and Ordered Sets Are Not Routed

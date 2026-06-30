@@ -1,6 +1,6 @@
 # Ch08_Transaction_Ordering
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -13,7 +13,7 @@
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -27,7 +27,7 @@
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -43,7 +43,7 @@
 
 ## The Next Chapter | 下一章
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -58,7 +58,7 @@
 
 ## 8.1 Introduction | 8.1 引言
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -75,7 +75,7 @@
 
 ## PCI Express 3.0 Technology | PCI Express 3.0 技术
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -97,7 +97,7 @@
 
 ## 8.2 Definitions | 8.2 定义
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -113,7 +113,7 @@
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -135,7 +135,7 @@
 
 ## 8.3.1 Ordering Rules and Traffic Classes (TCs) | 8.3.1 排序规则和流量类别（TC）
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -153,7 +153,7 @@
 
 ## 8.3.2 Ordering Rules Based On Packet Type | 8.3.2 基于数据包类型的排序规则
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -170,7 +170,7 @@
 
 ## 8.3.3 The Simplified Ordering Rules Table | 8.3.3 简化排序规则表
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -187,9 +187,9 @@
 **Table 8-1: Simplified Ordering Rules Table**
 **表8-1：简化排序规则表**
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" colspan="2" style="border:2px solid #000;">Row pass Column? (Col 1)</td><td rowspan="2" style="border:2px solid #000;">Posted Request (Col 2)</td><td colspan="2" style="border:2px solid #000;">Non-Posted Request</td><td rowspan="2" style="border:2px solid #000;">Completion (Col 5)</td></tr><tr><td style="border:2px solid #000;">Read Request (Col 3)</td><td style="border:2px solid #000;">NPR with Data (Col 4)</td></tr><tr><td colspan="2" style="border:2px solid #000;">Posted Request (Row A)</td><td style="border:2px solid #000;">a) No b) Y/N</td><td style="border:2px solid #000;">Yes</td><td style="border:2px solid #000;">Yes</td><td style="border:2px solid #000;">a) Y/Nb) Yes</td></tr><tr><td rowspan="2" style="border:2px solid #000;">Non-Posted Request</td><td style="border:2px solid #000;">Read Request (Row B)</td><td style="border:2px solid #000;">a) No b) Y/N</td><td style="border:2px solid #000;">Y/N</td><td style="border:2px solid #000;">Y/N</td><td style="border:2px solid #000;">Y/N</td></tr><tr><td style="border:2px solid #000;">NPR with Data (Row C)</td><td style="border:2px solid #000;">a) No b) Y/N</td><td style="border:2px solid #000;">Y/N</td><td style="border:2px solid #000;">Y/N</td><td style="border:2px solid #000;">Y/N</td></tr><tr><td colspan="2" style="border:2px solid #000;">Completion (Row D)</td><td style="border:2px solid #000;">a) No b) Y/N</td><td style="border:2px solid #000;">Yes</td><td style="border:2px solid #000;">Yes</td><td style="border:2px solid #000;">a) Y/Nb) No</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="2" colspan="2" style="border:2px solid #000;">Row pass Column? (Col 1)</td><td rowspan="2" style="border:2px solid #000;">Posted Request (Col 2)</td><td colspan="2" style="border:2px solid #000;">Non-Posted Request</td><td rowspan="2" style="border:2px solid #000;">Completion (Col 5)</td></tr><tr><td style="border:2px solid #000;">Read Request (Col 3)</td><td style="border:2px solid #000;">NPR with Data (Col 4)</td></tr><tr><td colspan="2" style="border:2px solid #000;">Posted Request (Row A)</td><td style="border:2px solid #000;">a) No b) Y/N</td><td style="border:2px solid #000;">Yes</td><td style="border:2px solid #000;">Yes</td><td style="border:2px solid #000;">a) Y/Nb) Yes</td></tr><tr><td rowspan="2" style="border:2px solid #000;">Non-Posted Request</td><td style="border:2px solid #000;">Read Request (Row B)</td><td style="border:2px solid #000;">a) No b) Y/N</td><td style="border:2px solid #000;">Y/N</td><td style="border:2px solid #000;">Y/N</td><td style="border:2px solid #000;">Y/N</td></tr><tr><td style="border:2px solid #000;">NPR with Data (Row C)</td><td style="border:2px solid #000;">a) No b) Y/N</td><td style="border:2px solid #000;">Y/N</td><td style="border:2px solid #000;">Y/N</td><td style="border:2px solid #000;">Y/N</td></tr><tr><td colspan="2" style="border:2px solid #000;">Completion (Row D)</td><td style="border:2px solid #000;">a) No b) Y/N</td><td style="border:2px solid #000;">Yes</td><td style="border:2px solid #000;">Yes</td><td style="border:2px solid #000;">a) Y/Nb) No</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -213,7 +213,7 @@
 
 ## 8.4.1 Producer/Consumer Model | 8.4.1 生产者/消费者模型
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -277,7 +277,7 @@ Figure 8-3 on page 294 continues the example in this Part 2 sequence.
 
 ## 8.4.2 Producer/Consumer Sequence — No Errors | 8.4.2 生产者/消费者序列 — 无错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -316,7 +316,7 @@ Figure 8-3: Producer/Consumer Sequence Example — Part 2 | 图8-3：生产者/�
 
 ## 8.4.3 Producer/Consumer Sequence — Errors | 8.4.3 生产者/消费者序列——错误
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -341,7 +341,7 @@ Figure 8-4: Producer/Consumer Sequence with Error | 图8-4：带错误的生产�
 
 ## 8.5 Relaxed Ordering | 8.5 宽松排序
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -358,9 +358,9 @@ Figure 8-4: Producer/Consumer Sequence with Error | 图8-4：带错误的生产�
 
 Figure 8-5: Relaxed Ordering Bit in a 32-bit Header | 图8-5：32位头中的宽松排序位
 
-<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="6" style="border:2px solid #000;">+1</td><td colspan="5" style="border:2px solid #000;">+2</td><td colspan="5" style="border:2px solid #000;">+3</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">TD</td><td style="border:2px solid #000;">ER</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td><td colspan="12" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="8" style="border:2px solid #000;">Requester ID</td><td colspan="5" style="border:2px solid #000;">Tag</td><td colspan="2" style="border:2px solid #000;">Last DW BE</td><td colspan="9" style="border:2px solid #000;">1st DW BE</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="22" style="border:2px solid #000;">Address [31:2]</td><td colspan="2" style="border:2px solid #000;">R</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="6" style="border:2px solid #000;">+1</td><td colspan="5" style="border:2px solid #000;">+2</td><td colspan="5" style="border:2px solid #000;">+3</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">TD</td><td style="border:2px solid #000;">ER</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td><td colspan="12" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="8" style="border:2px solid #000;">Requester ID</td><td colspan="5" style="border:2px solid #000;">Tag</td><td colspan="2" style="border:2px solid #000;">Last DW BE</td><td colspan="9" style="border:2px solid #000;">1st DW BE</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="22" style="border:2px solid #000;">Address [31:2]</td><td colspan="2" style="border:2px solid #000;">R</td></tr></table>
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -378,7 +378,7 @@ Figure 8-5: Relaxed Ordering Bit in a 32-bit Header | 图8-5：32位头中的宽
 
 ## 8.5.2 RO Effects on Memory Read Transactions | 8.5.2 RO对存储器读事务的影响
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -396,11 +396,11 @@ Figure 8-5: Relaxed Ordering Bit in a 32-bit Header | 图8-5：32位头中的宽
 
 Table 8-2: Transactions That Can Be Reordered Due to Relaxed Ordering | 表8-2：因宽松排序可被重排序的事务
 
-<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">These Transactions with RO=1 Can Pass</td><td style="border:2px solid #000;">These Transactions</td></tr><tr><td style="border:2px solid #000;">Memory Write Request</td><td style="border:2px solid #000;">Memory Write Request</td></tr><tr><td style="border:2px solid #000;">Message Request</td><td style="border:2px solid #000;">Memory Write Request</td></tr><tr><td style="border:2px solid #000;">Memory Write Request</td><td style="border:2px solid #000;">Message Request</td></tr><tr><td style="border:2px solid #000;">Message Request</td><td style="border:2px solid #000;">Message Request</td></tr><tr><td style="border:2px solid #000;">Read Completion</td><td style="border:2px solid #000;">Memory Write Request</td></tr><tr><td style="border:2px solid #000;">Read Completion</td><td style="border:2px solid #000;">Message Request</td></tr></table>
+<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">These Transactions with RO=1 Can Pass</td><td style="border:2px solid #000;">These Transactions</td></tr><tr><td style="border:2px solid #000;">Memory Write Request</td><td style="border:2px solid #000;">Memory Write Request</td></tr><tr><td style="border:2px solid #000;">Message Request</td><td style="border:2px solid #000;">Memory Write Request</td></tr><tr><td style="border:2px solid #000;">Memory Write Request</td><td style="border:2px solid #000;">Message Request</td></tr><tr><td style="border:2px solid #000;">Message Request</td><td style="border:2px solid #000;">Message Request</td></tr><tr><td style="border:2px solid #000;">Read Completion</td><td style="border:2px solid #000;">Memory Write Request</td></tr><tr><td style="border:2px solid #000;">Read Completion</td><td style="border:2px solid #000;">Message Request</td></tr></table>
 
 ## 8.5.1 Weak Ordering | 8.5.1 弱排序
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -413,7 +413,7 @@ Table 8-2: Transactions That Can Be Reordered Due to Relaxed Ordering | 表8-2�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -430,7 +430,7 @@ Table 8-2: Transactions That Can Be Reordered Due to Relaxed Ordering | 表8-2�
 
 ## 8.6.2 Transaction Stalls | 8.6.2 事务阻塞
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -453,7 +453,7 @@ Figure 8-6: Strongly Ordered Example Results in Temporary Stall | 图8-6：强�
 
 ## 8.6.3 VC Buffers Offer an Advantage | 8.6.3 VC 缓冲器的优势
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -466,7 +466,7 @@ Figure 8-6: Strongly Ordered Example Results in Temporary Stall | 图8-6：强�
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -482,7 +482,7 @@ Figure 8-6: Strongly Ordered Example Results in Temporary Stall | 图8-6：强�
 
 ## 8.7.1 The Solution | 8.7.1 解决方案
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -505,7 +505,7 @@ Figure 8‐7: Different Sources are Unlikely to Have Dependencies | 图8‐7：�
 
 ## 8.7.2 When to use IDO | 8.7.2 何时使用 IDO
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -521,7 +521,7 @@ Figure 8‐7: Different Sources are Unlikely to Have Dependencies | 图8‐7：�
 
 ## 8.7.3 Software Control | 8.7.3 软件控制
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -540,7 +540,7 @@ Figure 8‐8: IDO Attribute in 64‐bit Header / 图 8‐8：64 位头部中的 
 
 ## 8.8 Deadlock Avoidance | 8.8 死锁避免
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
@@ -553,7 +553,7 @@ Figure 8‐8: IDO Attribute in 64‐bit Header / 图 8‐8：64 位头部中的 
 </table>
 
 
-<table style="border-collapse:collapse; width:100%;">
+<table style="border:2px solid #000;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>

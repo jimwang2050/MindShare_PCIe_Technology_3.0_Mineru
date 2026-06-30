@@ -1,60 +1,34 @@
 # Ch07_Quality_of_Service
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;"># Quality of Service</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;"># 服务质量</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;"># Quality of Service</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;"># 服务质量</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## The Previous Chapter</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 前一章</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The previous chapter discusses the purposes and detailed operation of the Flow Control Protocol. Flow control is designed to ensure that transmitters never send Transaction Layer Packets (TLPs) that a receiver can't accept. This prevents receive buffer over‑runs and eliminates the need for PCI‑style inefficiencies like disconnects, retries, and wait‑states.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">前一章讨论了流控协议的目的和详细操作。流控旨在确保发送方绝不会发送接收方无法接受的事务层数据数据包（TLP）。这防止了接收缓冲区溢出，并消除了 PCI 风格的低效机制（如断开连接、重试和等待状态）的必要性。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## The Previous Chapter</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 前一章</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The previous chapter discusses the purposes and detailed operation of the Flow Control Protocol. Flow control is designed to ensure that transmitters never send Transaction Layer Packets (TLPs) that a receiver can't accept. This prevents receive buffer over‑runs and eliminates the need for PCI‑style inefficiencies like disconnects, retries, and wait‑states.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">前一章讨论了流控协议的目的和详细操作。流控旨在确保发送方绝不会发送接收方无法接受的事务层数据数据包（TLP）。这防止了接收缓冲区溢出，并消除了 PCI 风格的低效机制（如断开连接、重试和等待状态）的必要性。</td></tr>
-  </tbody>
-</table>
-
 
 ## This Chapter | 本章
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This chapter discusses the mechanisms that support Quality of Service and describes the means of controlling the timing and bandwidth of different packets traversing the fabric. These mechanisms include application-specific software that assigns a priority value to every packet, and optional hardware that must be built into each device to enable managing transaction priority.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">本章讨论支持服务质量的机制，并描述控制穿过交换结构的不同数据数据包时序和带宽的方法。这些机制数据包括为每个数据数据包分配优先级值的应用特定软件，以及必须内置于每个设备中以实现事务优先级管理的可选硬件。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This chapter discusses the mechanisms that support Quality of Service and describes the means of controlling the timing and bandwidth of different packets traversing the fabric. These mechanisms include application-specific software that assigns a priority value to every packet, and optional hardware that must be built into each device to enable managing transaction priority.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">本章讨论支持服务质量的机制，并描述控制穿过交换结构的不同数据数据包时序和带宽的方法。这些机制数据包括为每个数据数据包分配优先级值的应用特定软件，以及必须内置于每个设备中以实现事务优先级管理的可选硬件。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## The Next Chapter</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 下一章</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The next chapter discusses the ordering requirements for transactions in a PCI Express topology. These rules are inherited from PCI. The Producer/Consumer programming model motivated many of them, so its mechanism is described here. The original rules also took into consideration possible deadlock conditions that must be avoided.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">下一章讨论PCI Express拓扑结构中事务的排序要求。这些规则继承自PCI。其中许多规则源于生产者/消费者（Producer/Consumer）编程模型，因此本节将描述其机制。原始规则还考虑了必须避免的死锁情况。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## The Next Chapter</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 下一章</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The next chapter discusses the ordering requirements for transactions in a PCI Express topology. These rules are inherited from PCI. The Producer/Consumer programming model motivated many of them, so its mechanism is described here. The original rules also took into consideration possible deadlock conditions that must be avoided.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">下一章讨论PCI Express拓扑结构中事务的排序要求。这些规则继承自PCI。其中许多规则源于生产者/消费者（Producer/Consumer）编程模型，因此本节将描述其机制。原始规则还考虑了必须避免的死锁情况。</td></tr>
-  </tbody>
-</table>
-
 
 ## 7.1 Motivation | 7.1 动机
 
@@ -215,32 +189,19 @@ Figure 7-5: Extended VCs Supported Field | 图7-5：扩展VC支持字段
 
 ## 7.2.1.3 Assigning VC Numbers (IDs) | 7.2.1.3 分配 VC（虚通道） 编号（ID）
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Configuration software assigns a number (ID) to each of the VCs, except VC0 which is always hardwired. As shown in Figure 7-3 on page 249, the VC Capabilities registers include 12 bytes of configuration registers for each VC. The first set of registers always applies to VC0. The Extended VC Count field defines the number of additional VCs implemented by this port, each of which will have a set of registers. The value "n" represents the number of additional VCs implemented. For example, if the Extended VC Count contains a value of 3, then there are three VCs and register sets in addition to VC0.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">配置软件为每个VC分配一个编号（ID），VC0除外（VC0始终是硬连线的）。如第249页图7-3所示，VC Capabilities寄存器为每个VC数据包含12字节的配置寄存器。第一组寄存器始终适用于VC0。Extended VC Count字段定义该端口实现的额外VC数量，每个额外VC都将拥有一组寄存器。值"n"表示所实现的额外VC数量。例如，如果Extended VC Count的值为3，则除了VC0之外还有三个VC及其寄存器组。</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Software assigns a number for each of the additional VCs via the VC ID field. (See Figure 7-3 on page 249) The IDs don't have to be contiguous but each number can only be used once.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">软件通过VC ID字段为每个额外VC分配一个编号。（参见第249页图7-3）这些编号不必连续，但每个编号只能使用一次。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Configuration software assigns a number (ID) to each of the VCs, except VC0 which is always hardwired. As shown in Figure 7-3 on page 249, the VC Capabilities registers include 12 bytes of configuration registers for each VC. The first set of registers always applies to VC0. The Extended VC Count field defines the number of additional VCs implemented by this port, each of which will have a set of registers. The value "n" represents the number of additional VCs implemented. For example, if the Extended VC Count contains a value of 3, then there are three VCs and register sets in addition to VC0.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">配置软件为每个VC分配一个编号（ID），VC0除外（VC0始终是硬连线的）。如第249页图7-3所示，VC Capabilities寄存器为每个VC数据包含12字节的配置寄存器。第一组寄存器始终适用于VC0。Extended VC Count字段定义该端口实现的额外VC数量，每个额外VC都将拥有一组寄存器。值"n"表示所实现的额外VC数量。例如，如果Extended VC Count的值为3，则除了VC0之外还有三个VC及其寄存器组。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Software assigns a number for each of the additional VCs via the VC ID field. (See Figure 7-3 on page 249) The IDs don't have to be contiguous but each number can only be used once.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">软件通过VC ID字段为每个额外VC分配一个编号。（参见第249页图7-3）这些编号不必连续，但每个编号只能使用一次。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## VC Arbitration</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## VC 仲裁</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## VC Arbitration</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## VC 仲裁</td></tr>
-  </tbody>
-</table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
@@ -717,33 +678,20 @@ Figure 7-23: Example Application of Isochronous Transaction | 图7-23：等时�
 
 ## 7.6.1.1 How Timing is Enforced | 7.6.1.1 时序如何执行
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## How Timing is Enforced</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 时序如何强制执行</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">When timing is an integral part of the proper operation of a design, as in the previous example, it is enforced by the combination of things we've discussed so far. First, high‑priority TCs must be selected in software and VCs set up in hardware with the mappings between them defined so that only the correct packets will be placed into the high‑priority VCs. Then the desired timing is a matter of programming the arbitration schemes to accommodate the needed bandwidth in the specified time. For example, the choice for VC arbitration would probably be the Strict Priority option, since it's the only choice that can ensure that a high‑priority packet won't be delayed by other packets. For Port arbitration the choice must be TBWRR to enforce timing.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如前例所示，当时序是设计正确运行不可或缺的一部分时，它由我们迄今讨论的各项要素共同强制执行。首先，必须通过软件选择高优先级TC，并在硬件中设置VC，同时定义它们之间的映射关系，以确保只有正确的报文被放入高优先级VC。然后，所需的时序就是通过编程仲裁方案，在指定时间内容纳所需带宽的问题。例如，VC仲裁很可能应选择严格优先级选项，因为它是唯一能确保高优先级报文不会被其他报文延迟的选择。对于端口仲裁，必须选择TBWRR以强制执行时序。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## How Timing is Enforced</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 时序如何强制执行</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">When timing is an integral part of the proper operation of a design, as in the previous example, it is enforced by the combination of things we've discussed so far. First, high‑priority TCs must be selected in software and VCs set up in hardware with the mappings between them defined so that only the correct packets will be placed into the high‑priority VCs. Then the desired timing is a matter of programming the arbitration schemes to accommodate the needed bandwidth in the specified time. For example, the choice for VC arbitration would probably be the Strict Priority option, since it's the only choice that can ensure that a high‑priority packet won't be delayed by other packets. For Port arbitration the choice must be TBWRR to enforce timing.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">如前例所示，当时序是设计正确运行不可或缺的一部分时，它由我们迄今讨论的各项要素共同强制执行。首先，必须通过软件选择高优先级TC，并在硬件中设置VC，同时定义它们之间的映射关系，以确保只有正确的报文被放入高优先级VC。然后，所需的时序就是通过编程仲裁方案，在指定时间内容纳所需带宽的问题。例如，VC仲裁很可能应选择严格优先级选项，因为它是唯一能确保高优先级报文不会被其他报文延迟的选择。对于端口仲裁，必须选择TBWRR以强制执行时序。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Software Support</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 软件支持</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Supporting isochronous service requires some coordination between the software elements in the system. In a PC system, device drivers will report isochronous requirements and capabilities to the OS, which will then evaluate the overall system demands and allocate resources appropriately. Embedded systems will be different, because the all the pieces are known at the outset and software can be simpler. In the following discussion we'll describe the PC case since an embedded system should simply be a simpler subset of that.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">支持等时服务需要系统中各软件元素之间进行一定的协调。在PC系统中，设备驱动程序将向操作系统报告等时需求与能力，操作系统随后评估整体系统需求并合理分配资源。嵌入式系统则有所不同，因为所有组件在初始阶段便已明确，软件可以更为简单。在后续讨论中，我们将描述PC的情况，因为嵌入式系统应只是其一个更简单的子集。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Software Support</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 软件支持</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Supporting isochronous service requires some coordination between the software elements in the system. In a PC system, device drivers will report isochronous requirements and capabilities to the OS, which will then evaluate the overall system demands and allocate resources appropriately. Embedded systems will be different, because the all the pieces are known at the outset and software can be simpler. In the following discussion we'll describe the PC case since an embedded system should simply be a simpler subset of that.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">支持等时服务需要系统中各软件元素之间进行一定的协调。在PC系统中，设备驱动程序将向操作系统报告等时需求与能力，操作系统随后评估整体系统需求并合理分配资源。嵌入式系统则有所不同，因为所有组件在初始阶段便已明确，软件可以更为简单。在后续讨论中，我们将描述PC的情况，因为嵌入式系统应只是其一个更简单的子集。</td></tr>
-  </tbody>
-</table>
-
 
 ## 7.6.1.2 Device Drivers | 7.6.1.2 设备驱动程序
 

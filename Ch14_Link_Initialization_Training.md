@@ -108,59 +108,22 @@ Figure 14-3: Polarity Inversion Example (Support Required) | 图14-3：极性反
 
 <img src="images/part04_13175af827a79e4fba54d58c874db3bd4122bfb038d55b1a2c05a59c544cf1ec.jpg" width="700" alt="">
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">• Link Data Rate: After a reset, Link initialization and training will always use the default 2.5Gbit/s data rate for backward compatibility. If higher data rates are available, they are advertised during this process and, when the training is completed, devices will automatically go through a quick re-training to change to the highest commonly supported rate.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">• 链路数据速率：复位后，链路初始化和训练将始终使用默认的2.5Gbit/s数据速率以保持向后兼容。如果支持更高的数据速率，它们会在该过程中进行通告，当训练完成后，设备将自动进行一次快速重新训练，以切换到双方共同支持的最高速率。</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">• Lane-to-Lane De-skew: Trace length variations and other factors cause the parallel bit streams of a multi-Lane Link to arrive at the Receivers at different times, a problem referred to as signal skew. Receivers are required to compensate for this skew by delaying the early arrivals as needed to align the bit streams (see "Lane-to-Lane Skew" on page 442). They must correct a relatively big skew automatically (20ns difference in arrival time is permitted at 2.5GT/s), and that frees board designers from the sometimes difficult constraint of creating equal-length traces. Together with Polarity Inversion and Lane Reversal, this greatly simplifies the board designer's task of creating a reliable high-speed Link.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">• 通道间去偏斜：走线长度差异等因素会导致多通道链路的并行比特流在不同时间到达接收器，这一问题称为信号偏斜。接收器必须通过延迟早到达的信号以对齐比特流来补偿这种偏斜（参见第442页的"通道间偏斜"）。它们必须自动纠正相当大的偏斜（在2.5GT/s下允许20ns的到达时间差），这使板卡设计人员摆脱了有时难以实现等长走线的约束。结合极性反转和通道反转，这极大地简化了板卡设计人员创建可靠高速链路的任务。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">• Link Data Rate: After a reset, Link initialization and training will always use the default 2.5Gbit/s data rate for backward compatibility. If higher data rates are available, they are advertised during this process and, when the training is completed, devices will automatically go through a quick re-training to change to the highest commonly supported rate.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">• 链路数据速率：复位后，链路初始化和训练将始终使用默认的2.5Gbit/s数据速率以保持向后兼容。如果支持更高的数据速率，它们会在该过程中进行通告，当训练完成后，设备将自动进行一次快速重新训练，以切换到双方共同支持的最高速率。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">• Lane-to-Lane De-skew: Trace length variations and other factors cause the parallel bit streams of a multi-Lane Link to arrive at the Receivers at different times, a problem referred to as signal skew. Receivers are required to compensate for this skew by delaying the early arrivals as needed to align the bit streams (see "Lane-to-Lane Skew" on page 442). They must correct a relatively big skew automatically (20ns difference in arrival time is permitted at 2.5GT/s), and that frees board designers from the sometimes difficult constraint of creating equal-length traces. Together with Polarity Inversion and Lane Reversal, this greatly simplifies the board designer's task of creating a reliable high-speed Link.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">• 通道间去偏斜：走线长度差异等因素会导致多通道链路的并行比特流在不同时间到达接收器，这一问题称为信号偏斜。接收器必须通过延迟早到达的信号以对齐比特流来补偿这种偏斜（参见第442页的"通道间偏斜"）。它们必须自动纠正相当大的偏斜（在2.5GT/s下允许20ns的到达时间差），这使板卡设计人员摆脱了有时难以实现等长走线的约束。结合极性反转和通道反转，这极大地简化了板卡设计人员创建可靠高速链路的任务。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Ordered Sets in Link Training</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 链路训练中的有序集</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">All of the different types of Physical Layer Ordered Sets were described in the section called "Ordered sets" on page 388. Training Sequences TS1 and TS2 are of interest during the training process. The format for these when in Gen1 or Gen2 mode is shown in Figure 14‑4 on page 510, while for Gen3 mode of operation, they are as shown in Figure 14‑5 on page 511. A detailed description of their contents follows.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">各种不同类型的物理层有序集已在第388页"Ordered sets"一节中描述。训练序列TS1和TS2在训练过程中值得关注。在Gen1或Gen2模式下，它们的格式如图14‑4（第510页）所示；而在Gen3操作模式下，则如图14‑5（第511页）所示。下文将对其内容进行详细描述。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## PCI Express Technology</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## PCI Express 技术</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Figure 14-4: TS1 and TS2 Ordered Sets When In Gen1 or Gen2 Mode</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">图 14-4：Gen1 或 Gen2 模式下的 TS1 和 TS2 有序集</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Ordered Sets in Link Training</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 链路训练中的有序集</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">All of the different types of Physical Layer Ordered Sets were described in the section called "Ordered sets" on page 388. Training Sequences TS1 and TS2 are of interest during the training process. The format for these when in Gen1 or Gen2 mode is shown in Figure 14‑4 on page 510, while for Gen3 mode of operation, they are as shown in Figure 14‑5 on page 511. A detailed description of their contents follows.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">各种不同类型的物理层有序集已在第388页"Ordered sets"一节中描述。训练序列TS1和TS2在训练过程中值得关注。在Gen1或Gen2模式下，它们的格式如图14‑4（第510页）所示；而在Gen3操作模式下，则如图14‑5（第511页）所示。下文将对其内容进行详细描述。</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## PCI Express Technology</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## PCI Express 技术</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Figure 14-4: TS1 and TS2 Ordered Sets When In Gen1 or Gen2 Mode</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">图 14-4：Gen1 或 Gen2 模式下的 TS1 和 TS2 有序集</td></tr>
-  </tbody>
-</table>
-
 
 <img src="images/part04_57e057794582a6c9676ac73d61efdccea7dfe00ed5de9cb09e21638614c81958.jpg" width="700" alt="">
 
@@ -435,47 +398,22 @@ Figure 14‐8: Detect State Machine | 图14‐8：检测状态机
 
 ## 14.4.2.2 Variables | 14.4.2.2 变量
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Several variables are cleared to zero: (directed\_speed\_change=0b, upconfigure\_capable=0b, equalization\_done\_8GT\_data\_rate=0b, idle\_to\_rlock\_transitioned=00h). The select\_deemphasis variable setting depends on the port type: for an Upstream Port it's selected by hardware, while for a Downstream Port it takes the value in the Link Control 2 register of the Selectable Preset/De-emphasis field.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">若干变量被清零：(directed\_speed\_change=0b、upconfigure\_capable=0b、equalization\_done\_8GT\_data\_rate=0b、idle\_to\_rlock\_transitioned=00h)。select\_deemphasis 变量的设置取决于端口类型：对于上行端口，由硬件选择；而对于下行端口，则取 Link Control 2 寄存器中 Selectable Preset/De-emphasis 字段的值。</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Since these variables were defined beginning with the 2.0 spec version, devices designed to earlier spec versions won't have them and will behave as if directed\_speed\_change and upconfigure\_capable were set to 0b and idle\_to\_rlock\_transitioned was set to FFh.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">由于这些变量是从 2.0 规范版本开始定义的，针对更早规范版本设计的器件将不具有这些变量，其行为等同于 directed\_speed\_change 和 upconfigure\_capable 被设为 0b、idle\_to\_rlock\_transitioned 被设为 FFh。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Several variables are cleared to zero: (directed\_speed\_change=0b, upconfigure\_capable=0b, equalization\_done\_8GT\_data\_rate=0b, idle\_to\_rlock\_transitioned=00h). The select\_deemphasis variable setting depends on the port type: for an Upstream Port it's selected by hardware, while for a Downstream Port it takes the value in the Link Control 2 register of the Selectable Preset/De-emphasis field.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">若干变量被清零：(directed\_speed\_change=0b、upconfigure\_capable=0b、equalization\_done\_8GT\_data\_rate=0b、idle\_to\_rlock\_transitioned=00h)。select\_deemphasis 变量的设置取决于端口类型：对于上行端口，由硬件选择；而对于下行端口，则取 Link Control 2 寄存器中 Selectable Preset/De-emphasis 字段的值。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Since these variables were defined beginning with the 2.0 spec version, devices designed to earlier spec versions won't have them and will behave as if directed\_speed\_change and upconfigure\_capable were set to 0b and idle\_to\_rlock\_transitioned was set to FFh.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">由于这些变量是从 2.0 规范版本开始定义的，针对更早规范版本设计的器件将不具有这些变量，其行为等同于 directed\_speed\_change 和 upconfigure\_capable 被设为 0b、idle\_to\_rlock\_transitioned 被设为 FFh。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Exit to "Detect.Active"</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 退出至"Detect.Active"</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The next substate is Detect.Active after a 12 ms timeout or when any Lane exits Electrical Idle.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">在12 ms超时后或当任一Lane退出电气空闲时，下一个子状态为Detect.Active。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Detect.Active</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 检测.激活 (Detect.Active)</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This substate is entered from Detect.Quiet. At this time the Transmitter tests whether a Receiver is connected on each Lane by setting a DC common mode voltage of any value in the legal range and then changing it. The detection logic observes the rate of change as the time it takes the line voltage to charge up and compares it to an expected time, such as how long it would take without a Receiver termination. If a Receiver is attached, the charge time will be much longer, making it easy to recognize. For more details on this process, see "Receiver Detection" on page 460. To simplify the discussions that follow, Lanes that detect a Receiver during this substate are referred to as "Detected Lanes."</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">该子状态从 Detect.Quiet 进入。此时，发送器通过在合法范围内设置任意值的直流共模电压并随后改变它，来测试每条通道上是否连接了接收器。检测逻辑观察电压变化率（即线路电压充电所需时间），并将其与预期时间（例如无接收器端接时的充电时间）进行比较。如果接收器已连接，则充电时间将长得多，从而易于识别。有关此过程的更多详细信息，请参阅第 460 页的"接收器检测"。为简化后续讨论，在此子状态下检测到接收器的通道称为"已检测通道"。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Exit to "Detect.Active"</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 退出至"Detect.Active"</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The next substate is Detect.Active after a 12 ms timeout or when any Lane exits Electrical Idle.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在12 ms超时后或当任一Lane退出电气空闲时，下一个子状态为Detect.Active。</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Detect.Active</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 检测.激活 (Detect.Active)</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This substate is entered from Detect.Quiet. At this time the Transmitter tests whether a Receiver is connected on each Lane by setting a DC common mode voltage of any value in the legal range and then changing it. The detection logic observes the rate of change as the time it takes the line voltage to charge up and compares it to an expected time, such as how long it would take without a Receiver termination. If a Receiver is attached, the charge time will be much longer, making it easy to recognize. For more details on this process, see "Receiver Detection" on page 460. To simplify the discussions that follow, Lanes that detect a Receiver during this substate are referred to as "Detected Lanes."</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">该子状态从 Detect.Quiet 进入。此时，发送器通过在合法范围内设置任意值的直流共模电压并随后改变它，来测试每条通道上是否连接了接收器。检测逻辑观察电压变化率（即线路电压充电所需时间），并将其与预期时间（例如无接收器端接时的充电时间）进行比较。如果接收器已连接，则充电时间将长得多，从而易于识别。有关此过程的更多详细信息，请参阅第 460 页的"接收器检测"。为简化后续讨论，在此子状态下检测到接收器的通道称为"已检测通道"。</td></tr>
-  </tbody>
-</table>
-
 
 ## 14.4.2.3 Exit to Detect.Quiet | 14.4.2.3 退出到 Detect.Quiet
 
@@ -997,32 +935,19 @@ Figure 14-14: Combining Lanes to Form Wider Links (Link Merging) | 图14-14：�
 
 ## 14.4.1 Introduction | 14.4.1 引言
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">In the Configuration state, the Link and Lane numbering process is initiated by a Downstream Port, the "leader," (e.g., Root Port or Switch Downstream Port). Endpoints and switch Upstream Ports don't initiate, but respond. They are the "follower." Let's now consider some examples to make the concepts easier to understand.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在配置状态中，链路和通道编号过程由作为"主导者"的下游端口发起（例如根端口或交换机下游端口）。端点和交换机上游端口不发起该过程，而是做出响应。它们是"跟随者"。下面我们将通过一些例子来帮助理解这些概念。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">In the Configuration state, the Link and Lane numbering process is initiated by a Downstream Port, the "leader," (e.g., Root Port or Switch Downstream Port). Endpoints and switch Upstream Ports don't initiate, but respond. They are the "follower." Let's now consider some examples to make the concepts easier to understand.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">在配置状态中，链路和通道编号过程由作为"主导者"的下游端口发起（例如根端口或交换机下游端口）。端点和交换机上游端口不发起该过程，而是做出响应。它们是"跟随者"。下面我们将通过一些例子来帮助理解这些概念。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Link Configuration Example 1</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 链路配置示例 1</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The devices shown in Figure 14‐15 on page 543 both support a single Link that implements lane sizes of x4, x2, or x1. The Lane number assignments are fixed by the device internally and must be sequential starting from zero. The physical Lane numbers are shown within the device box and the reported, or logical, Lane numbers are reported by the TS Ordered Sets. Usually, these will be the same, but not in every case.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">图14-15（第543页）所示的设备均支持单一链路，可实现x4、x2或x1的通道宽度。通道编号由设备内部固定分配，且必须从零开始顺序编号。物理通道编号显示在设备框内，而报告的（或称逻辑的）通道编号由TS有序集报告。通常二者相同，但并非在所有情况下都如此。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Link Configuration Example 1</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 链路配置示例 1</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The devices shown in Figure 14‐15 on page 543 both support a single Link that implements lane sizes of x4, x2, or x1. The Lane number assignments are fixed by the device internally and must be sequential starting from zero. The physical Lane numbers are shown within the device box and the reported, or logical, Lane numbers are reported by the TS Ordered Sets. Usually, these will be the same, but not in every case.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">图14-15（第543页）所示的设备均支持单一链路，可实现x4、x2或x1的通道宽度。通道编号由设备内部固定分配，且必须从零开始顺序编号。物理通道编号显示在设备框内，而报告的（或称逻辑的）通道编号由TS有序集报告。通常二者相同，但并非在所有情况下都如此。</td></tr>
-  </tbody>
-</table>
-
 
 ## Link Number Negotiation. | 链路编号协商
 
@@ -1289,31 +1214,18 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 ## Configuration.Linkwidth.Start | Configuration.Linkwidth.Start
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This substate is entered after either the normal completion of the Polling state (as described in "Polling.Configuration" on page 527), or if the Recovery state finds that Link or Lane numbers have changed since the last time they were assigned and thus the recovery process can't finish normally (as described in the "Recovery State" on page 571).</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">此子状态在以下两种情况下进入：一是Polling（轮询）状态正常完成之后（如第527页"Polling.Configuration"所述），二是Recovery（恢复）状态发现自上次分配以来Link（链路）或Lane（通道）编号已发生改变，导致恢复过程无法正常完成时（如第571页"Recovery State"所述）。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This substate is entered after either the normal completion of the Polling state (as described in "Polling.Configuration" on page 527), or if the Recovery state finds that Link or Lane numbers have changed since the last time they were assigned and thus the recovery process can't finish normally (as described in the "Recovery State" on page 571).</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">此子状态在以下两种情况下进入：一是Polling（轮询）状态正常完成之后（如第527页"Polling.Configuration"所述），二是Recovery（恢复）状态发现自上次分配以来Link（链路）或Lane（通道）编号已发生改变，导致恢复过程无法正常完成时（如第571页"Recovery State"所述）。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Downstream Lanes.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 下游通道。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Downstream Lanes.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 下游通道。</td></tr>
-  </tbody>
-</table>
-
 
 ## During Configuration.Linkwidth.Start | 在 Configuration.Linkwidth.Start 期间
 
@@ -1492,72 +1404,23 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 ## Configuration.Linkwidth.Accept | Configuration.Linkwidth.Accept
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">At this point, the Upstream Port is now sending back TS1 ordered‑sets on all its Lanes with the same Link number. The Link number originated from the Downstream Port, and the Upstream Port is simply reflecting that value back on all its Lanes. Now the Downstream Port knows the Link width (number of Lanes receiving the same Link number) and it must start advertising the Lane numbers. So the leader (Downstream Port) continues sending TS1s, but now with the actual Lane numbers designated instead of PAD. Also, all these TS1s will have the same Link number. The detailed behavior for the Downstream and Upstream Lanes are outlined below:</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">此时，上行端口在其所有通道上回复数据包含相同链路编号的TS1有序集。该链路编号源自下行端口，上行端口只是将该值在其所有通道上反射回去。现在下行端口知道了链路宽度（接收到相同链路编号的通道数量），它必须开始通告通道编号。因此主导方（下行端口）继续发送TS1，但现在指定的是实际的通道编号而非PAD。此外，所有这些TS1将数据包含相同的链路编号。下行和上行通道的详细行为如下所述：</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">At this point, the Upstream Port is now sending back TS1 ordered‑sets on all its Lanes with the same Link number. The Link number originated from the Downstream Port, and the Upstream Port is simply reflecting that value back on all its Lanes. Now the Downstream Port knows the Link width (number of Lanes receiving the same Link number) and it must start advertising the Lane numbers. So the leader (Downstream Port) continues sending TS1s, but now with the actual Lane numbers designated instead of PAD. Also, all these TS1s will have the same Link number. The detailed behavior for the Downstream and Upstream Lanes are outlined below:</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">此时，上行端口在其所有通道上回复数据包含相同链路编号的TS1有序集。该链路编号源自下行端口，上行端口只是将该值在其所有通道上反射回去。现在下行端口知道了链路宽度（接收到相同链路编号的通道数量），它必须开始通告通道编号。因此主导方（下行端口）继续发送TS1，但现在指定的是实际的通道编号而非PAD。此外，所有这些TS1将数据包含相同的链路编号。下行和上行通道的详细行为如下所述：</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Downstream Lanes</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 下游通道</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">**## During Configuration.Linkwidth.Accept**</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">**## 在 Configuration.Linkwidth.Accept 期间**</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The Downstream Port will now initiate Lane numbers. If a Link can be formed from at least one group of Lanes that all receive two consecutive TS1s and all see the same Link number, then TS1s are sent that keep that same Link number but now assign unique, non‑PAD Lane numbers as well.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">下游端口现在将开始指定通道编号。如果至少有一组通道（所有这些通道都收到两个连续的 TS1 序列且都看到相同的链路编号）可以形成链路，则发送的 TS1 序列将保持相同的链路编号，但同时分配唯一的非 PAD 通道编号。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Exit to "Configuration.Lanenum.Wait"</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 退出到“Configuration.Lanenum.Wait”</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The Downstream Port does not stay in the Configuration.Linkwidth.Accept substate very long. Once it has received the necessary TS1s from the Upstream Port indicating, the Link width, it updates any internal state info that is required, starts sending TS1s with non-PAD Lane numbers, as indicated above, and immediately transitions to Configuration.Lanenum.Wait to await Lane Number confirmation from the Upstream Port.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">下游端口不会在 Configuration.Linkwidth.Accept 子状态停留太久。一旦它从上游端口接收到指示链路宽度的必要 TS1 序列，便会更新所需的任何内部状态信息，开始发送带有非 PAD 通道编号的 TS1 序列（如上所述），并立即转换到 Configuration.Lanenum.Wait，以等待上游端口的通道编号确认。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Upstream Lanes</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 上行通道</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Downstream Lanes</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 下游通道</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">**## During Configuration.Linkwidth.Accept**</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">**## 在 Configuration.Linkwidth.Accept 期间**</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The Downstream Port will now initiate Lane numbers. If a Link can be formed from at least one group of Lanes that all receive two consecutive TS1s and all see the same Link number, then TS1s are sent that keep that same Link number but now assign unique, non‑PAD Lane numbers as well.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">下游端口现在将开始指定通道编号。如果至少有一组通道（所有这些通道都收到两个连续的 TS1 序列且都看到相同的链路编号）可以形成链路，则发送的 TS1 序列将保持相同的链路编号，但同时分配唯一的非 PAD 通道编号。</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Exit to "Configuration.Lanenum.Wait"</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 退出到“Configuration.Lanenum.Wait”</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The Downstream Port does not stay in the Configuration.Linkwidth.Accept substate very long. Once it has received the necessary TS1s from the Upstream Port indicating, the Link width, it updates any internal state info that is required, starts sending TS1s with non-PAD Lane numbers, as indicated above, and immediately transitions to Configuration.Lanenum.Wait to await Lane Number confirmation from the Upstream Port.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">下游端口不会在 Configuration.Linkwidth.Accept 子状态停留太久。一旦它从上游端口接收到指示链路宽度的必要 TS1 序列，便会更新所需的任何内部状态信息，开始发送带有非 PAD 通道编号的 TS1 序列（如上所述），并立即转换到 Configuration.Lanenum.Wait，以等待上游端口的通道编号确认。</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Upstream Lanes</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 上行通道</td></tr>
-  </tbody>
-</table>
-
 
 ## During Configuration.Linkwidth.Accept | 在 Configuration.Linkwidth.Accept 期间
 
@@ -1608,31 +1471,18 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">After a 2ms timeout if no Link can be configured (e.g.: Lane 0 is not working and Lane Reversal isn't available), or if all Lanes receive two consecutive TS1s with PAD in both the Link and Lane numbers, the link must exit to the Detect State.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如果在2ms超时后没有链路可以被配置（例如：通道0不工作且通道反转不可用），或者所有通道接收到两个连续的TS1，其链路号和通道号均为PAD，则链路必须退出到Detect状态。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">After a 2ms timeout if no Link can be configured (e.g.: Lane 0 is not working and Lane Reversal isn't available), or if all Lanes receive two consecutive TS1s with PAD in both the Link and Lane numbers, the link must exit to the Detect State.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">如果在2ms超时后没有链路可以被配置（例如：通道0不工作且通道反转不可用），或者所有通道接收到两个连续的TS1，其链路号和通道号均为PAD，则链路必须退出到Detect状态。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Downstream Lanes</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 下游通道</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Downstream Lanes</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 下游通道</td></tr>
-  </tbody>
-</table>
-
 
 ## During Configuration.Lanenum.Wait | 在 Configuration.Lanenum.Wait 期间
 ## 处于 Configuration.Lanenum.Wait 状态期间
@@ -1654,32 +1504,19 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 </table>
 
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Exit to "Detect State"</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 退出到"检测状态"</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">After a 2ms timeout or if all Lanes receive two consecutive TS1s with Link and Lane numbers set to PAD.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在 2ms 超时后，或所有通道接收到连续两个链路号和通道号均设为 PAD 的 TS1 之后。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Exit to "Detect State"</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 退出到"检测状态"</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">After a 2ms timeout or if all Lanes receive two consecutive TS1s with Link and Lane numbers set to PAD.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">在 2ms 超时后，或所有通道接收到连续两个链路号和通道号均设为 PAD 的 TS1 之后。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Upstream Lanes</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 上行链路</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Upstream Lanes</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 上行链路</td></tr>
-  </tbody>
-</table>
-
 
 ## During Configuration.Lanenum.Wait | 在 Configuration.Lanenum.Wait 期间
 
@@ -1716,58 +1553,21 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">After a 2ms timeout or if all Lanes receive two consecutive TS1s with Link and Lane numbers set to PAD.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在 2ms 超时后，或者所有 Lane 收到连续两个 Link 和 Lane 编号设为 PAD 的 TS1 时。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">After a 2ms timeout or if all Lanes receive two consecutive TS1s with Link and Lane numbers set to PAD.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">在 2ms 超时后，或者所有 Lane 收到连续两个 Link 和 Lane 编号设为 PAD 的 TS1 时。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Configuration.Lanenum.Accept</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 配置.通道数.接受</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Downstream Lanes</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 下游通道</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## During Configuration.Lanenum.Accept</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 在 Configuration.Lanenum.Accept 期间</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The Downstream Port has now received TS1s with non-PAD Link and Lane numbers. It is at this point that the Downstream Port must decide if a Link can be established with the Lane numbers returned by the Upstream Port. The three possible state transitions are listed below.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">下游端口现收到带有非 PAD 链路号和通道号的 TS1 序列。此时，下游端口必须决定是否可以使用上游端口返回的通道号建立链路。下面列出了三种可能的状态转换。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Configuration.Lanenum.Accept</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 配置.通道数.接受</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Downstream Lanes</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 下游通道</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## During Configuration.Lanenum.Accept</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 在 Configuration.Lanenum.Accept 期间</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The Downstream Port has now received TS1s with non-PAD Link and Lane numbers. It is at this point that the Downstream Port must decide if a Link can be established with the Lane numbers returned by the Upstream Port. The three possible state transitions are listed below.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">下游端口现收到带有非 PAD 链路号和通道号的 TS1 序列。此时，下游端口必须决定是否可以使用上游端口返回的通道号建立链路。下面列出了三种可能的状态转换。</td></tr>
-  </tbody>
-</table>
-
 
 ## Exit to "Configuration.Complete" | 退出到 "Configuration.Complete"
 
@@ -1804,32 +1604,19 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 </table>
 
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Exit to "Detect State"</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 退出到“检测状态”</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">If no Link can be configured, or if all Lanes receive two consecutive TS1s with PAD for Link and Lane numbers.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如果没有可配置的链路，或者所有通道都接收到两个连续的、链路号和通道号均为PAD的TS1。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Exit to "Detect State"</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 退出到“检测状态”</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">If no Link can be configured, or if all Lanes receive two consecutive TS1s with PAD for Link and Lane numbers.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">如果没有可配置的链路，或者所有通道都接收到两个连续的、链路号和通道号均为PAD的TS1。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Upstream Lanes</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 上行通道</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Upstream Lanes</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 上行通道</td></tr>
-  </tbody>
-</table>
-
 
 ## During Configuration.Lanenum.Accept | 在 Configuration.Lanenum.Accept 期间
 
@@ -1893,32 +1680,19 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 ## Configuration.Complete | Configuration.Complete
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This is the only substate of the Configuration state where TS2s are exchanged. As discussed before, the purpose of TS2s is a handshake, or confirmation between the two devices on the link that they are ready to proceed to the next state. So this is the final confirmation of the Link and Lane numbers exchanged in the TS1s leading up to this point.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">这是Configuration状态中唯一交换TS2的子状态。如前所述，TS2的目的是握手，即链路两端的设备之间确认它们已准备好进入下一状态。因此，这是对到达此点之前在TS1中交换的链路编号和通道编号的最终确认。</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">It should be noted that Devices are allowed to change their supported data rates and upconfigure capability when they enter this substate, but not while in it. This is because Devices record the capabilities of their Link partner from what is advertised in these TS2s, as will be described in this section.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">应注意，设备在进入此子状态时可以更改其支持的数据速率和upconfigure能力，但在处于该子状态时则不能。这是因为设备会记录其链路对端在这些TS2中通告的能力，本节将对此进行说明。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This is the only substate of the Configuration state where TS2s are exchanged. As discussed before, the purpose of TS2s is a handshake, or confirmation between the two devices on the link that they are ready to proceed to the next state. So this is the final confirmation of the Link and Lane numbers exchanged in the TS1s leading up to this point.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">这是Configuration状态中唯一交换TS2的子状态。如前所述，TS2的目的是握手，即链路两端的设备之间确认它们已准备好进入下一状态。因此，这是对到达此点之前在TS1中交换的链路编号和通道编号的最终确认。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">It should be noted that Devices are allowed to change their supported data rates and upconfigure capability when they enter this substate, but not while in it. This is because Devices record the capabilities of their Link partner from what is advertised in these TS2s, as will be described in this section.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">应注意，设备在进入此子状态时可以更改其支持的数据速率和upconfigure能力，但在处于该子状态时则不能。这是因为设备会记录其链路对端在这些TS2中通告的能力，本节将对此进行说明。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Downstream Lanes</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 下游通道</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Downstream Lanes</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 下游通道</td></tr>
-  </tbody>
-</table>
-
 
 ## During Configuration.Complete | 在 Configuration.Complete 期间
 
@@ -1991,31 +1765,18 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 Exit to "Detect State"
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Otherwise, the next state is Detect.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">否则，下一状态为Detect。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Otherwise, the next state is Detect.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">否则，下一状态为Detect。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Upstream Lanes</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 上游通道</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Upstream Lanes</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 上游通道</td></tr>
-  </tbody>
-</table>
-
 
 ## During Configuration.Complete | 在 Configuration.Complete 期间
 
@@ -2090,31 +1851,18 @@ Exit to "Detect State"
 
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Otherwise, the next state is Detect.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">否则，下一状态为检测（Detect）。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Otherwise, the next state is Detect.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">否则，下一状态为检测（Detect）。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Configuration.Idle</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## Configuration.Idle（配置空闲）</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Configuration.Idle</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## Configuration.Idle（配置空闲）</td></tr>
-  </tbody>
-</table>
-
 
 ## During Configuration.Idle | 在 Configuration.Idle 期间
 
@@ -2658,33 +2406,20 @@ Figure 14-35: Equalization Process: Adjustments During Phase 3 | 图14-35：均�
 </table>
 
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Detailed Equalization Substates</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 详细均衡子状态</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This section covers detailed descriptions of the state machine behaviors during Link Equalization.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">本节详细介绍链路均衡过程中状态机的行为。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Detailed Equalization Substates</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 详细均衡子状态</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This section covers detailed descriptions of the state machine behaviors during Link Equalization.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">本节详细介绍链路均衡过程中状态机的行为。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Recovery.Equalization</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 恢复.均衡</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This substate is used to execute the Link Equalization Procedure for 8.0 GT/s and higher rates. The lower rates don't use equalization and the LTSSM won't enter this substate when they're in effect. Since this is a new and complex topic for PCIe, a description of the overall equalization procedure from a high-level view is presented after the state machine details in the section called "Link Equalization Overview" on page 577. First though, let's step through the substates to see the mechanics of the process.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">此子状态用于执行 8.0 GT/s 及更高速率下的链路均衡过程。较低速率不使用均衡，LTSSM 在这些速率生效时不会进入此子状态。由于这对 PCIe 来说是一个新的且复杂的主题，在状态机细节之后，第 577 页的 "Link Equalization Overview" 一节从高层视角呈现了整个均衡过程的描述。不过，首先让我们逐步了解各子状态，以查看该过程的机制。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Recovery.Equalization</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 恢复.均衡</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This substate is used to execute the Link Equalization Procedure for 8.0 GT/s and higher rates. The lower rates don't use equalization and the LTSSM won't enter this substate when they're in effect. Since this is a new and complex topic for PCIe, a description of the overall equalization procedure from a high-level view is presented after the state machine details in the section called "Link Equalization Overview" on page 577. First though, let's step through the substates to see the mechanics of the process.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">此子状态用于执行 8.0 GT/s 及更高速率下的链路均衡过程。较低速率不使用均衡，LTSSM 在这些速率生效时不会进入此子状态。由于这对 PCIe 来说是一个新的且复杂的主题，在状态机细节之后，第 577 页的 "Link Equalization Overview" 一节从高层视角呈现了整个均衡过程的描述。不过，首先让我们逐步了解各子状态，以查看该过程的机制。</td></tr>
-  </tbody>
-</table>
-
 
 ## Downstream Lanes | 下行通道
 
@@ -3307,33 +3042,20 @@ Figure 14-40: L0s Tx State Machine | 图14-40：L0s发送状态机
 
 <img src="images/part04_0ff5145e322f8af17fddc922ca228fea90c1bdf0763426ca97e2cca4402d26ec.jpg" width="700" alt="">
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Tx\_L0s.Entry.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## Tx\_L0s.Entry 发送端L0s状态入口</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">A Transmitter enters L0s when directed by an upper layer. The spec gives no decision criteria for this, but intuitively it would occur based on an inactivity timeout: no TLPs or DLLPs being sent for a given time. To enter L0s, the Transmitter sends one EIOS (two EIOSs for the 5.0 GT/s rate) and enters Electrical Idle. The Transmitter is not turned off, however, and must maintain the DC common‑mode voltage within the spec range.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">发送端在上层指示时进入L0s。规范未给出决策标准，但直观上应基于不活动超时发生：在给定时间内未发送任何TLP或DLLP。为进入L0s，发送端发送一个EIOS（在5.0 GT/s速率下发送两个EIOS）并进入电气空闲状态。然而，发送端并未关闭，必须保持DC共模电压在规范范围内。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Tx\_L0s.Entry.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## Tx\_L0s.Entry 发送端L0s状态入口</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">A Transmitter enters L0s when directed by an upper layer. The spec gives no decision criteria for this, but intuitively it would occur based on an inactivity timeout: no TLPs or DLLPs being sent for a given time. To enter L0s, the Transmitter sends one EIOS (two EIOSs for the 5.0 GT/s rate) and enters Electrical Idle. The Transmitter is not turned off, however, and must maintain the DC common‑mode voltage within the spec range.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">发送端在上层指示时进入L0s。规范未给出决策标准，但直观上应基于不活动超时发生：在给定时间内未发送任何TLP或DLLP。为进入L0s，发送端发送一个EIOS（在5.0 GT/s速率下发送两个EIOS）并进入电气空闲状态。然而，发送端并未关闭，必须保持DC共模电压在规范范围内。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Exit to "Tx\_L0s.Idle"</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 退出到"Tx\_L0s.Idle"</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The next state will be Tx\_L0s.Idle after the T timeout (20ns). This time is intended to ensure that the Transmitter has established the Electrical Idle condition.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">在T超时(20ns)之后，下一状态将为Tx\_L0s.Idle。这段时间旨在确保发送器已建立电气空闲条件。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Exit to "Tx\_L0s.Idle"</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 退出到"Tx\_L0s.Idle"</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The next state will be Tx\_L0s.Idle after the T timeout (20ns). This time is intended to ensure that the Transmitter has established the Electrical Idle condition.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在T超时(20ns)之后，下一状态将为Tx\_L0s.Idle。这段时间旨在确保发送器已建立电气空闲条件。</td></tr>
-  </tbody>
-</table>
-
 
 ## Tx\_L0s.Idle. | Tx\_L0s.Idle（Tx\_L0s.空闲状态）
 
@@ -3508,33 +3230,20 @@ Figure 14-42: L1 State Machine | 图14-42：L1状态机
 
 ## L1.Entry | L1.Entry
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">In order for an Upstream Port to enter this state, it must send a request to enter L1 to its Link Partner and receive acknowledgement that it is OK to put the Link into L1. (The reason for requesting to go into L1 may be because of ASPM or because of software involvement.) Once the L1 request acknowledge is received, the Upstream Port enters the L1.Entry substate.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">为了使上行端口进入此状态，它必须向其链路伙伴发送进入L1的请求，并收到确认可以将链路置入L1的应答。(请求进入L1的原因可能是由于ASPM或软件介入。)一旦收到L1请求确认，上行端口即进入L1.Entry子状态。</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">In order for a Downstream Port to enter this state, it must receive an L1 enter request from the Upstream Port and send a positive response to that request. Then the Downstream Port waits to receive an Electrical Idle Ordered Set (EIOS) and have its receive lanes drop to Electrical Idle. It is at this point that the Downstream Port enters the L1.Entry substate.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">为了使下行端口进入此状态，它必须从上行端口接收L1进入请求并向该请求发送肯定应答。然后下行端口等待接收电气空闲有序集(EIOS)并使其接收通道降至电气空闲。正是在此时，下行端口进入L1.Entry子状态。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">In order for an Upstream Port to enter this state, it must send a request to enter L1 to its Link Partner and receive acknowledgement that it is OK to put the Link into L1. (The reason for requesting to go into L1 may be because of ASPM or because of software involvement.) Once the L1 request acknowledge is received, the Upstream Port enters the L1.Entry substate.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">为了使上行端口进入此状态，它必须向其链路伙伴发送进入L1的请求，并收到确认可以将链路置入L1的应答。(请求进入L1的原因可能是由于ASPM或软件介入。)一旦收到L1请求确认，上行端口即进入L1.Entry子状态。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">In order for a Downstream Port to enter this state, it must receive an L1 enter request from the Upstream Port and send a positive response to that request. Then the Downstream Port waits to receive an Electrical Idle Ordered Set (EIOS) and have its receive lanes drop to Electrical Idle. It is at this point that the Downstream Port enters the L1.Entry substate.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">为了使下行端口进入此状态，它必须从上行端口接收L1进入请求并向该请求发送肯定应答。然后下行端口等待接收电气空闲有序集(EIOS)并使其接收通道降至电气空闲。正是在此时，下行端口进入L1.Entry子状态。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## During L1.Entry</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 在 L1.Entry 期间</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">All configured Transmitters send an EIOS and enter Electrical Idle while maintaining the proper DC common mode voltage.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">所有已配置的发送器发送 EIOS 并进入电气空闲状态，同时保持适当的直流共模电压。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## During L1.Entry</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 在 L1.Entry 期间</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">All configured Transmitters send an EIOS and enter Electrical Idle while maintaining the proper DC common mode voltage.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">所有已配置的发送器发送 EIOS 并进入电气空闲状态，同时保持适当的直流共模电压。</td></tr>
-  </tbody>
-</table>
-
 
 ## Exit to "L1.Idle" | 退出到 "L1.Idle"
 
@@ -4253,33 +3962,20 @@ Figure 14‐67: Link Control Register | 图14‐67：链路控制寄存器
 
 <img src="images/part04_b15e5f897dc783c1d4d5098487944205d2189e48c3a90688f6c02b82bdef4fec.jpg" width="700" alt="">
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Related Configuration Registers</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 相关配置寄存器</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Many of the configuration registers that are relevant to Link Initialization and Training have been shown when their contents were described earlier, but it seems good to summarize them here.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">许多与链路初始化和训练相关的配置寄存器在前文描述其内容时已经展示过，但在此汇总一下似乎更为妥当。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Related Configuration Registers</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 相关配置寄存器</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Many of the configuration registers that are relevant to Link Initialization and Training have been shown when their contents were described earlier, but it seems good to summarize them here.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">许多与链路初始化和训练相关的配置寄存器在前文描述其内容时已经展示过，但在此汇总一下似乎更为妥当。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Link Capabilities Register</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 链路能力寄存器</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The Link Capabilities Register is pictured in Figure 14‑68 on page 639 and each bit field is described in the subsections that follow.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">链路能力寄存器如图14‑68（第639页）所示，每个位字段在后续小节中描述。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Link Capabilities Register</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 链路能力寄存器</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The Link Capabilities Register is pictured in Figure 14‑68 on page 639 and each bit field is described in the subsections that follow.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">链路能力寄存器如图14‑68（第639页）所示，每个位字段在后续小节中描述。</td></tr>
-  </tbody>
-</table>
-
 
 Figure 14‑68: Link Capabilities Register | 图14‑68：链路能力寄存器  
 
@@ -4477,32 +4173,19 @@ Figure 14-70: Link Status Register | 图14-70：链路状态寄存器
 
 ## Retrain Link | 重新训练链路
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This bit allows software to initiate Link re‑training whenever it is deemed necessary, as for error recovery. The bit is not applicable to and is reserved for Endpoint devices and Upstream Ports of Bridges and Switches. When set to 1b, this directs the LTSSM to the Recovery state before the completion of the Configuration write Request is returned.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">该位允许软件在认为必要时（如错误恢复）启动链路重训练。该位不适用于端点设备以及桥与交换机的上游端口，并为它们保留。当设置为1b时，这会指示LTSSM在返回配置写入请求完成之前进入恢复状态。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This bit allows software to initiate Link re‑training whenever it is deemed necessary, as for error recovery. The bit is not applicable to and is reserved for Endpoint devices and Upstream Ports of Bridges and Switches. When set to 1b, this directs the LTSSM to the Recovery state before the completion of the Configuration write Request is returned.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">该位允许软件在认为必要时（如错误恢复）启动链路重训练。该位不适用于端点设备以及桥与交换机的上游端口，并为它们保留。当设置为1b时，这会指示LTSSM在返回配置写入请求完成之前进入恢复状态。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Extended Synch</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 扩展同步</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">As it affects training, this bit is used to greatly extend the time spent in two situations, for the purpose of assisting slower external test or analysis hardware to synchronize with the Link before it resumes normal communication. One of these is when exiting L0s, where setting this bit forces the transmission of 4096 FTSs prior to entering L0. The other case is in the Recovery state prior to entering Recovery.RcvrCfg, where it forces the transmission of 1024 TS1s.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">由于该位影响训练过程，因此用于在两种情况下大幅延长所花费的时间，以帮助较慢的外部测试或分析硬件在链路恢复正常通信之前与之同步。第一种情况是退出 L0s 时，设置该位将强制在进入 L0 之前发送 4096 个 FTS。另一种情况是在进入 Recovery.RcvrCfg 之前的 Recovery 状态中，该位强制发送 1024 个 TS1。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Extended Synch</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 扩展同步</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">As it affects training, this bit is used to greatly extend the time spent in two situations, for the purpose of assisting slower external test or analysis hardware to synchronize with the Link before it resumes normal communication. One of these is when exiting L0s, where setting this bit forces the transmission of 4096 FTSs prior to entering L0. The other case is in the Recovery state prior to entering Recovery.RcvrCfg, where it forces the transmission of 1024 TS1s.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">由于该位影响训练过程，因此用于在两种情况下大幅延长所花费的时间，以帮助较慢的外部测试或分析硬件在链路恢复正常通信之前与之同步。第一种情况是退出 L0s 时，设置该位将强制在进入 L0 之前发送 4096 个 FTS。另一种情况是在进入 Recovery.RcvrCfg 之前的 Recovery 状态中，该位强制发送 1024 个 TS1。</td></tr>
-  </tbody>
-</table>
-
 
 Figure 14‐71: Link Control Register | 图14‐71：链路控制寄存器
 <img src="images/part04_a330083a9fc90f888ee30b6331590876daadcba6b37f63dba555111a6ded97b3.jpg" width="700" alt="">

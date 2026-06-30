@@ -148,32 +148,19 @@ Figure 19-2: PCI Express Hot‐Plug Elements | 图19-2：PCI Express热插拔元
 
 ## 19.3 Elements Required to Support Hot Plug | 19.3 支持热插拔所需的要素
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">As shown in Figure 19‐2 on page 851 there are several parts involved in making a hog‐plug environment work. For discussion, let's break these down into software and hardware elements.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如第851页图19-2所示，热插拔环境的正常工作涉及多个组成部分。为便于讨论，我们将其分为软件和硬件两大类。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">As shown in Figure 19‐2 on page 851 there are several parts involved in making a hog‐plug environment work. For discussion, let's break these down into software and hardware elements.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">如第851页图19-2所示，热插拔环境的正常工作涉及多个组成部分。为便于讨论，我们将其分为软件和硬件两大类。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Software Elements</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 软件元素</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The following table describes the major software elements that support Hot-Plug capability.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">下表描述了支持热插拔能力的主要软件元素。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Software Elements</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 软件元素</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The following table describes the major software elements that support Hot-Plug capability.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">下表描述了支持热插拔能力的主要软件元素。</td></tr>
-  </tbody>
-</table>
-
 
 Table 19‐1: Introduction to Major Hot‐Plug Software Elements | 表19‐1：主要热插拔软件元素介绍
 

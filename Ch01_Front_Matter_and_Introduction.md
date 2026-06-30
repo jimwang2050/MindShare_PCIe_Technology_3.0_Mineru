@@ -15,42 +15,47 @@
 
 ---
 
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
+    <tr>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 Part part01 — `mindshare_part01_p0001-0180`
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 第一部分 part01 — `mindshare_part01_p0001-0180`
 </td>
 </tr>
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 For training, visit mindshare.com
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 如需培训，请访问 mindshare.com
 </td>
 </tr>
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 MindShare Technology Series
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 MindShare 技术丛书系列
 </td>
 </tr>
-</table>
-
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 PCI Express Technology
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI Express 技术
 </td>
 </tr>
+  </tbody>
 </table>
 
 <img src="images/part01_bd6316ecf120ddff1378b0bbb71efdbcee731b0e24a2e03774f7a36afc462733.jpg" width="700" alt="">
@@ -348,34 +353,39 @@ The rule checks are written in JavaScript. (Python support coming soon.)
 
 ## Write Capability | 写操作功能
 
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
+    <tr>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 MindShare Arbor provides a very simple interface to directly edit a register in PCI config space, memory address space or IO address space. This can be done in the decoded view so you see what the meaning of each bit, or by simply writing a hex value to the target location.
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 MindShare Arbor 提供了一个非常简单的界面，可直接编辑 PCI 配置空间、存储器地址空间或 IO 地址空间中的寄存器。这可以在解码视图中完成，以便您查看每个比特位的含义，或者直接向目标位置写入一个十六进制值。
 </td>
 </tr>
-</table>
-
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 Saving System Scans (XML)
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 保存系统扫描结果 (XML)
 </td>
 </tr>
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 After a system scan has been performed, MindShare Arbor allows saving of that system's scanned data (PCI config space, memory space and IO space) all in a single file to be looked at later or sent to a colleague. The scanned data in these Arbor system scan files (.ARBSYS files) are XML-based and can be looked at with any text editor or web browser. Even scans performed with other tools can be easily converted to the Arbor XML format and evaluated with MindShare Arbor.
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在执行系统扫描之后，MindShare Arbor 允许将系统的扫描数据（PCI 配置空间、存储器空间和 IO 空间）全部保存到单个文件中，以便日后查看或发送给同事。这些 Arbor 系统扫描文件（.ARBSYS 文件）中的扫描数据基于 XML 格式，可以使用任何文本编辑器或 web 浏览器查看。即使使用其他工具执行的扫描，也可以轻松转换为 Arbor XML 格式，并通过 MindShare Arbor 进行评估。
 </td>
 </tr>
+  </tbody>
 </table>
 
 # PCI Express Technology | PCI Express 技术
@@ -16129,34 +16139,39 @@ Consider the following example in which the North bridge initiates a burst memor
 
 ## 1.4.4 PCI Interrupt Handling | 1.4.4 PCI 中断处理
 
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
+    <tr>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 PCI devices use one of four sideband interrupt signals (INTA#, INTB#, INTC#, or INTD#) to send an interrupt request to the system. When one of the pins is asserted, the interrupt controller in a single‑CPU system responded by asserting the INTR (interrupt request) pin to the CPU. Later multi‑CPU designs needed to improve on the single wire input for interrupts and changed to an APIC (Advanced Programmable Interrupt Controller) model, in which the controller sends a message to the multiple CPUs instead of asserting the INTR pin to one of them. Regardless of the delivery model, an interrupted CPU must determine the source of the interrupt and then service the interrupt. The legacy model required several bus cycles for this and wasn't very efficient. The APIC model is better but also leaves room for improvement.
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI 设备使用四条边带中断信号（INTA#、INTB#、INTC# 或 INTD#）之一向系统发送中断请求。当其中一个引脚被置位时，单 CPU 系统中的中断控制器通过向 CPU 置位 INTR（中断请求）引脚来响应。后来的多 CPU 设计需要改进单线中断输入方式，转而采用 APIC（高级可编程中断控制器）模型，在该模型中，控制器向多个 CPU 发送消息，而不是向其中一个 CPU 置位 INTR 引脚。无论采用何种传递模型，被中断的 CPU 都必须确定中断源，然后对中断进行服务。传统模型需要多个总线周期来完成这一过程，效率不高。APIC 模型更好，但仍有改进空间。
 </td>
 </tr>
-</table>
-
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 PCI Error Handling
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI 错误处理
 </td>
 </tr>
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 PCI devices can optionally detect and report address and data phase parity errors during transactions. PCI generates "even parity" across most of the signals during a transaction by using the PAR signal. This means that if the number of set bits during an address or data phase is odd, the master device will set the PAR signal to make the parity "even." The target device receives the address or data and checks for errors. Parity errors are detectable only as long as an odd number of signals are affected causing the received number of ones to be odd. If a device detects a data phase parity error, it asserts PERR# (parity error). This is potentially a recoverable error since, for cases like a memory read, just repeating the transaction may resolve the problem. PCI does not include any automatic or hardware-based recovery mechanisms, though, so any attempts to resolve the error would be handled by software.
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI 设备可以选择性地在事务期间检测并报告地址阶段和数据阶段的奇偶校验错误。PCI 在事务期间使用 PAR 信号对大多数信号生成"偶校验"。这意味着，如果在地址阶段或数据阶段中置位比特的数量为奇数，主设备将置位 PAR 信号以使校验为"偶"。目标设备接收地址或数据并检查错误。只有当受影响的信号数量为奇数（导致接收到的 1 的数量为奇数）时，才能检测到奇偶校验错误。如果设备检测到数据阶段的奇偶校验错误，它将断言 PERR#（奇偶校验错误）。这有可能是一种可恢复的错误，因为对于像存储器读取这样的情况，只需重复该事务即可解决问题。不过，PCI 不数据包含任何基于硬件的自动恢复机制，因此任何尝试解决该错误的操作都将由软件处理。
 </td>
 </tr>
+  </tbody>
 </table>
 
 Figure 1-9: PCI Error Handling | 图1-9：PCI错误处理
@@ -16322,42 +16337,47 @@ Figure 1-14 shows an example of a 66 MHz, 64-bit PCI system.
 
 ## Limitations of 66 MHz PCI bus | 66 MHz PCI总线的局限
 
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
+    <tr>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 While the throughput of the bus was doubled at this speed relative to the 33 MHz bus, the diagram illustrates one of its major shortcomings: using the same reflected‑wave switching model with only half the timing budget meant that the loading on the bus had to be greatly reduced. The result was that only one add‑in card could be supported on each bus. Adding more devices meant adding more PCI bridges and buses, which would increase both cost and board real estate requirements. The 64‑bit PCI bus increases pin count, increasing system cost and lowering system reliability. In combination, it's easy to see why these factors limited the popularity of the 64‑bit or 66 MHz version of the PCI bus.
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 虽然在此速度下总线吞吐量相对于33 MHz总线翻了一番，但图中说明了其主要缺点之一：采用相同的反射波切换模型且时序预算减半，意味着必须大幅减少总线上的负载。结果是每条总线只能支持一个扩展卡。增加更多设备意味着需要增加更多的PCI桥和PCI总线，这会增加成本和板面积需求。64位PCI总线增加了引脚数，提高了系统成本并降低了系统可靠性。综合来看，不难看出这些因素为何限制了64位或66 MHz版本PCI总线的普及。
 </td>
 </tr>
-</table>
-
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 Signal Timing Problems with the Parallel PCI Bus Model beyond 66 MHz
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 并行PCI总线模型在66 MHz以上的信号时序问题
 </td>
 </tr>
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 PCI bus clock frequency cannot be increased beyond 66MHz given the realistic loads that exist on a PCI bus and signal flight times. With a 66 MHz clock, the clock period is 15 ns. Setup time allocated at the receiver is 3 ns. With the PCI "non-registered input" signal bus model, reducing signal setup time below this 3 ns value is not realistic. The rest of the 12 ns timing budget is allocated towards output delays at the transmitter and signal flight time. Clocking PCI bus any faster than 66 MHz implies reducing clock period. A transmitted signal will not be received in time enough to be sampled at the receiver.
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 考虑到PCI总线上存在的实际负载和信号飞行时间，PCI总线时钟频率无法提高到超过66 MHz。在66 MHz时钟下，时钟周期为15 ns。接收端分配的建立时间为3 ns。在PCI"非寄存输入"信号总线模型下，将信号建立时间降低到3 ns以下是不现实的。时序预算中剩余的12 ns分配给发送端的输出延迟和信号飞行时间。以超过66 MHz的频率为PCI总线提供时钟意味着缩短时钟周期。发送的信号将无法及时到达接收端并被采样。
 </td>
 </tr>
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 The PCI-X bus introduced in the next section takes the approach of registering all input signals with a Flip-Flop before using them. Doing so reduced signal setup time to below 1 ns. The setup time savings of PCI setup time allows PCI-X bus to be run at higher frequencies of 100 MHz or even 133 Mhz. In the next section, we describe PCI-X bus architecture briefly.
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 下一节介绍的PCI-X总线采取的方法是在使用所有输入信号之前，先用触发器对其进行寄存。这样做将信号建立时间降低到1 ns以下。PCI建立时间的节省使得PCI-X总线能够以100 MHz甚至133 MHz的更高频率运行。在下一节中，我们将简要描述PCI-X总线架构。
 </td>
 </tr>
+  </tbody>
 </table>
 
 ## 1.5 Introducing PCI-X | 1.5 PCI-X 简介
@@ -16416,26 +16436,31 @@ Figure 1‐15: 66 MHz/133 MHz PCI‐X Bus Based Platform | 图1‐15：基于66 
 <img src="images/part01_f418f43ac089b0da6d6f61dfc3aa3208ae33692a9564e237bc3afeb13c9c9acb.jpg" width="700" alt="">
 Figure 1‐16: Example PCI‐X Burst Memory Read Bus Cycle | 图1‐16：PCI-X突发存储器读总线周期示例
 
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
+    <tr>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 Figure 1‐16 on page 33 shows an example of a PCI‐X burst memory read transaction. Note that PCI‐X does not allow Wait States after the first data phase. This is possible because the transfer size is now provided to the target device in the Attribute phase of the transaction, so the target devices knows exactly what is going to be required of him. In addition, most PCI‐X bus cycles are bursts and data is generally transferred in blocks of 128 Bytes. These features allow for more efficient bus utilization and device buffer management.
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 图1-16(第33页)展示了一个PCI-X突发存储器读事务的示例。注意,PCI-X在第一个数据期之后不允许等待状态。这是可能的,因为传输大小现在在事务的属性阶段提供给目标设备,因此目标设备确切地知道将需要对它提出什么要求。此外,大多数PCI-X总线周期是突发的,数据通常以128字节的块传输。这些特性允许更高效的总线利用率和设备缓冲区管理。
 </td>
 </tr>
-</table>
-
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 PCI-X Features
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI-X 特性
 </td>
 </tr>
+  </tbody>
 </table>
 
 ## Split-Transaction Model | 拆分事务模型

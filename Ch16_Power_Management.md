@@ -74,32 +74,19 @@
 
 ## 16.2 Power Management Primer | 16.2 电源管理入门
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The PCI Bus PM Interface spec describes the power management registers required for PCIe. These permit the OS to manage the power environment of a Function directly. Rather than dive into a detailed description, let's start by describing where this capability fits in the overall context of the system.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">PCI总线PM接口规范描述了PCIe所需的电源管理寄存器。这些寄存器允许操作系统直接管理Function的电源环境。与其深入详细描述，不如先说明该能力在系统整体上下文中的位置。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The PCI Bus PM Interface spec describes the power management registers required for PCIe. These permit the OS to manage the power environment of a Function directly. Rather than dive into a detailed description, let's start by describing where this capability fits in the overall context of the system.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">PCI总线PM接口规范描述了PCIe所需的电源管理寄存器。这些寄存器允许操作系统直接管理Function的电源环境。与其深入详细描述，不如先说明该能力在系统整体上下文中的位置。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Basics of PCI PM</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## PCI电源管理基础</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This section provides an overview of how a Windows OS interacts with other major software and hardware elements to manage the power usage of individual devices and the system as a whole. Table 16-1 on page 706 introduces the major elements involved in this process and provides a very basic description of how they relate to each other. It should be noted that neither the PCI Power Management spec nor the ACPI spec dictate the PM policies that the OS uses. They do, however, define the registers (and some data structures) that are used to control the power usage of a Function.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">本节概述了Windows操作系统如何与其他主要软件和硬件元素交互，以管理单个设备和整个系统的电源使用。第706页的表16-1介绍了此过程中涉及的主要元素，并提供了它们之间如何相互关联的基本描述。需要注意的是，PCI电源管理规范和ACPI规范都不规定操作系统使用的电源管理策略。但它们确实定义了用于控制功能（Function）电源使用的寄存器（以及一些数据结构）。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Basics of PCI PM</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## PCI电源管理基础</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This section provides an overview of how a Windows OS interacts with other major software and hardware elements to manage the power usage of individual devices and the system as a whole. Table 16-1 on page 706 introduces the major elements involved in this process and provides a very basic description of how they relate to each other. It should be noted that neither the PCI Power Management spec nor the ACPI spec dictate the PM policies that the OS uses. They do, however, define the registers (and some data structures) that are used to control the power usage of a Function.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">本节概述了Windows操作系统如何与其他主要软件和硬件元素交互，以管理单个设备和整个系统的电源使用。第706页的表16-1介绍了此过程中涉及的主要元素，并提供了它们之间如何相互关联的基本描述。需要注意的是，PCI电源管理规范和ACPI规范都不规定操作系统使用的电源管理策略。但它们确实定义了用于控制功能（Function）电源使用的寄存器（以及一些数据结构）。</td></tr>
-  </tbody>
-</table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr><td style="border:1px solid #ddd;">Element</td><td style="border:1px solid #ddd;">Responsibility</td></tr>
@@ -113,32 +100,19 @@
 </table>
 ## 16.2.1 ACPI Spec Defines Overall PM | 16.2.1 ACPI 规范定义整体电源管理
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The ACPI (Advanced Configuration and Power Interface) spec was first written several years ago as a joint effort by several companies to provide industry standards for OSPM (OS-level Power Management) in compute platforms. Power management at that time was being handled in proprietary ways on different platforms and that made it difficult for vendors to coordinate their efforts. In addition, platform-specific code wasn't always fully compatible with OS operations or aware of all the system conditions or policy considerations. ACPI helped in these areas by defining system power states, hardware registers and software interactions to accomplish OS-based power management. A detailed description of ACPI is beyond the scope of this book, but an introduction to the concepts and terminology will be helpful.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">ACPI（高级配置与电源管理接口，Advanced Configuration and Power Interface）规范最初于多年前由多家公司联合制定，旨在为计算平台中的 OSPM（操作系统级电源管理，OS-level Power Management）提供行业标准。当时的电源管理在不同平台上以专有方式实现，这使得供应商难以协调各自的工作。此外，平台相关代码并不总是与操作系统操作完全兼容，也不总能感知所有系统条件或策略考量。ACPI 通过定义系统电源状态、硬件寄存器和软件交互来解决这些问题，从而实现基于操作系统的电源管理。对 ACPI 的详细描述超出了本书的范围，但对其概念和术语的介绍将有所助益。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The ACPI (Advanced Configuration and Power Interface) spec was first written several years ago as a joint effort by several companies to provide industry standards for OSPM (OS-level Power Management) in compute platforms. Power management at that time was being handled in proprietary ways on different platforms and that made it difficult for vendors to coordinate their efforts. In addition, platform-specific code wasn't always fully compatible with OS operations or aware of all the system conditions or policy considerations. ACPI helped in these areas by defining system power states, hardware registers and software interactions to accomplish OS-based power management. A detailed description of ACPI is beyond the scope of this book, but an introduction to the concepts and terminology will be helpful.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">ACPI（高级配置与电源管理接口，Advanced Configuration and Power Interface）规范最初于多年前由多家公司联合制定，旨在为计算平台中的 OSPM（操作系统级电源管理，OS-level Power Management）提供行业标准。当时的电源管理在不同平台上以专有方式实现，这使得供应商难以协调各自的工作。此外，平台相关代码并不总是与操作系统操作完全兼容，也不总能感知所有系统条件或策略考量。ACPI 通过定义系统电源状态、硬件寄存器和软件交互来解决这些问题，从而实现基于操作系统的电源管理。对 ACPI 的详细描述超出了本书的范围，但对其概念和术语的介绍将有所助益。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">System PM States</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 系统电源管理状态</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Table 16-2 on page 708 defines the possible states of the overall system with reference to power consumption. The "Working", "Sleep", and "Soft Off" states are defined in the OnNow Design Initiative documents.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">第708页的表16-2定义了整个系统在功耗方面的可能状态。"工作"（Working）、"睡眠"（Sleep）和"软关机"（Soft Off）状态在OnNow设计倡议文档中定义。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">System PM States</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 系统电源管理状态</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 16-2 on page 708 defines the possible states of the overall system with reference to power consumption. The "Working", "Sleep", and "Soft Off" states are defined in the OnNow Design Initiative documents.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">第708页的表16-2定义了整个系统在功耗方面的可能状态。"工作"（Working）、"睡眠"（Sleep）和"软关机"（Soft Off）状态在OnNow设计倡议文档中定义。</td></tr>
-  </tbody>
-</table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Power State</td><td style="border:1px solid #ddd;">Description</td></tr><tr><td style="border:1px solid #ddd;">Working (G0/S0)</td><td style="border:1px solid #ddd;">The system is fully operational.</td></tr><tr><td style="border:1px solid #ddd;">Sleeping (G1)</td><td style="border:1px solid #ddd;">The system appears to be off and power consumption has been reduced. The amount of time it takes to return to the "Working" state is inversely proportional to the selected level of power conservation.S1 - caches flushed, CPU haltedS2 - same as S1 except that now CPU is powered off. Not commonly used because it's not much better than S3.S3 - (also called "Suspend to RAM" or "Standby") This is the same as S2 except that the system context is saved in memory and more of the system is shut down. When the system wakes up the CPU begins the full boot process but finds flags set in the CMOS memory that direct it to reload the context from RAM instead, and thus program execution can be resumed very quickly.S4 - (also called "Suspend to Disk" or "Hibernate") Similar to S3, except that now the system copies the system context to disk, and then removes power from the system, including main memory. This gives better power savings but the restart time will be longer because the context must be restored from the disk before resuming program execution.</td></tr><tr><td style="border:1px solid #ddd;">Soft Off (G2/S5)</td><td style="border:1px solid #ddd;">The system appears to be off and power consumption is minimal. It requires a full reboot to return to the "Working" state because the contents of memory have been lost, but there is still some power available to do the wakeup, such as by pressing the "Power" button on the system.</td></tr><tr><td style="border:1px solid #ddd;">Mechanical Off (G3)</td><td style="border:1px solid #ddd;">The system has been disconnected from all power sources and no power is available.</td></tr></table>
 
@@ -200,43 +174,19 @@ Table 16‐4: Default Device Class PM States | 表16‐4：默认设备类别电
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">State</td><td style="border:1px solid #ddd;">Description</td></tr><tr><td style="border:1px solid #ddd;">D0</td><td style="border:1px solid #ddd;">Device is on, is running at full power, and is fully operational.</td></tr><tr><td style="border:1px solid #ddd;">D1</td><td style="border:1px solid #ddd;">This optional state is only defined as being lower power than D0. It is not commonly used.</td></tr><tr><td style="border:1px solid #ddd;">D2</td><td style="border:1px solid #ddd;">This optional state is only defined as being lower power than D1. It is not commonly used.</td></tr><tr><td style="border:1px solid #ddd;">D3</td><td style="border:1px solid #ddd;">Device consumes the minimum possible power and main power may be turned off. The only requirement is that, while power is still on, the device must be able to service a configuration command to re-enter D0. Power can be removed from the device in this state, and the device will experience a hardware reset when power is restored.</td></tr></table>
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Device Class‐Specific PM Specs. Above and beyond the power states mandated by the Default Device Class Spec, certain device classes may require the intermediate power states (D1 and/or D2) or exhibit certain common characteristics in a particular power state.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">设备类特定 PM 规范。除默认设备类规范规定的电源状态之外，某些设备类可能需要中间电源状态（D1 和/或 D2），或在特定电源状态下表现出某些共同特征。</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The rules associated with a particular device class are found in the Device Class Power Management Specs available on Microsoft's Hardware Developers' web site. For example, Device Class Power Management Specs exist for the following classes:<br>‐ Audio<br>‐ Communications<br>‐ Display<br>‐ Input<br>‐ Network<br>‐ PC Card<br>‐ Storage</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">与特定设备类相关的规则可在 Microsoft 硬件开发者网站上提供的设备类电源管理规范中找到。例如，以下设备类存在相应的设备类电源管理规范：<br>‐ 音频<br>‐ 通信<br>‐ 显示<br>‐ 输入<br>‐ 网络<br>‐ PC 卡<br>‐ 存储</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Power Management Policy Owner</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 电源管理策略所有者</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">A Device's PM policy owner is defined as the software module that makes decisions regarding the PM state of a device. In a Windows environment, the policy owner is the class-specific driver associated with devices of that class.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">设备的PM（电源管理）策略所有者被定义为决定设备PM状态的软件模块。在Windows环境中，策略所有者是与该类设备相关联的类特定驱动程序。</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">PCI Express Power Management vs. ACPI</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## PCI Express 电源管理与 ACPI</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Device Class‐Specific PM Specs. Above and beyond the power states mandated by the Default Device Class Spec, certain device classes may require the intermediate power states (D1 and/or D2) or exhibit certain common characteristics in a particular power state.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">设备类特定 PM 规范。除默认设备类规范规定的电源状态之外，某些设备类可能需要中间电源状态（D1 和/或 D2），或在特定电源状态下表现出某些共同特征。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The rules associated with a particular device class are found in the Device Class Power Management Specs available on Microsoft's Hardware Developers' web site. For example, Device Class Power Management Specs exist for the following classes:<br>‐ Audio<br>‐ Communications<br>‐ Display<br>‐ Input<br>‐ Network<br>‐ PC Card<br>‐ Storage</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">与特定设备类相关的规则可在 Microsoft 硬件开发者网站上提供的设备类电源管理规范中找到。例如，以下设备类存在相应的设备类电源管理规范：<br>‐ 音频<br>‐ 通信<br>‐ 显示<br>‐ 输入<br>‐ 网络<br>‐ PC 卡<br>‐ 存储</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Power Management Policy Owner</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 电源管理策略所有者</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">A Device's PM policy owner is defined as the software module that makes decisions regarding the PM state of a device. In a Windows environment, the policy owner is the class-specific driver associated with devices of that class.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">设备的PM（电源管理）策略所有者被定义为决定设备PM状态的软件模块。在Windows环境中，策略所有者是与该类设备相关联的类特定驱动程序。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">PCI Express Power Management vs. ACPI</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## PCI Express 电源管理与 ACPI</td></tr>
   </tbody>
 </table>
 
@@ -1351,32 +1301,19 @@ Figure 16-22: Example of Total L1 Latency | 图16-22：L1总延迟示例
 <img src="images/part05_8961dee54e0ce29831b8a950cff03449f37bf7cb81237bcab49e719827a0f99a.jpg" width="700" alt="">
 ## 16.6 Software Initiated Link Power Management | 16.6 软件启动的链路电源管理
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">When software initiates configuration writes to change the power state for power conservation, devices must respond by transitioning their Link to the corresponding low power state.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">当软件发起配置写操作以改变电源状态来节能时，设备必须通过将其链路转换到相应的低功耗状态来响应。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">When software initiates configuration writes to change the power state for power conservation, devices must respond by transitioning their Link to the corresponding low power state.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">当软件发起配置写操作以改变电源状态来节能时，设备必须通过将其链路转换到相应的低功耗状态来响应。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">D1/D2/D3<sub>Hot</sub> and the L1 State</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## D1/D2/D3<sub>Hot</sub> 与 L1 状态</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The spec requires that when all Functions within a device have been placed into any of the low power states (D1, D2, or D3<sub>hot</sub>), the device must initiate a transition to the L1 state as shown in Figure 16-23. A device returns to L0 as a result of software initiating a configuration access to the device or a device initiated event.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">规范要求，当设备内的所有功能都被置于任何低功耗状态（D1、D2 或 D3<sub>hot</sub>）时，该设备必须启动到 L1 状态的转换，如图 16-23 所示。设备返回 L0 的原因是软件启动对设备的配置访问或设备发起的事件。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">D1/D2/D3<sub>Hot</sub> and the L1 State</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## D1/D2/D3<sub>Hot</sub> 与 L1 状态</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The spec requires that when all Functions within a device have been placed into any of the low power states (D1, D2, or D3<sub>hot</sub>), the device must initiate a transition to the L1 state as shown in Figure 16-23. A device returns to L0 as a result of software initiating a configuration access to the device or a device initiated event.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">规范要求，当设备内的所有功能都被置于任何低功耗状态（D1、D2 或 D3<sub>hot</sub>）时，该设备必须启动到 L1 状态的转换，如图 16-23 所示。设备返回 L0 的原因是软件启动对设备的配置访问或设备发起的事件。</td></tr>
-  </tbody>
-</table>
-
 
 Figure 16‑23: Devices Transition to L1 When Software Changes their Power Level from D0 | 图16‑23：软件将设备电源级别从D0变更时设备转换到L1
 <img src="images/part05_5e09bfe24dcb08db35d51671340b6b73826c3d79c24c40432f17f2d67edb51c4.jpg" width="700" alt="">
@@ -1502,33 +1439,20 @@ Figure 16-26: Negotiation for Entering L2/L3 Ready State | 图16-26：进入L2/L
 Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed | 图16-27：电源移除时从L2/L3就绪状态的状态转换
 <img src="images/part05_bde116ad18e1f8f978a0a3d72252fcf97654804997457b4c61b5c704416df591.jpg" width="700" alt="">
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The L2 State</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## L2 状态</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Some devices are designed to monitor external events and initiate a wakeup sequence to restore power to handle them. Since main power is removed, these device will need a power source like $\mathsf { V } _ { \mathrm { A U X } }$ to be able to monitor the events and to signal a wakeup.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">某些器件被设计用于监测外部事件并启动唤醒序列以恢复电源来处理这些事件。由于主电源已被移除，这些器件将需要像 $\mathsf { V } _ { \mathrm { A U X } }$ 这样的电源来监测事件和发出唤醒信号。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The L2 State</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## L2 状态</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Some devices are designed to monitor external events and initiate a wakeup sequence to restore power to handle them. Since main power is removed, these device will need a power source like $\mathsf { V } _ { \mathrm { A U X } }$ to be able to monitor the events and to signal a wakeup.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">某些器件被设计用于监测外部事件并启动唤醒序列以恢复电源来处理这些事件。由于主电源已被移除，这些器件将需要像 $\mathsf { V } _ { \mathrm { A U X } }$ 这样的电源来监测事件和发出唤醒信号。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The L3 State</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## L3 状态</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">In this state the device has no power and therefore no means of communication. Recovery from this state requires the system to restore power and the reference clock. That causes devices to experience a fundamental reset, after which they'll need be initialized by software to return to normal operation.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">在此状态下，设备没有电源，因此无法进行通信。从该状态恢复需要系统恢复供电和参考时钟。这会导致设备经历一次基础复位，之后需要由软件对设备进行初始化，才能恢复正常运行。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The L3 State</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## L3 状态</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">In this state the device has no power and therefore no means of communication. Recovery from this state requires the system to restore power and the reference clock. That causes devices to experience a fundamental reset, after which they'll need be initialized by software to return to normal operation.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在此状态下，设备没有电源，因此无法进行通信。从该状态恢复需要系统恢复供电和参考时钟。这会导致设备经历一次基础复位，之后需要由软件对设备进行初始化，才能恢复正常运行。</td></tr>
-  </tbody>
-</table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
@@ -1603,29 +1527,17 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 </table>
 
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">PME Message Back Pressure Deadlock Avoidance</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## PME消息反压死锁避免</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">**Background**</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">**背景**</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The Root Complex typically stores the PME messages it receives in a queue, and calls PM software to handle each one. A PME is held in this queue until PM software reads the PME_Status bit from the requesting device's PMCSR register. Once the configuration read transaction completes, this PME message can be removed from the internal queue.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">根复合体通常将接收到的PME消息存储在队列中，并调用PM软件逐一处理。PME在该队列中保持，直到PM软件从请求设备的PMCSR寄存器中读取PME_Status位。一旦配置读取事务完成，该PME消息便可从内部队列中移除。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">PME Message Back Pressure Deadlock Avoidance</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## PME消息反压死锁避免</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">**Background**</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">**背景**</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The Root Complex typically stores the PME messages it receives in a queue, and calls PM software to handle each one. A PME is held in this queue until PM software reads the PME_Status bit from the requesting device's PMCSR register. Once the configuration read transaction completes, this PME message can be removed from the internal queue.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">根复合体通常将接收到的PME消息存储在队列中，并调用PM软件逐一处理。PME在该队列中保持，直到PM软件从请求设备的PMCSR寄存器中读取PME_Status位。一旦配置读取事务完成，该PME消息便可从内部队列中移除。</td></tr>
   </tbody>
 </table>
 
@@ -1790,32 +1702,19 @@ Figure 16-30: Auxiliary Current Enable for Devices Not Supporting PMEs | 图16-3
 </table>
 
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">OBFF (Optimized Buffer Flush and Fill)</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## OBFF（优化缓冲区刷新与填充）</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The first of these mechanisms is Optimized Buffer Flush and Fill, which provides a mechanism for Endpoints to be made aware of the system power state and therefore the best times to do data transfers to and from the system.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">这些机制中的第一种是优化缓冲区刷新与填充（Optimized Buffer Flush and Fill），它为端点提供了一种机制，使其能够感知系统电源状态，从而获知与系统之间进行数据传输的最佳时机。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">OBFF (Optimized Buffer Flush and Fill)</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## OBFF（优化缓冲区刷新与填充）</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The first of these mechanisms is Optimized Buffer Flush and Fill, which provides a mechanism for Endpoints to be made aware of the system power state and therefore the best times to do data transfers to and from the system.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">这些机制中的第一种是优化缓冲区刷新与填充（Optimized Buffer Flush and Fill），它为端点提供了一种机制，使其能够感知系统电源状态，从而获知与系统之间进行数据传输的最佳时机。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The problem with bus‑master capable devices is that if they're not aware of the system power status, they may initiate transactions at times when it would be better to wait. The diagram in Figure 16‑31 on page 777 illustrates the problem in simple terms: there are many components initiating events and as a result, the times without activity when the system is idle and can go to sleep are few and short‑lived. In contrast, Figure 16‑32 on page 777 illustrates an improvement in which the same events are grouped and serviced together so that the times when the system is idle enough to go to sleep are both more frequent and of longer duration. Clearly, this would result in better power conservation and fortunately, it's not difficult to implement. PCIe components simply need to understand what they should do based on the system power state, and they'll need a way to learn what that state currently is.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">支持总线主控的设备存在的问题是，如果它们不了解系统电源状态，可能会在更适合待机的时机发起事务。图16-31（第777页）简要说明了这个问题：许多组件都在触发事件，导致系统空闲且可进入睡眠状态的无活动时段既稀少又短暂。相比之下，图16-32（第777页）展示了改进情况：相同的事件被分组并集中处理，使得系统空闲到足以进入睡眠的时段更加频繁且持续时间更长。显然，这将实现更好的节能效果，幸运的是，这并不难实现。PCIe组件只需根据系统电源状态理解应执行的操作，并且它们需要一种方式来获知当前的系统电源状态。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The problem with bus‑master capable devices is that if they're not aware of the system power status, they may initiate transactions at times when it would be better to wait. The diagram in Figure 16‑31 on page 777 illustrates the problem in simple terms: there are many components initiating events and as a result, the times without activity when the system is idle and can go to sleep are few and short‑lived. In contrast, Figure 16‑32 on page 777 illustrates an improvement in which the same events are grouped and serviced together so that the times when the system is idle enough to go to sleep are both more frequent and of longer duration. Clearly, this would result in better power conservation and fortunately, it's not difficult to implement. PCIe components simply need to understand what they should do based on the system power state, and they'll need a way to learn what that state currently is.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">支持总线主控的设备存在的问题是，如果它们不了解系统电源状态，可能会在更适合待机的时机发起事务。图16-31（第777页）简要说明了这个问题：许多组件都在触发事件，导致系统空闲且可进入睡眠状态的无活动时段既稀少又短暂。相比之下，图16-32（第777页）展示了改进情况：相同的事件被分组并集中处理，使得系统空闲到足以进入睡眠的时段更加频繁且持续时间更长。显然，这将实现更好的节能效果，幸运的是，这并不难实现。PCIe组件只需根据系统电源状态理解应执行的操作，并且它们需要一种方式来获知当前的系统电源状态。</td></tr>
-  </tbody>
-</table>
-
 
 Figure 16‑31: Poor System Idle Time | 图16‑31：较差的系统空闲时间
 <img src="images/part05_f57cb1b1313651588e74633ef582ec8048806523bbdf7cae61b943d933551f11.jpg" width="700" alt="">
@@ -2061,31 +1960,18 @@ Figure 16-41: LTR Example | 图16-41：LTR示例
 Figure 16-42: LTR - Change but no Update | 图16-42：LTR - 有变更但无更新
 <img src="images/part05_139d4fe5a915e2915877754ea95c81e26aba0a59b345f7ce2ceddb2a281b7d0d.jpg" width="700" alt="">
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">In the next stage, the middle Endpoint reports its LTR value as 700ns. This is smaller than the current conglomerate value, so the Switch calculates the new value of 650ns by subtracting its internal latency and forwards that upstream as an LTR message. That makes the current latency requirement for that Root Port 650ns, as seen in Figure 16-43 on page 791.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在下一阶段，中间的端点报告其LTR值为700ns。该值小于当前的聚合值，因此交换机通过减去其内部延迟计算出新值650ns，并将其作为LTR消息转发到上游。这使得该根端口的当前延迟要求变为650ns，如图16-43（第791页）所示。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">In the next stage, the middle Endpoint reports its LTR value as 700ns. This is smaller than the current conglomerate value, so the Switch calculates the new value of 650ns by subtracting its internal latency and forwards that upstream as an LTR message. That makes the current latency requirement for that Root Port 650ns, as seen in Figure 16-43 on page 791.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">在下一阶段，中间的端点报告其LTR值为700ns。该值小于当前的聚合值，因此交换机通过减去其内部延迟计算出新值650ns，并将其作为LTR消息转发到上游。这使得该根端口的当前延迟要求变为650ns，如图16-43（第791页）所示。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Finally, the Link to the middle Endpoint stops working for some reason as shown in Figure 16-44 on page 791, and the Switch Port reports DL_Down. Consequently, the LTR value for that Port must be considered invalid. Since its value was being used as the current conglomerate value, the conglomerate will be updated to the lowest value that is still valid, which is the 1200ns reported by the left-most Endpoint. The Switch will then subtract its internal latency and report 1150ns to the Root Port with a new LTR message.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">最后，如图16-44（第791页）所示，到中间端点的链路因某种原因停止工作，交换机端口报告DL_Down。因此，该端口的LTR值必须视为无效。由于其值被用作当前聚合值，聚合值将更新为仍然有效的最低值，即最左侧端点报告的1200ns。然后，交换机将减去其内部延迟，并通过新的LTR消息向根端口报告1150ns。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Finally, the Link to the middle Endpoint stops working for some reason as shown in Figure 16-44 on page 791, and the Switch Port reports DL_Down. Consequently, the LTR value for that Port must be considered invalid. Since its value was being used as the current conglomerate value, the conglomerate will be updated to the lowest value that is still valid, which is the 1200ns reported by the left-most Endpoint. The Switch will then subtract its internal latency and report 1150ns to the Root Port with a new LTR message.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">最后，如图16-44（第791页）所示，到中间端点的链路因某种原因停止工作，交换机端口报告DL_Down。因此，该端口的LTR值必须视为无效。由于其值被用作当前聚合值，聚合值将更新为仍然有效的最低值，即最左侧端点报告的1200ns。然后，交换机将减去其内部延迟，并通过新的LTR消息向根端口报告1150ns。</td></tr>
-  </tbody>
-</table>
-
 
 Figure 16-43: LTR - Change with Update | 图16-43：LTR - 有变更且有更新
 <img src="images/part05_136e9cef633fd8eb73f5ca6102547677b3d0a2ec9d42d24f70a71d3a0f749284.jpg" width="700" alt="">

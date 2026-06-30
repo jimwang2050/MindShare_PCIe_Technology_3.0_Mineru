@@ -675,37 +675,39 @@ Figure 3-7: Type 0 Configuration Read and Write Request Headers | 图3-7：Type 
 ## 3.5.2 Type 1 Configuration Request | 3.5.2 Type 1 配置请求
 
 
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
+    <tr>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 When a bridge sees a configuration access whose target bus number does not match its Secondary Bus Number but is in the range between its Secondary and Subordinate Bus Numbers, it forwards the packet as a Type 1 Request to its Secondary Bus. Devices that are not bridges (Endpoints) know to ignore Type 1 Requests since the target resides on a different bus, but bridges that see it will make the same comparison of the target bus number to the range of buses downstream (see Figure 3‑1 on page 87 and Figure 3‑6 on page 97).
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当桥看到一个配置访问的目标总线号与其Secondary Bus Number不匹配，但落在其Secondary Bus Number与Subordinate Bus Number之间时，它将这个数据包作为Type 1请求转发到其Secondary Bus。非桥设备（端点）知道要忽略Type 1请求，因为目标位于不同的总线上；但看到该请求的桥将对目标总线号与其下游总线范围进行同样的比较（参见第87页的图3‑1和第97页的图3‑6）。
 </td>
 </tr>
-</table>
-
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 If the target bus matches the Bridge's secondary bus, the packet is converted from Type 1 to Type 0 and passed to the secondary bus. Devices local to that bus then check the packet header as previously described.
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 如果目标总线匹配桥的Secondary Bus，则该数据包从Type 1转换为Type 0并传递到Secondary Bus。然后，该总线上的本地设备按照前述方式检查数据包头。
 </td>
 </tr>
-</table>
-
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
+    <tr>
+<td width="50%" style="border:2px solid #000;">
 If the target bus is not the Bridge's secondary bus but is within its range, the packet is forwarded to the Bridge's secondary bus as a Type 1 Request.
 </td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 如果目标总线不是桥的Secondary Bus，但落在其范围内，则该数据包作为Type 1请求转发到桥的Secondary Bus。
 </td>
 </tr>
+  </tbody>
 </table>
 
 Figure 3‑8 illustrates the Type 1 configuration read and write request header formats. In both cases, the Type field = 00101, while the Fmt field indicates whether it's a read or a write.

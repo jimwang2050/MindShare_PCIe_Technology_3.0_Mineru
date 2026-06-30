@@ -1,31 +1,18 @@
 # Ch09_DLLP_Elements
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;"># DLLP Elements</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;"># DLLP 元素</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;"># DLLP Elements</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;"># DLLP 元素</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## The Previous Chapter</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 前一章</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The previous chapter discussed the ordering requirements for transactions in a PCI Express topology. These rules are inherited from PCI, and the Producer/Consumer programming model motivated many of them, so its mechanism is described here. The original rules also took into consideration possible deadlock conditions that must be avoided, but did not include any means to avoid the performance problems that could result.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">前一章讨论了PCI Express拓扑中事务的排序要求。这些规则继承自PCI，其中许多规则源自生产者/消费者编程模型，因此本文描述了其机制。原始规则还考虑了必须避免的可能死锁条件，但未数据包含任何避免由此可能导致的性能问题的方法。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## The Previous Chapter</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 前一章</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The previous chapter discussed the ordering requirements for transactions in a PCI Express topology. These rules are inherited from PCI, and the Producer/Consumer programming model motivated many of them, so its mechanism is described here. The original rules also took into consideration possible deadlock conditions that must be avoided, but did not include any means to avoid the performance problems that could result.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">前一章讨论了PCI Express拓扑中事务的排序要求。这些规则继承自PCI，其中许多规则源自生产者/消费者编程模型，因此本文描述了其机制。原始规则还考虑了必须避免的可能死锁条件，但未数据包含任何避免由此可能导致的性能问题的方法。</td></tr>
-  </tbody>
-</table>
-
 
 ## This Chapter | 本章
 
@@ -44,32 +31,19 @@
 
 ## The Next Chapter | 下一章
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The following chapter describes a key feature of the Data Link Layer: an automatic, hardware‑based mechanism for ensuring reliable transport of TLPs across the Link. Ack DLLPs confirm good reception of TLPs while Nak DLLPs indicate a transmission error. We describe the normal rules of operation when no TLP or DLLP error is detected as well as error recovery mechanisms associated with both TLP and DLLP errors.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">下一章描述数据链路层的一个关键特性：一种基于硬件的自动机制，用于确保TLP在链路上的可靠传输。Ack DLLP确认TLP的正确接收，而Nak DLLP指示传输错误。我们将描述未检测到TLP或DLLP错误时的正常操作规则，以及与TLP和DLLP错误相关的错误恢复机制。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The following chapter describes a key feature of the Data Link Layer: an automatic, hardware‑based mechanism for ensuring reliable transport of TLPs across the Link. Ack DLLPs confirm good reception of TLPs while Nak DLLPs indicate a transmission error. We describe the normal rules of operation when no TLP or DLLP error is detected as well as error recovery mechanisms associated with both TLP and DLLP errors.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">下一章描述数据链路层的一个关键特性：一种基于硬件的自动机制，用于确保TLP在链路上的可靠传输。Ack DLLP确认TLP的正确接收，而Nak DLLP指示传输错误。我们将描述未检测到TLP或DLLP错误时的正常操作规则，以及与TLP和DLLP错误相关的错误恢复机制。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## General</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 概述</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The Data Link Layer can be thought of as managing the lower level Link protocol. Its primary responsibility is to assure the integrity of TLPs moving between devices, but it also plays a part in TLP flow control, Link initialization and power management, and conveys information between the Transaction Layer above it and the Physical Layer below it.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">数据链路层可视为管理低级链路协议。其主要职责是确保设备间传输的TLP的完整性，但它也在TLP流控、链路初始化和电源管理中发挥作用，并在其上方面的事务层和其下方的物理层之间传递信息。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## General</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 概述</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The Data Link Layer can be thought of as managing the lower level Link protocol. Its primary responsibility is to assure the integrity of TLPs moving between devices, but it also plays a part in TLP flow control, Link initialization and power management, and conveys information between the Transaction Layer above it and the Physical Layer below it.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">数据链路层可视为管理低级链路协议。其主要职责是确保设备间传输的TLP的完整性，但它也在TLP流控、链路初始化和电源管理中发挥作用，并在其上方面的事务层和其下方的物理层之间传递信息。</td></tr>
-  </tbody>
-</table>
-
 
 ## PCI Express Technology | PCI Express 技术
 

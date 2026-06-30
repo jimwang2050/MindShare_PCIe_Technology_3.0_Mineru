@@ -17,46 +17,21 @@
 
 ## The Previous Chapter | 上一章
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">In the previous chapter we describe Data Link Layer Packets (DLLPs). We describe the use, format, and definition of the DLLP types and the details of their related fields. DLLPs are used to support Ack/Nak protocol, power management, flow control mechanism and can be used for vendor‑defined purposes.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在上一章中，我们描述了数据链路层数据包（DLLP）。我们阐述了DLLP类型的使用、格式和定义以及其相关字段的细节。DLLP用于支持Ack/Nak协议、电源管理、流控机制，并可用于厂商自定义的目的。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">In the previous chapter we describe Data Link Layer Packets (DLLPs). We describe the use, format, and definition of the DLLP types and the details of their related fields. DLLPs are used to support Ack/Nak protocol, power management, flow control mechanism and can be used for vendor‑defined purposes.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">在上一章中，我们描述了数据链路层数据包（DLLP）。我们阐述了DLLP类型的使用、格式和定义以及其相关字段的细节。DLLP用于支持Ack/Nak协议、电源管理、流控机制，并可用于厂商自定义的目的。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## This Chapter</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 本章内容</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This chapter describes a key feature of the Data Link Layer: an automatic, hardware-based mechanism for ensuring reliable transport of TLPs across the Link. Ack DLLPs confirm successful reception of TLPs while Nak DLLPs indicate a transmission error. We describe the normal rules of operation when no TLP or DLLP error is detected as well as error recovery mechanisms associated with both TLP and DLLP errors.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">本章描述数据链路层的一个关键特性：一种基于硬件的自动机制，用于确保TLP在链路上的可靠传输。Ack DLLP确认TLP成功接收，而Nak DLLP则表示传输错误。本章介绍未检测到TLP或DLLP错误时的正常操作规则，以及与TLP和DLLP错误相关的错误恢复机制。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## The Next Chapter</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 下一章</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The next chapter describes the Logical sub-block of the Physical Layer, which prepares packets for serial transmission and reception. Several steps are needed to accomplish this and they are described in detail. This chapter covers the logic associated with the first two spec versions Gen1 and Gen2 that use 8b/10b encoding. The logic for Gen3 does not use 8b/10b encoding and is described separately in the chapter called "Physical Layer - Logical (Gen3)" on page 407.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">下一章描述物理层的逻辑子块，该子块负责准备数据数据包以进行串行发送和接收。完成此工作需若干步骤，这些步骤将在本章中详细描述。本章涵盖与前两个规范版本 Gen1 和 Gen2 相关的逻辑，这两个版本使用 8b/10b 编码。Gen3 的逻辑不使用 8b/10b 编码，将在第 407 页名为"物理层 - 逻辑（Gen3）"的章节中单独描述。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## This Chapter</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 本章内容</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This chapter describes a key feature of the Data Link Layer: an automatic, hardware-based mechanism for ensuring reliable transport of TLPs across the Link. Ack DLLPs confirm successful reception of TLPs while Nak DLLPs indicate a transmission error. We describe the normal rules of operation when no TLP or DLLP error is detected as well as error recovery mechanisms associated with both TLP and DLLP errors.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">本章描述数据链路层的一个关键特性：一种基于硬件的自动机制，用于确保TLP在链路上的可靠传输。Ack DLLP确认TLP成功接收，而Nak DLLP则表示传输错误。本章介绍未检测到TLP或DLLP错误时的正常操作规则，以及与TLP和DLLP错误相关的错误恢复机制。</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## The Next Chapter</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 下一章</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The next chapter describes the Logical sub-block of the Physical Layer, which prepares packets for serial transmission and reception. Several steps are needed to accomplish this and they are described in detail. This chapter covers the logic associated with the first two spec versions Gen1 and Gen2 that use 8b/10b encoding. The logic for Gen3 does not use 8b/10b encoding and is described separately in the chapter called "Physical Layer - Logical (Gen3)" on page 407.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">下一章描述物理层的逻辑子块，该子块负责准备数据数据包以进行串行发送和接收。完成此工作需若干步骤，这些步骤将在本章中详细描述。本章涵盖与前两个规范版本 Gen1 和 Gen2 相关的逻辑，这两个版本使用 8b/10b 编码。Gen3 的逻辑不使用 8b/10b 编码，将在第 407 页名为"物理层 - 逻辑（Gen3）"的章节中单独描述。</td></tr>
-  </tbody>
-</table>
-
 
 ## 10.1 Goal: Reliable TLP Transport | 10.1 目标：可靠的 TLP 传输
 
@@ -190,33 +165,20 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
 
 ## 10.2.1.3 REPLAY_TIMER Count | 10.2.1.3 重发定时器计数
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This timer is effectively a watchdog timer. It makes sure that the transmitter is receiving Ack/Nak packets for TLPs that have been transmitted. If this timer expires, it means that the transmitter has sent one or more TLPs that it has not received an acknowledgement for in the expected time frame. The fix is to retransmit everything in the replay buffer and restart the REPLAY_TIMER.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">该定时器本质上是一个看门狗定时器。它确保发送端能够收到已发送TLP的Ack/Nak报文。如果该定时器超时，意味着发送端已发送一个或多个TLP，但在预期时间内未收到相应的确认。解决方法是重传重放缓冲区中的所有内容，并重新启动REPLAY_TIMER。</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This timer is running anytime a TLP has been transmitted but not yet acknowledged. If the REPLAY_TIMER is not currently running, it is started when the last Symbol of any TLP is transmitted. If the timer is already running, then sending additional TLPs does not reset the timer value. When an Ack or Nak is received that acknowledges TLPs in the replay buffer, the timer resets back to 0, and if there are still TLPs in the replay buffer (TLPs that have been transmitted, but not yet acknowledged), it immediately starts counting again. However, if an Ack is received that acknowledges the last TLP in the replay buffer, meaning the replay buffer is now empty, the REPLAY_TIMER resets to 0 but does not count. It will not begin counting again until the last Symbol of the next TLP is transmitted.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">每当有TLP已发送但尚未被确认时，该定时器就会运行。如果REPLAY_TIMER当前未运行，则在发送任一TLP的最后一个符号时启动它。如果定时器已在运行，则发送额外的TLP不会重置定时器值。当收到确认重放缓冲区中TLP的Ack或Nak时，定时器重置回0；如果重放缓冲区中仍有TLP（即已发送但尚未被确认的TLP），则立即重新开始计数。然而，如果收到确认重放缓冲区中最后一个TLP的Ack（即重放缓冲区现已为空），则REPLAY_TIMER重置为0但不再计数。直到下一个TLP的最后一个符号被发送时，它才会重新开始计数。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This timer is effectively a watchdog timer. It makes sure that the transmitter is receiving Ack/Nak packets for TLPs that have been transmitted. If this timer expires, it means that the transmitter has sent one or more TLPs that it has not received an acknowledgement for in the expected time frame. The fix is to retransmit everything in the replay buffer and restart the REPLAY_TIMER.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">该定时器本质上是一个看门狗定时器。它确保发送端能够收到已发送TLP的Ack/Nak报文。如果该定时器超时，意味着发送端已发送一个或多个TLP，但在预期时间内未收到相应的确认。解决方法是重传重放缓冲区中的所有内容，并重新启动REPLAY_TIMER。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This timer is running anytime a TLP has been transmitted but not yet acknowledged. If the REPLAY_TIMER is not currently running, it is started when the last Symbol of any TLP is transmitted. If the timer is already running, then sending additional TLPs does not reset the timer value. When an Ack or Nak is received that acknowledges TLPs in the replay buffer, the timer resets back to 0, and if there are still TLPs in the replay buffer (TLPs that have been transmitted, but not yet acknowledged), it immediately starts counting again. However, if an Ack is received that acknowledges the last TLP in the replay buffer, meaning the replay buffer is now empty, the REPLAY_TIMER resets to 0 but does not count. It will not begin counting again until the last Symbol of the next TLP is transmitted.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">每当有TLP已发送但尚未被确认时，该定时器就会运行。如果REPLAY_TIMER当前未运行，则在发送任一TLP的最后一个符号时启动它。如果定时器已在运行，则发送额外的TLP不会重置定时器值。当收到确认重放缓冲区中TLP的Ack或Nak时，定时器重置回0；如果重放缓冲区中仍有TLP（即已发送但尚未被确认的TLP），则立即重新开始计数。然而，如果收到确认重放缓冲区中最后一个TLP的Ack（即重放缓冲区现已为空），则REPLAY_TIMER重置为0但不再计数。直到下一个TLP的最后一个符号被发送时，它才会重新开始计数。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## REPLAY_NUM Count</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## REPLAY_NUM 计数</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This 2-bit counter tracks the number of replay attempts after reception of a Nak or a REPLAY_TIMER time-out. When the REPLAY_NUM count rolls over from 11b to 00b (indicating 4 failed attempts to deliver the same set of TLPs), the Data Link Layer automatically forces the Physical Layer to retrain the Link (LTSSM goes to the Recovery state). When re-training is finished, it will attempt to send the failed TLPs again. The REPLAY_NUM counter is initialized to 00b at reset, or when the Link Layer is inactive. It is also reset whenever an Ack DLLP is received with a Sequence Number that is more recent than the last one seen, meaning forward progress is being made.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">这个 2 位计数器跟踪在收到 Nak 或 REPLAY_TIMER 超时后的重试次数。当 REPLAY_NUM 计数从 11b 翻转到 00b（表示同一组 TLP 的 4 次传送尝试均失败）时，数据链路层自动迫使物理层对链路进行重新训练（LTSSM 进入 Recovery 状态）。重新训练完成后，它将再次尝试发送失败的 TLP。REPLAY_NUM 计数器在复位时或链路层处于非活跃状态时被初始化为 00b。每当收到序号比上一次所见更新的 Ack DLLP 时（表示正在取得正向进展），它也会被复位。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## REPLAY_NUM Count</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## REPLAY_NUM 计数</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This 2-bit counter tracks the number of replay attempts after reception of a Nak or a REPLAY_TIMER time-out. When the REPLAY_NUM count rolls over from 11b to 00b (indicating 4 failed attempts to deliver the same set of TLPs), the Data Link Layer automatically forces the Physical Layer to retrain the Link (LTSSM goes to the Recovery state). When re-training is finished, it will attempt to send the failed TLPs again. The REPLAY_NUM counter is initialized to 00b at reset, or when the Link Layer is inactive. It is also reset whenever an Ack DLLP is received with a Sequence Number that is more recent than the last one seen, meaning forward progress is being made.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">这个 2 位计数器跟踪在收到 Nak 或 REPLAY_TIMER 超时后的重试次数。当 REPLAY_NUM 计数从 11b 翻转到 00b（表示同一组 TLP 的 4 次传送尝试均失败）时，数据链路层自动迫使物理层对链路进行重新训练（LTSSM 进入 Recovery 状态）。重新训练完成后，它将再次尝试发送失败的 TLP。REPLAY_NUM 计数器在复位时或链路层处于非活跃状态时被初始化为 00b。每当收到序号比上一次所见更新的 Ack DLLP 时（表示正在取得正向进展），它也会被复位。</td></tr>
-  </tbody>
-</table>
-
 
 ## 10.2.2.1 ACKD\_SEQ Register | 10.2.2.1 ACKD\_SEQ 寄存器
 
@@ -274,32 +236,19 @@ Figure 10-5: Receiver Elements Associated with the Ack/Nak Protocol | 图10-5：
 
 ## 10.2.2.3 LCRC Error Check | 10.2.2.3 LCRC 错误检查
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This block checks for transmission errors in the received TLP by verifying the 32-bit LCRC. This block calculates an LCRC value based on the received bits of the TLP and then compares the calculated LCRC to the received LCRC. If they match, then all the bits of the packet were received exactly as they were transmitted. If it doesn't match, then there was a bit error in the TLP so it gets dropped and a Nak will be sent to get a replay of that packet and any TLPs sent after the bad packet.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">该模块通过验证32位LCRC来检查接收到的TLP中的传输错误。该模块基于接收到的TLP位计算出一个LCRC值，然后将计算出的LCRC与接收到的LCRC进行比较。如果两者匹配，则数据数据包的所有位都与发送时完全一致地被接收。如果不匹配，则TLP中存在位错误，因此该TLP将被丢弃，并发送Nak以请求重传该数据数据包以及错误数据数据包之后发送的任何TLP。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This block checks for transmission errors in the received TLP by verifying the 32-bit LCRC. This block calculates an LCRC value based on the received bits of the TLP and then compares the calculated LCRC to the received LCRC. If they match, then all the bits of the packet were received exactly as they were transmitted. If it doesn't match, then there was a bit error in the TLP so it gets dropped and a Nak will be sent to get a replay of that packet and any TLPs sent after the bad packet.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">该模块通过验证32位LCRC来检查接收到的TLP中的传输错误。该模块基于接收到的TLP位计算出一个LCRC值，然后将计算出的LCRC与接收到的LCRC进行比较。如果两者匹配，则数据数据包的所有位都与发送时完全一致地被接收。如果不匹配，则TLP中存在位错误，因此该TLP将被丢弃，并发送Nak以请求重传该数据数据包以及错误数据数据包之后发送的任何TLP。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## NEXT\_RCV\_SEQ Counter</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## NEXT\_RCV\_SEQ 计数器</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The 12‐bit NEXT\_RCV\_SEQ (Next Receive Sequence number) counter keeps track of the expected Sequence Number and is used to verify sequential packet reception. It's initialized to 0 at reset or when the Data Link Layer is inactive, and is incremented once for each good TLP forwarded to the Transaction Layer. TLPs that have errors or were nullified are not sent to the Transaction Layer and therefore don't increment this counter.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">12 位的 NEXT\_RCV\_SEQ（下一个接收序列号）计数器用于跟踪期望的序列号，并用于验证数据数据包的顺序接收。在复位或数据链路层处于非活跃状态时，该计数器初始化为 0，并且每有一个正确的 TLP 被转发给事务层，计数器就递增一次。数据包含错误或被无效化的 TLP 不会被发送到事务层，因此不会递增此计数器。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## NEXT\_RCV\_SEQ Counter</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## NEXT\_RCV\_SEQ 计数器</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The 12‐bit NEXT\_RCV\_SEQ (Next Receive Sequence number) counter keeps track of the expected Sequence Number and is used to verify sequential packet reception. It's initialized to 0 at reset or when the Data Link Layer is inactive, and is incremented once for each good TLP forwarded to the Transaction Layer. TLPs that have errors or were nullified are not sent to the Transaction Layer and therefore don't increment this counter.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">12 位的 NEXT\_RCV\_SEQ（下一个接收序列号）计数器用于跟踪期望的序列号，并用于验证数据数据包的顺序接收。在复位或数据链路层处于非活跃状态时，该计数器初始化为 0，并且每有一个正确的 TLP 被转发给事务层，计数器就递增一次。数据包含错误或被无效化的 TLP 不会被发送到事务层，因此不会递增此计数器。</td></tr>
-  </tbody>
-</table>
-
 
 ## 10.2.2.4 Sequence Number Check | 10.2.2.4 序列号检查
 
@@ -382,59 +331,33 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 
 ## 10.2.3.2 Ack/Nak Protocol Details | 10.2.3.2 Ack/Nak 协议详情
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This section describes the detailed transmitter and receiver behavior in processing TLPs and Ack/Nak DLLPs. Several examples are used to demonstrate various cases that may occur.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">本节详细描述发送端和接收端在处理 TLP 和 Ack/Nak DLLP 时的行为。通过几个示例演示可能出现的各种情况。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">This section describes the detailed transmitter and receiver behavior in processing TLPs and Ack/Nak DLLPs. Several examples are used to demonstrate various cases that may occur.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">本节详细描述发送端和接收端在处理 TLP 和 Ack/Nak DLLP 时的行为。通过几个示例演示可能出现的各种情况。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Transmitter Protocol Details</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 发送器协议细节</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Transmitter Protocol Details</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 发送器协议细节</td></tr>
-  </tbody>
-</table>
-
 
 ## 10.2.3.3 Sequence Number | 10.2.3.3 序列号
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Referring back to Figure 10-4 on page 322, when TLPs are delivered by the Transaction Layer to the Link Layer, one of the first steps is to append a 12-bit Sequence Number. Keep in mind that the next incremental Sequence Number may actually be smaller, as will happen when the counter rolls over back to zero after it reaches a maximum value of 4095. Consequently, a value of zero can actually be 'larger' than a value of 4095, for example. It may help to think of the Sequence Number comparison as evaluating a 'window' of numbers that consistently moves upward and rolls over. To clarify this concept, such a count roll over is used in several of the upcoming examples.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">回顾第322页的图10-4，当TLP由事务层递交至数据链路层时，首要步骤之一就是附加一个12位的序列号。需要注意的是，下一个递增的序列号实际可能更小，当计数器达到最大值4095后回滚到零时就会发生这种情况。因此，例如值0实际上可能"大于"值4095。不妨将序列号比较理解为对一个持续向上移动并回滚的数字"窗口"进行评估。为阐明这一概念，后续几个示例中均使用了这种计数回滚。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Referring back to Figure 10-4 on page 322, when TLPs are delivered by the Transaction Layer to the Link Layer, one of the first steps is to append a 12-bit Sequence Number. Keep in mind that the next incremental Sequence Number may actually be smaller, as will happen when the counter rolls over back to zero after it reaches a maximum value of 4095. Consequently, a value of zero can actually be 'larger' than a value of 4095, for example. It may help to think of the Sequence Number comparison as evaluating a 'window' of numbers that consistently moves upward and rolls over. To clarify this concept, such a count roll over is used in several of the upcoming examples.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">回顾第322页的图10-4，当TLP由事务层递交至数据链路层时，首要步骤之一就是附加一个12位的序列号。需要注意的是，下一个递增的序列号实际可能更小，当计数器达到最大值4095后回滚到零时就会发生这种情况。因此，例如值0实际上可能"大于"值4095。不妨将序列号比较理解为对一个持续向上移动并回滚的数字"窗口"进行评估。为阐明这一概念，后续几个示例中均使用了这种计数回滚。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The transmitter also generates and appends a 32‑bit LCRC (Link CRC) based on the TLP contents (Sequence Number, Header, Data Payload and ECRC).</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">发送端还会根据TLP内容（序列号、头部、数据负载和ECRC）生成并附加一个32位LCRC（链路CRC）。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The transmitter also generates and appends a 32‑bit LCRC (Link CRC) based on the TLP contents (Sequence Number, Header, Data Payload and ECRC).</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">发送端还会根据TLP内容（序列号、头部、数据负载和ECRC）生成并附加一个32位LCRC（链路CRC）。</td></tr>
-  </tbody>
-</table>
-
 
 ## 10.2.3.4 Replay (Retry) Buffer | 10.2.3.4 重放（重试）缓冲区
 
@@ -659,45 +582,20 @@ Figure 10-11: Gen1 Unadjusted REPLAY\_TIMER Values | 图10-11：Gen1未调整的
 
 ## 10.2.4.1 Transmitter DLLP Handling | 10.2.4.1 发送器 DLLP 处理
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The Ack/Nak Error Checking block determines whether there is an error in the 16‑bit CRC of a received DLLP. If an error is detected, the DLLP is discarded. This is considered a correctable error and may have been set up to be reported in the optional Advanced Error Reporting registers (see Bad DLLP in "Advanced Correctable Error Handling" on page 688), but no further action is taken because this isn't really a problem. The next successfully received DLLP of that type will bring the counters back up to speed. Consequently, TLPs might be purged a little later than they would have been or a replay may happen at a later time, but no information is lost. Of course, if the delay between successful Acks becomes too large, the REPLAY_TIMER could expire, causing the TLPs to be replayed.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">Ack/Nak错误检测模块判断接收到的DLLP的16位CRC中是否存在错误。若检测到错误，则丢弃该DLLP。这被视为可更正错误，可被配置为在可选的高级错误报告寄存器中报告（参见第688页"高级可更正错误处理"中的Bad DLLP），但由于这实际上并非问题，因此不采取进一步行动。下一个成功接收的同一类型DLLP将使计数器恢复正常。因此，TLP可能会比正常情况下稍晚被清除，或者重放可能稍后发生，但不会丢失任何信息。当然，如果成功Ack之间的延迟变得过大，REPLAY_TIMER可能超时，导致TLP被重放。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">The Ack/Nak Error Checking block determines whether there is an error in the 16‑bit CRC of a received DLLP. If an error is detected, the DLLP is discarded. This is considered a correctable error and may have been set up to be reported in the optional Advanced Error Reporting registers (see Bad DLLP in "Advanced Correctable Error Handling" on page 688), but no further action is taken because this isn't really a problem. The next successfully received DLLP of that type will bring the counters back up to speed. Consequently, TLPs might be purged a little later than they would have been or a replay may happen at a later time, but no information is lost. Of course, if the delay between successful Acks becomes too large, the REPLAY_TIMER could expire, causing the TLPs to be replayed.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">Ack/Nak错误检测模块判断接收到的DLLP的16位CRC中是否存在错误。若检测到错误，则丢弃该DLLP。这被视为可更正错误，可被配置为在可选的高级错误报告寄存器中报告（参见第688页"高级可更正错误处理"中的Bad DLLP），但由于这实际上并非问题，因此不采取进一步行动。下一个成功接收的同一类型DLLP将使计数器恢复正常。因此，TLP可能会比正常情况下稍晚被清除，或者重放可能稍后发生，但不会丢失任何信息。当然，如果成功Ack之间的延迟变得过大，REPLAY_TIMER可能超时，导致TLP被重放。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Receiver Protocol Details</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 接收器协议细节</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Physical Layer</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 物理层</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">TLPs received at the Physical Layer are checked for receiver errors (such as framing, disparity, and invalid symbols). If there are errors at this level, the TLP is discarded and the Link Layer may be informed by some design‐specific method so it can schedule a Nak and have the packet replayed. If the Link Layer is not informed, then eventually it will detect a Sequence Number violation and that will cause a Nak and a replay.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">物理层接收到的TLP会接受接收器错误检查（例如帧错误、不一致错误和无效符号）。如果此层级存在错误，TLP将被丢弃，并可通过某些设计特定方法通知数据链路层，以便其调度Nak并重放该报文。如果未通知数据链路层，则最终它会检测到序列号违例，这将导致Nak和重放。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Receiver Protocol Details</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 接收器协议细节</td></tr>
-  </tbody>
-</table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Physical Layer</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 物理层</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">TLPs received at the Physical Layer are checked for receiver errors (such as framing, disparity, and invalid symbols). If there are errors at this level, the TLP is discarded and the Link Layer may be informed by some design‐specific method so it can schedule a Nak and have the packet replayed. If the Link Layer is not informed, then eventually it will detect a Sequence Number violation and that will cause a Nak and a replay.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">物理层接收到的TLP会接受接收器错误检查（例如帧错误、不一致错误和无效符号）。如果此层级存在错误，TLP将被丢弃，并可通过某些设计特定方法通知数据链路层，以便其调度Nak并重放该报文。如果未通知数据链路层，则最终它会检测到序列号违例，这将导致Nak和重放。</td></tr>
-  </tbody>
-</table>
-
 
 Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 <img src="images/part03_66323f024cc465cf777f9bd8f49be6daafba66ae2a5ddfbb2dee935846084e9b.jpg" width="700" alt="">
@@ -1143,32 +1041,19 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 
 ## 10.8 Switch Cut-Through Mode | 10.8 交换机关发直通模式
 
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
+<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+  <thead>
     <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
+      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Now that we've described how the protocol works, this is a good time to explain an exception to its general operation. PCIe supports a Switch feature, called 'cut-through mode', that can be used to improve the transfer latency for large TLPs through a Switch.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在描述了协议工作原理之后，现在是时候解释一个与其一般操作不同的例外情况了。PCIe 支持一种称为"关发直通模式"的交换机特性，可用于改善大型 TLP 经过交换机时的传输延迟。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Now that we've described how the protocol works, this is a good time to explain an exception to its general operation. PCIe supports a Switch feature, called 'cut-through mode', that can be used to improve the transfer latency for large TLPs through a Switch.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">在描述了协议工作原理之后，现在是时候解释一个与其一般操作不同的例外情况了。PCIe 支持一种称为"关发直通模式"的交换机特性，可用于改善大型 TLP 经过交换机时的传输延迟。</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">## Background</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">## 背景</td></tr>
+    <tr><td width="50%" style="border:2px solid #000; background:#fff;padding:4px 8px;">Consider an example where a large TLP needs to pass through a Switch as shown in Figure 10-16 on page 357. Since the Ingress Switch Port can't tell whether there was an error in the packet until it has seen the whole TLP, it'll normally store the entire packet and check it for errors before forwarding it to the Egress Port. This store-and-forward method works but, for large packets, the latency to get through the Switch can be large which may be an issue for some applications. It would be nice to minimize this latency if possible.</td><td width="50%" style="border:2px solid #000; background-color:#e8e8e8;padding:4px 8px;">考虑这样一个示例：一个大型 TLP 需要经过 Switch（交换机），如图 10-16（第 357 页）所示。由于 Ingress Switch Port（入口交换端口）在收到整个 TLP 之前无法判断该数据数据包中是否存在错误，因此它通常会先存储整个数据数据包并检查错误，然后再将其转发至 Egress Port（出口交换端口）。这种存储转发方法虽然可行，但对于大型数据数据包而言，通过 Switch 的延迟可能很大，这对某些应用来说可能是个问题。如有可能，尽量减少此延迟将是可取的。</td></tr>
   </tbody>
 </table>
-
-
-<table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead style="border:1px solid #ddd;">
-    <tr>
-      <th width="50%" style="border:1px solid #ddd; background:#f5f5f5;">EN</th>
-      <th width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Background</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 背景</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Consider an example where a large TLP needs to pass through a Switch as shown in Figure 10-16 on page 357. Since the Ingress Switch Port can't tell whether there was an error in the packet until it has seen the whole TLP, it'll normally store the entire packet and check it for errors before forwarding it to the Egress Port. This store-and-forward method works but, for large packets, the latency to get through the Switch can be large which may be an issue for some applications. It would be nice to minimize this latency if possible.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">考虑这样一个示例：一个大型 TLP 需要经过 Switch（交换机），如图 10-16（第 357 页）所示。由于 Ingress Switch Port（入口交换端口）在收到整个 TLP 之前无法判断该数据数据包中是否存在错误，因此它通常会先存储整个数据数据包并检查错误，然后再将其转发至 Egress Port（出口交换端口）。这种存储转发方法虽然可行，但对于大型数据数据包而言，通过 Switch 的延迟可能很大，这对某些应用来说可能是个问题。如有可能，尽量减少此延迟将是可取的。</td></tr>
-  </tbody>
-</table>
-
 
 ## 10.8.2 A Latency Improvement Option | 10.8.2 延迟改善选项
 

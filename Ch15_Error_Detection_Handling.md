@@ -249,7 +249,7 @@ Figure 15‑1: PCI Error Handling / 图15‑1：PCI错误处理 | 图15‑1：PC
 
 
 ## 15.5 PCIe Error Checking Mechanisms | 15.5 PCIe 错误检查机制
-## PCIe 错误检测机制
+## 15.5.2.1 PCIe Error Checking Mechanisms | 15.5.2.1 PCIe 错误检测机制
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -304,7 +304,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 </table>
 
 
-## Physical Layer Errors | 物理层错误
+## 15.5.2.2 Physical Layer Errors | 15.5.2.2 物理层错误
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -324,7 +324,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 </table>
 
 
-## Data Link Layer Errors | 数据链路层错误
+## 15.5.2.3 Data Link Layer Errors | 15.5.2.3 数据链路层错误
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -426,7 +426,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 </table>
 
 
-## ECRC Generation and Checking (ECRC生成和校验)
+## 15.7.1 ECRC Generation and Checking | 15.7.1 ECRC 生成和校验
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -458,7 +458,7 @@ Figure 15-3: ECRC Usage Example | 图15-3：ECRC使用示例
 </table>
 
 
-## TLP Digest | TLP 摘要
+## 15.7.1.1 TLP Digest | 15.7.1.1 TLP 摘要
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -477,7 +477,7 @@ Figure 15-5: TLP Digest Bit in a Completion Header | 图15-5：完成头中的TL
 
 <table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="4">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>THD</td><td>EDP</td><td>Attr</td><td>AT</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="13">Bytes 4-7 Vary with Type Field</td></tr><tr><td>Byte 8</td><td colspan="13">Bytes 8-11 Vary with Type Field</td></tr><tr><td>Byte 12</td><td colspan="13">Bytes 12-15 Vary with Type Field</td></tr></table>
 
-## Variant Bits Not Included in ECRC Mechanism | ECRC 机制中不包含的变体比特
+## 15.7.1.2 Variant Bits Not Included in ECRC Mechanism | 15.7.1.2 ECRC 机制中不包含的变体比特
 
 | English | 中文 |
 |----|----|
@@ -572,7 +572,7 @@ Table 15‐1: Completion Code and Description | 表15‐1：完成码和描述
 
 <table><tr><td>Status Code</td><td>Completion Status Definition</td></tr><tr><td>000b</td><td>Successful Completion (SC)</td></tr><tr><td>001b</td><td>Unsupported Request (UR) - error</td></tr><tr><td>010b</td><td>Configuration Request Retry Status (CRS)</td></tr><tr><td>011b</td><td>Completer Abort (CA) - error</td></tr><tr><td>100b - 111b</td><td>Reserved</td></tr></table>
 
-## Unsupported Request (UR) Status | 不支持请求（UR）状态
+## 15.7.3.1 Unsupported Request (UR) Status | 15.7.3.1 不支持请求（UR）状态
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -616,7 +616,7 @@ Table 15‐1: Completion Code and Description | 表15‐1：完成码和描述
 </table>
 
 
-## Unexpected Completion | 意外完成
+## 15.7.3.2 Unexpected Completion | 15.7.3.2 意外完成
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -730,7 +730,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 </table>
 
 
-## 17.5.1 The Problem | 17.5.1 问题
+## 15.7.5 The Problem | 15.7.5 问题
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -761,7 +761,7 @@ Figure 15‐8: Device Control Register 2 | 图15‐8：设备控制寄存器2
 </table>
 
 
-## 8.7.1 The Solution | 8.7.1 解决方案
+## 15.7.6 The Solution | 15.7.6 解决方案
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>

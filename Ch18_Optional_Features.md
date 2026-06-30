@@ -109,7 +109,7 @@
 </table>
 
 
-## When a Fundamental Reset occurs: | 当发生基础复位时：
+## 18.2.1.1 When a Fundamental Reset Occurs | 18.2.1.1 当发生基础复位时
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -144,7 +144,7 @@
 </table>
 
 
-## PERST# Fundamental Reset Generation | PERST# 基础复位生成
+## 18.2.1.2 PERST# Fundamental Reset Generation | 18.2.1.2 PERST# 基础复位生成
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -160,7 +160,7 @@
 </table>
 
 
-## Autonomous Reset Generation | 自主复位生成
+## 18.2.1.3 Autonomous Reset Generation | 18.2.1.3 自主复位生成
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -175,7 +175,7 @@
 </table>
 
 
-## Link Wakeup from L2 Low Power State | 链路从 L2 低功耗状态唤醒
+## 18.2.1.4 Link Wakeup from L2 Low Power State | 18.2.1.4 链路从 L2 低功耗状态唤醒
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -225,7 +225,7 @@ Figure 18-2: TS1 Ordered-Set Showing the Hot Reset Bit | 图18-2：显示热复�
 </table>
 
 
-## Response to Receiving Hot Reset | 接收热复位的响应
+## 18.2.2.1 Response to Receiving Hot Reset | 18.2.2.1 接收热复位的响应
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -326,7 +326,7 @@ Figure 18-5: Secondary Bus Reset Register to Generate Hot Reset | 图18-5：用�
 
 <img src="images/part05_5f36bbf2b146b6702c694fece8b578d7199248c4cba06826a582e175106f0951.jpg" width="700" alt="">
 
-## Software Can Disable the Link | 软件可以禁用链路
+## 18.2.2.2 Software Can Disable the Link | 18.2.2.2 软件可以禁用链路
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>

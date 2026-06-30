@@ -49,7 +49,7 @@ The next chapter discusses the purposes and detailed operation of the Flow Contr
 
 ## 5.1 Introduction to Packet-Based Protocol | 5.1 基于数据包协议的介绍
 
-## General | 概述
+## 5.1.1 General | 5.1.1 概述
 
 <table>
 <tr>
@@ -86,7 +86,7 @@ There are three distinct advantages to using a packet‑based protocol especiall
 </tr>
 </table>
 
-## Packet Formats Are Well Defined | 数据包格式定义明确
+## 5.1.1.1 Packet Formats Are Well Defined | 5.1.1.1 数据包格式定义明确
 
 <table>
 <tr>
@@ -107,7 +107,7 @@ By comparison, PCIe packets have a known size and format. The packet header at t
 </tr>
 </table>
 
-## Framing Symbols Define Packet Boundaries | 成帧符号定义包边界
+## 5.1.1.2 Framing Symbols Define Packet Boundaries | 5.1.1.2 成帧符号定义包边界
 
 <table>
 <tr>
@@ -128,7 +128,7 @@ For the 128b/130b encoding used in Gen3, control characters are no longer employ
 </tr>
 </table>
 
-## CRC Protects Entire Packet | CRC 保护整个包
+## 5.1.1.3 CRC Protects Entire Packet | 5.1.1.3 CRC 保护整个包
 
 <table>
 <tr>
@@ -197,7 +197,7 @@ The list numbers correspond to the numbers in Figure 5-2 on page 173.
 </tr>
 </table>
 
-## Transmitter: | 发送端：
+## 5.2.1.1 Transmitter | 5.2.1.1 发送端
 
 <table>
 <tr>
@@ -289,7 +289,7 @@ Figure 5-2: PCIe TLP Assembly/Disassembly | 图5-2：PCIe TLP组装/拆解
 </tr>
 </table>
 
-## Receiver: | 接收端：
+## 5.2.1.2 Receiver | 5.2.1.2 接收端
 
 <table>
 <tr>
@@ -345,7 +345,7 @@ Table 5-1: TLP Header Type Field Defines Transaction Variant | 表5-1：TLP头�
 
 ## 5.2.3 Generic TLP Header Format | 5.2.3 通用 TLP 头格式
 
-## General | 概述
+## 5.1.1 General | 5.1.1 概述
 
 <table>
 <tr>
@@ -377,7 +377,7 @@ Header format differences associated with specific transaction types are covered
 Figure 5-3: Generic TLP Header Fields | 图5-3：通用TLP头字段
 <img src="images/part02_86de3a251a1f2d00f0f15727ca8579b021fdfe1bcfc1111e0c0d75e2bd01a7df.jpg" width="700" alt="">
 
-## Generic Header Field Summary | 通用头字段汇总
+## 5.2.3.1 Generic Header Field Summary | 5.2.3.1 通用头字段汇总
 
 <table>
 <tr>
@@ -419,7 +419,7 @@ In the following sections, we describe details of each TLP Header field depicted
 </tr>
 </table>
 
-## Header Type | Format Field Encodings
+## 5.2.3.2 Header Type | Format Field Encodings | 5.2.3.2 头类型 | 格式字段编码
 
 <table>
 <tr>
@@ -436,7 +436,7 @@ Table 5-3: TLP Header Type and Format Field Encodings | 表5-3：TLP头类型和
 
 <table><tr><td>TLP</td><td>FMT[2:0]</td><td>TYPE [4:0]</td></tr><tr><td>Memory Read Request (MRd)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0000</td></tr><tr><td>Memory Read Lock Request (MRdLk)</td><td>000 = 3DW, no data001 = 4DW, no data</td><td>0 0001</td></tr><tr><td>Memory Write Request (MWr)</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 0000</td></tr><tr><td>IO Read Request (IORd)</td><td>000 = 3DW, no data</td><td>0 0010</td></tr><tr><td>IO Write Request (IOWr)</td><td>010 = 3DW, w/ data</td><td>0 0010</td></tr><tr><td>Config Type 0 Read Request (CfgRd0)</td><td>000 = 3DW, no data</td><td>0 0100</td></tr><tr><td>Config Type 0 Write Request (CfgWr0)</td><td>010 = 3DW, w/ data</td><td>0 0100</td></tr><tr><td>Config Type 1 Read Request (CfgRd1)</td><td>000 = 3DW, no data</td><td>0 0101</td></tr><tr><td>Config Type 1 Write Request (CfgWr1)</td><td>010 = 3DW, w/ data</td><td>0 0101</td></tr><tr><td>Message Request (Msg)</td><td>001 = 4DW, no data</td><td>1 0 rrr*(see routing field)</td></tr><tr><td>Message Request W/Data (MsgD)</td><td>011 = 4DW, w/ data</td><td>1 0rrr*(see routing field)</td></tr><tr><td>Completion (Cpl)</td><td>000 = 3DW, no data</td><td>0 1010</td></tr><tr><td>Completion W/Data (CplD)</td><td>010 = 3DW, w/ data</td><td>0 1010</td></tr><tr><td>Completion-Locked (CplLk)</td><td>000 = 3DW, no data</td><td>0 1011</td></tr><tr><td>Completion W/Data (CplDLk)</td><td>010 = 3DW, w/ data</td><td>0 1011</td></tr><tr><td>Fetch and Add AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1100</td></tr><tr><td>Unconditional Swap AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1101</td></tr><tr><td>Compare and Swap AtomicOp Request</td><td>010 = 3DW, w/ data011 = 4DW, w/ data</td><td>0 1110</td></tr><tr><td>Local TLP Prefix</td><td>100 = TLP Prefix</td><td> $0L_3L_2L_1L_0$ </td></tr><tr><td>End-to-End TLP Prefix</td><td>100 = TLP Prefix</td><td> $1E_3E_2E_1E_0$ </td></tr></table>
 
-## Digest | ECRC Field
+## 5.2.3.3 Digest | ECRC Field | 5.2.3.3 摘要 | ECRC 字段
 
 <table>
 <tr>
@@ -505,7 +505,7 @@ A Switch that supports ECRC checking performs this check on TLPs destined to a l
 </tr>
 </table>
 
-## Using Byte Enables | 使用字节使能
+## 5.2.3.4 Using Byte Enables | 5.2.3.4 使用字节使能
 
 <table>
 <tr>
@@ -518,7 +518,7 @@ General. Like PCI, PCIe needs a mechanism to reconcile its DW-aligned addresses 
 </tr>
 </table>
 
-## Byte Enable Rules | 字节使能规则
+## 5.2.3.5 Byte Enable Rules | 5.2.3.5 字节使能规则
 
 <table>
 <tr>
@@ -599,7 +599,7 @@ Figure 5-4: Using First DW and Last DW Byte Enable Fields | 图5-4：使用首DW
 
 <img src="images/part02_6866d40c7ae466d43b498249907df37be5b233a907f7c511faebe3237f726984.jpg" width="700" alt="">
 
-## Transaction Descriptor Fields | 事务描述符字段
+## 5.2.4 Transaction Descriptor Fields | 5.2.4 事务描述符字段
 
 <table>
 <tr>
@@ -651,7 +651,7 @@ Transaction Attributes. The ID-based Ordering, Relaxed Ordering, and No Snoop bi
 </tr>
 </table>
 
-## Additional Rules For TLPs With Data Payloads | 带有数据载荷的TLP的附加规则
+## 5.2.5 Additional Rules For TLPs With Data Payloads | 5.2.5 带有数据载荷的TLP的附加规则
 
 <table>
 <tr>
@@ -747,7 +747,7 @@ In this section, the format of 3DW and 4DW headers used to accomplish specific t
 </tr>
 </table>
 
-## IO Requests | IO 请求
+## 5.3.1 IO Requests | 5.3.1 IO 请求
 
 <table>
 <tr>
@@ -794,7 +794,7 @@ Table 5-4: IO Request Header Fields | 表5-4：IO请求头字段
 
 <table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Fmt [2:0](Format)</td><td>Byte 0 Bit 7:5</td><td>Packet Format for IO requests:000b = IO Read (3DW without data)010b = IO Write (3DW with data)</td></tr><tr><td>Type [4:0]</td><td>Byte 0 Bit 4:0</td><td>Packet type is 00010b for IO requests</td></tr><tr><td>TC [2:0](Traffic Class)</td><td>Byte 1 Bit 6:4</td><td>Traffic Class for IO requests is always zero, ensuring that these packets will never interfere with any high-priority packets.</td></tr><tr><td>Attr [2](Attributes)</td><td>Byte 1 Bit 2</td><td>ID-based Ordering doesn't apply for IO requests and this bit is reserved.</td></tr><tr><td>TH(TLP Processing Hints)</td><td>Byte 1 Bit 0</td><td>TLP processing Hints don't apply to IO requests and this bit is reserved.</td></tr><tr><td>TD(TLP Digest)</td><td>Byte 2 Bit 7</td><td>Indicates the presence of a digest field (ECRC) at the end of the TLP.</td></tr><tr><td>EP(Poisoned Data)</td><td>Byte 2 Bit 6</td><td>Indicates whether the data payload (if present) is poisoned.</td></tr><tr><td>Attr [1:0](Attributes)</td><td>Byte 2 Bit 5:4</td><td>Relaxed Ordering and No Snoop bits don't apply for IO requests and are always zero.</td></tr><tr><td>AT [1:0](Address Type)</td><td>Byte 2 Bit 3:2</td><td>Address Type doesn't apply for IO requests and these bits must be zero.</td></tr><tr><td>Length [9:0]</td><td>Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td>Indicates data payload size in DW. For IO requests, this field is always just 1 since no more than 4 bytes can be transferred. The First DW Byte Enables qualify which bytes are used.</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td>Identifies the Requester's "return address" for corresponding Completion.Byte 4, 7:0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number</td></tr><tr><td>Tag [7:0]</td><td>Byte 6 Bit 7:0</td><td>These bits identify the specific requests from the requester. A unique tag value is assigned to each outgoing Request. By default, only bits 4:0 are used, but the Extended Tag and Phantom Functions options can extend that to 11 bits, permitting up to 2048 outstanding requests to be in progress simultaneously.</td></tr><tr><td>Last DW BE [3:0](Last DW Byte Enables)</td><td>Byte 7 Bit 7:4</td><td>These bits must be 0000b because IO requests can only be one DW in size.</td></tr><tr><td>1st DW BE [3:0](First DW Byte Enables)</td><td>Byte 7 Bit 3:0</td><td>These bits qualify the bytes in the one-DW payload. For IO requests, any bit combination is valid (including all zeros).</td></tr><tr><td>Address [31:2]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0Byte 10 Bit 7:0Byte 11 Bit 7:2</td><td>The upper 30 bits of the 32-bit start address for the IO transfer. The lower two bits of the 32 bit address are reserved (00b), forcing a DW-aligned start address.</td></tr></table>
 
-## Memory Requests | 存储器请求
+## 5.3.2 Memory Requests | 5.3.2 存储器请求
 
 <table>
 <tr>
@@ -950,7 +950,7 @@ Configuration Request Notes. Configuration requests always use the 3DW header fo
 </tr>
 </table>
 
-## Completions | 完成报文
+## 5.3.3 Completions | 5.3.3 完成报文
 
 
 <table>
@@ -1021,7 +1021,7 @@ Table 5-7: Completion Header Fields (Continued) | 表5-7：完成头字段（续
 
 <table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>Function</td></tr><tr><td>Compl. Status [2:0] (Completion Status Code)</td><td>Byte 6 Bit 7:5</td><td>These bits indicate status for this Completion.000b = Successful Completion (SC)001b = Unsupported Request (UR)010b = Config Req Retry Status (CRS)100b = Completer abort (CA)All other codes are reserved. See "Summary of Completion Status Codes" on page 200.</td></tr><tr><td>BCM (Byte Count Modified)</td><td>Byte 6 Bit 4</td><td>This is only used by PCI-X Completers and indicates that the Byte Count field reports only the first payload rather than the total payload remaining. See "Using The Byte Count Modified Bit" on page 201.</td></tr><tr><td>Byte Count [11:0]</td><td>Byte 6 Bit 3:0Byte 7 Bit 7:0</td><td>Byte count remaining to satisfy a read request, as derived from the original request Length field. See "Data Returned For Read Requests:" on page 201 for special cases caused by multiple completions.</td></tr><tr><td>Requester ID [15:0]</td><td>Byte 8 Bit 7:0Byte 9 Bit 7:0</td><td>Copied from the Request for use as the return address (target) for this Completion.Byte 8, 7:0 = Requester Bus #Byte 9, 7:3 = Requester Device #Byte 9, 2:0 = Requester Function #</td></tr><tr><td>Tag [7:0]</td><td>Byte 10 Bit 7:0</td><td>This must be the Tag value received with the Request. Requester associates this Completion with a pending Request based on the Tag.</td></tr><tr><td>Lower Address [6:0]</td><td>Byte 11 Bit 6:0</td><td>The lower 7 bits of address for the first data returned for a read request. Calculated from Request Length and Byte Enables, it assists buffer management by showing how many bytes can be transferred before reaching the next Read Completion Boundary. See "Calculating Lower Address Field" on page 200.</td></tr></table>
 
-## Summary of Completion Status Codes. | 完成状态码概述。
+## 5.3.4 Summary of Completion Status Codes | 5.3.4 完成状态码概述
 
 <table>
 <tr>
@@ -1170,7 +1170,7 @@ Using The Byte Count Modified Bit. This bit is only set by PCI-X Completers, but
 </tr>
 </table>
 
-## Data Returned For Read Requests: | 读请求返回的数据：
+## 5.3.5 Data Returned For Read Requests | 5.3.5 读请求返回的数据
 
 <table>
 <tr>
@@ -1239,7 +1239,7 @@ Multiple Completions for a single read request must return data in increasing ad
 </tr>
 </table>
 
-## Receiver Completion Handling Rules: | 接收器完成报文处理规则：
+## 5.3.6 Receiver Completion Handling Rules | 5.3.6 接收器完成报文处理规则
 
 <table>
 <tr>

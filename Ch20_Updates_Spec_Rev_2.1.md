@@ -124,7 +124,7 @@ Figure 20‑2: Multicast Capability Registers | 图20‑2：多播能力寄存�
 </table>
 
 
-## Multicast Capability | 多播能力
+## 20.2.1.1 Multicast Capability | 20.2.1.1 多播能力
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -156,7 +156,7 @@ Figure 20-3: Multicast Capability Register | 图20-3：多播能力寄存器
 </table>
 
 
-## Multicast Control | 多播控制
+## 20.2.1.2 Multicast Control | 20.2.1.2 多播控制
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -208,7 +208,7 @@ Figure 20‐5: Multicast Base Address Register | 图20‐5：多播基地址寄�
 Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位置  
 <img src="images/part06_4ccac63a6dc07af3a9e95e75ac305222e1c8f8e2e31c72bc9052989df0b2373c.jpg" width="700" alt="">
 
-## MC Receive | MC 接收
+## 20.2.1.3 MC Receive | 20.2.1.3 MC 接收
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -223,7 +223,7 @@ Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位�
 </table>
 
 
-## MC Block All | MC 全部阻止
+## 20.2.1.4 MC Block All | 20.2.1.4 MC 全部阻止
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -238,7 +238,7 @@ Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位�
 </table>
 
 
-## MC Block Untranslated | MC 阻止未翻译
+## 20.2.1.5 MC Block Untranslated | 20.2.1.5 MC 阻止未翻译
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -424,7 +424,7 @@ Figure 20‐10: Device Capabilities 2 Register | 图20‐10：设备能力2寄�
 </table>
 
 
-## TPH Examples | TPH示例
+## 20.3.2.1 TPH Examples | 20.3.2.1 TPH 示例
 
 <table>
 <tr>
@@ -605,7 +605,7 @@ Device to Device. One last example is illustrated in Figure 20‐14 on page 904,
 
 <img src="images/part06_8c20700aad3cc2dcfc4a16364e83d6b49443149cd7f4ff649f6836e6dd77f06f.jpg" width="700" alt="">
 
-## TPH Header Bits | TPH头部比特位
+## 20.3.2.2 TPH Header Bits | 20.3.2.2 TPH 头部比特位
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -631,7 +631,7 @@ Table 20‐1: PH Encoding Table | 表20‐1：PH编码表
 
 <table><tr><td>PH [1:0]</td><td>Processing Hint</td><td>Usage Model</td></tr><tr><td>00b</td><td>Bi-directional data structure</td><td>Indicates frequent read/write access by Host and device.</td></tr><tr><td>01b</td><td>Requester</td><td>D*D* (device-to-device transfers). Indicates frequent read/write access by device. The asterisk means either device could be reading or writing.</td></tr><tr><td>10b</td><td>Target</td><td>DWHR, HWDR (device-to-host or host-to-device transfers). Indicates frequent read/write access by Host.</td></tr><tr><td>11b</td><td>Target with Priority</td><td>Same as Target but with additional temporal re-use priority information. Indicates frequent read/write access by Host and high temporal locality for accessed data.</td></tr></table>
 
-## Steering Tags | 导向标签
+## 20.3.2.3 Steering Tags | 20.3.2.3 导向标签
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -704,7 +704,7 @@ Figure 20-18: TPH Capability ST Table | 图20-18：TPH能力ST表
 
 <table><tr><td>ST Upper Entry (1)</td><td>ST Lower Entry (1)</td><td>ST Upper Entry (0)</td><td>ST Lower Entry (0)</td></tr><tr><td>ST Upper Entry (3)</td><td>ST Lower Entry (3)</td><td>ST Upper Entry (2)</td><td>ST Lower Entry (2)</td></tr><tr><td>ST Upper Entry(Table Size)</td><td>ST Lower Entry(Table Size)</td><td>ST Upper Entry(Table Size - 1)</td><td>ST Lower Entry(Table Size - 1)</td></tr></table>
 
-## TLP Prefixes | TLP前缀
+## 20.3.2.4 TLP Prefixes | 20.3.2.4 TLP 前缀
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -774,7 +774,7 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 </table>
 
 
-## DPA (Dynamic Power Allocation) | DPA（动态功率分配）
+## 20.4.1 DPA (Dynamic Power Allocation) | 20.4.1 DPA（动态功率分配）
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -885,7 +885,7 @@ Figure 20‐20: Resizable BAR Registers / 图 20‐20：可调整大小的 BAR �
 
 <img src="images/part06_f0802c9e5a80c315ef54b4caefb39a2552c55b3cf7a7f428e1977f37004f5d6a.jpg" width="700" alt="">
 
-## Capability Register | 能力寄存器
+## 20.5.2.1 Capability Register | 20.5.2.1 能力寄存器
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>

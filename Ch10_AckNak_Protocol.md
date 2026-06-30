@@ -98,7 +98,7 @@ Figure 10-2: Overview of the Ack/Nak Protocol | 图10-2：Ack/Nak协议概述
 </table>
 
 
-## Elements of the Ack | Nak Protocol
+## 10.1.1 Elements of the Ack/Nak Protocol | 10.1.1 Ack/Nak 协议要素
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -132,7 +132,7 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
 </table>
 
 
-## NEXT_TRANSMIT_SEQ Counter | NEXT_TRANSMIT_SEQ 计数器
+## 10.2.1.1 NEXT_TRANSMIT_SEQ Counter | 10.2.1.1 NEXT_TRANSMIT_SEQ 计数器
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -148,7 +148,7 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
 </table>
 
 
-## LCRC Generator | LCRC 生成器
+## 10.2.1.2 LCRC Generator | 10.2.1.2 LCRC 生成器
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -188,7 +188,7 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
 
 <img src="images/part03_feef664f47d503359c07b241250bdb982a6bf448b0288a3740b15f2065df3853.jpg" width="700" alt="">
 
-## REPLAY_TIMER Count | 重发定时器计数
+## 10.2.1.3 REPLAY_TIMER Count | 10.2.1.3 重发定时器计数
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -218,7 +218,7 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
 </table>
 
 
-## ACKD\_SEQ Register
+## 10.2.2.1 ACKD\_SEQ Register | 10.2.2.1 ACKD\_SEQ 寄存器
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -236,7 +236,7 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
 </table>
 
 
-## DLLP CRC Check | DLLP CRC 检查
+## 10.2.2.2 DLLP CRC Check | 10.2.2.2 DLLP CRC 检查
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -272,7 +272,7 @@ Figure 10-5: Receiver Elements Associated with the Ack/Nak Protocol | 图10-5：
 
 <img src="images/part03_f9bf80710d103aef984e5fced491aadd3967fc94ccc2cce01dc308e7bbf4062e.jpg" width="700" alt="">
 
-## LCRC Error Check | LCRC 错误检查
+## 10.2.2.3 LCRC Error Check | 10.2.2.3 LCRC 错误检查
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -301,7 +301,7 @@ Figure 10-5: Receiver Elements Associated with the Ack/Nak Protocol | 图10-5：
 </table>
 
 
-## Sequence Number Check | 序列号检查
+## 10.2.2.4 Sequence Number Check | 10.2.2.4 序列号检查
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -338,7 +338,7 @@ Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示�
 </table>
 
 
-## AckNak\_LATENCY\_TIMER
+## 10.2.2.5 AckNak\_LATENCY\_TIMER | 10.2.2.5 AckNak\_LATENCY\_TIMER
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -353,7 +353,7 @@ Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示�
 </table>
 
 
-## Ack | Nak Generator
+## 10.2.3.1 Ack/Nak Generator | 10.2.3.1 Ack/Nak 生成器
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -380,7 +380,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 | AckNak_Seq_Num | Byte 2, [3:0] Byte 3, [7:0] | This value will always be NEXT_RCV_SEQ count - 1. |
 | 16-bit CRC | Byte 4, [7:0] Byte 5, [7:0] | 16-bit CRC used to protect the contents of this DLLP. |
 
-## Ack | Nak Protocol Details
+## 10.2.3.2 Ack/Nak Protocol Details | 10.2.3.2 Ack/Nak 协议详情
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -408,7 +408,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 </table>
 
 
-## Sequence Number | 序列号
+## 10.2.3.3 Sequence Number | 10.2.3.3 序列号
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -436,7 +436,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 </table>
 
 
-## Replay (Retry) Buffer | 重放（重试）缓冲区
+## 10.2.3.4 Replay (Retry) Buffer | 10.2.3.4 重放（重试）缓冲区
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -457,7 +457,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 </table>
 
 
-## Transmitter's Response to an Ack DLLP | 发送器对 Ack DLLP 的响应
+## 10.2.3.5 Transmitter's Response to an Ack DLLP | 10.2.3.5 发送器对 Ack DLLP 的响应
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -472,8 +472,8 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 </table>
 
 
-## Ack | Nak Examples
-## Ack/Nak 示例
+## 10.2.3.6 Ack/Nak Examples | 10.2.3.6 Ack/Nak 示例
+## 10.2.3.6 Ack/Nak Examples | 10.2.3.6 Ack/Nak 示例
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -519,7 +519,7 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
 
 <img src="images/part03_45745bb1c29492a91735a6b39ae67cbc2259b685b74308b1e3f2b78ffb3ab745.jpg" width="700" alt="">
 
-## Transmitter's Response to a Nak | 发送方对 Nak 的响应
+## 10.2.3.7 Transmitter's Response to a Nak | 10.2.3.7 发送方对 Nak 的响应
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -550,7 +550,7 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
 </table>
 
 
-## Efficient TLP Replay | 高效的TLP重放
+## 10.2.3.8 Efficient TLP Replay | 10.2.3.8 高效的 TLP 重放
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -652,7 +652,7 @@ Figure 10-11: Gen1 Unadjusted REPLAY\_TIMER Values | 图10-11：Gen1未调整的
 
 <table><tr><td>Max_Payload Size</td><td>X1 Link</td><td>X2 Link</td><td>X4 Link</td><td>X8 Link</td><td>X12 Link</td><td>x16 Link</td><td>X32 Link</td></tr><tr><td>128 Bytes</td><td>711</td><td>384</td><td>219</td><td>201</td><td>174</td><td>144</td><td>99</td></tr><tr><td>256 Bytes</td><td>1248</td><td>651</td><td>354</td><td>321</td><td>270</td><td>216</td><td>135</td></tr><tr><td>512 Bytes</td><td>1677</td><td>867</td><td>462</td><td>258</td><td>327</td><td>258</td><td>156</td></tr><tr><td>1024 Bytes</td><td>3213</td><td>1635</td><td>846</td><td>450</td><td>582</td><td>450</td><td>252</td></tr><tr><td>2048 Bytes</td><td>6285</td><td>3171</td><td>1614</td><td>834</td><td>1095</td><td>834</td><td>444</td></tr><tr><td>4096 Bytes</td><td>12,429</td><td>6243</td><td>3150</td><td>1602</td><td>2118</td><td>1602</td><td>828</td></tr></table>
 
-## Transmitter DLLP Handling | 发送器 DLLP 处理
+## 10.2.4.1 Transmitter DLLP Handling | 10.2.4.1 发送器 DLLP 处理
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -697,7 +697,7 @@ Figure 10-11: Gen1 Unadjusted REPLAY\_TIMER Values | 图10-11：Gen1未调整的
 Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 <img src="images/part03_66323f024cc465cf777f9bd8f49be6daafba66ae2a5ddfbb2dee935846084e9b.jpg" width="700" alt="">
 
-## TLP LCRC Check | TLP LCRC 检查
+## 10.2.4.2 TLP LCRC Check | 10.2.4.2 TLP LCRC 检查
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -712,7 +712,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 </table>
 
 
-## Next Received TLP's Sequence Number | 下一个接收TLP的序列号
+## 10.2.4.3 Next Received TLP's Sequence Number | 10.2.4.3 下一个接收 TLP 的序列号
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -735,7 +735,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 </table>
 
 
-## Receiver Schedules An Ack DLLP | 接收方调度Ack DLLP
+## 10.2.4.4 Receiver Schedules An Ack DLLP | 10.2.4.4 接收方调度 Ack DLLP
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -750,7 +750,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 </table>
 
 
-## Receiver Schedules a Nak | 接收端调度 Nak
+## 10.2.4.5 Receiver Schedules a Nak | 10.2.4.5 接收端调度 Nak
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -766,7 +766,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 </table>
 
 
-## AckNak_LATENCY_TIMER | AckNak_LATENCY_TIMER
+## 10.2.4.6 AckNak_LATENCY_TIMER | 10.2.4.6 AckNak_LATENCY_TIMER
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -784,7 +784,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 </table>
 
 
-## AckNak\_LATENCY\_TIMER Equation.
+## 10.2.2.5 AckNak\_LATENCY\_TIMER | 10.2.2.5 AckNak\_LATENCY\_TIMER Equation.
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>

@@ -56,9 +56,7 @@
 </table>
 
 
-## 99.1 Introduction | 99.1 引言
-
-## 99.1 Introduction | 99.1 引言
+## 8.1 Introduction | 8.1 引言
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -213,7 +211,7 @@
 </table>
 
 
-## 生产者 | 消费者模型 (Producer/Consumer Model)
+## 8.4.1 Producer/Consumer Model | 8.4.1 生产者/消费者模型
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -239,7 +237,7 @@
 
 <img src="images/part02_5eda80caf08f99026b670ecf9b0512d6f0256d429817f55a48074adb20abd139.jpg" width="700" alt="">
 
-## Producer | Consumer Sequence — No Errors
+## 8.4.2 Producer/Consumer Sequence — No Errors | 8.4.2 生产者/消费者序列 — 无错误
 
 Refer to Figure 8-2 on page 293 during the following discussion. The example presumes that the Flag and Status element are cleared to start with. These semaphores are included within the same device in this example. The sequence of numbered events in the description below and depicted in Figure 8-2 on page 293 reflect the correct ordering in this Part 1 sequence.
 
@@ -277,7 +275,7 @@ Figure 8-3 on page 294 continues the example in this Part 2 sequence.
 
 16. The sequence of events starting with step 1. is repeated by the Producer.
 
-## Producer/Consumer Sequence — No Errors | 生产者/消费者序列 — 无错误
+## 8.4.2 Producer/Consumer Sequence — No Errors | 8.4.2 生产者/消费者序列 — 无错误
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -316,7 +314,7 @@ Figure 8-3: Producer/Consumer Sequence Example — Part 2 | 图8-3：生产者/�
 
 <img src="images/part02_dcada6a33b479b3fd6bb6c856cb1f96518aad2ce1a3930a6089a7acf08c27b7a.jpg" width="700" alt="">
 
-## Producer/Consumer Sequence — Errors | ## 生产者/消费者序列——错误
+## 8.4.3 Producer/Consumer Sequence — Errors | 8.4.3 生产者/消费者序列——错误
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -400,7 +398,7 @@ Table 8-2: Transactions That Can Be Reordered Due to Relaxed Ordering | 表8-2�
 
 <table><tr><td>These Transactions with RO=1 Can Pass</td><td>These Transactions</td></tr><tr><td>Memory Write Request</td><td>Memory Write Request</td></tr><tr><td>Message Request</td><td>Memory Write Request</td></tr><tr><td>Memory Write Request</td><td>Message Request</td></tr><tr><td>Message Request</td><td>Message Request</td></tr><tr><td>Read Completion</td><td>Memory Write Request</td></tr><tr><td>Read Completion</td><td>Message Request</td></tr></table>
 
-## Weak Ordering (弱排序)
+## 8.5.1 Weak Ordering | 8.5.1 弱排序
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>

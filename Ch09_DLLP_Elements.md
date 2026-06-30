@@ -144,7 +144,7 @@ Figure 9-1: Data Link Layer Sends A DLLP | 图9-1：数据链路层发送DLLP
 </table>
 
 
-## General | 概述
+## 9.2.1 General | 9.2.1 概述
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -202,7 +202,7 @@ Table 9-1: DLLP Types / 表9-1：DLLP类型 | 表9-1：DLLP类型
 
 <table><tr><td>DLLP Type</td><td>Type Field Encoding</td><td>Purpose</td></tr><tr><td>Ack (TLP Acknowledge)</td><td>0000 0000b</td><td>TLP transmission integrity</td></tr><tr><td>Nak (TLP Negative Acknowledge)</td><td>0001 0000b</td><td>TLP transmission integrity</td></tr><tr><td>PM_Enter_L1</td><td>0010 0000b</td><td>Power Management</td></tr><tr><td>PM_Enter_L23</td><td>0010 0001b</td><td>Power Management</td></tr><tr><td>PM_Active_State_Request_L1</td><td>0010 0011b</td><td>Power Management</td></tr><tr><td>PM_Request_Ack</td><td>0010 0100b</td><td>Power Management</td></tr><tr><td>Vendor Specific</td><td>0011 0000b</td><td>Vendor Defined</td></tr><tr><td>InitFC1-P</td><td>0100 0xxxb</td><td>TLP Flow Control (xxx = VC number)</td></tr><tr><td>InitFC1-NP</td><td>0101 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC1-Cpl</td><td>0110 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC2-P</td><td>1100 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC2-NP</td><td>1101 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC2-Cpl</td><td>1110 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>UpdateFC-P</td><td>1000 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>UpdateFC-NP</td><td>1001 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>UpdateFC-Cpl</td><td>1010 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>Reserved</td><td>Others</td><td>Reserved</td></tr></table>
 
-## Ack | Nak DLLP Format / Ack/Nak DLLP 格式
+## 9.3.1 Ack/Nak DLLP Format | 9.3.1 Ack/Nak DLLP 格式
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>

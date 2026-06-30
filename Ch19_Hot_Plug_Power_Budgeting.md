@@ -79,7 +79,7 @@
 
 ## 19.2 Hot Plug in the PCI Express Environment | 19.2 PCI Express 环境中的热插拔
 
-## PCI Express 环境中的热插拔
+## 19.2.1.1 PCI Express Environment Overview | 19.2.1.1 PCI Express 环境概述
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -262,7 +262,7 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
 </table>
 
 
-## Turning Slot Off | 关闭插槽
+## 19.4.1.1 Turning Slot Off | 19.4.1.1 关闭插槽
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -281,7 +281,7 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
 </table>
 
 
-## Turning Slot On | 开启插槽
+## 19.4.1.2 Turning Slot On | 19.4.1.2 开启插槽
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -414,8 +414,8 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
 </table>
 
 
-## The user interface includes the following features: | 用户界面包括以下特性：
-## 用户界面包括以下特性：
+## 19.5.2.1 User Interface Features | 19.5.2.1 用户界面特性
+## 19.5.2.1 User Interface Features | 19.5.2.1 用户界面特性
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -453,7 +453,7 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
 
 <table><tr><td>Indicator Behavior</td><td>Attention State</td></tr><tr><td>Off</td><td>Normal -- Normal Operation</td></tr><tr><td>On</td><td>Attention -- Hot Plug Operation Failed due to an operational problem (e.g., problems with external cabling, add-in cards, software drivers, and power faults)</td></tr><tr><td>Blinking</td><td>Locate -- Slot is being identified at operator's request</td></tr></table>
 
-## Power Indicator | 电源指示灯
+## 19.5.2.2 Power Indicator | 19.5.2.2 电源指示灯
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -474,7 +474,7 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
 
 <table><tr><td>Indicator Behavior</td><td>Power State</td></tr><tr><td>Off</td><td>Power Off --- it is safe to remove or insert a card. All power has been removed as required for hot plug operation. Vaux is only removed when the Manual Retention Latch is released.</td></tr><tr><td>On</td><td>Power On --- removal or insertion of a card is not allowed. Power is currently applied to the slot.</td></tr><tr><td>Blinking</td><td>Power Transition --- card removal or insertion is not allowed. This state notifies the operator that software is currently removing or applying slot power in response to a hot plug request.</td></tr></table>
 
-## Manually Operated Retention Latch and Sensor | 手动操作的保持锁存器和传感器
+## 19.5.2.3 Manually Operated Retention Latch and Sensor | 19.5.2.3 手动操作的保持锁存器和传感器
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -492,7 +492,7 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
 </table>
 
 
-## Electromechanical Interlock (optional) | 机电互锁（可选）
+## 19.5.2.4 Electromechanical Interlock (optional) | 19.5.2.4 机电互锁（可选）
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -508,7 +508,7 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
 </table>
 
 
-## Software User Interface | 软件用户界面
+## 19.5.2.5 Software User Interface | 19.5.2.5 软件用户界面
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -524,7 +524,7 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
 </table>
 
 
-## Attention Button | 注意力按钮
+## 19.5.2.6 Attention Button | 19.5.2.6 注意力按钮
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -540,7 +540,7 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
 </table>
 
 
-## Slot Numbering Identification | 插槽编号标识
+## 19.5.2.7 Slot Numbering Identification | 19.5.2.7 插槽编号标识
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>

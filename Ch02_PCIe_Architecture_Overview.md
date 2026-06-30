@@ -110,7 +110,7 @@ Serial Transport
 </tr>
 </table>
 
-## The Need for Speed | 速度需求
+## 2.1.2 The Need for Speed | 2.1.2 速度需求
 
 <table>
 <tr>
@@ -184,7 +184,7 @@ Table 2‑1: PCIe Aggregate Gen1, Gen2 and Gen3 Bandwidth for Various Link Width
 
 <table><tr><td>Link Width</td><td>x1</td><td>x2</td><td>x4</td><td>x8</td><td>x12</td><td>x16</td><td>x32</td></tr><tr><td>Gen1 Bandwidth (GB /s)</td><td>0.5</td><td>1</td><td>2</td><td>4</td><td>6</td><td>8</td><td>16</td></tr><tr><td>Gen2 Bandwidth (GB/s)</td><td>1</td><td>2</td><td>4</td><td>8</td><td>12</td><td>16</td><td>32</td></tr><tr><td>Gen3 Bandwidth (GB/s)</td><td>2</td><td>4</td><td>8</td><td>16</td><td>24</td><td>32</td><td>64</td></tr></table>
 
-## PCIe Bandwidth Calculation | PCIe 带宽计算
+## 2.1.9 PCIe Bandwidth Calculation | 2.1.9 PCIe 带宽计算
 
 <table>
 <tr>
@@ -250,7 +250,7 @@ These 3 calculated bandwidth numbers are multiplied by Link width to result in t
 </tr>
 </table>
 
-## Differential Signals | 差分信号
+## 2.1.5 Differential Signals | 2.1.5 差分信号
 
 <table>
 <tr>
@@ -275,7 +275,7 @@ Figure 2-4: Differential Signaling | 图2-4：差分信令
 
 <img src="images/part01_19617ab8aabed3825fec312da2852c1cab58d1a4316c11531725e52085351821.jpg" width="700" alt="">
 
-## No Common Clock | 无需公共时钟
+## 2.1.6 No Common Clock | 2.1.6 无需公共时钟
 
 <table>
 <tr>
@@ -311,7 +311,7 @@ Once the clock has been recovered it's used to latch the bits of the incoming da
 </tr>
 </table>
 
-## Packet-based Protocol | 基于数据包的协议
+## 2.1.7 Packet-based Protocol | 2.1.7 基于数据包的协议
 
 <table>
 <tr>
@@ -345,7 +345,7 @@ As mentioned earlier, a physical connection between two PCIe devices is called a
 </tr>
 </table>
 
-## Scalable Performance | 可扩展性能
+## 2.1.8 Scalable Performance | 2.1.8 可扩展性能
 
 <table>
 <tr>
@@ -393,7 +393,7 @@ A simple PCIe topology example is shown in Figure 2-6 on page 47, and will help 
 Figure 2-6: Example PCIe Topology | 图2-6：PCIe拓扑示例
 <img src="images/part01_34a427996186c803b2803145ff8128e9ffca6b77a36205ada2f9edbabf07d2f8.jpg" width="700" alt="">
 
-## Topology Characteristics | 拓扑特性
+## 2.2.1 Topology Characteristics | 2.2.1 拓扑特性
 
 <table>
 <tr>
@@ -414,7 +414,7 @@ To maintain that compatibility, software must be able to generate configuration 
 </tr>
 </table>
 
-## Root Complex | 根复合体
+## 2.2.2 Root Complex | 2.2.2 根复合体
 
 <table>
 <tr>
@@ -427,7 +427,7 @@ CPU 与 PCIe 总线之间的接口可能包含多个组件（处理器接口、D
 </tr>
 </table>
 
-## Switches and Bridges | 交换机与桥
+## 2.2.3 Switches and Bridges | 2.2.3 交换机与桥
 
 <table>
 <tr>
@@ -448,7 +448,7 @@ Bridges provide an interface to other buses, such as PCI or PCI‑X, or even ano
 </tr>
 </table>
 
-## Native PCIe Endpoints and Legacy PCIe Endpoints | 原生PCIe端点与传统PCIe端点
+## 2.2.4 Native PCIe Endpoints and Legacy PCIe Endpoints | 2.2.4 原生PCIe端点与传统PCIe端点
 
 <table>
 <tr>
@@ -461,7 +461,7 @@ Endpoints are devices in a PCIe topology that are not Switches or bridges and ac
 </tr>
 </table>
 
-## Software Compatibility Characteristics | 软件兼容性特性
+## 2.2.5 Software Compatibility Characteristics | 2.2.5 软件兼容性特性
 
 <table>
 <tr>
@@ -508,7 +508,7 @@ Figure 2-9: Example Results of System Enumeration | 图2-9：系统枚举结果�
 
 <img src="images/part01_f638e407fa47fd789349bb4bcedad28fc44b8e09d34bb8bdc151b71785c20758.jpg" width="700" alt="">
 
-## System Examples | 系统示例
+## 2.2.6 System Examples | 2.2.6 系统示例
 
 <table>
 <tr>
@@ -736,7 +736,7 @@ In contrast, Memory Writes and Messages are posted, meaning the targeted device 
 </tr>
 </table>
 
-## TLP (Transaction Layer Packet) Basics | TLP（事务层包）基础
+## 2.3.1 TLP (Transaction Layer Packet) Basics | 2.3.1 TLP（事务层包）基础
 
 
 <table>
@@ -837,7 +837,7 @@ Figure 2-17: TLP Disassembly | 图2-17：TLP拆解
 
 <img src="images/part01_03174f5c4603b31616bc41880229c0cb55362305b782e00f7b81d9cad5ed94fe.jpg" width="700" alt="">
 
-## Non-Posted Transactions | 非转发事务
+## 2.3.2 Non-Posted Transactions | 2.3.2 非转发事务
 
 <table>
 <tr>
@@ -895,7 +895,7 @@ When the Completer receives the packet and decodes its contents, it gathers the 
 Figure 2-20: Non-Posted Write Transaction Protocol | 图2-20：非投递写事务协议
 <img src="images/part01_97842da0ea4cf92dd317251ca0abc4bdd91ddecb6ee46dbda4c34ff55e078c3a.jpg" width="700" alt="">
 
-## Posted Writes | Posted写操作
+## 2.3.3 Posted Writes | 2.3.3 Posted写操作
 
 <table>
 <tr>
@@ -930,7 +930,7 @@ Message在PCIe中非常有用，有助于实现降低引脚数量的设计目标
 </tr>
 </table>
 
-## Quality of Service (QoS) | 服务质量 (QoS)
+## 2.3.4 Quality of Service (QoS) | 2.3.4 服务质量 (QoS)
 
 <table>
 <tr>

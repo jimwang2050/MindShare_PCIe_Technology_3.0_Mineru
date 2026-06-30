@@ -57,7 +57,7 @@
   </tbody>
 </table>
 
-## 99.1 Introduction | 99.1 引言
+## 16.1 Introduction | 16.1 引言
 
 
 <table style="border-collapse:collapse; width:100%;">
@@ -83,7 +83,7 @@
   </tbody>
 </table>
 
-## 1.2 Power Management Primer | 1.2 电源管理入门
+## 16.2 Power Management Primer | 16.2 电源管理入门
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -122,7 +122,7 @@
 <tr><td>PCI Express PM registers within each Function's configuration space.</td><td>The location, format and usage of these registers is defined by the PCIe spec. The PCI Express Bus Driver understands this spec and therefore is the entity responsible for accessing a Function's PM registers when requested to do so by the Function's device driver.</td></tr>
 <tr><td>System Board power plane and bus clock control logic</td><td>The implementation and control of this logic is typically system board design-specific and is therefore controlled by the ACPI Driver (under OS direction).</td></tr>
 </table>
-## 1.2.2 ACPI Spec Defines Overall PM | 1.2.2 ACPI 规范定义整体电源管理
+## 16.2.1 ACPI Spec Defines Overall PM | 16.2.1 ACPI 规范定义整体电源管理
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -168,7 +168,7 @@
 
 
 <table><tr><td>State</td><td>Description</td></tr><tr><td>D0</td><td>Mandatory. Device is fully operational and uses full power from the system. The 2.1 spec revision added another set of registers to support 32 substates under D0 referred to as Dynamic Power Allocation registers.</td></tr><tr><td>D1</td><td>Optional. Low-power state in which device context may or may not be lost. No definition for this state is given, but it would represent a lower power state than D0 and higher than D2</td></tr><tr><td>D2</td><td>Optional. Presumably a lower power state than D1 that attains greater power savings, but would incur a longer recovery delay and may cause Device to lose some context.</td></tr><tr><td>D3</td><td>Mandatory. Device is prepared for loss of power and context may be lost whether the power actually goes off or not. Recovery time will be longer than for D2, but power can be removed from the device gracefully in this state.</td></tr></table>
-## Definition of Device Context | 设备上下文定义
+## 16.2.2 Definition of Device Context | 16.2.2 设备上下文定义
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -192,7 +192,7 @@
   </tbody>
 </table>
 
-## Device-Class-Specific PM Specs | 设备类别特定电源管理规范
+## 16.2.3 Device-Class-Specific PM Specs | 16.2.3 设备类别特定电源管理规范
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -251,7 +251,7 @@ Table 16‐4: Default Device Class PM States | 表16‐4：默认设备类别电
   </tbody>
 </table>
 
-## PCI Express Bus Driver Accesses PM Registers | PCI Express 总线驱动访问电源管理寄存器
+## 16.2.4 PCI Express Bus Driver Accesses PM Registers | 16.2.4 PCI Express 总线驱动访问电源管理寄存器
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -267,7 +267,7 @@ Table 16‐4: Default Device Class PM States | 表16‐4：默认设备类别电
   </tbody>
 </table>
 
-## ACPI Driver Controls Non-Standard Embedded Devices | ACPI 驱动控制非标准嵌入式设备
+## 16.2.5 ACPI Driver Controls Non-Standard Embedded Devices | 16.2.5 ACPI 驱动控制非标准嵌入式设备
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -318,7 +318,7 @@ Figure 16‑1: Relationship of OS, Device Drivers, Bus Driver, PCI Express Regis
 Figure 16-2: PCI Power Management Capability Register Set | 图16-2：PCI电源管理能力寄存器集
 
 <table><tr><td colspan="2">Power Management Capabilities (PMC)</td><td>Pointer to Next Capability</td><td>Capability ID 01h</td></tr><tr><td>Data Register</td><td>Bridge Support Extensions (PMCSR_BSE)</td><td colspan="2">Control/Status Register (PMCSR)</td></tr></table>
-## 1.3.2 Device PM States | 1.3.2 设备电源管理状态
+## 16.3.1 Device PM States | 16.3.1 设备电源管理状态
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -444,7 +444,7 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
 
 \* This combination of Bus/Function PM states not allowed.
 \*\* If PME supported in this state.
-## D2 State—Deep Sleep | D2 状态—深度休眠
+## 16.3.2 D2 State—Deep Sleep | 16.3.2 D2 状态—深度休眠
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -458,7 +458,7 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
   </tbody>
 </table>
 
-## PCI Express Technology | PCI Express 技术
+## 16.3.3 PCI Express Technology | 16.3.3 PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -475,7 +475,7 @@ Figure 16‑5: DPA Status Register | 图16‑5：DPA状态寄存器
   </tbody>
 </table>
 
-## Other characteristics of the D2 state include: | D2 状态的其他特性包括：
+## 16.3.4 Other characteristics of the D2 state include: | 16.3.4 D2 状态的其他特性包括：
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -624,7 +624,7 @@ Figure 16‐7: PCI Function's PM Registers | 图16‐7：PCI功能的电源管�
 
 
 <table><tr><td>Bit(s)</td><td colspan="2">Description</td></tr><tr><td>31:27</td><td colspan="2">PME_Support field. Indicates in which PM states the Function is capable of sending a PME message. A zero in a bit indicates PME notification is not supported in the respective PM state.BitCorresponds to PM State27 D028 D129 D230  D3<sub>hot</sub> 31  D3<sub>cold</sub>  (Function requires aux power for PME logic and Wake signaling via beacon or WAKE# pin)Systems that support wake from  D3<sub>cold</sub>  must also support aux power and must use it to signal the wakeup.Bits 31, 30, and 27 must be set to 1b for virtual PCI-PCI Bridges implemented within Root and Switch Ports. This is required for ports that forward PME Messages.</td></tr><tr><td>26</td><td colspan="2">D2_Support bit. 1 = Function supports the D2 PM state.</td></tr><tr><td>25</td><td colspan="2">D1_Support bit. 1 = Function supports the D1 PM state.</td></tr><tr><td rowspan="10">24:22</td><td colspan="2">Aux_Current field. For a Function that supports generation of the PME message from the D3cold state, this field reports the current demand made upon the 3.3Vaux power source (see "Auxiliary Power" on page 775) by the Function's logic that retains the PME context information. This information is used by software to determine how many Functions can simultaneously be enabled for PME generation (based on the total amount of current each draws from the system 3.3Vaux power source and the power sourcing capability of the power source).If the Function does not support PME notification from within the D3cold PM state, this field is not implemented and always returns zero when read. Alternatively, a new feature defined by PCI Express permits devices that do not support PMEs to report the amount of Aux current they draw when enabled by the Aux Power PM Enable bit within the Device Control register.If the Function implements the Data register (see "Data Register" on page 731), this field always returns zeros when read. The Data register then takes precedence over this field in reporting the 3.3Vaux current requirements for the Function.If the Function supports PME notification from the D3cold state and does not implement the Data register, then the Aux_Current field reports the 3.3Vaux current requirements for the Function. It is encoded as follows:</td></tr><tr><td>Bit24 23 22</td><td>Max Current Required</td></tr><tr><td>1 1 1</td><td>375mA</td></tr><tr><td>1 1 0</td><td>320mA</td></tr><tr><td>1 0 1</td><td>270mA</td></tr><tr><td>1 0 0</td><td>220mA</td></tr><tr><td>0 1 1</td><td>160mA</td></tr><tr><td>0 1 0</td><td>100mA</td></tr><tr><td>0 0 1</td><td>55mA</td></tr><tr><td>0 0 0</td><td>0mA</td></tr><tr><td>21</td><td>Device-Specific Initialization (DSI) bit. A one in this bit indicates that immediately after entry into the D0 Uninitialized state, the Function requires additional configuration above and beyond setup of its PCI configuration Header registers before the Class driver can use the Function. Microsoft OSs do not use this bit. Rather, the determination and initialization is made by the Class driver.</td></tr><tr><td>20</td><td>Reserved.</td></tr><tr><td>19</td><td>PME Clock bit. Does not apply to PCI Express. Must be hardwired to 0.</td></tr><tr><td rowspan="2">18:16</td><td>Version field. This field indicates the version of the PCI Bus PM Interface spec that the Function complies with.</td></tr><tr><td colspan="2">Bit18 17 16 Complies with Spec Version0 0 1 1.00 1 0 1.1 (required by PCI Express)</td></tr></table>
-## PM Control and Status Register (PMCSR) | 电源管理控制和状态寄存器（PMCSR）
+## 16.3.5 PM Control and Status Register (PMCSR) | 16.3.5 电源管理控制和状态寄存器（PMCSR）
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -766,7 +766,7 @@ Figure 16-8: PM Registers | 图16-8：PM寄存器
 
 
 <table><tr><td>Data Select Value</td><td>Data Reported in Data Register</td><td>Interpretation of Data Scale Field in PMCSR</td><td>Units/Accuracy</td></tr><tr><td>00h</td><td>Power consumed in D0</td><td rowspan="9">00b = unknown<br>01b = multiply by 0.1<br>10b = multiply by 0.01<br>11b = multiply by 0.001</td><td rowspan="9">Watts</td></tr><tr><td>01h</td><td>Power consumed in D1</td></tr><tr><td>02h</td><td>Power consumed in D2</td></tr><tr><td>03h</td><td>Power consumed in D3</td></tr><tr><td>04h</td><td>Power dissipated in D0</td></tr><tr><td>05h</td><td>Power dissipated in D1</td></tr><tr><td>06h</td><td>Power dissipated in D2</td></tr><tr><td>07h</td><td>Power dissipated in D3</td></tr><tr><td>08h</td><td>In a multi-function PCI device, Function 0 indicates power consumed by logic common to all Functions in the package.</td></tr><tr><td>09h-0Fh</td><td>Reserved for future use of Function 0 in a multi-function device.</td><td rowspan="2">Reserved</td><td rowspan="2">TBD</td></tr><tr><td>08h-0Fh</td><td>Reserved in single-function devices and Functions other than Function 0 in a multi-function device</td></tr></table>
-## 1.4 Introduction to Link Power Management | 1.4 链路电源管理简介
+## 16.4 Introduction to Link Power Management | 16.4 链路电源管理简介
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -804,8 +804,7 @@ Figure 16-8: PM Registers | 图16-8：PM寄存器
   </tbody>
 </table>
 
-## 1.5 Active State Power Management (ASPM) | 1.5 主动状态电源管理（ASPM）
-## 1.5 Active State Power Management (ASPM) | 1.5 主动状态电源管理(ASPM)
+## 16.5 Active State Power Management (ASPM) | 16.5 主动状态电源管理（ASPM）
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -822,7 +821,7 @@ Figure 16-8: PM Registers | 图16-8：PM寄存器
   </tbody>
 </table>
 
-## 1.5.1 Electrical Idle | 1.5.1 电气空闲
+## 16.5.1 Electrical Idle | 16.5.1 电气空闲
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -841,7 +840,7 @@ Figure 16-8: PM Registers | 图16-8：PM寄存器
   </tbody>
 </table>
 
-## Transmitter Entry to Electrical Idle | 发送器进入电气空闲
+## 16.5.1.1 Transmitter Entry to Electrical Idle | 16.5.1.1 发送器进入电气空闲
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -877,7 +876,7 @@ Figure 16-9: Gen1/Gen2 Mode EIOS Pattern | 图16-9：Gen1/Gen2模式EIOS模式
 
 Figure 16-10: Gen3 Mode EIOS Pattern | 图16-10：Gen3模式EIOS模式
 <img src="images/part05_c0710d12e256c474df2870cd8809c5c6bef9b26ebf839c0fdf6e3170a8318432.jpg" width="700" alt="">
-## Transmitter Exit from Electrical Idle | 发送器退出电气空闲
+## 16.5.1.2 Transmitter Exit from Electrical Idle | 16.5.1.2 发送器退出电气空闲
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -936,7 +935,7 @@ Figure 16-11: Gen1/Gen2 Mode EIEOS Symbol Pattern | 图16-11：Gen1/Gen2模式EI
 
 Figure 16‐12: 128b/130b EIEOS Block | 图16‐12：128b/130b EIEOS块
 <img src="images/part05_ab0a327bb776c6382f4898d15ddd8bae0856b48ea3707239b288a58b11fa9f74.jpg" width="700" alt="">
-## Receiver Entry to Electrical Idle | 接收器进入电气空闲
+## 16.5.1.3 Receiver Entry to Electrical Idle | 16.5.1.3 接收器进入电气空闲
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -969,7 +968,7 @@ Table 16‑17: Electrical Idle Inference Conditions | 表16‑17：电气空闲�
   </tbody>
 </table>
 
-## Receiver Exit from Electrical Idle | 接收器退出电气空闲
+## 16.5.1.4 Receiver Exit from Electrical Idle | 16.5.1.4 接收器退出电气空闲
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1024,7 +1023,7 @@ Figure 16-14: ASPM Support | 图16-14：ASPM支持
 
 Figure 16-15: Active State PM Control Field | 图16-15：活动状态电源管理控制字段
 <img src="images/part05_77e209a142c65d91bf56500642e273f00f0fc13f303078745de3ee810ce97cb7.jpg" width="700" alt="">
-## 1.5.2 L0s State | 1.5.2 L0s 状态
+## 16.5.2 L0s State | 16.5.2 L0s 状态
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1068,7 +1067,7 @@ Figure 16-15: Active State PM Control Field | 图16-15：活动状态电源管�
   </tbody>
 </table>
 
-## Exit from L0s State | 退出 L0s 状态
+## 16.5.2.1 Exit from L0s State | 16.5.2.1 退出 L0s 状态
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1118,7 +1117,7 @@ Figure 16-16: Only Upstream Ports Initiate L1 ASPM | 图16-16：仅上游端口�
   </tbody>
 </table>
 
-## Downstream Component Decides to Enter L1 ASPM | 下游组件决定进入 L1 ASPM
+## 16.5.2.2 Downstream Component Decides to Enter L1 ASPM | 16.5.2.2 下游组件决定进入 L1 ASPM
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1155,7 +1154,7 @@ Figure 16-16: Only Upstream Ports Initiate L1 ASPM | 图16-16：仅上游端口�
   </tbody>
 </table>
 
-## Scenario 1: Both Ports Ready to Enter L1 ASPM State | 场景 1：两端端口均准备好进入 L1 ASPM 状态
+## 16.5.2.3 Scenario 1: Both Ports Ready to Enter L1 ASPM State | 16.5.2.3 场景 1：两端端口均准备好进入 L1 ASPM 状态
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1221,7 +1220,7 @@ Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM | 图16-
   </tbody>
 </table>
 
-## Scenario 3: Downstream Component Receives TLP During Negotiation | 场景 3：下游组件在协商期间接收 TLP
+## 16.5.2.4 Scenario 3: Downstream Component Receives TLP During Negotiation | 16.5.2.4 场景 3：下游组件在协商期间接收 TLP
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1239,8 +1238,7 @@ Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM | 图16-
   </tbody>
 </table>
 
-## Scenario 4: Upstream Component Receives TLP During Negotiation | 场景 4：上游组件在协商期间接收 TLP
-## Scenario 4: Upstream Component Receives TLP | 场景4：协商期间上游组件接收TLP
+## 16.5.2.5 Scenario 4: Upstream Component Receives TLP During Negotiation | 16.5.2.5 场景 4：上游组件在协商期间接收 TLP
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1254,7 +1252,7 @@ Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM | 图16-
   </tbody>
 </table>
 
-## Scenario 5: Upstream Component Rejects L1 Request | 场景 5：上游组件拒绝 L1 请求
+## 16.5.2.6 Scenario 5: Upstream Component Rejects L1 Request | 16.5.2.6 场景 5：上游组件拒绝 L1 请求
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1275,7 +1273,7 @@ Figure 16-17: Negotiation Sequence Required to Enter L1 Active State PM | 图16-
 
 Figure 16-18: Negotiation Sequence Resulting in Rejection to Enter L1 ASPM State | 图16-18：导致拒绝进入L1 ASPM状态的协商序列
 <img src="images/part05_c96eb6d51261fef2cded052c64c1056f7c4bdbb779b8c3e4aafe075d155e3d75.jpg" width="700" alt="">
-## Exit from L1 ASPM State | 退出 L1 ASPM 状态
+## 16.5.2.7 Exit from L1 ASPM State | 16.5.2.7 退出 L1 ASPM 状态
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1382,7 +1380,7 @@ Figure 16‐21: Config. Registers for ASPM Exit Latency Management and Reporting
 
 Figure 16-22: Example of Total L1 Latency | 图16-22：L1总延迟示例
 <img src="images/part05_8961dee54e0ce29831b8a950cff03449f37bf7cb81237bcab49e719827a0f99a.jpg" width="700" alt="">
-## 1.6 Software Initiated Link Power Management
+## 16.6 Software Initiated Link Power Management | 16.6 软件启动的链路电源管理
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1426,7 +1424,7 @@ Figure 16‑23: Devices Transition to L1 When Software Changes their Power Level
   </tbody>
 </table>
 
-## Entering the L1 State | 进入L1状态
+## 16.6.1 Entering the L1 State | 16.6.1 进入 L1 状态
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1454,7 +1452,7 @@ Figure 16‑23: Devices Transition to L1 When Software Changes their Power Level
 
 Figure 16‑24: Procedure Used to Transition a Link from the L0 to L1 State | 图16‑24：用于将链路从L0状态转换到L1状态的过程
 <img src="images/part05_ea98afc53224b6998c6c3023ea503b6051188e4800409676486442c903438cdd.jpg" width="700" alt="">
-## Exiting the L1 State | 退出 L1 状态
+## 16.6.2 Exiting the L1 State | 16.6.2 退出 L1 状态
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1471,7 +1469,7 @@ Figure 16‑24: Procedure Used to Transition a Link from the L0 to L1 State | �
   </tbody>
 </table>
 
-## L2/L3 Ready — Removing Power from the Link
+## 16.6.3 L2/L3 Ready — Removing Power from the Link | 16.6.3 L2/L3 就绪 — 移除链路电源
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1489,7 +1487,7 @@ Figure 16‑24: Procedure Used to Transition a Link from the L0 to L1 State | �
 
 Figure 16-25: Link States Transitions Associated with Preparing Devices for Removal of the Reference Clock and Power | 图16-25：与准备设备移除参考时钟和电源相关的链路状态转换
 <img src="images/part05_2c9540144f970d6374d2245863bc321ad0c9fed42db8d6d9140b64734070eeef.jpg" width="700" alt="">
-## L2/L3 Ready Handshake Sequence
+## 16.6.4 L2/L3 Ready Handshake Sequence | 16.6.4 L2/L3 就绪握手序列
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1581,7 +1579,7 @@ Figure 16-27: State Transitions from L2/L3 Ready When Power is Removed | 图16-2
   </tbody>
 </table>
 
-## 1.7.1 The PME Message | 1.7.1 PME 报文
+## 16.7.1 The PME Message | 16.7.1 PME 报文
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1615,7 +1613,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
   </tbody>
 </table>
 
-## 1.7.2 The PME Sequence | 1.7.2 PME 序列
+## 16.7.2 The PME Sequence | 16.7.2 PME 序列
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1662,8 +1660,8 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
   </tbody>
 </table>
 
-## 17.5.1 The Problem | 17.5.1 问题
-## Problem | 问题
+## 16.7.3 The Problem | 16.7.3 问题
+
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1682,7 +1680,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
   </tbody>
 </table>
 
-## 8.7.1 The Solution | 8.7.1 解决方案
+## 16.7.4 The Solution | 16.7.4 解决方案
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1696,7 +1694,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
   </tbody>
 </table>
 
-## 1.7.4 The PME Context | 1.7.4 PME 上下文
+## 16.7.5 The PME Context | 16.7.5 PME 上下文
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1726,7 +1724,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
   </tbody>
 </table>
 
-## 1.7.5 Waking Non-Communicating Links | 1.7.5 唤醒非通信链路
+## 16.7.6 Waking Non-Communicating Links | 16.7.6 唤醒非通信链路
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1775,7 +1773,7 @@ Figure 16-28: PME Message Format | 图16-28：PME消息格式
 
 Figure 16-29: WAKE# Signal Implementations | 图16-29：WAKE#信号实现
 <img src="images/part05_f2408966fcbddf9c62276c74421bb598bd2c9ec03d7c4b51010ccaa266a5f268.jpg" width="700" alt="">
-## 1.7.6 Auxiliary Power | 1.7.6 辅助电源
+## 16.7.7 Auxiliary Power | 16.7.7 辅助电源
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -1974,7 +1972,7 @@ Figure 16-37: OBFF Enable Register | 图16-37：OBFF使能寄存器
   </tbody>
 </table>
 
-## LTR Registers | LTR寄存器
+## 16.8 LTR Registers | 16.8 LTR 寄存器
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -2006,7 +2004,7 @@ Figure 16-39: LTR Enable | 图16-39：LTR使能
   </tbody>
 </table>
 
-## LTR Messages | LTR 消息
+## 16.8.1 LTR Messages | 16.8.1 LTR 消息
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -2024,7 +2022,7 @@ Figure 16-39: LTR Enable | 图16-39：LTR使能
   </tbody>
 </table>
 
-## Guidelines Regarding LTR Use | LTR 使用指南
+## 16.8.2 Guidelines Regarding LTR Use | 16.8.2 LTR 使用指南
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>
@@ -2060,7 +2058,7 @@ Figure 16-39: LTR Enable | 图16-39：LTR使能
 
 Figure 16-40: LTR Message Format | 图16-40：LTR消息格式
 <img src="images/part05_27130930bb399afbc02f675fb1f5a8c729d2102014b758834d9dbe6bbad836b0.jpg" width="700" alt="">
-## LTR Example | LTR 示例
+## 16.8.3 LTR Example | 16.8.3 LTR 示例
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>

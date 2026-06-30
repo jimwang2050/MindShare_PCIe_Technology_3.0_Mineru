@@ -4,12 +4,12 @@
 
 ## The Previous Chapter | 上一章回顾
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The previous chapter discusses the three major classes of packets: Transaction Layer Packets (TLPs), Data Link Layer Packets (DLLPs) and Ordered Sets. This chapter describes the use, format, and definition of the variety of TLPs and the details of their related fields. DLLPs are described separately in Chapter 9, entitled "DLLP Elements," on page 307.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 上一章讨论了三大类数据包：事务层包 (TLP)、数据链路层包 (DLLP) 和有序集 (Ordered Set)。本章将描述各类 TLP 的用途、格式和定义，以及其相关字段的详细信息。DLLP 将在第 9 章"数据链路层包元素"（第 307 页）中单独介绍。
 </td>
 </tr>
@@ -17,12 +17,12 @@ The previous chapter discusses the three major classes of packets: Transaction L
 
 ## This Chapter | 本章
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 This chapter discusses the purposes and detailed operation of the Flow Control Protocol. Flow control is designed to ensure that transmitters never send Transaction Layer Packets (TLPs) that a receiver can't accept. This prevents receive buffer over-runs and eliminates the need for PCI-style inefficiencies like disconnects, retries, and wait-states.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 本章讨论流控协议的目的与详细运作机制。流控的设计目的是确保发送端绝不会发送接收端无法接受的TLP（事务层包），从而防止接收缓冲区溢出，并消除PCI风格的低效机制（如断开连接、重试和等待状态）。
 </td>
 </tr>
@@ -30,12 +30,12 @@ This chapter discusses the purposes and detailed operation of the Flow Control P
 
 ## The Next Chapter | 下一章
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The next chapter discusses the mechanisms that support Quality of Service and describes the means of controlling the timing and bandwidth of different packets traversing the fabric. These mechanisms include application-specific software that assigns a priority value to every packet, and optional hardware that must be built into each device to enable managing transaction priority.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 下一章将讨论支持服务质量（Quality of Service）的机制，并描述控制不同数据包在互连结构中传输的时序和带宽的方法。这些机制包括为每个数据包分配优先级值的特定应用软件，以及为实现事务优先级管理而必须在每个设备中内置的可选硬件。
 </td>
 </tr>
@@ -43,60 +43,60 @@ The next chapter discusses the mechanisms that support Quality of Service and de
 
 ## 6.1 Flow Control Concept | 6.1 流控概念
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Ports at each end of every PCIe Link must implement Flow Control. Before a packet can be transmitted, flow control checks must verify that the receiving port has sufficient buffer space to accept it. In parallel bus architectures like PCI, transactions are attempted without knowing whether the target is prepared to handle the data. If the request is rejected due to insufficient buffer space, the transaction is repeated (retried) until it completes. This is the "Delayed Transaction Model" of PCI and while it works the efficiency is poor.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 每条 PCIe 链路两端的端口都必须实现流控。在发送数据包之前，流控检查必须验证接收端口是否有足够的缓冲空间来接收它。在 PCI 等并行总线架构中，事务的发起并不知晓目标方是否准备好处理数据。如果请求因缓冲空间不足而被拒绝，则事务将被重复（重试）直至完成。这就是 PCI 的"延迟事务模型"，虽然它能工作，但效率很低。
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control mechanisms can improve transmission efficiency if multiple Virtual Channels (VCs) are used. Each Virtual Channel carries transactions that are independent from the traffic flowing in other VCs because flow‑control buffers are maintained separately. Therefore, a full Flow Control buffer in one VC will not block access to other VC buffers. PCIe supports up to 8 Virtual Channels.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 如果使用多个虚通道（VC），流控机制可以提高传输效率。每个虚通道承载的事务独立于其他 VC 中流动的流量，因为流控缓冲是分开维护的。因此，一个 VC 中的流控缓冲已满并不会阻塞对其他 VC 缓冲的访问。PCIe 最多支持 8 个虚通道。
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The Flow Control mechanism uses a credit‑based mechanism that allows the transmitting port to be aware of buffer space available at the receiving port. As part of its initialization, each receiver reports the size of its buffers to the transmitter on the other end of the Link, and then during run‑time it regularly updates the number of credits available using Flow Control DLLPs. Technically, of course, DLLPs are overhead because they don't convey any data payload, but they are kept small (always 8 symbols in size) to minimize their impact on performance.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控机制采用基于信用的机制，使发送端口能够了解接收端口可用的缓冲空间。作为初始化的一部分，每个接收端将其缓冲区的大小报告给链路另一端的发送端，然后在运行期间使用流控 DLLP 定期更新可用的信用数。当然，从技术上讲，DLLP 属于开销，因为它们不传送任何数据载荷，但它们被保持得很小（始终为 8 个符号大小），以最大限度地减少对性能的影响。
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow control logic is actually a shared responsibility between two layers: the Transaction Layer contains the counters, but the Link Layer sends and receives the DLLPs that convey the information. Figure 6‑1 on page 217 illustrates that shared responsibility. In the process of making flow control work:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控逻辑实际上是两个层之间的共同职责：事务层包含计数器，而链路层负责发送和接收传递信息的 DLLP。第 217 页的图 6‑1 说明了这种共同职责。使流控工作的过程如下：
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Devices Report Available Buffer Space — The receiver of each port reports the size of its Flow Control buffers in units called credits. The number of credits within a buffer is sent from the receive‑side transaction layer to the transmit‑side of the Link Layer. At the appropriate times, the Link Layer creates a Flow Control DLLP to forward this credit information to the receiver at the other end of the Link for each Flow Control Buffer.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 设备报告可用的缓冲空间 — 每个端口的接收端以称为信用的单位报告其流控缓冲的大小。缓冲内的信用数从接收端事务层发送到链路层的发送侧。在适当时刻，链路层创建一个流控 DLLP，将此信用信息转发给链路另一端每个流控缓冲的接收端。
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Receivers Register Credits — The receiver gets Flow Control DLLPs and transfers the credit values to the transmit‑side of the transaction layer. The completes the transfer of credits from one link partner to the other. These actions are performed in both directions until all flow control information has been exchanged.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 接收端登记信用 — 接收端获取流控 DLLP，并将信用值传递给事务层的发送侧。这完成了从一个链路伙伴到另一个链路伙伴的信用传输。这些操作在双向均执行，直到所有流控信息交换完毕。
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Transmitters Check Credits — Before it can send a TLP, a transmitter checks the Flow Control Counters to learn whether sufficient credits are available. If so, the TLP is forwarded to the Link Layer but, if not, the transaction is blocked until more Flow Control credits are reported.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 发送端检查信用 — 在发送 TLP 之前，发送端检查流控计数器以了解是否有足够的信用可用。如果有，TLP 将被转发到链路层；但如果没有，事务将被阻塞，直到有更多的流控信用被报告。
 </td>
 </tr>
@@ -108,71 +108,71 @@ Figure 6‑1: Location of Flow Control Logic | 图6‑1：流控逻辑位置
 
 ## 6.2 Flow Control Buffers and Credits | 6.2 流控缓冲与信用
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow control buffers are implemented for each VC resource supported by a port. Recall that ports at each end of the Link may not support the same number of VCs, therefore the maximum number of VCs configured and enabled by software is the highest common number between the two ports.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控缓冲是针对端口所支持的每个虚通道（VC）资源而实现的。回顾一下，链路两端的端口可能不支持相同数量的VC，因此由软件配置并使能的VC最大数量是两端端口之间最高的公共数量。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 VC Flow Control Buffer Organization
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 虚通道流控缓冲区组织
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Each VC Flow Control buffer at the receiver is managed for each category of transaction flowing through the virtual channel. These categories are:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 接收端的每个虚通道流控缓冲区按流经该虚通道的事务类别进行管理。这些类别包括：
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Posted Transactions — Memory Writes and Messages
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Posted 事务 — 存储器写与消息
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Non-Posted Transactions — Memory Reads, Configuration Reads and Writes, and I/O Reads and Writes
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Non-Posted 事务 — 存储器读、配置读和写、以及 I/O 读和写
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Completions — Read and Write Completions
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 完成报文 — 读和写完成
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 In addition, each of these categories is separated into header and data portions for transactions that have both header and data. This yields six different buffers each of which implements its own flow control (see Figure 6-2 on page 218).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 此外，对于同时具有头部和数据的事务，上述每一类别进一步分为头部部分和数据部分。这样就产生了六个不同的缓冲区，每个缓冲区都实现各自的流控（参见第 218 页的图 6-2）。
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Some transactions, like read requests, consist of a header only while others, like write requests, have both a header and data. The transmitter must ensure that both header and data buffer space is available as needed for a transaction before it can be sent. Note that transaction ordering must be maintained within a VC Flow Control buffer when the transactions are forwarded to software or to an egress port in the case of a switch. Consequently, the receiver must also track the order of header and data components within the buffer.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 某些事务（如读请求）仅包含头部，而其他事务（如写请求）则同时包含头部和数据。发送端在发送事务之前，必须确保所需的头部缓冲区和数据缓冲区空间都可用。请注意，当事务被转发至软件或在交换机中转发至出口端口时，必须在虚通道流控缓冲区内维护事务排序。因此，接收端还必须跟踪缓冲区内头部和数据组件的顺序。
 </td>
 </tr>
@@ -183,52 +183,52 @@ Figure 6-2: Flow Control Buffer Organization | 图6-2：流控缓冲组织
 
 ## 6.2.2 Flow Control Credits | 6.2.2 流控信用量
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Buffer space is reported by the receiver in units called Flow Control credits. The unit value of Flow Control Credits (FCCs) for header and data buffers are:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 接收端以称为流控信用量的单位报告缓冲空间。报头缓冲和数据缓冲的流控信用量（FCC）单位值如下：
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • Header credits — maximum header size + digest
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 报头信用量 — 最大报头大小 + 摘要
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 — 4 DWs for completions
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 — 完成报文为 4 个 DW
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 — 5 DWs for requests
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 — 请求为 5 个 DW
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • Data credits — 4 DWs (aligned 16 bytes)
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 数据信用量 — 4 个 DW（对齐到 16 字节）
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control DLLPs communicate this information, and do not require Flow Control credits themselves. That's because they originate and terminate at the Link Layer and don't use the Transaction Layer buffers.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控 DLLP 负责传递这些信息，其自身不需要消耗流控信用量。这是因为流控 DLLP 在数据链路层发起并终止，不使用事务层的缓冲。
 </td>
 </tr>
@@ -236,12 +236,12 @@ Flow Control DLLPs communicate this information, and do not require Flow Control
 
 ## 6.3 Initial Flow Control Advertisement | 6.3 初始流控通告
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 During Flow Control initialization, PCIe devices communicate their buffer sizes by "advertising" their buffer space via flow control credits. PCIe also defines an infinite Flow Control credit value that is required for some buffers. A receiver that advertises infinite buffer space is effectively guaranteeing that its buffer space will never overflow.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在流控初始化过程中，PCIe设备通过流控信用量来"通告"其缓冲空间，以此传递自身的缓冲大小信息。PCIe还定义了一个无限流控信用量值，该值对于某些缓冲是必需的。通告了无限缓冲空间的接收器，实际上是在保证其缓冲空间永远不会溢出。
 </td>
 </tr>
@@ -249,12 +249,12 @@ During Flow Control initialization, PCIe devices communicate their buffer sizes 
 
 ## 6.3.1 Minimum and Maximum Flow Control Advertisement | 6.3.1 最小和最大流控通告
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The specification defines the minimum number of credits that can be reported for the different Flow Control buffer types as listed in Table 6‑1. However, devices normally advertise considerably more credits than the minimum. Table 6‑2 on page 220 lists the maximum advertisement allowed by the specification.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 规范定义了不同类型流控缓冲可报告的最小信用数，如表6-1所列。然而，设备通常通告的信用数远大于最小值。第220页的表6-2列出了规范允许的最大通告值。
 </td>
 </tr>
@@ -262,57 +262,57 @@ The specification defines the minimum number of credits that can be reported for
 
 Table 6‑1: Required Minimum Flow Control Advertisements | 表6‑1：所需最小流控通告
 
-<table><tr><td>Credit Type</td><td>Minimum Advertisement</td></tr><tr><td>Posted Request Header (PH)</td><td>1 unit. Credit Value = one 4DW HDR + Digest = 5DW.</td></tr><tr><td>Posted Request Data (PD)</td><td>Largest possible setting of the Max_Payload_Size in credits. Example: If the largest Max_Payload_Size value supported is 1024 bytes, the smallest permitted initial credit value would be 040h.</td></tr><tr><td>Non-Posted Request HDR (NPH)</td><td>1 unit. Credit Value = one 4 DW HDR + Digest = 5DW.</td></tr><tr><td>Non-Posted Request Data (NPD)</td><td>1 unit. Credit Value = 4DW.2 unit. Receivers supporting AtomicOp routing or AtomicOp Completer capability have credit value of 02h</td></tr><tr><td>Completion HDR (CPLH)</td><td>1 unit. Credit Value = one 3DW HDR + Digest = 4DW; for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's for Root Complex with no peer-to-peer support and Endpoints.</td></tr><tr><td>Completion Data (CPLD)</td><td>n unit. Value of largest possible setting of Max_Payload_Size or size of largest Read Request (which ever is smaller) divided by FC Unit Size (4DW); for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's; for Root Complex with no peer-to-peer support and Endpoints.</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Credit Type</td><td style="border:2px solid #000;">Minimum Advertisement</td></tr><tr><td style="border:2px solid #000;">Posted Request Header (PH)</td><td style="border:2px solid #000;">1 unit. Credit Value = one 4DW HDR + Digest = 5DW.</td></tr><tr><td style="border:2px solid #000;">Posted Request Data (PD)</td><td style="border:2px solid #000;">Largest possible setting of the Max_Payload_Size in credits. Example: If the largest Max_Payload_Size value supported is 1024 bytes, the smallest permitted initial credit value would be 040h.</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request HDR (NPH)</td><td style="border:2px solid #000;">1 unit. Credit Value = one 4 DW HDR + Digest = 5DW.</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request Data (NPD)</td><td style="border:2px solid #000;">1 unit. Credit Value = 4DW.2 unit. Receivers supporting AtomicOp routing or AtomicOp Completer capability have credit value of 02h</td></tr><tr><td style="border:2px solid #000;">Completion HDR (CPLH)</td><td style="border:2px solid #000;">1 unit. Credit Value = one 3DW HDR + Digest = 4DW; for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's for Root Complex with no peer-to-peer support and Endpoints.</td></tr><tr><td style="border:2px solid #000;">Completion Data (CPLD)</td><td style="border:2px solid #000;">n unit. Value of largest possible setting of Max_Payload_Size or size of largest Read Request (which ever is smaller) divided by FC Unit Size (4DW); for Root Complex with peer-to-peer support and Switches.Infinite units. Initial Credit Value = all 0's; for Root Complex with no peer-to-peer support and Endpoints.</td></tr></table>
 
 Table 6‑2: Maximum Flow Control Advertisements | 表6‑2：最大流控通告
 
-<table><tr><td>Credit Type</td><td>Maximum Advertisement</td></tr><tr><td>Posted Request Header (PH)</td><td>128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td>Posted Request Data (PD)</td><td>2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytes</td></tr><tr><td>Non-Posted Request HDR (NPH)</td><td>128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td>Non-Posted Request Data (NPD)</td><td>The author's could not find a precise value for the maximum number of credits for Non-Posted Data. The maximum number of credits listed for Data is 2048. However, a more reasonable approach might use the Non-Posted header limit of 128 credits, because Non-Posted Data is always associated with Non-Posted Headers.</td></tr><tr><td>Completion HDR (CPLH)</td><td>128 units. 128 credits @ 5 DWs = 2,560 bytes. This in the limit for ports that do not originate transactions (e.g., Root Complex with peer-to-peer support and Switches).Infinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr><tr><td>Completion Data (CPLD)</td><td>2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by a device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytesInfinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Credit Type</td><td style="border:2px solid #000;">Maximum Advertisement</td></tr><tr><td style="border:2px solid #000;">Posted Request Header (PH)</td><td style="border:2px solid #000;">128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td style="border:2px solid #000;">Posted Request Data (PD)</td><td style="border:2px solid #000;">2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytes</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request HDR (NPH)</td><td style="border:2px solid #000;">128 units. 128 credits @ 5 DWs = 2,560 bytes.</td></tr><tr><td style="border:2px solid #000;">Non-Posted Request Data (NPD)</td><td style="border:2px solid #000;">The author's could not find a precise value for the maximum number of credits for Non-Posted Data. The maximum number of credits listed for Data is 2048. However, a more reasonable approach might use the Non-Posted header limit of 128 credits, because Non-Posted Data is always associated with Non-Posted Headers.</td></tr><tr><td style="border:2px solid #000;">Completion HDR (CPLH)</td><td style="border:2px solid #000;">128 units. 128 credits @ 5 DWs = 2,560 bytes. This in the limit for ports that do not originate transactions (e.g., Root Complex with peer-to-peer support and Switches).Infinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr><tr><td style="border:2px solid #000;">Completion Data (CPLD)</td><td style="border:2px solid #000;">2048 units. Value of the Max_Payload_Size (4096 bytes) including all functions supported by a device (8) divided by the credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytesInfinite units. Initial Credit Value = all 0's for ports that originate transactions (e.g., Root Complex with no peer-to-peer support and Endpoints).</td></tr></table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Infinite Credits
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 无限信用
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Note that a flow control value of 00h will be understood to mean infinite credits during initialization. Following Flow-Control initialization no further advertisements are made. Devices that originate transactions must reserve buffer space for the data or status information that will return during split transactions. These transaction combinations include:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 注意，在初始化期间，流控值 00h 将被理解为无限信用。流控初始化完成后，不再进行进一步的信用通告。发起事务的设备必须为在拆分事务期间将返回的数据或状态信息预留缓冲区空间。这些事务组合包括：
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Non-posted Read requests and return of Completion Data
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 非转发读请求与完成数据返回
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Non-posted Read requests and return of Completion Status
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 非转发读请求与完成状态返回
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Non-posted Write requests and return of Completion Status
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 非转发写请求与完成状态返回
 </td>
 </tr>
 </table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -330,7 +330,7 @@ Non-posted Write requests and return of Completion Status
 ## 6.4.1.1 General | 6.4.1.1 概述
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -347,7 +347,7 @@ Figure 6-3: Physical Layer Reports That It's Ready | 图6-3：物理层报告就
 <img src="images/part02_54e12e01aa03e4379dcd32828df148c16b032beeb09488f10af286ed8439b988.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -363,7 +363,7 @@ Figure 6-3: Physical Layer Reports That It's Ready | 图6-3：物理层报告就
 ## 6.4.1 The FC Initialization Sequence | 6.4.1 FC 初始化序列
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -380,7 +380,7 @@ Figure 6-4: The Data Link Control & Management State Machine | 图6-4：数据�
 <img src="images/part02_de91fb109446b91494463626952bd896773d600785c8df5647b5802d71a90c52.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -402,20 +402,20 @@ Figure 6‐6: Devices Send InitFC1 in the DL\_Init State | 图6‐6：设备在D
 
 ## 6.4.3 FC_Init2 Details | 6.4.3 FC_Init2 详情
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 In this state a device continuously sends InitFC2 DLLPs. These are sent in the same sequence as the InitFC1s and contain the same credit information, but they also confirm that FC initialization has succeeded at the sender. Since the device has already registered the values from the neighbor it doesn't need any more credit information and will ignore any incoming InitFC1s while it waits to see InitFC2s. It can even send TLPs at this point, even though initialization hasn't completed for the other side of the Link, and this is indicated to the Transaction Layer by the DL_Up signal (See Figure 6-7).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在此状态中，设备持续发送 InitFC2 DLLP。这些 DLLP 以与 InitFC1 相同的序列发送，包含相同的信用量信息，但它们同时确认发送端的 FC 初始化已成功。由于设备已寄存来自对端的值，它不再需要更多信用量信息，并在等待接收 InitFC2 期间忽略任何传入的 InitFC1。此时设备甚至可以发送 TLP，即使链路另一端的初始化尚未完成，这一点通过 DL_Up 信号向事务层指示（见图 6-7）。
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Why is this second initialization step needed? The simple answer is that neighboring devices may finish FC initialization at different times and this method ensures that the late one will continue to receive the FC information it needs even if the neighbor finishes early. Once a device receives an FC_INIT2 packet for any buffer type, it sets an internal flag (Fl2). (It doesn't wait to receive an FC_Init2 for each type.) Note that FL2 is also set upon receipt of an UpdateFC packet or TLP. When both sides are done and have sent InitFC2s, the DLCMSM transitions to the DL_Active state and the Link Layer is ready for normal operation.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 为何需要第二个初始化步骤？简单的答案是：相邻设备可能在不同时间完成 FC 初始化，而该方法确保即使对端提前完成，完成较晚的设备仍能持续接收到所需的 FC 信息。一旦设备接收到任意缓冲类型的 FC_INIT2 报文，它将设置一个内部标志 (Fl2)。（它不等待接收每种类型的 FC_Init2。）注意，FL2 在接收到 UpdateFC 报文或 TLP 时也会被设置。当双方均已完成并发送了 InitFC2 后，DLCMSM 转换到 DL_Active 状态，链路层即可进入正常运行。
 </td>
 </tr>
@@ -425,43 +425,43 @@ Figure 6-7: FC Values Registered - Send InitFC2s, Report DL_Up | 图6-7：注册
 
 <img src="images/part02_5cd25435ccd57025b05bd860a7062084b0cb9f679e3881614c49a8de9c6fdea8.jpg" width="700" alt="">
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 **Rate of FC_INIT1 and FC_INIT2 Transmission**
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 **FC_INIT1 与 FC_INIT2 的发送速率**
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The specification defines the latency between sending FC_INIT DLLPs as follows:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 规范定义了 FC_INIT DLLP 发送间隔的延迟，如下所示：
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 **VC0.** Hardware-initiated flow control of VC0 requires that FC_INIT1 and FC_INIT2 packets be transmitted "continuously at the maximum rate possible." That is, the resend timer is set to a value of zero.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 **VC0.** VC0 的硬件发起流控要求 FC_INIT1 和 FC_INIT2 报文"以最大可能速率连续"发送。即，重发定时器的值设为零。
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 **VC1-VC7.** When software initiates flow control initialization for other VCs, the FC_INIT sequence is repeated "when no other TLPs or DLLPs are available for transmission." However, the latency between the beginning of one sequence to the next can be no greater than 17μs.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 **VC1-VC7.** 当软件发起其他 VC 的流控初始化时，FC_INIT 序列在"没有其他 TLP 或 DLLP 可供发送时"重复。然而，从一个序列开始到下一个序列开始的延迟不得超过 17μs。
 </td>
 </tr>
 </table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -479,7 +479,7 @@ The specification defines the latency between sending FC_INIT DLLPs as follows:
 ## 6.4.1.1 General | 6.4.1.1 概述
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -494,7 +494,7 @@ The specification defines the latency between sending FC_INIT DLLPs as follows:
 ## 6.5.1 The Flow Control Elements | 6.5.1 流控元素
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -512,7 +512,7 @@ Figure 6‑8: Flow Control Elements | 图6‑8：流控元素
 <img src="images/part02_42362f326051b32a1b6017a8abb20f54beafb43cc3ee1623bfd8213166cccb9a.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -533,7 +533,7 @@ C L - (C C + P T L P) \text { mod } 2 ^ {[ F i e l d S i z e ]} \leq 2 ^ {[ F i 
 $$
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -548,7 +548,7 @@ $$
 ## 6.5.2 Receiver Elements | 6.5.2 接收器要素
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -566,7 +566,7 @@ Figure 6‐9: Types and Format of Flow Control DLLPs | 图6‐9：流控DLLP的�
 <img src="images/part02_0faa0be1ab74190a28a3d4d08f3049c677e1a521ac64dd64196c85f12e87983d.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -584,7 +584,7 @@ Figure 6‐9: Types and Format of Flow Control DLLPs | 图6‐9：流控DLLP的�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -623,7 +623,7 @@ Figure 6‑11: Flow Control Elements After First TLP Sent | 图6‑11：发送�
 ## 6.5.1.1 Stage 2 — Flow Control Buffer Fills Up | 6.5.1.1 阶段2 — 流控缓冲器填满
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -644,7 +644,7 @@ Figure 6‐12: Flow Control Elements with Flow Control Buffer Filled | 图6‐12
 ## 6.5.1.2 Stage 3 — Counters Roll Over | 6.5.1.2 阶段3 — 计数器回绕
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -660,7 +660,7 @@ Figure 6‐13: Flow Control Rollover Problem | 图6‐13：流控翻转问题
 <img src="images/part02_d7bbf66f20b0b0bc1d8c682e68c8ffe25f57b3d5de1d761943c1c05b36f70a67.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -684,7 +684,7 @@ Figure 6-14: Buffer Overflow Error Check | 图6-14：缓冲溢出错误检查
 ## 6.7 Flow Control Updates | 6.7 流控更新
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -705,7 +705,7 @@ Figure 6-15: Flow Control Update Example | 图6-15：流控更新示例
 ## 6.7.1 FC_Update DLLP 格式与内容 | 6.7.1 FC_Update DLLP Format and Content
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -721,7 +721,7 @@ Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更�
 <img src="images/part02_fde64227c5b68060559c40261e02f5492aa43e27e574a0e5eef46bd81625d69e.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -744,7 +744,7 @@ Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -758,7 +758,7 @@ Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -773,7 +773,7 @@ Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -789,7 +789,7 @@ Figure 6‐16: Update Flow Control Packet Format and Contents | 图6‐16：更�
 ## 6.7.2 Calculating Update Frequency Based on Payload Size and Link Width | 6.7.2 根据有效载荷大小和链路宽度计算更新频率
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -806,7 +806,7 @@ $$
 $$
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -823,7 +823,7 @@ $$
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -837,18 +837,18 @@ $$
 
 Table 6‑3: Gen1 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6‑3：Gen1未调整的AckNak_LATENCY_TIMER值（符号时间）
 
-<table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>237UF=1.4</td><td>128UF=1.4</td><td>73UF=1.4</td><td>67UF=2.5</td><td>58UF=3.0</td><td>48UF=3.0</td><td>33UF=3.0</td></tr><tr><td>256 Bytes</td><td>416FC=1.4</td><td>217FC=1.4</td><td>118UF=1.4</td><td>107UF=2.5</td><td>90UF=3.0</td><td>72UF=3.0</td><td>45UF=3.0</td></tr><tr><td>512 Bytes</td><td>559UF=1.0</td><td>289UF=1.0</td><td>154UF=1.0</td><td>86UF=1.0</td><td>109UF=2.0</td><td>86UF=2.0</td><td>52UF=2.0</td></tr><tr><td>1024 Bytes</td><td>1071UF=1.0</td><td>545UF=1.0</td><td>282UF=1.0</td><td>150UF=1.0</td><td>194UF=2.0</td><td>150UF=2.0</td><td>84UF=2.0</td></tr><tr><td>2048 Bytes</td><td>2095UF=1.0</td><td>1057UF=1.0</td><td>538UF=1.0</td><td>278UF=1.0</td><td>365UF=2.0</td><td>278UF=2.0</td><td>148UF=2.0</td></tr><tr><td>4096 Bytes</td><td>4143UF=1.0</td><td>2081UF=1.0</td><td>1050UF=1.0</td><td>534UF=1.0</td><td>706UF=2.0</td><td>534UF=2.0</td><td>276UF=2.0</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1Link</td><td style="border:2px solid #000;">x2Link</td><td style="border:2px solid #000;">x4Link</td><td style="border:2px solid #000;">x8Link</td><td style="border:2px solid #000;">x12Link</td><td style="border:2px solid #000;">x16Link</td><td style="border:2px solid #000;">x32Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">237UF=1.4</td><td style="border:2px solid #000;">128UF=1.4</td><td style="border:2px solid #000;">73UF=1.4</td><td style="border:2px solid #000;">67UF=2.5</td><td style="border:2px solid #000;">58UF=3.0</td><td style="border:2px solid #000;">48UF=3.0</td><td style="border:2px solid #000;">33UF=3.0</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">416FC=1.4</td><td style="border:2px solid #000;">217FC=1.4</td><td style="border:2px solid #000;">118UF=1.4</td><td style="border:2px solid #000;">107UF=2.5</td><td style="border:2px solid #000;">90UF=3.0</td><td style="border:2px solid #000;">72UF=3.0</td><td style="border:2px solid #000;">45UF=3.0</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">559UF=1.0</td><td style="border:2px solid #000;">289UF=1.0</td><td style="border:2px solid #000;">154UF=1.0</td><td style="border:2px solid #000;">86UF=1.0</td><td style="border:2px solid #000;">109UF=2.0</td><td style="border:2px solid #000;">86UF=2.0</td><td style="border:2px solid #000;">52UF=2.0</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1071UF=1.0</td><td style="border:2px solid #000;">545UF=1.0</td><td style="border:2px solid #000;">282UF=1.0</td><td style="border:2px solid #000;">150UF=1.0</td><td style="border:2px solid #000;">194UF=2.0</td><td style="border:2px solid #000;">150UF=2.0</td><td style="border:2px solid #000;">84UF=2.0</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2095UF=1.0</td><td style="border:2px solid #000;">1057UF=1.0</td><td style="border:2px solid #000;">538UF=1.0</td><td style="border:2px solid #000;">278UF=1.0</td><td style="border:2px solid #000;">365UF=2.0</td><td style="border:2px solid #000;">278UF=2.0</td><td style="border:2px solid #000;">148UF=2.0</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4143UF=1.0</td><td style="border:2px solid #000;">2081UF=1.0</td><td style="border:2px solid #000;">1050UF=1.0</td><td style="border:2px solid #000;">534UF=1.0</td><td style="border:2px solid #000;">706UF=2.0</td><td style="border:2px solid #000;">534UF=2.0</td><td style="border:2px solid #000;">276UF=2.0</td></tr></table>
 
 Table 6‑4: Gen2 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6‑4：Gen2未调整的AckNak_LATENCY_TIMER值（符号时间）
 
-<table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>288UF=1.4</td><td>179UF=1.4</td><td>124UF=1.4</td><td>118UF=2.5</td><td>109UF=3.0</td><td>99UF=3.0</td><td>84UF=3.0</td></tr><tr><td>256 Bytes</td><td>467FC=1.4</td><td>268FC=1.4</td><td>169UF=1.4</td><td>158UF=2.5</td><td>141UF=3.0</td><td>123UF=3.0</td><td>96UF=3.0</td></tr><tr><td>512 Bytes</td><td>610UF=1.0</td><td>340UF=1.0</td><td>205UF=1.0</td><td>137UF=1.0</td><td>160UF=2.0</td><td>137UF=2.0</td><td>103UF=2.0</td></tr><tr><td>1024 Bytes</td><td>1122UF=1.0</td><td>596UF=1.0</td><td>333UF=1.0</td><td>201UF=1.0</td><td>245UF=2.0</td><td>201UF=2.0</td><td>135UF=2.0</td></tr><tr><td>2048 Bytes</td><td>2146UF=1.0</td><td>1108UF=1.0</td><td>589UF=1.0</td><td>329UF=1.0</td><td>416UF=2.0</td><td>329UF=2.0</td><td>199UF=2.0</td></tr><tr><td>4096 Bytes</td><td>4194UF=1.0</td><td>2132UF=1.0</td><td>1101UF=1.0</td><td>585UF=1.0</td><td>757UF=2.0</td><td>585UF=2.0</td><td>327UF=2.0</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1Link</td><td style="border:2px solid #000;">x2Link</td><td style="border:2px solid #000;">x4Link</td><td style="border:2px solid #000;">x8Link</td><td style="border:2px solid #000;">x12Link</td><td style="border:2px solid #000;">x16Link</td><td style="border:2px solid #000;">x32Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">288UF=1.4</td><td style="border:2px solid #000;">179UF=1.4</td><td style="border:2px solid #000;">124UF=1.4</td><td style="border:2px solid #000;">118UF=2.5</td><td style="border:2px solid #000;">109UF=3.0</td><td style="border:2px solid #000;">99UF=3.0</td><td style="border:2px solid #000;">84UF=3.0</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">467FC=1.4</td><td style="border:2px solid #000;">268FC=1.4</td><td style="border:2px solid #000;">169UF=1.4</td><td style="border:2px solid #000;">158UF=2.5</td><td style="border:2px solid #000;">141UF=3.0</td><td style="border:2px solid #000;">123UF=3.0</td><td style="border:2px solid #000;">96UF=3.0</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">610UF=1.0</td><td style="border:2px solid #000;">340UF=1.0</td><td style="border:2px solid #000;">205UF=1.0</td><td style="border:2px solid #000;">137UF=1.0</td><td style="border:2px solid #000;">160UF=2.0</td><td style="border:2px solid #000;">137UF=2.0</td><td style="border:2px solid #000;">103UF=2.0</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1122UF=1.0</td><td style="border:2px solid #000;">596UF=1.0</td><td style="border:2px solid #000;">333UF=1.0</td><td style="border:2px solid #000;">201UF=1.0</td><td style="border:2px solid #000;">245UF=2.0</td><td style="border:2px solid #000;">201UF=2.0</td><td style="border:2px solid #000;">135UF=2.0</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2146UF=1.0</td><td style="border:2px solid #000;">1108UF=1.0</td><td style="border:2px solid #000;">589UF=1.0</td><td style="border:2px solid #000;">329UF=1.0</td><td style="border:2px solid #000;">416UF=2.0</td><td style="border:2px solid #000;">329UF=2.0</td><td style="border:2px solid #000;">199UF=2.0</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4194UF=1.0</td><td style="border:2px solid #000;">2132UF=1.0</td><td style="border:2px solid #000;">1101UF=1.0</td><td style="border:2px solid #000;">585UF=1.0</td><td style="border:2px solid #000;">757UF=2.0</td><td style="border:2px solid #000;">585UF=2.0</td><td style="border:2px solid #000;">327UF=2.0</td></tr></table>
 
 Table 6‑5: Gen3 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6‑5：Gen3未调整的AckNak_LATENCY_TIMER值（符号时间）
 
-<table><tr><td>Max Payload</td><td>x1 Link</td><td>x2 Link</td><td>x4 Link</td><td>x8 Link</td><td>x12 Link</td><td>x16 Link</td><td>x32 Link</td></tr><tr><td>128 Bytes</td><td>333UF=1.4</td><td>224UF=1.4</td><td>169UF=1.4</td><td>163UF=2.5</td><td>154UF=3.0</td><td>144UF=3.0</td><td>129UF=3.0</td></tr><tr><td>256 Bytes</td><td>512FC=1.4</td><td>313FC=1.4</td><td>214UF=1.4</td><td>203UF=2.5</td><td>186UF=3.0</td><td>168UF=3.0</td><td>141UF=3.0</td></tr><tr><td>512 Bytes</td><td>655UF=1.0</td><td>385UF=1.0</td><td>250UF=1.0</td><td>182UF=1.0</td><td>205UF=2.0</td><td>182UF=2.0</td><td>148UF=2.0</td></tr><tr><td>1024 Bytes</td><td>1167UF=1.0</td><td>641UF=1.0</td><td>378UF=1.0</td><td>246UF=1.0</td><td>290UF=2.0</td><td>246UF=2.0</td><td>180UF=2.0</td></tr><tr><td>2048 Bytes</td><td>2191UF=1.0</td><td>1153UF=1.0</td><td>643UF=1.0</td><td>374UF=1.0</td><td>461UF=2.0</td><td>374UF=2.0</td><td>244UF=2.0</td></tr><tr><td>4096 Bytes</td><td>4239UF=1.0</td><td>2177UF=1.0</td><td>1146UF=1.0</td><td>630UF=1.0</td><td>802UF=2.0</td><td>630UF=2.0</td><td>372UF=2.0</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1 Link</td><td style="border:2px solid #000;">x2 Link</td><td style="border:2px solid #000;">x4 Link</td><td style="border:2px solid #000;">x8 Link</td><td style="border:2px solid #000;">x12 Link</td><td style="border:2px solid #000;">x16 Link</td><td style="border:2px solid #000;">x32 Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">333UF=1.4</td><td style="border:2px solid #000;">224UF=1.4</td><td style="border:2px solid #000;">169UF=1.4</td><td style="border:2px solid #000;">163UF=2.5</td><td style="border:2px solid #000;">154UF=3.0</td><td style="border:2px solid #000;">144UF=3.0</td><td style="border:2px solid #000;">129UF=3.0</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">512FC=1.4</td><td style="border:2px solid #000;">313FC=1.4</td><td style="border:2px solid #000;">214UF=1.4</td><td style="border:2px solid #000;">203UF=2.5</td><td style="border:2px solid #000;">186UF=3.0</td><td style="border:2px solid #000;">168UF=3.0</td><td style="border:2px solid #000;">141UF=3.0</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">655UF=1.0</td><td style="border:2px solid #000;">385UF=1.0</td><td style="border:2px solid #000;">250UF=1.0</td><td style="border:2px solid #000;">182UF=1.0</td><td style="border:2px solid #000;">205UF=2.0</td><td style="border:2px solid #000;">182UF=2.0</td><td style="border:2px solid #000;">148UF=2.0</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1167UF=1.0</td><td style="border:2px solid #000;">641UF=1.0</td><td style="border:2px solid #000;">378UF=1.0</td><td style="border:2px solid #000;">246UF=1.0</td><td style="border:2px solid #000;">290UF=2.0</td><td style="border:2px solid #000;">246UF=2.0</td><td style="border:2px solid #000;">180UF=2.0</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2191UF=1.0</td><td style="border:2px solid #000;">1153UF=1.0</td><td style="border:2px solid #000;">643UF=1.0</td><td style="border:2px solid #000;">374UF=1.0</td><td style="border:2px solid #000;">461UF=2.0</td><td style="border:2px solid #000;">374UF=2.0</td><td style="border:2px solid #000;">244UF=2.0</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4239UF=1.0</td><td style="border:2px solid #000;">2177UF=1.0</td><td style="border:2px solid #000;">1146UF=1.0</td><td style="border:2px solid #000;">630UF=1.0</td><td style="border:2px solid #000;">802UF=2.0</td><td style="border:2px solid #000;">630UF=2.0</td><td style="border:2px solid #000;">372UF=2.0</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -861,7 +861,7 @@ Table 6‑5: Gen3 Unadjusted AckNak_LATENCY_TIMER Values (Symbol Times) | 表6�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>

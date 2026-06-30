@@ -1,7 +1,7 @@
 # Ch07_Quality_of_Service
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -14,7 +14,7 @@
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -30,7 +30,7 @@
 ## This Chapter | 本章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -43,7 +43,7 @@
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -59,7 +59,7 @@
 ## 7.1 Motivation | 7.1 动机
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -75,7 +75,7 @@
 ## 7.2 Basic Elements | 7.2 基本要素
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -93,7 +93,7 @@ Figure 7‐1: Virtual Channel Capability Registers | 图7‐1：虚拟通道能�
 ## 7.2.1 Traffic Class (TC) | 7.2.1 流量类（TC）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -110,7 +110,7 @@ Figure 7-2: Traffic Class Field in TLP Header | 图7-2：TLP头中的流量类�
 <img src="images/part02_7fc83f4e29c5c72ecbfbed64dad219b7d42909ac43c86b8c5064dd4eaf97e52e.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -123,7 +123,7 @@ Figure 7-2: Traffic Class Field in TLP Header | 图7-2：TLP头中的流量类�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -140,7 +140,7 @@ Figure 7-2: Traffic Class Field in TLP Header | 图7-2：TLP头中的流量类�
 ## 7.2.1.1 Assigning TCs to each VC — TC/VC Mapping | 7.2.1.1 为每个 VC 分配 TC — TC/VC 映射
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -165,7 +165,7 @@ Figure 7‑3: TC to VC Mapping Example | 图7‑3：TC到VC映射示例
 ## 7.2.1.2 Determining the Number of VCs to be Used | 7.2.1.2 确定要使用的 VC 数量
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -180,7 +180,7 @@ Figure 7‑3: TC to VC Mapping Example | 图7‑3：TC到VC映射示例
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -197,7 +197,7 @@ Figure 7-4: Multiple VCs Supported by a Device | 图7-4：设备支持的多个V
 <img src="images/part02_4d4de81f0c9e88ddc5b4014d286cec57387170e6d117718471286448d0dadbc0.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -216,7 +216,7 @@ Figure 7-5: Extended VCs Supported Field | 图7-5：扩展VC支持字段
 ## 7.2.1.3 Assigning VC Numbers (IDs) | 7.2.1.3 分配 VC 编号（ID）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -230,7 +230,7 @@ Figure 7-5: Extended VCs Supported Field | 图7-5：扩展VC支持字段
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -243,7 +243,7 @@ Figure 7-5: Extended VCs Supported Field | 图7-5：扩展VC支持字段
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -269,7 +269,7 @@ Figure 7‐6: VC Arbitration Example | 图7‐6：VC仲裁示例
 <img src="images/part02_3085c244d29089639875d921bd5cd20881136ab42b1f03a023f1d19301700bc8.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -285,10 +285,10 @@ Figure 7‐6: VC Arbitration Example | 图7‐6：VC仲裁示例
 
 Figure 7-7: Strict Priority Arbitration | 图7-7：严格优先级仲裁
 
-<table><tr><td>VC Resources</td><td>Priority Order</td></tr><tr><td>8th VC</td><td>VC7 Highest</td></tr><tr><td>7th VC</td><td>VC6</td></tr><tr><td>6th VC</td><td>VC5</td></tr><tr><td>5th VC</td><td>VC4</td></tr><tr><td>4th VC</td><td>VC3</td></tr><tr><td>3rd VC</td><td>VC2</td></tr><tr><td>2nd VC</td><td>VC1</td></tr><tr><td>1st VC</td><td>VC0 Lowest</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">VC Resources</td><td style="border:2px solid #000;">Priority Order</td></tr><tr><td style="border:2px solid #000;">8th VC</td><td style="border:2px solid #000;">VC7 Highest</td></tr><tr><td style="border:2px solid #000;">7th VC</td><td style="border:2px solid #000;">VC6</td></tr><tr><td style="border:2px solid #000;">6th VC</td><td style="border:2px solid #000;">VC5</td></tr><tr><td style="border:2px solid #000;">5th VC</td><td style="border:2px solid #000;">VC4</td></tr><tr><td style="border:2px solid #000;">4th VC</td><td style="border:2px solid #000;">VC3</td></tr><tr><td style="border:2px solid #000;">3rd VC</td><td style="border:2px solid #000;">VC2</td></tr><tr><td style="border:2px solid #000;">2nd VC</td><td style="border:2px solid #000;">VC1</td></tr><tr><td style="border:2px solid #000;">1st VC</td><td style="border:2px solid #000;">VC0 Lowest</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -306,7 +306,7 @@ Figure 7-7: Strict Priority Arbitration | 图7-7：严格优先级仲裁
 ## 7.3.2 Group Arbitration | 7.3.2 组仲裁
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -325,7 +325,7 @@ Figure 7-8: Low-Priority Extended VCs | 图7-8：低优先级扩展VC
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -344,12 +344,12 @@ Figure 7-9: VC Arbitration Capabilities | 图7-9：VC仲裁能力
 Figure 7-10: VC Arbitration Priorities | 图7-10：VC仲裁优先级
 <img src="images/part02_b6ab50731a9edf9b8f3c5765f01a3cecb34c9381f862c6b922a1071e93bff1f6.jpg" width="700" alt="">
 
-<table><tr><td>VC Resources</td><td>VC IDs</td><td>Split Priority</td></tr><tr><td>8th VC</td><td>VC7</td><td>Highest</td></tr><tr><td>7th VC</td><td>VC6</td><td>High-Priority (Strict Priority Scheme)</td></tr><tr><td>6th VC</td><td>VC5</td><td rowspan="3">Low-Priority VC ID = 4</td></tr><tr><td>5th VC</td><td>VC4</td></tr><tr><td>4th VC</td><td>VC3</td></tr><tr><td>3rd VC</td><td>VC2</td><td rowspan="2">Low-Priority (Alternate Priority Scheme) (Selected by Software)</td></tr><tr><td>2nd VC</td><td>VC1</td></tr><tr><td>1st VC</td><td>VC0</td><td>Lowest</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">VC Resources</td><td style="border:2px solid #000;">VC IDs</td><td style="border:2px solid #000;">Split Priority</td></tr><tr><td style="border:2px solid #000;">8th VC</td><td style="border:2px solid #000;">VC7</td><td style="border:2px solid #000;">Highest</td></tr><tr><td style="border:2px solid #000;">7th VC</td><td style="border:2px solid #000;">VC6</td><td style="border:2px solid #000;">High-Priority (Strict Priority Scheme)</td></tr><tr><td style="border:2px solid #000;">6th VC</td><td style="border:2px solid #000;">VC5</td><td rowspan="3" style="border:2px solid #000;">Low-Priority VC ID = 4</td></tr><tr><td style="border:2px solid #000;">5th VC</td><td style="border:2px solid #000;">VC4</td></tr><tr><td style="border:2px solid #000;">4th VC</td><td style="border:2px solid #000;">VC3</td></tr><tr><td style="border:2px solid #000;">3rd VC</td><td style="border:2px solid #000;">VC2</td><td rowspan="2" style="border:2px solid #000;">Low-Priority (Alternate Priority Scheme) (Selected by Software)</td></tr><tr><td style="border:2px solid #000;">2nd VC</td><td style="border:2px solid #000;">VC1</td></tr><tr><td style="border:2px solid #000;">1st VC</td><td style="border:2px solid #000;">VC0</td><td style="border:2px solid #000;">Lowest</td></tr></table>
 
 ## 7.3.1.1 Hardware Fixed Arbitration Scheme | 7.3.1.1 硬件固定仲裁方案
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -364,7 +364,7 @@ Figure 7-10: VC Arbitration Priorities | 图7-10：VC仲裁优先级
 ## 7.3.1.2 Weighted Round Robin Arbitration Scheme | 7.3.1.2 加权轮询仲裁方案
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -383,7 +383,7 @@ Figure 7‐11: WRR VC Arbitration Table | 图7‐11：WRR VC仲裁表
 ## 7.3.1.3 Setting up the Virtual Channel Arbitration Table | 7.3.1.3 设置虚拟通道仲裁表
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -400,7 +400,7 @@ Figure 7‐12: VC Arbitration Table Offset and Load VC Arbitration Table Fields 
 <img src="images/part02_9d87feb73a2c2594cee05c8b6d2d80ebbd8a287d87d0cdb43b642962e5c29299.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -412,14 +412,14 @@ Figure 7‐12: VC Arbitration Table Offset and Load VC Arbitration Table Fields 
 </table>
 
 
-<table><tr><td colspan="8">32 Phase Virtual Channel Arbitration Table</td></tr><tr><td>31</td><td>28</td><td>27</td><td>24</td><td>23</td><td>20</td><td>19</td><td>16</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>15</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>12</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>11</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>12</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>8</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>7</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>4</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>3</td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>0</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td colspan="8" style="border:2px solid #000;">32 Phase Virtual Channel Arbitration Table</td></tr><tr><td style="border:2px solid #000;">31</td><td style="border:2px solid #000;">28</td><td style="border:2px solid #000;">27</td><td style="border:2px solid #000;">24</td><td style="border:2px solid #000;">23</td><td style="border:2px solid #000;">20</td><td style="border:2px solid #000;">19</td><td style="border:2px solid #000;">16</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">15</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">12</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">11</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">12</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">8</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">7</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">4</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">3</td></tr><tr><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">0</td></tr></table>
 
 Figure 7‐13: Loading the VC Arbitration Table Entries | 图7‐13：加载VC仲裁表项
 
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -434,7 +434,7 @@ Figure 7‐13: Loading the VC Arbitration Table Entries | 图7‐13：加载VC�
 ## 7.4 Port Arbitration | 7.4 端口仲裁
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -449,7 +449,7 @@ Figure 7‐13: Loading the VC Arbitration Table Entries | 图7‐13：加载VC�
 ## 7.4.1.1 General | 7.4.1.1 概述
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -478,7 +478,7 @@ Figure 7-15: Port Arbitration Tables for Each VC | 图7-15：每个VC的端口�
 <img src="images/part02_d1158e33b7cbf226774c41e5939b3976c5fd48e86e62b0ca5b420b6a6168c450.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -506,7 +506,7 @@ Figure 7‑17: Software Selects Port Arbitration Scheme | 图7‑17：软件选�
 <img src="images/part02_d51d505f010cca14d1172de4b502b0f0e7700d51ff89cae4d6ef9c53496d9da0.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -521,7 +521,7 @@ Figure 7‑17: Software Selects Port Arbitration Scheme | 图7‑17：软件选�
 ## 7.4.1.1.1 Hardware-Fixed Arbitration | 7.4.1.1.1 硬件固定仲裁
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -534,7 +534,7 @@ Figure 7‑17: Software Selects Port Arbitration Scheme | 图7‑17：软件选�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -552,7 +552,7 @@ Figure 7‑17: Software Selects Port Arbitration Scheme | 图7‑17：软件选�
 ## 7.4.1.1.2 Time-Based, Weighted Round Robin Arbitration (TBWRR) | 7.4.1.1.2 基于时间的加权轮询仲裁（TBWRR）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -572,7 +572,7 @@ Figure 7‑18: Maximum Time Slots Register | 图7‑18：最大时隙寄存器
 ## 7.4.2 Loading the Port Arbitration Tables | 7.4.2 加载端口仲裁表
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -591,15 +591,15 @@ Figure 7‑18: Maximum Time Slots Register | 图7‑18：最大时隙寄存器
 
 Figure 7-19: Format of Port Arbitration Tables | 图7-19：端口仲裁表格式
 
-<table><tr><td colspan="8">32-Phase Port Arbitration Table
-with 4-bit entries</td></tr><tr><td>31</td><td>28</td><td>27</td><td>24</td><td>23</td><td>20</td><td>19</td><td>16</td></tr><tr><td>15</td><td>Phase[7]</td><td>Phase[6]</td><td>Phase[5]</td><td>Phase[4]</td><td>Phase[3]</td><td>Phase[2]</td><td>Phase[1]</td></tr><tr><td>15</td><td>Phase[15]</td><td>Phase[14]</td><td>Phase[13]</td><td>Phase[12]</td><td>Phase[11]</td><td>Phase[10]</td><td>Phase[9]</td></tr><tr><td>23</td><td>Phase[23]</td><td>Phase[22]</td><td>Phase[21]</td><td>Phase[20]</td><td>Phase[19]</td><td>Phase[18]</td><td>Phase[17]</td></tr><tr><td>31</td><td>Phase[31]</td><td>Phase[30]</td><td>Phase[29]</td><td>Phase[28]</td><td>Phase[27]</td><td>Phase[26]</td><td>Phase[25]</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td colspan="8" style="border:2px solid #000;">32-Phase Port Arbitration Table
+with 4-bit entries</td></tr><tr><td style="border:2px solid #000;">31</td><td style="border:2px solid #000;">28</td><td style="border:2px solid #000;">27</td><td style="border:2px solid #000;">24</td><td style="border:2px solid #000;">23</td><td style="border:2px solid #000;">20</td><td style="border:2px solid #000;">19</td><td style="border:2px solid #000;">16</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">Phase[7]</td><td style="border:2px solid #000;">Phase[6]</td><td style="border:2px solid #000;">Phase[5]</td><td style="border:2px solid #000;">Phase[4]</td><td style="border:2px solid #000;">Phase[3]</td><td style="border:2px solid #000;">Phase[2]</td><td style="border:2px solid #000;">Phase[1]</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">Phase[15]</td><td style="border:2px solid #000;">Phase[14]</td><td style="border:2px solid #000;">Phase[13]</td><td style="border:2px solid #000;">Phase[12]</td><td style="border:2px solid #000;">Phase[11]</td><td style="border:2px solid #000;">Phase[10]</td><td style="border:2px solid #000;">Phase[9]</td></tr><tr><td style="border:2px solid #000;">23</td><td style="border:2px solid #000;">Phase[23]</td><td style="border:2px solid #000;">Phase[22]</td><td style="border:2px solid #000;">Phase[21]</td><td style="border:2px solid #000;">Phase[20]</td><td style="border:2px solid #000;">Phase[19]</td><td style="border:2px solid #000;">Phase[18]</td><td style="border:2px solid #000;">Phase[17]</td></tr><tr><td style="border:2px solid #000;">31</td><td style="border:2px solid #000;">Phase[31]</td><td style="border:2px solid #000;">Phase[30]</td><td style="border:2px solid #000;">Phase[29]</td><td style="border:2px solid #000;">Phase[28]</td><td style="border:2px solid #000;">Phase[27]</td><td style="border:2px solid #000;">Phase[26]</td><td style="border:2px solid #000;">Phase[25]</td></tr></table>
 
 ## 7.4.3 Switch Arbitration Example | 7.4.3 交换机仲裁示例
 
 ## 7.4.3.1 Switch Arbitration Example | 7.4.3.1 交换机仲裁示例
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -625,7 +625,7 @@ Figure 7-20: Arbitration Examples in a Switch | 图7-20：交换机中的仲裁�
 ## 7.5 Arbitration in Multi-Function Endpoints | 7.5 多功能端点中的仲裁
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -643,7 +643,7 @@ Figure 7-21: Simple Multi-Function Arbitration | 图7-21：简单多功能仲裁
 <img src="images/part02_8680fc3f04f0e69dd595aafe18e0acd645d0b88f8599350acbc065c6f1130c1e.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -664,7 +664,7 @@ Figure 7-22: QoS Support in Multi-Function Arbitration | 图7-22：多功能仲�
 ## 7.6 Isochronous Support | 7.6 等时支持
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -679,7 +679,7 @@ Figure 7-22: QoS Support in Multi-Function Arbitration | 图7-22：多功能仲�
 ## 7.6.1 Timing is Everything | 7.6.1 时序至关重要
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -700,7 +700,7 @@ Figure 7-23: Example Application of Isochronous Transaction | 图7-23：等时�
 <img src="images/part02_52af287f760b1dde29e105f5642ba88ecf1d9fb103db1b42e53b584c9d9c5e91.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -718,7 +718,7 @@ Figure 7-23: Example Application of Isochronous Transaction | 图7-23：等时�
 ## 7.6.1.1 How Timing is Enforced | 7.6.1.1 时序如何执行
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -732,7 +732,7 @@ Figure 7-23: Example Application of Isochronous Transaction | 图7-23：等时�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -748,7 +748,7 @@ Figure 7-23: Example Application of Isochronous Transaction | 图7-23：等时�
 ## 7.6.1.2 Device Drivers | 7.6.1.2 设备驱动程序
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -766,7 +766,7 @@ Figure 7-23: Example Application of Isochronous Transaction | 图7-23：等时�
 ## 7.6.1.3 Isochronous Broker | 7.6.1.3 等时代理
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -781,7 +781,7 @@ Figure 7-23: Example Application of Isochronous Transaction | 图7-23：等时�
 ## 7.6.3 Bringing it all together | 7.6.3 综合概述
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -798,7 +798,7 @@ Figure 7-23: Example Application of Isochronous Transaction | 图7-23：等时�
 ## 7.6.3.1 Endpoints | 7.6.3.1 端点
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -815,7 +815,7 @@ Figure 7-24: Example Isochronous System | 图7-24：等时系统示例
 <img src="images/part02_19d01764d36aa5659db7ca7b5ad112be2f5d1d57cdd4c1906d91efa8375fc533.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -831,7 +831,7 @@ Figure 7-24: Example Isochronous System | 图7-24：等时系统示例
 ## Switches | 交换机
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -851,7 +851,7 @@ Figure 7-25: Injection of Isochronous Packets | 图7-25：等时数据包注入
 <img src="images/part02_311ee515cc591beb1edb91c4e832e93dba144194441b2b987fe4cbabfb5602fc.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -868,7 +868,7 @@ B W = \frac {Y \times M}{T}
 $$
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -885,7 +885,7 @@ $$
 $$
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -905,7 +905,7 @@ Figure 7-26: Over-Subscribing the Bandwidth | 图7-26：带宽超额预订
 <img src="images/part02_a7501a403d67ae62d025cd05b212b851dc3710595e00225f6dcb9f54b0a4ba78.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -922,7 +922,7 @@ Figure 7-27: Bandwidth Congestion | 图7-27：带宽拥塞
 <img src="images/part02_ecb9798179d1b53ae22882c937eb1f84b29a18cf1f4cfd4aa168c381b7b696b9.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -937,7 +937,7 @@ Figure 7-27: Bandwidth Congestion | 图7-27：带宽拥塞
 ## Root Complex | 根复合体
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -954,7 +954,7 @@ Figure 7-27: Bandwidth Congestion | 图7-27：带宽拥塞
 ## Power Management | 电源管理
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -969,7 +969,7 @@ Figure 7-27: Bandwidth Congestion | 图7-27：带宽拥塞
 ## Error Handling | 错误处理
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>

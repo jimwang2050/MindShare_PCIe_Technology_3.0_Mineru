@@ -3,7 +3,7 @@
 # 10 Ack/Nak Protocol
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -18,7 +18,7 @@
 ## The Previous Chapter | 上一章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -31,7 +31,7 @@
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -45,7 +45,7 @@
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -65,7 +65,7 @@ Figure 10-1: Data Link Layer | 图10-1：数据链路层
 <img src="images/part03_eb99ca8d66f48ed20039e0715931846d97a80f8b43cfdea3db16acbc3a4f5407.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -84,7 +84,7 @@ Figure 10-2: Overview of the Ack/Nak Protocol | 图10-2：Ack/Nak协议概述
 <img src="images/part03_c71d9a4c63208b94d916ff92037be6f24d24fe2d59ae64b5f215b460d8b806e2.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -101,7 +101,7 @@ Figure 10-2: Overview of the Ack/Nak Protocol | 图10-2：Ack/Nak协议概述
 ## 10.1.1 Elements of the Ack/Nak Protocol | 10.1.1 Ack/Nak 协议要素
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -120,7 +120,7 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
 ## 10.2.1 Transmitter Elements | 10.2.1 发送器要素
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -135,7 +135,7 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
 ## 10.2.1.1 NEXT_TRANSMIT_SEQ Counter | 10.2.1.1 NEXT_TRANSMIT_SEQ 计数器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -151,7 +151,7 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
 ## 10.2.1.2 LCRC Generator | 10.2.1.2 LCRC 生成器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -170,7 +170,7 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -191,7 +191,7 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
 ## 10.2.1.3 REPLAY_TIMER Count | 10.2.1.3 重发定时器计数
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -205,7 +205,7 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -221,7 +221,7 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
 ## 10.2.2.1 ACKD\_SEQ Register | 10.2.2.1 ACKD\_SEQ 寄存器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -239,7 +239,7 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
 ## 10.2.2.2 DLLP CRC Check | 10.2.2.2 DLLP CRC 检查
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -254,7 +254,7 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -275,7 +275,7 @@ Figure 10-5: Receiver Elements Associated with the Ack/Nak Protocol | 图10-5：
 ## 10.2.2.3 LCRC Error Check | 10.2.2.3 LCRC 错误检查
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -288,7 +288,7 @@ Figure 10-5: Receiver Elements Associated with the Ack/Nak Protocol | 图10-5：
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -304,7 +304,7 @@ Figure 10-5: Receiver Elements Associated with the Ack/Nak Protocol | 图10-5：
 ## 10.2.2.4 Sequence Number Check | 10.2.2.4 序列号检查
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -325,7 +325,7 @@ Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示�
 <img src="images/part03_1eed93a787a204e6b1e0b6c8992f59b5d882810fc68dda8793cd55db4d8bf4ee.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -341,7 +341,7 @@ Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示�
 ## 10.2.2.5 AckNak\_LATENCY\_TIMER | 10.2.2.5 AckNak\_LATENCY\_TIMER
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -356,7 +356,7 @@ Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示�
 ## 10.2.3.1 Ack/Nak Generator | 10.2.3.1 Ack/Nak 生成器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -370,7 +370,7 @@ Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示�
 
 Figure 10‑7: Ack Or Nak DLLP Format | 图10‑7：Ack或Nak DLLP格式
 
-<table><tr><td rowspan="2"></td><td>+0</td><td>+1</td><td>+2</td><td>+3</td></tr><tr><td>7|6|5|4|3|2|1|0</td><td>7|6|5|4|3|2|1|0</td><td>7|6|5|4|3|2|1|0</td><td>7|6|5|4|3|2|1|0</td></tr><tr><td rowspan="2">Byte 0</td><td>0000 0000 - Ack</td><td rowspan="2">Reserved</td><td rowspan="2" colspan="2">AckNak_Seq_Num</td></tr><tr><td>0001 0000 - Nak</td></tr><tr><td>Byte 4</td><td colspan="4">16-bit CRC</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" style="border:2px solid #000;"></td><td style="border:2px solid #000;">+0</td><td style="border:2px solid #000;">+1</td><td style="border:2px solid #000;">+2</td><td style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7|6|5|4|3|2|1|0</td><td style="border:2px solid #000;">7|6|5|4|3|2|1|0</td><td style="border:2px solid #000;">7|6|5|4|3|2|1|0</td><td style="border:2px solid #000;">7|6|5|4|3|2|1|0</td></tr><tr><td rowspan="2" style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">0000 0000 - Ack</td><td rowspan="2" style="border:2px solid #000;">Reserved</td><td rowspan="2" colspan="2" style="border:2px solid #000;">AckNak_Seq_Num</td></tr><tr><td style="border:2px solid #000;">0001 0000 - Nak</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="4" style="border:2px solid #000;">16-bit CRC</td></tr></table>
 
 Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 
@@ -383,7 +383,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 ## 10.2.3.2 Ack/Nak Protocol Details | 10.2.3.2 Ack/Nak 协议详情
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -396,7 +396,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -411,7 +411,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 ## 10.2.3.3 Sequence Number | 10.2.3.3 序列号
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -424,7 +424,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -439,7 +439,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 ## 10.2.3.4 Replay (Retry) Buffer | 10.2.3.4 重放（重试）缓冲区
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -460,7 +460,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 ## 10.2.3.5 Transmitter's Response to an Ack DLLP | 10.2.3.5 发送器对 Ack DLLP 的响应
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -476,7 +476,7 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 ## 10.2.3.6 Ack/Nak Examples | 10.2.3.6 Ack/Nak 示例
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -499,7 +499,7 @@ Figure 10-8: Example 1 - Example of Ack | 图10-8：示例1 - Ack示例
 <img src="images/part03_53d208a2661a2ae54305e58ed78cde00db7e56192da39d163bd53d3fc28f6ba1.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -522,7 +522,7 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
 ## 10.2.3.7 Transmitter's Response to a Nak | 10.2.3.7 发送方对 Nak 的响应
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -537,7 +537,7 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -553,7 +553,7 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
 ## 10.2.3.8 Efficient TLP Replay | 10.2.3.8 高效的 TLP 重放
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -566,7 +566,7 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -591,7 +591,7 @@ Figure 10‐10: Example of a Nak | 图10‐10：Nak示例
 Repeated Replay of TLPs
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -607,7 +607,7 @@ Repeated Replay of TLPs
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -655,12 +655,12 @@ $$
 
 Figure 10-11: Gen1 Unadjusted REPLAY\_TIMER Values | 图10-11：Gen1未调整的REPLAY_TIMER值
 
-<table><tr><td>Max_Payload Size</td><td>X1 Link</td><td>X2 Link</td><td>X4 Link</td><td>X8 Link</td><td>X12 Link</td><td>x16 Link</td><td>X32 Link</td></tr><tr><td>128 Bytes</td><td>711</td><td>384</td><td>219</td><td>201</td><td>174</td><td>144</td><td>99</td></tr><tr><td>256 Bytes</td><td>1248</td><td>651</td><td>354</td><td>321</td><td>270</td><td>216</td><td>135</td></tr><tr><td>512 Bytes</td><td>1677</td><td>867</td><td>462</td><td>258</td><td>327</td><td>258</td><td>156</td></tr><tr><td>1024 Bytes</td><td>3213</td><td>1635</td><td>846</td><td>450</td><td>582</td><td>450</td><td>252</td></tr><tr><td>2048 Bytes</td><td>6285</td><td>3171</td><td>1614</td><td>834</td><td>1095</td><td>834</td><td>444</td></tr><tr><td>4096 Bytes</td><td>12,429</td><td>6243</td><td>3150</td><td>1602</td><td>2118</td><td>1602</td><td>828</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max_Payload Size</td><td style="border:2px solid #000;">X1 Link</td><td style="border:2px solid #000;">X2 Link</td><td style="border:2px solid #000;">X4 Link</td><td style="border:2px solid #000;">X8 Link</td><td style="border:2px solid #000;">X12 Link</td><td style="border:2px solid #000;">x16 Link</td><td style="border:2px solid #000;">X32 Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">711</td><td style="border:2px solid #000;">384</td><td style="border:2px solid #000;">219</td><td style="border:2px solid #000;">201</td><td style="border:2px solid #000;">174</td><td style="border:2px solid #000;">144</td><td style="border:2px solid #000;">99</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">1248</td><td style="border:2px solid #000;">651</td><td style="border:2px solid #000;">354</td><td style="border:2px solid #000;">321</td><td style="border:2px solid #000;">270</td><td style="border:2px solid #000;">216</td><td style="border:2px solid #000;">135</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">1677</td><td style="border:2px solid #000;">867</td><td style="border:2px solid #000;">462</td><td style="border:2px solid #000;">258</td><td style="border:2px solid #000;">327</td><td style="border:2px solid #000;">258</td><td style="border:2px solid #000;">156</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">3213</td><td style="border:2px solid #000;">1635</td><td style="border:2px solid #000;">846</td><td style="border:2px solid #000;">450</td><td style="border:2px solid #000;">582</td><td style="border:2px solid #000;">450</td><td style="border:2px solid #000;">252</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">6285</td><td style="border:2px solid #000;">3171</td><td style="border:2px solid #000;">1614</td><td style="border:2px solid #000;">834</td><td style="border:2px solid #000;">1095</td><td style="border:2px solid #000;">834</td><td style="border:2px solid #000;">444</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">12,429</td><td style="border:2px solid #000;">6243</td><td style="border:2px solid #000;">3150</td><td style="border:2px solid #000;">1602</td><td style="border:2px solid #000;">2118</td><td style="border:2px solid #000;">1602</td><td style="border:2px solid #000;">828</td></tr></table>
 
 ## 10.2.4.1 Transmitter DLLP Handling | 10.2.4.1 发送器 DLLP 处理
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -673,7 +673,7 @@ Figure 10-11: Gen1 Unadjusted REPLAY\_TIMER Values | 图10-11：Gen1未调整的
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -686,7 +686,7 @@ Figure 10-11: Gen1 Unadjusted REPLAY\_TIMER Values | 图10-11：Gen1未调整的
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -705,7 +705,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 ## 10.2.4.2 TLP LCRC Check | 10.2.4.2 TLP LCRC 检查
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -720,7 +720,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 ## 10.2.4.3 Next Received TLP's Sequence Number | 10.2.4.3 下一个接收 TLP 的序列号
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -743,7 +743,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 ## 10.2.4.4 Receiver Schedules An Ack DLLP | 10.2.4.4 接收方调度 Ack DLLP
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -758,7 +758,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 ## 10.2.4.5 Receiver Schedules a Nak | 10.2.4.5 接收端调度 Nak
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -774,7 +774,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 ## 10.2.4.6 AckNak_LATENCY_TIMER | 10.2.4.6 AckNak_LATENCY_TIMER
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -792,7 +792,7 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
 ## 10.2.2.5 AckNak\_LATENCY\_TIMER | 10.2.2.5 AckNak\_LATENCY\_TIMER Equation.
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -809,7 +809,7 @@ $$
 $$
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -823,7 +823,7 @@ $$
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -841,7 +841,7 @@ $$
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -854,10 +854,10 @@ $$
 </table>
 
 
-<table><tr><td>Max_Payload Size</td><td>X1 Link</td><td>X2 Link</td><td>X4 Link</td><td>X8 Link</td><td>X12 Link</td><td>x16 Link</td><td>X32 Link</td></tr><tr><td>128 Bytes</td><td>237 (AF=1.4)</td><td>128 (AF=1.4)</td><td>73 (AF=1.4)</td><td>67 (AF=2.5)</td><td>58 (AF=3.0)</td><td>48 (AF=3.0)</td><td>33 (AF=3.0)</td></tr><tr><td>256 Bytes</td><td>416 (AF=1.4)</td><td>217 (AF=1.4)</td><td>118 (AF=1.4)</td><td>107 (AF=2.5)</td><td>90 (AF=3.0)</td><td>72 (AF=3.0)</td><td>45 (AF=3.0)</td></tr><tr><td>512 Bytes</td><td>559 (AF=1.0)</td><td>289 (AF=1.0)</td><td>154 (AF=1.0)</td><td>86 (AF=1.0)</td><td>109 (AF=2.0)</td><td>86 (AF=2.0)</td><td>52 (AF=2.0)</td></tr><tr><td>1024 Bytes</td><td>1071 (AF=1.0)</td><td>545 (AF=1.0)</td><td>282 (AF=1.0)</td><td>150 (AF=1.0)</td><td>194 (AF=2.0)</td><td>150 (AF=2.0)</td><td>84 (AF=2.0)</td></tr><tr><td>2048 Bytes</td><td>2095 (AF=1.0)</td><td>1057 (AF=1.0)</td><td>538 (AF=1.0)</td><td>278 (AF=1.0)</td><td>365 (AF=2.0)</td><td>278 (AF=2.0)</td><td>148 (AF=2.0)</td></tr><tr><td>4096 Bytes</td><td>4143 (AF=1.0)</td><td>2081 (AF=1.0)</td><td>1050 (AF=1.0)</td><td>534 (AF=1.0)</td><td>706 (AF=2.0)</td><td>534 (AF=2.0)</td><td>276 (AF=2.0)</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max_Payload Size</td><td style="border:2px solid #000;">X1 Link</td><td style="border:2px solid #000;">X2 Link</td><td style="border:2px solid #000;">X4 Link</td><td style="border:2px solid #000;">X8 Link</td><td style="border:2px solid #000;">X12 Link</td><td style="border:2px solid #000;">x16 Link</td><td style="border:2px solid #000;">X32 Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">237 (AF=1.4)</td><td style="border:2px solid #000;">128 (AF=1.4)</td><td style="border:2px solid #000;">73 (AF=1.4)</td><td style="border:2px solid #000;">67 (AF=2.5)</td><td style="border:2px solid #000;">58 (AF=3.0)</td><td style="border:2px solid #000;">48 (AF=3.0)</td><td style="border:2px solid #000;">33 (AF=3.0)</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">416 (AF=1.4)</td><td style="border:2px solid #000;">217 (AF=1.4)</td><td style="border:2px solid #000;">118 (AF=1.4)</td><td style="border:2px solid #000;">107 (AF=2.5)</td><td style="border:2px solid #000;">90 (AF=3.0)</td><td style="border:2px solid #000;">72 (AF=3.0)</td><td style="border:2px solid #000;">45 (AF=3.0)</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">559 (AF=1.0)</td><td style="border:2px solid #000;">289 (AF=1.0)</td><td style="border:2px solid #000;">154 (AF=1.0)</td><td style="border:2px solid #000;">86 (AF=1.0)</td><td style="border:2px solid #000;">109 (AF=2.0)</td><td style="border:2px solid #000;">86 (AF=2.0)</td><td style="border:2px solid #000;">52 (AF=2.0)</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1071 (AF=1.0)</td><td style="border:2px solid #000;">545 (AF=1.0)</td><td style="border:2px solid #000;">282 (AF=1.0)</td><td style="border:2px solid #000;">150 (AF=1.0)</td><td style="border:2px solid #000;">194 (AF=2.0)</td><td style="border:2px solid #000;">150 (AF=2.0)</td><td style="border:2px solid #000;">84 (AF=2.0)</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2095 (AF=1.0)</td><td style="border:2px solid #000;">1057 (AF=1.0)</td><td style="border:2px solid #000;">538 (AF=1.0)</td><td style="border:2px solid #000;">278 (AF=1.0)</td><td style="border:2px solid #000;">365 (AF=2.0)</td><td style="border:2px solid #000;">278 (AF=2.0)</td><td style="border:2px solid #000;">148 (AF=2.0)</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4143 (AF=1.0)</td><td style="border:2px solid #000;">2081 (AF=1.0)</td><td style="border:2px solid #000;">1050 (AF=1.0)</td><td style="border:2px solid #000;">534 (AF=1.0)</td><td style="border:2px solid #000;">706 (AF=2.0)</td><td style="border:2px solid #000;">534 (AF=2.0)</td><td style="border:2px solid #000;">276 (AF=2.0)</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -876,7 +876,7 @@ Consider Figure 10-13 on page 346, showing how a lost TLP is detected and handle
 考虑第346页的图10-13，展示了如何检测和处理丢失的TLP。
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -900,7 +900,7 @@ Figure 10-13: Handling Lost TLPs | 图10-13：丢失TLP的处理
 <img src="images/part03_550592b528a721031674d51dc0fc0118f9beb66ed4d8e00e5f04468f0c0fce13.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -925,7 +925,7 @@ Figure 10‐14: Handling Bad Ack | 图10‐14：错误Ack的处理
 ## 10.4.3 Bad Nak | 10.4.3 错误 Nak
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -952,7 +952,7 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
 ## Ack/Nak 协议处理的错误情况
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -974,7 +974,7 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
 ## 10.6 Recommended Priority To Schedule Packets | 10.6 推荐的数据包调度优先级
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -997,7 +997,7 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
 ## 10.7 Timing Differences for Newer Spec Versions | 10.7 较新规范版本的时序差异
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1011,7 +1011,7 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1027,7 +1027,7 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1039,16 +1039,16 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
 </table>
 
 
-<table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>237</td><td>128</td><td>73</td><td>67</td><td>58</td><td>48</td><td>33</td></tr><tr><td>256 Bytes</td><td>416</td><td>217</td><td>118</td><td>107</td><td>90</td><td>72</td><td>45</td></tr><tr><td>512 Bytes</td><td>559</td><td>289</td><td>154</td><td>86</td><td>109</td><td>86</td><td>52</td></tr><tr><td>1024 Bytes</td><td>1071</td><td>545</td><td>282</td><td>150</td><td>194</td><td>150</td><td>84</td></tr><tr><td>2048 Bytes</td><td>2095</td><td>1057</td><td>538</td><td>278</td><td>365</td><td>278</td><td>148</td></tr><tr><td>4096 Bytes</td><td>4143</td><td>2081</td><td>1050</td><td>534</td><td>706</td><td>534</td><td>276</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1Link</td><td style="border:2px solid #000;">x2Link</td><td style="border:2px solid #000;">x4Link</td><td style="border:2px solid #000;">x8Link</td><td style="border:2px solid #000;">x12Link</td><td style="border:2px solid #000;">x16Link</td><td style="border:2px solid #000;">x32Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">237</td><td style="border:2px solid #000;">128</td><td style="border:2px solid #000;">73</td><td style="border:2px solid #000;">67</td><td style="border:2px solid #000;">58</td><td style="border:2px solid #000;">48</td><td style="border:2px solid #000;">33</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">416</td><td style="border:2px solid #000;">217</td><td style="border:2px solid #000;">118</td><td style="border:2px solid #000;">107</td><td style="border:2px solid #000;">90</td><td style="border:2px solid #000;">72</td><td style="border:2px solid #000;">45</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">559</td><td style="border:2px solid #000;">289</td><td style="border:2px solid #000;">154</td><td style="border:2px solid #000;">86</td><td style="border:2px solid #000;">109</td><td style="border:2px solid #000;">86</td><td style="border:2px solid #000;">52</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1071</td><td style="border:2px solid #000;">545</td><td style="border:2px solid #000;">282</td><td style="border:2px solid #000;">150</td><td style="border:2px solid #000;">194</td><td style="border:2px solid #000;">150</td><td style="border:2px solid #000;">84</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2095</td><td style="border:2px solid #000;">1057</td><td style="border:2px solid #000;">538</td><td style="border:2px solid #000;">278</td><td style="border:2px solid #000;">365</td><td style="border:2px solid #000;">278</td><td style="border:2px solid #000;">148</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4143</td><td style="border:2px solid #000;">2081</td><td style="border:2px solid #000;">1050</td><td style="border:2px solid #000;">534</td><td style="border:2px solid #000;">706</td><td style="border:2px solid #000;">534</td><td style="border:2px solid #000;">276</td></tr></table>
 
 ## GT | s Operation
 
 Table 10‑4: Gen2 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10‑4：Gen2未调整的AckNak_LATENCY_TIMER值（符号时间）
 
-<table><tr><td>Max Payload</td><td>x1 Link</td><td>x2 Link</td><td>x4 Link</td><td>x8 Link</td><td>x12 Link</td><td>x16 Link</td><td>x32 Link</td></tr><tr><td>128 Bytes</td><td>288</td><td>179</td><td>124</td><td>118</td><td>109</td><td>99</td><td>84</td></tr><tr><td>256 Bytes</td><td>467</td><td>268</td><td>169</td><td>158</td><td>141</td><td>123</td><td>96</td></tr><tr><td>512 Bytes</td><td>610</td><td>340</td><td>205</td><td>137</td><td>160</td><td>137</td><td>103</td></tr><tr><td>1024 Bytes</td><td>1122</td><td>596</td><td>333</td><td>201</td><td>245</td><td>201</td><td>135</td></tr><tr><td>2048 Bytes</td><td>2146</td><td>1108</td><td>589</td><td>329</td><td>416</td><td>329</td><td>199</td></tr><tr><td>4096 Bytes</td><td>4194</td><td>2132</td><td>1101</td><td>585</td><td>757</td><td>585</td><td>327</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1 Link</td><td style="border:2px solid #000;">x2 Link</td><td style="border:2px solid #000;">x4 Link</td><td style="border:2px solid #000;">x8 Link</td><td style="border:2px solid #000;">x12 Link</td><td style="border:2px solid #000;">x16 Link</td><td style="border:2px solid #000;">x32 Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">288</td><td style="border:2px solid #000;">179</td><td style="border:2px solid #000;">124</td><td style="border:2px solid #000;">118</td><td style="border:2px solid #000;">109</td><td style="border:2px solid #000;">99</td><td style="border:2px solid #000;">84</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">467</td><td style="border:2px solid #000;">268</td><td style="border:2px solid #000;">169</td><td style="border:2px solid #000;">158</td><td style="border:2px solid #000;">141</td><td style="border:2px solid #000;">123</td><td style="border:2px solid #000;">96</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">610</td><td style="border:2px solid #000;">340</td><td style="border:2px solid #000;">205</td><td style="border:2px solid #000;">137</td><td style="border:2px solid #000;">160</td><td style="border:2px solid #000;">137</td><td style="border:2px solid #000;">103</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1122</td><td style="border:2px solid #000;">596</td><td style="border:2px solid #000;">333</td><td style="border:2px solid #000;">201</td><td style="border:2px solid #000;">245</td><td style="border:2px solid #000;">201</td><td style="border:2px solid #000;">135</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2146</td><td style="border:2px solid #000;">1108</td><td style="border:2px solid #000;">589</td><td style="border:2px solid #000;">329</td><td style="border:2px solid #000;">416</td><td style="border:2px solid #000;">329</td><td style="border:2px solid #000;">199</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4194</td><td style="border:2px solid #000;">2132</td><td style="border:2px solid #000;">1101</td><td style="border:2px solid #000;">585</td><td style="border:2px solid #000;">757</td><td style="border:2px solid #000;">585</td><td style="border:2px solid #000;">327</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1063,7 +1063,7 @@ Table 10‑4: Gen2 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表
 ## GT | s Operation
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1077,12 +1077,12 @@ Table 10‑4: Gen2 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表
 
 Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10-5：Gen3未调整的AckNak_LATENCY_TIMER值（符号时间）
 
-<table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>333</td><td>224</td><td>169</td><td>163</td><td>154</td><td>144</td><td>129</td></tr><tr><td>256 Bytes</td><td>512</td><td>313</td><td>214</td><td>203</td><td>186</td><td>168</td><td>141</td></tr><tr><td>512 Bytes</td><td>655</td><td>385</td><td>250</td><td>182</td><td>205</td><td>182</td><td>148</td></tr><tr><td>1024 Bytes</td><td>1167</td><td>641</td><td>378</td><td>246</td><td>290</td><td>246</td><td>180</td></tr><tr><td>2048 Bytes</td><td>2191</td><td>1153</td><td>634</td><td>374</td><td>461</td><td>374</td><td>244</td></tr><tr><td>4096 Bytes</td><td>4239</td><td>2177</td><td>1146</td><td>630</td><td>802</td><td>630</td><td>372</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1Link</td><td style="border:2px solid #000;">x2Link</td><td style="border:2px solid #000;">x4Link</td><td style="border:2px solid #000;">x8Link</td><td style="border:2px solid #000;">x12Link</td><td style="border:2px solid #000;">x16Link</td><td style="border:2px solid #000;">x32Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">333</td><td style="border:2px solid #000;">224</td><td style="border:2px solid #000;">169</td><td style="border:2px solid #000;">163</td><td style="border:2px solid #000;">154</td><td style="border:2px solid #000;">144</td><td style="border:2px solid #000;">129</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">512</td><td style="border:2px solid #000;">313</td><td style="border:2px solid #000;">214</td><td style="border:2px solid #000;">203</td><td style="border:2px solid #000;">186</td><td style="border:2px solid #000;">168</td><td style="border:2px solid #000;">141</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">655</td><td style="border:2px solid #000;">385</td><td style="border:2px solid #000;">250</td><td style="border:2px solid #000;">182</td><td style="border:2px solid #000;">205</td><td style="border:2px solid #000;">182</td><td style="border:2px solid #000;">148</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">1167</td><td style="border:2px solid #000;">641</td><td style="border:2px solid #000;">378</td><td style="border:2px solid #000;">246</td><td style="border:2px solid #000;">290</td><td style="border:2px solid #000;">246</td><td style="border:2px solid #000;">180</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">2191</td><td style="border:2px solid #000;">1153</td><td style="border:2px solid #000;">634</td><td style="border:2px solid #000;">374</td><td style="border:2px solid #000;">461</td><td style="border:2px solid #000;">374</td><td style="border:2px solid #000;">244</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">4239</td><td style="border:2px solid #000;">2177</td><td style="border:2px solid #000;">1146</td><td style="border:2px solid #000;">630</td><td style="border:2px solid #000;">802</td><td style="border:2px solid #000;">630</td><td style="border:2px solid #000;">372</td></tr></table>
 
 ## 10.7.2 Replay Timer | 10.7.2 重放定时器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1097,7 +1097,7 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1109,10 +1109,10 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 </table>
 
 
-<table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>711</td><td>384</td><td>219</td><td>201</td><td>174</td><td>144</td><td>99</td></tr><tr><td>256 Bytes</td><td>1248</td><td>651</td><td>354</td><td>321</td><td>270</td><td>216</td><td>135</td></tr><tr><td>512 Bytes</td><td>1677</td><td>867</td><td>462</td><td>258</td><td>327</td><td>258</td><td>156</td></tr><tr><td>1024 Bytes</td><td>3213</td><td>1635</td><td>846</td><td>450</td><td>582</td><td>450</td><td>252</td></tr><tr><td>2048 Bytes</td><td>6285</td><td>3171</td><td>1614</td><td>834</td><td>1095</td><td>834</td><td>444</td></tr><tr><td>4096 Bytes</td><td>12429</td><td>6243</td><td>3150</td><td>1602</td><td>2118</td><td>1602</td><td>828</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1Link</td><td style="border:2px solid #000;">x2Link</td><td style="border:2px solid #000;">x4Link</td><td style="border:2px solid #000;">x8Link</td><td style="border:2px solid #000;">x12Link</td><td style="border:2px solid #000;">x16Link</td><td style="border:2px solid #000;">x32Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">711</td><td style="border:2px solid #000;">384</td><td style="border:2px solid #000;">219</td><td style="border:2px solid #000;">201</td><td style="border:2px solid #000;">174</td><td style="border:2px solid #000;">144</td><td style="border:2px solid #000;">99</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">1248</td><td style="border:2px solid #000;">651</td><td style="border:2px solid #000;">354</td><td style="border:2px solid #000;">321</td><td style="border:2px solid #000;">270</td><td style="border:2px solid #000;">216</td><td style="border:2px solid #000;">135</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">1677</td><td style="border:2px solid #000;">867</td><td style="border:2px solid #000;">462</td><td style="border:2px solid #000;">258</td><td style="border:2px solid #000;">327</td><td style="border:2px solid #000;">258</td><td style="border:2px solid #000;">156</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">3213</td><td style="border:2px solid #000;">1635</td><td style="border:2px solid #000;">846</td><td style="border:2px solid #000;">450</td><td style="border:2px solid #000;">582</td><td style="border:2px solid #000;">450</td><td style="border:2px solid #000;">252</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">6285</td><td style="border:2px solid #000;">3171</td><td style="border:2px solid #000;">1614</td><td style="border:2px solid #000;">834</td><td style="border:2px solid #000;">1095</td><td style="border:2px solid #000;">834</td><td style="border:2px solid #000;">444</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">12429</td><td style="border:2px solid #000;">6243</td><td style="border:2px solid #000;">3150</td><td style="border:2px solid #000;">1602</td><td style="border:2px solid #000;">2118</td><td style="border:2px solid #000;">1602</td><td style="border:2px solid #000;">828</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1124,10 +1124,10 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 </table>
 
 
-<table><tr><td>Max Payload</td><td>x1Link</td><td>x2Link</td><td>x4Link</td><td>x8Link</td><td>x12Link</td><td>x16Link</td><td>x32Link</td></tr><tr><td>128 Bytes</td><td>864</td><td>537</td><td>372</td><td>354</td><td>327</td><td>297</td><td>252</td></tr><tr><td>256 Bytes</td><td>1401</td><td>804</td><td>507</td><td>474</td><td>423</td><td>369</td><td>288</td></tr><tr><td>512 Bytes</td><td>1830</td><td>1020</td><td>615</td><td>411</td><td>480</td><td>411</td><td>309</td></tr><tr><td>1024 Bytes</td><td>3366</td><td>1788</td><td>999</td><td>603</td><td>735</td><td>603</td><td>405</td></tr><tr><td>2048 Bytes</td><td>6438</td><td>3324</td><td>1767</td><td>987</td><td>1248</td><td>987</td><td>597</td></tr><tr><td>4096 Bytes</td><td>12582</td><td>6396</td><td>3303</td><td>1755</td><td>2271</td><td>1755</td><td>981</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1Link</td><td style="border:2px solid #000;">x2Link</td><td style="border:2px solid #000;">x4Link</td><td style="border:2px solid #000;">x8Link</td><td style="border:2px solid #000;">x12Link</td><td style="border:2px solid #000;">x16Link</td><td style="border:2px solid #000;">x32Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">864</td><td style="border:2px solid #000;">537</td><td style="border:2px solid #000;">372</td><td style="border:2px solid #000;">354</td><td style="border:2px solid #000;">327</td><td style="border:2px solid #000;">297</td><td style="border:2px solid #000;">252</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">1401</td><td style="border:2px solid #000;">804</td><td style="border:2px solid #000;">507</td><td style="border:2px solid #000;">474</td><td style="border:2px solid #000;">423</td><td style="border:2px solid #000;">369</td><td style="border:2px solid #000;">288</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">1830</td><td style="border:2px solid #000;">1020</td><td style="border:2px solid #000;">615</td><td style="border:2px solid #000;">411</td><td style="border:2px solid #000;">480</td><td style="border:2px solid #000;">411</td><td style="border:2px solid #000;">309</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">3366</td><td style="border:2px solid #000;">1788</td><td style="border:2px solid #000;">999</td><td style="border:2px solid #000;">603</td><td style="border:2px solid #000;">735</td><td style="border:2px solid #000;">603</td><td style="border:2px solid #000;">405</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">6438</td><td style="border:2px solid #000;">3324</td><td style="border:2px solid #000;">1767</td><td style="border:2px solid #000;">987</td><td style="border:2px solid #000;">1248</td><td style="border:2px solid #000;">987</td><td style="border:2px solid #000;">597</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">12582</td><td style="border:2px solid #000;">6396</td><td style="border:2px solid #000;">3303</td><td style="border:2px solid #000;">1755</td><td style="border:2px solid #000;">2271</td><td style="border:2px solid #000;">1755</td><td style="border:2px solid #000;">981</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1139,12 +1139,12 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 </table>
 
 
-<table><tr><td>Max Payload</td><td>x1 Link</td><td>x2 Link</td><td>x4 Link</td><td>x8 Link</td><td>x12 Link</td><td>x16 Link</td><td>x32 Link</td></tr><tr><td>128 Bytes</td><td>999</td><td>672</td><td>507</td><td>489</td><td>462</td><td>432</td><td>387</td></tr><tr><td>256 Bytes</td><td>1536</td><td>939</td><td>642</td><td>609</td><td>558</td><td>504</td><td>423</td></tr><tr><td>512 Bytes</td><td>1965</td><td>1155</td><td>750</td><td>546</td><td>615</td><td>546</td><td>444</td></tr><tr><td>1024 Bytes</td><td>3501</td><td>1923</td><td>1134</td><td>738</td><td>870</td><td>738</td><td>540</td></tr><tr><td>2048 Bytes</td><td>6573</td><td>3459</td><td>1902</td><td>1122</td><td>1383</td><td>1122</td><td>732</td></tr><tr><td>4096 Bytes</td><td>12717</td><td>6531</td><td>3438</td><td>1890</td><td>2406</td><td>1890</td><td>1116</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Max Payload</td><td style="border:2px solid #000;">x1 Link</td><td style="border:2px solid #000;">x2 Link</td><td style="border:2px solid #000;">x4 Link</td><td style="border:2px solid #000;">x8 Link</td><td style="border:2px solid #000;">x12 Link</td><td style="border:2px solid #000;">x16 Link</td><td style="border:2px solid #000;">x32 Link</td></tr><tr><td style="border:2px solid #000;">128 Bytes</td><td style="border:2px solid #000;">999</td><td style="border:2px solid #000;">672</td><td style="border:2px solid #000;">507</td><td style="border:2px solid #000;">489</td><td style="border:2px solid #000;">462</td><td style="border:2px solid #000;">432</td><td style="border:2px solid #000;">387</td></tr><tr><td style="border:2px solid #000;">256 Bytes</td><td style="border:2px solid #000;">1536</td><td style="border:2px solid #000;">939</td><td style="border:2px solid #000;">642</td><td style="border:2px solid #000;">609</td><td style="border:2px solid #000;">558</td><td style="border:2px solid #000;">504</td><td style="border:2px solid #000;">423</td></tr><tr><td style="border:2px solid #000;">512 Bytes</td><td style="border:2px solid #000;">1965</td><td style="border:2px solid #000;">1155</td><td style="border:2px solid #000;">750</td><td style="border:2px solid #000;">546</td><td style="border:2px solid #000;">615</td><td style="border:2px solid #000;">546</td><td style="border:2px solid #000;">444</td></tr><tr><td style="border:2px solid #000;">1024 Bytes</td><td style="border:2px solid #000;">3501</td><td style="border:2px solid #000;">1923</td><td style="border:2px solid #000;">1134</td><td style="border:2px solid #000;">738</td><td style="border:2px solid #000;">870</td><td style="border:2px solid #000;">738</td><td style="border:2px solid #000;">540</td></tr><tr><td style="border:2px solid #000;">2048 Bytes</td><td style="border:2px solid #000;">6573</td><td style="border:2px solid #000;">3459</td><td style="border:2px solid #000;">1902</td><td style="border:2px solid #000;">1122</td><td style="border:2px solid #000;">1383</td><td style="border:2px solid #000;">1122</td><td style="border:2px solid #000;">732</td></tr><tr><td style="border:2px solid #000;">4096 Bytes</td><td style="border:2px solid #000;">12717</td><td style="border:2px solid #000;">6531</td><td style="border:2px solid #000;">3438</td><td style="border:2px solid #000;">1890</td><td style="border:2px solid #000;">2406</td><td style="border:2px solid #000;">1890</td><td style="border:2px solid #000;">1116</td></tr></table>
 
 ## 10.8 Switch Cut-Through Mode | 10.8 交换机关发直通模式
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1157,7 +1157,7 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1173,7 +1173,7 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 ## 10.8.2 A Latency Improvement Option | 10.8.2 延迟改善选项
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1189,7 +1189,7 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 ## 10.8.3 Cut-Through Operation | 10.8.3 直通模式操作
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1208,7 +1208,7 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
 ## 10.8.4 Example of Cut-Through Operation | 10.8.4 直通模式操作示例
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1231,7 +1231,7 @@ Figure 10-16: Switch Cut-Through Mode Showing Error Handling | 图10-16：显示
 <img src="images/part03_e4f8aa9d2501874accf28e75d5595f351ad737d415200a625d3b9809ba165f3a.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>

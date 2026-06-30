@@ -5,7 +5,7 @@
 ## The Previous Chapter | 上一章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -20,7 +20,7 @@
 ## This Chapter | 本章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -35,7 +35,7 @@
 ## The Next Chapter | 下一章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -52,7 +52,7 @@
 ## 99.1 Overview | 99.1 概述
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -69,7 +69,7 @@ Figure 14-1: Link Training and Status State Machine Location | 图14-1：链路�
 <img src="images/part04_6c565491849d7c55e40c1aded6e39efad28960ca17fe012972cb72aab6144366.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -92,7 +92,7 @@ Figure 14-2: Lane Reversal Example (Support Optional) | 图14-2：通道反转�
 <img src="images/part04_f53b1a0a6bbfeb708543e2e0077d4e9bf0279ea9e48ef9ac852da846d0360bbf.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -109,7 +109,7 @@ Figure 14-3: Polarity Inversion Example (Support Required) | 图14-3：极性反
 <img src="images/part04_13175af827a79e4fba54d58c874db3bd4122bfb038d55b1a2c05a59c544cf1ec.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -123,7 +123,7 @@ Figure 14-3: Polarity Inversion Example (Support Required) | 图14-3：极性反
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -136,7 +136,7 @@ Figure 14-3: Polarity Inversion Example (Support Required) | 图14-3：极性反
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -149,7 +149,7 @@ Figure 14-3: Polarity Inversion Example (Support Required) | 图14-3：极性反
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -167,7 +167,7 @@ Figure 14-3: Polarity Inversion Example (Support Required) | 图14-3：极性反
 ## 14.2.1 TS1 and TS2 Ordered Sets | 14.2.1 TS1 和 TS2 有序集
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -186,7 +186,7 @@ Figure 14-5: TS1 and TS2 Ordered Set Block When In Gen3 Mode of Operation | 图1
 <img src="images/part04_ec532d7b7636f92b99afed980969918b0764fd30d72320bf68debd76b97955aa.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -213,7 +213,7 @@ Figure 14-5: TS1 and TS2 Ordered Set Block When In Gen3 Mode of Operation | 图1
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -235,7 +235,7 @@ Figure 14-5: TS1 and TS2 Ordered Set Block When In Gen3 Mode of Operation | 图1
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -253,10 +253,10 @@ Figure 14-5: TS1 and TS2 Ordered Set Block When In Gen3 Mode of Operation | 图1
 
 Table 14-1: Summary of TS1 Ordered Set Contents | 表14-1：TS1有序集内容摘要
 
-<table><tr><td>Symbol Number</td><td>Description</td></tr><tr><td>0</td><td>For Gen1 or Gen2, the COM (K28.5) SymbolFor Gen3, 1Eh indicates a TS1.</td></tr><tr><td>1</td><td>Link NumberPorts that don't support Gen3: 0-255, PADDownstream ports that support Gen3: 0-31, PADUpstream ports that support Gen3: 0-255, PAD</td></tr><tr><td>2</td><td>Lane Number0-31, PAD</td></tr><tr><td>3</td><td>N_FTSNumber of FTS Ordered Sets required by receiver to achieve L0 when exiting L0s: 0 - 255</td></tr><tr><td>4</td><td>Data Rate Identifier:Bit 0 — Reserved.Bit 1 — 2.5 GT/s supported (must be set to 1b)Bit 2 — 5.0 GT/s supported (must be set if bit 3 is set)Bit 3 — 8.0 GT/s supportedBits 5:4 — ReservedBit 6 — Autonomous Change/Selectable De-emphasis— Downstream Ports: Used in Polling.Active, Configuration.Linkwidth.Start, and Loopback.Entry LTSSM states, and reserved in all other states.— Upstream Ports: Used in Polling.Active, Configuration, Recovery, and Loopback.Entry LTSSM states and reserved in all other states.Bit 7 — Speed change. This can only be set to one in the Recovery.RcvrLock LTSSM state, and is reserved in all other states.</td></tr><tr><td>5</td><td>Training Control (0=De-assert, 1 = Assert)Bit 0 — Hot ResetBit 1 — Disable LinkBit 2 — LoopbackBit 3 — Disable Scrambling (for 2.5 or 5.0 GT/s; reserved for Gen3)Bit 4 — Compliance Receive (optional for 2.5 GT/s, required for all other rates)Bits 7:5 — Reserved, Set to 0</td></tr><tr><td>6</td><td>For Gen1 or Gen2:TS1 identifier (4Ah) encoded as D10.2EQ TS1s encode this asBits 2:0 — Receiver preset hintBits 6:3 — Transmitter PresetBit 7 — set to 1bFor Gen3:Bits 1:0 — Equalization Control (EC). Only used in Recovery.Equalization and Loopback LTSSM states; must be 00b in all other states.Bit 2 — Reset EIEOS Interval Count. Only used in Recovery.Equalization LTSSM state; reserved in all other states.Bits 6:3 — Transmitter PresetBit 7 — Use Preset. (If one, use the preset values instead of the coefficient values. If zero, use the coefficients rather than the presets.) Only used in Recovery.Equalization and Loopback LTSSM states; reserved in all other states.</td></tr><tr><td>7</td><td>For Gen1 or Gen2 GT/s, TS1 identifier (4Ah) encoded as D10.2For Gen3:Bits 5:0 — FS (Full Swing value) when the EC field of Symbol 6 is 01b, otherwise, Pre-cursor Coefficient.Bits 7:6 — Reserved.</td></tr><tr><td>8</td><td>For Gen1 or Gen2, TS1 identifier (4Ah) encoded as D10.2For Gen3:Bits 5:0 — LF (Low Frequency value) when the EC field of Symbol 6 is 01b, otherwise, Cursor Coefficient.Bits 7:6 — Reserved.</td></tr><tr><td>9</td><td>For Gen1 or Gen2, TS1 identifier (4Ah) encoded as D10.2For Gen3:Bits 5:0 — Post-cursor Coefficient.Bit 6 — Reject Coefficient Values. Only set in specific Phases of the Recovery.Equalization LTSSM state; must be 0b otherwise.Bit 7 — Parity (P) This is the even parity of all bits of Symbols 6, 7, and 8 and bits 6:0 of Symbol 9. Receivers must calculate this and compare it to the received Parity bit. Received TS1s are only valid if the Parity bits match.</td></tr><tr><td>10-13</td><td>For Gen1 or Gen2, TS1 identifier (4Ah) encoded as D10.2For Gen3, TS1 identifier (4Ah)</td></tr><tr><td>14-15</td><td>For Gen1 or Gen2, TS1 identifier (4Ah) encoded as D10.2For Gen3, TS1 identifier (4Ah), or a DC-Balance Symbol.</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Symbol Number</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">For Gen1 or Gen2, the COM (K28.5) SymbolFor Gen3, 1Eh indicates a TS1.</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">Link NumberPorts that don't support Gen3: 0-255, PADDownstream ports that support Gen3: 0-31, PADUpstream ports that support Gen3: 0-255, PAD</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">Lane Number0-31, PAD</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">N_FTSNumber of FTS Ordered Sets required by receiver to achieve L0 when exiting L0s: 0 - 255</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">Data Rate Identifier:Bit 0 — Reserved.Bit 1 — 2.5 GT/s supported (must be set to 1b)Bit 2 — 5.0 GT/s supported (must be set if bit 3 is set)Bit 3 — 8.0 GT/s supportedBits 5:4 — ReservedBit 6 — Autonomous Change/Selectable De-emphasis— Downstream Ports: Used in Polling.Active, Configuration.Linkwidth.Start, and Loopback.Entry LTSSM states, and reserved in all other states.— Upstream Ports: Used in Polling.Active, Configuration, Recovery, and Loopback.Entry LTSSM states and reserved in all other states.Bit 7 — Speed change. This can only be set to one in the Recovery.RcvrLock LTSSM state, and is reserved in all other states.</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">Training Control (0=De-assert, 1 = Assert)Bit 0 — Hot ResetBit 1 — Disable LinkBit 2 — LoopbackBit 3 — Disable Scrambling (for 2.5 or 5.0 GT/s; reserved for Gen3)Bit 4 — Compliance Receive (optional for 2.5 GT/s, required for all other rates)Bits 7:5 — Reserved, Set to 0</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">For Gen1 or Gen2:TS1 identifier (4Ah) encoded as D10.2EQ TS1s encode this asBits 2:0 — Receiver preset hintBits 6:3 — Transmitter PresetBit 7 — set to 1bFor Gen3:Bits 1:0 — Equalization Control (EC). Only used in Recovery.Equalization and Loopback LTSSM states; must be 00b in all other states.Bit 2 — Reset EIEOS Interval Count. Only used in Recovery.Equalization LTSSM state; reserved in all other states.Bits 6:3 — Transmitter PresetBit 7 — Use Preset. (If one, use the preset values instead of the coefficient values. If zero, use the coefficients rather than the presets.) Only used in Recovery.Equalization and Loopback LTSSM states; reserved in all other states.</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">For Gen1 or Gen2 GT/s, TS1 identifier (4Ah) encoded as D10.2For Gen3:Bits 5:0 — FS (Full Swing value) when the EC field of Symbol 6 is 01b, otherwise, Pre-cursor Coefficient.Bits 7:6 — Reserved.</td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">For Gen1 or Gen2, TS1 identifier (4Ah) encoded as D10.2For Gen3:Bits 5:0 — LF (Low Frequency value) when the EC field of Symbol 6 is 01b, otherwise, Cursor Coefficient.Bits 7:6 — Reserved.</td></tr><tr><td style="border:2px solid #000;">9</td><td style="border:2px solid #000;">For Gen1 or Gen2, TS1 identifier (4Ah) encoded as D10.2For Gen3:Bits 5:0 — Post-cursor Coefficient.Bit 6 — Reject Coefficient Values. Only set in specific Phases of the Recovery.Equalization LTSSM state; must be 0b otherwise.Bit 7 — Parity (P) This is the even parity of all bits of Symbols 6, 7, and 8 and bits 6:0 of Symbol 9. Receivers must calculate this and compare it to the received Parity bit. Received TS1s are only valid if the Parity bits match.</td></tr><tr><td style="border:2px solid #000;">10-13</td><td style="border:2px solid #000;">For Gen1 or Gen2, TS1 identifier (4Ah) encoded as D10.2For Gen3, TS1 identifier (4Ah)</td></tr><tr><td style="border:2px solid #000;">14-15</td><td style="border:2px solid #000;">For Gen1 or Gen2, TS1 identifier (4Ah) encoded as D10.2For Gen3, TS1 identifier (4Ah), or a DC-Balance Symbol.</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -270,10 +270,10 @@ Table 14-1: Summary of TS1 Ordered Set Contents | 表14-1：TS1有序集内容�
 
 Table 14-2: Summary of TS2 Ordered Set Contents | 表14-2：TS2有序集内容摘要
 
-<table><tr><td>Symbol Number</td><td>Description</td></tr><tr><td>0</td><td>For Gen1 or Gen2, the COM (K28.5) SymbolFor Gen3, 2Dh indicates a TS2.</td></tr><tr><td>1</td><td>Link NumberPorts that don't support Gen3: 0-255, PADDownstream ports that support Gen3: 0-31, PADUpstream ports that support Gen3 0-255, PAD</td></tr><tr><td>2</td><td>Lane Number0-31, PAD</td></tr><tr><td>3</td><td>N_FTSNumber of FTS Ordered Sets required by receiver to achieve L0 when exiting L0s: 0 - 255</td></tr><tr><td>4</td><td>Data Rate Identifier:Bit 0 — Reserved.Bit 1 — 2.5 GT/s supported (must be set to 1b)Bit 2 — 5.0 GT/s supported (must be set if bit 3 is set)Bit 3 — 8.0 GT/s supportedBits 5:4 — ReservedBit 6 — Autonomous Change/Selectable De-emphasis/Link Upconfigure Capability. Used in Polling.Configuration, Configuration.Complete, and Recovery LTSSM states; reserved in all other states.Bit 7 — Speed change. This can only be set to one in the Recovery.RcvrLock LTSSM state, and is reserved in all other states.</td></tr><tr><td>5</td><td>Training Control (0 = De-assert, 1 = Assert)Bit 0 — Hot Reset,Bit 1 — Disable LinkBit 2 — LoopbackBit 3 — Disable Scrambling (for 2.5 or 5.0 GT/s; reserved for Gen3)Bits 7:4 — Reserved, Set to 0</td></tr><tr><td>6</td><td>For Gen1 or Gen2:TS2 identifier (4Ah) encoded as D10.2EQ TS2s encode this asBits 2:0 — Receiver preset HintBits 6:3 — Transmitter PresetBit 7 — Equalization CommandFor Gen3:Bits 5:0 — Reserved.Bit 6 — Quiesce Guarantee. Defined for use in Recovery.RcvrCfg only; reserved in all other states.Bit 7 — Request Equalization. Defined for use in Recovery.RcvrCfg only; reserved in all other states.</td></tr><tr><td>7-13</td><td>For Gen1 or Gen2, TS2 identifier (45h) encoded as D5.2For Gen3, TS2 identifier (45h)</td></tr><tr><td>14-15</td><td>For Gen1 or Gen2, TS2 identifier (45h) encoded as D5.2For Gen3, TS2 identifier (45h), or a DC-Balance Symbol</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Symbol Number</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">For Gen1 or Gen2, the COM (K28.5) SymbolFor Gen3, 2Dh indicates a TS2.</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">Link NumberPorts that don't support Gen3: 0-255, PADDownstream ports that support Gen3: 0-31, PADUpstream ports that support Gen3 0-255, PAD</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">Lane Number0-31, PAD</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">N_FTSNumber of FTS Ordered Sets required by receiver to achieve L0 when exiting L0s: 0 - 255</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">Data Rate Identifier:Bit 0 — Reserved.Bit 1 — 2.5 GT/s supported (must be set to 1b)Bit 2 — 5.0 GT/s supported (must be set if bit 3 is set)Bit 3 — 8.0 GT/s supportedBits 5:4 — ReservedBit 6 — Autonomous Change/Selectable De-emphasis/Link Upconfigure Capability. Used in Polling.Configuration, Configuration.Complete, and Recovery LTSSM states; reserved in all other states.Bit 7 — Speed change. This can only be set to one in the Recovery.RcvrLock LTSSM state, and is reserved in all other states.</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">Training Control (0 = De-assert, 1 = Assert)Bit 0 — Hot Reset,Bit 1 — Disable LinkBit 2 — LoopbackBit 3 — Disable Scrambling (for 2.5 or 5.0 GT/s; reserved for Gen3)Bits 7:4 — Reserved, Set to 0</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">For Gen1 or Gen2:TS2 identifier (4Ah) encoded as D10.2EQ TS2s encode this asBits 2:0 — Receiver preset HintBits 6:3 — Transmitter PresetBit 7 — Equalization CommandFor Gen3:Bits 5:0 — Reserved.Bit 6 — Quiesce Guarantee. Defined for use in Recovery.RcvrCfg only; reserved in all other states.Bit 7 — Request Equalization. Defined for use in Recovery.RcvrCfg only; reserved in all other states.</td></tr><tr><td style="border:2px solid #000;">7-13</td><td style="border:2px solid #000;">For Gen1 or Gen2, TS2 identifier (45h) encoded as D5.2For Gen3, TS2 identifier (45h)</td></tr><tr><td style="border:2px solid #000;">14-15</td><td style="border:2px solid #000;">For Gen1 or Gen2, TS2 identifier (45h) encoded as D5.2For Gen3, TS2 identifier (45h), or a DC-Balance Symbol</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -286,7 +286,7 @@ Table 14-2: Summary of TS2 Ordered Set Contents | 表14-2：TS2有序集内容�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -312,7 +312,7 @@ Figure 14-6: Link Training and Status State Machine (LTSSM) | 图14-6：链路�
 ## 14.3.1.1 LTSSM States Overview | 14.3.1.1 LTSSM 状态概述
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -333,7 +333,7 @@ Figure 14-6: Link Training and Status State Machine (LTSSM) | 图14-6：链路�
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -364,7 +364,7 @@ Figure 14-6: Link Training and Status State Machine (LTSSM) | 图14-6：链路�
 ## 14.3.1.2 Introductions, Examples and State Substates | 14.3.1.2 引言、示例和状态子状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -382,7 +382,7 @@ Figure 14-7: States Involved in Initial Link Training at 2.5 Gb/s | 图14-7：2.
 <img src="images/part04_ebb692c1b6290ffe950c1fa08e6555372c7967a57bc2dd89b9b9657b02848a47.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -397,7 +397,7 @@ Figure 14-7: States Involved in Initial Link Training at 2.5 Gb/s | 图14-7：2.
 ## 14.4.1 Introduction | 14.4.1 引言
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -417,7 +417,7 @@ Figure 14‐8: Detect State Machine | 图14‐8：检测状态机
 ## 14.4.2.1 Detect.Quiet | 14.4.2.1 Detect.Quiet
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -436,7 +436,7 @@ Figure 14‐8: Detect State Machine | 图14‐8：检测状态机
 ## 14.4.2.2 Variables | 14.4.2.2 变量
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -450,7 +450,7 @@ Figure 14‐8: Detect State Machine | 图14‐8：检测状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -464,7 +464,7 @@ Figure 14‐8: Detect State Machine | 图14‐8：检测状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -480,7 +480,7 @@ Figure 14‐8: Detect State Machine | 图14‐8：检测状态机
 ## 14.4.2.3 Exit to Detect.Quiet | 14.4.2.3 退出到 Detect.Quiet
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -495,7 +495,7 @@ Figure 14‐8: Detect State Machine | 图14‐8：检测状态机
 ## 14.4.2.4 Exit to Polling State | 14.4.2.4 退出到 Polling 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -509,7 +509,7 @@ Figure 14‐8: Detect State Machine | 图14‐8：检测状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -529,7 +529,7 @@ Figure 14‐8: Detect State Machine | 图14‐8：检测状态机
 ## 14.4.1 Introduction | 14.4.1 引言
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -548,7 +548,7 @@ Figure 14-9: Polling State Machine | 图14-9：轮询状态机
 ## 14.5.2 Detailed Polling Substates | 14.5.2 详细轮询子状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -563,7 +563,7 @@ Figure 14-9: Polling State Machine | 图14-9：轮询状态机
 ## 14.5.2.1 Polling.Active | 14.5.2.1 Polling.Active
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -578,7 +578,7 @@ Figure 14-9: Polling State Machine | 图14-9：轮询状态机
 ## 14.5.2.2 During Polling.Active | 14.5.2.2 在 Polling.Active 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -605,7 +605,7 @@ Figure 14-9: Polling State Machine | 图14-9：轮询状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -626,7 +626,7 @@ Figure 14-9: Polling State Machine | 图14-9：轮询状态机
 ## 14.5.2.3 Polling.Configuration | 14.5.2.3 Polling.Configuration
 
 <table style="border-collapse:collapse;width:100%">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
       <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
@@ -645,7 +645,7 @@ Figure 14-9: Polling State Machine | 图14-9：轮询状态机
 ## 14.5.2.4 During Polling.Configuration | 14.5.2.4 在 Polling.Configuration 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -668,7 +668,7 @@ Figure 14-10: Polling State Machine with Legacy Speed Change | 图14-10：带传
 <img src="images/part04_22fed785d97b3e6ac99ad3f5395018155fe627b09704c92b9726d76c9beb3385.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -683,7 +683,7 @@ Figure 14-10: Polling State Machine with Legacy Speed Change | 图14-10：带传
 ## 14.5.2.5 Polling.Compliance | 14.5.2.5 Polling.Compliance（轮询.合规性）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -698,10 +698,10 @@ Figure 14-10: Polling State Machine with Legacy Speed Change | 图14-10：带传
 
 Table 14-3: Symbol Sequence 8b/10b Compliance Pattern | 表14-3：符号序列8b/10b合规模式
 
-<table><tr><td>Symbol</td><td>Lane 0</td><td>Lane 1</td><td>Lane 2</td><td>...</td><td>Lane 8</td></tr><tr><td>0</td><td>D</td><td>K28.5-</td><td>K28.5-</td><td></td><td>D</td></tr><tr><td>1</td><td>D</td><td>K21.5</td><td>K21.5</td><td></td><td>D</td></tr><tr><td>2</td><td>K28.5-</td><td>K28.5+</td><td>K28.5+</td><td></td><td>K28.5-</td></tr><tr><td>3</td><td>K21.5</td><td>D10.2</td><td>D10.2</td><td></td><td>K21.5</td></tr><tr><td>4</td><td>K28.5+</td><td>K28.5-</td><td>K28.5-</td><td></td><td>K28.5+</td></tr><tr><td>5</td><td>D10.2</td><td>K21.5</td><td>K21.5</td><td></td><td>D10.2</td></tr><tr><td>6</td><td>D</td><td>K28.5+</td><td>K28.5+</td><td></td><td>D</td></tr><tr><td>7</td><td>D</td><td>D10.2</td><td>D10.2</td><td></td><td>D</td></tr><tr><td>8</td><td>K28.5-</td><td>D</td><td>K28.5-</td><td></td><td>K28.5-</td></tr><tr><td>9</td><td>K21.5</td><td>D</td><td>K21.5</td><td></td><td>K21.5</td></tr><tr><td>10</td><td>K28.5+</td><td>K28.5-</td><td>K28.5+</td><td></td><td>K28.5+</td></tr><tr><td>...</td><td>...</td><td>...</td><td>...</td><td></td><td>...</td></tr><tr><td>16</td><td>K28.5-</td><td>K28.5-</td><td>D</td><td></td><td>K28.5-</td></tr><tr><td>17</td><td>K21.5</td><td>K21.5</td><td>D</td><td></td><td>K21.5</td></tr><tr><td>18</td><td>K28.5+</td><td>K28.5+</td><td>K28.5-</td><td></td><td>K28.5+</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Symbol</td><td style="border:2px solid #000;">Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">...</td><td style="border:2px solid #000;">Lane 8</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">D</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">D</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5-</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K21.5</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5+</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">D10.2</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">D</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">D</td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5-</td></tr><tr><td style="border:2px solid #000;">9</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K21.5</td></tr><tr><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5+</td></tr><tr><td style="border:2px solid #000;">...</td><td style="border:2px solid #000;">...</td><td style="border:2px solid #000;">...</td><td style="border:2px solid #000;">...</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">...</td></tr><tr><td style="border:2px solid #000;">16</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5-</td></tr><tr><td style="border:2px solid #000;">17</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K21.5</td></tr><tr><td style="border:2px solid #000;">18</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5+</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -720,14 +720,14 @@ Table 14-3: Symbol Sequence 8b/10b Compliance Pattern | 表14-3：符号序列8b
 
 Table 14-4: Second Block of 128b/130b Compliance Pattern | 表14-4：128b/130b合规模式第二块
 
-<table><tr><td>Symbol</td><td>Lane 0</td><td>Lane 1</td><td>Lane 2</td><td>Lane 3</td><td>Lane 4</td><td>Lane 5</td><td>Lane 6</td><td>Lane 7</td></tr><tr><td>0</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td></tr><tr><td>1</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td></tr><tr><td>2</td><td>55h</td><td>00h</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td></tr><tr><td>3</td><td>55h</td><td>00h</td><td>FFh</td><td>C0h</td><td>55h</td><td>FFh</td><td>F0h</td><td>F0h</td></tr><tr><td>4</td><td>55h</td><td>00h</td><td>FFh</td><td>00h</td><td>55h</td><td>FFh</td><td>00h</td><td>00h</td></tr><tr><td>5</td><td>55h</td><td>00h</td><td>C0h</td><td>00h</td><td>55h</td><td>E0h</td><td>00h</td><td>00h</td></tr><tr><td>6</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td></tr><tr><td>7</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td></tr><tr><td>8</td><td>00h</td><td>1Eh</td><td>2Dh</td><td>3Ch</td><td>4Bh</td><td>5Ah</td><td>69h</td><td>78h</td></tr><tr><td>9</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td><td>F0h</td></tr><tr><td>10</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td></tr><tr><td>11</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td></tr><tr><td>12</td><td>00h</td><td>55h</td><td>0Fh</td><td>0Fh</td><td>00h</td><td>55h</td><td>07h</td><td>00h</td></tr><tr><td>13</td><td>00h</td><td>55h</td><td>FFh</td><td>FFh</td><td>00h</td><td>55h</td><td>FFh</td><td>00h</td></tr><tr><td>14</td><td>00h</td><td>55h</td><td>FFh</td><td>FFh</td><td>7Fh</td><td>55h</td><td>FFh</td><td>00h</td></tr><tr><td>15</td><td>00h</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td><td>00h</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Symbol</td><td style="border:2px solid #000;">Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">Lane 3</td><td style="border:2px solid #000;">Lane 4</td><td style="border:2px solid #000;">Lane 5</td><td style="border:2px solid #000;">Lane 6</td><td style="border:2px solid #000;">Lane 7</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">C0h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">F0h</td><td style="border:2px solid #000;">F0h</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">C0h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">E0h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">1Eh</td><td style="border:2px solid #000;">2Dh</td><td style="border:2px solid #000;">3Ch</td><td style="border:2px solid #000;">4Bh</td><td style="border:2px solid #000;">5Ah</td><td style="border:2px solid #000;">69h</td><td style="border:2px solid #000;">78h</td></tr><tr><td style="border:2px solid #000;">9</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">F0h</td></tr><tr><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">11</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">0Fh</td><td style="border:2px solid #000;">0Fh</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">07h</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">13</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">7Fh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">00h</td></tr></table>
 
 Table 14-5: Third Block of 128b/130b Compliance Pattern | 表14-5：128b/130b合规模式第三块
 
-<table><tr><td>Symbol</td><td>Lane 0</td><td>Lane 1</td><td>Lane 2</td><td>Lane 3</td><td>Lane 4</td><td>Lane 5</td><td>Lane 6</td><td>Lane 7</td></tr><tr><td>0</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td></tr><tr><td>1</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td></tr><tr><td>2</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td></tr><tr><td>3</td><td>F0h</td><td>F0h</td><td>55h</td><td>F0h</td><td>F0h</td><td>F0h</td><td>55h</td><td>F0h</td></tr><tr><td>4</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td></tr><tr><td>5</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td></tr><tr><td>6</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td></tr><tr><td>7</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td><td>{P,~P}</td></tr><tr><td>8</td><td>00h</td><td>1Eh</td><td>2Dh</td><td>3Ch</td><td>4Bh</td><td>5Ah</td><td>69h</td><td>78h</td></tr><tr><td>9</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td></tr><tr><td>10</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td></tr><tr><td>11</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td><td>00h</td><td>00h</td><td>00h</td><td>55h</td></tr><tr><td>12</td><td>FFh</td><td>0Fh</td><td>0Fh</td><td>55h</td><td>0Fh</td><td>0Fh</td><td>0Fh</td><td>55h</td></tr><tr><td>13</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td></tr><tr><td>14</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td></tr><tr><td>15</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td><td>FFh</td><td>FFh</td><td>FFh</td><td>55h</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Symbol</td><td style="border:2px solid #000;">Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">Lane 3</td><td style="border:2px solid #000;">Lane 4</td><td style="border:2px solid #000;">Lane 5</td><td style="border:2px solid #000;">Lane 6</td><td style="border:2px solid #000;">Lane 7</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">F0h</td><td style="border:2px solid #000;">F0h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">F0h</td><td style="border:2px solid #000;">F0h</td><td style="border:2px solid #000;">F0h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">F0h</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td><td style="border:2px solid #000;">{P,~P}</td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">1Eh</td><td style="border:2px solid #000;">2Dh</td><td style="border:2px solid #000;">3Ch</td><td style="border:2px solid #000;">4Bh</td><td style="border:2px solid #000;">5Ah</td><td style="border:2px solid #000;">69h</td><td style="border:2px solid #000;">78h</td></tr><tr><td style="border:2px solid #000;">9</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td></tr><tr><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td></tr><tr><td style="border:2px solid #000;">11</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">00h</td><td style="border:2px solid #000;">55h</td></tr><tr><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">0Fh</td><td style="border:2px solid #000;">0Fh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">0Fh</td><td style="border:2px solid #000;">0Fh</td><td style="border:2px solid #000;">0Fh</td><td style="border:2px solid #000;">55h</td></tr><tr><td style="border:2px solid #000;">13</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td></tr><tr><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">FFh</td><td style="border:2px solid #000;">55h</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -742,10 +742,10 @@ Table 14-5: Third Block of 128b/130b Compliance Pattern | 表14-5：128b/130b合
 
 Table 14-6: Symbol Sequence of 8b/10b Modified Compliance Pattern | 表14-6：8b/10b修改合规模式的符号序列
 
-<table><tr><td>Symbol</td><td>Lane 0</td><td>Lane 1</td><td>Lane 2</td><td>...</td><td>Lane 8</td></tr><tr><td>0</td><td>D</td><td>K28.5-</td><td>K28.5-</td><td></td><td>D</td></tr><tr><td>1</td><td>D</td><td>K21.5</td><td>K21.5</td><td></td><td>D</td></tr><tr><td>2</td><td>D</td><td>K28.5+</td><td>K28.5+</td><td></td><td>D</td></tr><tr><td>3</td><td>D</td><td>D10.2</td><td>D10.2</td><td></td><td>D</td></tr><tr><td>4</td><td>K28.5-</td><td>ERR</td><td>ERR</td><td></td><td>K28.5-</td></tr><tr><td>5</td><td>K21.5</td><td>ERR</td><td>ERR</td><td></td><td>K21.5</td></tr><tr><td>6</td><td>K28.5+</td><td>K28.5-</td><td>K28.5-</td><td></td><td>K28.5+</td></tr><tr><td>7</td><td>D10.2</td><td>K28.5+</td><td>K28.5+</td><td></td><td>D10.2</td></tr><tr><td>8</td><td>ERR</td><td>K28.5-</td><td>K28.5-</td><td></td><td>ERR</td></tr><tr><td>9</td><td>ERR</td><td>K21.5</td><td>K21.5</td><td></td><td>ERR</td></tr><tr><td>10</td><td>K28.5-</td><td>K28.5+</td><td>K28.5+</td><td></td><td>K28.5-</td></tr><tr><td>11</td><td>K28.5+</td><td>D10.2</td><td>D10.2</td><td></td><td>K28.5+</td></tr><tr><td>12</td><td>K28.7-</td><td>ERR</td><td>ERR</td><td></td><td>K28.7-</td></tr><tr><td>13</td><td>K28.7-</td><td>ERR</td><td>ERR</td><td></td><td>K28.7-</td></tr><tr><td>14</td><td>K28.7-</td><td>K28.5-</td><td>K28.5-</td><td></td><td>K28.7-</td></tr><tr><td>15</td><td>K28.7-</td><td>K28.5+</td><td>K28.5+</td><td></td><td>K28.7-</td></tr><tr><td>16</td><td>K28.5-</td><td>D</td><td>K28.5-</td><td></td><td>K28.5-</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Symbol</td><td style="border:2px solid #000;">Lane 0</td><td style="border:2px solid #000;">Lane 1</td><td style="border:2px solid #000;">Lane 2</td><td style="border:2px solid #000;">...</td><td style="border:2px solid #000;">Lane 8</td></tr><tr><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">D</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">D</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">D</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">D</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">ERR</td><td style="border:2px solid #000;">ERR</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5-</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;">ERR</td><td style="border:2px solid #000;">ERR</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K21.5</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5+</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">D10.2</td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">ERR</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">ERR</td></tr><tr><td style="border:2px solid #000;">9</td><td style="border:2px solid #000;">ERR</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;">K21.5</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">ERR</td></tr><tr><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5-</td></tr><tr><td style="border:2px solid #000;">11</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;">D10.2</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5+</td></tr><tr><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">K28.7-</td><td style="border:2px solid #000;">ERR</td><td style="border:2px solid #000;">ERR</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.7-</td></tr><tr><td style="border:2px solid #000;">13</td><td style="border:2px solid #000;">K28.7-</td><td style="border:2px solid #000;">ERR</td><td style="border:2px solid #000;">ERR</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.7-</td></tr><tr><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">K28.7-</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.7-</td></tr><tr><td style="border:2px solid #000;">15</td><td style="border:2px solid #000;">K28.7-</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;">K28.5+</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.7-</td></tr><tr><td style="border:2px solid #000;">16</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;">D</td><td style="border:2px solid #000;">K28.5-</td><td style="border:2px solid #000;"></td><td style="border:2px solid #000;">K28.5-</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -765,7 +765,7 @@ Table 14-6: Symbol Sequence of 8b/10b Modified Compliance Pattern | 表14-6：8b
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -780,7 +780,7 @@ Table 14-6: Symbol Sequence of 8b/10b Modified Compliance Pattern | 表14-6：8b
 ## 14.5.2.6 Entering Polling.Compliance | 14.5.2.6 进入 Polling.Compliance
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -800,14 +800,14 @@ Table 14-6: Symbol Sequence of 8b/10b Modified Compliance Pattern | 表14-6：8b
 
 Table 14-7: Sequence of Compliance Tx Settings | 表14-7：合规发送器设置序列
 
-<table><tr><td>Setting Number</td><td>Data Rate</td><td>De-emphasis</td><td>Tx Preset Encoding</td></tr><tr><td>1</td><td>2.5</td><td>-3.5</td><td>n/a</td></tr><tr><td>2</td><td>5.0</td><td>-3.5</td><td>n/a</td></tr><tr><td>3</td><td>5.0</td><td>-6.0</td><td>n/a</td></tr><tr><td>4</td><td>8.0</td><td>n/a</td><td>0000b</td></tr><tr><td>5</td><td>8.0</td><td>n/a</td><td>0001b</td></tr><tr><td>6</td><td>8.0</td><td>n/a</td><td>0010b</td></tr><tr><td>7</td><td>8.0</td><td>n/a</td><td>0011b</td></tr><tr><td>8</td><td>8.0</td><td>n/a</td><td>0100b</td></tr><tr><td>9</td><td>8.0</td><td>n/a</td><td>0101b</td></tr><tr><td>10</td><td>8.0</td><td>n/a</td><td>0110b</td></tr><tr><td>11</td><td>8.0</td><td>n/a</td><td>0111b</td></tr><tr><td>12</td><td>8.0</td><td>n/a</td><td>1000b</td></tr><tr><td>13</td><td>8.0</td><td>n/a</td><td>1001b</td></tr><tr><td>14</td><td>8.0</td><td>n/a</td><td>1010b</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Setting Number</td><td style="border:2px solid #000;">Data Rate</td><td style="border:2px solid #000;">De-emphasis</td><td style="border:2px solid #000;">Tx Preset Encoding</td></tr><tr><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">2.5</td><td style="border:2px solid #000;">-3.5</td><td style="border:2px solid #000;">n/a</td></tr><tr><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">5.0</td><td style="border:2px solid #000;">-3.5</td><td style="border:2px solid #000;">n/a</td></tr><tr><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">5.0</td><td style="border:2px solid #000;">-6.0</td><td style="border:2px solid #000;">n/a</td></tr><tr><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">0000b</td></tr><tr><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">0001b</td></tr><tr><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">0010b</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">0011b</td></tr><tr><td style="border:2px solid #000;">8</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">0100b</td></tr><tr><td style="border:2px solid #000;">9</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">0101b</td></tr><tr><td style="border:2px solid #000;">10</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">0110b</td></tr><tr><td style="border:2px solid #000;">11</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">0111b</td></tr><tr><td style="border:2px solid #000;">12</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">1000b</td></tr><tr><td style="border:2px solid #000;">13</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">1001b</td></tr><tr><td style="border:2px solid #000;">14</td><td style="border:2px solid #000;">8.0</td><td style="border:2px solid #000;">n/a</td><td style="border:2px solid #000;">1010b</td></tr></table>
 
 Figure 14-11: Link Control 2 Register | 图14-11：链路控制2寄存器
 
 <img src="images/part04_c30234ca8342839e5b52c4c17658ec690161c8daa17051057ac9c61c52b81913.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -825,7 +825,7 @@ Figure 14-11: Link Control 2 Register | 图14-11：链路控制2寄存器
 ## 14.5.2.7 During Polling.Compliance | 14.5.2.7 在 Polling.Compliance 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -839,7 +839,7 @@ Figure 14-11: Link Control 2 Register | 图14-11：链路控制2寄存器
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -866,7 +866,7 @@ Figure 14-11: Link Control 2 Register | 图14-11：链路控制2寄存器
 ## 14.5.2.8 If the rate is 8.0 GT/s | 14.5.2.8 如果速率为 8.0 GT/s
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -885,7 +885,7 @@ Figure 14-11: Link Control 2 Register | 图14-11：链路控制2寄存器
 ## 14.5.2.9 Exit to Polling.Active | 14.5.2.9 退出到 Polling.Active
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -902,7 +902,7 @@ Figure 14-11: Link Control 2 Register | 图14-11：链路控制2寄存器
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -921,7 +921,7 @@ Figure 14-12: Link Control 2 Register's "Enter Compliance" Bit | 图14-12：链�
 ## 14.6 Configuration State | 14.6 配置状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -938,7 +938,7 @@ Figure 14-12: Link Control 2 Register's "Enter Compliance" Bit | 图14-12：链�
 ## 14.6.1 Configuration State — General | 14.6.1 配置状态 — 概述
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -965,7 +965,7 @@ Figure 14-13: Link and Lane Number Encoding in TS1/TS2 | 图14-13：TS1/TS2中�
 ## 14.6.2 Designing Devices with Links that can be Merged | 14.6.2 设计具有可合并链路的设备
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -983,7 +983,7 @@ Figure 14-14: Combining Lanes to Form Wider Links (Link Merging) | 图14-14：�
 <img src="images/part04_b5324084d1ddae51962c85c1a8c4845f46c6d6c4d2a0237410bf36ab1da636b3.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -998,7 +998,7 @@ Figure 14-14: Combining Lanes to Form Wider Links (Link Merging) | 图14-14：�
 ## 14.4.1 Introduction | 14.4.1 引言
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1011,7 +1011,7 @@ Figure 14-14: Combining Lanes to Form Wider Links (Link Merging) | 图14-14：�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1031,7 +1031,7 @@ Figure 14-15: Example 1 - Steps 1 and 2 | 图14-15：示例1 - 步骤1和2
 <img src="images/part04_84d680176a1351ec6f3b06c2557b201fe04b95f4cb1d202cc3a0d4be07bec288.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1047,7 +1047,7 @@ Figure 14-15: Example 1 - Steps 1 and 2 | 图14-15：示例1 - 步骤1和2
 ## Lane Number Negotiation. | 通道编号协商
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1065,7 +1065,7 @@ Figure 14-16: Example 1 - Steps 3 and 4 | 图14-16：示例1 - 步骤3和4
 <img src="images/part04_6bc77784b59eb03ea60cc02fcfe5613afa32eb8abe763c736458baf4da59faac.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1087,7 +1087,7 @@ Figure 14-17: Example 1 - Steps 5 and 6 | 图14-17：示例1 - 步骤5和6
 ## Link Configuration Example 2 | 链路配置示例 2
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1106,7 +1106,7 @@ Figure 14-17: Example 1 - Steps 5 and 6 | 图14-17：示例1 - 步骤5和6
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1124,7 +1124,7 @@ Figure 14-18: Example 2 - Step 1 | 图14-18：示例2 - 步骤1
 <img src="images/part04_9a6350a7869347d4979917531b203b9dbe0b0f166ac1b74f31f010d20028a559.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1144,7 +1144,7 @@ Figure 14-19: Example 2 - Step 2 | 图14-19：示例2 - 步骤2
 ## Lane Number Negotiation | 通道编号协商
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1164,7 +1164,7 @@ Figure 14-20: Example 2 - Steps 3, 4 and 5 | 图14-20：示例2 - 步骤3、4和
 Confirming Link and Lane Numbers.
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1181,7 +1181,7 @@ Confirming Link and Lane Numbers.
 ## Link Configuration Example 3: Failed Lane | 链路配置示例 3：通道失效
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1200,7 +1200,7 @@ Confirming Link and Lane Numbers.
 ## Link Number Negotiation | 链路编号协商
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1218,7 +1218,7 @@ Figure 14-21: Example 3 - Steps 1 and 2 | 图14-21：示例3 - 步骤1和2
 <img src="images/part04_5b38f53f0c3175607265933bd725a231a64c0c1cc16b0d746b122cda0cf4d6c4.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1239,7 +1239,7 @@ Figure 14-22: Example 3 - Steps 3 and 4 | 图14-22：示例3 - 步骤3和4
 ## Confirming Link and Lane Numbers. | 确认链路和通道编号
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1256,7 +1256,7 @@ Figure 14‐23: Example 3 - Steps 5 and 6 | 图14‐23：示例3 - 步骤5和6
 <img src="images/part04_b37ab187f24ad8b780e0aaeb37525218d8efe5813592d383790e939e566a8d25.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1271,7 +1271,7 @@ Figure 14‐23: Example 3 - Steps 5 and 6 | 图14‐23：示例3 - 步骤5和6
 ## 14.6.4 Detailed Configuration Substates | 14.6.4 详细配置子状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1290,7 +1290,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Configuration.Linkwidth.Start | Configuration.Linkwidth.Start
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1303,7 +1303,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1318,7 +1318,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## During Configuration.Linkwidth.Start | 在 Configuration.Linkwidth.Start 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1343,7 +1343,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Configuration.Linkwidth.Start" | 退出到 "Configuration.Linkwidth.Start"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1361,7 +1361,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Disable State" | 退出到 "Disable 状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1376,7 +1376,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Loopback State" | 退出到 "Loopback 状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1391,7 +1391,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1406,7 +1406,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Upstream Lanes. | 上游通道
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1432,7 +1432,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Configuration.Linkwidth.Start" | 退出到 "Configuration.Linkwidth.Start"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1445,7 +1445,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1463,7 +1463,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Loopback State" | 退出到"环回状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1478,7 +1478,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1493,7 +1493,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Configuration.Linkwidth.Accept | Configuration.Linkwidth.Accept
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1506,7 +1506,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1519,7 +1519,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1533,7 +1533,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1547,7 +1547,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1562,7 +1562,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## During Configuration.Linkwidth.Accept | 在 Configuration.Linkwidth.Accept 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1577,7 +1577,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Configuration.Lanenum.Wait" | 退出到 "Configuration.Lanenum.Wait"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1592,7 +1592,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Configuration.Lanenum.Wait | Configuration.Lanenum.Wait
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1609,7 +1609,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1622,7 +1622,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1638,7 +1638,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## 处于 Configuration.Lanenum.Wait 状态期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1655,7 +1655,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1669,7 +1669,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1684,7 +1684,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## During Configuration.Lanenum.Wait | 在 Configuration.Lanenum.Wait 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1699,7 +1699,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Configuration.Lanenum.Accept" | 退出到 "Configuration.Lanenum.Accept"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1717,7 +1717,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1730,7 +1730,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1743,7 +1743,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1756,7 +1756,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1772,7 +1772,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Configuration.Complete" | 退出到 "Configuration.Complete"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1790,7 +1790,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1805,7 +1805,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1819,7 +1819,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1834,7 +1834,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## During Configuration.Lanenum.Accept | 在 Configuration.Lanenum.Accept 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1849,7 +1849,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Configuration.Complete" | 退出到 "Configuration.Complete"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1862,7 +1862,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1879,7 +1879,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Detect State" | 退出至"检测状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1894,7 +1894,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Configuration.Complete | Configuration.Complete
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1908,7 +1908,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1923,7 +1923,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## During Configuration.Complete | 在 Configuration.Complete 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1940,7 +1940,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Configuration.Idle" | 退出到 "Configuration.Idle"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1960,7 +1960,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1975,7 +1975,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 ## Exit to "Configuration.Idle" | 退出到 "Configuration.Idle"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1992,7 +1992,7 @@ Figure 14‑24: Configuration State Machine | 图14‑24：配置状态机
 Exit to "Detect State"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2005,7 +2005,7 @@ Exit to "Detect State"
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2020,7 +2020,7 @@ Exit to "Detect State"
 ## During Configuration.Complete | 在 Configuration.Complete 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2035,7 +2035,7 @@ Exit to "Detect State"
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2055,7 +2055,7 @@ Exit to "Detect State"
 ## – Transitioned to Electrical Idle | 转换到电气空闲
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2073,7 +2073,7 @@ Exit to "Detect State"
 ## After a 2ms timeout: | 经过 2ms 超时后：
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2091,7 +2091,7 @@ Exit to "Detect State"
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2104,7 +2104,7 @@ Exit to "Detect State"
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2119,7 +2119,7 @@ Exit to "Detect State"
 ## During Configuration.Idle | 在 Configuration.Idle 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2136,7 +2136,7 @@ Exit to "Detect State"
 ## Exit to "L0 State" | 退出至"L0状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2155,7 +2155,7 @@ Exit to "Detect State"
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2172,7 +2172,7 @@ Exit to "Detect State"
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2188,7 +2188,7 @@ Exit to "Detect State"
 ## 14.7 L0 State | 14.7 L0 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2205,7 +2205,7 @@ Exit to "Detect State"
 ## 14.7.1 Speed Change | 14.7.1 速度变更
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2230,7 +2230,7 @@ Figure 14-26: Link Control 2 Register / 图 14-26：链路控制 2 寄存器 | �
 ## 14.7.2 Link Width Change | 14.7.2 链路宽度变化
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2243,7 +2243,7 @@ Figure 14-26: Link Control 2 Register / 图 14-26：链路控制 2 寄存器 | �
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2268,7 +2268,7 @@ Figure 14-26: Link Control 2 Register / 图 14-26：链路控制 2 寄存器 | �
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2287,7 +2287,7 @@ Figure 14-26: Link Control 2 Register / 图 14-26：链路控制 2 寄存器 | �
 ## 进入恢复状态的原因
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2310,7 +2310,7 @@ Figure 14-26: Link Control 2 Register / 图 14-26：链路控制 2 寄存器 | �
 ## 14.8.2 Initiating the Recovery Process | 14.8.2 启动恢复过程
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2327,7 +2327,7 @@ Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 <img src="images/part04_7f93bf39ed3fbee43f08a28ed68667ea01f9a6d7281207adae327cb4a2b7fc34.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2342,7 +2342,7 @@ Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 ## During Recovery.RcvrLock | 在 Recovery.RcvrLock 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2360,7 +2360,7 @@ Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 ## Exit to "Recovery.RcvrCfg" | 退出到 "Recovery.RcvrCfg"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2375,7 +2375,7 @@ Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2402,7 +2402,7 @@ Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 ## Exit to "Recovery.Speed" | 退出到 "Recovery.Speed"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2419,7 +2419,7 @@ Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 ## Exit to "Configuration State" | 退出到 "Configuration 状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2434,7 +2434,7 @@ Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2449,7 +2449,7 @@ Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 ## 14.9.3 Speed Change Example | 14.9.3 速率变更示例
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2467,7 +2467,7 @@ Figure 14‑27: Recovery State Machine | 图14‑27：恢复状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2488,7 +2488,7 @@ Figure 14-28: EC Field in TS1s and TS2s for 8.0 GT/s | 图14-28：8.0 GT/s的TS1
 <img src="images/part04_fcbd844711b17941e438837b327bbae759eeea9f058f08ec37a7fc3e2f890680.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse;width:100%">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
       <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
@@ -2507,14 +2507,14 @@ Figure 14‑29: Equalization Control Registers | 图14‑29：均衡控制寄存
 
 Table 14‑8: Tx Preset Encodings | 表14‑8：发送器预置编码
 
-<table><tr><td>Encoding</td><td>De-emphasis</td><td>Preshoot</td></tr><tr><td>0000b</td><td>-6</td><td>0</td></tr><tr><td>0001b</td><td>-3.5</td><td>0</td></tr><tr><td>0010b</td><td>-4.5</td><td>0</td></tr><tr><td>0011b</td><td>-2.5</td><td>0</td></tr><tr><td>0100</td><td>0</td><td>0</td></tr><tr><td>0101</td><td>0</td><td>2</td></tr><tr><td>0110</td><td>0</td><td>2.5</td></tr><tr><td>0111</td><td>-6</td><td>3.5</td></tr><tr><td>1000</td><td>-3.5</td><td>3.5</td></tr><tr><td>1001</td><td>0</td><td>3.5</td></tr><tr><td>1010</td><td>Depends on FS and LS values</td><td>Depends on FS and LS values</td></tr><tr><td>1011b to 1111b</td><td>Reserved</td><td>Reserved</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Encoding</td><td style="border:2px solid #000;">De-emphasis</td><td style="border:2px solid #000;">Preshoot</td></tr><tr><td style="border:2px solid #000;">0000b</td><td style="border:2px solid #000;">-6</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">0001b</td><td style="border:2px solid #000;">-3.5</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">0010b</td><td style="border:2px solid #000;">-4.5</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">0011b</td><td style="border:2px solid #000;">-2.5</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">0100</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">0</td></tr><tr><td style="border:2px solid #000;">0101</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">2</td></tr><tr><td style="border:2px solid #000;">0110</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">2.5</td></tr><tr><td style="border:2px solid #000;">0111</td><td style="border:2px solid #000;">-6</td><td style="border:2px solid #000;">3.5</td></tr><tr><td style="border:2px solid #000;">1000</td><td style="border:2px solid #000;">-3.5</td><td style="border:2px solid #000;">3.5</td></tr><tr><td style="border:2px solid #000;">1001</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">3.5</td></tr><tr><td style="border:2px solid #000;">1010</td><td style="border:2px solid #000;">Depends on FS and LS values</td><td style="border:2px solid #000;">Depends on FS and LS values</td></tr><tr><td style="border:2px solid #000;">1011b to 1111b</td><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Reserved</td></tr></table>
 
 Table 14‑9: Rx Preset Hint Encodings | 表14‑9：接收器预置提示编码
 
-<table><tr><td>Encoding</td><td>Rx Preset Hint</td></tr><tr><td>000b</td><td>-6 dB</td></tr><tr><td>001b</td><td>-7 dB</td></tr><tr><td>010b</td><td>-8 dB</td></tr><tr><td>011b</td><td>-9 dB</td></tr><tr><td>100</td><td>-10 dB</td></tr><tr><td>101</td><td>-11 dB</td></tr><tr><td>110</td><td>-12 dB</td></tr><tr><td>111</td><td>Reserved</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Encoding</td><td style="border:2px solid #000;">Rx Preset Hint</td></tr><tr><td style="border:2px solid #000;">000b</td><td style="border:2px solid #000;">-6 dB</td></tr><tr><td style="border:2px solid #000;">001b</td><td style="border:2px solid #000;">-7 dB</td></tr><tr><td style="border:2px solid #000;">010b</td><td style="border:2px solid #000;">-8 dB</td></tr><tr><td style="border:2px solid #000;">011b</td><td style="border:2px solid #000;">-9 dB</td></tr><tr><td style="border:2px solid #000;">100</td><td style="border:2px solid #000;">-10 dB</td></tr><tr><td style="border:2px solid #000;">101</td><td style="border:2px solid #000;">-11 dB</td></tr><tr><td style="border:2px solid #000;">110</td><td style="border:2px solid #000;">-12 dB</td></tr><tr><td style="border:2px solid #000;">111</td><td style="border:2px solid #000;">Reserved</td></tr></table>
 
 <table style="border-collapse:collapse;width:100%">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
       <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
@@ -2534,7 +2534,7 @@ Figure 14‑30: Equalization Process: Starting Point | 图14‑30：均衡过程
 ## Phase 1 | 阶段一
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2550,7 +2550,7 @@ Figure 14‑30: Equalization Process: Starting Point | 图14‑30：均衡过程
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2574,7 +2574,7 @@ Figure 14-31: Equalization Process: Initiating Phase 2 | 图14-31：均衡过程
 <img src="images/part04_fe8dd6e27bebbc0c0a22d6ffa8269a19bb45f757923ef531d5a6656e4591ff14.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2592,7 +2592,7 @@ Figure 14‐32: Equalization Coefficients Exchanged | 图14‐32：交换的均�
 <img src="images/part04_735d4e3e2070ebada9b664da66b89507fbc7112159a8e837c7446af4703c5ec8.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2617,7 +2617,7 @@ Figure 14‐34: Equalization Process: Adjustments During Phase 2 | 图14‐34：
 ## Phase 3 | 阶段 3
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2638,7 +2638,7 @@ Figure 14-35: Equalization Process: Adjustments During Phase 3 | 图14-35：均�
 ## Equalization Notes | 均衡说明
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2659,7 +2659,7 @@ Figure 14-35: Equalization Process: Adjustments During Phase 3 | 图14-35：均�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2673,7 +2673,7 @@ Figure 14-35: Equalization Process: Adjustments During Phase 3 | 图14-35：均�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2689,7 +2689,7 @@ Figure 14-35: Equalization Process: Adjustments During Phase 3 | 图14-35：均�
 ## Downstream Lanes | 下行通道
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2704,7 +2704,7 @@ Figure 14-35: Equalization Process: Adjustments During Phase 3 | 图14-35：均�
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2729,7 +2729,7 @@ Figure 14-37: Link Control 3 Register | 图14-37：链路控制3寄存器
 <img src="images/part04_6da1f9e40b166d0c47ad5b23686fd53ac546a344278b27f54d175e48b48600b0.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2746,7 +2746,7 @@ Figure 14-37: Link Control 3 Register | 图14-37：链路控制3寄存器
 ## Exit to “Detailed Recovery Substates” | 退出到“详细恢复子状态”
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2761,7 +2761,7 @@ Figure 14-37: Link Control 3 Register | 图14-37：链路控制3寄存器
 ## Exit to "Recovery.Speed" | 退出到 "Recovery.Speed"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2782,7 +2782,7 @@ Figure 14-37: Link Control 3 Register | 图14-37：链路控制3寄存器
 ## Exit to "Recovery.Speed" | 退出到 "Recovery.Speed"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2799,7 +2799,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 <img src="images/part04_44e7dc9812b6b91b0aa32122041950a0b9bcbf219db718b207600833d7af09eb.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2818,7 +2818,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 ## Exit to "Detailed Recovery Substates" | 退出到 "Detailed Recovery Substates"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2833,7 +2833,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2849,7 +2849,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 ## Upstream Lanes | 上游通道
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2871,7 +2871,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 ## Exit to "Phase 1 Upstream" | 退出到 "Phase 1 Upstream"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2892,7 +2892,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 
 
 <table style="border-collapse:collapse;width:100%">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
       <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
@@ -2906,7 +2906,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2925,7 +2925,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 
 
 <table style="border-collapse:collapse;width:100%">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
       <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
@@ -2939,7 +2939,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2958,7 +2958,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 ## Exit to "Detailed Recovery Substates" | 退出到 "Detailed Recovery Substates"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2973,7 +2973,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 ## Exit to "Recovery.Speed" | 退出到 "Recovery.Speed"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2988,7 +2988,7 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 ## Recovery.Speed | Recovery.Speed
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3008,10 +3008,10 @@ Figure 14-38: TS1s - Rejecting Coefficient Values | 图14-38：TS1 - 拒绝系�
 
 Table 14-10: Conditions for Inferring Electrical Idle | 表14-10：推断电气空闲的条件
 
-<table><tr><td>State</td><td>2.5 GT/s</td><td>5.0 GT/s</td><td>8.0 GT/s</td></tr><tr><td>L0</td><td>Absence of Flow Control Update DLLP or SOS in a 128μs window</td><td>Absence of Flow Control Update DLLP or SOS in a 128μs window</td><td>Absence of Flow Control Update DLLP or SOS in a 128μs window</td></tr><tr><td>Recovery.RcvrCfg</td><td>Absence of a TS1 or TS2 in a 1280 UI interval</td><td>Absence of a TS1 or TS2 in a 1280 UI interval</td><td>Absence of a TS1 or TS2 in a 4ms window</td></tr><tr><td>Recovery.Speed when successful_speed_neg otiation = 1b</td><td>Absence of a TS1 or TS2 in a 1280 UI interval</td><td>Absence of a TS1 or TS2 in a 1280 UI interval</td><td>Absence of a TS1 or TS2 in a 4680 interval</td></tr><tr><td>Recovery.Speed when successful_speed_neg otiation = 0b</td><td>Absence of an Electrical Idle exit in a 2000 UI interval</td><td>Absence of an Electrical Idle exit in a 16000 UI interval</td><td>Absence of an Electrical Idle exit in a 16000 UI interval</td></tr><tr><td>Loopback.Active (as a slave)</td><td>Absence of an Electrical Idle exit in a 128μs window</td><td>N/A</td><td>N/A</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">State</td><td style="border:2px solid #000;">2.5 GT/s</td><td style="border:2px solid #000;">5.0 GT/s</td><td style="border:2px solid #000;">8.0 GT/s</td></tr><tr><td style="border:2px solid #000;">L0</td><td style="border:2px solid #000;">Absence of Flow Control Update DLLP or SOS in a 128μs window</td><td style="border:2px solid #000;">Absence of Flow Control Update DLLP or SOS in a 128μs window</td><td style="border:2px solid #000;">Absence of Flow Control Update DLLP or SOS in a 128μs window</td></tr><tr><td style="border:2px solid #000;">Recovery.RcvrCfg</td><td style="border:2px solid #000;">Absence of a TS1 or TS2 in a 1280 UI interval</td><td style="border:2px solid #000;">Absence of a TS1 or TS2 in a 1280 UI interval</td><td style="border:2px solid #000;">Absence of a TS1 or TS2 in a 4ms window</td></tr><tr><td style="border:2px solid #000;">Recovery.Speed when successful_speed_neg otiation = 1b</td><td style="border:2px solid #000;">Absence of a TS1 or TS2 in a 1280 UI interval</td><td style="border:2px solid #000;">Absence of a TS1 or TS2 in a 1280 UI interval</td><td style="border:2px solid #000;">Absence of a TS1 or TS2 in a 4680 interval</td></tr><tr><td style="border:2px solid #000;">Recovery.Speed when successful_speed_neg otiation = 0b</td><td style="border:2px solid #000;">Absence of an Electrical Idle exit in a 2000 UI interval</td><td style="border:2px solid #000;">Absence of an Electrical Idle exit in a 16000 UI interval</td><td style="border:2px solid #000;">Absence of an Electrical Idle exit in a 16000 UI interval</td></tr><tr><td style="border:2px solid #000;">Loopback.Active (as a slave)</td><td style="border:2px solid #000;">Absence of an Electrical Idle exit in a 128μs window</td><td style="border:2px solid #000;">N/A</td><td style="border:2px solid #000;">N/A</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3033,7 +3033,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## Exit to "Detailed Recovery Substates" | 退出到 "Detailed Recovery Substates"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3049,7 +3049,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3065,7 +3065,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## Recovery.RcvrCfg | Recovery.RcvrCfg
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3087,7 +3087,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## Exit to "Recovery.Idle" | 退出到 "Recovery.Idle"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3107,7 +3107,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## Exit to "Recovery.Speed" | 退出到 "Recovery.Speed"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3130,7 +3130,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## Exit to "Configuration State" | 退出到 "Configuration 状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3144,7 +3144,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3159,7 +3159,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3175,7 +3175,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## Exit to "L0 State" | 退出到 "L0 状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3192,7 +3192,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## Exit to "Configuration State" — 退出到“配置状态”
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3209,7 +3209,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## Exit to "Disable State" | 退出到 "Disable 状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3226,7 +3226,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## Exit to "Hot Reset State" | 退出到 "Hot Reset 状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3243,7 +3243,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## Exit to "Loopback State" | 退出到 "Loopback 状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3260,7 +3260,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3275,7 +3275,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## 1.5.2 L0s State | 1.5.2 L0s 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3291,7 +3291,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
 ## L0s Transmitter State Machine | L0s 发送器状态机
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3308,7 +3308,7 @@ Figure 14-40: L0s Tx State Machine | 图14-40：L0s发送状态机
 <img src="images/part04_0ff5145e322f8af17fddc922ca228fea90c1bdf0763426ca97e2cca4402d26ec.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3322,7 +3322,7 @@ Figure 14-40: L0s Tx State Machine | 图14-40：L0s发送状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3338,7 +3338,7 @@ Figure 14-40: L0s Tx State Machine | 图14-40：L0s发送状态机
 ## Tx\_L0s.Idle. | Tx\_L0s.Idle（Tx\_L0s.空闲状态）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3353,7 +3353,7 @@ Figure 14-40: L0s Tx State Machine | 图14-40：L0s发送状态机
 ### Exit to "Tx\_L0s.FTS" / 退出到"Tx\_L0s.FTS"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3368,7 +3368,7 @@ Figure 14-40: L0s Tx State Machine | 图14-40：L0s发送状态机
 ## Tx\_L0s.FTS.
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3385,7 +3385,7 @@ Figure 14-40: L0s Tx State Machine | 图14-40：L0s发送状态机
 ## Exit to "L0 State" | 退出到 "L0 状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3400,7 +3400,7 @@ Figure 14-40: L0s Tx State Machine | 图14-40：L0s发送状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3420,7 +3420,7 @@ Figure 14-41: L0s Receiver State Machine | 图14-41：L0s接收器状态机
 ## Rx\_L0s.Entry.
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3435,7 +3435,7 @@ Figure 14-41: L0s Receiver State Machine | 图14-41：L0s接收器状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3452,7 +3452,7 @@ Figure 14-41: L0s Receiver State Machine | 图14-41：L0s接收器状态机
 ## Exit to "Rx\_L0s.FTS"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3467,7 +3467,7 @@ Figure 14-41: L0s Receiver State Machine | 图14-41：L0s接收器状态机
 ## Rx\_L0s.FTS.
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3489,7 +3489,7 @@ Figure 14-41: L0s Receiver State Machine | 图14-41：L0s接收器状态机
 ## 14.8.8 L1 State | 14.8.8 L1 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3509,7 +3509,7 @@ Figure 14-42: L1 State Machine | 图14-42：L1状态机
 ## L1.Entry | L1.Entry
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3523,7 +3523,7 @@ Figure 14-42: L1 State Machine | 图14-42：L1状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3539,7 +3539,7 @@ Figure 14-42: L1 State Machine | 图14-42：L1状态机
 ## Exit to "L1.Idle" | 退出到 "L1.Idle"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3552,7 +3552,7 @@ Figure 14-42: L1 State Machine | 图14-42：L1状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3569,7 +3569,7 @@ Figure 14-42: L1 State Machine | 图14-42：L1状态机
 ## Exit to "Recovery State" | 退出到"恢复状态"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3587,7 +3587,7 @@ Figure 14-42: L1 State Machine | 图14-42：L1状态机
 ## 14.8.9 L2 State | 14.8.9 L2状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3610,7 +3610,7 @@ Figure 14-43: L2 State Machine | 图14-43：L2状态机
 ## L2.Idle | L2.Idle
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3626,7 +3626,7 @@ Figure 14-43: L2 State Machine | 图14-43：L2状态机
 ## Exit to "L2.TransmitWake" | 退出到 "L2.TransmitWake"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3642,7 +3642,7 @@ Figure 14-43: L2 State Machine | 图14-43：L2状态机
 ## 14.5.2.10 Exit to Detect State | 14.5.2.10 退出到 Detect 状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3658,7 +3658,7 @@ Figure 14-43: L2 State Machine | 图14-43：L2状态机
 ## L2.TransmitWake | L2.TransmitWake
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3673,7 +3673,7 @@ Figure 14-43: L2 State Machine | 图14-43：L2状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3695,7 +3695,7 @@ Figure 14-43: L2 State Machine | 图14-43：L2状态机
 ## 14.8.11 Disable State | 14.8.11 禁用状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3710,7 +3710,7 @@ Figure 14-43: L2 State Machine | 图14-43：L2状态机
 ## During Disable | 在 Disable 期间
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3729,7 +3729,7 @@ Figure 14-43: L2 State Machine | 图14-43：L2状态机
 ## 14.8.12 Loopback State | 14.8.12 环回状态
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3750,7 +3750,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 ## Loopback.Entry | Loopback.Entry
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3764,7 +3764,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3785,7 +3785,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 ## Exit to "Loopback.Active" | 退出到 "Loopback.Active"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3801,7 +3801,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 ## Exit to "Loopback.Exit" | 退出到 "Loopback.Exit"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3814,7 +3814,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3836,7 +3836,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 ## Exit to "Loopback.Active" | 退出到 "Loopback.Active"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3853,7 +3853,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3869,7 +3869,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 ## Exit to "Loopback.Exit" | 退出到 "Loopback.Exit"
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3888,7 +3888,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 ## Loopback.Exit — 环回.退出
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3905,7 +3905,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3926,7 +3926,7 @@ Figure 14-44: Loopback State Machine | 图14-44：回环状态机
 ## 14.9.1 Dynamic Link Speed Changes | 14.9.1 动态链路速度变化
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3943,7 +3943,7 @@ Figure 14‑45: LTSSM Overview | 图14‑45：LTSSM概述
 <img src="images/part04_51bee243b2815200fd78ea55bdec08d7d7ca22d8f31e5b24244e5480fc82abe8.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3964,7 +3964,7 @@ Figure 14‑47: TS2 Contents | 图14‑47：TS2内容
 <img src="images/part04_94dec8511a35e47c80217138349453dd4b30e40b89a02fa345e8aae3f099a5cf.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -3984,7 +3984,7 @@ Figure 14-48: Recovery Sub-States | 图14-48：恢复子状态
 ## 14.9.3 Speed Change Example | 14.9.3 速率变更示例
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4002,7 +4002,7 @@ Figure 14‑49: Speed Change ‑ Initiated | 图14‑49：速度变更 - 已发�
 <img src="images/part04_c103179f670bfe58aaee97dc94fe7fdab89492a3b5869662da79d7a7ec432d8d.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4019,7 +4019,7 @@ Figure 14‑50: Speed Change ‑ Part 2 | 图14‑50：速度变更 - 第2部分
 <img src="images/part04_989541ca1c692502b03c52aa3a3d0821a769f50c08cad5aad2126e32f92caaa9.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4046,7 +4046,7 @@ Figure 14‑54: Bandwidth Change Notification Bits | 图14‑54：带宽变更�
 <img src="images/part04_6cfd21308db68bee7430425f3436423d09aa3f3eb1ebfc8abdd899dc074a5518.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4066,7 +4066,7 @@ Figure 14‑55: Speed Change Finish | 图14‑55：速度变更完成
 ## 14.9.4 Software Control of Speed Changes | 14.9.4 速度变化的软件控制
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4081,7 +4081,7 @@ Figure 14‑55: Speed Change Finish | 图14‑55：速度变更完成
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4104,7 +4104,7 @@ Figure 14‐57: Link Control Register | 图14‐57：链路控制寄存器
 <img src="images/part04_9e7b02353d034f09e0e211c5ea7267444cc5f24554c8516ff6fa0eba0fa473ee.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4121,7 +4121,7 @@ Figure 14‐58: TS2 Contents | 图14‐58：TS2内容
 <img src="images/part04_a9c1001708af13e5fd2e902cce898de58d96eaec61e10a581598b65807e21846.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4145,7 +4145,7 @@ Figure 14‑61: Simplified Configuration Substates | 图14‑61：简化配置�
 <img src="images/part04_06f9234b11d203bc9976593b25f925a5e5e4ad83d7f9cdcb693218721aa46757.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4165,7 +4165,7 @@ Figure 14‐62: Link Width Change ‐ Start | 图14‐62：链路宽度变更 - 
 <img src="images/part04_379a9f72ffb90841f4e84e1b757558b7ffecaa27bae1bd170b17171b79452997.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4182,7 +4182,7 @@ Figure 14‐63: Link Width Change ‐ Recovery.Idle | 图14‐63：链路宽度�
 <img src="images/part04_84a96fa6a7d68f5d0a205a9da435b51534bfa69600287be894c6a482078c7f12.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4200,7 +4200,7 @@ Figure 14‐64: Marking Active Lanes | 图14‐64：标记活动通道
 <img src="images/part04_b5ce4c1c1a8a626566d12daefbef7cd705cae53a7015b74dd5cc9936b1fb171a.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4216,7 +4216,7 @@ Figure 14‐65: Response to Lane Number Changes | 图14‐65：对通道号变�
 <img src="images/part04_fcf9128cc08788297ac83fc570ba78203861a97db2533249995c02ff1e549edb.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4237,7 +4237,7 @@ Figure 14‐66: Link Width Change ‐ Finish | 图14‐66：链路宽度变更 -
 <img src="images/part04_f5ffb4cf6941206d8866c887af5c585f7b3ab5a8f2c3201ac6fbaaad05a28dbc.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4254,7 +4254,7 @@ Figure 14‐67: Link Control Register | 图14‐67：链路控制寄存器
 <img src="images/part04_b15e5f897dc783c1d4d5098487944205d2189e48c3a90688f6c02b82bdef4fec.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4268,7 +4268,7 @@ Figure 14‐67: Link Control Register | 图14‐67：链路控制寄存器
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4288,7 +4288,7 @@ Figure 14‑68: Link Capabilities Register | 图14‑68：链路能力寄存器
 ## Max Link Speed [3:0] | 最大链路速度 [3:0]
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4309,7 +4309,7 @@ Figure 14‑68: Link Capabilities Register | 图14‑68：链路能力寄存器
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4328,7 +4328,7 @@ Figure 14‑68: Link Capabilities Register | 图14‑68：链路能力寄存器
 ## 14.10.2 Link Capabilities 2 Register | 14.10.2 链路能力2寄存器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4349,7 +4349,7 @@ Figure 14-69: Link Capabilities 2 Register | 图14-69：链路能力2寄存器
 <img src="images/part04_598b20f379dd62ef72fe25c3a73da71ca119728f7d55f6e16788a0efad2ea0be.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4365,7 +4365,7 @@ Figure 14-69: Link Capabilities 2 Register | 图14-69：链路能力2寄存器
 ## Current Link Speed[3:0]: | 当前链路速度 [3:0]：
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4389,7 +4389,7 @@ Figure 14-69: Link Capabilities 2 Register | 图14-69：链路能力2寄存器
 ## Negotiated Link Width[9:4] | 协商链路宽度 [9:4]
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4412,7 +4412,7 @@ Figure 14-69: Link Capabilities 2 Register | 图14-69：链路能力2寄存器
 ## Undefined[10] | 未定义 [10]
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4427,7 +4427,7 @@ Figure 14-69: Link Capabilities 2 Register | 图14-69：链路能力2寄存器
 ## Link Training[11] | 链路训练 [11]
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4446,7 +4446,7 @@ Figure 14-70: Link Status Register | 图14-70：链路状态寄存器
 ## 14.10.4 Link Control Register | 14.10.4 链路控制寄存器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4461,7 +4461,7 @@ Figure 14-70: Link Status Register | 图14-70：链路状态寄存器
 ## Link Disable | 链路禁用
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4478,7 +4478,7 @@ Figure 14-70: Link Status Register | 图14-70：链路状态寄存器
 ## Retrain Link | 重新训练链路
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4491,7 +4491,7 @@ Figure 14-70: Link Status Register | 图14-70：链路状态寄存器
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -4508,7 +4508,7 @@ Figure 14‐71: Link Control Register | 图14‐71：链路控制寄存器
 <img src="images/part04_a330083a9fc90f888ee30b6331590876daadcba6b37f63dba555111a6ded97b3.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>

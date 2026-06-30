@@ -5,7 +5,7 @@
 ## The Previous Chapter | 上一章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -23,7 +23,7 @@
 ## This Chapter | 本章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -36,7 +36,7 @@
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -52,7 +52,7 @@
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -68,7 +68,7 @@
 ## 18.2 Conventional Reset | 18.2 传统复位
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -83,7 +83,7 @@
 ## 18.2.1 Fundamental Reset | 18.2.1 基本复位
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -102,7 +102,7 @@
 ## 18.2.1.1 When a Fundamental Reset Occurs | 18.2.1.1 当发生基础复位时
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -118,7 +118,7 @@
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -137,7 +137,7 @@
 ## 18.2.1.2 PERST# Fundamental Reset Generation | 18.2.1.2 PERST# 基础复位生成
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -153,7 +153,7 @@
 ## 18.2.1.3 Autonomous Reset Generation | 18.2.1.3 自主复位生成
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -168,7 +168,7 @@
 ## 18.2.1.4 Link Wakeup from L2 Low Power State | 18.2.1.4 链路从 L2 低功耗状态唤醒
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -186,7 +186,7 @@ Figure 18‐1: PERST# Generation | 图18‐1：PERST#生成
 ## 18.2.2 Hot Reset (In-band Reset) | 18.2.2 热复位（带内复位）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -203,7 +203,7 @@ Figure 18-2: TS1 Ordered-Set Showing the Hot Reset Bit | 图18-2：显示热复�
 <img src="images/part05_e02be89e991ca432a39565fc5dba292e740f6716908555ed1450a0325fe099df.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -218,7 +218,7 @@ Figure 18-2: TS1 Ordered-Set Showing the Hot Reset Bit | 图18-2：显示热复�
 ## 18.2.2.1 Response to Receiving Hot Reset | 18.2.2.1 接收热复位的响应
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -232,7 +232,7 @@ Figure 18-2: TS1 Ordered-Set Showing the Hot Reset Bit | 图18-2：显示热复�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -253,7 +253,7 @@ Figure 18‐3: Switch Generates Hot Reset on One Downstream Port | 图18‐3：�
 Bridges Forward Hot Reset to the Secondary Bus
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -266,7 +266,7 @@ Bridges Forward Hot Reset to the Secondary Bus
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -284,7 +284,7 @@ Figure 18-4: Switch Generates Hot Reset on All Downstream Ports | 图18-4：交�
 <img src="images/part05_544ddba1052f9bea5da80c6c54d2bda121a65e3b76ef07f07f04ddf10a341677.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -300,7 +300,7 @@ Figure 18-4: Switch Generates Hot Reset on All Downstream Ports | 图18-4：交�
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -319,7 +319,7 @@ Figure 18-5: Secondary Bus Reset Register to Generate Hot Reset | 图18-5：用�
 ## 18.2.2.2 Software Can Disable the Link | 18.2.2.2 软件可以禁用链路
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -336,7 +336,7 @@ Figure 18-6: Link Control Register | 图18-6：链路控制寄存器
 <img src="images/part05_caf069e9ea76648b307af6b281ae9604dfaf4305fe1bc7d1d5f121ad2508f4c9.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -351,7 +351,7 @@ Figure 18-6: Link Control Register | 图18-6：链路控制寄存器
 ---
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -369,7 +369,7 @@ Figure 18‐7: TS1 Ordered‐Set Showing Disable Link Bit | 图18‐7：显示�
 ## 18.3 Function Level Reset (FLR) | 18.3 功能级复位（FLR）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -389,7 +389,7 @@ Figure 18-9: Function-Level Reset Initiate Bit | 图18-9：功能级复位发起
 <img src="images/part06_47559ccd168332b4ba513e5542fb8fe1a293972e253b351ea1c9f6831a888a7f.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -407,7 +407,7 @@ Figure 18-9: Function-Level Reset Initiate Bit | 图18-9：功能级复位发起
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -429,7 +429,7 @@ Figure 18-9: Function-Level Reset Initiate Bit | 图18-9：功能级复位发起
 ## 18.3.2 Behavior During FLR | 18.3.2 FLR 期间的行为
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -450,7 +450,7 @@ Figure 18-9: Function-Level Reset Initiate Bit | 图18-9：功能级复位发起
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -466,7 +466,7 @@ Figure 18-9: Function-Level Reset Initiate Bit | 图18-9：功能级复位发起
 ## 18.4 Reset Exit | 18.4 复位退出
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>

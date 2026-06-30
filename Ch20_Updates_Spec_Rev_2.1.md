@@ -1,7 +1,7 @@
 # Ch20_Updates_Spec_Rev_2.1
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -16,7 +16,7 @@
 ## Previous Chapter | 上一章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -31,7 +31,7 @@
 ## This Chapter | 本章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -46,7 +46,7 @@
 ## The Next Chapter | 下一章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -61,7 +61,7 @@
 ## 20.1 Changes for PCIe Spec Rev 2.1 | 20.1 PCIe 规范 Rev 2.1 的变更
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -76,7 +76,7 @@
 ## 20.2 System Redundancy Improvement: Multi-casting | 20.2 系统冗余改进：多播
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -93,7 +93,7 @@ Figure 20‑1: Multicast System Example | 图20‑1：多播系统示例
 <img src="images/part06_c5b66a4706e3fd9144b74bc07b66e788abd7a2a5ad128535a1ee6bb81d80dc84.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -111,7 +111,7 @@ Figure 20‑2: Multicast Capability Registers | 图20‑2：多播能力寄存�
 <img src="images/part06_42362d1a7be73eba81745721c9bac8e9a5e97fac7aab87c3928bcf8aad990e93.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -127,7 +127,7 @@ Figure 20‑2: Multicast Capability Registers | 图20‑2：多播能力寄存�
 ## 20.2.1.1 Multicast Capability | 20.2.1.1 多播能力
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -144,7 +144,7 @@ Figure 20-3: Multicast Capability Register | 图20-3：多播能力寄存器
 <img src="images/part06_acd9d0fc86bfc589e7e16139f3306df457c9dc9f54cfd05e2675e116ee8c870e.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -159,7 +159,7 @@ Figure 20-3: Multicast Capability Register | 图20-3：多播能力寄存器
 ## 20.2.1.2 Multicast Control | 20.2.1.2 多播控制
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -176,7 +176,7 @@ Figure 20‐4: Multicast Control Register | 图20‐4：多播控制寄存器
 <img src="images/part06_486605100e9b5168197b06888191506149a26f486f353e24016131575dea7b88.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -193,7 +193,7 @@ Figure 20‐5: Multicast Base Address Register | 图20‐5：多播基地址寄�
 <img src="images/part06_21c71727a30fb0a924fcceb103c2b76a35374e0512b4bcb9db3d80ef662a68c0.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -211,7 +211,7 @@ Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位�
 ## 20.2.1.3 MC Receive | 20.2.1.3 MC 接收
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -226,7 +226,7 @@ Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位�
 ## 20.2.1.4 MC Block All | 20.2.1.4 MC 全部阻止
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -241,7 +241,7 @@ Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位�
 ## 20.2.1.5 MC Block Untranslated | 20.2.1.5 MC 阻止未翻译
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -258,7 +258,7 @@ Figure 20‐6: Position of Multicast Group Number | 图20‐6：多播组号位�
 ## 20.2.2 Multicast Example | 20.2.2 多播示例
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -283,7 +283,7 @@ Figure 20-7: Multicast Address Example | 图20-7：多播地址示例
 ## 20.2.3 MC Overlay BAR | 20.2.3 MC 覆盖 BAR
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -298,12 +298,12 @@ Figure 20-7: Multicast Address Example | 图20-7：多播地址示例
 
 Figure 20‑8: Multicast Overlay BAR | 图20‑8：多播覆盖BAR
 
-<table><tr><td>31</td><td>6</td><td>5</td><td>0</td></tr><tr><td colspan="2">MC_Overlay_BAR [31:6]</td><td colspan="2">MC_Overlay_Size</td></tr><tr><td colspan="4">MC_Overlay_BAR [63:32]</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">31</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">0</td></tr><tr><td colspan="2" style="border:2px solid #000;">MC_Overlay_BAR [31:6]</td><td colspan="2" style="border:2px solid #000;">MC_Overlay_Size</td></tr><tr><td colspan="4" style="border:2px solid #000;">MC_Overlay_BAR [63:32]</td></tr></table>
 
 ## 20.2.4 Overlay Example | 20.2.4 覆盖示例
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -323,7 +323,7 @@ Figure 20‐9: Overlay Example | 图20‐9：覆盖示例
 ## 20.2.5 Routing Multicast TLPs | 20.2.5 路由多播TLP
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -339,7 +339,7 @@ Figure 20‐9: Overlay Example | 图20‐9：覆盖示例
 ## 20.2.6 Congestion Avoidance | 20.2.6 拥塞避免
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -354,7 +354,7 @@ Figure 20‐9: Overlay Example | 图20‐9：覆盖示例
 ## 20.3 Performance Improvements | 20.3 性能改进
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -371,7 +371,7 @@ Figure 20‐9: Overlay Example | 图20‐9：覆盖示例
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -399,7 +399,7 @@ Figure 20‐10: Device Capabilities 2 Register | 图20‐10：设备能力2寄�
 ## 20.3.2 TPH (TLP Processing Hints) | 20.3.2 TPH（TLP 处理提示）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -412,7 +412,7 @@ Figure 20‐10: Device Capabilities 2 Register | 图20‐10：设备能力2寄�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -426,67 +426,67 @@ Figure 20‐10: Device Capabilities 2 Register | 图20‐10：设备能力2寄�
 
 ## 20.3.2.1 TPH Examples | 20.3.2.1 TPH 示例
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Device Write to Host Read. To help clarify the motivation for TPH, consider the example shown in Figure 20‐11 on page 901. Here the Endpoint is writing data into memory for later use by the CPU. The sequence is as follows:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 设备写主机读。为帮助阐明TPH的动机，请考虑第901页图20-11所示的示例。此处Endpoint正在将数据写入内存以供CPU后续使用。具体序列如下：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 1. First, the Endpoint sends a memory write TLP containing an address that maps to the system memory. The packet gets routed to the Root Complex (RC).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 1. 首先，Endpoint发送一个内存写TLP，其中包含映射到系统内存的地址。该数据包被路由到Root Complex（RC）。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 2. The RC recognizes this as an access to a cacheable memory space and pauses its progress while it snoops the CPU cache. This may result in a write‐back cycle from the CPU to update the system memory before the transaction can proceed, and this is shown as step 2a.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 2. RC识别出这是对可缓存内存空间的访问，并在侦听CPU缓存时暂停其处理。这可能导致CPU执行写回周期以更新系统内存，然后事务才能继续，如步骤2a所示。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 3. Once any write backs have finished, the RC allows the write to update the system memory.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 3. 一旦所有写回操作完成，RC允许该写入操作更新系统内存。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 4. At some point, the Endpoint notifies the CPU about data delivery.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 4. 在某个时刻，Endpoint通知CPU数据已送达。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 5. Finally, the CPU fetches the data from memory to complete the sequence.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 5. 最后，CPU从内存中获取数据以完成该序列。
 </td>
 </tr>
@@ -495,67 +495,67 @@ Device Write to Host Read. To help clarify the motivation for TPH, consider the 
 Figure 20‐11: TPH Example | 图20‐11：TPH示例  
 <img src="images/part06_46f8af8067dccb7f406e6b5f6312245c03cd2ee05a769589ed46a667c24b857d.jpg" width="700" alt="">
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 This sequence works but there's an opportunity for performance improvement by adding an intermediate cache in the system. To illustrate this, consider the example shown in Figure 20‐12 on page 902. From the perspective of the Endpoint, the operation is the same but the knows to handle it a differently. The steps now are as follows:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 该序列可以工作，但通过在系统中添加中间缓存可以进一步提升性能。为说明这一点，请考虑第902页图20-12所示的示例。从Endpoint的角度来看，操作是相同的，但系统知道以不同方式处理它。现在的步骤如下：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 1. The Endpoint does the same memory write but this time TPH bits are included. The write is forwarded to the RC by the Switch as before.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 1. Endpoint执行相同的内存写操作，但这次包含TPH位。与之前一样，该写入由Switch转发到RC。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 2. The RC understands that this memory access must be snooped to the CPU as before. However, once the snoop has been handled, the RC is informed by the TPH bits to store this TLP in an intermediate cache rather than going to system memory.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 2. RC知道与之前一样必须侦听该内存访问到CPU。然而，一旦侦听处理完毕，RC根据TPH位的指示将该TLP存储在中间缓存中，而不是写入系统内存。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 3. The Endpoint notifies the CPU that the data item has been delivered.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 3. Endpoint通知CPU数据项已送达。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 4. The CPU reads from the specified address, but now the data is found in the intermediate cache and so the request does not go to system memory. This has the usual benefits we'd expect from a cache design: faster access time as well as reduced traffic for the system memory.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 4. CPU从指定地址读取，但现在数据在中间缓存中找到，因此请求无需到达系统内存。这带来了缓存设计的常见好处：更快的访问时间以及减少系统内存的流量。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 This is a simple Device Write to Host Read (DWHR) example to illustrate the concept but it wouldn't be hard to imagine a more complex system with a much larger topology in which there could be other caches placed in Switches or other locations to achieve the same benefits for other targets.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 这是一个简单的设备写主机读（DWHR）示例，用于说明该概念。不难想象一个具有更大拓扑的更复杂系统，其中可以在Switch或其他位置放置其他缓存，从而为其他目标实现相同的益处。
 </td>
 </tr>
@@ -564,12 +564,12 @@ This is a simple Device Write to Host Read (DWHR) example to illustrate the conc
 Figure 20‐12: TPH Example with System Cache | 图20‐12：带系统缓存的TPH示例  
 <img src="images/part06_dc3acfa9fc127750cf49c912aa35a41135e7784dd6ba7e02af40a4f6c0852658.jpg" width="700" alt="">
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Host Write to Device Read. To illustrate the concept going the other way (called Host Write to Device Read or HWDR), consider the example shown in Figure 20‐13 on page 903. In this example, the CPU initiates a memory write whose address targets the PCIe Endpoint in step one. The packet contains TPH bits that tell the RC that it should be stored in an intermediate cache near the target, instead of the cache in the RC that was used in the previous example. In this case a cache built into the Switch serves the purpose. The TLP is then forwarded on to the target Endpoint in step two. This model is beneficial when the data is updated infrequently but read often by the Endpoint. That allows several memory reads that would normally go to system memory to be handled by the cache instead, off loading both the Link from the Switch to the RC and the path to memory.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 主机写设备读。为说明反向的概念（称为主机写设备读或HWDR），请考虑第903页图20-13所示的示例。在此示例中，CPU发起一个内存写操作，其地址指向PCIe Endpoint，这是第一步。该数据包包含TPH位，告知RC应将其存储在目标附近的中间缓存中，而不是之前示例中使用的RC内部的缓存。在此情况下，Switch内置的缓存起到了作用。然后TLP在第二步中转发到目标Endpoint。当数据不经常更新但被Endpoint频繁读取时，此模型非常有益。这使得原本需要访问系统内存的多次内存读取可以由缓存处理，从而减轻了从Switch到RC的链路以及内存路径的负载。
 </td>
 </tr>
@@ -578,19 +578,19 @@ Host Write to Device Read. To illustrate the concept going the other way (called
 Figure 20‐13: TPH Usage for TLPs to Endpoint | 图20‐13：TPH在到端点的TLP中的使用  
 <img src="images/part06_8bdff8cf16b9c4b579a1b72f34cfe9194b15ca2028f765db20af4086de418717.jpg" width="700" alt="">
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Device to Device. One last example is illustrated in Figure 20‐14 on page 904, where two Endpoints communicate with each other (called Device Read/ Write to Device Read/Write or D\*D\*) through a shared memory location that is directed by TPH bits to an intermediate cache. In this case, both may update different locations that they need to handle as "read mostly", or one Endpoint may update data that the other needs to read several times. In both cases, using the intermediate cache improves system performance.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 设备到设备。最后一个示例如第904页图20-14所示，其中两个Endpoint通过由TPH位导向中间缓存的共享内存位置相互通信（称为设备读/写到设备读/写或D\*D\*）。在此情况下，两者可能更新各自需要作为"主要读取"处理的不同位置，或者一个Endpoint可能更新另一个需要多次读取的数据。在这两种场景中，使用中间缓存都能提升系统性能。
 </td>
 </tr>
 </table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -608,7 +608,7 @@ Device to Device. One last example is illustrated in Figure 20‐14 on page 904,
 ## 20.3.2.2 TPH Header Bits | 20.3.2.2 TPH 头部比特位
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -625,16 +625,16 @@ Device to Device. One last example is illustrated in Figure 20‐14 on page 904,
 
 Figure 20‐15: TPH Header Bits | 图20‐15：TPH头部位
 
-<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="4">+1</td><td colspan="4">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td></tr><tr><td>Byte 0</td><td>Fmt</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>F</td><td>TH</td><td>T</td><td>EP</td><td>Attr</td><td>AT</td></tr><tr><td>Byte 4</td><td colspan="8">Requester ID</td><td colspan="3">Tag</td><td>Last DW BE</td></tr><tr><td>Byte 8</td><td colspan="12">Address [63:32]</td></tr><tr><td>Byte 12</td><td colspan="12">Address [31:2]</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="4" style="border:2px solid #000;">+1</td><td colspan="4" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">F</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">T</td><td style="border:2px solid #000;">EP</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="8" style="border:2px solid #000;">Requester ID</td><td colspan="3" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">Last DW BE</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="12" style="border:2px solid #000;">Address [63:32]</td></tr><tr><td style="border:2px solid #000;">Byte 12</td><td colspan="12" style="border:2px solid #000;">Address [31:2]</td></tr></table>
 
 Table 20‐1: PH Encoding Table | 表20‐1：PH编码表
 
-<table><tr><td>PH [1:0]</td><td>Processing Hint</td><td>Usage Model</td></tr><tr><td>00b</td><td>Bi-directional data structure</td><td>Indicates frequent read/write access by Host and device.</td></tr><tr><td>01b</td><td>Requester</td><td>D*D* (device-to-device transfers). Indicates frequent read/write access by device. The asterisk means either device could be reading or writing.</td></tr><tr><td>10b</td><td>Target</td><td>DWHR, HWDR (device-to-host or host-to-device transfers). Indicates frequent read/write access by Host.</td></tr><tr><td>11b</td><td>Target with Priority</td><td>Same as Target but with additional temporal re-use priority information. Indicates frequent read/write access by Host and high temporal locality for accessed data.</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">PH [1:0]</td><td style="border:2px solid #000;">Processing Hint</td><td style="border:2px solid #000;">Usage Model</td></tr><tr><td style="border:2px solid #000;">00b</td><td style="border:2px solid #000;">Bi-directional data structure</td><td style="border:2px solid #000;">Indicates frequent read/write access by Host and device.</td></tr><tr><td style="border:2px solid #000;">01b</td><td style="border:2px solid #000;">Requester</td><td style="border:2px solid #000;">D*D* (device-to-device transfers). Indicates frequent read/write access by device. The asterisk means either device could be reading or writing.</td></tr><tr><td style="border:2px solid #000;">10b</td><td style="border:2px solid #000;">Target</td><td style="border:2px solid #000;">DWHR, HWDR (device-to-host or host-to-device transfers). Indicates frequent read/write access by Host.</td></tr><tr><td style="border:2px solid #000;">11b</td><td style="border:2px solid #000;">Target with Priority</td><td style="border:2px solid #000;">Same as Target but with additional temporal re-use priority information. Indicates frequent read/write access by Host and high temporal locality for accessed data.</td></tr></table>
 
 ## 20.3.2.3 Steering Tags | 20.3.2.3 导向标签
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -648,10 +648,10 @@ Table 20‐1: PH Encoding Table | 表20‐1：PH编码表
 
 Figure 20-16: TPH Requester Capability Structure | 图20-16：TPH请求者能力结构
 
-<table><tr><td>PCI Express Capabilities Register</td><td>Next Cap Pointer</td><td>PCI Express Cap ID (17h)</td></tr><tr><td colspan="3">TPH Requester Capability Register</td></tr><tr><td colspan="3">TPH Requester Control Register</td></tr><tr><td colspan="3">TPH ST Table (optional)(Sized by number of ST entries)</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">PCI Express Capabilities Register</td><td style="border:2px solid #000;">Next Cap Pointer</td><td style="border:2px solid #000;">PCI Express Cap ID (17h)</td></tr><tr><td colspan="3" style="border:2px solid #000;">TPH Requester Capability Register</td></tr><tr><td colspan="3" style="border:2px solid #000;">TPH Requester Control Register</td></tr><tr><td colspan="3" style="border:2px solid #000;">TPH ST Table (optional)(Sized by number of ST entries)</td></tr></table>
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -667,7 +667,7 @@ Figure 20‐17: TPH Capability and Control Registers | 图20‐17：TPH能力和
 <img src="images/part06_f2751ae1b9737f137986eecb5a887722e61077b755c3fb05ded33d3f0e06e0dd.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -679,12 +679,12 @@ Figure 20‐17: TPH Capability and Control Registers | 图20‐17：TPH能力和
 </table>
 
 
-<table><tr><td>Bits [10:9]</td><td>ST Table Location</td></tr><tr><td>00b</td><td>Not present</td></tr><tr><td>01b</td><td>Located in the Requester Capability structure</td></tr><tr><td>10b</td><td>Located in the MSI-X table</td></tr><tr><td>11b</td><td>Reserved</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Bits [10:9]</td><td style="border:2px solid #000;">ST Table Location</td></tr><tr><td style="border:2px solid #000;">00b</td><td style="border:2px solid #000;">Not present</td></tr><tr><td style="border:2px solid #000;">01b</td><td style="border:2px solid #000;">Located in the Requester Capability structure</td></tr><tr><td style="border:2px solid #000;">10b</td><td style="border:2px solid #000;">Located in the MSI-X table</td></tr><tr><td style="border:2px solid #000;">11b</td><td style="border:2px solid #000;">Reserved</td></tr></table>
 
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -702,12 +702,12 @@ Figure 20‐17: TPH Capability and Control Registers | 图20‐17：TPH能力和
 
 Figure 20-18: TPH Capability ST Table | 图20-18：TPH能力ST表
 
-<table><tr><td>ST Upper Entry (1)</td><td>ST Lower Entry (1)</td><td>ST Upper Entry (0)</td><td>ST Lower Entry (0)</td></tr><tr><td>ST Upper Entry (3)</td><td>ST Lower Entry (3)</td><td>ST Upper Entry (2)</td><td>ST Lower Entry (2)</td></tr><tr><td>ST Upper Entry(Table Size)</td><td>ST Lower Entry(Table Size)</td><td>ST Upper Entry(Table Size - 1)</td><td>ST Lower Entry(Table Size - 1)</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">ST Upper Entry (1)</td><td style="border:2px solid #000;">ST Lower Entry (1)</td><td style="border:2px solid #000;">ST Upper Entry (0)</td><td style="border:2px solid #000;">ST Lower Entry (0)</td></tr><tr><td style="border:2px solid #000;">ST Upper Entry (3)</td><td style="border:2px solid #000;">ST Lower Entry (3)</td><td style="border:2px solid #000;">ST Upper Entry (2)</td><td style="border:2px solid #000;">ST Lower Entry (2)</td></tr><tr><td style="border:2px solid #000;">ST Upper Entry(Table Size)</td><td style="border:2px solid #000;">ST Lower Entry(Table Size)</td><td style="border:2px solid #000;">ST Upper Entry(Table Size - 1)</td><td style="border:2px solid #000;">ST Lower Entry(Table Size - 1)</td></tr></table>
 
 ## 20.3.2.4 TLP Prefixes | 20.3.2.4 TLP 前缀
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -721,12 +721,12 @@ Figure 20-18: TPH Capability ST Table | 图20-18：TPH能力ST表
 
 Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 
-<table><tr><td rowspan="2"></td><td colspan="2">+0</td><td colspan="5">+1</td><td colspan="5">+2</td><td colspan="2">+3</td></tr><tr><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td><td>7</td><td>6</td><td>5</td><td>4</td><td>3</td><td>2</td></tr><tr><td>Byte 0</td><td>Fmt1</td><td>0</td><td>Type</td><td>R</td><td>TC</td><td>R</td><td>Attr</td><td>R</td><td>TH</td><td>TDP</td><td>Attr</td><td>AT</td><td colspan="2">Length</td></tr><tr><td>Byte 4</td><td colspan="9">Requester ID</td><td colspan="3">Tag</td><td>Last DWBE</td><td>1st DWBE</td></tr><tr><td>Byte 8</td><td colspan="14">Address [63:32]</td></tr><tr><td>Byte 12</td><td colspan="13">Address [31:2]</td><td>PH</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" style="border:2px solid #000;"></td><td colspan="2" style="border:2px solid #000;">+0</td><td colspan="5" style="border:2px solid #000;">+1</td><td colspan="5" style="border:2px solid #000;">+2</td><td colspan="2" style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td><td style="border:2px solid #000;">1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">7</td><td style="border:2px solid #000;">6</td><td style="border:2px solid #000;">5</td><td style="border:2px solid #000;">4</td><td style="border:2px solid #000;">3</td><td style="border:2px solid #000;">2</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">Fmt1</td><td style="border:2px solid #000;">0</td><td style="border:2px solid #000;">Type</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TC</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">R</td><td style="border:2px solid #000;">TH</td><td style="border:2px solid #000;">TDP</td><td style="border:2px solid #000;">Attr</td><td style="border:2px solid #000;">AT</td><td colspan="2" style="border:2px solid #000;">Length</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="9" style="border:2px solid #000;">Requester ID</td><td colspan="3" style="border:2px solid #000;">Tag</td><td style="border:2px solid #000;">Last DWBE</td><td style="border:2px solid #000;">1st DWBE</td></tr><tr><td style="border:2px solid #000;">Byte 8</td><td colspan="14" style="border:2px solid #000;">Address [63:32]</td></tr><tr><td style="border:2px solid #000;">Byte 12</td><td colspan="13" style="border:2px solid #000;">Address [31:2]</td><td style="border:2px solid #000;">PH</td></tr></table>
 
 ## 20.3.3 IDO (ID-based Ordering) | 20.3.3 IDO（基于 ID 的排序）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -741,7 +741,7 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 ## 20.3.4 ARI (Alternative Routing-ID Interpretation) | 20.3.4 ARI（替代路由ID解读）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -762,7 +762,7 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 ## 20.4 Power Management Improvements | 20.4 电源管理改进
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -777,7 +777,7 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 ## 20.4.1 DPA (Dynamic Power Allocation) | 20.4.1 DPA（动态功率分配）
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -790,7 +790,7 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -805,12 +805,12 @@ Figure 20-19: TPH Prefix Indication | 图20-19：TPH前缀指示
 
 ## 20.4.3 OBFF (Optimized Buffer Flush and Fill) | 20.4.3 OBFF（优化缓冲区刷新与填充）
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Similarly, allowing the system to report the preferred time slots during which Endpoints should or should not initiate DMA or interrupt traffic helps coordinate system sleep times and improve power management. For more on this, see "OBFF (Optimized Buffer Flush and Fill)" on page 776.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 同样，允许系统报告端点应发起或不应发起DMA或中断流量的首选时隙，有助于协调系统休眠时间并改善电源管理。有关更多信息，请参见第776页的"OBFF（优化缓冲区刷新与填充）"。
 </td>
 </tr>
@@ -819,7 +819,7 @@ Similarly, allowing the system to report the preferred time slots during which E
 ## 20.4.4 ASPM Options | 20.4.4 ASPM 选项
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -832,7 +832,7 @@ Similarly, allowing the system to report the preferred time slots during which E
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -848,7 +848,7 @@ Similarly, allowing the system to report the preferred time slots during which E
 ## 20.5.1 Internal Error Reporting | 20.5.1 内部错误报告
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -865,7 +865,7 @@ Similarly, allowing the system to report the preferred time slots during which E
 ## 20.5.2 Resizable BARs | 20.5.2 可调整大小的 BAR
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -888,7 +888,7 @@ Figure 20‐20: Resizable BAR Registers / 图 20‐20：可调整大小的 BAR �
 ## 20.5.2.1 Capability Register | 20.5.2.1 能力寄存器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -911,7 +911,7 @@ Figure 20-21: Resizable BAR Capability Register | 图20-21：可调整大小BAR�
 ## Control Register | 控制寄存器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -927,7 +927,7 @@ Figure 20‐22: Resizable BAR Control Register | 图20‐22：可调整大小BAR
 <img src="images/part06_42bf9a29173342c26de98486d6e42bd79800d8d24142e1b7d08dbf44d33b0d18.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -943,7 +943,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 <img src="images/part06_bf5642ad8ee7bab529f8d109c732bdbc9185d3392acba41074c0bbe132d75e17.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -958,7 +958,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -971,7 +971,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -985,7 +985,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1003,7 +1003,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1018,7 +1018,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 ## 99.2.1 RTL Simulation Perspective | 99.2.1 RTL 仿真视角
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1033,7 +1033,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 ## 99.2.2 PCI Express RTL Bus Monitor | 99.2.2 PCI Express RTL 总线监视器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1048,7 +1048,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 ## 99.2.3 RTL vector export to PETracer Application | 99.2.3 RTL 向量导出到 PETracer 应用
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1062,7 +1062,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1075,7 +1075,7 @@ Figure 20‐23: BARs in a Type0 Configuration Header | 图20‐23：Type0配置�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1100,7 +1100,7 @@ Figure A‐1: LeCroy Oscilloscope with ProtoSync Software Option | 图A‐1：�
 ## 99.3.2 Protocol Analyzer | 99.3.2 协议分析仪
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1117,7 +1117,7 @@ Figure A‐1: LeCroy Oscilloscope with ProtoSync Software Option | 图A‐1：�
 ## 99.3.3 Logic Analyzer | 99.3.3 逻辑分析仪
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1135,7 +1135,7 @@ Figure A‐1: LeCroy Oscilloscope with ProtoSync Software Option | 图A‐1：�
 ## 99.4 Using a Protocol Analyzer Probing Option | 99.4 使用协议分析仪探测选项
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1153,7 +1153,7 @@ Figure A-2: LeCroy PCI Express Slot Interposer x16 | 图A-2：LeCroy PCI Express
 <img src="images/part06_a824c247f5e1832ba1a0dbda8bbb952b76f4d98b36a17a519855edf0c26c7b6b.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1169,7 +1169,7 @@ Figure A-3: LeCroy XMC, AMC, and Mini Card Interposers | 图A-3：LeCroy XMC、A
 <img src="images/part06_3f1f3177d7c3580d03ba2a269ede7721fdde0649868789d2a6b3c7a14db806fc.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1185,7 +1185,7 @@ Figure A-4: LeCroy PCI Express Gen3 Mid-Bus Probe | 图A-4：LeCroy PCI Express 
 <img src="images/part06_aed82c2e0e0bf42268178501d60cb2b67f960d5425e46a46c4614d4e07e33693.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1201,7 +1201,7 @@ Figure A-5: LeCroy PCI Express Gen2 Flying Lead Probe | 图A-5：LeCroy PCI Expr
 <img src="images/part06_e0acc98dd94fc30917b013f3fa880ff6d4fe74690d210017a30826eba95c6b7b.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1214,7 +1214,7 @@ Figure A-5: LeCroy PCI Express Gen2 Flying Lead Probe | 图A-5：LeCroy PCI Expr
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1230,7 +1230,7 @@ Figure A-6: TLP Packet with ECRC Error | 图A-6：含ECRC错误的TLP数据包
 <img src="images/part06_f3e8b4f925f7ce5f9643abfcc72742fb65a76e3ab12cb80a2a8c566723277857.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1246,7 +1246,7 @@ Figure A-7: "Link Level" Groups TLP Packets with their Link Layer Response | 图
 <img src="images/part06_43b8b3cb9fa74ebf5301ea58b79b5983ba93e4ba6f20884125f2f8199d058563.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1262,7 +1262,7 @@ Figure A-8: "Split Level" Groups Completions with Associated Non-Posted Request 
 <img src="images/part06_699bc3cab83166595fc0510017c197434f2f8de24a18d2e3c63d35088df90ce7.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1278,7 +1278,7 @@ Figure A-9: "Compact View" Collapses Related Packets for Easy Viewing of Link Tr
 <img src="images/part06_6557f747b954daf86767a3c0fcec6605bd1f0203374312f9dd0f6292a29d92f5.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1300,7 +1300,7 @@ Figure A-10: LTSSM Graph Shows Link State Transitions Across the Trace | 图A-10
 ## 99.5.3 Flow Control Credit Tracking | 99.5.3 流控信用跟踪
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1320,7 +1320,7 @@ Figure A-11: Flow Control Credit Tracking | 图A-11：流控信用量跟踪
 ## 99.5.4 Bit Tracer | 99.5.4 位追踪器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1338,7 +1338,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 <img src="images/part06_32acbc40b344bfad018991596c20bdb96beda691ecf83baa5112b5024563895a.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1352,7 +1352,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1366,7 +1366,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1381,7 +1381,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 ## 99.6.1 Pre-Silicon | 99.6.1 硅前
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1394,7 +1394,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1409,7 +1409,7 @@ Figure A-12: BitTracer View of Gen2 Traffic | 图A-12：Gen2流量的BitTracer�
 ## Exerciser Card | 练习卡
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1428,7 +1428,7 @@ Figure A‐13: LeCroy Gen3 PETrainer Exerciser Card | 图A‐13：LeCroy Gen3 PE
 <img src="images/part06_fe9de6f68b8c2df77585c842703d289e746b886d39f06a0ac25f2aa98dea6289.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1449,7 +1449,7 @@ Figure A‑14: LeCroy Gen2 Protocol Test Card (PTC) | 图A‑14：LeCroy Gen2协
 ## 99.7 Conclusion | 99.7 结论
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1465,7 +1465,7 @@ Figure A‑14: LeCroy Gen2 Protocol Test Card (PTC) | 图A‑14：LeCroy Gen2协
 # Appendix B: Markets & Applications for PCI Express
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1481,7 +1481,7 @@ Figure A‑14: LeCroy Gen2 Protocol Test Card (PTC) | 图A‑14：LeCroy Gen2协
 ## 99.1 Introduction | 99.1 引言
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1504,7 +1504,7 @@ Figure A‑14: LeCroy Gen2 Protocol Test Card (PTC) | 图A‑14：LeCroy Gen2协
 ## Chapter : Appendix B: Markets & Applications for PCI | 附录 B：PCI 市场与应用
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1519,7 +1519,7 @@ Figure A‑14: LeCroy Gen2 Protocol Test Card (PTC) | 图A‑14：LeCroy Gen2协
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1539,7 +1539,7 @@ Figure B-1: MR-IOV Switch Usage | 图B-1：MR-IOV交换机用途
 <img src="images/part06_96a163a352f0d6bdfeb152fbc9235f345889ca2e07d1390c473b1baeca0607a0.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1555,7 +1555,7 @@ Figure B-1: MR-IOV Switch Usage | 图B-1：MR-IOV交换机用途
 ## 99.3 Multi-Root (MR) PCIe Switch Solution | 99.3 多根(MR)PCIe交换机解决方案
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1573,7 +1573,7 @@ Figure 0‑2:  MR‑IOV Switch Internal Architecture | 图0‑2：MR-IOV交换�
 <img src="images/part06_01e23cd1e85edb410102ef8a999ae1c6cf5d91d36573530905b263a357eee4ed.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1594,7 +1594,7 @@ Figure B-3: PCIe in a Data Center for HPC Applications | 图B-3：数据中心�
 ## SSD | Storage IO Expansion Boxes / SSD/存储IO扩展盒
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1607,7 +1607,7 @@ Figure B-3: PCIe in a Data Center for HPC Applications | 图B-3：数据中心�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1625,7 +1625,7 @@ Figure B-4: PCIe Switch Application in an SSD Add-In Card | 图B-4：SSD插件�
 <img src="images/part06_ee09497ae91f0c372cb1e5b1789454ff566cf497563f6a3015a06f2498251497.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1642,7 +1642,7 @@ Figure B-5: Server Motherboard Use PCIe Switches | 图B-5：使用PCIe交换机�
 <img src="images/part06_45025c5c26c2077c2b463bbfdb015444fe94580e8ecded23a65f5e8088c33341.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1661,7 +1661,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 ## 99.7 Conclusion | 99.7 结论
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1677,7 +1677,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 # Implementing Intelligent Adapters and Multi‐Host Systems With PCI Express Technology
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1693,7 +1693,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 ## 99.1 Introduction | 99.1 引言
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1707,7 +1707,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1722,7 +1722,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 ## 99.2.1 Intelligent Adapters | 99.2.1 智能适配器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1738,7 +1738,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 ## 99.2.2 Host Failover | 99.2.2 主机故障切换
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1755,7 +1755,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 ## Chapter : Appendix C: Implementing Intelligent Adapt- | 附录 C：实现智能适配器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1770,7 +1770,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 ## 99.2.3 Multiprocessor Systems | 99.2.3 多处理器系统
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1790,7 +1790,7 @@ Figure B-6: Server Failover in 1 + N Failover Scheme | 图B-6：1+N故障切换�
 ## 99.3 The History Multi-Processor Implementations Using PCI | 99.3 使用 PCI 的多处理器实现历史
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1813,7 +1813,7 @@ Figure C-1: Enumeration Using Transparent Bridges | 图C-1：使用透明桥的�
 ## Implementing Multi-host | Intelligent Adapters in PCI Express Base Systems / 在 PCI Express 基础系统中实现多主机/智能适配器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1835,7 +1835,7 @@ Address translation can be done by Direct Address Translation (essentially repla
 Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple windows spread across system memory space for packet originated in a local I/O processor's domain, as well as Direct Address Translation used to create a single window in the opposite direction.
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1848,7 +1848,7 @@ Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple 
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1864,7 +1864,7 @@ Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple 
 <img src="images/part06_16233cf40f4625514aa729e0d5e6ef58d10bffece04650cd6f5ca16551038551.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1882,7 +1882,7 @@ Figure C-0-3 on page 950 shows Table Lookup Translation used to create multiple 
 ## 示例：在 PCI Express 基础系统中实现智能适配器
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1902,7 +1902,7 @@ Figure C-4: Intelligent Adapters in PCI and PCI Express Systems | 图C-4：PCI�
 <img src="images/part06_0e0303807b2f7dda9278e3b16af14b791f92f12d8fda9ad48de3811f454afdbb.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1922,7 +1922,7 @@ Figure C-4: Intelligent Adapters in PCI and PCI Express Systems | 图C-4：PCI�
 ## 示例：在PCI Express系统中实现主机故障切换
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1939,7 +1939,7 @@ Figure C-5: Host Failover in PCI and PCI Express Systems | 图C-5：PCI和PCI Ex
 <img src="images/part06_dcdfbe316f4856a23c1d4583b50d833827e3691ebefb4bde0b61800919d42d50.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1956,7 +1956,7 @@ Figure C-5: Host Failover in PCI and PCI Express Systems | 图C-5：PCI和PCI Ex
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1974,7 +1974,7 @@ Figure C-5: Host Failover in PCI and PCI Express Systems | 图C-5：PCI和PCI Ex
 <img src="images/part06_3e90664de5b3fa4c38071f2bcf85d67cc73ba20b85766b70b400fce321e4722b.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -1989,7 +1989,7 @@ Figure C-5: Host Failover in PCI and PCI Express Systems | 图C-5：PCI和PCI Ex
 ## PCI Express 3.0 Technology | PCI Express 3.0 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -2010,12 +2010,12 @@ Figure C-7: Dual-Star Fabric | 图C-7：双星型结构
 
 ## 99.5 Summary | 99.5 总结
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Through non-transparent bridging, PCI Express Base offers vendors the ability to integrate intelligent adapters and multi-host systems into their next generation designs. This appendix demonstrated how these features will be deployed using de-facto standard techniques adopted in the PCI environment and showed how they would be utilized for various applications. Because of this, we can expect this methodology to become the industry standard in the PCI Express paradigm.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 通过非透明桥接，PCI Express Base为供应商提供了将智能适配器和多主机系统集成到其下一代设计中的能力。本附录演示了如何使用PCI环境中采用的事实标准技术来部署这些特性，并展示了它们将如何被用于各种应用。因此，我们可以预期这种方法将成为PCI Express范式中的行业标准。
 </td>
 </tr>
@@ -2023,67 +2023,67 @@ Through non-transparent bridging, PCI Express Base offers vendors the ability to
 
 ## 99.6 Address Translation | 99.6 地址翻译
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 This section provides an in-depth description of how systems that use nontransparent bridges communicate using address translation. We provide details about the mechanism by which systems determine not only the size of the memory allocated, but also about how memory pointers are employed. Implementations using both Direct Address Translation as well as Lookup Table Based Address Translation are discussed. By using the same standardized architectural implementation of non transparent bridging popularized in the PCI paradigm into the PCI Express environment, interconnect vendors can speed market adoption of PCI Express into markets requiring intelligent adapters, host failover and multihost capabilities.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 本节深入描述了使用非透明桥的系统如何通过地址翻译进行通信。我们详细阐述了系统不仅确定分配内存大小的机制，还介绍了内存指针的使用方式。讨论了使用直接地址翻译以及基于查找表的地址翻译的实现。通过将在PCI范式中流行的非透明桥接的相同标准化架构实现引入PCI Express环境，互联供应商可以加快PCI Express在需要智能适配器、主机故障切换和多主机能力的市场中的采用。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The transparent bridge uses base and limit registers in I/O space, non-prefetchable memory space, and prefetchable memory space to map transactions in the downstream direction across the bridge. All downstream devices are required to be mapped in contiguous address regions such that a single aperture in each space is sufficient. Upstream mapping is done via inverse decoding relative to the same registers. A transparent bridge does not translate the addresses of forwarded transactions/packets.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 透明桥使用I/O空间、不可预取存储器空间和可预取存储器空间中的基址和限制寄存器，以在桥的下行方向映射事务。所有下游设备必须映射在连续的地址区域中，使得每个空间中的单个窗口就足够了。上行映射通过相对于相同寄存器的反向解码完成。透明桥不会翻译转发的事务/数据包的地址。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The non-transparent bridges use the standard set of BARs in their Type 0 CSR header to define apertures into the memory space on the other side of the bridge. There are two sets of BARs: one on the Primary side and one on the Secondary. BARs define resource apertures that allow the forwarding of transactions to the opposite (other side) interface.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 非透明桥使用其Type 0 CSR头部中的标准BAR集来定义通往桥另一侧存储器空间的窗口。有两组BAR：一组在主侧，一组在从侧。BAR定义了允许将事务转发到对侧（另一侧）接口的资源窗口。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 For each BAR bridge there exists a set of associated control and setup registers usually writable from the other side of the bridge. Each BAR has a "setup" register, which defines the size and type of its aperture, and an address translation register. Some bars also have a limit register that can be used to restrict its aperture's size. These registers need to be programmed prior to allowing access from outside the local subsystem. This is typically done by software running on a local processor or by loading the registers from EEPROM.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 对于每个BAR桥，存在一组相关的控制和设置寄存器，通常可从桥的另一侧写入。每个BAR有一个"设置"寄存器，用于定义其窗口的大小和类型，以及一个地址翻译寄存器。某些BAR还有一个限制寄存器，可用于限制其窗口的大小。这些寄存器需要在允许从本地子系统外部访问之前进行编程。这通常由运行在本地处理器上的软件完成，或通过从EEPROM加载寄存器来完成。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 In PCI Express, the Transaction ID fields of packets passing through these apertures are also translated to support Device ID routing. These Device IDs are used to route completions to non-posted requests and ID routed messages.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在PCI Express中，通过这些窗口的数据包的Transaction ID字段也会被翻译以支持Device ID路由。这些Device ID用于将完成报文路由到非发布请求和ID路由消息。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The transparent bridge forwards CSR transactions in the downstream direction according to the secondary and subordinate bus number registers, converting Type 1 CSRs to Type 0 CSRs as required. The non-transparent bridge accepts only those CSR transactions addressed to it and returns an unsupported request response to all others.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 透明桥根据次级总线号和从属总线号寄存器在下行方向转发CSR事务，根据需要将Type 1 CSR转换为Type 0 CSR。非透明桥仅接受那些寻址到自身的CSR事务，并对所有其他事务返回不支持请求响应。
 </td>
 </tr>
@@ -2091,12 +2091,12 @@ The transparent bridge forwards CSR transactions in the downstream direction acc
 
 ## 99.6.1 Direct Address Translation | 99.6.1 直接地址翻译
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The addresses of all upstream and downstream transactions are translated (except BARs accessing CSRs). With the exception of the cases in the following two sections, addresses that are forwarded from one interface to the other are translated by adding a Base Address to their offset within the BAR that they landed in as seen in Figure C-0-8 on page 959. The BAR Base Translation Registers are used to set up these base translations for the individual BARs.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 所有上行和下行事务的地址均被翻译（访问CSR的BAR除外）。除以下两节所述情况外，从一个接口转发到另一个接口的地址，通过在其所落入的BAR内的偏移量上加上一个基地址来进行翻译，如图C-0-8（第959页）所示。BAR基地址翻译寄存器用于为各个BAR设置这些基地址翻译。
 </td>
 </tr>
@@ -2108,23 +2108,23 @@ Figure C-8: Direct Address Translation | 图C-8：直接地址转换
 
 ## 99.6.2 Lookup Table Based Address Translation | 99.6.2 基于查找表的地址转换
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Following the de facto standard adopted by the PCI community, PCI Express should provide several BARs for the purposes of allocating resources. All BARs contain the memory allocation; however, in accordance with PCI industry conventions, BAR 0 contains the CSR information whereas BAR1 contains I/O information, BAR 2 and BAR 3 are utilized for Lookup Table Based Translation. BAR 4 and BAR 5 are utilized for Direct Address Translations.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 遵循PCI社区采纳的事实标准，PCI Express应提供多个BAR用于资源分配。所有BAR都包含内存分配；然而，根据PCI行业惯例，BAR 0包含CSR信息，而BAR 1包含I/O信息，BAR 2和BAR 3用于基于查找表的转换。BAR 4和BAR 5用于直接地址转换。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 On the secondary side, BAR3 uses a special lookup table based address translation for transactions that fall inside its window as seen in Figure C‐0‐9 on page 960. The lookup table provides more flexibility in secondary bus local addresses to primary bus addresses. The location of the index field with the address bus is programmable to adjust aperture size.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在从属侧，BAR 3对其窗口范围内的事务使用一种特殊的基于查找表的地址转换，如图C-0-9（第960页）所示。查找表为从属总线本地地址到主总线地址提供了更大的灵活性。地址总线中索引字段的位置是可编程的，以调整孔径大小。
 </td>
 </tr>
@@ -2135,12 +2135,12 @@ Figure 0‐9: Lookup Table Based Translation | 图0‐9：基于查找表的转�
 
 ## 99.6.3 Downstream BAR Limit Registers | 99.6.3 下游BAR限制寄存器
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The two downstream BARs on the primary side (BAR2/3 and BAR4/5) also have Limit registers, programmable from the local side, to further restrict the size of the window they expose, as seen in Figure C‐0‐10 on page 961. BARs can only be assigned memory resources in "power of two" granularity. The limit registers provide a means to obtain better granularity by "capping" the size of the BAR within the "power of two" granularity. Only transactions below the Limit registers are forwarded to the secondary bus. Transactions above the limit are discarded or return 0xFFFFFFFF, or a master abort equivalent packet, on reads.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 主侧的两个下游BAR（BAR2/3和BAR4/5）也有可从本地侧编程的限制寄存器，用于进一步限制它们所暴露窗口的大小，如图C-0-10（第961页）所示。BAR只能以"2的幂"粒度分配存储器资源。限制寄存器提供了一种通过在"2的幂"粒度内"封顶"BAR大小来获得更好粒度的方法。只有低于限制寄存器的事务才会被转发到副总线。高于限制的事务将被丢弃，或在读操作时返回0xFFFFFFFF或主中止等效报文。
 </td>
 </tr>
@@ -2151,23 +2151,23 @@ Figure 0‐10: Use of Limit Register | 图0‐10：限制寄存器的使用
 
 ## 99.6.4 Forwarding 64bit Address Memory Transactions | 99.6.4 转发64位地址存储器事务
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Certain BARs can be configured to work in pairs to provide the base address and translation for transactions containing 64-bit addresses. Transactions that hit within these 64-bit BARs are forwarded using Direct Address Translation. As in the case of 32 bit transactions, when a memory transaction is forwarded from the primary to the secondary bus, the primary address can be mapped to another address in the secondary bus domain. The mapping is performed by substituting a new base address for the base of the original address.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 某些基址寄存器（BAR）可被配置为成对工作，为包含64位地址的事务提供基地址和地址转换。命中这些64位BAR范围内的事务将使用直接地址转换进行转发。与32位事务的情况类似，当存储器事务从主总线转发到从总线时，主总线地址可被映射到从总线域中的另一个地址。该映射通过用新的基地址替换原始地址的基址部分来执行。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 A 64-bit BAR pair on the system side of the bridge is used to translate a window of 64-bit addresses in packets originated on the system side of the bridge down below 232 in local space.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 位于桥系统侧的64位BAR对用于将桥系统侧发起的数据包中的64位地址窗口转换到本地空间中2^32以下的地址范围。
 </td>
 </tr>
@@ -2177,12 +2177,12 @@ A 64-bit BAR pair on the system side of the bridge is used to translate a window
 
 ## 99.1 Introduction | 99.1 引言
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Native PCI Express implementations do not support the old lock protocol. Support for Locked transaction sequences only exists to support legacy device software executing on the host processor that performs a locked RMW (read-modify-write) operation on a memory location in a legacy PCI device. This chapter defines the protocol defined by PCI Express for this legacy support of locked access sequences that target legacy devices. Failure to support lock may result in deadlocks.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 原生PCI Express实现不支持旧的锁定协议。对锁定事务序列的支持仅是为了支持在主机处理器上执行的遗留设备软件，这些软件对遗留PCI设备中的存储器位置执行锁定的RMW（读-修改-写）操作。本章定义了PCI Express为针对遗留设备的锁定访问序列提供的这种遗留支持所定义的协议。不支持锁定可能会导致死锁。
 </td>
 </tr>
@@ -2190,67 +2190,67 @@ Native PCI Express implementations do not support the old lock protocol. Support
 
 ## 99.2 Background | 99.2 背景
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 PCI Express supports atomic or uninterrupted transaction sequences (usually described as an atomic read-modify-write sequence) for legacy devices only. Native PCIe devices don't support this at all and will return a Completion with UR (Unsupported Request) status if they receive a locked Request.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI Express仅对遗留设备支持原子或不可中断的事务序列（通常描述为原子读-修改-写序列）。原生PCIe设备完全不支持此功能，如果收到锁定请求，将返回带有UR（不支持请求）状态的完成报文。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Locked operations consist of the basic RMW sequence, that is:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 锁定操作由基本的RMW序列组成，即：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 1. One or more memory reads from the target location to obtain the value.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 1. 从目标位置进行一次或多次存储器读取以获取数值。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 2. The modification of the data in a processor register.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 2. 在处理器寄存器中修改数据。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 3. One or more writes to write the modified value back to the target memory location.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 3. 进行一次或多次写入，将修改后的值写回目标存储器位置。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 This transaction sequence must be performed such that no other accesses are permitted to the target locations (or device) during the locked sequence. This requires blocking other transactions during the operation. This can potentially result in deadlocks and poor performance.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 此事务序列的执行必须确保在锁定序列期间不允许对目标位置（或设备）进行任何其他访问。这需要在操作期间阻止其他事务。这可能导致死锁和性能下降。
 </td>
 </tr>
@@ -2258,67 +2258,67 @@ This transaction sequence must be performed such that no other accesses are perm
 
 ## PCI Express Technology | PCI Express技术
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The devices required to support locked sequences are:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 需要支持锁定序列的设备包括：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • The Root Complex.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 根复合体。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • Any Switches in the path to a Legacy Device that may be the target of a locked transaction series.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 通往可能成为锁定事务系列目标的遗留设备路径上的任何交换机。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • PCIe-to-PCI Bridge or PCIe-to-PCI-X Bridge.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • PCIe到PCI桥或PCIe到PCI-X桥。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • Any Legacy Device whose driver issues locked transactions to memory residing within the legacy device.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 任何其驱动程序向驻留在遗留设备内的存储器发出锁定事务的遗留设备。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Locking in the PCI environment is achieved by the use of the LOCK# signal. The equivalent functionality in PCIe is accomplished by using a specific Request that emulates the LOCK# signal functionality.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在PCI环境中，锁定是通过使用LOCK#信号实现的。在PCIe中，等效功能是通过使用模拟LOCK#信号功能的特定请求来实现的。
 </td>
 </tr>
@@ -2326,23 +2326,23 @@ Locking in the PCI environment is achieved by the use of the LOCK# signal. The e
 
 ## 99.3 The PCI Express Lock Protocol | 99.3 PCI Express锁定协议
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The only source of lock supported by PCI Express is the system processor acting through the Root Complex. A locked operation is performed between a Root Port and the Legacy Endpoint. In most systems, the legacy device is typically a PCI Express-to-PCI or PCI Express-to-PCI-X bridge. Only one locked sequence at a time is supported for a given hierarchical path.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI Express支持的唯一锁定源是通过根复合体进行操作的系统处理器。锁定操作在根端口和遗留端点之间执行。在大多数系统中，遗留设备通常是PCI Express到PCI或PCI Express到PCI-X桥。对于给定的层次路径，一次仅支持一个锁定序列。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Locked transactions are constrained to use only Traffic Class 0 and Virtual Channel 0. Transactions with other TC values that map to a VC other than zero are permitted to traverse the fabric without regard to the locked operation, but transactions that map to VC0 are affected by the lock rules described here.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 锁定事务被限制为仅使用流量类0和虚通道0。映射到非零VC的其他TC值的事务允许穿越结构而无需考虑锁定操作，但映射到VC0的事务受此处描述的锁定规则影响。
 </td>
 </tr>
@@ -2350,56 +2350,56 @@ Locked transactions are constrained to use only Traffic Class 0 and Virtual Chan
 
 ## Lock Messages — The Virtual Lock Signal | 锁定消息——虚拟锁定信号
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 PCI Express defines the following transactions that, together, act as a virtual wire and replace the LOCK# signal.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI Express定义了以下事务，它们共同起到虚拟导线的作用并取代LOCK#信号。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Read Lock Request (MRdLk) — Originates a locked sequence. The first MRdLk transaction blocks other Requests in VC0 from reaching the target device. One or more of these locked read requests may be issued during the sequence.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 存储器读锁定请求（MRdLk）——发起锁定序列。第一个MRdLk事务阻止VC0中的其他请求到达目标设备。在序列期间可以发出一个或多个此类锁定读请求。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Read Lock Completion with Data (CplDLk) — Returns data and confirms that the path to the target is locked. A successful read Completion that returns data for the first Memory Read Lock request results in the path between the Root Complex and the target device being locked. That is, transactions traversing the same path from other ports are blocked from reaching either the root port or the target port. Transactions being routed in buffers for VC1-VC7 are unaffected by the lock.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 带数据的存储器读锁定完成报文（CplDLk）——返回数据并确认到目标的路径已锁定。为第一个存储器读锁定请求返回数据的成功读完成报文会导致根复合体与目标设备之间的路径被锁定。也就是说，从其他端口穿越同一条路径的事务被阻止到达根端口或目标端口。在VC1-VC7缓冲区中路由的事务不受锁定的影响。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Read Lock Completion without Data (CplLK) — A Completion without a data payload indicates that the lock sequence cannot complete currently and the path remains unlocked.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 不带数据的存储器读锁定完成报文（CplLK）——不带数据负载的完成报文表示锁定序列当前无法完成，且路径保持未锁定状态。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Unlock Message — An unlock message is issued by the Root Complex from the locked root port. This message unlocks the path between the root port and the target port.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 解锁消息——由根复合体从锁定的根端口发出解锁消息。该消息解锁根端口与目标端口之间的路径。
 </td>
 </tr>
@@ -2407,78 +2407,78 @@ Unlock Message — An unlock message is issued by the Root Complex from the lock
 
 ## The Lock Protocol Sequence — an Example | 锁定协议序列——示例
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 This section explains the PCI Express lock protocol by example. The example includes the following devices:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 本节通过示例解释PCI Express锁定协议。该示例包括以下设备：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • The Root Complex that initiates the Locked transaction series on behalf of the host processor.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 代表主机处理器发起锁定事务系列的根复合体。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • A Switch in the path between the root port and targeted legacy endpoint.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 位于根端口与目标遗留端点之间路径上的交换机。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • A PCI Express-to-PCI Bridge in the path to the target.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 通往目标路径上的PCI Express到PCI桥。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • The target PCI device whose Device Driver initiated the locked RMW.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 其设备驱动程序发起锁定RMW的目标PCI设备。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • A PCI Express endpoint is included to describe Switch behavior during lock.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 包含一个PCI Express端点以描述锁定期间的交换机行为。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 In this example, the locked operation completes normally. The steps that occur during the operation are described in the two sections that follow.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在此示例中，锁定操作正常完成。操作期间发生的步骤在接下来的两节中描述。
 </td>
 </tr>
@@ -2486,111 +2486,111 @@ In this example, the locked operation completes normally. The steps that occur d
 
 ## The Memory Read Lock Operation | 存储器读锁定操作
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Figure E-1 on page 967 illustrates the first step in the Locked transaction series (i.e., the initial memory read to obtain the semaphore):
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 第967页的图E-1说明了锁定事务系列的第一步（即获取信号量的初始存储器读取）：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 1. The CPU initiates the locked sequence (a Locked Memory Read) as a result of a driver executing a locked RMW instruction that targets a PCI target.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 1. CPU因驱动程序执行针对PCI目标的锁定RMW指令而发起锁定序列（锁定存储器读取）。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 2. The Root Port issues a Memory Read Lock Request from port 2. The Root Complex is always the source of a locked sequence.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 2. 根端口从端口2发出存储器读锁定请求。根复合体始终是锁定序列的源。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 3. The Switch receives the lock request on its upstream port and forwards the request to the target egress port (3). The switch, upon forwarding the request to the egress port, must block all requests from ports other than the ingress port (1) from being sent from the egress port.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 3. 交换机在其上行端口上接收到锁定请求，并将该请求转发到目标出口端口（3）。交换机在将请求转发到出口端口时，必须阻止来自除入口端口（1）之外的其他端口的所有请求从该出口端口发出。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 4. A subsequent peer-to-peer transfer from the illustrated PCI Express endpoint to the PCI bus (switch port 2 to switch port 3) would be blocked until the lock is cleared. Note that the lock is not yet established in the other direction. Transactions from the PCI Express endpoint could be sent to the Root Complex.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 4. 随后从图示的PCI Express端点到PCI总线（交换机端口2到交换机端口3）的对等传输将被阻止，直到锁定解除。请注意，另一个方向尚未建立锁定。来自PCI Express端点的事务可以发送到根复合体。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 5. The Memory Read Lock Request is sent from the Switch's egress port to the PCI Express-to-PCI Bridge. This bridge will implement PCI lock semantics (See the MindShare book entitled PCI System Architecture, Fourth Edition, for details regarding PCI lock).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 5. 存储器读锁定请求从交换机的出口端口发送到PCI Express到PCI桥。该桥将实现PCI锁定语义（有关PCI锁定的详细信息，请参阅MindShare出版的《PCI系统体系结构，第四版》）。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 6. The bridge performs the Memory Read transaction on the PCI bus with the PCI LOCK# signal asserted. The target memory device returns the requested semaphore data to the bridge.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 6. 桥在PCI总线上执行存储器读事务，并断言PCI LOCK#信号。目标存储器设备将请求的信号量数据返回给桥。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 7. Read data is returned to the Bridge and is delivered back to the Switch via a Memory Read Lock Completion with Data (CplDLk).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 7. 读数据返回到桥，并通过带数据的存储器读锁定完成报文（CplDLk）传递回交换机。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 8. The switch uses ID routing to return the packet upstream towards the host processor. When the CplDLk packet is forwarded to the upstream port of the Switch, it establishes a lock in the upstream direction to prevent traffic from other ports from being routed upstream. The PCI Express endpoint is completely blocked from sending any transaction to the Switch ports via the path of the locked operation. Note that transfers between Switch ports not involved in the locked operation would be permitted (not shown in this example).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 8. 交换机使用ID路由将数据包向上游返回给主机处理器。当CplDLk数据包被转发到交换机的上行端口时，它在上行方向建立了锁定，以防止来自其他端口的流量被路由到上游。PCI Express端点被完全阻止通过锁定操作的路径向交换机端口发送任何事务。请注意，不参与锁定操作的交换机端口之间的传输是允许的（本例中未示出）。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 9. Upon detecting the CplDLk packet, the Root Complex knows that the lock has been established along the path between it and the target device, and the completion data is sent to the CPU.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 9. 在检测到CplDLk数据包时，根复合体就知道锁定已在其与目标设备之间的路径上建立，并且完成数据被发送到CPU。
 </td>
 </tr>
@@ -2601,89 +2601,89 @@ Figure D-1: Lock Sequence Begins with Memory Read Lock Request | 图D-1：锁定
 
 ## Read Data Modified and Written to Target and Lock Completes | 读数据被修改并写入目标，锁定完成
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The device driver receives the semaphore value, alters it, and then initiates a memory write to update the semaphore within the memory of the legacy PCI device. Figure E-2 on page 969 illustrates the write sequence followed by the Root Complex's transmission of the Unlock message that releases the lock:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 设备驱动程序接收信号量值，修改它，然后发起存储器写入以更新遗留PCI设备存储器中的信号量。第969页的图E-2说明了写入序列，随后根复合体发送解锁消息以释放锁定：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 10. The Root Complex issues the Memory Write Request across the locked path to the target device.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 10. 根复合体通过锁定的路径向目标设备发出存储器写请求。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 11. The Switch forwards the transaction to the target egress port (3). The memory address of the Memory Write must be the same as the initial Memory Read request.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 11. 交换机将事务转发到目标出口端口（3）。存储器写的存储器地址必须与初始存储器读请求的地址相同。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 12. The bridge forwards the transaction to the PCI bus.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 12. 桥将事务转发到PCI总线。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 13. The target device receives the memory write data.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 13. 目标设备接收存储器写数据。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 14. Once the Memory Write transaction is sent from the Root Complex, it sends an Unlock message to instruct the Switches and any PCI/PCI-X bridges in the locked path to release the lock. Note that the Root Complex presumes the operation has completed normally (because memory writes are posted and no Completion is returned to verify success).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 14. 一旦存储器写事务从根复合体发出，它就发送一条解锁消息，指示锁定路径中的交换机和任何PCI/PCI-X桥释放锁定。请注意，根复合体假定操作已正常完成（因为存储器写是发布性的，不返回完成报文来验证成功）。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 15. The Switch receives the Unlock message, unlocks its ports and forwards the message to the egress port that was locked to notify any other Switches and/or bridges in the locked path that the lock must be cleared.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 15. 交换机接收解锁消息，解锁其端口，并将该消息转发到被锁定的出口端口，以通知锁定路径中的任何其他交换机和/或桥必须解除锁定。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 16. Upon detecting the Unlock message, the bridge must also release the lock on the PCI bus.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 16. 在检测到解锁消息时，桥还必须释放PCI总线上的锁定。
 </td>
 </tr>
@@ -2694,12 +2694,12 @@ Figure D-2: Lock Completes with Memory Write Followed by Unlock Message | 图D-2
 
 ## 99.3.3 Notification of an Unsuccessful Lock | 99.3.3 不成功锁定的通知
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 A locked transaction series is aborted when the initial Memory Read Lock Request receives a Completion packet with no data (CplLk). This means that the locked sequence must terminate because no data was returned. This could result from an error associated with the memory read transaction, or perhaps the target device is busy and cannot respond at this time.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当初始存储器读锁定请求收到不带数据的完成报文（CplLk）时，锁定事务系列被中止。这意味着锁定序列必须终止，因为没有返回数据。这可能是由于与存储器读事务相关的错误，或者目标设备正忙而无法响应所致。
 </td>
 </tr>
@@ -2707,12 +2707,12 @@ A locked transaction series is aborted when the initial Memory Read Lock Request
 
 ## 99.4 Summary of Locking Rules | 99.4 锁定规则总结
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Following is a list of ordering rules that apply to the Root Complex, Switches, and Bridges.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 以下是适用于根复合体、交换机和桥的有序规则列表。
 </td>
 </tr>
@@ -2720,144 +2720,144 @@ Following is a list of ordering rules that apply to the Root Complex, Switches, 
 
 ## 99.4.1 Rules Related To the Initiation and Propagation of Locked Transactions | 99.4.1 与锁定事务发起和传播相关的规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Locked Requests which are completed with a status other than Successful Completion do not establish lock.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 以成功完成之外的状态完成的锁定请求不会建立锁定。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Regardless of the status of any of the Completions associated with a locked sequence, all locked sequences and attempted locked sequences must be terminated by the transmission of an Unlock Message.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 无论与锁定序列关联的任何完成报文的状态如何，所有锁定序列和尝试的锁定序列都必须通过发送解锁消息来终止。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 MRdLk, CplDLk and Unlock semantics are allowed only for the default Traffic Class (TC0).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 MRdLk、CplDLk和解锁语义仅允许用于默认流量类（TC0）。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • Only one locked transaction sequence attempt may be in progress at a given time within a single hierarchy domain.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 在单个层次域中，同一时间只能有一个锁定事务序列尝试在进行中。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Any device which is not involved in the locked sequence must ignore the Unlock Message.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 任何未参与锁定序列的设备必须忽略解锁消息。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The initiation and propagation of a locked transaction sequence through the PCI Express fabric is performed as follows:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 锁定事务序列通过PCI Express结构的发起和传播按如下方式执行：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • A locked transaction sequence is started with a MRdLk Request:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 锁定事务序列以MRdLk请求开始：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 — Any successive reads associated with the locked transaction sequence must also use MRdLk Requests.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 — 与锁定事务序列关联的任何后续读取也必须使用MRdLk请求。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The Completions for any successful MRdLk Request use the CplDLk Completion type, or the CPlLk Completion type for unsuccessful Requests.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 任何成功的MRdLk请求使用CplDLk完成报文类型，不成功的请求使用CplLk完成报文类型。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 If any read associated with a locked sequence is completed unsuccessfully, the Requester must assume that the atomicity of the lock is no longer assured, and that the path between the Requester and Completer is no longer locked.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 如果与锁定序列关联的任何读取未成功完成，请求者必须假定锁定的原子性不再得到保证，并且请求者与完成者之间的路径不再锁定。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • All writes associated with a locked sequence must use MWr Requests.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 与锁定序列关联的所有写入必须使用MWr请求。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The Unlock Message is used to indicate the end of a locked sequence. A Switch propagates Unlock Messages through the locked Egress Port.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 解锁消息用于指示锁定序列的结束。交换机通过锁定的出口端口传播解锁消息。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Upon receiving an Unlock Message, a legacy Endpoint or Bridge must unlock itself if it is in a locked state. If it is not locked, or if the Receiver is a PCI Express Endpoint or Bridge which does not support lock, the Unlock Message is ignored and discarded.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在收到解锁消息时，如果遗留端点或桥处于锁定状态，它必须解锁自身。如果它未锁定，或者接收者是PCI Express端点或不支持锁定的桥，则解锁消息被忽略并丢弃。
 </td>
 </tr>
@@ -2865,78 +2865,78 @@ Upon receiving an Unlock Message, a legacy Endpoint or Bridge must unlock itself
 
 ## 99.4.2 Rules Related to Switches | 99.4.2 与交换机相关的规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Switches must detect transactions associated with locked sequences from other transactions to prevent other transactions from interfering with the lock and potentially causing deadlock. The following rules cover how this is done. Note that locked accesses are limited to TC0, which is always mapped to VC0.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 交换机必须从其他事务中检测与锁定序列关联的事务，以防止其他事务干扰锁定并可能导致死锁。以下规则涵盖了如何做到这一点。请注意，锁定访问仅限于TC0，它始终映射到VC0。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 When a Switch propagates a MRdLk Request from an Ingress Port to the Egress Port, it must block all Requests which map to the default Virtual Channel (VC0) from being propagated to the Egress Port. If a subsequent MRdLk Request is received at this Ingress Port addressing a different Egress Port, the behavior of the Switch is undefined. Note that this sort of split-lock access is not supported by PCI Express and software must not cause such a locked access. System deadlock may result from such accesses.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当交换机将MRdLk请求从入口端口传播到出口端口时，它必须阻止所有映射到默认虚通道（VC0）的请求被传播到出口端口。如果在此入口端口接收到寻址不同出口端口的后续MRdLk请求，则交换机的行为是未定义的。请注意，PCI Express不支持这种分裂锁定访问，软件不得引起这样的锁定访问。此类访问可能导致系统死锁。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 When the CplDLk for the first MRdLk Request is returned, if the Completion indicates a Successful Completion status, the Switch must block all Requests from all other Ports from being propagated to either of the Ports involved in the locked access, except for Requests which map to channels other than VC0 on the Egress Port.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当第一个MRdLk请求的CplDLk返回时，如果完成报文指示成功完成状态，交换机必须阻止来自所有其他端口的所有请求传播到参与锁定访问的任一端口，但映射到出口端口上非VC0通道的请求除外。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The two Ports involved in the locked sequence must remain blocked until the Switch receives the Unlock Message (at the Ingress Port which received the initial MRdLk Request)
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 参与锁定序列的两个端口必须保持阻塞状态，直到交换机（在接收初始MRdLk请求的入口端口处）收到解锁消息。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 — The Unlock Message must be forwarded to the locked Egress Port.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 — 解锁消息必须转发到锁定的出口端口。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 — The Unlock Message may be broadcast to all other Ports.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 — 解锁消息可以广播到所有其他端口。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The Ingress Port is unblocked once the Unlock Message arrives, and the Egress Port(s) which were blocked are unblocked following the transmission of the Unlock Message out of the Egress Port(s). Ports that were not involved in the locked access are unaffected by the Unlock Message.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 一旦解锁消息到达，入口端口被解除阻塞，而被阻塞的出口端口在将解锁消息从出口端口发出后解除阻塞。未参与锁定访问的端口不受解锁消息的影响。
 </td>
 </tr>
@@ -2944,12 +2944,12 @@ The Ingress Port is unblocked once the Unlock Message arrives, and the Egress Po
 
 ## 99.4.3 Rules Related To PCI Express/PCI Bridges | 99.4.3 与PCI Express/PCI桥相关的规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The requirements for PCI Express/PCI Bridges are similar to those for Switches, except that, because these Bridges only use TC0 and VC0, all other traffic is blocked during the locked access. Requirements on the PCI bus side are described in the MindShare book, PCI System Architecture, Fourth Edition.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 对PCI Express/PCI桥的要求与对交换机的要求类似，只是由于这些桥仅使用TC0和VC0，因此在锁定访问期间所有其他流量都被阻塞。有关PCI总线侧的要求在MindShare出版的《PCI系统体系结构，第四版》中描述。
 </td>
 </tr>
@@ -2957,12 +2957,12 @@ The requirements for PCI Express/PCI Bridges are similar to those for Switches, 
 
 ## 99.4.4 Rules Related To the Root Complex | 99.4.4 与根复合体相关的规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 A Root Complex is permitted to support locked transactions as a Requester. If locked transactions are supported, a Root Complex must follow the rules already described to perform a locked access. The mechanism(s) used by the Root Complex to interface to the host processor's FSB (Front-Side Bus) are outside the scope of the spec.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 根复合体允许作为请求者支持锁定事务。如果支持锁定事务，根复合体必须遵循已描述的规则来执行锁定访问。根复合体用于与主机处理器FSB（前端总线）接口的机制不在本规范的范围内。
 </td>
 </tr>
@@ -2970,56 +2970,56 @@ A Root Complex is permitted to support locked transactions as a Requester. If lo
 
 ## 99.4.5 Rules Related To Legacy Endpoints | 99.4.5 与遗留端点相关的规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Legacy Endpoints are permitted to support locked accesses, although their use is discouraged. If locked accesses are supported, legacy Endpoints must handle them as follows:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 允许遗留端点支持锁定访问，但不鼓励使用。如果支持锁定访问，遗留端点必须按如下方式处理：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The legacy Endpoint becomes locked when it transmits the first Completion for the first read request of the locked transaction series access with a Successful Completion status:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当遗留端点为锁定事务系列访问的第一个读请求发送第一个状态为成功完成的完成报文时，该遗留端点变为锁定状态：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 — If the completion status is not Successful Completion, the legacy Endpoint does not become locked.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 — 如果完成状态不是成功完成，则遗留端点不会变为锁定状态。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 — Once locked, the legacy Endpoint must remain locked until it receives the Unlock Message.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 — 一旦锁定，遗留端点必须保持锁定状态，直到收到解锁消息。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 While locked, a legacy Endpoint must not issue any Requests using Traffic Classes which map to the default Virtual Channel (VC0). Note that this requirement applies to all possible sources of Requests within the Endpoint, in the case where there is more than one possible source of Requests. Requests may be issued using TCs which map to VCs other than VC0.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在锁定状态下，遗留端点不得使用映射到默认虚通道（VC0）的流量类发出任何请求。请注意，此要求适用于端点内所有可能的请求源（如果有多个可能的请求源的情况）。可以使用映射到VC0以外的VC的TC来发出请求。
 </td>
 </tr>
@@ -3027,12 +3027,12 @@ While locked, a legacy Endpoint must not issue any Requests using Traffic Classe
 
 ## 99.4.6 Rules Related To PCI Express Endpoints | 99.4.6 与PCI Express端点相关的规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Native PCI Express Endpoints do not support lock. A PCI Express Endpoint must treat a MRdLk Request as an Unsupported Request.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 原生PCI Express端点不支持锁定。PCI Express端点必须将MRdLk请求视为不支持请求。
 </td>
 </tr>
@@ -3042,12 +3042,12 @@ Native PCI Express Endpoints do not support lock. A PCI Express Endpoint must tr
 
 ## 99.1 Introduction | 99.1 引言
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Native PCI Express implementations do not support the old lock protocol. Support for Locked transaction sequences only exists to support legacy device software executing on the host processor that performs a locked RMW (read-modify-write) operation on a memory location in a legacy PCI device. This chapter defines the protocol defined by PCI Express for this legacy support of locked access sequences that target legacy devices. Failure to support lock may result in deadlocks.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 原生 PCI Express 实现不支持旧的锁定协议。支持锁定事务序列仅为了支持在主机处理器上执行的遗留设备软件，该软件在遗留 PCI 设备的内存位置上执行锁定的 RMW（读-修改-写）操作。本章定义了 PCI Express 为此遗留支持所定义的协议，用于针对遗留设备的锁定访问序列。不支持锁定可能会导致死锁。
 </td>
 </tr>
@@ -3055,67 +3055,67 @@ Native PCI Express implementations do not support the old lock protocol. Support
 
 ## 99.2 Background | 99.2 背景
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 PCI Express supports atomic or uninterrupted transaction sequences (usually described as an atomic read‐modify‐write sequence) for legacy devices only. Native PCIe devices don't support this at all and will return a Completion with UR (Unsupported Request) status if they receive a locked Request.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI Express仅在传统设备中支持原子性或不可中断的事务序列（通常描述为原子读-修改-写序列）。原生PCIe设备完全不支持此功能，如果收到锁定请求，将返回带有UR（不支持请求）状态的完成报文。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Locked operations consist of the basic RMW sequence, that is:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 锁定操作由基本的RMW序列组成，即：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 1. One or more memory reads from the target location to obtain the value.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 1. 从目标位置进行一次或多次存储器读取以获取该值。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 2. The modification of the data in a processor register.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 2. 在处理器寄存器中修改数据。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 3. One or more writes to write the modified value back to the target memory location.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 3. 进行一次或多次写入以将修改后的值写回目标存储器位置。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 This transaction sequence must be performed such that no other accesses are permitted to the target locations (or device) during the locked sequence. This requires blocking other transactions during the operation. This can potentially result in deadlocks and poor performance.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 该事务序列的执行必须确保在锁定序列期间，不允许对目标位置（或设备）进行任何其他访问。这需要在操作期间阻止其他事务。这可能导致死锁和性能下降。
 </td>
 </tr>
@@ -3123,9 +3123,9 @@ This transaction sequence must be performed such that no other accesses are perm
 
 ## PCI Express Technology | PCI Express 技术
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The devices required to support locked sequences are:
 
 • The Root Complex.
@@ -3136,7 +3136,7 @@ The devices required to support locked sequences are:
 
 • Any Legacy Device whose driver issues locked transactions to memory residing within the legacy device.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 需要支持锁定序列的设备包括：
 
 • 根复合体。
@@ -3150,12 +3150,12 @@ The devices required to support locked sequences are:
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Locking in the PCI environment is achieved by the use of the LOCK# signal. The equivalent functionality in PCIe is accomplished by using a specific Request that emulates the LOCK# signal functionality.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在PCI环境中，锁定是通过使用LOCK#信号实现的。PCIe中的等效功能是通过使用模拟LOCK#信号功能的特定请求来完成的。
 </td>
 </tr>
@@ -3163,23 +3163,23 @@ Locking in the PCI environment is achieved by the use of the LOCK# signal. The e
 
 ## 99.3 The PCI Express Lock Protocol | 99.3 PCIe 锁定协议
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The only source of lock supported by PCI Express is the system processor acting through the Root Complex. A locked operation is performed between a Root Port and the Legacy Endpoint. In most systems, the legacy device is typically a PCI Express-to-PCI or PCI Express-to-PCI-X bridge. Only one locked sequence at a time is supported for a given hierarchical path.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI Express 支持的锁定唯一来源是通过根复合体（Root Complex）作用的系统处理器。锁定操作在根端口（Root Port）与传统端点（Legacy Endpoint）之间执行。在大多数系统中，传统设备通常是 PCI Express-to-PCI 或 PCI Express-to-PCI-X 桥接器。对于给定的层次路径，一次仅支持一个锁定序列。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Locked transactions are constrained to use only Traffic Class 0 and Virtual Channel 0. Transactions with other TC values that map to a VC other than zero are permitted to traverse the fabric without regard to the locked operation, but transactions that map to VC0 are affected by the lock rules described here.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 锁定事务（Locked transactions）被限制为仅使用流量类 0（Traffic Class 0）和虚通道 0（Virtual Channel 0）。映射到非零 VC 的其他 TC 值的事务允许在结构（fabric）中传输，而不受锁定操作的影响，但映射到 VC0 的事务则受此处描述的锁定规则影响。
 </td>
 </tr>
@@ -3187,56 +3187,56 @@ Locked transactions are constrained to use only Traffic Class 0 and Virtual Chan
 
 ## Lock Messages — The Virtual Lock Signal | 锁消息 — 虚拟锁定信号
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 PCI Express defines the following transactions that, together, act as a virtual wire and replace the LOCK# signal.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI Express 定义了以下事务，它们共同充当虚拟连线并取代 LOCK# 信号。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Read Lock Request (MRdLk) — Originates a locked sequence. The first MRdLk transaction blocks other Requests in VC0 from reaching the target device. One or more of these locked read requests may be issued during the sequence.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 存储器读锁定请求（MRdLk）— 发起一个锁定序列。第一个 MRdLk 事务阻止 VC0 中的其他请求到达目标设备。在该序列期间，可以发出一个或多个此类锁定读请求。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Read Lock Completion with Data (CplDLk) — Returns data and confirms that the path to the target is locked. A successful read Completion that returns data for the first Memory Read Lock request results in the path between the Root Complex and the target device being locked. That is, transactions traversing the same path from other ports are blocked from reaching either the root port or the target port. Transactions being routed in buffers for VC1-VC7 are unaffected by the lock.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 带数据的存储器读锁定完成（CplDLk）— 返回数据并确认通往目标的路径已被锁定。成功返回数据的读完成（针对第一个存储器读锁定请求）将导致根复合体与目标设备之间的路径被锁定。也就是说，来自其他端口且经过同一路径的事务被阻止到达根端口或目标端口。在 VC1-VC7 缓冲区中路由的事务不受锁定的影响。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Read Lock Completion without Data (CplLK) — A Completion without a data payload indicates that the lock sequence cannot complete currently and the path remains unlocked.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 不带数据的存储器读锁定完成（CplLK）— 不带数据载荷的完成表示锁定序列当前无法完成，路径保持解锁状态。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Unlock Message — An unlock message is issued by the Root Complex from the locked root port. This message unlocks the path between the root port and the target port.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 解锁消息 — 由根复合体从锁定的根端口发出解锁消息。该消息解锁根端口与目标端口之间的路径。
 </td>
 </tr>
@@ -3244,78 +3244,78 @@ Unlock Message — An unlock message is issued by the Root Complex from the lock
 
 ## The Lock Protocol Sequence — an Example | 锁协议序列示例
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 This section explains the PCI Express lock protocol by example. The example includes the following devices:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 本节通过示例解释PCI Express锁协议。该示例包括以下设备：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • The Root Complex that initiates the Locked transaction series on behalf of the host processor.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 代表主机处理器发起锁定事务序列的根复合体。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • A Switch in the path between the root port and targeted legacy endpoint.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 位于根端口与目标传统端点之间路径上的交换机。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • A PCI Express‐to‐PCI Bridge in the path to the target.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 位于到达目标路径上的PCI Express到PCI桥。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • The target PCI device who's Device Driver initiated the locked RMW.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 其设备驱动程序发起锁定读-修改-写（RMW）操作的目标PCI设备。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • A PCI Express endpoint is included to describe Switch behavior during lock.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 包含一个PCI Express端点，用于描述锁定期间交换机的行为。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 In this example, the locked operation completes normally. The steps that occur during the operation are described in the two sections that follow.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在此示例中，锁定操作正常完成。操作期间发生的步骤将在接下来的两节中描述。
 </td>
 </tr>
@@ -3323,56 +3323,56 @@ In this example, the locked operation completes normally. The steps that occur d
 
 ## The Memory Read Lock Operation | 存储器读锁定操作
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Figure E-1 on page 967 illustrates the first step in the Locked transaction series (i.e., the initial memory read to obtain the semaphore):
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 图E-1（第967页）展示了锁定事务序列的第一步（即获取信号量的初始存储器读操作）：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 1. The CPU initiates the locked sequence (a Locked Memory Read) as a result of a driver executing a locked RMW instruction that targets a PCI target.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 1. 由于驱动执行了针对PCI目标的锁定RMW（读-修改-写）指令，CPU发起锁定序列（锁定存储器读）。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 2. The Root Port issues a Memory Read Lock Request from port 2. The Root Complex is always the source of a locked sequence.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 2. 根端口从端口2发出存储器读锁定请求。根复合体始终是锁定序列的发起源。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 3. The Switch receives the lock request on its upstream port and forwards the request to the target egress port (3). The switch, upon forwarding the request to the egress port, must block all requests from ports other than the ingress port (1) from being sent from the egress port.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 3. 交换机在其上游端口接收锁定请求，并将该请求转发到目标出口端口（3）。交换机在将请求转发到出口端口后，必须阻止除入口端口（1）之外的所有端口的请求从该出口端口发出。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 4. A subsequent peer-to-peer transfer from the illustrated PCI Express endpoint to the PCI bus (switch port 2 to switch port 3) would be blocked until the lock is cleared. Note that the lock is not yet established in the other direction. Transactions from the PCI Express endpoint could be sent to the Root Complex.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 4. 后续从图示PCI Express端点到PCI总线（交换机端口2到交换机端口3）的对等传输将被阻塞，直到锁定解除。请注意，锁定在另一个方向上尚未建立。来自PCI Express端点的事务可以发送到根复合体。
 </td>
 </tr>
@@ -3380,56 +3380,56 @@ Figure E-1 on page 967 illustrates the first step in the Locked transaction seri
 
 ## PCI Express Technology | PCI Express技术
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 5. The Memory Read Lock Request is sent from the Switch's egress port to the PCI Express‐to‐PCI Bridge. This bridge will implement PCI lock semantics (See the MindShare book entitled PCI System Architecture, Fourth Edition, for details regarding PCI lock).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 5. Memory Read Lock Request从交换机的出口端口发送到PCI Express-to-PCI桥。该桥将实现PCI锁定语义（关于PCI锁定的详细信息，请参阅MindShare所著的《PCI系统架构第四版》）。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 6. The bridge performs the Memory Read transaction on the PCI bus with the PCI LOCK# signal asserted. The target memory device returns the requested semaphore data to the bridge.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 6. 桥在PCI总线上执行Memory Read事务，并置位PCI LOCK#信号。目标存储器设备将请求的信号量数据返回给桥。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 7. Read data is returned to the Bridge and is delivered back to the Switch via a Memory Read Lock Completion with Data (CplDLk).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 7. 读取数据返回到桥，并通过带数据的Memory Read Lock Completion（CplDLk）传回给交换机。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 8. The switch uses ID routing to return the packet upstream towards the host processor. When the CplDLk packet is forwarded to the upstream port of the Switch, it establishes a lock in the upstream direction to prevent traffic from other ports from being routed upstream. The PCI Express endpoint is completely blocked from sending any transaction to the Switch ports via the path of the locked operation. Note that transfers between Switch ports not involved in the locked operation would be permitted (not shown in this example).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 8. 交换机使用ID路由将报文向上游发送到主机处理器。当CplDLk报文被转发到交换机的上游端口时，它会在上游方向建立锁定，以防止来自其他端口的流量被路由到上游。PCI Express端点被完全阻塞，无法通过锁定操作的通路向交换机端口发送任何事务。注意，不涉及锁定操作的交换机端口之间的传输是允许的（本例中未显示）。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 9. Upon detecting the CplDLk packet, the Root Complex knows that the lock has been established along the path between it and the target device, and the completion data is sent to the CPU.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 9. 当检测到CplDLk报文时，根复合体知道锁定已在其与目标设备之间的路径上建立，完成数据被发送到CPU。
 </td>
 </tr>
@@ -3440,12 +3440,12 @@ Figure D‐1: Lock Sequence Begins with Memory Read Lock Request | 图D‐1：�
 
 ## Read Data Modified and Written to Target and Lock Completes | 读取数据修改后写入目标并完成锁定
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The device driver receives the semaphore value, alters it, and then initiates a memory write to update the semaphore within the memory of the legacy PCI device. Figure E-2 on page 969 illustrates the write sequence followed by the
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 设备驱动程序接收信号量值，修改该值，然后发起一次存储器写操作，以更新传统PCI器件存储器中的信号量。第969页的图E-2展示了写入序列，随后由
 </td>
 </tr>
@@ -3453,89 +3453,89 @@ The device driver receives the semaphore value, alters it, and then initiates a 
 
 ## PCI Express Technology | PCI Express技术
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Root Complex's transmission of the Unlock message that releases the lock:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 根复合体发送Unlock报文以释放锁定：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 10. The Root Complex issues the Memory Write Request across the locked path to the target device.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 10. 根复合体通过锁定路径向目标设备发出Memory Write Request。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 11. The Switch forwards the transaction to the target egress port (3). The memory address of the Memory Write must be the same as the initial Memory Read request.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 11. 交换机将事务转发到目标出口端口(3)。Memory Write的存储器地址必须与初始Memory Read请求相同。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 12. The bridge forwards the transaction to the PCI bus.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 12. 桥接器将事务转发到PCI总线。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 13. The target device receives the memory write data.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 13. 目标设备接收到存储器写数据。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 14. Once the Memory Write transaction is sent from the Root Complex, it sends an Unlock message to instruct the Switches and any PCI/PCI‐X bridges in the locked path to release the lock. Note that the Root Complex presumes the operation has completed normally (because memory writes are posted and no Completion is returned to verify success).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 14. 一旦从根复合体发送了Memory Write事务，它就发送一个Unlock报文来指示锁定路径中的交换机和任何PCI/PCI‐X桥接器释放锁定。注意，根复合体假定操作已正常完成（因为存储器写是Posted事务，不会返回Completion来验证成功）。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 15. The Switch receives the Unlock message, unlocks its ports and forwards the message to the egress port that was locked to notify any other Switches and/ or bridges in the locked path that the lock must be cleared.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 15. 交换机接收Unlock报文，解锁其端口，并将该报文转发到被锁定的出口端口，以通知锁定路径中的任何其他交换机和/或桥接器必须清除锁定。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 16. Upon detecting the Unlock message, the bridge must also release the lock on the PCI bus.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 16. 检测到Unlock报文后，桥接器也必须释放PCI总线上的锁定。
 </td>
 </tr>
@@ -3546,12 +3546,12 @@ Figure D‐2: Lock Completes with Memory Write Followed by Unlock Message | 图D
 
 ## 99.3.3 Notification of an Unsuccessful Lock | 99.3.3 锁定失败通知
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 A locked transaction series is aborted when the initial Memory Read Lock Request receives a Completion packet with no data (CplLk). This means that the locked sequence must terminate because no data was returned. This could result from an error associated with the memory read transaction, or perhaps the target device is busy and cannot respond at this time.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当事初始内存读取锁定请求收到一个不带数据的完成报文(CplLk)时，锁定事务序列被中止。这意味着由于没有返回数据，锁定序列必须终止。这可能是由与内存读取事务相关的错误所致，或者目标设备正忙而暂时无法响应。
 </td>
 </tr>
@@ -3559,12 +3559,12 @@ A locked transaction series is aborted when the initial Memory Read Lock Request
 
 ## 99.4 Summary of Locking Rules | 99.4 锁定规则总结
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Following is a list of ordering rules that apply to the Root Complex, Switches, and Bridges.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 以下是适用于根复合体、交换机和桥的排序规则列表。
 </td>
 </tr>
@@ -3572,144 +3572,144 @@ Following is a list of ordering rules that apply to the Root Complex, Switches, 
 
 ## 99.4.1 Rules Related To the Initiation and Propagation of Locked Transactions | 99.4.1 锁定事务的发起与传播相关规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Locked Requests which are completed with a status other than Successful Completion do not establish lock.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 以非成功完成状态完成锁定请求不会建立锁。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Regardless of the status of any of the Completions associated with a locked sequence, all locked sequences and attempted locked sequences must be terminated by the transmission of an Unlock Message.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 无论与锁定序列相关的任何完成报文的状态如何，所有锁定序列及尝试的锁定序列都必须通过发送解锁报文来终止。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 MRdLk, CplDLk and Unlock semantics are allowed only for the default Traffic Class (TC0).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 MRdLk、CplDLk 和 Unlock 语义仅允许用于默认流量类 (TC0)。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • Only one locked transaction sequence attempt may be in progress at a given time within a single hierarchy domain.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 在单个层次域内，同一时刻只能有一个锁定事务序列尝试在进行中。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Any device which is not involved in the locked sequence must ignore the Unlock Message.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 未参与锁定序列的任何设备必须忽略解锁报文。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The initiation and propagation of a locked transaction sequence through the PCI Express fabric is performed as follows:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 锁定事务序列在 PCI Express 结构中的发起与传播如下进行：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • A locked transaction sequence is started with a MRdLk Request:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 锁定事务序列以 MRdLk 请求开始：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 — Any successive reads associated with the locked transaction sequence must also use MRdLk Requests.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 — 与锁定事务序列相关的任何后续读取也必须使用 MRdLk 请求。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The Completions for any successful MRdLk Request use the CplDLk Completion type, or the CplLk Completion type for unsuccessful Requests.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 任何成功 MRdLk 请求的完成报文使用 CplDLk 完成类型，而不成功的请求则使用 CplLk 完成类型。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 If any read associated with a locked sequence is completed unsuccessfully, the Requester must assume that the atomicity of the lock is no longer assured, and that the path between the Requester and Completer is no longer locked.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 如果与锁定序列相关的任何读取未成功完成，请求者必须假定锁的原子性不再得到保证，且请求者与完成者之间的路径不再被锁定。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 • All writes associated with a locked sequence must use MWr Requests.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 • 与锁定序列相关的所有写入必须使用 MWr 请求。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The Unlock Message is used to indicate the end of a locked sequence. A Switch propagates Unlock Messages through the locked Egress Port.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 解锁报文用于指示锁定序列的结束。交换机通过加锁的出口端口传播解锁报文。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Upon receiving an Unlock Message, a legacy Endpoint or Bridge must unlock itself if it is in a locked state. If it is not locked, or if the Receiver is a PCI Express Endpoint or Bridge which does not support lock, the Unlock Message is ignored and discarded.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在接收到解锁报文时，传统端点或桥如果处于锁定状态则必须解锁自身。如果其未被锁定，或者接收者是不支持锁的 PCI Express 端点或桥，则解锁报文将被忽略并丢弃。
 </td>
 </tr>
@@ -3717,49 +3717,49 @@ Upon receiving an Unlock Message, a legacy Endpoint or Bridge must unlock itself
 
 ## 99.4.2 Rules Related to Switches | 99.4.2 与交换机相关的规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Switches must detect transactions associated with locked sequences from other transactions to prevent other transactions from interfering with the lock and potentially causing deadlock. The following rules cover how this is done. Note that locked accesses are limited to TC0, which is always mapped to VC0.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 交换机必须能从其他事务中检测与锁定序列相关联的事务，以防止其他事务干扰锁定并可能导致死锁。以下规则涵盖了如何实现这一点。请注意，锁定访问仅限于TC0，而TC0始终映射到VC0。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 When a Switch propagates a MRdLk Request from an Ingress Port to the Egress Port, it must block all Requests which map to the default Virtual Channel (VC0) from being propagated to the Egress Port. If a subsequent MRdLk Request is received at this Ingress Port addressing a different Egress Port, the behavior of the Switch is undefined. Note that this sort of split-lock access is not supported by PCI Express and software must not cause such a locked access. System deadlock may result from such accesses.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当交换机将MRdLk请求从入端口传播到出端口时，它必须阻止所有映射到默认虚通道(VC0)的请求传播到该出端口。如果随后在此入端口收到寻址不同出端口的MRdLk请求，则交换机的行为是未定义的。请注意，这种类型的分离锁定访问不受PCI Express支持，软件不得导致此类锁定访问。此类访问可能导致系统死锁。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 When the CplDLk for the first MRdLk Request is returned, if the Completion indicates a Successful Completion status, the Switch must block all Requests from all other Ports from being propagated to either of the Ports involved in the locked access, except for Requests which map to channels other than VC0 on the Egress Port.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当针对第一个MRdLk请求的CplDLk返回且完成报文指示成功完成状态时，交换机必须阻止所有来自其他端口的请求传播到涉及锁定访问的两个端口中的任何一个，但映射到出端口上VC0以外通道的请求除外。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The two Ports involved in the locked sequence must remain blocked until the Switch receives the Unlock Message (at the Ingress Port which received the initial MRdLk Request)
 
 — The Unlock Message must be forwarded to the locked Egress Port.
 
 — The Unlock Message may be broadcast to all other Ports.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 涉及锁定序列的两个端口必须保持阻塞状态，直到交换机在收到初始MRdLk请求的入端口处接收到解锁消息。
 
 — 解锁消息必须转发到被锁定的出端口。
@@ -3769,12 +3769,12 @@ The two Ports involved in the locked sequence must remain blocked until the Swit
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The Ingress Port is unblocked once the Unlock Message arrives, and the Egress Port(s) which were blocked are unblocked following the transmission of the Unlock Message out of the Egress Port(s). Ports that were not involved in the locked access are unaffected by the Unlock Message.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 一旦解锁消息到达，入端口即解除阻塞，而被阻塞的出端口在解锁消息从该出端口发送出去后解除阻塞。未涉及锁定访问的端口不受解锁消息的影响。
 </td>
 </tr>
@@ -3782,12 +3782,12 @@ The Ingress Port is unblocked once the Unlock Message arrives, and the Egress Po
 
 ## 99.4.3 Rules Related To PCI Express/PCI Bridges | 99.4.3 PCI Express/PCI 桥相关规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The requirements for PCI Express/PCI Bridges are similar to those for Switches, except that, because these Bridges only use TC0 and VC0, all other traffic is blocked during the locked access. Requirements on the PCI bus side are described in the MindShare book, PCI System Architecture, Fourth Edition.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCI Express/PCI 桥的需求与交换机类似，不同之处在于，由于这些桥仅使用 TC0 和 VC0，因此在锁定访问期间所有其他流量都被阻止。PCI 总线侧的需求在 MindShare 书籍《PCI 系统体系结构（第四版）》中描述。
 </td>
 </tr>
@@ -3795,12 +3795,12 @@ PCI Express/PCI 桥的需求与交换机类似，不同之处在于，由于这�
 
 ## 99.4.4 Rules Related To the Root Complex | 99.4.4 与根复合体相关的规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 A Root Complex is permitted to support locked transactions as a Requester. If locked transactions are supported, a Root Complex must follow the rules already described to perform a locked access. The mechanism(s) used by the Root Complex to interface to the host processor's FSB (Front‐Side Bus) are outside the scope of the spec.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 根复合体作为请求者可以支持锁定事务。如果支持锁定事务，根复合体必须遵循已描述的规则来执行锁定访问。根复合体用于与主机处理器FSB（前端总线）接口的机制不在本规范范围内。
 </td>
 </tr>
@@ -3808,56 +3808,56 @@ A Root Complex is permitted to support locked transactions as a Requester. If lo
 
 ## 99.4.5 Rules Related To Legacy Endpoints | 99.4.5 与传统端点相关的规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Legacy Endpoints are permitted to support locked accesses, although their use is discouraged. If locked accesses are supported, legacy Endpoints must handle them as follows:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 允许传统端点支持锁定访问，但不鼓励使用。如果支持锁定访问，传统端点必须按如下方式处理：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The legacy Endpoint becomes locked when it transmits the first Completion for the first read request of the locked transaction series access with a Successful Completion status:
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当传统端点传输锁定事务系列访问中第一个读请求的第一个完成报文且状态为成功完成时，该传统端点即被锁定：
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 — If the completion status is not Successful Completion, the legacy Endpoint does not become locked.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 — 如果完成报文状态不是成功完成，则传统端点不会进入锁定状态。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 — Once locked, the legacy Endpoint must remain locked until it receives the Unlock Message.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 — 一旦锁定，传统端点必须保持锁定状态，直到收到解锁消息。
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 While locked, a legacy Endpoint must not issue any Requests using Traffic Classes which map to the default Virtual Channel (VC0). Note that this requirement applies to all possible sources of Requests within the Endpoint, in the case where there is more than one possible source of Requests. Requests may be issued using TCs which map to VCs other than VC0.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在锁定状态下，传统端点不得使用映射到默认虚通道（VC0）的流量类发出任何请求。注意，此要求适用于端点内所有可能的请求源（如果有多个可能的请求源）。可以使用映射到非VC0的虚通道的流量类来发出请求。
 </td>
 </tr>
@@ -3865,12 +3865,12 @@ While locked, a legacy Endpoint must not issue any Requests using Traffic Classe
 
 ## 99.4.6 Rules Related To PCI Express Endpoints | 99.4.6 与PCI Express端点相关的规则
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Native PCI Express Endpoints do not support lock. A PCI Express Endpoint must treat a MRdLk Request as an Unsupported Request.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 原生PCI Express端点不支持锁定。PCI Express端点应将MRdLk请求视为不支持的请求。
 </td>
 </tr>
@@ -3880,12 +3880,12 @@ Native PCI Express Endpoints do not support lock. A PCI Express Endpoint must tr
 
 ## 128b/130b Encoding | 128b/130b编码
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 This isn't encoding in the same sense as 8b/10b. Instead, the transmitter sends information in Blocks that consist of 16 raw bytes in a row, preceded by a 2-bit Sync field that indicates whether the Block is to be considered as a Data Block or an Ordered Set Block. This scheme was introduced with Gen3, primarily to allow the Link bandwidth to double without doubling the clock rate. It provides better bandwidth utilization but sacrifices some benefits that 8b/10b provided for receivers.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 这与8b/10b意义上的编码不同。发送方以数据块(Block)形式发送信息，每个数据块由连续的16个原始字节组成，前面有一个2位的同步字段，指示该数据块应被视为数据块还是有序集块。该方案随Gen3引入，主要是为了允许链路带宽翻倍而无需将时钟频率加倍。它提供了更好的带宽利用率，但牺牲了8b/10b为接收器提供的一些优势。
 </td>
 </tr>
@@ -3893,12 +3893,12 @@ This isn't encoding in the same sense as 8b/10b. Instead, the transmitter sends 
 
 ## 11.2.6 8b/10b Encoding | 11.2.6 8b/10b编码
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Encoding scheme developed many years ago that's used in many serial transports today. It was designed to help receivers recover the clock and data from the incoming signal, but it also reduces available bandwidth at the receiver by 20%. This scheme is used with the earlier versions of PCIe: Gen1 and Gen2.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多年前开发的编码方案，目前仍用于许多串行传输中。它旨在帮助接收器从输入信号中恢复时钟和数据，但也使接收器的可用带宽减少了20%。该方案用于早期版本的PCIe：Gen1和Gen2。
 </td>
 </tr>
@@ -3906,12 +3906,12 @@ Encoding scheme developed many years ago that's used in many serial transports t
 
 ## ACK/NAK Protocol | ACK/NAK协议
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The Acknowledge/Negative Acknowledge mechanism by which the Data Link Layer reports whether TLPs have experienced any errors during transmission. If so, a NAK is returned to the sender to request a replay of the failed TLPs. If not, an ACK is returned to indicate that one or more TLPs have arrived safely.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 数据链路层用于报告TLP在传输过程中是否遇到错误的确认/否认机制。如果存在错误，则向发送方返回NAK以请求重发失败的TLP。如果没有错误，则返回ACK以指示一个或多个TLP已安全到达。
 </td>
 </tr>
@@ -3919,12 +3919,12 @@ The Acknowledge/Negative Acknowledge mechanism by which the Data Link Layer repo
 
 ## ACPI | ACPI
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Advanced Configuration and Power Interface. Specifies the various system and device power states.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 高级配置与电源接口。指定各种系统和设备电源状态。
 </td>
 </tr>
@@ -3932,12 +3932,12 @@ Advanced Configuration and Power Interface. Specifies the various system and dev
 
 ## ACS | ACS
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Access Control Services.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 访问控制服务。
 </td>
 </tr>
@@ -3945,12 +3945,12 @@ Access Control Services.
 
 ## ARI | ARI
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Alternative Routing-ID Interpretation; optional feature that allows Endpoints to have more Functions that the 8 allowed normally.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 可选功能，允许端点拥有比通常允许的8个更多的功能。
 </td>
 </tr>
@@ -3958,12 +3958,12 @@ Alternative Routing-ID Interpretation; optional feature that allows Endpoints to
 
 ## ASPM | ASPM
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Active State Power Management: When enabled, this allows hardware to make changes to the Link power state from L0 to L0s or L1 or both.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 启用时，允许硬件将链路电源状态从L0更改为L0s或L1或两者。
 </td>
 </tr>
@@ -3971,12 +3971,12 @@ Active State Power Management: When enabled, this allows hardware to make change
 
 ## 20.3.1 AtomicOps | 20.3.1 AtomicOps
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Atomic Operations; three new Requests added with the 2.1 spec revision. These carry out multiple operations that are guaranteed to take place without interruption within the target device.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 2.1规范修订版新增的三个请求。它们执行多个操作，保证在目标设备内不中断地完成。
 </td>
 </tr>
@@ -3984,12 +3984,12 @@ Atomic Operations; three new Requests added with the 2.1 spec revision. These ca
 
 ## Bandwidth Management | 带宽管理
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hardware-initiated changes to Link speed or width for the purpose of power conservation or reliability.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 硬件发起的链路速度或宽度更改，以节省功耗或提高可靠性。
 </td>
 </tr>
@@ -3997,12 +3997,12 @@ Hardware-initiated changes to Link speed or width for the purpose of power conse
 
 ## BAR | BAR
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Base Address Register. Used by Functions to indicate the type and size of their local memory and IO space.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 基址寄存器。功能(Function)用于指示其本地存储器和IO空间的类型和大小。
 </td>
 </tr>
@@ -4010,12 +4010,12 @@ Base Address Register. Used by Functions to indicate the type and size of their 
 
 ## Beacon | Beacon
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Low-frequency in-band signal used by Devices whose main power has been shut off to signal that an event has occurred for which they need to have the power restored. This can be sent across the Link when the Link is in the L2 state.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 主电源已关闭的设备用来发送信号的带内低频信号，指示发生了需要恢复供电的事件。当链路处于L2状态时，可以通过链路发送此信号。
 </td>
 </tr>
@@ -4023,12 +4023,12 @@ Low-frequency in-band signal used by Devices whose main power has been shut off 
 
 ## BER | BER
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Bit Error Rate or Ratio; a measure of signal integrity based on the number of transmission bit errors seen within a time period.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 误码率或误码比；基于一段时间内观察到的传输误码数量来衡量信号完整性的指标。
 </td>
 </tr>
@@ -4036,12 +4036,12 @@ Bit Error Rate or Ratio; a measure of signal integrity based on the number of tr
 
 ## Bit Lock | 位锁定
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The process of acquiring the transmitter's precise clock frequency at the receiver. This is done in the CDR logic and is one of the first steps in Link Training.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在接收器处获取发送器精确时钟频率的过程。这由CDR逻辑完成，是链路训练的第一步。
 </td>
 </tr>
@@ -4049,12 +4049,12 @@ The process of acquiring the transmitter's precise clock frequency at the receiv
 
 ## Block | 数据块
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The 130-bit unit sent by a Gen3 transmitter, made up of a 2-bit Sync Field followed by a group of 16 bytes.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Gen3发送器发送的130位单元，由2位同步字段后跟16字节组成。
 </td>
 </tr>
@@ -4062,12 +4062,12 @@ Gen3发送器发送的130位单元，由2位同步字段后跟16字节组成。
 
 ## Block Lock | 数据块锁定
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Finding the Block boundaries at the Receiver when using 128b/130b encoding so as to recognize incoming Blocks. The process involves three phases. First, search the incoming stream for an EIEOS (Electrical Idle Exit Ordered Set) and adjust the internal Block boundary to match it. Next, search for the SDS (Start Data Stream) Ordered Set. After that, the receiver is locked into the Block boundary.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在使用128b/130b编码时，在接收器处查找数据块边界以识别传入的数据块。该过程涉及三个阶段。首先，在传入的数据流中搜索EIEOS(电气空闲退出有序集)并调整内部数据块边界以匹配它。接下来，搜索SDS(启动数据流有序集)。之后，接收器锁定到数据块边界。
 </td>
 </tr>
@@ -4075,12 +4075,12 @@ Finding the Block boundaries at the Receiver when using 128b/130b encoding so as
 
 ## Bridge | 桥
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 A Function that acts as the interface between two buses. Switches and the Root Complex will implement bridges on their Ports to enable packet routing, and a bridge can also be made to connect between different protocols, such as between PCIe and PCI.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 充当两个总线之间接口的功能。交换机和根复合体将在其端口上实现桥以实现数据包路由，并且还可以在不同协议之间建立桥，例如PCIe和PCI之间。
 </td>
 </tr>
@@ -4088,12 +4088,12 @@ A Function that acts as the interface between two buses. Switches and the Root C
 
 ## 12.3.2 Byte Striping | 12.3.2 字节条带化
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Spreading the output byte stream across all available Lanes. All available Lanes are used whenever sending bytes.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 将输出字节流扩展到所有可用通道。发送字节时使用所有可用通道。
 </td>
 </tr>
@@ -4101,12 +4101,12 @@ Spreading the output byte stream across all available Lanes. All available Lanes
 
 ## CC | CC
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Credits Consumed: Number of credits already used by the transmitter when calculating Flow Control.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 已消耗的信用量：发送方在计算流控时已使用的信用数量。
 </td>
 </tr>
@@ -4114,12 +4114,12 @@ Credits Consumed: Number of credits already used by the transmitter when calcula
 
 ## CDR | CDR
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Clock and Data Recovery logic used to recover the Transmitter clock from the incoming bit stream and then sample the bits to recognize patterns. For 8b/10b, that pattern, found in the COM, FTS, and EIEOS symbols, allows the logic to acquire Symbol Lock. For 128b/130b the EIEOS sequence is used to acquire Block Lock by going through the three phases of locking.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 用于从输入比特流中恢复发送器时钟，然后对比特进行采样以识别模式的时钟和数据恢复逻辑。对于8b/10b，在COM、FTS和EIEOS符号中找到的模式允许逻辑获取符号锁定。对于128b/130b，EIEOS序列用于通过三个锁定阶段获取数据块锁定。
 </td>
 </tr>
@@ -4127,12 +4127,12 @@ Clock and Data Recovery logic used to recover the Transmitter clock from the inc
 
 ## Character | 字符
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Term used to describe the 8-bit values to be communicated between Link neighbors. For Gen1 and Gen2, these are a mix of ordinary data bytes (labeled as D characters) and special control values (labeled as K characters). For Gen3 there are no control characters because 8b/10b encoding is no longer used. In that case, the characters all appear as data bytes.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 用于描述链路相邻节点之间通信的8位值。对于Gen1和Gen2，这些值混合了普通数据字节(标记为D字符)和特殊控制值(标记为K字符)。对于Gen3，由于不再使用8b/10b编码，因此没有控制字符，所有字符都作为数据字节出现。
 </td>
 </tr>
@@ -4140,12 +4140,12 @@ Term used to describe the 8-bit values to be communicated between Link neighbors
 
 ## Credit Limit | 信用上限
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Credit Limit: Flow Control credits seen as available from the transmitter's perspective. Checked to verify whether enough credits are available to send a TLP.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 从发送方角度看到的可用流控信用量。检查以验证是否有足够的信用发送TLP。
 </td>
 </tr>
@@ -4153,12 +4153,12 @@ Credit Limit: Flow Control credits seen as available from the transmitter's pers
 
 ## Control Character | 控制字符
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 These are special characters (labeled as "K" characters) used in 8b/10b encoding that facilitate Link training and Ordered Sets. They are not used in Gen3, where there is no distinction between characters.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 用于8b/10b编码的特殊字符(标记为"K"字符)，有助于链路训练和有序集。在Gen3中不使用，因为那里字符之间没有区别。
 </td>
 </tr>
@@ -4166,12 +4166,12 @@ These are special characters (labeled as "K" characters) used in 8b/10b encoding
 
 ## 15.4.1 Correctable Errors | 15.4.1 可纠正错误
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Errors that are corrected automatically by hardware and don't require software attention.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 由硬件自动纠正且无需软件关注的错误。
 </td>
 </tr>
@@ -4179,12 +4179,12 @@ Errors that are corrected automatically by hardware and don't require software a
 
 ## CR | CR
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Credits Required - this is the sum of CC and PTLP.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 所需信用量 - 是CC和PTLP之和。
 </td>
 </tr>
@@ -4192,12 +4192,12 @@ Credits Required - this is the sum of CC and PTLP.
 
 ## 15.5.1 CRC | 15.5.1 CRC
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Cyclic Redundancy Code; added to TLPs and DLLPs to allow verifying error-free transmission. The name means that the patterns are cyclic in nature and are redundant (they don't add any extra information). The codes don't contain enough information to permit automatic error correction, but provide robust error detection.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 循环冗余校验码；添加到TLP和DLLP中以验证无差错传输。这个名称意味着这些模式是循环性质的且是冗余的(它们不添加任何额外信息)。这些码不包含足够的信息来允许自动纠错，但提供了可靠的检错能力。
 </td>
 </tr>
@@ -4205,12 +4205,12 @@ Cyclic Redundancy Code; added to TLPs and DLLPs to allow verifying error-free tr
 
 ## Cut-Through Mode | 直通模式
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Mechanism by which a Switch allows a TLP to pass through, forwarded from an ingress Port to an egress Port without storing it first to check for errors. This involves a risk, since the TLP may be found to have errors after part of it has already been forwarded to the egress Port. In that case, the end of the packet is modified in the Data Link Layer to have an LCRC value that is inverted from what it should be, and also modified at the Physical Layer to have an End Bad (EDB) framing symbol for 8b/10b encoding or an EDB token for 128b/130b encoding. The combination tells the receiver that the packet has been nullified and should be discarded without sending an ACK/NAK response.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 交换机允许TLP通过而不先存储检查错误的机制，从入端口转发到出端口。这涉及风险，因为TLP可能在其部分已被转发到出端口后被发现有错误。在这种情况下，数据包末尾在数据链路层被修改为具有颠倒的LCRC值，并在物理层被修改为具有8b/10b编码的End Bad (EDB)帧符号或128b/130b编码的EDB令牌。这种组合告诉接收器该数据包已被作废，应丢弃而不发送ACK/NAK响应。
 </td>
 </tr>
@@ -4218,12 +4218,12 @@ Mechanism by which a Switch allows a TLP to pass through, forwarded from an ingr
 
 ## Data Characters | 数据字符
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Characters (labeled as "D" characters) that represent ordinary data and are distinguished from control characters in 8b/10b. For Gen3, there is no distinction between characters.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 表示普通数据的字符(标记为"D"字符)，在8b/10b中与控制字符区分。对于Gen3，字符之间没有区别。
 </td>
 </tr>
@@ -4231,12 +4231,12 @@ Characters (labeled as "D" characters) that represent ordinary data and are dist
 
 ## Data Stream | 数据流
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The flow of data Blocks for Gen3 operation. The stream is entered by an SDS (Start of Data Stream Ordered Set) and exited with an EDS (End of Data Stream token). During a Data Stream, only data Blocks or the SOS are expected. When any other Ordered Sets are needed, the Data Stream must be exited and only re-entered when more data Blocks are ready to send. Starting a Data Stream is equivalent to entering the L0 Link state, since Ordered Sets are only sent while in other LTSSM states, like Recovery.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Gen3操作的数据块流。通过SDS(启动数据流有序集)进入数据流，并通过EDS(结束数据流令牌)退出。在数据流期间，只期望数据块或SOS。当需要任何其他有序集时，必须退出数据流，只有在准备好发送更多数据块时才重新进入。启动数据流相当于进入L0链路状态，因为有序集只能在其他LTSSM状态(如Recovery)中发送。
 </td>
 </tr>
@@ -4244,12 +4244,12 @@ Gen3操作的数据块流。通过SDS(启动数据流有序集)进入数据流�
 
 ## De-emphasis | 去加重
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The process of reducing the transmitter voltage for repeated bits in a stream. This has the effect of de-emphasizing the low-frequency components of the signal that are known to cause trouble in a transmission medium and thus improves the signal integrity at the receiver.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 降低发送器电压以处理流中重复比特的过程。这具有去加重信号中低频分量的效果，这些分量已知会在传输介质中引起问题，从而改善接收器处的信号完整性。
 </td>
 </tr>
@@ -4257,12 +4257,12 @@ The process of reducing the transmitter voltage for repeated bits in a stream. T
 
 ## Digest | 摘要
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Another name for the ECRC (End-to-End CRC) value that can optionally be appended to a TLP when it's created in the Transaction Layer.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 ECRC(端到端CRC)值的另一个名称，该值可以在事务层创建TLP时可选地附加到TLP。
 </td>
 </tr>
@@ -4270,12 +4270,12 @@ ECRC(端到端CRC)值的另一个名称，该值可以在事务层创建TLP时�
 
 ## DLCMSM | DLCMSM
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Data Link Control and Management State Machine; manages the Link Layer training process (which is primarily Flow Control initialization).
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 数据链路控制和管理状态机；管理链路层训练过程(主要是流控初始化)。
 </td>
 </tr>
@@ -4283,12 +4283,12 @@ Data Link Control and Management State Machine; manages the Link Layer training 
 
 ## DLLP | DLLP
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Data Link Layer Packet. These are created in the Data Link Layer and are forwarded to the Physical Layer but are not seen by the Transaction Layer.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 数据链路层数据包。在数据链路层创建并转发到物理层，但事务层看不到。
 </td>
 </tr>
@@ -4296,12 +4296,12 @@ Data Link Layer Packet. These are created in the Data Link Layer and are forward
 
 ## DPA | DPA
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Dynamic Power Allocation; a new set of configuration registers with the 2.1 spec revision that defines 32 power substates under the D0 device power state, making it easier for software to control device power options.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 2.1规范修订版中定义的一组新配置寄存器，在D0设备电源状态下定义了32个电源子状态，使软件更容易控制设备电源选项。
 </td>
 </tr>
@@ -4309,12 +4309,12 @@ Dynamic Power Allocation; a new set of configuration registers with the 2.1 spec
 
 ## DSP (Downstream Port) | DSP(下游端口)
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Port that faces downstream, like a Root Port or a Switch Downstream Port. This distinction is meaningful in the LTSSM because the Ports have assigned roles during some states.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 面向下游的端口，如根端口或交换机下游端口。这种区分在LTSSM中有意义，因为端口在某些状态下具有指定的角色。
 </td>
 </tr>
@@ -4322,12 +4322,12 @@ Port that faces downstream, like a Root Port or a Switch Downstream Port. This d
 
 ## ECRC | ECRC
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 End-to-End CRC value, optionally appended to a TLP when it's created in the Transaction Layer. This enables a receiver to verify reliable packet transport from source to destination, regardless of how many Links were crossed to get there.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 端到端CRC值，在事务层创建TLP时可选择附加。这使接收器能够验证从源到目的地的可靠数据包传输，无论中间经过了多少条链路。
 </td>
 </tr>
@@ -4335,12 +4335,12 @@ End-to-End CRC value, optionally appended to a TLP when it's created in the Tran
 
 ## Egress Port | 出口端口
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Port that has outgoing traffic.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 具有传出流量的端口。
 </td>
 </tr>
@@ -4348,12 +4348,12 @@ Port that has outgoing traffic.
 
 ## Elastic Buffer | 弹性缓冲器
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Part of the CDR logic, this buffer enables the receiver to compensate for the difference between the transmitter and receiver clocks.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 CDR逻辑的一部分，此缓冲器使接收器能够补偿发送器和接收器时钟之间的差异。
 </td>
 </tr>
@@ -4361,12 +4361,12 @@ CDR逻辑的一部分，此缓冲器使接收器能够补偿发送器和接收�
 
 ## EMI | EMI
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Electro-Magnetic Interference: the emitted electrical noise from a system. For PCIe, both SSC and scrambling are used to attack it.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 电磁干扰：系统发出的电噪声。对于PCIe，使用SSC和加扰来对抗它。
 </td>
 </tr>
@@ -4374,12 +4374,12 @@ Electro-Magnetic Interference: the emitted electrical noise from a system. For P
 
 ## Endpoint | 端点
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 PCIe Function that is at the bottom of the PCI Inverted-Tree structure.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 位于PCI倒树结构底部的PCIe功能。
 </td>
 </tr>
@@ -4387,12 +4387,12 @@ PCIe Function that is at the bottom of the PCI Inverted-Tree structure.
 
 ## Enumeration | 枚举
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The process of system discovery in which software reads all of the expected configuration locations to learn which PCI-configurable Functions are visible and thus present in the system.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 系统发现的过程，软件读取所有期望的配置位置，以了解哪些PCI可配置功能是可见的，从而存在于系统中。
 </td>
 </tr>
@@ -4400,12 +4400,12 @@ The process of system discovery in which software reads all of the expected conf
 
 ## Equalization | 均衡
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The process of adjusting Tx and Rx values to compensate for actual or expected signal distortion through the transmission media. For Gen1 and Gen2, this takes the form of Tx De-emphasis. For Gen3, an active evaluation process is introduced to test the signaling environment and adjust the Tx settings accordingly, and optional Rx equalization is mentioned.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 调整发送(Tx)和接收(Rx)值以补偿通过传输介质的实际或预期信号失真的过程。对于Gen1和Gen2，这采取Tx去加重的形式。对于Gen3，引入了主动评估过程来测试信号环境并相应地调整Tx设置，并提到了可选的Rx均衡。
 </td>
 </tr>
@@ -4413,12 +4413,12 @@ The process of adjusting Tx and Rx values to compensate for actual or expected s
 
 ## Flow Control | 流控
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Mechanism by which transmitters avoid the risk of having packets rejected at a receiver due to lack of buffer space. The receiver sends periodic updates about available buffer space and the transmitter verifies that enough is available before attempting to send a packet.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 发送方避免数据包因接收方缺乏缓冲空间而被拒绝的机制。接收方发送关于可用缓冲空间的定期更新，发送方在尝试发送数据包前验证是否有足够的空间。
 </td>
 </tr>
@@ -4426,12 +4426,12 @@ Mechanism by which transmitters avoid the risk of having packets rejected at a r
 
 ## FLR | FLR
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Function-Level Reset.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 功能级复位。
 </td>
 </tr>
@@ -4439,12 +4439,12 @@ Function-Level Reset.
 
 ## Framing Symbols | 帧定界符号
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The "start" and "end" control characters used in 8b/10b encoding that indicate the boundaries of a TLP or DLLP.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 用于8b/10b编码的"开始"和"结束"控制字符，指示TLP或DLLP的边界。
 </td>
 </tr>
@@ -4452,12 +4452,12 @@ The "start" and "end" control characters used in 8b/10b encoding that indicate t
 
 ## Gen1 | Gen1
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Generation 1, meaning designs created to be compliant with the 1.x version of the PCIe spec.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 第1代，指为符合PCIe规范1.x版本而设计的设计。
 </td>
 </tr>
@@ -4465,12 +4465,12 @@ Generation 1, meaning designs created to be compliant with the 1.x version of th
 
 ## Gen1, Gen2, Gen3 | Gen1, Gen2, Gen3
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Abbreviations for the revisions of the PCIe spec. Gen1 = rev 1.x, Gen2 = rev 2.x, and Gen3 = rev 3.0.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCIe规范修订版的缩写。Gen1 = rev 1.x, Gen2 = rev 2.x, Gen3 = rev 3.0。
 </td>
 </tr>
@@ -4478,12 +4478,12 @@ PCIe规范修订版的缩写。Gen1 = rev 1.x, Gen2 = rev 2.x, Gen3 = rev 3.0。
 
 ## Gen2 | Gen2
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Generation 2, meaning designs created to be compliant with the 2.x version of the PCIe spec.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 第2代，指为符合PCIe规范2.x版本而设计的设计。
 </td>
 </tr>
@@ -4491,12 +4491,12 @@ Generation 2, meaning designs created to be compliant with the 2.x version of th
 
 ## Gen3 | Gen3
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Generation 3, meaning designs created to be compliant with the 3.x version of the PCIe spec.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 第3代，指为符合PCIe规范3.x版本而设计的设计。
 </td>
 </tr>
@@ -4504,12 +4504,12 @@ Generation 3, meaning designs created to be compliant with the 3.x version of th
 
 ## IDO | IDO
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 ID-based Ordering; when enabled, this allows TLPs from different Requesters to be forwarded out of order with respect to each other. The goal is to improve latency and performance.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 基于ID的排序；启用时，允许来自不同请求方的TLP相对于彼此乱序转发。目标是改善延迟和性能。
 </td>
 </tr>
@@ -4517,12 +4517,12 @@ ID-based Ordering; when enabled, this allows TLPs from different Requesters to b
 
 ## 4.6.3 Implicit Routing | 4.6.3 隐式路由
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 TLPs whose routing is understood without reference to an address or ID. Only Message requests have the option to use this type of routing.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 无需参考地址或ID即可理解其路由的TLP。只有消息请求可以选择使用此类路由。
 </td>
 </tr>
@@ -4530,12 +4530,12 @@ TLPs whose routing is understood without reference to an address or ID. Only Mes
 
 ## Ingress Port | 入口端口
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Port that has incoming traffic.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 具有传入流量的端口。
 </td>
 </tr>
@@ -4543,12 +4543,12 @@ Port that has incoming traffic.
 
 ## ISI | ISI
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Inter-Symbol Interference; the effect on one bit time that is caused by the recent bits that preceded it.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 码间干扰；由前面最近的比特对当前比特时间造成的影响。
 </td>
 </tr>
@@ -4556,12 +4556,12 @@ Inter-Symbol Interference; the effect on one bit time that is caused by the rece
 
 ## Lane | 通道
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The two differential pairs that allow a transmit and receive path of one bit between two Ports. A Link can consist of just one Lane or it may contain as many as 32 Lanes.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 两个差分对，允许在两个端口之间进行一位的发送和接收路径。一条链路可以只包含一个通道，也可以包含多达32个通道。
 </td>
 </tr>
@@ -4569,12 +4569,12 @@ The two differential pairs that allow a transmit and receive path of one bit bet
 
 ## 12.4.4 Lane-to-Lane Skew | 12.4.4 通道间偏移
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Difference in arrival times for bits on different Lanes. Receivers are required to detect this and correct it internally.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 不同通道上比特到达时间的差异。接收器需要检测并内部纠正此问题。
 </td>
 </tr>
@@ -4582,12 +4582,12 @@ Difference in arrival times for bits on different Lanes. Receivers are required 
 
 ## Legacy Endpoint | 传统端点
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 An Endpoint that carries any of three legacy items forward: support for IO transactions, support for local 32-bit-only prefetchable memory space, or support for the locked transactions.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 携带以下三种传统特性之一的端点：支持IO事务、支持仅32位本地可预取存储器空间、或支持锁定事务。
 </td>
 </tr>
@@ -4595,12 +4595,12 @@ An Endpoint that carries any of three legacy items forward: support for IO trans
 
 ## LFSR | LFSR
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Linear-Feedback Shift Register; creates a pseudo-random pattern used to facilitate scrambling.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 线性反馈移位寄存器；创建用于加扰的伪随机模式。
 </td>
 </tr>
@@ -4608,12 +4608,12 @@ Linear-Feedback Shift Register; creates a pseudo-random pattern used to facilita
 
 ## Link | 链路
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Interface between two Ports, made up of one or more Lanes.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 两个端口之间的接口，由一个或多个通道组成。
 </td>
 </tr>
@@ -4621,12 +4621,12 @@ Interface between two Ports, made up of one or more Lanes.
 
 ## LTR | LTR
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Latency-Tolerance Reporting; mechanism that allows devices to report to the system how quickly they need to get service when they send a Request. Longer latencies afford more power management options to the system.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 延迟容忍度报告；允许设备在发送请求时向系统报告它们需要多快得到服务的机制。较长的延迟为系统提供更多电源管理选项。
 </td>
 </tr>
@@ -4634,12 +4634,12 @@ Latency-Tolerance Reporting; mechanism that allows devices to report to the syst
 
 ## LTSSM | LTSSM
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Link Training and Status State Machine; manages the training process for the Physical Layer.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 链路训练和状态状态机；管理物理层的训练过程。
 </td>
 </tr>
@@ -4647,12 +4647,12 @@ Link Training and Status State Machine; manages the training process for the Phy
 
 ## Non-posted Request | 非转发请求
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 A Request that expects to receive a Completion in response. For example, any read request would be non-posted.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 期望接收完成报文作为响应的请求。例如，任何读请求都是非转发请求。
 </td>
 </tr>
@@ -4660,12 +4660,12 @@ A Request that expects to receive a Completion in response. For example, any rea
 
 ## Non-prefetchable Memory | 不可预取存储器
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory that exhibits side effects when read. For example, a status register that automatically self-clears when read. Such data is not safe to prefetch since, if the requester never requested the data and it was discarded, it would be lost to the system. This was an important distinction for PCI bridges, which had to guess about the data size on reads. If they knew it was safe to speculatively read ahead in the memory space, they could guess a larger number and achieve better efficiency. The distinction is much less interesting for PCIe, since the exact byte count for a transfer is included in the TLP, but maintaining it allows backward compatibility.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 读取时会产生副作用的存储器。例如，读取时自动清零的状态寄存器。此类数据不适合预取，因为如果请求方从未请求过该数据且数据被丢弃，则系统将丢失该数据。这对于PCI桥来说是一个重要的区别，桥必须在读取时猜测数据大小。如果桥知道在存储器空间中推测性预读是安全的，则可以猜测更大的数量并获得更好的效率。对于PCIe来说，这种区别不太重要，因为传输的确切字节数包含在TLP中，但保持这种区别允许向后兼容。
 </td>
 </tr>
@@ -4673,12 +4673,12 @@ Memory that exhibits side effects when read. For example, a status register that
 
 ## Nullified Packet | 作废的数据包
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 When a transmitter recognizes that a packet has an error and should not have been sent, the packet can be "nullified", meaning it should be discarded and the receiver should behave as if it had never been sent. This problem can arise when using "cut-through" operation on a Switch.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当发送方识别到数据包有错误且不应被发送时，该数据包可以被"作废"，意味着应丢弃它，接收方应表现得好像它从未被发送过。当在交换机上使用"直通"操作时可能出现此问题。
 </td>
 </tr>
@@ -4686,12 +4686,12 @@ When a transmitter recognizes that a packet has an error and should not have bee
 
 ## OBFF | OBFF
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Optimized Buffer Flush and Fill; mechanism that allows the system to tell devices about the best times to initiate traffic. If devices send requests during optimal times and not during other times system power management will be improved.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 优化缓冲器刷新和填充；允许系统告诉设备发起流量的最佳时间的机制。如果设备在最佳时间发送请求而不是在其他时间发送，系统电源管理将得到改善。
 </td>
 </tr>
@@ -4699,12 +4699,12 @@ Optimized Buffer Flush and Fill; mechanism that allows the system to tell device
 
 ## Ordered Sets | 有序集
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Groups of Symbols sent as Physical Layer communication for Lane management. These often consist of just control characters for 8b/10b encoding. They are created in the Physical Layer of the sender and consumed in the Physical Layer of the receiver without being visible to the other layers at all.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 作为物理层通信发送的符号组，用于通道管理。对于8b/10b编码，这些通常仅由控制字符组成。它们在发送方的物理层创建并在接收方的物理层消耗，完全不被其他层可见。
 </td>
 </tr>
@@ -4712,12 +4712,12 @@ Groups of Symbols sent as Physical Layer communication for Lane management. Thes
 
 ## PCI | PCI
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Peripheral Component Interface. Designed to replace earlier bus designs used in PCs, such as ISA.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 外设组件接口。旨在取代PC中使用的早期总线设计，如ISA。
 </td>
 </tr>
@@ -4725,12 +4725,12 @@ Peripheral Component Interface. Designed to replace earlier bus designs used in 
 
 ## PCI-X | PCI-X
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 PCI eXtended. Designed to correct the shortcomings of PCI and enable higher speeds.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 旨在纠正PCI的缺点并实现更高的速度。
 </td>
 </tr>
@@ -4738,12 +4738,12 @@ PCI eXtended. Designed to correct the shortcomings of PCI and enable higher spee
 
 ## PME | PME
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Power Management Event; message from a device indicating that power-related service is needed.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 电源管理事件；来自设备的消息，指示需要与电源相关的服务。
 </td>
 </tr>
@@ -4751,12 +4751,12 @@ Power Management Event; message from a device indicating that power-related serv
 
 ## Poisoned TLP | 毒化TLP
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Packet whose data payload was known to be bad when it was created. Sending the packet with bad data can be helpful as an aid to diagnosing the problem and determining a solution for it.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 其数据载荷在创建时已知有误的数据包。发送带有错误数据的数据包有助于诊断问题并确定解决方案。
 </td>
 </tr>
@@ -4764,12 +4764,12 @@ Packet whose data payload was known to be bad when it was created. Sending the p
 
 ## Polarity Inversion | 极性反转
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The receiver's signal polarity is permitted to be connected backwards to support cases when doing so would simplify board layout. The receiver is required to detect this condition and internally invert the signal to correct it during Link Training.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 允许接收器的信号极性反向连接，以支持简化板级布局的情况。接收器需要检测此状况并在链路训练期间内部反转信号以纠正。
 </td>
 </tr>
@@ -4777,12 +4777,12 @@ The receiver's signal polarity is permitted to be connected backwards to support
 
 ## Port | 端口
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Input/output interface to a PCIe Link.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 PCIe链路的输入/输出接口。
 </td>
 </tr>
@@ -4790,12 +4790,12 @@ PCIe链路的输入/输出接口。
 
 ## Posted Request | 转发请求
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 A Request packet for which no completion is expected. There are only two such requests defined by the spec: Memory Writes and Messages.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 不期望收到完成报文的请求数据包。规范只定义了两种此类请求：存储器写和消息。
 </td>
 </tr>
@@ -4803,12 +4803,12 @@ A Request packet for which no completion is expected. There are only two such re
 
 ## Prefetchable Memory | 可预取存储器
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory that has no side-effects as a result of being read. That property makes it safe to prefetch since, if it's discarded by the intermediate buffer, it can always be read again later if needed. This was an important distinction for PCI bridges, which had to guess about the data size on reads. Prefetchable space allowed speculatively reading more data and gave a chance for better efficiency. The distinction is much less interesting for PCIe, since the exact byte count for a transfer is included in the TLP, but maintaining it allows backward compatibility.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 读取时没有副作用的存储器。该特性使其可以安全地预取，因为如果被中间缓冲器丢弃，以后需要时总可以再次读取。这对于PCI桥来说是一个重要的区别，桥必须在读取时猜测数据大小。可预取空间允许推测性地读取更多数据，并有机会获得更好的效率。对于PCIe来说，这种区别不太重要，因为传输的确切字节数包含在TLP中，但保持这种区别允许向后兼容。
 </td>
 </tr>
@@ -4816,12 +4816,12 @@ Memory that has no side-effects as a result of being read. That property makes i
 
 ## PTLP | PTLP
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Pending TLP - Flow Control credits needed to send the current TLP.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 待处理TLP - 发送当前TLP所需的流控信用量。
 </td>
 </tr>
@@ -4829,12 +4829,12 @@ Pending TLP - Flow Control credits needed to send the current TLP.
 
 ## QoS | QoS
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Quality of Service; the ability of the PCIe topology to assign different priorities for different packets. This could just mean giving preference to packets at arbitration points, but in more complex systems, it allows making bandwidth and latency guarantees for packets.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 服务质量；PCIe拓扑为不同数据包分配不同优先级的能力。这可能只是在仲裁点给予数据包优先权，但在更复杂的系统中，它允许为数据包做出带宽和延迟保证。
 </td>
 </tr>
@@ -4842,12 +4842,12 @@ Quality of Service; the ability of the PCIe topology to assign different priorit
 
 ## Requester ID | 请求方ID
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The configuration address of the Requester for a transaction, meaning the BDF (Bus, Device, and Function number) that corresponds to it. This will be used by the Completer as the return address for the resulting completion packet.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 事务请求方的配置地址，即对应的BDF(总线号、设备号和功能号)。完成方将使用此地址作为结果完成报文的返回地址。
 </td>
 </tr>
@@ -4855,12 +4855,12 @@ The configuration address of the Requester for a transaction, meaning the BDF (B
 
 ## Root Complex | 根复合体
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The components that act as the interface between the CPU cores in the system and the PCIe topology. This can consist of one or more chips and may be simple or complex. From the PCIe perspective, it serves as the root of the inverted tree structure that backward-compatibility with PCI demands.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 充当系统中CPU核心与PCIe拓扑之间接口的组件。可以由一个或多个芯片组成，可以简单也可以复杂。从PCIe的角度来看，它是PCI要求的倒树结构的根。
 </td>
 </tr>
@@ -4868,12 +4868,12 @@ The components that act as the interface between the CPU cores in the system and
 
 ## Run Length | 游程长度
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The number of consecutive ones or zeros in a row. For 8b/10b encoding the run length is limited to 5 bits. For 128b/130b, there is no defined limit, but the modified scrambling scheme it uses is intended to compensate for that.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 连续1或0的数量。对于8b/10b编码，游程长度限制为5位。对于128b/130b，没有定义的限制，但它使用的改进加扰方案旨在补偿这一点。
 </td>
 </tr>
@@ -4881,12 +4881,12 @@ The number of consecutive ones or zeros in a row. For 8b/10b encoding the run le
 
 ## 12.3.3 Scrambling | 12.3.3 加扰
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The process of randomizing the output bit stream to avoid repeated patterns on the Link and thus reduce EMI. Scrambling can be turned off for Gen1 and Gen2 to allow specifying patterns on the Link, but it cannot be turned off for Gen3 because it does other work at that speed and the Link is not expected to be able to work reliably without it.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 随机化输出比特流以避免链路上出现重复模式从而减少EMI的过程。对于Gen1和Gen2，可以关闭加扰以允许在链路上指定模式，但对于Gen3不能关闭，因为在该速度下加扰还执行其他工作，链路预计在没有加扰的情况下无法可靠工作。
 </td>
 </tr>
@@ -4894,12 +4894,12 @@ The process of randomizing the output bit stream to avoid repeated patterns on t
 
 ## SOS | SOS
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Skip Ordered Set - used to compensate for the slight frequency difference between Tx and Rx.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 跳转有序集 - 用于补偿Tx和Rx之间的微小频率差异。
 </td>
 </tr>
@@ -4907,12 +4907,12 @@ Skip Ordered Set - used to compensate for the slight frequency difference betwee
 
 ## SSC | SSC
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Spread-Spectrum Clocking. This is a method of reducing EMI in a system by allowing the clock frequency to vary back and forth across an allowed range. This spreads the emitted energy across a wider range of frequencies and thus avoids the problem of having too much EMI energy concentrated in one particular frequency.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 扩频时钟。通过允许时钟频率在允许范围内来回变化来减少系统中EMI的方法。这会将发射能量分布在更宽的频率范围内，从而避免过多的EMI能量集中在某一特定频率的问题。
 </td>
 </tr>
@@ -4920,12 +4920,12 @@ Spread-Spectrum Clocking. This is a method of reducing EMI in a system by allowi
 
 ## Sticky Bits | 粘滞位
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Status bits whose value survives a reset. This characteristic is useful for maintaining status information when errors are detected by a Function downstream of a Link that is no longer operating correctly. The failed Link must be reset to gain access to the downstream Functions, and the error status information in its registers must survive that reset to be available to software.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 其值在复位后仍然存在的状态位。此特性对于在链路下游的功能检测到错误时维护状态信息很有用，而该链路可能不再正常工作。必须复位故障链路才能访问下游功能，其寄存器中的错误状态信息必须能在复位后保留，以便软件访问。
 </td>
 </tr>
@@ -4933,12 +4933,12 @@ Status bits whose value survives a reset. This characteristic is useful for main
 
 ## Switch | 交换机
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 A device containing multiple Downstream Ports and one Upstream Port that is able to route traffic between its Ports.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 包含多个下游端口和一个上游端口的设备，能够在其端口之间路由流量。
 </td>
 </tr>
@@ -4946,12 +4946,12 @@ A device containing multiple Downstream Ports and one Upstream Port that is able
 
 ## Symbol | 符号
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Encoded unit sent across the Link. For 8b/10b these are the 10-bit values that result from encoding, while for 128b/130b they're 8-bit values.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 跨链路发送的编码单元。对于8b/10b，这些是编码产生的10位值，而对于128b/130b，它们是8位值。
 </td>
 </tr>
@@ -4959,12 +4959,12 @@ Encoded unit sent across the Link. For 8b/10b these are the 10-bit values that r
 
 ## Symbol Lock | 符号锁定
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Finding the Symbol boundaries at the Receiver when using 8b/10b encoding so as to recognize incoming Symbols and thus the contents of packets.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在使用8b/10b编码时在接收器处查找符号边界，以识别传入的符号，从而识别数据包的内容。
 </td>
 </tr>
@@ -4972,12 +4972,12 @@ Finding the Symbol boundaries at the Receiver when using 8b/10b encoding so as t
 
 ## Symbol time | 符号时间
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 The time it takes to send one symbol across the Link - 4ns for Gen1, 2ns for Gen2, and 1ns for Gen3.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 跨链路发送一个符号所需的时间 - Gen1为4ns, Gen2为2ns, Gen3为1ns。
 </td>
 </tr>
@@ -4985,12 +4985,12 @@ The time it takes to send one symbol across the Link - 4ns for Gen1, 2ns for Gen
 
 ## TLP | TLP
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Transaction Layer Packet. These are created in the Transaction Layer and passed through the other layers.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 事务层数据包。在事务层创建并通过其他层传递。
 </td>
 </tr>
@@ -4998,12 +4998,12 @@ Transaction Layer Packet. These are created in the Transaction Layer and passed 
 
 ## Token | 令牌
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Identifier of the type of information being delivered during a Data Stream when operating at Gen3 speed.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 在Gen3速率下操作的数据流期间交付的信息类型的标识符。
 </td>
 </tr>
@@ -5011,12 +5011,12 @@ Identifier of the type of information being delivered during a Data Stream when 
 
 ## TPH | TPH
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 TLP Processing Hints; these help system routing agents make choices to improve latency and traffic congestion.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 TLP处理提示；帮助系统路由代理做出选择以改善延迟和流量拥塞。
 </td>
 </tr>
@@ -5024,12 +5024,12 @@ TLP处理提示；帮助系统路由代理做出选择以改善延迟和流量�
 
 ## UI | UI
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Unit Interval; the time it takes to send one bit across the Link - 0.4ns for Gen1, 0.2ns for Gen2, 0.125ns for Gen3.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 单位间隔；跨链路发送一位所需的时间 - Gen1为0.4ns, Gen2为0.2ns, Gen3为0.125ns。
 </td>
 </tr>
@@ -5037,12 +5037,12 @@ Unit Interval; the time it takes to send one bit across the Link - 0.4ns for Gen
 
 ## 15.4.2 Uncorrectable Errors | 15.4.2 不可纠正错误
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Errors that can't be corrected by hardware and thus will ordinarily require software attention to resolve. These are divided into Fatal errors - those that render further Link operation unreliable, and Non-fatal errors - those that do not affect the Link operation in spite of the problem that was detected.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 硬件无法纠正的错误，因此通常需要软件关注来解决。这些分为致命错误 - 使进一步链路操作不可靠的错误，和非致命错误 - 尽管检测到问题但不影响链路操作的错误。
 </td>
 </tr>
@@ -5050,12 +5050,12 @@ Errors that can't be corrected by hardware and thus will ordinarily require soft
 
 ## USP | USP
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Upstream Port, meaning a Port that faces upstream, as for an Endpoint or a Switch Upstream Port. This distinction is meaningful in the LTSSM because the Ports have assigned roles during Configuration and Recovery.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 上游端口，指面向上游的端口，如端点或交换机上游端口。这种区分在LTSSM中有意义，因为端口在配置和恢复期间具有指定的角色。
 </td>
 </tr>
@@ -5063,12 +5063,12 @@ Upstream Port, meaning a Port that faces upstream, as for an Endpoint or a Switc
 
 ## Variables | 变量
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 A number of flags are used to communicate events and status between hardware layers. These are specific to state transitions in the hardware are not usually visible to software. Some examples: — LinkUp - Indication from the Physical Layer to the Data Link Layer that training has completed and the Physical Layer is now operational. — idle_to_rlock_transitioned - This counter tracks the number of times the LTSSM has transitioned from Configuration.Idle to the Recovery.RcvrLock state. Any time the process of recognizing TS2s to leave Configuration doesn't work, the LTSSM transitions to Recovery to take appropriate steps. If it still doesn't work after 256 passes through Recovery (counter reaches FFh), then it goes back to Detect to start over. It may be that some Lanes are not working.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 使用多个标志来在硬件层之间通信事件和状态。这些特定于硬件中的状态转换，通常对软件不可见。一些示例：— LinkUp - 从物理层到数据链路层的指示，表示训练已完成且物理层现在可操作。— idle_to_rlock_transitioned - 此计数器跟踪LTSSM从Configuration.Idle转换到Recovery.RcvrLock状态的次数。任何时候离开Configuration识别TS2的过程不起作用时，LTSSM转换到Recovery以采取适当措施。如果在经过256次Recovery后仍不起作用(计数器达到FFh)，则返回Detect重新开始。可能某些通道不工作。
 </td>
 </tr>
@@ -5076,12 +5076,12 @@ A number of flags are used to communicate events and status between hardware lay
 
 ## WAKE# | WAKE#
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Side-band pin used to signal to the system that the power should be restored. It's used instead of the Beacon in systems where power conservation is an important consideration.
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 用于向系统发送恢复供电信号的边带引脚。在电源保护是重要考虑因素的系统中，它取代Beacon使用。
 </td>
 </tr>
@@ -5093,23 +5093,23 @@ Side-band pin used to signal to the system that the power should be restored. It
 
 ## A | A
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 AC Coupling 468 ACK 318 Ack 311 ACK DLLP 75, 312 ACK/NAK DLLP 312 ACK/NAK Latency 328 ACK/NAK Protocol 318, 320, 329, 973 Ack/Nak Protocol 74 ACKD_SEQ Count 323 ACKNAK_Latency_Timer 328, 343 ACPI 711, 973 ACPI Driver 706 ACPI Machine Language 712 ACPI Source Language 712 ACPI spec 705 ACPI tables 712 ACS 973 Active State Power Management 405, 735 Address Routing 158 Address Space 121 Address Translation 958, 959 Advanced Correctable Error Reporting 690 Advanced Correctable Error Status 689 Advanced Correctable Errors 688 Advanced Error Reporting 685 Advanced Source ID Register 697 Advanced Uncorrectable Error Handling 691 Advanced Uncorrectable Error Status 691 Aggregate Bandwidth 408 Alternative Routing-ID Interpretation 909 AML 712 AML token interpreter 712 Arbitration 20, 270 Arbor 117 Architecture Overview 39 ARI 909, 974 ASL 712 ASPM 735, 742, 910, 974 ASPM Exit Latency 756, 757 Assert_INTx messages 806 Async Notice of Slot Status Change 876
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 AC Coupling — 交流耦合 468 ACK 318 Ack 311 ACK DLLP 75, 312 ACK/NAK DLLP 312 ACK/NAK 延迟 328 ACK/NAK 协议 318, 320, 329, 973 Ack/Nak Protocol 74 ACKD_SEQ 计数 323 ACKNAK_Latency_Timer 328, 343 ACPI 711, 973 ACPI 驱动 706 ACPI Machine Language 712 ACPI Source Language 712 ACPI 规范 705 ACPI 表 712 ACS 973 主动状态电源管理 405, 735 地址路由 158 地址空间 121 地址转换 958, 959 高级可校正错误报告 690 高级可校正错误状态 689 高级可校正错误 688 高级错误报告 685 高级源 ID 寄存器 697 高级不可校正错误处理 691 高级不可校正错误状态 691 聚合带宽 408 替代路由 ID 解释 909 AML 712 AML 令牌解释器 712 仲裁 20, 270 Arbor 117 架构概述 39 ARI 909, 974 ASL 712 ASPM 735, 742, 910, 974 ASPM 退出延迟 756, 757 Assert_INTx 消息 806 槽位状态变更的异步通知 876
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 AtomicOp 150 AtomicOps 897, 974 Attention Button 854, 862 Attention Indicator 854, 859 Aux_Current field 726
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 AtomicOp 150 原子操作 897, 974 注意力按钮 854, 862 注意力指示灯 854, 859 Aux_Current 字段 726
 </td>
 </tr>
@@ -5117,12 +5117,12 @@ AtomicOp 150 原子操作 897, 974 注意力按钮 854, 862 注意力指示灯 8
 
 ## B | B
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Bandwidth 42 Bandwidth Congestion 281 Bandwidth Management 974 BAR 126, 960, 974 Base Address Registers 126 Base and Limit Registers 136 BDF 85 Beacon 483, 772, 974 BER 974 BIOS 712, 853 Bit Lock 78, 395, 507, 742, 974 Bit Tracer 929 Block 974 Block Alignment 435 Block Encoding 410 Block Lock 507, 975 Boost 476 Bridge 975 Bus 85 Bus Master 20 Bus Number register 93 Byte Count Modified 201 Byte Enables 181 Byte Striping 371, 372, 373, 975 byte striping 371 Byte Striping logic 365 Byte Un-Striping 402
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 带宽 42 带宽拥塞 281 带宽管理 974 BAR 126, 960, 974 基址寄存器 126 基址与边界寄存器 136 BDF 85 信标 483, 772, 974 BER 974 BIOS 712, 853 位锁定 78, 395, 507, 742, 974 位追踪器 929 块 974 块对齐 435 块编码 410 块锁定 507, 975 提升 476 桥 975 总线 85 总线主控 20 总线号寄存器 93 字节计数已修改 201 字节使能 181 字节条带化 371, 372, 373, 975 byte条带化 371 字节条带化逻辑 365 字节解条带化 402
 </td>
 </tr>
@@ -5130,612 +5130,612 @@ Bandwidth 42 Bandwidth Congestion 281 Bandwidth Management 974 BAR 126, 960, 974
 
 ## C | C (索引)
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Capabilities List bit 818
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 能力列表位 818
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Capabilities Pointer register 713
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 能力指针寄存器 713
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Capability ID 713, 814
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 能力标识符 713, 814
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Capability Structures 88
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 能力结构 88
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Card Connector Power Switching Logic 854
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 卡连接器电源切换逻辑 854
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Card Insertion 855
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 卡插入 855
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Card Insertion Procedure 857
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 卡插入过程 857
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Card Present 854
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 卡存在 854
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Card Removal 855
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 卡移除 855
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Card Removal Procedure 856
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 卡移除过程 856
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Card Reset Logic 854
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 卡复位逻辑 854
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 CC 975
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 CC 975
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 CDR 435, 437, 975
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 CDR 435, 437, 975
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Character 79, 366, 975
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 字符 79, 366, 975
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 CL 976
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 CL 976
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Class driver 706
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 类驱动程序 706
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Clock Requirements 452
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 时钟要求 452
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Code Violation 400
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 编码违规 400
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Coefficients 584
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 系数 584
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Cold Reset 834
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 冷复位 834
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 COM 386
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 COM 386
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Common-Mode Noise Rejection 452
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 共模噪声抑制 452
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Completer 33
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 完成者 33
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Completer Abort 664
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 完成者中止 664
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Completion Packet 197
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 完成报文包 197
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Completion Status 200
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 完成状态 200
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Completion Time-out 665
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 完成超时 665
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Completion TLP 184
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 完成TLP 184
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Completions 196, 218
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 完成报文 196, 218
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Compliance Pattern 537
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 合规性测试图案 537
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Compliance Pattern - 8b/10b 529
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 合规性测试图案 - 8b/10b 529
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration 85
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置 85
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Address Port 92, 93
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置地址端口 92, 93
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Address Space 88
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置地址空间 88
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Cycle Generation 26
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置周期生成 26
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Data Port 92, 93
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置数据端口 92, 93
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Headers 50
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置头标 50
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Read 151
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置读取 151
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Read Access 104
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置读取访问 104
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Register Space 27, 89
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置寄存器空间 27, 89
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Registers 90
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置寄存器 90
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Request Packet 193
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置请求包 193
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Requests 99, 192
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置请求 99, 192
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Space 122
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置空间 122
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration State 520, 540
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置状态 520, 540
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Status Register 676
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置状态寄存器 676
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Status register 713
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置状态寄存器 713
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Transactions 91
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置事务 91
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration Write 151
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 配置写入 151
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration.Complete 562
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Configuration.Complete 562
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration.Idle 566
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Configuration.Idle 566
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration.Lanenum.Accept 560
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Configuration.Lanenum.Accept 560
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration.Lanenum.Wait 559
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Configuration.Lanenum.Wait 559
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration.Linkwidth.Accept 558
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Configuration.Linkwidth.Accept 558
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Configuration.Linkwidth.Start 553
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Configuration.Linkwidth.Start 553
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Congestion Avoidance 897
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 拥塞避免 897
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Continuous-Time Linear Equalization 49
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 连续时间线性均衡 49
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Control Character 976
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 控制字符 976
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Control Character Encoding 386
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 控制字符编码 386
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Control Method 712
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 控制方法 712
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Conventional Reset 834
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 常规复位 834
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Correctable Errors 651, 976
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 可纠正错误 651, 976
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 CR 976
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 CR 976
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 CRC 976
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 CRC 976
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 CRD 383
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 CRD 383
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Credit Allocated Count 229
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 信用量分配计数 229
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Credit Limit counter 228
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 信用量限制计数器 228
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 CREDIT_ALLOCATED 229
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 CREDIT_ALLOCATED 229
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Credits Consumed counter 228
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 信用量消耗计数器 228
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Credits Received Counter 229
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 信用量接收计数器 229
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 CREDITS_RECEIVED 229
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 CREDITS_RECEIVED 229
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 CTLE 493, 494
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 CTLE 493, 494
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Current Running Disparity 383
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 当前运行不一致性 383
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Cursor Coefficient 584
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 游标系数 584
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Cut-Through 354
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 直通转发 354
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Cut-Through Mode 976
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 直通转发模式 976
 </td>
 </tr>
@@ -5743,23 +5743,23 @@ Cut-Through Mode 976
 
 ## D | D
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 D0 709, 710, 714, 734 D0 Active 714 D0 Uninitialized 714 D1 709, 710, 716, 734 D1\_Support bit 725 D2 709, 710, 717, 734 D2\_Support bit 725 D3 709, 710, 719 D3cold 721, 734 D3hot 719, 734 Data Characters 976 Data Link Layer 55, 72 Data Link Layer Packet 72 Data Link Layer Packet Format 310 Data Link Layer Packets 73 Data Poisoning 660 Data Register 731 Data Stream 977 Data\_Scale field 729 Data\_Select field 729 DC Common Mode 462 DC Common Mode Voltage 466 DC Common-Mode Voltage 467 Deadlock Avoidance 303 Deassert\_INTx messages 806 Debugging PCIe Traffic 917 Decision Feedback Equalization 495 De-emphasis 450, 468, 469, 471, 476, 977 De-Scrambler 367 Deserializer 395 De-Skew 399 Detect State 519, 522 Detect.Active 524 Detect.Quiet 523 Device 85 Device Capabilities 2 Register 899 Device Capabilities Register 873 Device Context 709 Device Core 59 Device core 55 Device Driver 706 device driver 853 Device Layers 54 Device PM States 713 device PM states 709 Device Status Register 681 Device-Specific Initialization (DSI) bit 727 DFE 493, 495, 497 Differential Driver 389 Differential Receiver 393, 435, 451 Differential Signaling 463 Differential Signals 44 Differential Transmitter 451 Digest 180, 977 Direct Address Translation 949
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 D0 709, 710, 714, 734 D0 Active 714 D0 Uninitialized 714 D1 709, 710, 716, 734 D1\_Support位 725 D2 709, 710, 717, 734 D2\_Support位 725 D3 709, 710, 719 D3cold 721, 734 D3hot 719, 734 数据字符 976 数据链路层 55, 72 数据链路层报文 72 数据链路层报文格式 310 数据链路层报文 73 数据中毒 660 数据寄存器 731 数据流 977 Data\_Scale字段 729 Data\_Select字段 729 DC共模 462 DC共模电压 466 DC共模电压 467 死锁避免 303 去断言INTx消息 806 PCIe流量调试 917 决策反馈均衡 495 去加重 450, 468, 469, 471, 476, 977 解扰器 367 解串器 395 去偏移 399 检测状态 519, 522 Detect.Active 524 Detect.Quiet 523 设备 85 设备能力2寄存器 899 设备能力寄存器 873 设备上下文 709 设备核心 59 设备核心 55 设备驱动 706 设备驱动 853 设备层 54 设备PM状态 713 设备PM状态 709 设备状态寄存器 681 设备特定初始化(DSI)位 727 DFE 493, 495, 497 差分驱动器 389 差分接收器 393, 435, 451 差分信令 463 差分信号 44 差分发送器 451 摘要 180, 977 直接地址转换 949
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Disable State 521, 613 Discrete Time Linear Equalizer 493 Discrete-Time Linear Equalizer 494 Disparity 383 Disparity Error Detection 400 DLCMSM 977 DLE 493, 494 DLL 437 DLLP 73, 170, 238, 308, 311, 977 DLLP Elements 307 DMA 937 DPA 910, 977 Driver Characteristics 489 DSI bit 727 DSP 977 D-State Transitions 722 Dual Simplex 363 Dual-Simplex 40 Dual-Star Fabric 957 Dynamic Bandwidth Changes 618 Dynamic Link Speed Changes 619 Dynamic Link Width Changes 629 Dynamic Power Allocation 910
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 禁用状态 521, 613 离散时间线性均衡器 493 离散时间线性均衡器 494 不一致 383 不一致错误检测 400 DLCMSM 977 DLE 493, 494 DLL 437 DLLP 73, 170, 238, 308, 311, 977 DLLP元素 307 DMA 937 DPA 910, 977 驱动器特性 489 DSI位 727 DSP 977 D状态转换 722 双单工 363 双单工 40 双星结构 957 动态带宽变化 618 动态链路速率变化 619 动态链路宽度变化 629 动态功耗分配 910
 </td>
 </tr>
@@ -5767,386 +5767,386 @@ Disable State 521, 613 Discrete Time Linear Equalizer 493 Discrete-Time Linear E
 
 ## E | E
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 ECRC 63, 180, 978 ECRC Generation and Checking 657
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 ECRC 63, 180, 978 ECRC 生成与检查 657
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 EDB 373, 387
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 EDB 373, 387
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Egress Port 978
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Egress Port 978
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 EIE 387
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 EIE 387
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 EIEOS 389, 739, 740
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 EIEOS 389, 739, 740
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 EIOS 388, 737
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 EIOS 388, 737
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Elastic Buffer 366, 435, 978
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 弹性缓冲 366, 435, 978
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Electrical Idle 388, 736, 738, 741
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 电气空闲 388, 736, 738, 741
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Electrical Idle Exit Ordered Set 389
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 电气空闲退出有序集 389
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Electrical Idle Ordered Set 388
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 电气空闲有序集 388
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 EMI 77, 978
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 EMI 77, 978
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Encoding 410
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 编码 410
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 END 373, 387
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 END 373, 387
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Endpoint 978
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 端点 978
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 End-to-End CRC 180
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 端到端 CRC 180
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Enhanced Configuration Access Mechanism 96
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 增强配置访问机制 96
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Enumeration 51, 104, 978
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 枚举 51, 104, 978
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Equalization 474, 978
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 均衡 474, 978
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Equalization - Phase 0 578
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 均衡 - 阶段 0 578
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Equalization - Phase 1 581
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 均衡 - 阶段 1 581
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Equalization - Phase 2 583
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 均衡 - 阶段 2 583
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Equalization - Phase 3 586
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 均衡 - 阶段 3 586
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Equalization Control 513
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 均衡控制 513
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Equalization Control Registers 579
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 均衡控制寄存器 579
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Equalizer 475
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 均衡器 475
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Equalizer Coefficients 479
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 均衡器系数 479
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Error Classifications 651
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 错误分类 651
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Error Handling 282, 699
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 错误处理 282, 699
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Error Isolation 937
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 错误隔离 937
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Error Messages 209, 668
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 错误消息 209, 668
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 ESD 459
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 ESD 459
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 ESD standards 448
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 ESD 标准 448
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Exerciser Card 931
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 测试卡 931
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Extended Configuration Space 89
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 扩展配置空间 89
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Eye Diagram 486
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 眼图 486
 </td>
 </tr>
@@ -6154,320 +6154,320 @@ Eye Diagram 486
 
 ## F | F
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Failover 942, 944, 952
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 故障转移 942, 944, 952
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 FC Initialization 223
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 FC初始化 223
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 FC Initialization Sequence 223
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 FC初始化序列 223
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 FC_Init1 224
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 FC_Init1 224
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 FC_Init2 225
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 FC_Init2 225
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 FC_Update 238
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 FC_Update 238
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 First DW Byte Enables 178, 181
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 首个双字字节使能 178, 181
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control 72, 76, 215, 217, 299, 928, 978
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控 72, 76, 215, 217, 299, 928, 978
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control Buffer 217, 229
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控缓冲区 217, 229
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control Buffers 217
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控缓冲区 217
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control Credits 216, 219
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控信用量 216, 219
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control Elements 227, 231
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控元素 227, 231
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control Initialization 227, 230, 237
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控初始化 227, 230, 237
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control Packet 239
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控报文 239
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control Packet Format 314
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控报文格式 314
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control Update Frequency 239
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控更新频率 239
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flow Control Updates 237
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 流控更新 237
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 FLR 842, 844, 845, 978
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 FLR 842, 844, 845, 978
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Flying Lead Probe 924
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 飞线探针 924
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Format Field 179
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 格式字段 179
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Framing Symbols 171, 979
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 帧定界符 171, 979
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 FTS 387
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 FTS 387
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 FTS Ordered Set 388
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 FTS有序集 388
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 FTSOS 388
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 FTSOS 388
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Function 85
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 功能 85
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Function Level Reset 842, 843
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 功能级复位 842, 843
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Function PM State Transitions 722
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 功能电源管理状态转换 722
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Function State Transition Delays 724
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 功能状态转换延迟 724
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Fundamental Reset 834
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 基础复位 834
 </td>
 </tr>
@@ -6475,15 +6475,15 @@ Fundamental Reset 834
 
 ## G | G
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Gen1 43, 77, 979<br>
 Gen2 43, 77, 979<br>
 Gen3 44, 77, 407, 979<br>
 Gen3 products 936
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Gen1 第43、77、979页<br>
 Gen2 第43、77、979页<br>
 Gen3 第44、77、407、979页<br>
@@ -6494,243 +6494,243 @@ Gen3 产品 第936页
 
 ## H | H
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 handler 712
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 处理程序 712
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hardware Based Fixed Arbitration 256
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 基于硬件的固定仲裁 256
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hardware Fixed VC Arbitration 257
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 硬件固定虚通道仲裁 257
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hardware-Fixed Port Arbitration 265
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 硬件固定端口仲裁 265
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Header Type 0 29
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 标头类型 0 29
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Header Type 1 28
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 标头类型 1 28
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Header Type/Format Field 178
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 标头类型/格式字段 178
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 High Speed Signaling 451
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 高速信令 451
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 host/PCI bridge 94
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 主机/PCI桥 94
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hot Plug 847, 852
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热插拔 847, 852
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hot Plug Controller 863
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热插拔控制器 863
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hot Plug Elements 852
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热插拔元素 852
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hot Plug Messages 211
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热插拔消息 211
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hot Reset 839
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热复位 839
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hot Reset State 521, 612
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热复位状态 521, 612
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hot-Plug 116, 853
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热插拔 116, 853
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hot-Plug Controller 853, 864
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热插拔控制器 853, 864
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 hot-plug primitives 874
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热插拔原语 874
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hot-Plug Service 852
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热插拔服务 852
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hot-Plug System Driver 852
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 热插拔系统驱动程序 852
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 HPC Applications 940
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 HPC 应用 940
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Hub Link 32
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 集线器链路 32
 </td>
 </tr>
@@ -6738,348 +6738,348 @@ Hub Link 32
 
 ## I | I
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 ID Based Ordering 301
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 基于ID的排序 301
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 ID Routing 155
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 ID路由 155
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 ID-based Ordering 301, 909, 979
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 基于ID的排序 301, 909, 979
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 IDL 387
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 IDL 387
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 IDO 301, 302, 909, 979
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 IDO 301, 302, 909, 979
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 IEEE 1394 Bus Driver 711
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 IEEE 1394总线驱动 711
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Ignored Messages 211
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 被忽略的消息 211
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Implicit Routing 148, 979
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 隐式路由 148, 979
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 In-band Reset 837
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 带内复位 837
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Infinite Credits 221
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 无限信用 221
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Infinite Flow Control Credits 219
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 无限流控信用 219
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Ingress Port 979
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 入口端口 979
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 InitFC1-Cpl 312
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 InitFC1-Cpl 312
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 InitFC1-NP 311
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 InitFC1-NP 311
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 InitFC1-P DLLP 311
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 InitFC1-P DLLP 311
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 InitFC2-Cpl 312
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 InitFC2-Cpl 312
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 InitFC2-NP 312
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 InitFC2-NP 312
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 InitFC2-P 312
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 InitFC2-P 312
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Intelligent Adapters 943, 944, 951
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 智能适配器 943, 944, 951
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Internal Error Reporting 911
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 内部错误报告 911
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Interrupt Disable 803
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 中断禁用 803
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Interrupt Latency 829
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 中断延迟 829
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 interrupt latency 829
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 中断延迟 829
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Interrupt Line Register 802
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 中断线寄存器 802
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Interrupt Pin Register 801
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 中断引脚寄存器 801
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Interrupt Status 804
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 中断状态 804
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Inter-symbol Interference 469
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 码间干扰 469
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 INTx Interrupt Messages 206
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 INTx中断消息 206
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 INTx Interrupt Signaling 206
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 INTx中断信令 206
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 INTx Message Format 807
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 INTx消息格式 807
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 INTx# Pins 800
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 INTx#引脚 800
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 INTx# Signaling 803
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 INTx#信令 803
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 IO 126
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 IO 126
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 IO Address Spaces 122
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 IO地址空间 122
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 IO Range 141
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 IO范围 141
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 IO Read 151
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 IO读 151
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 IO Requests 184
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 IO请求 184
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 IO Virtualization 937
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 IO虚拟化 937
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 IO Write 151
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 IO写 151
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 ISI 979
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 ISI 979
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Isochronous Packets 279
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 等时包 279
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Isochronous Support 272
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 等时支持 272
 </td>
 </tr>
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Isochronous Transaction Support 272
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 等时事务支持 272
 </td>
 </tr>
@@ -7087,12 +7087,12 @@ Isochronous Transaction Support 272
 
 ## J | J
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Jitter 485, 487
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 抖动 485, 487
 </td>
 </tr>
@@ -7100,34 +7100,34 @@ Jitter 485, 487
 
 ## L | L
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 L0 State 500, 520, 568 L0s 744 L0s Receiver State Machine 605 L0s State 520, 603, 744 L0s Transmitter State Machine 603 L1 ASPM 736, 747 L1 ASPM Negotiation 748 L1 ASPM State 747 L1 State 520, 607, 760 L2 State 521, 609, 767 L2/L3 Ready 767 L2/L3 Ready state 763, 764 Lane 40, 78, 365, 979 Lane # 511 Lane Number Negotiation 543, 547 Lane Reversal 507 Lane-Level Encoding 410 Lane-to-Lane de-skew 78 Lane-to-Lane Skew 979 Last DW Byte Enables 178, 181 Latency Tolerance Reporting 910 LCRC 63, 325, 329 LeCroy 922, 923, 933 LeCroy Tools 917 Legacy Endpoint 816, 979 Legacy Endpoints 972 LFSR 980
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 L0 状态 500, 520, 568 L0s 744 L0s 接收器状态机 605 L0s 状态 520, 603, 744 L0s 发送器状态机 603 L1 ASPM 736, 747 L1 ASPM 协商 748 L1 ASPM 状态 747 L1 状态 520, 607, 760 L2 状态 521, 609, 767 L2/L3 就绪 767 L2/L3 就绪状态 763, 764 通道 40, 78, 365, 979 通道编号 511 通道编号协商 543, 547 通道反转 507 通道级编码 410 通道间去偏斜 78 通道间偏移 979 最后双字字节使能 178, 181 延迟容忍度报告 910 LCRC 63, 325, 329 LeCroy 922, 923, 933 LeCroy 工具 917 传统端点 816, 979 传统端点 972 LFSR 980
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Link 40, 980 Link # 511 Link Capabilities 2 Register 640 Link Capability Register 743 Link Configuration - Failed Lane 549 Link Control 841 Link Data Rate 509 Link data rate 78 Link Equalization 577 Link Errors 683 Link Flow Control-Related Errors 666 Link Number Negotiation 542, 546 Link Power Management 733 Link Status Register 641 Link Training and Initialization 78 Link Training and Status State Machine (LTSSM) 518 Link Upconfigure Capability 512 Link Width 507 Link width 78 Link Width Change 570 Link Width Change Example 630 Lock 964 Locked Reads 66 Locked Transaction 209
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 链路 40, 980 链路编号 511 链路能力 2 寄存器 640 链路能力寄存器 743 链路配置 - 失败的通道 549 链路控制 841 链路数据速率 509 链路数据速率 78 链路均衡 577 链路错误 683 链路流控相关错误 666 链路编号协商 542, 546 链路电源管理 733 链路状态寄存器 641 链路训练和初始化 78 链路训练和状态状态机 (LTSSM) 518 链路升级配置能力 512 链路宽度 507 链路宽度 78 链路宽度变化 570 链路宽度变化示例 630 锁定 964 锁定读 66 锁定事务 209
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Locked Transactions 963 Logic Analyzer 921 Logical Idle Sequence 370 Loopback Master 615 Loopback Slave 616 Loopback State 521, 613 Loopback.Active 617 Loopback.Entry 614 Loopback.Exit 618 Low-priority VC Arbitration 255 LTR 784, 910, 980 LTR Messages 786 LTR Registers 784 LTSSM 507, 518, 839, 927, 980
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 锁定事务 963 逻辑分析仪 921 逻辑空闲序列 370 回环主设备 615 回环从设备 616 回环状态 521, 613 回环.激活 617 回环.进入 614 回环.退出 618 低优先级 VC 仲裁 255 LTR 784, 910, 980 LTR 消息 786 LTR 寄存器 784 LTSSM 507, 518, 839, 927, 980
 </td>
 </tr>
@@ -7135,430 +7135,430 @@ Locked Transactions 963 Logic Analyzer 921 Logical Idle Sequence 370 Loopback Ma
 
 ## M | M
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Malformed TLP 666
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 畸形TLP 666
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Address Space 122
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 存储器地址空间 122
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Read 150
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 存储器读 150
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Read Lock 150
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 存储器读锁定 150
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Request Packet 188
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 存储器请求报文 188
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Requests 188
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 存储器请求 188
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Write 150
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 存储器写 150
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Memory Writes 69
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 存储器写 69
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Message 151
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 消息 151
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Message Address Register 816
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 消息地址寄存器 816
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Message Address register 816, 818
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 消息地址寄存器 816, 818
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Message Control Register 814
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 消息控制寄存器 814
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Message Control register 814, 818
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 消息控制寄存器 814, 818
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Message Data register 817, 818
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 消息数据寄存器 817, 818
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Message Request Packet 203
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 消息请求报文 203
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Message Requests 70, 203
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 消息请求 70, 203
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Message Writes 70
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 消息写 70
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Messages 148
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 消息 148
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Mid-Bus Probe 923
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 总线中间探测 923
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 MindShare Arbor 117
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 MindShare Arbor 117
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Miniport Driver 706
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 微型端口驱动 706
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 MMIO 123
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 MMIO 123
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Modified Compliance Pattern 537
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 修改的一致性测试码型 537
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Modified Compliance Pattern - 8b/10b 532
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 修改的一致性测试码型 - 8b/10b 532
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 MR-IOV 937, 939
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 MR-IOV 937, 939
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 MSI Capability Register 812
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 MSI能力寄存器 812
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 MSI Configuration 817
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 MSI配置 817
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multicast 893, 896
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多播 893, 896
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multicast Capabilities 163
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多播能力 163
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multicast Capability Registers 889
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多播能力寄存器 889
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multi-casting 888
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多播 888
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multi-Function Arbitration 272
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多功能仲裁 272
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multi-Host System 96
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多主机系统 96
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multi-Host Systems 943
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多主机系统 943
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multiple Message Capable field 818
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 Multiple Message Capable字段 818
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multiple Messages 820
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多消息 820
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multi-Root 938
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多根 938
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multi-Root Enumeration 114
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多根枚举 114
 </td>
 </tr>
 </table>
 
-<table>
+<table style="border-collapse:collapse;width:100%">
 <tr>
-<td width="50%">
+<td width="50%" style="border:2px solid #000;">
 Multi-Root System 97, 116
 </td>
-<td width="50%" style="background-color:#e8e8e8">
+<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
 多根系统 97, 116
 </td>
 </tr>

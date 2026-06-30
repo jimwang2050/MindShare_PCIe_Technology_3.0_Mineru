@@ -1,7 +1,7 @@
 # Ch09_DLLP_Elements
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -14,7 +14,7 @@
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -30,7 +30,7 @@
 ## This Chapter | 本章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -45,7 +45,7 @@
 ## The Next Chapter | 下一章
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -58,7 +58,7 @@
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -74,7 +74,7 @@
 ## PCI Express Technology | PCI Express 技术
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -93,7 +93,7 @@ Figure 9-1: Data Link Layer Sends A DLLP | 图9-1：数据链路层发送DLLP
 ## 9.1 DLLPs Are Local Traffic | 9.1 DLLP 是本地流量
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -111,7 +111,7 @@ Figure 9-1: Data Link Layer Sends A DLLP | 图9-1：数据链路层发送DLLP
 ## DLLP的接收处理
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -132,7 +132,7 @@ Figure 9-1: Data Link Layer Sends A DLLP | 图9-1：数据链路层发送DLLP
 
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -147,7 +147,7 @@ Figure 9-1: Data Link Layer Sends A DLLP | 图9-1：数据链路层发送DLLP
 ## 9.2.1 General | 9.2.1 概述
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -165,7 +165,7 @@ Figure 9-2: Generic Data Link Layer Packet Format | 图9-2：通用数据链路�
 <img src="images/part03_a0b69fd3472e6ba2599f0071c57184de764d0a48ad7a778898ed5ab9f89957f6.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -186,7 +186,7 @@ Figure 9-2: Generic Data Link Layer Packet Format | 图9-2：通用数据链路�
 ## 9.4 DLLP Packet Types | 9.4 DLLP包类型
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -200,12 +200,12 @@ Figure 9-2: Generic Data Link Layer Packet Format | 图9-2：通用数据链路�
 
 Table 9-1: DLLP Types / 表9-1：DLLP类型 | 表9-1：DLLP类型
 
-<table><tr><td>DLLP Type</td><td>Type Field Encoding</td><td>Purpose</td></tr><tr><td>Ack (TLP Acknowledge)</td><td>0000 0000b</td><td>TLP transmission integrity</td></tr><tr><td>Nak (TLP Negative Acknowledge)</td><td>0001 0000b</td><td>TLP transmission integrity</td></tr><tr><td>PM_Enter_L1</td><td>0010 0000b</td><td>Power Management</td></tr><tr><td>PM_Enter_L23</td><td>0010 0001b</td><td>Power Management</td></tr><tr><td>PM_Active_State_Request_L1</td><td>0010 0011b</td><td>Power Management</td></tr><tr><td>PM_Request_Ack</td><td>0010 0100b</td><td>Power Management</td></tr><tr><td>Vendor Specific</td><td>0011 0000b</td><td>Vendor Defined</td></tr><tr><td>InitFC1-P</td><td>0100 0xxxb</td><td>TLP Flow Control (xxx = VC number)</td></tr><tr><td>InitFC1-NP</td><td>0101 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC1-Cpl</td><td>0110 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC2-P</td><td>1100 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC2-NP</td><td>1101 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>InitFC2-Cpl</td><td>1110 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>UpdateFC-P</td><td>1000 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>UpdateFC-NP</td><td>1001 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>UpdateFC-Cpl</td><td>1010 0xxxb</td><td>TLP Flow Control</td></tr><tr><td>Reserved</td><td>Others</td><td>Reserved</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">DLLP Type</td><td style="border:2px solid #000;">Type Field Encoding</td><td style="border:2px solid #000;">Purpose</td></tr><tr><td style="border:2px solid #000;">Ack (TLP Acknowledge)</td><td style="border:2px solid #000;">0000 0000b</td><td style="border:2px solid #000;">TLP transmission integrity</td></tr><tr><td style="border:2px solid #000;">Nak (TLP Negative Acknowledge)</td><td style="border:2px solid #000;">0001 0000b</td><td style="border:2px solid #000;">TLP transmission integrity</td></tr><tr><td style="border:2px solid #000;">PM_Enter_L1</td><td style="border:2px solid #000;">0010 0000b</td><td style="border:2px solid #000;">Power Management</td></tr><tr><td style="border:2px solid #000;">PM_Enter_L23</td><td style="border:2px solid #000;">0010 0001b</td><td style="border:2px solid #000;">Power Management</td></tr><tr><td style="border:2px solid #000;">PM_Active_State_Request_L1</td><td style="border:2px solid #000;">0010 0011b</td><td style="border:2px solid #000;">Power Management</td></tr><tr><td style="border:2px solid #000;">PM_Request_Ack</td><td style="border:2px solid #000;">0010 0100b</td><td style="border:2px solid #000;">Power Management</td></tr><tr><td style="border:2px solid #000;">Vendor Specific</td><td style="border:2px solid #000;">0011 0000b</td><td style="border:2px solid #000;">Vendor Defined</td></tr><tr><td style="border:2px solid #000;">InitFC1-P</td><td style="border:2px solid #000;">0100 0xxxb</td><td style="border:2px solid #000;">TLP Flow Control (xxx = VC number)</td></tr><tr><td style="border:2px solid #000;">InitFC1-NP</td><td style="border:2px solid #000;">0101 0xxxb</td><td style="border:2px solid #000;">TLP Flow Control</td></tr><tr><td style="border:2px solid #000;">InitFC1-Cpl</td><td style="border:2px solid #000;">0110 0xxxb</td><td style="border:2px solid #000;">TLP Flow Control</td></tr><tr><td style="border:2px solid #000;">InitFC2-P</td><td style="border:2px solid #000;">1100 0xxxb</td><td style="border:2px solid #000;">TLP Flow Control</td></tr><tr><td style="border:2px solid #000;">InitFC2-NP</td><td style="border:2px solid #000;">1101 0xxxb</td><td style="border:2px solid #000;">TLP Flow Control</td></tr><tr><td style="border:2px solid #000;">InitFC2-Cpl</td><td style="border:2px solid #000;">1110 0xxxb</td><td style="border:2px solid #000;">TLP Flow Control</td></tr><tr><td style="border:2px solid #000;">UpdateFC-P</td><td style="border:2px solid #000;">1000 0xxxb</td><td style="border:2px solid #000;">TLP Flow Control</td></tr><tr><td style="border:2px solid #000;">UpdateFC-NP</td><td style="border:2px solid #000;">1001 0xxxb</td><td style="border:2px solid #000;">TLP Flow Control</td></tr><tr><td style="border:2px solid #000;">UpdateFC-Cpl</td><td style="border:2px solid #000;">1010 0xxxb</td><td style="border:2px solid #000;">TLP Flow Control</td></tr><tr><td style="border:2px solid #000;">Reserved</td><td style="border:2px solid #000;">Others</td><td style="border:2px solid #000;">Reserved</td></tr></table>
 
 ## 9.3.1 Ack/Nak DLLP Format | 9.3.1 Ack/Nak DLLP 格式
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -223,12 +223,12 @@ Figure 9‑3: Ack Or Nak DLLP Format | 图9‑3：Ack或Nak DLLP格式
 
 Table 9‑2: Ack/Nak DLLP Fields | 表9‑2：Ack/Nak DLLP字段
 
-<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>DLLP Function</td></tr><tr><td>DLLP Type</td><td>Byte 0, [7:0]</td><td>Indicates the type of DLLP:0000 0000b = Ack0001 0000b = Nak</td></tr><tr><td>AckNak_Seq_Num</td><td>Byte 2, [3:0]Byte 3, [7:0]</td><td>If a good TLP was received:If incoming Sequence Number = NEXT_RCV_SEQ (matched what was expected), schedule Ack DLLP with that number.If incoming Sequence Number was earlier than NEXT_RCV_SEQ count (a duplicate TLP was received), schedule Ack DLLP with NEXT_RCV_SEQ - 1 (effectively, this is the number of the last good TLP).For a TLP received with a problem:If the TLP had an error, or its Sequence Number was higher than NEXT_RCV_SEQ, schedule a Nak DLLP with NEXT_RCV_SEQ - 1.</td></tr><tr><td>16-bit CRC</td><td>Byte 4, [7:0]Byte 5, [7:0]</td><td>This 16-bit CRC protects the contents of this DLLP. Calculation is based on Bytes 0-3 of the Ack/Nak.</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Header Byte/Bit</td><td style="border:2px solid #000;">DLLP Function</td></tr><tr><td style="border:2px solid #000;">DLLP Type</td><td style="border:2px solid #000;">Byte 0, [7:0]</td><td style="border:2px solid #000;">Indicates the type of DLLP:0000 0000b = Ack0001 0000b = Nak</td></tr><tr><td style="border:2px solid #000;">AckNak_Seq_Num</td><td style="border:2px solid #000;">Byte 2, [3:0]Byte 3, [7:0]</td><td style="border:2px solid #000;">If a good TLP was received:If incoming Sequence Number = NEXT_RCV_SEQ (matched what was expected), schedule Ack DLLP with that number.If incoming Sequence Number was earlier than NEXT_RCV_SEQ count (a duplicate TLP was received), schedule Ack DLLP with NEXT_RCV_SEQ - 1 (effectively, this is the number of the last good TLP).For a TLP received with a problem:If the TLP had an error, or its Sequence Number was higher than NEXT_RCV_SEQ, schedule a Nak DLLP with NEXT_RCV_SEQ - 1.</td></tr><tr><td style="border:2px solid #000;">16-bit CRC</td><td style="border:2px solid #000;">Byte 4, [7:0]Byte 5, [7:0]</td><td style="border:2px solid #000;">This 16-bit CRC protects the contents of this DLLP. Calculation is based on Bytes 0-3 of the Ack/Nak.</td></tr></table>
 
 ## 9.4.2 Power Management DLLP Format | 9.4.2 电源管理DLLP格式
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -246,12 +246,12 @@ Figure 9-4: Power Management DLLP Format | 图9-4：电源管理DLLP格式
 
 Table 9-3: Power Management DLLP Fields / 表9-3：电源管理DLLP字段 | 表9-3：电源管理DLLP字段
 
-<table><tr><td>Field Name / 字段名</td><td>Header Byte/Bit / 头字节/位</td><td>DLLP Function / DLLP功能</td></tr><tr><td>DLLP Type / DLLP类型</td><td>Byte 0, [7:0]</td><td>Indicates DLLP type. For Power Management DLLPs:<br>0010 0000b = PM_Enter_L1<br>0010 0001b = PM_Enter_L2<br>0010 0011b = PM_Active_State_Request_L1<br>0010 0100b = PM_Request_Ack<br><br>指示DLLP类型。对于电源管理DLLP：<br>0010 0000b = PM_Enter_L1<br>0010 0001b = PM_Enter_L2<br>0010 0011b = PM_Active_State_Request_L1<br>0010 0100b = PM_Request_Ack</td></tr><tr><td>16-bit CRC / 16位CRC</td><td>Byte 4, [7:0]<br>Byte 5, [7:0]</td><td>A 16-Bit CRC used to protect DLLP contents. Calculation is based on Bytes 0-3, regardless of whether fields are used.<br><br>用于保护DLLP内容的16位CRC。计算基于字节0-3，无论字段是否使用。</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Field Name / 字段名</td><td style="border:2px solid #000;">Header Byte/Bit / 头字节/位</td><td style="border:2px solid #000;">DLLP Function / DLLP功能</td></tr><tr><td style="border:2px solid #000;">DLLP Type / DLLP类型</td><td style="border:2px solid #000;">Byte 0, [7:0]</td><td style="border:2px solid #000;">Indicates DLLP type. For Power Management DLLPs:<br>0010 0000b = PM_Enter_L1<br>0010 0001b = PM_Enter_L2<br>0010 0011b = PM_Active_State_Request_L1<br>0010 0100b = PM_Request_Ack<br><br>指示DLLP类型。对于电源管理DLLP：<br>0010 0000b = PM_Enter_L1<br>0010 0001b = PM_Enter_L2<br>0010 0011b = PM_Active_State_Request_L1<br>0010 0100b = PM_Request_Ack</td></tr><tr><td style="border:2px solid #000;">16-bit CRC / 16位CRC</td><td style="border:2px solid #000;">Byte 4, [7:0]<br>Byte 5, [7:0]</td><td style="border:2px solid #000;">A 16-Bit CRC used to protect DLLP contents. Calculation is based on Bytes 0-3, regardless of whether fields are used.<br><br>用于保护DLLP内容的16位CRC。计算基于字节0-3，无论字段是否使用。</td></tr></table>
 
 ## 9.4.3 Flow Control DLLP Format | 9.4.3 流控 DLLP 格式
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -270,12 +270,12 @@ Figure 9‑5: Flow Control DLLP Format | 图9‑5：流控DLLP格式
 
 Table 9‑4: Flow Control DLLP Fields | 表9‑4：流控DLLP字段
 
-<table><tr><td>Field Name</td><td>Header Byte/Bit</td><td>DLLP Function</td></tr><tr><td rowspan="3">DLLP Type</td><td>Byte 0, [7:4]</td><td>This code indicates the type of FC DLLP:0100b = InitFC1-P (Posted Requests)0101b = InitFC1-NP (Non-Posted Requests)0110b = InitFC1-Cpl (Completions)0101b = InitFC2-P (Posted Requests)1101b = InitFC2-NP (Non-Posted Requests)1110b = InitFC2-Cpl (Completions)1000b = UpdateFC-P (Posted Requests)1001b = UpdateFC-NP (Non-Posted Requests)1010b = UpdateFC-Cpl (Completions)</td></tr><tr><td>Byte 0, [3]</td><td>Must be 0b as part of flow control encoding.</td></tr><tr><td>Byte 0, [2:0]</td><td>VC ID. Indicates the Virtual Channel (VC 0-7) to be updated with these credits.</td></tr><tr><td>HdrFC</td><td>Byte 1, [5:0]Byte 2, [7:6]</td><td>Contains the credit count for header storage for the specified Virtual Channel. Each credit represents space for 1 header + the optional TLP Digest (ECRC).</td></tr><tr><td>DataFC</td><td>Byte 2, [3:0]Byte 3, [7:0]</td><td>Contains the credit count for data storage for the specified Virtual Channel. Each credit represents 16 bytes.</td></tr><tr><td>16-bit CRC</td><td>Byte 4, [7:0]Byte 5, [7:0]</td><td>A 16-Bit CRC that protects the contents of this DLLP. Calculation is based on Bytes 0-3, regardless of whether all fields are used.</td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Header Byte/Bit</td><td style="border:2px solid #000;">DLLP Function</td></tr><tr><td rowspan="3" style="border:2px solid #000;">DLLP Type</td><td style="border:2px solid #000;">Byte 0, [7:4]</td><td style="border:2px solid #000;">This code indicates the type of FC DLLP:0100b = InitFC1-P (Posted Requests)0101b = InitFC1-NP (Non-Posted Requests)0110b = InitFC1-Cpl (Completions)0101b = InitFC2-P (Posted Requests)1101b = InitFC2-NP (Non-Posted Requests)1110b = InitFC2-Cpl (Completions)1000b = UpdateFC-P (Posted Requests)1001b = UpdateFC-NP (Non-Posted Requests)1010b = UpdateFC-Cpl (Completions)</td></tr><tr><td style="border:2px solid #000;">Byte 0, [3]</td><td style="border:2px solid #000;">Must be 0b as part of flow control encoding.</td></tr><tr><td style="border:2px solid #000;">Byte 0, [2:0]</td><td style="border:2px solid #000;">VC ID. Indicates the Virtual Channel (VC 0-7) to be updated with these credits.</td></tr><tr><td style="border:2px solid #000;">HdrFC</td><td style="border:2px solid #000;">Byte 1, [5:0]Byte 2, [7:6]</td><td style="border:2px solid #000;">Contains the credit count for header storage for the specified Virtual Channel. Each credit represents space for 1 header + the optional TLP Digest (ECRC).</td></tr><tr><td style="border:2px solid #000;">DataFC</td><td style="border:2px solid #000;">Byte 2, [3:0]Byte 3, [7:0]</td><td style="border:2px solid #000;">Contains the credit count for data storage for the specified Virtual Channel. Each credit represents 16 bytes.</td></tr><tr><td style="border:2px solid #000;">16-bit CRC</td><td style="border:2px solid #000;">Byte 4, [7:0]Byte 5, [7:0]</td><td style="border:2px solid #000;">A 16-Bit CRC that protects the contents of this DLLP. Calculation is based on Bytes 0-3, regardless of whether all fields are used.</td></tr></table>
 
 ## 9.4.4 Vendor-Specific DLLP Format | 9.4.4 厂商特定 DLLP 格式
 
 <table style="border-collapse:collapse; width:100%;">
-  <thead>
+  <thead style="border:2px solid #000;">
     <tr>
       <th width="50%" style="border:2px solid #000; background:#f5f5f5;">EN</th>
       <th width="50%" style="border:2px solid #000; background-color:#e8e8e8;">中文</th>
@@ -289,4 +289,4 @@ Table 9‑4: Flow Control DLLP Fields | 表9‑4：流控DLLP字段
 
 Figure 9-6: Vendor-Specific DLLP Format | 图9-6：厂商特定DLLP格式
 
-<table><tr><td rowspan="2"></td><td>+0</td><td>+1</td><td>+2</td><td>+3</td></tr><tr><td>7|6|5|4|3|2|1|0</td><td>7|6|5|4|3|2|1|0</td><td>7|6|5|4|3|2|1|0</td><td>7|6|5|4|3|2|1|0</td></tr><tr><td>Byte 0</td><td>0 0 1 1 0 0 0 0</td><td colspan="3">Vendor-Defined</td></tr><tr><td>Byte 4</td><td colspan="2">16-bit CRC</td><td colspan="2"></td></tr></table>
+<table style="border-collapse:collapse;width:100%"><tr><td rowspan="2" style="border:2px solid #000;"></td><td style="border:2px solid #000;">+0</td><td style="border:2px solid #000;">+1</td><td style="border:2px solid #000;">+2</td><td style="border:2px solid #000;">+3</td></tr><tr><td style="border:2px solid #000;">7|6|5|4|3|2|1|0</td><td style="border:2px solid #000;">7|6|5|4|3|2|1|0</td><td style="border:2px solid #000;">7|6|5|4|3|2|1|0</td><td style="border:2px solid #000;">7|6|5|4|3|2|1|0</td></tr><tr><td style="border:2px solid #000;">Byte 0</td><td style="border:2px solid #000;">0 0 1 1 0 0 0 0</td><td colspan="3" style="border:2px solid #000;">Vendor-Defined</td></tr><tr><td style="border:2px solid #000;">Byte 4</td><td colspan="2" style="border:2px solid #000;">16-bit CRC</td><td colspan="2" style="border:2px solid #000;"></td></tr></table>

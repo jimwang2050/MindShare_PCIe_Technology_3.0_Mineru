@@ -1851,8 +1851,8 @@ Figure 16-30: Auxiliary Current Enable for Devices Not Supporting PMEs | 图16-3
 
 
 Figure 16‑31: Poor System Idle Time | 图16‑31：较差的系统空闲时间
-Figure 16‑32: Improved System Idle Time | 图16‑32：改善后的系统空闲时间
 <img src="images/part05_f57cb1b1313651588e74633ef582ec8048806523bbdf7cae61b943d933551f11.jpg" width="700" alt="">
+Figure 16‑32: Improved System Idle Time | 图16‑32：改善后的系统空闲时间
 <img src="images/part05_3568037bc910ae8c02bdfddb6d5d44ff1820482aab8717544f7b73f815c2302c.jpg" width="700" alt="">
 
 <table style="border-collapse:collapse; width:100%;">

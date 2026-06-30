@@ -149,11 +149,20 @@ Figure 11-3: Physical Layer Transmit Details | 图11-3：物理层发送详情
 </table>
 
 
-| English | 中文 |
-|----|----|
-| ## Receive Logic Overview | ## 接收逻辑概述 |
-| Figure 11‐4 on page 367 shows the key elements that make up the receiver logic. The process described below is performed for each lane. Starting at the bottom this time, the first thing to mention is the receiver Clock and Data Recovery (CDR). The first step in this process is to recover the clock based on transitions in the incoming bit stream. This recovered clock faithfully reproduces the Transmitter's clock that was used to send the data and is used to latch the incoming bits into a deserializing buffer. | 第367页的图11-4展示了构成接收器逻辑的关键元件。下面描述的过程针对每条通道（Lane）执行。这次从底部开始，首先要提及的是接收器时钟与数据恢复（CDR）。该过程的第一步是根据进入的比特流中的电平跳变来恢复时钟。这个恢复出的时钟忠实地复现了用于发送数据的发送器时钟，并用于将进入的比特锁存到解串缓冲器中。 |
-| The next steps in the CDR process are to find the Gen1/Gen2 Symbol boundaries and divide the recovered clock by 10 to latch the 10‐bit Symbols into the Elastic Buffer. For Gen3, the next step is to acquire Block Lock and then latch the 8‐bit Symbols associated with each of the 16 bytes in the block into the Elastic Buffer — more on this in the next chapter. | CDR过程接下来的步骤是找到Gen1/Gen2的符号边界，并将恢复出的时钟除以10，以将10位符号锁存到弹性缓冲器中。对于Gen3，下一步是获取块锁定（Block Lock），然后将与该块中16个字节各自关联的8位符号锁存到弹性缓冲器中——更多内容将在下一章中介绍。 |
+<table style="border-collapse:collapse;width:100%">
+  <thead>
+    <tr>
+      <th width="50%" style="border:1px solid #333;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">中文</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">## Receive Logic Overview</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">## 接收逻辑概述</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">Figure 11‐4 on page 367 shows the key elements that make up the receiver logic. The process described below is performed for each lane. Starting at the bottom this time, the first thing to mention is the receiver Clock and Data Recovery (CDR). The first step in this process is to recover the clock based on transitions in the incoming bit stream. This recovered clock faithfully reproduces the Transmitter's clock that was used to send the data and is used to latch the incoming bits into a deserializing buffer.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">第367页的图11-4展示了构成接收器逻辑的关键元件。下面描述的过程针对每条通道（Lane）执行。这次从底部开始，首先要提及的是接收器时钟与数据恢复（CDR）。该过程的第一步是根据进入的比特流中的电平跳变来恢复时钟。这个恢复出的时钟忠实地复现了用于发送数据的发送器时钟，并用于将进入的比特锁存到解串缓冲器中。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">The next steps in the CDR process are to find the Gen1/Gen2 Symbol boundaries and divide the recovered clock by 10 to latch the 10‐bit Symbols into the Elastic Buffer. For Gen3, the next step is to acquire Block Lock and then latch the 8‐bit Symbols associated with each of the 16 bytes in the block into the Elastic Buffer — more on this in the next chapter.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">CDR过程接下来的步骤是找到Gen1/Gen2的符号边界，并将恢复出的时钟除以10，以将10位符号锁存到弹性缓冲器中。对于Gen3，下一步是获取块锁定（Block Lock），然后将与该块中16个字节各自关联的8位符号锁存到弹性缓冲器中——更多内容将在下一章中介绍。</td></tr>
+  </tbody>
+</table>
+
 
 <table style="border-collapse:collapse; width:100%;">
   <thead>

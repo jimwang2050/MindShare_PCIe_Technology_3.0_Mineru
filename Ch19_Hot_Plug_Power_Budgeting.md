@@ -627,8 +627,13 @@ Table 19‑5: Slot Capability Register Fields and Descriptions | 表19‑5：插
 
 <table><tr><td>Bit(s)</td><td>Register Name and Description</td></tr><tr><td>0</td><td>Attention Button Present — indicates the presence of an attention button on the chassis adjacent to the slot.</td></tr><tr><td>1</td><td>Power Controller Present — indicates the presence of a power controller for this slot.</td></tr><tr><td>2</td><td>MRL Sensor Present — indicates the presence of a MRL Sensor on the slot.</td></tr><tr><td>3</td><td>Attention Indicator Present — indicates the presence of an attention indicator on the chassis adjacent to the slot.</td></tr><tr><td>4</td><td>Power Indicator Present — indicates the presence of a power indicator on the chassis adjacent to the slot.</td></tr></table>
 
-| ## Chapter 19: Hot Plug and Power Budgeting | ## 第19章：热插拔与功率预算 |
-| Table 19‑5: Slot Capability Register Fields and Descriptions (Continued) | 表19‑5：槽位能力寄存器字段及描述（续） |
+<table style="border-collapse:collapse;width:100%">
+  <tbody>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">## Chapter 19: Hot Plug and Power Budgeting</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">## 第19章：热插拔与功率预算</td></tr>
+  </tbody>
+</table>
+
+<tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">Table 19‑5: Slot Capability Register Fields and Descriptions (Continued)</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">表19‑5：槽位能力寄存器字段及描述（续）</td></tr>
 
 <table><tr><td>Bit(s)</td><td>Register Name and Description</td></tr><tr><td>5</td><td>Hot-Plug Surprise — indicates that it&#x27;s possible for the user to remove the card from the system without prior notification. This tells the OS to allow for such removal without affecting continued software operation.</td></tr><tr><td>6</td><td>Hot-Plug Capable — indicates that this slot supports hot plug operation.</td></tr><tr><td>14:7</td><td>Slot Power Limit Value — specifies the maximum power that can be supplied by this slot. This limit value is multiplied by the scale specified in the next field.</td></tr><tr><td>16:15</td><td>Slot Power Limit Scale — specifies the scaling factor for the Slot Power Limit Value.</td></tr><tr><td>17</td><td>ElectroMechanical Interlock Present — indicates that this is implemented for this slot</td></tr><tr><td>18</td><td>No Command Completed Support— indicates that this slot doesn&#x27;t generate software notification when a command has been completed. Earlier versions sometimes took a long time to execute hot-plug commands (for example, sometimes taking a second or more to communicate across an  $I^{2}C$  bus to turn the power on or off), and generated an interrupt when they were finally done. When set this bit means that this Port can accept writes to all fields in the Slot Control register without delay, so there&#x27;s no need for the notification.</td></tr><tr><td>31:19</td><td>Physical Slot Number — Indicates the physical slot number associated with this port. It must be hardware initialized to a number that is unique within the chassis. Note that software will need this number to relate the physical slot to the Logical Slot ID (Bus, Device, &amp; Function number for this device).</td></tr></table>
 
@@ -879,14 +884,23 @@ Table 19-8: The Primitives / 表19-8: 原语 | 表19-8：原语
 </table>
 
 
-| English | 中文 |
-|----|----|
-| ## System Firmware | ## 系统固件 |
-| Written by the platform designers the specific system, this is responsible for reporting system power information. The spec recommends the following power information be reported to the PCI Express power budget manager, which allocates and verifies power consumption and dissipation during runtime: | 系统固件由特定系统的平台设计者编写，负责报告系统电源信息。规范建议将以下电源信息报告给 PCI Express 电源预算管理器，该管理器在运行时分配和验证功耗与散耗： |
-| • Total system power available. | • 可用系统总功率。 |
-| • Power allocated to system devices by firmware | • 固件分配给系统设备的功率 |
-| • Number and type of slots in the system. | • 系统中插槽的数量和类型。 |
-| Firmware may also allocate power to PCIe devices that support the power budgeting capability register set, such as a hot-plug device used during boot time. The Power Budgeting Capability register, shown in Figure 19-9 on page 878, contains a System Allocated bit that is hardware initialized (usually by firmware) to notify the power budget manager that power for this device has already been included in the system power allocation. If so, the Power Budget Manager still needs to read and save the power information for the hot-plug devices that were allocated in case they are later removed during runtime. | 固件也可以为支持电源预算能力寄存器集的 PCIe 设备分配功率，例如启动时使用的热插拔设备。电源预算能力寄存器（见第 878 页图 19-9）包含一个系统已分配位，该位由硬件初始化（通常由固件完成），用于通知电源预算管理器该设备的功率已包含在系统功率分配中。即便如此，电源预算管理器仍需读取并保存已分配的热插拔设备的电源信息，以防这些设备在运行时被移除。 |
+<table style="border-collapse:collapse;width:100%">
+  <thead>
+    <tr>
+      <th width="50%" style="border:1px solid #333;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">中文</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">## System Firmware</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">## 系统固件</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">Written by the platform designers the specific system, this is responsible for reporting system power information. The spec recommends the following power information be reported to the PCI Express power budget manager, which allocates and verifies power consumption and dissipation during runtime:</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">系统固件由特定系统的平台设计者编写，负责报告系统电源信息。规范建议将以下电源信息报告给 PCI Express 电源预算管理器，该管理器在运行时分配和验证功耗与散耗：</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">• Total system power available.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">• 可用系统总功率。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">• Power allocated to system devices by firmware</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">• 固件分配给系统设备的功率</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">• Number and type of slots in the system.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">• 系统中插槽的数量和类型。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">Firmware may also allocate power to PCIe devices that support the power budgeting capability register set, such as a hot-plug device used during boot time. The Power Budgeting Capability register, shown in Figure 19-9 on page 878, contains a System Allocated bit that is hardware initialized (usually by firmware) to notify the power budget manager that power for this device has already been included in the system power allocation. If so, the Power Budget Manager still needs to read and save the power information for the hot-plug devices that were allocated in case they are later removed during runtime.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">固件也可以为支持电源预算能力寄存器集的 PCIe 设备分配功率，例如启动时使用的热插拔设备。电源预算能力寄存器（见第 878 页图 19-9）包含一个系统已分配位，该位由硬件初始化（通常由固件完成），用于通知电源预算管理器该设备的功率已包含在系统功率分配中。即便如此，电源预算管理器仍需读取并保存已分配的热插拔设备的电源信息，以防这些设备在运行时被移除。</td></tr>
+  </tbody>
+</table>
+
 
 Figure 19-9: Power Budget Registers | 图19-9：功耗预算寄存器  
 

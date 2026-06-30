@@ -967,17 +967,26 @@ Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
 
 ### Bilingual Translation
 
-| English | 中文 |
-|----|----|
-| 1. It is the intent of the spec that mutually-exclusive messages will be assigned to Functions by system software and that each message will be converted to an exclusive interrupt on delivery to the processor. | 1. 规范的意图是由系统软件将互斥的消息分配给各个功能，并且每个消息在传递给处理器时将被转换为一个独占的中断。 |
-| 2. More than one MSI capability register set per Function is prohibited. | 2. 每个功能禁止拥有多个 MSI 能力寄存器组。 |
-| 3. A read of the Message Address register produces undefined results. | 3. 读取消息地址寄存器会产生未定义的结果。 |
-| 4. Reserved registers and bits are read-only and always return zero when read. | 4. 保留寄存器和位是只读的，读取时始终返回零。 |
-| 5. System software can modify Message Control register bits, but the device itself is prohibited from doing so. In other words, modifying the bits by a "back door" mechanism is not allowed. | 5. 系统软件可以修改消息控制寄存器位，但设备自身禁止这样做。换句话说，不允许通过"后门"机制修改这些位。 |
-| 6. At a minimum, a single message will be assigned to each device (assuming software supports and plans to use MSI in the system). | 6. 至少会为每个设备分配一个消息（假设软件支持并计划在系统中使用 MSI）。 |
-| 7. System software must not write to the upper half of the dword that contains the Message Data register. | 7. 系统软件不得向包含消息数据寄存器的双字的高半部分写入。 |
-| 8. If the device writes the same message multiple times, only one of those messages is guaranteed to be serviced. If all of them must be serviced, the device must not generate the same message again until the previous one has been serviced. | 8. 如果设备多次写入相同的消息，则仅保证这些消息中的一个得到服务。如果所有消息都必须得到服务，则设备必须在前一个消息得到服务之前不再生成相同的消息。 |
-| 9. If a device has more than one message assigned, and it writes a series of different messages, it is guaranteed that all of them will be serviced. | 9. 如果设备分配有多个消息，并且它写入了一系列不同的消息，则保证所有这些消息都将得到服务。 |
+<table style="border-collapse:collapse;width:100%">
+  <thead>
+    <tr>
+      <th width="50%" style="border:1px solid #333;background:#f5f5f5;padding:4px 8px;">EN</th>
+      <th width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">中文</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">1. It is the intent of the spec that mutually-exclusive messages will be assigned to Functions by system software and that each message will be converted to an exclusive interrupt on delivery to the processor.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">1. 规范的意图是由系统软件将互斥的消息分配给各个功能，并且每个消息在传递给处理器时将被转换为一个独占的中断。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">2. More than one MSI capability register set per Function is prohibited.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">2. 每个功能禁止拥有多个 MSI 能力寄存器组。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">3. A read of the Message Address register produces undefined results.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">3. 读取消息地址寄存器会产生未定义的结果。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">4. Reserved registers and bits are read-only and always return zero when read.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">4. 保留寄存器和位是只读的，读取时始终返回零。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">5. System software can modify Message Control register bits, but the device itself is prohibited from doing so. In other words, modifying the bits by a "back door" mechanism is not allowed.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">5. 系统软件可以修改消息控制寄存器位，但设备自身禁止这样做。换句话说，不允许通过"后门"机制修改这些位。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">6. At a minimum, a single message will be assigned to each device (assuming software supports and plans to use MSI in the system).</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">6. 至少会为每个设备分配一个消息（假设软件支持并计划在系统中使用 MSI）。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">7. System software must not write to the upper half of the dword that contains the Message Data register.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">7. 系统软件不得向包含消息数据寄存器的双字的高半部分写入。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">8. If the device writes the same message multiple times, only one of those messages is guaranteed to be serviced. If all of them must be serviced, the device must not generate the same message again until the previous one has been serviced.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">8. 如果设备多次写入相同的消息，则仅保证这些消息中的一个得到服务。如果所有消息都必须得到服务，则设备必须在前一个消息得到服务之前不再生成相同的消息。</td></tr>
+      <tr><td width="50%" style="border:1px solid #333;background:#fff;padding:4px 8px;">9. If a device has more than one message assigned, and it writes a series of different messages, it is guaranteed that all of them will be serviced.</td><td width="50%" style="border:1px solid #333;background-color:#e8e8e8;padding:4px 8px;">9. 如果设备分配有多个消息，并且它写入了一系列不同的消息，则保证所有这些消息都将得到服务。</td></tr>
+  </tbody>
+</table>
+
 
 ## 17.9 Special Consideration for Base System Peripherals | 17.9 基础系统外设的特殊考虑
 

@@ -73,7 +73,7 @@ With the exception of the Logical Idle symbols and Physical Layer packets called
 Figure 5‐1: TLP And DLLP Packets | 图5‐1：TLP和DLLP数据包
 <img src="images/part02_c95d2324c799f59c2437e1a433388a586089185e3661fa7dacda8c2af34d8ef6.jpg" width="700" alt="">
 
-## 5.1.1 Motivation for a Packet-Based Protocol | 5.1.1 采用基于数据包协议的动机
+## 5.1.2 Motivation for a Packet-Based Protocol | 5.1.2 采用基于数据包协议的动机
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -86,7 +86,7 @@ There are three distinct advantages to using a packet‑based protocol especiall
 </tr>
 </table>
 
-## 5.1.1.1 Packet Formats Are Well Defined | 5.1.1.1 数据包格式定义明确
+## 5.1.2.1 Packet Formats Are Well Defined | 5.1.2.1 数据包格式定义明确
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -107,7 +107,7 @@ By comparison, PCIe packets have a known size and format. The packet header at t
 </tr>
 </table>
 
-## 5.1.1.2 Framing Symbols Define Packet Boundaries | 5.1.1.2 成帧符号定义数据包边界
+## 5.1.2.2 Framing Symbols Define Packet Boundaries | 5.1.2.2 成帧符号定义数据包边界
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -128,7 +128,7 @@ For the 128b/130b encoding used in Gen3, control characters are no longer employ
 </tr>
 </table>
 
-## 5.1.1.3 CRC Protects Entire Packet | 5.1.1.3 CRC 保护整个数据包
+## 5.1.2.3 CRC Protects Entire Packet | 5.1.2.3 CRC 保护整个数据包
 
 <table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead>
@@ -350,7 +350,7 @@ Table 5-1: TLP Header Type Field Defines Transaction Variant | 表5-1：TLP头�
 
 ## 5.2.3 Generic TLP Header Format | 5.2.3 通用 TLP 头格式
 
-## 5.1.1 General | 5.1.1 概述
+## 5.2.3.1 General | 5.2.3.1 概述
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -382,7 +382,7 @@ Header format differences associated with specific transaction types are covered
 Figure 5-3: Generic TLP Header Fields | 图5-3：通用TLP头字段
 <img src="images/part02_86de3a251a1f2d00f0f15727ca8579b021fdfe1bcfc1111e0c0d75e2bd01a7df.jpg" width="700" alt="">
 
-## 5.2.3.1 Generic Header Field Summary | 5.2.3.1 通用头字段汇总
+## 5.2.3.2 Generic Header Field Summary | 5.2.3.2 通用头字段汇总
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -424,7 +424,7 @@ In the following sections, we describe details of each TLP Header field depicted
 </tr>
 </table>
 
-## 5.2.3.2 Header Type | Format Field Encodings | 5.2.3.2 头类型 | 格式字段编码
+## 5.2.3.3 Header Type | Format Field Encodings | 5.2.3.3 头类型 | 格式字段编码
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -441,7 +441,7 @@ Table 5-3: TLP Header Type and Format Field Encodings | 表5-3：TLP头类型和
 
 <table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">TLP</td><td style="border:2px solid #000;">FMT[2:0]</td><td style="border:2px solid #000;">TYPE [4:0]</td></tr><tr><td style="border:2px solid #000;">Memory Read Request (MRd)</td><td style="border:2px solid #000;">000 = 3DW, no data001 = 4DW, no data</td><td style="border:2px solid #000;">0 0000</td></tr><tr><td style="border:2px solid #000;">Memory Read Lock Request (MRdLk)</td><td style="border:2px solid #000;">000 = 3DW, no data001 = 4DW, no data</td><td style="border:2px solid #000;">0 0001</td></tr><tr><td style="border:2px solid #000;">Memory Write Request (MWr)</td><td style="border:2px solid #000;">010 = 3DW, w/ data011 = 4DW, w/ data</td><td style="border:2px solid #000;">0 0000</td></tr><tr><td style="border:2px solid #000;">IO Read Request (IORd)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 0010</td></tr><tr><td style="border:2px solid #000;">IO Write Request (IOWr)</td><td style="border:2px solid #000;">010 = 3DW, w/ data</td><td style="border:2px solid #000;">0 0010</td></tr><tr><td style="border:2px solid #000;">Config Type 0 Read Request (CfgRd0)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 0100</td></tr><tr><td style="border:2px solid #000;">Config Type 0 Write Request (CfgWr0)</td><td style="border:2px solid #000;">010 = 3DW, w/ data</td><td style="border:2px solid #000;">0 0100</td></tr><tr><td style="border:2px solid #000;">Config Type 1 Read Request (CfgRd1)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 0101</td></tr><tr><td style="border:2px solid #000;">Config Type 1 Write Request (CfgWr1)</td><td style="border:2px solid #000;">010 = 3DW, w/ data</td><td style="border:2px solid #000;">0 0101</td></tr><tr><td style="border:2px solid #000;">Message Request (Msg)</td><td style="border:2px solid #000;">001 = 4DW, no data</td><td style="border:2px solid #000;">1 0 rrr*(see routing field)</td></tr><tr><td style="border:2px solid #000;">Message Request W/Data (MsgD)</td><td style="border:2px solid #000;">011 = 4DW, w/ data</td><td style="border:2px solid #000;">1 0rrr*(see routing field)</td></tr><tr><td style="border:2px solid #000;">Completion (Cpl)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 1010</td></tr><tr><td style="border:2px solid #000;">Completion W/Data (CplD)</td><td style="border:2px solid #000;">010 = 3DW, w/ data</td><td style="border:2px solid #000;">0 1010</td></tr><tr><td style="border:2px solid #000;">Completion-Locked (CplLk)</td><td style="border:2px solid #000;">000 = 3DW, no data</td><td style="border:2px solid #000;">0 1011</td></tr><tr><td style="border:2px solid #000;">Completion W/Data (CplDLk)</td><td style="border:2px solid #000;">010 = 3DW, w/ data</td><td style="border:2px solid #000;">0 1011</td></tr><tr><td style="border:2px solid #000;">Fetch and Add AtomicOp Request</td><td style="border:2px solid #000;">010 = 3DW, w/ data011 = 4DW, w/ data</td><td style="border:2px solid #000;">0 1100</td></tr><tr><td style="border:2px solid #000;">Unconditional Swap AtomicOp Request</td><td style="border:2px solid #000;">010 = 3DW, w/ data011 = 4DW, w/ data</td><td style="border:2px solid #000;">0 1101</td></tr><tr><td style="border:2px solid #000;">Compare and Swap AtomicOp Request</td><td style="border:2px solid #000;">010 = 3DW, w/ data011 = 4DW, w/ data</td><td style="border:2px solid #000;">0 1110</td></tr><tr><td style="border:2px solid #000;">Local TLP Prefix</td><td style="border:2px solid #000;">100 = TLP Prefix</td><td style="border:2px solid #000;"> $0L_3L_2L_1L_0$ </td></tr><tr><td style="border:2px solid #000;">End-to-End TLP Prefix</td><td style="border:2px solid #000;">100 = TLP Prefix</td><td style="border:2px solid #000;"> $1E_3E_2E_1E_0$ </td></tr></table>
 
-## 5.2.3.3 Digest | ECRC Field | 5.2.3.3 摘要 | ECRC 字段
+## 5.2.3.4 Digest | ECRC Field | 5.2.3.4 摘要 | ECRC 字段
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -510,7 +510,7 @@ A Switch that supports ECRC checking performs this check on TLPs destined to a l
 </tr>
 </table>
 
-## 5.2.3.4 Using Byte Enables | 5.2.3.4 使用字节使能
+## 5.2.3.5 Using Byte Enables | 5.2.3.5 使用字节使能
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -523,7 +523,7 @@ General. Like PCI, PCIe needs a mechanism to reconcile its DW-aligned addresses 
 </tr>
 </table>
 
-## 5.2.3.5 Byte Enable Rules | 5.2.3.5 字节使能规则
+## 5.2.3.6 Byte Enable Rules | 5.2.3.6 字节使能规则
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -898,7 +898,7 @@ Memory Request Notes. Features of memory requests include:
 </tr>
 </table>
 
-## 3.5 Configuration Requests | 3.5 配置请求
+## 5.3.3 Configuration Requests | 5.3.3 配置请求
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -948,7 +948,7 @@ Configuration Request Notes. Configuration requests always use the 3DW header fo
 </tr>
 </table>
 
-## 5.3.3 Completions | 5.3.3 完成报文
+## 5.3.4 Completions | 5.3.4 完成报文
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -988,7 +988,7 @@ Table 5-7: Completion Header Fields | 表5-7：完成头字段
 
 <table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Field Name</td><td style="border:2px solid #000;">Header Byte/Bit</td><td style="border:2px solid #000;">Function</td></tr><tr><td style="border:2px solid #000;">Fmt [2:0] (Format)</td><td style="border:2px solid #000;">Byte 0 Bit 7:5</td><td style="border:2px solid #000;">Packet Format (always a 3DW header)000b = Completion without data (Cpl)010b = Completion with data (CplD)</td></tr><tr><td style="border:2px solid #000;">Type [4:0]</td><td style="border:2px solid #000;">Byte 0 Bit 4:0</td><td style="border:2px solid #000;">Packet type is 01010b for Completions.</td></tr><tr><td style="border:2px solid #000;">TC [2:0](Traffic Class)</td><td style="border:2px solid #000;">Byte 1 Bit 6:4</td><td style="border:2px solid #000;">Completions must use the same value here as the corresponding Request.</td></tr><tr><td style="border:2px solid #000;">Attr [2](Attributes)</td><td style="border:2px solid #000;">Byte 1 Bit 2</td><td style="border:2px solid #000;">Indicates whether ID-based Ordering is to be used for this TLP. To learn more, see "ID Based Ordering (IDO)" on page 301.</td></tr><tr><td style="border:2px solid #000;">TH(TLP Processing Hints)</td><td style="border:2px solid #000;">Byte 1 Bit 0</td><td style="border:2px solid #000;">Reserved for Completions.</td></tr><tr><td style="border:2px solid #000;">TD(TLP Digest)</td><td style="border:2px solid #000;">Byte 2 Bit 7</td><td style="border:2px solid #000;">If = 1, indicates the presence of a digest field at the end of the TLP.</td></tr><tr><td style="border:2px solid #000;">EP(Poisoned Data)</td><td style="border:2px solid #000;">Byte 2 Bit 6</td><td style="border:2px solid #000;">If = 1, indicates the data payload is poisoned.</td></tr><tr><td style="border:2px solid #000;">Attr [1:0](Attributes)</td><td style="border:2px solid #000;">Byte 2 Bit 5:4</td><td style="border:2px solid #000;">Completions must use the same values here as the corresponding Request.</td></tr><tr><td style="border:2px solid #000;">AT [1:0](Address Type)</td><td style="border:2px solid #000;">Byte 2 Bit 3:2</td><td style="border:2px solid #000;">Address Type is reserved for Completions and must be zero, but Receivers are not required or even encouraged to check this.</td></tr><tr><td style="border:2px solid #000;">Length [9:0]</td><td style="border:2px solid #000;">Byte 2 Bit 1:0Byte 3 Bit 7:0</td><td style="border:2px solid #000;">Indicates data payload size in DW. For Completions, this field reflects the size of the data payload associated with this completion.</td></tr><tr><td style="border:2px solid #000;">Completer ID [15:0]</td><td style="border:2px solid #000;">Byte 4 Bit 7:0Byte 5 Bit 7:0</td><td style="border:2px solid #000;">Identifies the Completer to support debugging problems.Byte 4 7:0 = Completer Bus #Byte 5 7:3 = Completer Dev #Byte 5 2:0 = Completer Function #</td></tr><tr><td style="border:2px solid #000;">Compl. Status [2:0] (Completion Status Code)</td><td style="border:2px solid #000;">Byte 6 Bit 7:5</td><td style="border:2px solid #000;">These bits indicate status for this Completion.000b = Successful Completion (SC)001b = Unsupported Request (UR)010b = Config Req Retry Status (CRS)100b = Completer abort (CA)All other codes are reserved. See "Summary of Completion Status Codes" on page 200.</td></tr><tr><td style="border:2px solid #000;">BCM (Byte Count Modified)</td><td style="border:2px solid #000;">Byte 6 Bit 4</td><td style="border:2px solid #000;">This is only used by PCI-X Completers and indicates that the Byte Count field reports only the first payload rather than the total payload remaining. See "Using The Byte Count Modified Bit" on page 201.</td></tr><tr><td style="border:2px solid #000;">Byte Count [11:0]</td><td style="border:2px solid #000;">Byte 6 Bit 3:0Byte 7 Bit 7:0</td><td style="border:2px solid #000;">Byte count remaining to satisfy a read request, as derived from the original request Length field. See "Data Returned For Read Requests:" on page 201 for special cases caused by multiple completions.</td></tr><tr><td style="border:2px solid #000;">Requester ID [15:0]</td><td style="border:2px solid #000;">Byte 8 Bit 7:0Byte 9 Bit 7:0</td><td style="border:2px solid #000;">Copied from the Request for use as the return address (target) for this Completion.Byte 8, 7:0 = Requester Bus #Byte 9, 7:3 = Requester Device #Byte 9, 2:0 = Requester Function #</td></tr><tr><td style="border:2px solid #000;">Tag [7:0]</td><td style="border:2px solid #000;">Byte 10 Bit 7:0</td><td style="border:2px solid #000;">This must be the Tag value received with the Request. Requester associates this Completion with a pending Request based on the Tag.</td></tr><tr><td style="border:2px solid #000;">Lower Address [6:0]</td><td style="border:2px solid #000;">Byte 11 Bit 6:0</td><td style="border:2px solid #000;">The lower 7 bits of address for the first data returned for a read request. Calculated from Request Length and Byte Enables, it assists buffer management by showing how many bytes can be transferred before reaching the next Read Completion Boundary. See "Calculating Lower Address Field" on page 200.</td></tr></table>
 
-## 5.3.4 Summary of Completion Status Codes | 5.3.4 完成状态码概述
+## 5.3.5 Summary of Completion Status Codes | 5.3.5 完成状态码概述
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -1137,7 +1137,7 @@ Using The Byte Count Modified Bit. This bit is only set by PCI-X Completers, but
 </tr>
 </table>
 
-## 5.3.5 Data Returned For Read Requests | 5.3.5 读请求返回的数据
+## 5.3.6 Data Returned For Read Requests | 5.3.6 读请求返回的数据
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -1206,7 +1206,7 @@ Multiple Completions for a single read request must return data in increasing ad
 </tr>
 </table>
 
-## 5.3.6 Receiver Completion Handling Rules | 5.3.6 接收器完成报文处理规则
+## 5.3.7 Receiver Completion Handling Rules | 5.3.7 接收器完成报文处理规则
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -1291,7 +1291,7 @@ If CRS Software Visibility is enabled, software designed to support it will alwa
 </tr>
 </table>
 
-## Message Requests | 消息请求
+## 5.4 Message Requests | 5.4 消息请求
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -1637,7 +1637,7 @@ Table 5-12: Unlock Message Coding | 表5-12：解锁消息编码
 <table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 </table>
 
-## Unlock Message Rules | 解锁消息规则
+## 5.4.2 Unlock Message Rules | 5.4.2 解锁消息规则
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -1889,7 +1889,7 @@ Table 5-17: LTR Message Coding | 表5-17：LTR消息编码
 <table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 </table>
 
-## OBFF Message Rules | OBFF 消息规则
+## 5.4.3 OBFF Message Rules | 5.4.3 OBFF 消息规则
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>

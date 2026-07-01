@@ -47,19 +47,10 @@ MindShare Technology Series
 MindShare 技术丛书系列
 </td>
 </tr>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
-PCI Express Technology
-</td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-PCI Express 技术
-</td>
-</tr>
   </tbody>
 </table>
 
 <img src="images/part01_bd6316ecf120ddff1378b0bbb71efdbcee731b0e24a2e03774f7a36afc462733.jpg" width="700" alt="">
-
 
 # Comprehensive Guide to Generations 1.x, 2.x and 3.0 | 1.x、2.x 及 3.0 代综合指南
 
@@ -162,7 +153,6 @@ MindShare 提供大量自定进度培训形式（在线学习）的课程。我�
 </table>
 
 <img src="images/part01_fabedc978fca82652e077628d3b7a144d3509d619e1a177f99fc364607fb5aa1.jpg" width="700" alt="">
-
 
 # The Ultimate Tool to View, Edit and Verify Configuration Settings of a Computer | 查看、编辑和验证计算机配置设置的终极工具
 
@@ -605,7 +595,6 @@ Thanks also to the PCI SIG for giving permission to use some of the mechanical d
 
 ## Revision Updates: | 修订更新：
 
-
 ## About This Book | 关于本书
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -752,7 +741,6 @@ We Want Your Feedback .... 5
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 1: Background
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第1章：背景
@@ -1056,7 +1044,6 @@ PCI-X 2.0 源同步模型......37
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 2: PCIe Architecture Overview
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第2章：PCIe 架构概述
@@ -1456,7 +1443,6 @@ Completion with Data....83
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 3: Configuration Overview
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第3章：配置概述
@@ -1760,7 +1746,6 @@ MindShare Arbor 功能列表......119
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 4: Address Space & Transaction Routing
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第4章：地址空间与事务路由
@@ -2213,7 +2198,6 @@ DLLP 与有序集不参与路由......166
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 5: TLP Elements
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第5章：TLP元素
@@ -2661,7 +2645,6 @@ Optimized Buffer Flush and Fill Messages....213
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 6: Flow Control
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第6章：流控
@@ -2839,9 +2822,7 @@ Receiver Elements....229
 
 ## Contents | 目录
 
-
 ## Chapter 7: Quality of Service | 第 7 章：服务质量
-
 
 ## Chapter 8: Transaction Ordering | 第 8 章：事务排序
 
@@ -3485,7 +3466,6 @@ Deadlock Avoidance....303
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 9: DLLP Elements
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第9章：DLLP 要素
@@ -3589,7 +3569,6 @@ Vendor-Specific DLLP Format......316
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 10: Ack/Nak Protocol
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第10章：Ack/Nak 协议
@@ -4178,7 +4157,6 @@ Example of Cut-Through Operation.... 356
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 11: Physical Layer - Logical (Gen1 and Gen2)
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第11章：物理层 - 逻辑子层 (Gen1与Gen2)
@@ -4842,7 +4820,6 @@ Link Training and Initialization....405
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 12: Physical Layer - Logical (Gen3)
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第12章：物理层 - 逻辑子层 (Gen3)
@@ -5282,7 +5259,6 @@ Notes Regarding Loopback with 128b/130b .... 446
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 13: Physical Layer - Electrical
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第13章：物理层 - 电气子层
@@ -5810,7 +5786,6 @@ Link Power Management States.... 500
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 14: Link Initialization & Training
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第14章：链路初始化与训练
@@ -6815,12 +6790,9 @@ Part Five: Additional System Topics
 </tr>
 </table>
 
-Chapter 15: Error Detection and Handling
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 15: Error Detection and Handling
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第15章：错误检测与处理
@@ -7340,12 +7312,9 @@ Example Flow of Software Error Investigation....699
 </tr>
 </table>
 
-Chapter 16: Power Management
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 16: Power Management
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第16章：电源管理
@@ -8305,12 +8274,9 @@ LTR 示例....789
 </tr>
 </table>
 
-Chapter 17: Interrupt Support
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 17: Interrupt Support
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第17章：中断支持
@@ -8702,12 +8668,9 @@ Example Legacy System....831
 </tr>
 </table>
 
-Chapter 18: System Reset
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 18: System Reset
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第18章：系统复位
@@ -8843,12 +8806,9 @@ Reset Exit....846
 </tr>
 </table>
 
-Chapter 19: Hot Plug and Power Budgeting
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 19: Hot Plug and Power Budgeting
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第19章：热插拔与功率预算
@@ -9224,12 +9184,9 @@ The Power Budget Capabilities Register Set....883
 </tr>
 </table>
 
-Chapter 20: Updates for Spec Revision 2.1
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Chapter 20: Updates for Spec Revision 2.1
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第20章：规范修订版 2.1 的更新
@@ -15301,8 +15258,6 @@ PCI Express™ 是 PCI-SIG 的商标，通常缩写为"PCIe"。
 </tr>
 </table>
 
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -15835,7 +15790,6 @@ Figure 1-2: PCI Bus Arbitration | 图1-2：PCI总线仲裁
 
 ## 1.3.3 Typical PCI Bus Cycle | 1.3.3 典型PCI总线周期
 
-
 Figure 1-3 on page 15 represents a typical PCI bus cycle. PCI is synchronous, meaning events happen on clock edges, so the clock is shown at the top of the diagram and it's rising edges are marked with dotted lines because those are the times when signals are driven out or sampled. A brief description of what happens on the bus is as follows:
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -16018,7 +15972,6 @@ PCI 与前代总线模型一样，使用三种数据传输模型：程序控制 
 
 ## Programmed I/O | 编程I/O (PIO)
 
-
 PIO was commonly used in the early days of the PC because designers were reluctant to add the expense or complexity to their devices of transaction management logic. The processor could do the job faster than any other device anyway so, in this model, it handles all the work. For example, if a PCI device interrupts the CPU to indicate that it needs to put data in memory, the CPU will end up reading data from the PCI device into an internal register and then copying that register to memory. Going the other way, if data is to be moved from memory to the PCI device, software instructs the CPU to read from memory into its internal register and then write that register to the PCI device.
 
 | PIO在PC早期被广泛使用，因为设计者不愿为其设备增加事务管理逻辑的成本或复杂性。处理器执行任务的速度本来也比任何其他设备都快，因此在这种模式下，它承担了所有工作。例如，如果一个PCI设备向CPU发出中断，表明它需要将数据放入存储器，CPU最终会从PCI设备读取数据到一个内部寄存器，然后将该寄存器中的数据拷贝到存储器。反过来，如果需要将数据从存储器移到PCI设备，软件会指示CPU从存储器读取数据到其内部寄存器，然后将该寄存器的值写入PCI设备。 |
@@ -16115,7 +16068,6 @@ Consider the following example in which the North bridge initiates a memory read
 Figure 1-8: PCI Transaction Disconnect Mechanism | 图1-8：PCI事务断开机制
 <img src="images/part01_57885615fcb97ee162e046ed435021dc9d41ba0e249019fa0f203f7d58acac8b.jpg" width="700" alt="Figure 1-8">
 
-
 ## PCI Disconnect Protocol | PCI断开协议
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -16200,7 +16152,6 @@ In older machines, both PERR# and SERR# were connected to the error logic in the
 Figure 1-10: Address Space Mapping | 图1-10：地址空间映射
 <img src="images/part01_ba5280d1c80b10db8e5de47fcc4cb402f8ebf11c400b61b21e5340c3957ac9a1.jpg" width="700" alt="">
 
-
 ## 1.4.6 PCI Address Space Map | 1.4.6 PCI 地址空间映射
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -16284,17 +16235,12 @@ PCI 功能按其头标区类型分为两个基本类别。Type 1 头标区标识
 </tr>
 </table>
 
-## PCI Express Technology | PCI Express 技术
-
 Figure 1-12: PCI Configuration Header Type 1 (Bridge) | 图1-12：PCI配置头类型1（桥）
 
 Figure 1-13: PCI Configuration Header Type 0 (not a Bridge) | 图1-13：PCI配置头类型0（非桥）
 <img src="images/part01_49ec424c8231f6eea5fe09595e7566fb632679ad3d8c022202afb6802ede09e4.jpg" width="700" alt="">
 
 <img src="images/part01_309be0dd78c13eadc99f0fc99ddc29a43992e836e8477fe20addadeaf737607c.jpg" width="700" alt="">
-
-
-## PCI Express Technology | PCI Express 技术
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -16312,7 +16258,6 @@ Details of the configuration register space and the enumeration process are desc
 Figure 1-14: 66 MHz PCI Bus Based Platform | 图1-14：基于66 MHz PCI总线的平台
 
 <img src="images/part01_c4555b2f52ea498bae7de7abf87991fb4cc699ab803ee995cbde06f458ff2eff.jpg" width="700" alt="">
-
 
 ## 1.4.9 Higher-bandwidth PCI | 1.4.9 更高带宽的 PCI
 
@@ -16414,8 +16359,6 @@ An example of an Intel 7500 server chipset‐based system is shown in Figure 1�
 </tr>
 </table>
 
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -16431,7 +16374,6 @@ Figure 1‐15: 66 MHz/133 MHz PCI‐X Bus Based Platform | 图1‐15：基于66 
 <img src="images/part01_a40997bda98b7cd989a078ecea9d743fc2192a6741c26da9f07640cfd23056b7.jpg" width="700" alt="">
 
 ## 1.5.2 PCI-X Transactions | 1.5.2 PCI-X 事务
-
 
 <img src="images/part01_f418f43ac089b0da6d6f61dfc3aa3208ae33692a9564e237bc3afeb13c9c9acb.jpg" width="700" alt="">
 Figure 1‐16: Example PCI‐X Burst Memory Read Bus Cycle | 图1‐16：PCI-X突发存储器读总线周期示例

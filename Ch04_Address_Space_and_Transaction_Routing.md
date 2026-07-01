@@ -67,8 +67,6 @@ Almost all devices have internal registers or storage locations that software (a
 
 # Part part02 — `mindshare_part02_p0181-0360` | 第二部分 part02 — `mindshare_part02_p0181-0360`
 
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -162,8 +160,6 @@ In the early days of PCs, the internal registers/storage in IO devices were acce
 </tr>
 </table>
 
-## Chapter 4: Address Space & Transaction Routing | 第4章：地址空间和事务路由
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -200,7 +196,6 @@ The mapping example in Figure 4-1 is only showing MMIO and IO space being claime
 </table>
 
 <!-- 错误的 Figure 4-1 已移除，正确图片在下文 -->
-
 
 ## Prefetchable vs. Non-prefetchable Memory Space | 可预取内存空间与不可预取内存空间
 
@@ -254,9 +249,6 @@ Making this distinction was more important for PCI than it is for PCIe because t
 </td>
 </tr>
 </table>
-
-## Chapter 4: Address Space & Transaction Routing | 第4章：地址空间与事务路由
-
 
 Figure 4-1: Generic Memory And IO Address Maps | 图4-1：通用存储器和IO地址映射
 <img src="images/part02_ff238d8cb4d6de759075adb4d19f3f6e7aaf994543232b6497dd0bd93541edef.jpg" width="700" alt="">
@@ -753,7 +745,6 @@ In our example, the endpoint requested, and was granted, 4KB of NP-MMIO (F900\_0
 
 ## 4.3.3 IO Range | 4.3.3 IO 范围
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -818,7 +809,6 @@ This method of invalidating base and limit registers is valid for all three base
 Figure 4-11: Final Example Address Routing Setup | 图4-11：最终示例地址路由设置
 
 <img src="images/part02_1fb4688cc0829b4d5235f0affa8ed10db0ed46cd85a1abccb1a22d7b7d7b1db3.jpg" width="700" alt="">
-
 
 ## 4.4 Sanity Check: Registers Used For Address Routing | 4.4 正确性检查：用于地址路由的寄存器
 
@@ -1427,7 +1417,6 @@ Figure 4-20: Endpoint Checks Incoming TLP Address | 图4-20：端点检查入站
 
 ## Switch Routing | 交换机路由
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -1647,7 +1636,6 @@ Slot Power Limit settings
 Figure 4-22: 4DW Message TLP Header - Implicit Routing Fields | 图4-22：4DW消息TLP头 - 隐式路由字段
 <img src="images/part02_180e1d6d4c7b49cebf8eda3097555e2eb146e70d55ac049bbc4ae3669523c4b5.jpg" width="700" alt="">
 
-
 ## Key TLP Header Fields in Implicit Routing | 隐式路由中的关键 TLP 头字段
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1727,8 +1715,6 @@ Routing elements like Switches consider the port on which the TLP arrived on and
 </td>
 </tr>
 </table>
-
-## PCI Express Technology | PCI Express 技术
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>

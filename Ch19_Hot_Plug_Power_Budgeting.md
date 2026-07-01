@@ -1,7 +1,5 @@
 # Ch19_Hot_Plug_Power_Budgeting
 
-
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -14,7 +12,6 @@
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The previous chapter describes three types of resets defined for PCIe: Fundamental reset (consisting of cold and warm reset), hot reset, and function-level reset (FLR). The use of a side-band reset PERST# signal to generate a system reset is discussed, and so is the in-band TS1 based Hot Reset described.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">前一章描述了为PCIe定义的三种复位类型：基本复位（包括冷复位和暖复位）、热复位以及功能级复位(FLR)。讨论了使用边带复位信号PERST#产生系统复位的方式，同时也描述了基于带内TS1的热复位。</td></tr>
   </tbody>
 </table>
-
 
 ## This Chapter ## 本章
 
@@ -30,7 +27,6 @@
   </tbody>
 </table>
 
-
 ## The Next Chapter | 下一章
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -44,7 +40,6 @@
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The next chapter describes the changes and new features that were added with the 2.1 revision of the spec. Some of these topics, like the ones related to power management, are described in earlier chapters, but for others there wasn't another logical place for them. In the end, it seemed best to group them all together in one chapter to ensure that they were all covered and to help clarify what features are new.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">下一章描述 2.1 版规范新增的变更与特性。其中部分主题（如与电源管理相关的内容）已在前面章节中阐述，但其他主题则无其他更合适的放置位置。最终，将它们集中归入一章似乎是最佳方案，以确保涵盖所有内容，并帮助阐明哪些特性是新增的。</td></tr>
   </tbody>
 </table>
-
 
 ## 99.2 Background | 99.2 背景
 
@@ -65,7 +60,6 @@
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Extending hot plug support to PCI Express cards is an obvious step, and designers have incorporated some Hot Plug features as "native" to PCIe. The spec defines configuration registers, Hot Plug Messages, and procedures to support Hot Plug solutions.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">将热插拔支持扩展到PCI Express卡是一个必然的步骤，设计者已将某些热插拔特性作为PCIe的"原生"功能融入其中。该规范定义了配置寄存器、热插拔消息以及支持热插拔方案的相关过程。</td></tr>
   </tbody>
 </table>
-
 
 ## 19.2 Hot Plug in the PCI Express Environment | 19.2 PCI Express 环境中的热插拔
 
@@ -91,7 +85,6 @@
   </tbody>
 </table>
 
-
 ## 19.2.1 Surprise Removal Notification | 19.2.1 意外移除通知
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -105,7 +98,6 @@
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Cards designed to the PCIe Card ElectroMechanical spec (CEM) implement card presence detect pins (PRSNT1# and PRSNT2#) on the connector. These pins are shorter than the others so that they break contact first (when the card is removed from the slot). This can be used to give advanced notice to software of a "surprise" removal, allowing time to remove power before the signals break contact.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">按PCIe卡电气机械规范（CEM）设计的卡在连接器上实现了卡存在检测引脚（PRSNT1#和PRSNT2#）。这些引脚比其它引脚短，因此在卡从槽中拔出时会先断开接触。这可用于向软件预先通知"热"拔出，从而在信号断开接触前留出时间切断电源。</td></tr>
   </tbody>
 </table>
-
 
 ## 19.2.2 Differences between PCI and PCIe Hot Plug | 19.2.2 PCI 和 PCIe 热插拔的区别
 
@@ -121,9 +113,6 @@
   </tbody>
 </table>
 
-
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -132,12 +121,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## PCI Express Technology</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## PCI Express 技术</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">hot plug slots on the bus. Isolation logic is needed in the PCI environment to electrically disconnect a card from the shared bus prior to making changes to avoid glitching the signals on an active bus.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">总线上的热插拔槽位。在PCI环境中需要隔离逻辑，以便在进行更改之前将板卡与共享总线电气断开，避免干扰活动总线上的信号。</td></tr>
+<tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">hot plug slots on the bus. Isolation logic is needed in the PCI environment to electrically disconnect a card from the shared bus prior to making changes to avoid glitching the signals on an active bus.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">总线上的热插拔槽位。在PCI环境中需要隔离逻辑，以便在进行更改之前将板卡与共享总线电气断开，避免干扰活动总线上的信号。</td></tr>
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">PCIe uses point‐to‐point connections (see Figure 19‐2 on page 851) that eliminate the need for isolation logic but require a separate hot plug controller for each Port to which a connector is attached. A standardized software interface defined for each Root and Switch Port controls hot plug operations.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">PCIe采用点对点连接（参见第851页图19-2），无需隔离逻辑，但每个连接了连接器的端口都需要独立的热插拔控制器。为每个根端口和交换端口定义的标准软件接口控制热插拔操作。</td></tr>
   </tbody>
 </table>
-
 
 Figure 19-1: PCI Hot Plug Elements | 图19-1：PCI热插拔元素  
 
@@ -180,7 +167,6 @@ Table 19‐1: Introduction to Major Hot‐Plug Software Elements | 表19‐1：�
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -193,7 +179,6 @@ Table 19‐1: Introduction to Major Hot‐Plug Software Elements | 表19‐1：�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 19-2 on page 853 lists the major hardware elements necessary to support PCI Express Hot-Plug operation.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">第853页的表19-2列出了支持PCI Express热插拔操作所需的主要硬件组件。</td></tr>
   </tbody>
 </table>
-
 
 Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件元素
 
@@ -213,7 +198,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The descriptions of typical card removal and insertion that follow are intended to be introductory in nature. It should be noted that the procedures described in the following sections assume that the OS, rather than the Hot‑Plug System Driver, is responsible for configuring a newly‑installed device. If the Hot‑Plug System Driver has this responsibility, the Hot‑Plug Service will call the Hot‑Plug System Driver and instruct it to configure the newly‑installed device.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">以下典型卡移除与插入的描述仅为介绍性内容。需要注意的是，后续章节描述的规程假定由操作系统（OS）而非热插拔系统驱动程序负责配置新安装的设备。若热插拔系统驱动程序承担此职责，则热插拔服务将调用热插拔系统驱动程序并指示其配置新安装的设备。</td></tr>
   </tbody>
 </table>
-
 
 ## 19.4.1 On and Off States | 19.4.1 开启和关闭状态
 
@@ -238,7 +222,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
   </tbody>
 </table>
 
-
 ## 19.4.1.1 Turning Slot Off | 19.4.1.1 关闭插槽
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -257,7 +240,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
   </tbody>
 </table>
 
-
 ## 19.4.1.2 Turning Slot On | 19.4.1.2 开启插槽
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -275,7 +257,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Once power and clock have been restored and PERST# removed, the physical layers at both ports will perform link training and initialization. When the link is active, the devices will initialize VC0 (including flow control), making the link ready to transfer TLPs.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">一旦电源和时钟恢复且 PERST# 被移除，两端端口的物理层将执行链路训练和初始化。当链路激活后，设备将初始化 VC（虚通道）0（包括流控），使链路准备好传输 TLP。</td></tr>
   </tbody>
 </table>
-
 
 ## 19.4.2 Card Removal Procedure | 19.4.2 卡移除流程
 
@@ -306,7 +287,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
   </tbody>
 </table>
 
-
 ## 19.4.3 Card Insertion Procedure | 19.4.3 卡插入流程
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -326,9 +306,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
   </tbody>
 </table>
 
-
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -346,7 +323,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
   </tbody>
 </table>
 
-
 ## 19.5 Standardized Usage Model | 19.5 标准化使用模型
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
@@ -359,7 +335,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Standardized Usage Model</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 标准化使用模型</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
@@ -376,7 +351,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
   </tbody>
 </table>
 
-
 ## 19.5.2 Standard User Interface | 19.5.2 标准用户界面
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
@@ -389,7 +363,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Standard User Interface</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 标准用户接口</td></tr>
   </tbody>
 </table>
-
 
 ## 19.5.2.1 User Interface Features | 19.5.2.1 用户界面特性
 ## 19.5.2.1 User Interface Features | 19.5.2.1 用户界面特性
@@ -412,7 +385,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -426,7 +398,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 19-3: Behavior and Meaning of the Slot Attention Indicator</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">表19-3：槽位注意力指示灯的行为与含义</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Indicator Behavior</td><td style="border:1px solid #ddd;">Attention State</td></tr><tr><td style="border:1px solid #ddd;">Off</td><td style="border:1px solid #ddd;">Normal -- Normal Operation</td></tr><tr><td style="border:1px solid #ddd;">On</td><td style="border:1px solid #ddd;">Attention -- Hot Plug Operation Failed due to an operational problem (e.g., problems with external cabling, add-in cards, software drivers, and power faults)</td></tr><tr><td style="border:1px solid #ddd;">Blinking</td><td style="border:1px solid #ddd;">Locate -- Slot is being identified at operator's request</td></tr></table>
 
@@ -445,7 +416,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The behavior of the power indicator and the related power states are listed in Table 19‑4 on page 861. Note that $\mathrm { V _ { a u x } }$ remains on and switch signals are still connected until the retention latch is released or when the card is removed as detected by the Prsnt1# and Prsnt2# signals.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">电源指示灯的行为及相关电源状态列于第861页的表19‑4中。请注意，$\mathrm { V _ { a u x } }$ 保持供电，交换信号仍保持连接，直至释放保持锁存器，或通过 Prsnt1# 和 Prsnt2# 信号检测到卡被移除。</td></tr>
   </tbody>
 </table>
-
 
 Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源指示器的行为和含义
 
@@ -468,7 +438,6 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
   </tbody>
 </table>
 
-
 ## 19.5.2.4 Electromechanical Interlock (optional) | 19.5.2.4 机电互锁（可选）
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -483,7 +452,6 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The lock mechanism is controlled via software; however, there is no specific programming interface defined for it. Instead, an interlock is controlled by the same Port signal that enables main power to the slot.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">锁定机制通过软件控制；但并未为其定义特定的编程接口。相反，互锁由控制插槽主电源使能的同一端口信号来操控。</td></tr>
   </tbody>
 </table>
-
 
 ## 19.5.2.5 Software User Interface | 19.5.2.5 软件用户界面
 
@@ -500,7 +468,6 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
   </tbody>
 </table>
 
-
 ## 19.5.2.6 Attention Button | 19.5.2.6 注意力按钮
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -516,7 +483,6 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
   </tbody>
 </table>
 
-
 ## 19.5.2.7 Slot Numbering Identification | 19.5.2.7 插槽编号标识
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -530,7 +496,6 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Software and operators must be able to identify a physical slot based on its slot number. Each hot‐plug capable port must implement registers that software uses to identify the physical slot number. The registers include a Physical Slot number and a chassis number. The main chassis is always labeled chassis 0. The chassis numbers for other chassis must be non‐zero and are assigned via the PCI‐to‐PCI bridge's Chassis Number register.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">软件和操作人员必须能够根据槽位编号识别物理槽位。每个支持热拔插的端口必须实现软件用于识别物理槽位编号的寄存器。这些寄存器包括物理槽位编号和机箱编号。主箱体始终标记为 chassis 0。其他箱体的机箱编号必须为非零值，并通过 PCI-to-PCI 桥的机箱编号寄存器分配。</td></tr>
   </tbody>
 </table>
-
 
 ## 19.6 Standard Hot Plug Controller Signaling Interface | 19.6 标准热插拔控制器信令接口
 
@@ -558,7 +523,6 @@ Table 19‑4: Behavior and Meaning of the Power Indicator | 表19‑4：电源�
   </tbody>
 </table>
 
-
 Figure 19-3: Hot Plug Control Functions within a Switch | 图19-3：交换机内的热插拔控制功能
 
 <img src="images/part06_36d5d3a4db7747b0685a323c79cfe69189bd59993c739e8367f657ea8287864d.jpg" width="700" alt="">
@@ -577,7 +541,6 @@ Figure 19-3: Hot Plug Control Functions within a Switch | 图19-3：交换机内
   </tbody>
 </table>
 
-
 Figure 19-4: PCIe Capability Registers Used for Hot-Plug | 图19-4：用于热插拔的PCIe能力寄存器
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">PCI Express Capabilities Register</td><td style="border:1px solid #ddd;">Next Cap Pointer</td><td style="border:1px solid #ddd;">PCI Express Cap ID</td></tr><tr><td colspan="3" style="border:1px solid #ddd;">Device Capabilities Register</td></tr><tr><td style="border:1px solid #ddd;">Device Status</td><td colspan="2" style="border:1px solid #ddd;">Device Control</td></tr><tr><td colspan="3" style="border:1px solid #ddd;">Link Capabilities</td></tr><tr><td style="border:1px solid #ddd;">Link Status</td><td colspan="2" style="border:1px solid #ddd;">Link Control</td></tr><tr><td colspan="3" style="border:1px solid #ddd;">Slot Capabilities</td></tr><tr><td style="border:1px solid #ddd;">Slot Status</td><td colspan="2" style="border:1px solid #ddd;">Slot Control</td></tr><tr><td style="border:1px solid #ddd;">Root Capability</td><td colspan="2" style="border:1px solid #ddd;">Root Control</td></tr><tr><td colspan="3" style="border:1px solid #ddd;">Root Status</td></tr><tr><td colspan="3" style="border:1px solid #ddd;">Device Capabilities 2</td></tr><tr><td style="border:1px solid #ddd;">Device Status 2</td><td colspan="2" style="border:1px solid #ddd;">Device Control 2</td></tr><tr><td colspan="3" style="border:1px solid #ddd;">Link Capabilities 2</td></tr><tr><td style="border:1px solid #ddd;">Link Status 2</td><td colspan="2" style="border:1px solid #ddd;">Link Control 2</td></tr><tr><td colspan="3" style="border:1px solid #ddd;">Slot Capabilities 2</td></tr><tr><td style="border:1px solid #ddd;">Slot Status 2</td><td colspan="2" style="border:1px solid #ddd;">Slot Control 2</td></tr></table>
@@ -594,7 +557,6 @@ Figure 19-4: PCIe Capability Registers Used for Hot-Plug | 图19-4：用于热�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Figure 19‑5 on page 866 illustrates the slot capability register and bit fields. Hardware initializes all of these capability register fields to reflect the features implemented by this port. This register applies to both card slots and rack mount implementations, except for the indicators and attention button. Software must read from the device capability register within the module to determine if indicators and attention buttons are implemented. Table 19‑5 on page 866 lists and defines the slot capability fields.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">第866页的图19‑5展示了插槽能力寄存器和位域。硬件初始化所有这些能力寄存器字段，以反映该端口实现的功能。该寄存器适用于卡槽和机架安装实现，但指示灯和注意按钮除外。软件必须读取模块内的设备能力寄存器，以确定是否实现了指示灯和注意按钮。第866页的表19‑5列出并定义了插槽能力字段。</td></tr>
   </tbody>
 </table>
-
 
 Figure 19‑5: Slot Capabilities Register | 图19‑5：插槽能力寄存器  
 
@@ -627,7 +589,6 @@ Table 19‑5: Slot Capability Register Fields and Descriptions | 表19‑5：插
   </tbody>
 </table>
 
-
 ## 19.7.3 Slot Control | 19.7.3 插槽控制
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -641,7 +602,6 @@ Table 19‑5: Slot Capability Register Fields and Descriptions | 表19‑5：插
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Software controls the Hot Plug events through the Slot Control register, shown in Figure 19-6 on page 868. This register permits software to enable various Hot Plug features and control hot plug operations. It's also used to enable interrupt generation as well as enabling the sources of Hot-Plug events that can result in interrupt generation.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">软件通过槽位控制寄存器（Slot Control Register）控制热插拔事件，如图19-6（第868页）所示。该寄存器允许软件启用各种热插拔特性并控制热插拔操作。它还用于启用中断生成以及使能可能导致中断产生的热插拔事件源。</td></tr>
   </tbody>
 </table>
-
 
 Figure 19-6: Slot Control Register | 图19-6：插槽控制寄存器
 
@@ -660,7 +620,6 @@ Figure 19-6: Slot Control Register | 图19-6：插槽控制寄存器
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Bit(s)</td><td style="border:1px solid #ddd;">Register Name and Description</td></tr><tr><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">Attention Button Pressed Enable. When set, this bit enables the generation of a hot-plug interrupt (if enabled) or assertion of the Wake# message, when the attention button is pressed.</td></tr><tr><td style="border:1px solid #ddd;">1</td><td style="border:1px solid #ddd;">Power Fault Detected Enable. When set, enables generation of a hot-plug interrupt (if enabled) or Wake# message upon detection of a power fault.</td></tr><tr><td style="border:1px solid #ddd;">2</td><td style="border:1px solid #ddd;">MRL Sensor Changed Enable. When set, enables generation of a hot-plug interrupt or Wake# (if enabled) message upon detection of a MRL sensor changed event.</td></tr><tr><td style="border:1px solid #ddd;">3</td><td style="border:1px solid #ddd;">Presence Detect Changed Enable. When set this bit enables the generation of the hot-plug interrupt or a Wake message when the presence detect changed bit in the Slot Status register is set.</td></tr><tr><td style="border:1px solid #ddd;">4</td><td style="border:1px solid #ddd;">Command Completed Interrupt Enable. When set, enables a Hot- Plug interrupt to be generated that informs software that the hot-plug controller is ready to receive the next command.</td></tr><tr><td style="border:1px solid #ddd;">5</td><td style="border:1px solid #ddd;">Hot-Plug Interrupt Enable. When set, enables the generation of Hot-Plug interrupts.</td></tr><tr><td style="border:1px solid #ddd;">7:6</td><td style="border:1px solid #ddd;">Attention Indicator Control. Writes to the field control the state of the attention indicator and reads return the current state, as follows:00b = Reserved01b = On10b = Blink11b = Off</td></tr><tr><td style="border:1px solid #ddd;">9:8</td><td style="border:1px solid #ddd;">Power Indicator Control. Writes to the field control the state of the power indicator and reads return the current state, as follows:00b = Reserved01b = On10b = Blink11b = Off</td></tr><tr><td style="border:1px solid #ddd;">10</td><td style="border:1px solid #ddd;">Power Controller Control. Writes to the field switch main power to the slot and reads return the current state: 0b = Power On, 1b = Power Off</td></tr><tr><td style="border:1px solid #ddd;">11</td><td style="border:1px solid #ddd;">Electromechanical Interlock Control - If the interlock is implemented, writing a 1b to this bit toggles the state of it while writing a 0b has no effect. Reading this bit always returns a 0b.</td></tr><tr><td style="border:1px solid #ddd;">12</td><td style="border:1px solid #ddd;">Data Link Layer State Changed Enable - If the Data Link Layer Link Active Reporting capability is 1b, setting this bit enables software notification when the Data Link Layer Link Active bit changes. If the Data Link Layer Link Active Reporting capability is 0b, then this bit becomes read-only with a value of 0b.</td></tr></table>
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -675,7 +634,6 @@ Figure 19-6: Slot Control Register | 图19-6：插槽控制寄存器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The Hot Plug Controller monitors a variety of events and reports these events to the Hot Plug System Driver. Software can use the "detected" bits to determine which event has occurred, while the status bit identifies that nature of the change. The changed bits must be cleared by software in order to detect a subsequent change. Note that whether these events get reported to the system (via a system interrupt) is determined by the related enable bits in the Slot Control Register.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">热插拔控制器监控各种事件并将这些事件报告给热插拔系统驱动程序。软件可以使用"已检测"位来确定哪个事件已发生，而状态位则标识变化的性质。必须由软件清除已变化的位，以便检测后续变化。请注意，这些事件是否（通过系统中断）报告给系统，由插槽控制寄存器中的相关使能位决定。</td></tr>
   </tbody>
 </table>
-
 
 Figure 19-7: Slot Status Register | 图19-7：插槽状态寄存器
 
@@ -692,7 +650,6 @@ Figure 19-7: Slot Status Register | 图19-7：插槽状态寄存器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 19-7: Slot Status Register Fields and Descriptions</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">表19-7：插槽状态寄存器字段与描述</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Bit Location</td><td style="border:1px solid #ddd;">Register Name and Description</td></tr><tr><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">Attention Button Pressed — If the button is implemented, this bit is set when the Attention Button is pressed.</td></tr><tr><td style="border:1px solid #ddd;">1</td><td style="border:1px solid #ddd;">Power Fault Detected — If a Power Controller that supports power fault detection is implemented, this bit is set when it detects a power fault at this slot. The spec notes that it's possible for a power fault to be detected at any time, regardless of the Power Control setting or whether the slot is occupied.</td></tr><tr><td style="border:1px solid #ddd;">2</td><td style="border:1px solid #ddd;">MRL Sensor Changed — If an MRL Sensor is implemented, this is set when a MRL Sensor state change is detected. If no sensor is present this bit will always be zero.</td></tr><tr><td style="border:1px solid #ddd;">3</td><td style="border:1px solid #ddd;">Presence Detect Changed — set when a change has been detected in the Presence Detect State bit.</td></tr><tr><td style="border:1px solid #ddd;">4</td><td style="border:1px solid #ddd;">Command Completed — If the No Command Completed Support bit in the Slot Capabilities register is 0b, then this bit is set when a hot plug command has completed and the Hot Plug Controller is ready to accept another command. Technically, only this last meaning is guaranteed: the controller is ready to accept another command, regardless of whether the previous one has actually completed.</td></tr><tr><td style="border:1px solid #ddd;">5</td><td style="border:1px solid #ddd;">MRL Sensor State — when set, indicates the current state of the MRL sensor, if implemented: 0b = MRL Closed, 1b = MRL Open</td></tr><tr><td style="border:1px solid #ddd;">6</td><td style="border:1px solid #ddd;">Presence Detect State — this bit indicates the presence of a card in a slot and is required for all Downstream Ports that implement a slot. Its value is the logical "OR" of Physical Layer's Detection logic and any other side-band detect mechanism implemented for the slot (such as PRSNT1# and PRSNT2#). The big difference between them is that the pins require no power to physically detect the card and can thus report on it without needing the power restored, while using the Physical Layer Detect logic does need power.</td></tr><tr><td style="border:1px solid #ddd;">7</td><td style="border:1px solid #ddd;">Electromechanical Interlock Status —If an Electromechanical Interlock is implemented, this bit indicates whether it is engaged (1b) or disengaged (0b).</td></tr><tr><td style="border:1px solid #ddd;">8</td><td style="border:1px solid #ddd;">Data Link State Changed — This bit is set when the Data Link Layer Link Active bit in the Link Status register changes. In response to this event, software must read the Data Link Layer Link Active bit to determine whether the Link is active before sending configuration cycles to the hot plugged device.</td></tr></table>
 
@@ -712,7 +669,6 @@ Figure 19-7: Slot Status Register | 图19-7：插槽状态寄存器
   </tbody>
 </table>
 
-
 Figure 19‐8: Device Capabilities Register | 图19‐8：设备能力寄存器
 <img src="images/part06_18dafd3cc01b482cf41996c4ab0b902c82e2fcb102eb4354ae9747ceec387f24.jpg" width="700" alt="">
 
@@ -727,7 +683,6 @@ Figure 19‐8: Device Capabilities Register | 图19‐8：设备能力寄存器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Quiescing Card and Driver</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 静止化卡与驱动程序</td></tr>
   </tbody>
 </table>
-
 
 ## General | 概述
 
@@ -747,7 +702,6 @@ Figure 19‐8: Device Capabilities Register | 图19‐8：设备能力寄存器
   </tbody>
 </table>
 
-
 ## 19.8.1 Pausing a Driver (Optional) | 19.8.1 暂停驱动（可选）
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -763,7 +717,6 @@ Figure 19‐8: Device Capabilities Register | 图19‐8：设备能力寄存器
   </tbody>
 </table>
 
-
 ## Quiescing a Driver That Controls Multiple Devices | 暂停控制多个设备的驱动
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -777,7 +730,6 @@ Figure 19‐8: Device Capabilities Register | 图19‐8：设备能力寄存器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">If a driver controls multiple cards and it receives a command from the OS to quiesce its activity with respect to a specific card, it must only quiesce its activity with that card and the card itself.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如果一个驱动程序控制多个卡，并且它收到来自操作系统的命令要求对某个特定卡静止其活动，则它必须仅静止与该卡相关的活动以及该卡本身。</td></tr>
   </tbody>
 </table>
-
 
 ## Quiescing a Failed Card | 暂停故障卡
 ## Quiescing a Failed Card | 使故障卡静止（Quiescing）
@@ -794,7 +746,6 @@ Figure 19‐8: Device Capabilities Register | 图19‐8：设备能力寄存器
   </tbody>
 </table>
 
-
 ## 19.9 The Primitives | 19.9 原语
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -808,7 +759,6 @@ Figure 19‐8: Device Capabilities Register | 图19‐8：设备能力寄存器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This section discusses the hot-plug software elements and the information passed between them. For a review of the software elements and their relationships to each other, refer to Table 19-1 on page 852. Communications between the Hot-Plug Service within the OS and the Hot-Plug System Driver is in the form of requests. The spec doesn't define the exact format of these requests, but does define the basic request types and their content. Each request type issued to the Hot-Plug System Driver by the Hot-Plug Service is referred to as a primitive. They are listed and described in Table 19-8 on page 875.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">本节讨论热插拔软件元素及其之间传递的信息。关于软件元素及其相互关系的回顾，请参见第852页的表19-1。操作系统内的热插拔服务与热插拔系统驱动程序之间的通信采用请求的形式。规范未定义这些请求的确切格式，但定义了基本的请求类型及其内容。热插拔服务向热插拔系统驱动程序发出的每种请求类型被称为一个原语。这些原语在第875页的表19-8中列出并描述。</td></tr>
   </tbody>
 </table>
-
 
 Table 19-8: The Primitives / 表19-8: 原语 | 表19-8：原语
 
@@ -841,7 +791,6 @@ Table 19-8: The Primitives / 表19-8: 原语 | 表19-8：原语
   </tbody>
 </table>
 
-
 ## 19.11 The Power Budgeting Elements | 19.11 功率预算要素
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -860,7 +809,6 @@ Table 19-8: The Primitives / 表19-8: 原语 | 表19-8：原语
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -877,7 +825,6 @@ Table 19-8: The Primitives / 表19-8: 原语 | 表19-8：原语
       <tr><td width="50%" style="border:1px solid #ddd;background:#fff;padding:4px 8px;">Firmware may also allocate power to PCIe devices that support the power budgeting capability register set, such as a hot-plug device used during boot time. The Power Budgeting Capability register, shown in Figure 19-9 on page 878, contains a System Allocated bit that is hardware initialized (usually by firmware) to notify the power budget manager that power for this device has already been included in the system power allocation. If so, the Power Budget Manager still needs to read and save the power information for the hot-plug devices that were allocated in case they are later removed during runtime.</td><td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8;padding:4px 8px;">固件也可以为支持电源预算能力寄存器集的 PCIe 设备分配功率，例如启动时使用的热插拔设备。电源预算能力寄存器（见第 878 页图 19-9）包含一个系统已分配位，该位由硬件初始化（通常由固件完成），用于通知电源预算管理器该设备的功率已包含在系统功率分配中。即便如此，电源预算管理器仍需读取并保存已分配的热插拔设备的电源信息，以防这些设备在运行时被移除。</td></tr>
   </tbody>
 </table>
-
 
 Figure 19-9: Power Budget Registers | 图19-9：功耗预算寄存器  
 
@@ -900,7 +847,6 @@ Figure 19-9: Power Budget Registers | 图19-9：功耗预算寄存器
   </tbody>
 </table>
 
-
 ## 19.11.3 Expansion Ports | 19.11.3 扩展端口
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -914,7 +860,6 @@ Figure 19-9: Power Budget Registers | 图19-9：功耗预算寄存器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Figure 19-10 on page 880 illustrates a hot plug port that must have the Slot Power Limit and Slot Power Scale fields within the Slot Capabilities register implemented. The firmware or power budget manager must load these fields with a value that represents the maximum amount of power supported by this Port. When software writes to these fields the Port automatically delivers a Set_Slot_Power_Limit message to the device. These fields are also written when software configures a new card that has been added as a hot plug installation.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">第880页的Figure 19-10展示了一个热插拔端口，该端口必须在Slot Capabilities寄存器中实现Slot Power Limit和Slot Power Scale字段。固件或功率预算管理器必须将这些字段加载为表示该端口所支持的最大功率值。当软件写入这些字段时，端口会自动向设备发送一条Set_Slot_Power_Limit消息。当软件配置通过热插拔安装的新插卡时，也会写入这些字段。</td></tr>
   </tbody>
 </table>
-
 
 ## Spec requirements: | 规范要求：
 ## 规范要求：
@@ -935,7 +880,6 @@ Figure 19-9: Power Budget Registers | 图19-9：功耗预算寄存器
   </tbody>
 </table>
 
-
 ## 19.11.4 Add-in Devices | 19.11.4 插件设备
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -951,7 +895,6 @@ Figure 19-9: Power Budget Registers | 图19-9：功耗预算寄存器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Device Driver—The device's software driver is responsible for verifying that sufficient power is available for proper device operation prior to enabling it. If the power is lower than that required by the device, the device driver is responsible for reporting this to a higher software authority.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">设备驱动程序——设备的软件驱动程序负责在使能设备之前验证是否有足够的功率用于设备的正常运行。如果功率低于设备所需，设备驱动程序负责将此情况报告给更高级别的软件。</td></tr>
   </tbody>
 </table>
-
 
 Figure 19‐10: Elements Involved in Power Budget | 图19‐10：参与功耗预算的元素
 
@@ -971,7 +914,6 @@ Figure 19‐10: Elements Involved in Power Budget | 图19‐10：参与功耗预
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -987,7 +929,6 @@ Figure 19‐10: Elements Involved in Power Budget | 图19‐10：参与功耗预
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;"></td><td colspan="2" style="border:1px solid #ddd;">X1 Link</td><td style="border:1px solid #ddd;">X4/X8 Link</td><td colspan="2" style="border:1px solid #ddd;">X16 Link</td></tr><tr><td style="border:1px solid #ddd;">Standard Height</td><td style="border:1px solid #ddd;">10W (max - desktop)</td><td style="border:1px solid #ddd;">25W (max - server)</td><td style="border:1px solid #ddd;">25W (max)</td><td style="border:1px solid #ddd;">25W (max - server)</td><td style="border:1px solid #ddd;">75W (max - graphics card)</td></tr><tr><td style="border:1px solid #ddd;">Low Profile Card</td><td colspan="2" style="border:1px solid #ddd;">10W (max)</td><td style="border:1px solid #ddd;">25W (max)</td><td colspan="2" style="border:1px solid #ddd;">25W (max)</td></tr></table>
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1002,7 +943,6 @@ Figure 19‐10: Elements Involved in Power Budget | 图19‐10：参与功耗预
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">When the Slot Power registers are written by power budget software, the expansion port sends a Set\_Slot\_Power\_Limit message to the expansion device. This procedure is illustrated in Figure 19‑11 on page 882.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">当功率预算软件写入槽位功率寄存器时，扩展端口向扩展设备发送Set\_Slot\_Power\_Limit消息。该过程如图19‑11（第882页）所示。</td></tr>
   </tbody>
 </table>
-
 
 Figure 19‑11: Slot Power Limit Sequence | 图19‑11：插槽功耗限制序列
 
@@ -1027,7 +967,6 @@ Figure 19‑11: Slot Power Limit Sequence | 图19‑11：插槽功耗限制序�
   </tbody>
 </table>
 
-
 ## 19.12.2 Expansion Device Limits Power Consumption | 19.12.2 扩展设备限制功耗
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1048,7 +987,6 @@ Figure 19‑11: Slot Power Limit Sequence | 图19‑11：插槽功耗限制序�
   </tbody>
 </table>
 
-
 ## 19.13 The Power Budget Capabilities Register Set | 19.13 功率预算能力寄存器集
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1067,7 +1005,6 @@ Figure 19‑11: Slot Power Limit Sequence | 图19‑11：插槽功耗限制序�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The power budget information is maintained within a table that consists of one or more 32-bit entries. Each table entry contains power budget information for the different operating modes supported by the device. Each table entry is selected via the data select field, and the selected entry is then read from the data field. The index values start at zero and are implemented in sequential order. When a selected index returns all zeros in the data field, the end of the power budget table has been located. Figure 19-13 on page 885 illustrates the format and types of information available from the data field.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">电源预算信息保存在一个由一个或多个32位条目组成的表中。每个表条目包含设备所支持的不同操作模式的电源预算信息。每个表条目通过数据选择字段选择，然后从数据字段读取所选条目。索引值从零开始并以顺序方式实现。当所选索引在数据字段中返回全零时，表示已到达电源预算表的末尾。第885页的图19-13示出了数据字段中可用的信息格式和类型。</td></tr>
   </tbody>
 </table>
-
 
 Figure 19-12: Power Budget Capability Registers | 图19-12：功耗预算能力寄存器
 

@@ -2,8 +2,6 @@
 
 # 11 Physical Layer - Logical (Gen1 and Gen2)
 
-
-
 ## The Previous Chapter | 上一章
 
 <table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -34,7 +32,6 @@
   </tbody>
 </table>
 
-
 ## 11.1 Physical Layer Overview | 11.1 物理层概述
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -49,7 +46,6 @@
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The Physical Layer resides at the bottom of the interface between the external physical link and Data Link Layer. It converts outbound packets from the Data Link Layer into a serialized bit stream that is clocked onto all Lanes of the Link. This layer also recovers the bit stream from all Lanes of the Link at the receiver. The receive logic de‑serializes the bits back into a Symbol stream, re‑assembles the packets, and forwards TLPs and DLLPs up to the Data Link Layer.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">物理层位于外部物理链路与数据链路层之间的接口底部。它将来自数据链路层的出站数据包转换为串行化比特流，并在链路的所有通道上进行时钟同步传输。该层还在接收端从链路的所有通道中恢复比特流。接收逻辑将比特反串行化回符号流，重新组装报文，并将TLP和DLLP向上传递到数据链路层。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11‐1: PCIe Port Layers | 图11‐1：PCIe端口层  
 <img src="images/part03_1cdf4aaafebdcb2722ade98568b50daba0bc2fcaf66d07b8778a18993f196aac.jpg" width="700" alt="">
@@ -69,7 +65,6 @@ Figure 11‐1: PCIe Port Layers | 图11‐1：PCIe端口层
   </tbody>
 </table>
 
-
 Figure 11‐2: Logical and Electrical Sub‑Blocks of the Physical Layer | 图11‐2：物理层的逻辑和电子子块  
 <img src="images/part03_f8693a966eff52ea73901be7bea7c33f9ce2c25847c61843bed958de6aa77bfc.jpg" width="700" alt="">
 
@@ -88,7 +83,6 @@ Figure 11‐2: Logical and Electrical Sub‑Blocks of the Physical Layer | 图11
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -103,7 +97,6 @@ Figure 11‐2: Logical and Electrical Sub‑Blocks of the Physical Layer | 图11
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Gen3 mode of operation, doesn't use control characters, so data patterns are used to make up the ordered sets that identify if transmitted bytes are associated with TLPs / DLLPs or Ordered Sets. A 2-bit Sync Header is inserted at the beginning of a 128 bit (16 byte) block of data. The Sync Header informs the receiver whether the received block is a Data Block (TLP or DLLP related bytes) or an Ordered Set Block. Since there are no control characters in Gen3 mode, the D/K# bit is not needed.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">Gen3 操作模式不使用控制字符，而是使用数据模式构成 Ordered Set，以标识发送的字节是与 TLP/DLLP 相关联还是与 Ordered Set 相关联。在每个 128 位（16 字节）数据块的开始处插入一个 2 位同步头（Sync Header）。同步头告知接收方收到的块是数据块（TLP 或 DLLP 相关字节）还是 Ordered Set 块。由于 Gen3 模式中没有控制字符，因此不需要 D/K# 位。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11-3: Physical Layer Transmit Details | 图11-3：物理层发送详情
 
@@ -125,7 +118,6 @@ Figure 11-3: Physical Layer Transmit Details | 图11-3：物理层发送详情
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -140,7 +132,6 @@ Figure 11-3: Physical Layer Transmit Details | 图11-3：物理层发送详情
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -154,7 +145,6 @@ Figure 11-3: Physical Layer Transmit Details | 图11-3：物理层发送详情
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Using the 8b/10b Decoder, Gen1/Gen2 Symbols are decoded thus converting the 10-bit symbols to 8-bit characters. The descrambler applies the same scrambling method used at the transmitter to recover the original data. Finally, the bytes from each Lane are un-striped to form a byte stream that will be forwarded up to the Data Link Layer. Only TLPs and DLLPs are loaded into the receive buffer and sent to the Data Link Layer.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">使用8b/10b解码器，Gen1/Gen2符号被解码，从而将10位符号转换为8位字符。解扰器应用与发送端相同的加扰方法来恢复原始数据。最后，来自每个通道的字节被解除交错，形成字节流并向上转发至数据链路层。只有TLP和DLLP被载入接收缓冲区并发送到数据链路层。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11‐4: Physical Layer Receive Logic Details | 图11‐4：物理层接收逻辑详情
 
@@ -174,7 +164,6 @@ Figure 11‐4: Physical Layer Receive Logic Details | 图11‐4：物理层接�
   </tbody>
 </table>
 
-
 ## 11.2.1 Tx Buffer | 11.2.1 Tx 缓冲器
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -191,7 +180,6 @@ Figure 11‐4: Physical Layer Receive Logic Details | 图11‐4：物理层接�
   </tbody>
 </table>
 
-
 ## 11.2.2 Mux and Control Logic | 11.2.2 多路选择器和控制逻辑
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -207,7 +195,6 @@ Figure 11‐4: Physical Layer Receive Logic Details | 图11‐4：物理层接�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">**Start and End characters.** These Control characters are added to the start and end of every TLP and DLLP (see Figure 11-7 on page 371) and allow a receiver to readily detect the boundaries of a packet. There are two Start characters: STP indicates the start of a TLP, while SDP indicates the start of a DLLP. An indicator from the Data Link Layer, along with the packet type, determines what type of framing character to insert. There are also two end characters, the End Good character (END) for normal transmission, and the End Bad character (EDB) to handle some error cases. Start and End characters are K characters, so the D/K# signal is driven low when the Start and End characters are inserted (see Table 11-1 on page 386 for a list of Control characters).</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">**起始与结束字符。** 这些控制字符被添加到每个TLP和DLLP的起始和结束位置（见图11-7，第371页），使接收器能够容易地检测报文的边界。有两个起始字符：STP指示TLP的起始，而SDP指示DLLP的起始。来自数据链路层的指示信号以及报文类型决定了插入何种类型的帧定界字符。还有两个结束字符：End Good字符（END）用于正常传输，End Bad字符（EDB）用于处理某些错误情况。起始和结束字符是K字符，因此当插入起始和结束字符时，D/K#信号被驱动为低电平（控制字符列表见表11-1，第386页）。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11-5: Physical Layer Transmit Logic Details (Gen1 and Gen2 Only) | 图11-5：物理层发送逻辑详情（仅Gen1和Gen2）
 
@@ -229,7 +216,6 @@ Figure 11-5: Physical Layer Transmit Logic Details (Gen1 and Gen2 Only) | 图11-
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">**Logical Idle Sequence.** When there are no packets ready to transmit and no ordered sets to send, the link is logically idle. In order to keep the receiver PLL locked on to the transmitter's frequency, it's important that the transmitter keep sending something, so Logical Idle characters are inserted for that case. Logical Idle is very simple, and consists of nothing more than a string of Data 00h characters.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">**逻辑空闲序列。** 当没有报文准备发送且没有有序集需要发送时，链路处于逻辑空闲状态。为了使接收器PLL保持锁定在发送器频率上，发送器必须持续发送一些内容，因此在这种情况下插入逻辑空闲字符。逻辑空闲非常简单，仅由一串数据00h字符组成。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11-6: Transmit Logic Multiplexer | 图11-6：发送逻辑多路复用器
 
@@ -254,7 +240,6 @@ Figure 11-7: TLP and DLLP Packet Framing with Start and End Control Characters |
   </tbody>
 </table>
 
-
 Figure 11-8: x1 Byte Striping | 图11-8：x1字节条带化
 
 Figure 11-9: x4 Byte Striping | 图11-9：x4字节条带化
@@ -275,7 +260,6 @@ Figure 11-9: x4 Byte Striping | 图11-9：x4字节条带化
   </tbody>
 </table>
 
-
 Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：DWord并行数据的x8字节条带化
 
 <img src="images/part03_7a0ee10a617a196a9378c6dd5304501341c5ddde75311b3a54c0d4bfd04e1d44.jpg" width="700" alt="">
@@ -293,7 +277,6 @@ Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：DWord并行
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Packet Format Rules</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 数据包格式规则</td></tr>
   </tbody>
 </table>
-
 
 ## 11.2.4.1 General Rules | 11.2.4.1 通用规则
 
@@ -313,9 +296,6 @@ Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：DWord并行
   </tbody>
 </table>
 
-
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -324,10 +304,8 @@ Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：DWord并行
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">PCI Express Technology</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">PCI Express 技术</td></tr>
-  </tbody>
+    </tbody>
 </table>
-
 
 ## 11.2.4.2 Example: x1 Format | 11.2.4.2 示例：x1 格式
 
@@ -342,7 +320,6 @@ Figure 11-10: x8 Byte Striping with DWord Parallel Data | 图11-10：DWord并行
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The example shown in Figure 11-11 on page 374 illustrates the format of packets transmitted over a x1 link (a link with only one lane operational). A sequence of packets is shown interspersed with one SKIP Ordered Set. Logical Idles are shown at the end to represent the case when the transmitter has no more packets to send and uses idle characters as filler.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">第374页图11-11所示的示例说明了通过x1链路（仅一条通道工作的链路）传输的数据包格式。图中显示了一串数据包，其中穿插了一个SKIP有序集。末尾显示了逻辑空闲状态，表示发送方没有更多数据包要发送，并使用空闲字符作为填充。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11-11: x1 Packet Format | 图11-11：x1数据包格式
 
@@ -366,7 +343,6 @@ Figure 11-11: x1 Packet Format | 图11-11：x1数据包格式
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -378,7 +354,6 @@ Figure 11-11: x1 Packet Format | 图11-11：x1数据包格式
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Chapter 11: Physical Layer - Logical (Gen1 and Gen2)</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 第11章：物理层 - 逻辑子层（Gen1和Gen2）</td></tr>
   </tbody>
 </table>
-
 
 ## 11.2.4.4 x4 Format Example | 11.2.4.4 x4 格式示例
 
@@ -393,7 +368,6 @@ Figure 11-11: x1 Packet Format | 图11-11：x1数据包格式
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The example shown in Figure 11‑12 on page 375 illustrates the format of packets sent over a x4 Link (link with four data lanes operational). The illustration shows one TLP followed by a SKIP ordered set transmitted on all Lanes for receiver clock compensation. Next is a DLLP, followed by Logical Idle on all lanes. This example highlights that the packets are always multiples of 4 characters because the start character always appears in lane 0 and the end character is always in lane 3. It also illustrates that ordered sets must appear on all the lanes simultaneously.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">第375页图11-12所示的示例说明了通过x4链路（具有四条数据通道运行的链路）发送的报文的格式。该图示显示了一个TLP，后跟一个在所有通道上发送的用于接收端时钟补偿的SKIP有序集。接着是一个DLLP，随后是所有通道上的逻辑空闲。此示例强调了报文始终是4个字符的整数倍，因为起始字符始终出现在通道0，而结束字符始终在通道3。它还说明了有序集必须同时出现在所有通道上。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11-12: x4 Packet Format | 图11-12：x4数据包格式
 
@@ -419,7 +393,6 @@ Figure 11-12: x4 Packet Format | 图11-12：x4数据包格式
   </tbody>
 </table>
 
-
 ## 11.2.4.6 x8 Packet Format Example | 11.2.4.6 x8 数据包格式示例
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -433,7 +406,6 @@ Figure 11-12: x4 Packet Format | 图11-12：x4数据包格式
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The example shown in Figure 11-13 on page 377 illustrates the format of packets transmitted over a x8 link. The illustration shows a TLP followed by a SKIP ordered set, a DLLP, and finally a TLP that ends on Lane 3. At that point, the transmitter has no more packets ready to send but the current packet doesn't extend to include all the available lanes. One might expect the extra lanes to be filled with Logical Idle, but it won't work here because idles must appear on all lanes at the same time. So another fill character is needed, and the spec writers chose to use the PAD control character here. The only other place that PAD is used is during the training process. Finally, since there are still no more packets to send, Logical Idles are sent on all the lanes.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">第377页图11-13所示的示例说明了通过 x8 链路传输的报文格式。图中展示了一个 TLP，后跟一个 SKIP 有序集、一个 DLLP，以及最后一个结束于 Lane 3 的 TLP。此时，发送方已没有更多报文要发送，但当前报文并未扩展到涵盖所有可用通道。有人可能预计多余通道会用逻辑空闲来填充，但这里行不通，因为空闲必须同时出现在所有通道上。因此需要另一种填充字符，规范作者选择了在此处使用 PAD 控制字符。PAD 唯一被使用的另一个地方是在训练过程中。最后，由于仍然没有更多报文要发送，在所有通道上发送逻辑空闲。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11-13: x8 Packet Format | 图11-13：x8数据包格式
 
@@ -454,7 +426,6 @@ Figure 11-13: x8 Packet Format | 图11-13：x8数据包格式
   </tbody>
 </table>
 
-
 ## 11.2.5.1 Scrambler Algorithm | 11.2.5.1 扰码器算法
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -468,7 +439,6 @@ Figure 11-13: x8 Packet Format | 图11-13：x8数据包格式
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The scrambler described in the spec is shown in Figure 11-14 on page 378. It's made of a 16-bit Linear Feedback Shift Register (LFSR) with feedback points that implement the following polynomial:</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">规范中描述的扰码器如图11-14（第378页）所示。它由一个16位线性反馈移位寄存器（LFSR）构成，其反馈点实现了以下多项式：</td></tr>
   </tbody>
 </table>
-
 
 $$
 G (x) = X ^ {1 6} + X ^ {5} + X ^ {4} + X ^ {3} + 1
@@ -490,7 +460,6 @@ Figure 11-14: Scrambler | 图11-14：加扰器
   </tbody>
 </table>
 
-
 ## 11.2.5.2 Some Scrambler Implementation Rules | 11.2.5.2 一些扰码器实现规则
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -510,7 +479,6 @@ Figure 11-14: Scrambler | 图11-14：加扰器
   </tbody>
 </table>
 
-
 ## 11.2.5.3 Disabling Scrambling | 11.2.5.3 禁用加扰
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -526,9 +494,6 @@ Figure 11-14: Scrambler | 图11-14：加扰器
   </tbody>
 </table>
 
-
-
-
 ## 11.2.6.1 General | 11.2.6.1 概述
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -542,7 +507,6 @@ Figure 11-14: Scrambler | 图11-14：加扰器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The first two generations of PCIe use 8b/10b encoding. Each Lane implements an 8b/10b Encoder that translates the 8‑bit characters into 10‑bit Symbols. This coding scheme was patented by IBM in 1984 and is widely used in many serial transports today, such as Gigabit Ethernet and Fibre Channel.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">PCIe 的前两代使用 8b/10b 编码。每条通道（Lane）实现一个 8b/10b 编码器，将 8 位字符转换为 10 位符号（Symbol）。该编码方案由 IBM 于 1984 年获得专利，如今广泛应用于许多串行传输中，例如千兆以太网和光纤通道。</td></tr>
   </tbody>
 </table>
-
 
 ## 11.3.1 Receiver Equalization (Motivation) | 11.3.1 接收均衡（动机）
 
@@ -563,7 +527,6 @@ Figure 11-14: Scrambler | 图11-14：加扰器
   </tbody>
 </table>
 
-
 Figure 11-15: Example of 8-bit Character 00h Encoding | 图11-15：8位字符00h编码示例  
 图11-15：8位字符00h编码示例
 
@@ -582,9 +545,6 @@ Figure 11-15: Example of 8-bit Character 00h Encoding | 图11-15：8位字符00h
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">As described in the literature on 8b/10b coding, the design isn't strictly 8 bits to 10 bits. Instead, it's really a 5-to-6 bit encoding followed by a 3-to-4 bit encoding. The sub-blocks are internal to the design but their existence helps to explain some of the properties for a legal Symbol, as listed below. A Symbol that doesn't follow these properties is considered invalid.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如关于8b/10b编码的文献所述，该设计并非严格的8位到10位转换。实际上，它是一个5位到6位编码后接一个3位到4位编码。子块是设计内部的，但它们的存在有助于解释合法符号的一些属性，如下所列。不符合这些属性的符号被视为无效。</td></tr>
   </tbody>
 </table>
-
-
-## PCI Express Technology | PCI Express 技术
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
@@ -605,7 +565,6 @@ Figure 11-15: Example of 8-bit Character 00h Encoding | 图11-15：8位字符00h
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -622,7 +581,6 @@ Figure 11-15: Example of 8-bit Character 00h Encoding | 图11-15：8位字符00h
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">4. The character takes the form Dxx.y for Data characters, or Kxx.y for Control characters. In this notation, xx is the decimal equivalent of the 5-bit field, and y is the decimal equivalent of the 3-bit field.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">4. 数据字符采用Dxx.y形式，控制字符采用Kxx.y形式。在此记法中，xx是5位字段的十进制值，y是3位字段的十进制值。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11-16: 8b/10b Nomenclature | 图11-16：8b/10b命名法
 
@@ -644,7 +602,6 @@ Figure 11-16: 8b/10b Nomenclature | 图11-16：8b/10b命名法
   </tbody>
 </table>
 
-
 ## 11.2.6.4 Encoding Procedure | 11.2.6.4 编码过程
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -658,7 +615,6 @@ Figure 11-16: 8b/10b Nomenclature | 图11-16：8b/10b命名法
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">There are different ways that 8b/10b encoding could be accomplished. The simplest approach is probably to implement a look‑up table that contains all the possible output values. However, this table can require a comparatively large number of gates. Another approach is to implement the decoder as a logic block, and this is usually the preferred choice because it typically results in a smaller and cheaper solution. The specifics of the encoding logic are described in detail in the referenced literature, so we’ll focus here on the bigger picture of how it works instead.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">有多种方式可以实现8b/10b编码。最简单的方法是实现一个包含所有可能输出值的查找表。然而，这种表可能需要相对大量的门电路。另一种方法是把解码器实现为逻辑块，这通常是首选方案，因为它通常能产生更小、更廉价的解决方案。编码逻辑的具体细节在参考文献中有详细描述，因此我们这里将关注其工作原理的宏观层面。</td></tr>
   </tbody>
 </table>
-
 
 ## PCI Express Technology | PCI Express技术
 
@@ -675,7 +631,6 @@ Figure 11-16: 8b/10b Nomenclature | 图11-16：8b/10b命名法
   </tbody>
 </table>
 
-
 Figure 11-17: 8-bit to 10-bit (8b/10b) Encoder | 图11-17：8位到10位（8b/10b）编码器
 
 <img src="images/part03_617e4056ba20b5bc1e60876252ee7489ce2c1b0067167e006b7996f804dae376.jpg" width="700" alt="">
@@ -691,7 +646,6 @@ Figure 11-17: 8-bit to 10-bit (8b/10b) Encoder | 图11-17：8位到10位（8b/10
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Figure 11-18: Example 8b/10b Encodings</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">图11-18：8b/10b编码示例</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">D or K Character</td><td style="border:1px solid #ddd;">Hex Byte</td><td style="border:1px solid #ddd;">Binary Bits HGF EDCBA</td><td style="border:1px solid #ddd;">Byte Name</td><td colspan="2" style="border:1px solid #ddd;">CRD - abcdei fghj</td><td colspan="2" style="border:1px solid #ddd;">CRD + abcdei fghj</td></tr><tr><td style="border:1px solid #ddd;">Data (D)</td><td style="border:1px solid #ddd;">6A</td><td style="border:1px solid #ddd;">011 01010</td><td style="border:1px solid #ddd;">D10.3</td><td colspan="2" style="border:1px solid #ddd;">010101 1100</td><td colspan="2" style="border:1px solid #ddd;">010101 0011</td></tr><tr><td style="border:1px solid #ddd;">Data (D)</td><td style="border:1px solid #ddd;">1B</td><td style="border:1px solid #ddd;">000 11011</td><td style="border:1px solid #ddd;">D27.0</td><td colspan="2" style="border:1px solid #ddd;">110110 0100</td><td colspan="2" style="border:1px solid #ddd;">001001 1011</td></tr><tr><td style="border:1px solid #ddd;">Data (D)</td><td style="border:1px solid #ddd;">F7</td><td style="border:1px solid #ddd;">111 10111</td><td style="border:1px solid #ddd;">D23.7</td><td colspan="2" style="border:1px solid #ddd;">111010 0001</td><td colspan="2" style="border:1px solid #ddd;">000101 1110</td></tr><tr><td style="border:1px solid #ddd;">Control (K)</td><td style="border:1px solid #ddd;">F7</td><td style="border:1px solid #ddd;">111 10111</td><td style="border:1px solid #ddd;">K23.7</td><td colspan="2" style="border:1px solid #ddd;">111010 1000</td><td colspan="2" style="border:1px solid #ddd;">000101 0111</td></tr><tr><td style="border:1px solid #ddd;">Control (K)</td><td style="border:1px solid #ddd;">BC</td><td style="border:1px solid #ddd;">101 11100</td><td style="border:1px solid #ddd;">K28.5</td><td colspan="2" style="border:1px solid #ddd;">001111 1010</td><td colspan="2" style="border:1px solid #ddd;">110000 0101</td></tr></table>
 
@@ -710,7 +664,6 @@ Figure 11-17: 8-bit to 10-bit (8b/10b) Encoder | 图11-17：8位到10位（8b/10
   </tbody>
 </table>
 
-
 Figure 11‐19: Example 8b/10b Transmission | 图11‐19：8b/10b传输示例
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -724,7 +677,6 @@ Figure 11‐19: Example 8b/10b Transmission | 图11‐19：8b/10b传输示例
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Use these two characters in the example below:</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在下面的示例中使用这两个字符：</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">D/K#</td><td style="border:1px solid #ddd;">Hex Byte</td><td style="border:1px solid #ddd;">Binary Bits HGF EDCBA</td><td style="border:1px solid #ddd;">Byte Name</td><td style="border:1px solid #ddd;">CRD – abcdei fghj</td><td style="border:1px solid #ddd;">CRD + abcdei fghj</td></tr><tr><td style="border:1px solid #ddd;">Control (K)</td><td style="border:1px solid #ddd;">BC</td><td style="border:1px solid #ddd;">101 11100</td><td style="border:1px solid #ddd;">K28.5</td><td style="border:1px solid #ddd;">001111 1010</td><td style="border:1px solid #ddd;">110000 0101</td></tr><tr><td style="border:1px solid #ddd;">Data (D)</td><td style="border:1px solid #ddd;">6A</td><td style="border:1px solid #ddd;">011 01010</td><td style="border:1px solid #ddd;">D10.3</td><td style="border:1px solid #ddd;">010101 1100</td><td style="border:1px solid #ddd;">010101 0011</td></tr></table>
 
@@ -740,7 +692,6 @@ Figure 11‐19: Example 8b/10b Transmission | 图11‐19：8b/10b传输示例
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;"></td><td style="border:1px solid #ddd;">CRD</td><td style="border:1px solid #ddd;">Character</td><td style="border:1px solid #ddd;">CRD</td><td style="border:1px solid #ddd;">Character</td><td style="border:1px solid #ddd;">CRD</td><td style="border:1px solid #ddd;">Character</td><td style="border:1px solid #ddd;">CRD</td></tr><tr><td style="border:1px solid #ddd;">Character to be transmitted</td><td rowspan="2" style="border:1px solid #ddd;">-</td><td style="border:1px solid #ddd;">K28.5 (BCh)</td><td rowspan="2" style="border:1px solid #ddd;">+</td><td style="border:1px solid #ddd;">K28.5 (BCh)</td><td rowspan="2" style="border:1px solid #ddd;">-</td><td style="border:1px solid #ddd;">D10.3 (6Ah)</td><td rowspan="2" style="border:1px solid #ddd;">-</td></tr><tr><td style="border:1px solid #ddd;">Bit stream transmitted</td><td style="border:1px solid #ddd;">Yields 001111 1010 CRD is +</td><td style="border:1px solid #ddd;">Yields 110000 0101 CRD is -</td><td style="border:1px solid #ddd;">Yields 010101 1100 CRD is neutral</td></tr></table>
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -755,7 +706,6 @@ Figure 11‐19: Example 8b/10b Transmission | 图11‐19：8b/10b传输示例
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The 8b/10b encoding provides several special characters for Link management and Table 11‑1 on page 386 shows their encoding.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">8b/10b编码提供了多个用于链路管理的特殊字符，表11‑1（第386页）展示了它们的编码。</td></tr>
   </tbody>
 </table>
-
 
 Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字符编码和定义
 
@@ -782,7 +732,6 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
   </tbody>
 </table>
 
-
 ## 11.2.7 Ordered Sets | 11.2.7 有序集
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -801,7 +750,6 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Electrical Idle Exit Ordered Set (EIEOS). Added in the PCIe 2.0 spec, this Ordered Set was defined to provide a lower‐frequency sequence required to exit the electrical idle Link state. The EIEOS for 8b/10b encoding, uses repeated K28.7 control characters to appear as a repeating string of 5 ones followed by 5 zeros. This low frequency string produces a low‐frequency signal that allows for higher signal voltages that are more readily detected at the receiver. In fact, the spec states that this pattern guarantees that the Receiver will properly detect an exit from Electrical Idle, something that scrambled data cannot do. For details on electrical idle exit, refer to the section "Electrical Idle" on page 736.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">电气空闲退出有序集（EIEOS）。该有序集在PCIe 2.0规范中新增，定义用于提供退出电气空闲链路状态所需的低频序列。对于8b/10b编码的EIEOS，使用重复的K28.7控制字符，呈现为重复的5个1后跟5个0的字符串。该低频字符串产生低频信号，允许更高的信号电压，从而更易于在接收器端被检测到。实际上，规范指出该模式保证接收器能够正确检测到电气空闲退出，这是加扰数据无法做到的。有关电气空闲退出的详细信息，请参考第736页"电气空闲"章节。</td></tr>
   </tbody>
 </table>
-
 
 ## 11.2.11 Serializer | 11.2.11 串行器
 
@@ -833,7 +781,6 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
   </tbody>
 </table>
 
-
 ## 11.2.10 Miscellaneous Transmit Topics | 11.2.10 杂项发送主题
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -847,7 +794,6 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Miscellaneous Transmit Topics</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 杂项发送主题</td></tr>
   </tbody>
 </table>
-
 
 ## Logical Idle | 逻辑空闲
 
@@ -868,7 +814,6 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -882,7 +827,6 @@ Table 11‑1: Control Character Encoding and Definition | 表11‑1：控制字�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 11‐2: Allowable Transmitter Signal Skew</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">表 11-2：允许的发送器信号偏斜</td></tr>
   </tbody>
 </table>
-
 
 Table 11‐2: Allowable Transmitter Signal Skew | 表11‐2：允许的发送器信号偏斜
 
@@ -905,9 +849,6 @@ Table 11‐2: Allowable Transmitter Signal Skew | 表11‐2：允许的发送器
   </tbody>
 </table>
 
-
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -922,7 +863,6 @@ Table 11‐2: Allowable Transmitter Signal Skew | 表11‐2：允许的发送器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">SKIP ordered sets must not be transmitted while the Compliance Pattern is in progress.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在进行合规性码型期间，不得发送SKIP有序集。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11‑20: SKIP Ordered Set | 图11‑20：SKIP有序集
 
@@ -957,9 +897,6 @@ Figure 11-21: Physical Layer Receive Logic Details (Gen1 and Gen2 Only) | 图11-
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The first parts of the receiver logic are shown in Figure 11-22, including the differential input buffer for each lane. The buffer senses peak-to-peak voltage differences and determines whether the difference represents a logical one or zero.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">接收器逻辑的前几部分如图11-22所示，包括每条通道(Lane)的差分输入缓冲器。该缓冲器检测峰-峰值电压差，并确定该差值代表逻辑1还是逻辑0。</td></tr>
   </tbody>
 </table>
-
-
-## PCI Express Technology | PCI Express 技术
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -996,7 +933,6 @@ Figure 11-22: Receiver Logic's Front End Per Lane | 图11-22：每条通道的�
   </tbody>
 </table>
 
-
 ## Achieving Bit Lock | 实现位锁
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1011,7 +947,6 @@ Figure 11-22: Receiver Logic's Front End Per Lane | 图11-22：每条通道的�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">During Link training, the transmitter sends a long series of TS1 and TS2 ordered sets to the receiver, which then uses the bit transitions in them to achieve Bit Lock. There are enough transitions on the Link during normal operation for the receiver to maintain Bit Lock after that.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在链路训练期间，发送端向接收端发送一长串 TS1 和 TS2 有序集，接收端随后利用其中的位跳变来实现位锁。在正常操作期间，链路上有足够的跳变供接收端在此之后维持位锁。</td></tr>
   </tbody>
 </table>
-
 
 ## Losing Bit Lock | 丢失位锁定
 
@@ -1046,7 +981,6 @@ If the Link is put in a low power state (such as L0s or L1) in which packet tran
   </tbody>
 </table>
 
-
 ## 11.3.3 Deserializer | 11.3.3 解串器
 
 ## 11.2.6.1 General | 11.2.6.1 概述
@@ -1063,9 +997,6 @@ If the Link is put in a low power state (such as L0s or L1) in which packet tran
   </tbody>
 </table>
 
-
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -1074,10 +1005,8 @@ If the Link is put in a low power state (such as L0s or L1) in which packet tran
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## PCI Express Technology</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## PCI Express 技术</td></tr>
-  </tbody>
+</tbody>
 </table>
-
 
 ## Achieving Symbol Lock | 获取符号锁定
 
@@ -1149,7 +1078,6 @@ During Link training when the Link is first established or when re-training is n
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Once the Link is trained, the receive clock (Rx Clock) in the receiver is the same as the transmit clock (Tx Clock) at the other end of the Link (because the receive clock is derived from the bit stream).</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">一旦链路完成训练，接收器中的接收时钟（Rx Clock）与链路另一端的发送时钟（Tx Clock）是相同的（因为接收时钟是从比特流中恢复出来的）。</td></tr>
   </tbody>
 </table>
-
 
 ## Elastic Buffer's Role | 弹性缓冲器的作用
 
@@ -1263,7 +1191,6 @@ When the serial bit streams carrying a packet arrive at the receiver, this Lane-
   </tbody>
 </table>
 
-
 ## Receiver Lane-to-Lane De-Skew Capability | 接收器通道间去偏斜能力
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1309,8 +1236,6 @@ An unambiguous pattern is needed on all lanes at the same time to perform deskew
 
 Figure 11‐23: Receiver's Link De‐Skew Logic | 图11‐23：接收器的链路解偏斜逻辑
 
-
-
 ## 11.2.6.1 General | 11.2.6.1 概述
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1338,7 +1263,6 @@ PCIe的前两代使用8b/10b编码，而Gen3则不使用。我们首先探讨其
   </tbody>
 </table>
 
-
 ## Code Violation and Disparity Error Detection | 码违例和失衡错误检测
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1352,7 +1276,6 @@ PCIe的前两代使用8b/10b编码，而Gen3则不使用。我们首先探讨其
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">General. The error detection logic of the 8b/10b decoder detects illegal Symbols in the received Symbol stream. Some error checking is optional in the receiver, but the spec requires that these errors be checked and reported as a Receiver Error. The two types of errors detected are:</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">概述。8b/10b 解码器的错误检测逻辑在接收到的符号流中检测非法符号。某些错误检查在接收端是可选的，但规范要求必须检查这些错误并将其报告为接收器错误。检测到的两种错误类型是：</td></tr>
   </tbody>
 </table>
-
 
 ## Code Violations | 代码违规
 
@@ -1432,7 +1355,6 @@ PCIe的前两代使用8b/10b编码，而Gen3则不使用。我们首先探讨其
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">At the receiver a Symbol cannot have a disparity that doesn't match what it should be for the CRD. If it does, a disparity error is detected. Some disparity errors may not be detectable until the subsequent Symbol is processed (see Figure 11‐25 on page 401). For example, if two bits in a Symbol flip in error, the error may not be visible and the Symbol may decode into a valid 8‐bit character. Such an error won't be detected in the Physical Layer.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在接收端，符号的差异值必须与CRD所期望的差异值匹配。若不匹配，则检测到差异错误。某些差异错误可能直到处理后续符号时才被检测到（参见第401页图11-25）。例如，如果符号中的两个比特发生错误翻转，该错误可能不可见，且该符号可能被解码为有效的8位字符。此类错误将不会在物理层中被检测到。</td></tr>
   </tbody>
 </table>
-
 
 Figure 11‐24: 8b/10b Decoder per Lane | 图11‐24：每条通道的8b/10b解码器  
 <img src="images/part03_ce508842c25c7157ba376e1189dd79d55a2d6886fa9a898a14df7618f4153d5a.jpg" width="700" alt="">  
@@ -1557,7 +1479,6 @@ Figure 11‐26: Example of x8 Byte Un‐Striping | 图11‐26：x8字节解条�
   </tbody>
 </table>
 
-
 ## 12.4.8 Receive Buffer (Rx Buffer) | 12.4.8 接收缓冲器（Rx 缓冲器）
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1575,7 +1496,6 @@ Figure 11‐26: Example of x8 Byte Un‐Striping | 图11‐26：x8字节解条�
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -1584,11 +1504,9 @@ Figure 11‐26: Example of x8 Byte Un‐Striping | 图11‐26：x8字节解条�
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## PCI Express Technology</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## PCI Express 技术</td></tr>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">assume an interface clock of 250MHz and a Gen1 speed on the Link. For that case, the number of bytes in the data bus between these layers would be the same as the number of Lanes supported.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">假设接口时钟为250MHz，链路上为Gen1速率。在这种情况下，这些层之间的数据总线中的字节数将等于所支持的通道数。</td></tr>
+<tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">assume an interface clock of 250MHz and a Gen1 speed on the Link. For that case, the number of bytes in the data bus between these layers would be the same as the number of Lanes supported.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">假设接口时钟为250MHz，链路上为Gen1速率。在这种情况下，这些层之间的数据总线中的字节数将等于所支持的通道数。</td></tr>
   </tbody>
 </table>
-
 
 ## 11.4 Physical Layer Error Handling | 11.4 物理层错误处理
 
@@ -1683,7 +1601,6 @@ Optional error checking:
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">If the PCI Express Extended Advanced Error Capabilities register set is implemented, a Receiver Error sets the Receiver Error Status bit in the Correctable Error Status register. If enabled, the device can send an ERR\_COR (correctable error) message to the Root Complex.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如果实现了PCI Express扩展高级错误能力寄存器集，接收器错误将在可纠正错误状态寄存器中设置接收器错误状态位。如果使能，设备可以向根复合体发送ERR\_COR（可纠正错误）消息。</td></tr>
   </tbody>
 </table>
-
 
 ## 11.5 Active State Power Management | 11.5 主动状态电源管理
 

@@ -54,8 +54,6 @@ PCI Express 代表了与其前身的并行总线模型的重大转变。作为�
 </tr>
 </table>
 
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -136,8 +134,6 @@ Overcoming Problems. By way of review, there are a handful of problems that limi
 </tr>
 </table>
 
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -171,8 +167,6 @@ Bandwidth. The combination of high speed and wide Links that PCIe supports can r
 </td>
 </tr>
 </table>
-
-## Chapter 2: PCIe Architecture Overview | 第2章：PCIe 架构概述
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -225,8 +219,6 @@ Note that in the above calculations, we divide by 10 bits per symbol not 8 bits 
 </td>
 </tr>
 </table>
-
-## PCI Express Technology | PCI Express 技术
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -557,7 +549,6 @@ Figure 2-12: PCI Express Device Layers | 图2-12：PCI Express设备层
 
 <img src="images/part01_47b594d06dc401b1dd86f88ea3ba1a41b677ec3e156a5d1a5023a8ebf9bb5a74.jpg" width="700" alt="">
 
-
 ## 2.2 Introduction to Device Layers | 2.2 设备层介绍
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -747,7 +738,6 @@ In contrast, Memory Writes and Messages are posted, meaning the targeted device 
 </table>
 
 ## 2.3.1 TLP (Transaction Layer Packet) Basics | 2.3.1 TLP（事务层数据包）基础
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -1373,8 +1363,6 @@ For the first part of the discussion, refer to Figure 2‑32 on page 81. The Req
 
 Figure 2‑32: Memory Read Request Phase | 图2‑32：存储器读请求阶段
 <img src="images/part01_34f769f7dfc2736dc87c224e3be486badf3cb160102a504621d040e46945b775.jpg" width="700" alt="">
-
-## PCI Express Technology | PCI Express 技术
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>

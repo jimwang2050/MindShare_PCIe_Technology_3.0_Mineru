@@ -147,7 +147,6 @@ PCIe 允许在单条 PCI 总线上连接最多 32 个设备，然而，PCIe 的�
 Figure 3-1: Example System | 图3-1：示例系统
 <img src="images/part01_796b26ae80ef8b4eae2285a9fc6e3e01a4e27dedd4ba1cd25a014299d25c40dc.jpg" width="700" alt="">
 
-
 ## 3.1.3 PCIe Functions | 3.1.3 PCIe 功能
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -358,7 +357,6 @@ Figure 3-4: Configuration Address Port at 0CF8h | 图3-4：0CF8h处的配置地�
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">31</td><td style="border:1px solid #ddd;">30</td><td style="border:1px solid #ddd;">24</td><td style="border:1px solid #ddd;">23</td><td style="border:1px solid #ddd;">16</td><td style="border:1px solid #ddd;">15</td><td style="border:1px solid #ddd;">11</td><td style="border:1px solid #ddd;">10</td><td style="border:1px solid #ddd;">8</td><td style="border:1px solid #ddd;">7</td><td style="border:1px solid #ddd;">2</td><td style="border:1px solid #ddd;">1</td><td style="border:1px solid #ddd;">0</td></tr><tr><td style="border:1px solid #ddd;"></td><td colspan="2" style="border:1px solid #ddd;">Reserved</td><td style="border:1px solid #ddd;">Bus Number</td><td style="border:1px solid #ddd;">Device Number</td><td style="border:1px solid #ddd;">Function Number</td><td colspan="4" style="border:1px solid #ddd;">Doubleword</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;"></td></tr><tr><td colspan="13" style="border:1px solid #ddd;">Register pointer (64 DW)Should always be zerosEnable Configuration Space Mapping1 = enabled</td></tr></table>
 
-
 ## 3.4.1.1 Configuration Address Port | 3.4.1.1 配置地址端口
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -478,9 +476,6 @@ The information written to the Configuration Address Port is latched by the Host
 </tr>
 </table>
 
-## Chapter 3: Configuration Overview | 第3章：配置概览
-
-
 Figure 3-5: Single-Root System | 图3-5：单根系统
 <img src="images/part01_df2188df034fe579e0116e8395740a1fa34157f569381757ab46ce9c517acb04.jpg" width="700" alt="">
 
@@ -557,8 +552,6 @@ When the spec writers were choosing how PCI‐X and, later, PCIe, would access C
 </td>
 </tr>
 </table>
-
-## Chapter 3: Configuration Overview | 第3章：配置概述
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -673,7 +666,6 @@ Figure 3-7: Type 0 Configuration Read and Write Request Headers | 图3-7：Type 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td colspan="19" style="border:1px solid #ddd;">Type 0 Configuration Read</td></tr><tr><td rowspan="2" style="border:1px solid #ddd;"></td><td colspan="3" style="border:1px solid #ddd;">+0</td><td colspan="6" style="border:1px solid #ddd;">+1</td><td colspan="4" style="border:1px solid #ddd;">+2</td><td colspan="5" style="border:1px solid #ddd;">+3</td></tr><tr><td style="border:1px solid #ddd;">7</td><td style="border:1px solid #ddd;">6</td><td style="border:1px solid #ddd;">5</td><td style="border:1px solid #ddd;">4</td><td style="border:1px solid #ddd;">3</td><td style="border:1px solid #ddd;">2</td><td style="border:1px solid #ddd;">1</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">7</td><td style="border:1px solid #ddd;">6</td><td style="border:1px solid #ddd;">5</td><td style="border:1px solid #ddd;">4</td><td style="border:1px solid #ddd;">3</td><td style="border:1px solid #ddd;">2</td><td style="border:1px solid #ddd;">1</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">7</td><td style="border:1px solid #ddd;">6</td></tr><tr><td style="border:1px solid #ddd;">Byte 0</td><td style="border:1px solid #ddd;">Fmt0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">1</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">R</td><td style="border:1px solid #ddd;">TC0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">Length0</td><td style="border:1px solid #ddd;">0</td></tr><tr><td style="border:1px solid #ddd;">Byte 4</td><td colspan="11" style="border:1px solid #ddd;">Requester ID</td><td colspan="4" style="border:1px solid #ddd;">Tag</td><td style="border:1px solid #ddd;">Last BE0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td></tr><tr><td style="border:1px solid #ddd;">Byte 8</td><td colspan="4" style="border:1px solid #ddd;">Bus Number</td><td colspan="4" style="border:1px solid #ddd;">Device Number</td><td colspan="3" style="border:1px solid #ddd;">Function Number</td><td style="border:1px solid #ddd;">R</td><td colspan="5" style="border:1px solid #ddd;">Register Number</td><td style="border:1px solid #ddd;">R</td></tr><tr><td colspan="19" style="border:1px solid #ddd;">Type 0 Configuration Write</td></tr><tr><td rowspan="2" style="border:1px solid #ddd;"></td><td colspan="3" style="border:1px solid #ddd;">+0</td><td colspan="8" style="border:1px solid #ddd;">+1</td><td colspan="4" style="border:1px solid #ddd;">+2</td><td colspan="3" style="border:1px solid #ddd;">+3</td></tr><tr><td style="border:1px solid #ddd;">7</td><td style="border:1px solid #ddd;">6</td><td style="border:1px solid #ddd;">5</td><td style="border:1px solid #ddd;">4</td><td style="border:1px solid #ddd;">3</td><td style="border:1px solid #ddd;">2</td><td style="border:1px solid #ddd;">1</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">7</td><td style="border:1px solid #ddd;">6</td><td style="border:1px solid #ddd;">5</td><td style="border:1px solid #ddd;">4</td><td style="border:1px solid #ddd;">3</td><td style="border:1px solid #ddd;">2</td><td style="border:1px solid #ddd;">1</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">7</td><td style="border:1px solid #ddd;">6</td></tr><tr><td style="border:1px solid #ddd;">Byte 0</td><td style="border:1px solid #ddd;">Fmt0</td><td style="border:1px solid #ddd;">1</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">Type0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">1</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">R</td><td style="border:1px solid #ddd;">TC0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">Length0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td></tr><tr><td style="border:1px solid #ddd;">Byte 4</td><td colspan="11" style="border:1px solid #ddd;">Requester ID</td><td colspan="4" style="border:1px solid #ddd;">Tag</td><td style="border:1px solid #ddd;">Last BE0</td><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">0</td></tr><tr><td style="border:1px solid #ddd;">Byte 8</td><td colspan="4" style="border:1px solid #ddd;">Bus Number</td><td colspan="4" style="border:1px solid #ddd;">Device Number</td><td colspan="3" style="border:1px solid #ddd;">Function Number</td><td style="border:1px solid #ddd;">R</td><td colspan="5" style="border:1px solid #ddd;">Register Number</td><td style="border:1px solid #ddd;">R</td></tr></table>
 
 ## 3.5.2 Type 1 Configuration Request | 3.5.2 Type 1 配置请求
-
 
 <table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead>
@@ -1504,8 +1496,6 @@ The bridge is now aware that the number of the bus directly attached downstream 
 </tr>
 </table>
 
-## PCI Express Technology | PCI Express 技术
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -1669,9 +1659,6 @@ The final values encoded into each bridge's Primary, Secondary and Subordinate B
 </tr>
 </table>
 
-## Chapter 3: Configuration Overview | 第3章：配置概览
-
-
 Figure 3-13: Single-Root System | 图3-13：单根系统
 <img src="images/part01_ba8ec777f8414269c7aa05643d501d98ab993c0f8f9b86cb070bc88ce59a52fe.jpg" width="700" alt="">
 
@@ -1832,14 +1819,6 @@ The bridge is now aware that the number of the bus directly attached to its down
 </table>
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
-PCI Express Technology
-</td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI Express 技术
-</td>
-</tr>
 </table>
 
 Figure 3-14: Multi-Root System | 图3-14：多根系统

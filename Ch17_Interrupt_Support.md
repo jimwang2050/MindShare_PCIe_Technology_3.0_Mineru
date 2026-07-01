@@ -2,8 +2,6 @@
 
 # 17 Interrupt Support
 
-
-
 ## The Previous Chapter | 上一章
 
 <table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -34,7 +32,6 @@
   </tbody>
 </table>
 
-
 ## 17.1 Interrupt Support Background | 17.1 中断支持背景
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -48,7 +45,6 @@
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## Interrupt Support Background</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 中断支持背景</td></tr>
   </tbody>
 </table>
-
 
 ## 17.1.1.1 General | 17.1.1.1 概述
 
@@ -66,7 +62,6 @@
   </tbody>
 </table>
 
-
 ## 17.1.1 Two Methods of Interrupt Delivery | 17.1.1 两种中断投递方式
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -82,7 +77,6 @@
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">PCIe supports this PCI interrupt functionality for backward compatibility, but a design goal for serial transports is to minimize the pin count. As a result, the INTx# signals were not implemented as sideband pins. Instead, a Function can generate an inband interrupt message packet to indicate the assertion or deassertion of a pin. These messages act as "virtual wires", and target the interrupt controller in the system (typically in the Root Complex), as shown in Figure 17-2 on page 796. This picture also illustrates how an older PCI device using the pins can work in a PCIe system; the bridge translates the assertion of a pin into an interrupt emulation message (INTx) going upstream to the Root Complex. The expectation is that PCIe devices would not normally need to use the INTx messages but, at the time of this writing, in practice they often do because system software has not been updated to support MSI.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">PCIe为了向后兼容而支持这种PCI中断功能，但串行传输的一个设计目标是尽量减少引脚数量。因此，INTx#信号并未实现为边带引脚。相反，功能（Function）可以生成带内中断消息数据包来指示引脚的断言或取消断言。这些消息充当"虚拟线"，目标是系统中的中断控制器（通常在根复合体中），如图17-2（第796页）所示。该图还说明了使用引脚的旧式PCI设备如何在PCIe系统中工作；桥接器将引脚的断言转换为发往根复合体的上游中断仿真消息（INTx）。预期PCIe设备通常不需要使用INTx消息，但在撰写本文时，实践中它们经常使用，因为系统软件尚未更新以支持MSI。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17-1: PCI Interrupt Delivery | 图17-1：PCI中断传递
 
@@ -101,7 +95,6 @@ Figure 17-1: PCI Interrupt Delivery | 图17-1：PCI中断传递
   </tbody>
 </table>
 
-
 Figure 17-2: Interrupt Delivery Options in PCIe System | 图17-2：PCIe系统中的中断传递选项
 
 <img src="images/part05_981b211aa82038ad22c82db88bb070d177e6b8a2f94224ed268786d39066e70a.jpg" width="700" alt="">
@@ -117,7 +110,6 @@ Figure 17-2: Interrupt Delivery Options in PCIe System | 图17-2：PCIe系统中
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## The Legacy Model</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## 传统模型</td></tr>
   </tbody>
 </table>
-
 
 ## 17.1.1.1 General | 17.1.1.1 概述
 
@@ -137,7 +129,6 @@ Figure 17-2: Interrupt Delivery Options in PCIe System | 图17-2：PCIe系统中
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">5. That address would point to the first instruction of the ISR that had been set up to handle this interrupt. This handler would be executed, servicing the interrupt and telling its device to deassert its INTx# line and then would return control to the previously interrupted task.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">5. 该地址指向为处理此中断而设置的 ISR 的第一条指令。将执行此处理程序，为该中断服务并通知其设备取消断言 INTx# 线，然后将控制权返回给先前被中断的任务。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17-3: Legacy Interrupt Example | 图17-3：传统中断示例
 
@@ -162,7 +153,6 @@ Figure 17-3: Legacy Interrupt Example | 图17-3：传统中断示例
   </tbody>
 </table>
 
-
 Figure 17‑4: APIC Model for Interrupt Delivery | 图17‑4：中断传递的APIC模型
 
 <img src="images/part05_ce26d7a690338f1dc4517fbaef8f6bcd7b9ff38e5913f5179763b8023c83ba9b.jpg" width="700" alt="">
@@ -183,7 +173,6 @@ Figure 17‑4: APIC Model for Interrupt Delivery | 图17‑4：中断传递的AP
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Message Signaled Interrupts that were added as an option with the 2.2 version of the spec. MSI needs no modification for use in a PCIe system.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">消息 信号中断（MSI），作为2.2版规范的一个可选特性加入。MSI在PCIe系统中使用无需修改。</td></tr>
   </tbody>
 </table>
-
 
 ## Device INTx# Pins | 设备 INTx# 引脚
 
@@ -208,7 +197,6 @@ Figure 17‑4: APIC Model for Interrupt Delivery | 图17‑4：中断传递的AP
   </tbody>
 </table>
 
-
 ## 17.2.2.2 Determining INTx# Pin Support | 17.2.2.2 确定 INTx# 引脚支持
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -222,7 +210,6 @@ Figure 17‑4: APIC Model for Interrupt Delivery | 图17‑4：中断传递的AP
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">PCI functions indicate support for an INTx# signal in their configuration headers. The read‑only Interrupt Pin register illustrated in Figure 17‑5 indicates whether an INTx# is supported by this function and if so, which interrupt pin will it assert when requesting an interrupt.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">PCI 功能在配置头中指示对 INTx# 信号的支持。如图 17‑5 所示的只读中断引脚寄存器指示该功能是否支持 INTx#，如果支持，则在请求中断时将断言哪一根中断引脚。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17‑5: Interrupt Registers in PCI Configuration Header | 图17‑5：PCI配置头中的中断寄存器
 
@@ -243,7 +230,6 @@ Figure 17‑5: Interrupt Registers in PCI Configuration Header | 图17‑5：PCI
   </tbody>
 </table>
 
-
 ## 17.2.2.4 Associating the INTx# Line to an IRQ Number | 17.2.2.4 将 INTx# 线关联到 IRQ 号
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -257,7 +243,6 @@ Figure 17‑5: Interrupt Registers in PCI Configuration Header | 图17‑5：PCI
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Based on system requirements, the router is programmed to connect its four inputs to four available PIC inputs. Once this is done, the routing of the INTx# pin associated with each function is known and the Interrupt Line number is written by software into each Function. The value is ultimately read by the Function's device driver so it will know which interrupt table entry it has been assigned. That's the place where the starting address of its ISR will be written, a process referred to as "hooking the interrupt". When this function later generates an interrupt, the CPU will receive the vector number that corresponds to the IRQ specified in the Interrupt Line register. The CPU uses this vector to index into the interrupt vector table to fetch the entry point of the interrupt service routine associated with the Function's device driver.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">根据系统需求，路由器被编程以将其四个输入连接到四个可用的PIC输入。完成后，与每个功能关联的INTx#引脚的布线已知，软件将中断线号写入每个功能。该值最终由功能的设备驱动程序读取，以便驱动程序知道它被分配了哪个中断表条目。这是其ISR起始地址将被写入的位置，这一过程称为"挂接中断"。当该功能随后产生中断时，CPU将收到与中断线寄存器中指定的IRQ对应的向量号。CPU使用该向量索引中断向量表，以获取与该功能设备驱动程序关联的中断服务例程的入口点。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17-6: INTx Signal Routing is Platform Specific | 图17-6：INTx信号路由是平台相关的
 
@@ -280,7 +265,6 @@ Figure 17-6: INTx Signal Routing is Platform Specific | 图17-6：INTx信号路�
   </tbody>
 </table>
 
-
 Figure 17-7: Configuration Command Register — Interrupt Disable Field | 图17-7：配置命令寄存器 — 中断禁用字段
 
 Figure 17-8: Configuration Status Register — Interrupt Status Field | 图17-8：配置状态寄存器 — 中断状态字段
@@ -302,7 +286,6 @@ Figure 17-8: Configuration Status Register — Interrupt Status Field | 图17-8�
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -317,7 +300,6 @@ Figure 17-8: Configuration Status Register — Interrupt Status Field | 图17-8�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Boot Devices — PC systems commonly use the legacy interrupt model during the boot sequence because MSI usually requires OS‐level initialization. Generally, a minimum of three subsystems are needed for booting: an output to the operator such as video, an input from the operator which is typically the keyboard, and a device that can be used to fetch the OS, typically a hard drive. PCIe devices involved in initializing the system are called "boot devices." Boot devices will use legacy interrupt support until the OS and device drivers are loaded, after which it's preferable they use MSI.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">引导设备 — PC系统在引导序列期间通常使用传统中断模型，因为MSI通常需要操作系统级初始化。通常，引导至少需要三个子系统：面向操作者的输出设备（如显示器）、来自操作者的输入设备（通常是键盘）、以及可用于获取操作系统的设备（通常是硬盘）。参与系统初始化的PCIe设备称为"引导设备"。在操作系统和设备驱动程序加载完成之前，引导设备将使用传统中断支持，之后它们最好使用MSI。</td></tr>
   </tbody>
 </table>
-
 
 ## 17.2.3.1 Virtual INTx Wire Delivery | 17.2.3.1 虚拟 INTx 线传递
 
@@ -338,7 +320,6 @@ Figure 17-8: Configuration Status Register — Interrupt Status Field | 图17-8�
   </tbody>
 </table>
 
-
 Figure 17‐9: Example of INTx Messages to Virtualize INTA#‐INTD# Signal Transitions | 图17‐9：用于虚拟化INTA#-INTD#信号转换的INTx消息示例  
 <img src="images/part05_e54fb57f63b4fc4597cda9f8095c4c6c5cdcd465d3edbd4c61d0941ff432a9ee.jpg" width="700" alt="">
 
@@ -354,7 +335,6 @@ Figure 17‐9: Example of INTx Messages to Virtualize INTA#‐INTD# Signal Trans
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The second reason for the local routing type of these messages is due to the fact that we're emulating a pin-based signal. If a port receives an assert interrupt message that maps to INTA on its primary side and it has already sent an Assert\_INTA message upstream because of a previous interrupt, then there is no reason to send another one. INTA is already seen as asserted. More info about this collapsing of INTx messages can be found in "INTx Collapsing" on page 810.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">这些消息采用本地路由类型的第二个原因是，我们正在模拟基于引脚的中断信号。如果一个端口在其主侧收到一个映射到INTA的中断断言消息，而它由于之前的中断已经向上游发送过Assert\_INTA消息，那么就没有必要再发送一个。INTA已经被视为已断言。有关此INTx消息合并的更多信息，请参见第810页的"INTx合并"。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17‐10: INTx Message Format and Type | 图17‐10：INTx消息格式和类型  
 <img src="images/part05_1f4256f11b306fc9107e7a4cff68dbc371071fec0b1c66b1cf237c0bb3568c2e.jpg" width="700" alt="">
@@ -373,7 +353,6 @@ Figure 17‐10: INTx Message Format and Type | 图17‐10：INTx消息格式和�
   </tbody>
 </table>
 
-
 ## 17.2.4.1 INTx Mapping | 17.2.4.1 INTx 映射
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -390,7 +369,6 @@ Figure 17‐10: INTx Message Format and Type | 图17‐10：INTx消息格式和�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The reason for this interrupt mapping is the same as it was for PCI: to avoid as much as possible having multiple functions sharing the same INTx# pin. As stated previously, single function devices are required to use INTA if using legacy interrupts. So if all the Functions downstream of a Root Port used INTA and there was no mapping across bridges, they would all be routed to the same IRQ. Which means anytime one of the Functions asserted INTA, all the Functions would have to be checked. This would result in significant interrupt servicing latencies for the Functions at the end of the list. This interrupt mapping method is a crude attempt at distributing interrupts (especially INTA) across all four INTx virtual wires because each INTx virtual wire can be mapped to a separate IRQ at the interrupt controller.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">这种中断映射的原因与 PCI 相同：尽可能避免多个功能共享同一个 INTx# 引脚。如前所述，若使用传统中断，单功能设备必须使用 INTA。因此，如果根端口下游的所有功能都使用 INTA，且桥之间不存在映射，则它们都将路由到同一个 IRQ。这意味着只要其中一个功能断言了 INTA，就必须检查所有功能。这将导致列表末尾的功能出现显著的中断服务延迟。这种中断映射方法是一种粗略的尝试，旨在将中断（尤其是 INTA）分布到全部四条 INTx 虚拟连线上，因为每条 INTx 虚拟连线都可以映射到中断控制器上的独立 IRQ。</td></tr>
   </tbody>
 </table>
-
 
 Table 17-1: INTx Message Mapping Across Virtual PCI-to-PCI Bridges / 表 17-1：跨虚拟 PCI-to-PCI 桥的 INTx 消息映射 | 表17-1：跨虚拟 PCI-to-PCI 桥的 INTx 消息映射
 
@@ -416,7 +394,6 @@ Figure 17-11: Example of INTx Mapping | 图17-11：INTx映射示例
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Collapsing ensures that the interrupt controller will never receive two consecutive Assert_INTx or Deassert_INTx messages for the shared interrupts. This is equivalent to INTx signals being wire‑ORed.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">合并确保中断控制器永远不会收到两个连续的针对共享中断的 Assert_INTx 或 Deassert_INTx 消息。这等效于 INTx 信号进行线或处理。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17-12: Switch Uses Bridge Mapping of INTx Messages | 图17-12：交换机使用INTx消息的桥映射
 
@@ -444,7 +421,6 @@ Figure 17-12: Switch Uses Bridge Mapping of INTx Messages | 图17-12：交换机
   </tbody>
 </table>
 
-
 ## 17.3 The MSI Model | 17.3 MSI 模型
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -463,7 +439,6 @@ Figure 17-12: Switch Uses Bridge Mapping of INTx Messages | 图17-12：交换机
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -475,7 +450,6 @@ Figure 17-12: Switch Uses Bridge Mapping of INTx Messages | 图17-12：交换机
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The MSI Capability Structure resides in the PCI‑compatible config space area (first 256 bytes). There are four variations of the MSI Capability Structure based on whether it supports 64‑bit addressing or only 32‑bit and whether it supports per vector masking or not. Native PCIe devices are required to support 64‑bit addressing. All four variations of the MSI Capability Structure can be found in Figure 17‑13 on page 813.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">MSI能力结构位于PCI兼容配置空间区域（前256字节）。根据其是否支持64位寻址或仅支持32位寻址，以及是否支持每向量屏蔽，MSI能力结构有四种变体。原生PCIe设备必须支持64位寻址。图17‑13（第813页）展示了MSI能力结构的所有四种变体。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17‑13: MSI Capability Structure Variations | 图17‑13：MSI能力结构变体
 
@@ -493,7 +467,6 @@ Figure 17‑13: MSI Capability Structure Variations | 图17‑13：MSI能力结�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">A Capability ID value of 05h identifies the MSI capability and is a read-only value.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">Capability ID值为05h标识MSI能力，且为只读值。</td></tr>
   </tbody>
 </table>
-
 
 ## 17.3.1.1 Next Capability Pointer | 17.3.1.1 下一个能力指针
 
@@ -527,7 +500,6 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Bit(s)</td><td style="border:1px solid #ddd;">Field Name</td><td style="border:1px solid #ddd;">Description</td></tr><tr><td style="border:1px solid #ddd;">0</td><td style="border:1px solid #ddd;">MSI Enable</td><td style="border:1px solid #ddd;">Read/Write. State after reset is 0, indicating that the device's MSI capability is disabled.0 = Function isdisabledfrom using MSI. It must use MSI-X or else INTx Messages.1 = Function isenabledto use MSI to request service and won't use MSI-X or INTx Messages.</td></tr></table>
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -542,7 +514,6 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 17-2: Format and Usage of Message Control Register (Continued)</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">表17-2：消息控制寄存器的格式与用法（续）</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Bit(s)</td><td style="border:1px solid #ddd;">Field Name</td><td style="border:1px solid #ddd;">Description</td></tr><tr><td rowspan="10" style="border:1px solid #ddd;">3:1</td><td rowspan="10" style="border:1px solid #ddd;">Multiple Message Capable</td><td style="border:1px solid #ddd;">Read-Only. System software reads this field to determine how many messages (interrupt vectors) the Function would like to use. The requested number of messages is a power of two, therefore a Function that would like three messages must request that four messages be allocated to it.</td></tr><tr><td style="border:1px solid #ddd;">Value Number of Messages Requested</td></tr><tr><td style="border:1px solid #ddd;">000b 1</td></tr><tr><td style="border:1px solid #ddd;">001b 2</td></tr><tr><td style="border:1px solid #ddd;">010b 4</td></tr><tr><td style="border:1px solid #ddd;">011b 8</td></tr><tr><td style="border:1px solid #ddd;">100b 16</td></tr><tr><td style="border:1px solid #ddd;">101b 32</td></tr><tr><td style="border:1px solid #ddd;">110b Reserved</td></tr><tr><td style="border:1px solid #ddd;">111b Reserved</td></tr><tr><td rowspan="10" style="border:1px solid #ddd;">6:4</td><td rowspan="10" style="border:1px solid #ddd;">Multiple Message Enable</td><td style="border:1px solid #ddd;">Read/Write. After system software reads the Multi-ple Message Capable field (previous row in this table) to see how many messages (interrupt vec-tors) are requested by the Function, it programs a 3-bit value in this field indicating the actual num-ber of messages allocated to the Function. The number allocated can be equal to or less than the number actually requested. The state of this field after reset is 000b.</td></tr><tr><td style="border:1px solid #ddd;">Value Number of Messages Requested</td></tr><tr><td style="border:1px solid #ddd;">000b 1</td></tr><tr><td style="border:1px solid #ddd;">001b 2</td></tr><tr><td style="border:1px solid #ddd;">010b 4</td></tr><tr><td style="border:1px solid #ddd;">011b 8</td></tr><tr><td style="border:1px solid #ddd;">100b 16</td></tr><tr><td style="border:1px solid #ddd;">101b 32</td></tr><tr><td style="border:1px solid #ddd;">110b Reserved</td></tr><tr><td style="border:1px solid #ddd;">111b Deferred</td></tr></table>
 
@@ -559,7 +530,6 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 17-2: Format and Usage of Message Control Register (Continued)</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">表17-2：消息控制寄存器的格式与用途（续）</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Bit(s)</td><td style="border:1px solid #ddd;">Field Name</td><td style="border:1px solid #ddd;">Description</td></tr><tr><td style="border:1px solid #ddd;">7</td><td style="border:1px solid #ddd;">64-bit Address Capable</td><td style="border:1px solid #ddd;">Read-Only.0 = Function does not implement the upper 32 bits of the Message Address register; only a 32-bit address is possible.1 = Function implements the upper 32 bits of the Message Address register and is capable of generating a 64-bit memory address.</td></tr><tr><td style="border:1px solid #ddd;">8</td><td style="border:1px solid #ddd;">Per-Vector Masking Capable</td><td style="border:1px solid #ddd;">Read-Only.0 = Function does not implement the Mask Bit register or the Pending Bit register; software does NOT have the ability to mask individual interrupts with this capability structure.1 = Function does implement the Mask Bit register or the Pending Bit register; software does have the ability to mask individual interrupts with this capability structure.</td></tr><tr><td style="border:1px solid #ddd;">15:9</td><td style="border:1px solid #ddd;">Reserved</td><td style="border:1px solid #ddd;">Read-Only. Always zero.</td></tr></table>
 
@@ -578,7 +548,6 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
   </tbody>
 </table>
 
-
 ## 17.3.1.3 Message Data Register | 17.3.1.3 消息数据寄存器
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -594,7 +563,6 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -609,7 +577,6 @@ Figure 17‑14: Message Control Register | 图17‑14：消息控制寄存器
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">If software clears a mask bit and the corresponding pending bit is set, the Function must send the MSI request at that time. Once the interrupt message has been sent, the Function would clear the pending bit.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如果软件清除某个屏蔽位，且对应的挂起位已被置位，则该 Function 必须立即发送 MSI 请求。当中断消息发送完成后，Function 应清除该挂起位。</td></tr>
   </tbody>
 </table>
-
 
 ## 17.3.2 Basics of MSI Configuration | 17.3.2 MSI 配置基础
 
@@ -629,7 +596,6 @@ The following list specifies the steps taken by software to configure MSI interr
   </tbody>
 </table>
 
-
 ## 17.3.3.1 Generating an MSI Interrupt | 17.3.3.1 生成 MSI 中断
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -646,7 +612,6 @@ The following list specifies the steps taken by software to configure MSI interr
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">5. Finally, software sets the MSI Enable bit in the device's Message Control register, enabling it to generate MSI writes and disabling other interrupt delivery options.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">5. 最后，软件设置设备消息控制寄存器中的MSI使能位，使其能够生成MSI写操作，并禁用其他中断投递选项。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17-15: Device MSI Configuration Process | 图17-15：设备MSI配置过程
 
@@ -676,7 +641,6 @@ Figure 17‐16 on page 821 illustrates the contents of an MSI Memory Write Trans
   </tbody>
 </table>
 
-
 ## 17.3.4 Multiple Messages | 17.3.4 多消息
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -696,7 +660,6 @@ Figure 17‐16 on page 821 illustrates the contents of an MSI Memory Write Trans
   </tbody>
 </table>
 
-
 Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Delivery | 图17‐16：本机设备MSI传递的存储器写事务格式  
 <img src="images/part05_853c46fe25ff1f321f1b8892650b097f2f07447ad0ca452aa4076d90951a22a7.jpg" width="700" alt="">
 
@@ -713,7 +676,6 @@ Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Deliver
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">## The MSI-X Model</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">## MSI-X 模型</td></tr>
   </tbody>
 </table>
-
 
 ## 17.1.1.1 General | 17.1.1.1 概述
 
@@ -733,7 +695,6 @@ Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Deliver
   </tbody>
 </table>
 
-
 ## MSI-X 能力结构 (Capability Structure)
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -747,7 +708,6 @@ Figure 17‐16: Format of Memory Write Transaction for Native-Device MSI Deliver
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">As shown in Figure 17-17 on page 822, the Message Control register is quite different from MSI. Interestingly, even though MSI-X can support up to 2048 vectors per Function versus the 32 for MSI, the number of configuration registers for MSI-X is actually a little smaller than for MSI. That's because the vector information isn't contained here. Instead, it's in a memory location (MMIO) pointed to by the Table BIR (Base address Indicator Register), as shown in Figure 17-18 on page 824.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如第822页图17-17所示，消息控制寄存器与MSI有很大不同。有趣的是，尽管MSI-X每个功能最多支持2048个向量，而MSI为32个，但MSI-X的配置寄存器数量实际上比MSI还要少一些。这是因为向量信息并不包含在此处，而是位于由Table BIR（基址指示器寄存器）指向的内存位置（MMIO）中，如第824页图17-18所示。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17-17: MSI-X Capability Structure | 图17-17：MSI-X能力结构
 
@@ -777,7 +737,6 @@ Figure 17-18: Location of MSI-X Table | 图17-18：MSI-X表位置
   </tbody>
 </table>
 
-
 Figure 17-19: MSI-X Table Entries | 图17-19：MSI-X表项
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">DW3</td><td style="border:1px solid #ddd;">DW2</td><td style="border:1px solid #ddd;">DW1</td><td style="border:1px solid #ddd;">DW0</td><td style="border:1px solid #ddd;"></td></tr><tr><td style="border:1px solid #ddd;">Vector Control</td><td style="border:1px solid #ddd;">Message Data</td><td style="border:1px solid #ddd;">Upper Address</td><td style="border:1px solid #ddd;">Lower Address</td><td style="border:1px solid #ddd;">Entry 0</td></tr><tr><td style="border:1px solid #ddd;">Vector Control</td><td style="border:1px solid #ddd;">Message Data</td><td style="border:1px solid #ddd;">Upper Address</td><td style="border:1px solid #ddd;">Lower Address</td><td style="border:1px solid #ddd;">Entry 1</td></tr><tr><td style="border:1px solid #ddd;">Vector Control</td><td style="border:1px solid #ddd;">Message Data</td><td style="border:1px solid #ddd;">Upper Address</td><td style="border:1px solid #ddd;">Lower Address</td><td style="border:1px solid #ddd;">Entry 2</td></tr><tr><td style="border:1px solid #ddd;">....</td><td style="border:1px solid #ddd;">....</td><td style="border:1px solid #ddd;">....</td><td style="border:1px solid #ddd;">....</td><td style="border:1px solid #ddd;"></td></tr><tr><td style="border:1px solid #ddd;">....</td><td style="border:1px solid #ddd;">....</td><td style="border:1px solid #ddd;">....</td><td style="border:1px solid #ddd;">....</td><td style="border:1px solid #ddd;"></td></tr><tr><td style="border:1px solid #ddd;">Vector Control</td><td style="border:1px solid #ddd;">Message Data</td><td style="border:1px solid #ddd;">Upper Address</td><td style="border:1px solid #ddd;">Lower Address</td><td style="border:1px solid #ddd;">Entry N-1</td></tr></table>
@@ -796,13 +755,11 @@ Figure 17-19: MSI-X Table Entries | 图17-19：MSI-X表项
   </tbody>
 </table>
 
-
 Figure 17-20: Pending Bit Array | 图17-20：待定位数组  
 
 <img src="images/part05_8dd9757aa7d0006b3e1aa35afdd05a4348e094e6ebcff937669f9d9c16de91c9.jpg" width="700" alt="">
 
 ## 17.5 Memory Synchronization When Interrupt Handler Entered | 17.5 进入中断处理程序时的内存同步
-
 
 ## 17.5 Memory Synchronization When Interrupt Handler Entered | 17.5 进入中断处理程序时的内存同步 |
 
@@ -823,7 +780,6 @@ Figure 17-20: Pending Bit Array | 图17-20：待定位数组
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">5. The ISR reads from the target memory buffer but the data payload still hasn't been delivered so it fetches stale data, possibly causing an error.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">5. ISR从目标存储器缓冲区读取，但数据载荷仍未送达，因此它获取到过时数据，可能引发错误。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17-21: Memory Synchronization Problem | 图17-21：存储器同步问题
 
@@ -847,7 +803,6 @@ Figure 17-21: Memory Synchronization Problem | 图17-21：存储器同步问题
   </tbody>
 </table>
 
-
 ## 17.5.3 An MSI Solution | 17.5.3 MSI 解决方案
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -866,7 +821,6 @@ Figure 17-21: Memory Synchronization Problem | 图17-21：存储器同步问题
   </tbody>
 </table>
 
-
 ## 17.5.4 Traffic Classes Must Match | 17.5.4 流量类别必须匹配
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -881,7 +835,6 @@ Figure 17-21: Memory Synchronization Problem | 图17-21：存储器同步问题
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">If giving both packets the same TC is not possible, the system would need to use the "dummy read" method instead and the TC of the read request would need to match the TC of the data write packet. It should be clear that even if the same TC is used for both, the use of the Relaxed Ordering bit must be avoided. We're counting on the transaction ordering rules to achieve memory synchronization, so they must not be relaxed.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如果无法为两个报文赋予相同的TC，则系统需要使用"虚读"方法，并且读请求的TC需要与数据写报文的TC匹配。应该清楚的是，即使两者使用相同的TC，也必须避免使用宽松排序位。我们依赖事务排序规则来实现内存同步，因此这些规则不能放宽。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
 <img src="images/part05_f4510f5bc1c4bdc1a4a120ba4d49872937b73e292092f5a5f4adf055e7e0aaac.jpg" width="700" alt="">
@@ -899,7 +852,6 @@ Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
   </tbody>
 </table>
 
-
 ## 17.7 MSI May Result In Errors | 17.7 MSI 可能导致错误
 
 ## MSI 可能导致错误
@@ -915,7 +867,6 @@ Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Because MSIs are delivered as Memory Write transactions, an error associated with delivery of an MSI is treated the same as any other Memory Write error condition. See "ECRC Generation and Checking" on page 657 for treatment of ECRC errors, as one example. The concern, of course, is that if an error results in the MSI packet being unrecognized then no interrupt will be seen by the processor. How this condition would be handled is outside the scope of the PCIe spec.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">由于MSI作为存储器写事务传递，与MSI传递相关的错误将按照与其他任何存储器写错误条件相同的方式处理。以ECRC错误的处理为例，请参见第657页的"ECRC生成与检查"。当然，问题在于如果某个错误导致MSI数据包无法被识别，那么处理器将看不到任何中断。这种情况如何处理超出了PCIe规范的范围。</td></tr>
   </tbody>
 </table>
-
 
 ## 17.8 Some MSI Rules and Recommendations | 17.8 一些 MSI 规则和建议
 
@@ -941,7 +892,6 @@ Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
   </tbody>
 </table>
 
-
 ## 17.9 Special Consideration for Base System Peripherals | 17.9 基础系统外设的特殊考虑
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -958,7 +908,6 @@ Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -972,7 +921,6 @@ Figure 17‐22: MSI Delivery | 图17‐22：MSI传递
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The advantage of this approach is that existing hardware can be used to support the legacy requirements of a PCIe platform. This system also requires that the MSI subsystem be configured for use during the boot sequence. The example illustrated eliminates the need for INTx messages unless a PCIe expansion device incorporates a PCI Express-to-PCI Bridge.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">这种方法的优势在于现有硬件可用于支持PCIe平台的传统需求。该系统还必须要求MSI子系统在引导序列期间配置为可用状态。所展示的示例消除了对INTx消息的需求，除非PCIe扩展设备包含PCI Express到PCI桥接器。</td></tr>
   </tbody>
 </table>
-
 
 Figure 17-23: PCI Express System with PCI-Based IO Controller Hub | 图17-23：基于PCI的IO控制器集线器的PCI Express系统  
 

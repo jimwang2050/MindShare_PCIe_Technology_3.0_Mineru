@@ -14,7 +14,6 @@
   </tbody>
 </table>
 
-
 ## The Previous Chapter | 上一章
 
 <table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -53,7 +52,6 @@ Figure 10-1: Data Link Layer | 图10-1：数据链路层
   </tbody>
 </table>
 
-
 Figure 10-2: Overview of the Ack/Nak Protocol | 图10-2：Ack/Nak协议概述  
 
 <img src="images/part03_c71d9a4c63208b94d916ff92037be6f24d24fe2d59ae64b5f215b460d8b806e2.jpg" width="700" alt="">
@@ -72,7 +70,6 @@ Figure 10-2: Overview of the Ack/Nak Protocol | 图10-2：Ack/Nak协议概述
   </tbody>
 </table>
 
-
 ## 10.1.1 Elements of the Ack/Nak Protocol | 10.1.1 Ack/Nak 协议要素
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -86,7 +83,6 @@ Figure 10-2: Overview of the Ack/Nak Protocol | 图10-2：Ack/Nak协议概述
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The major Ack/Nak protocol elements of the Data Link Layer are shown in Figure 10-3 on page 320. There's too much to consider all at once, though, so let's begin by focusing on just the transmitter elements, which are shown in a larger view in Figure 10-4 on page 322.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">数据链路层的 Ack/Nak 协议主要元素如图 10-3（第 320 页）所示。然而，一次性考虑所有元素过于复杂，因此我们先聚焦于发送端元素，其放大视图如图 10-4（第 322 页）所示。</td></tr>
   </tbody>
 </table>
-
 
 Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
 
@@ -106,7 +102,6 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
   </tbody>
 </table>
 
-
 ## 10.2.1.1 NEXT_TRANSMIT_SEQ Counter | 10.2.1.1 NEXT_TRANSMIT_SEQ 计数器
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -121,7 +116,6 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">This Sequence Number assigned to the TLP will be used in the Ack or Nak sent by the receiver to reference this TLP in the Replay Buffer. One might think that such a large counter means that a large number of unacknowledged TLPs could be in flight, but in practice this is very unlikely. The main reason is that the receiver has a requirement to send an Ack back for successfully received TLPs within a certain amount of time. That amount of time is discussed in detail in "AckNak_LATENCY_TIMER" on page 328, but is typically only long enough to transmit a few max sized packets.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">分配给 TLP 的该序列号将用于接收端发送的 Ack 或 Nak 中，以引用重放缓冲区中的此 TLP。有人可能会认为，如此大的计数器意味着可能有大量未确认的 TLP 在传输中，但实际上这几乎不可能发生。主要原因是接收端要求在特定时间内为成功接收的 TLP 发回 Ack。该时间量在 328 页的 "AckNak_LATENCY_TIMER" 中有详细讨论，但通常仅够传输几个最大尺寸的数据包。</td></tr>
   </tbody>
 </table>
-
 
 ## 10.2.1.2 LCRC Generator | 10.2.1.2 LCRC 生成器
 
@@ -143,7 +137,6 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -157,7 +150,6 @@ Figure 10-3: Elements of the Ack/Nak Protocol | 图10-3：Ack/Nak协议元素
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">If a Nak is received, the Sequence Number in the Nak still indicates the last good packet received. So even receiving a Nak can cause the transmitter to purge TLPs from the replay buffer. However, because it is a Nak, it means that something was not received successfully at the receiver, so after purging all the acknowledged TLPs, the transmitter must replay everything still in the replay buffer in order. For example, if a Nak is received with a Sequence Number of 9, then packet 9 and all prior packets are purged from the replay buffer, because the receiver acknowledged that they have been successfully received. However, because it is a Nak, the transmitter must then replay all the remaining TLPs in the replay buffer in order, starting with packet 10.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如果收到Nak，Nak中的序列号仍然指示最后成功接收的报文。因此，即使收到Nak，也会导致发送端从重放缓冲区中清除TLP。但由于这是Nak，意味着接收端有某些内容未被成功接收，因此在清除所有已确认的TLP之后，发送端必须按序重放重放缓冲区中剩余的所有内容。例如，如果收到序列号为9的Nak，则报文9及其之前的所有报文都将从重放缓冲区中清除，因为接收端已确认它们被成功接收。但由于是Nak，发送端必须随后按序重放重放缓冲区中剩余的所有TLP，从报文10开始。</td></tr>
   </tbody>
 </table>
-
 
 Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10‐4：与Ack/Nak协议相关的发送器元素
 
@@ -197,7 +189,6 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
   </tbody>
 </table>
 
-
 ## 10.2.2.2 DLLP CRC Check | 10.2.2.2 DLLP CRC 检查
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -214,7 +205,6 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -228,7 +218,6 @@ Figure 10‐4: Transmitter Elements Associated with the Ack/Nak Protocol | 图10
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Figure 10-5 on page 325 illustrates the receiver Data Link Layer elements associated with processing of inbound TLPs and outbound Ack/Nak DLLPs.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">第325页的图10-5展示了与入站TLP和出站Ack/Nak DLLP处理相关的接收端数据链路层元素。</td></tr>
   </tbody>
 </table>
-
 
 Figure 10-5: Receiver Elements Associated with the Ack/Nak Protocol | 图10-5：与Ack/Nak协议相关的接收器元素  
 
@@ -268,7 +257,6 @@ Figure 10-5: Receiver Elements Associated with the Ack/Nak Protocol | 图10-5：
   </tbody>
 </table>
 
-
 Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示例
 
 <img src="images/part03_1eed93a787a204e6b1e0b6c8992f59b5d882810fc68dda8793cd55db4d8bf4ee.jpg" width="700" alt="">
@@ -286,7 +274,6 @@ Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示�
   </tbody>
 </table>
 
-
 ## 10.2.2.5 AckNak\_LATENCY\_TIMER | 10.2.2.5 AckNak\_LATENCY\_TIMER
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -301,7 +288,6 @@ Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示�
   </tbody>
 </table>
 
-
 ## 10.2.3.1 Ack/Nak Generator | 10.2.3.1 Ack/Nak 生成器
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -315,7 +301,6 @@ Figure 10-6: Examples of Sequence Number Ranges | 图10-6：序列号范围示�
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Ack or Nak DLLPs are scheduled by the error checking blocks and contain a 12‑bit AckNak_Seq_Num field as illustrated in Figure 10‑7 on page 328. It calculates this number by subtracting one from the NRS count, which results in reporting the last good Sequence Number received. That's because a good TLP received increments NRS before scheduling the Ack, while a failed TLP just schedules a Nak without incrementing NRS. This method makes it easier to handle failed packets because the error in the TLP might have been in the Sequence Number, so that number can't be used in the Nak. Instead, it uses the number of the last good TLP; what we're expecting minus one. The only case where this value doesn't represent the last good TLP is for the first TLP after a reset. If that first TLP, using Sequence Number 0, fails, the resulting Nak will have an AckNak_Seq_Num value of zero minus one which results in all 1's.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">Ack或Nak DLLP由错误检查模块调度，包含一个12位的AckNak_Seq_Num字段，如图10‑7（第328页）所示。它通过将NRS计数减1来计算该值，从而报告最后收到的有效序列号（Sequence Number）。这是因为：收到有效TLP会在调度Ack之前递增NRS，而失败的TLP仅调度Nak而不递增NRS。该方法使处理失败报文更加容易，因为TLP中的错误可能发生在序列号字段，因此该号码不能用于Nak。取而代之的是，它使用最后一个有效TLP的编号，即我们所期望的值减1。该值不代表最后一个有效TLP的唯一情况是复位之后的第一个TLP。如果使用序列号0的第一个TLP失败，则产生的Nak将具有零减一的AckNak_Seq_Num值，结果为全1。</td></tr>
   </tbody>
 </table>
-
 
 Figure 10‑7: Ack Or Nak DLLP Format | 图10‑7：Ack或Nak DLLP格式
 
@@ -379,7 +364,6 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
   </tbody>
 </table>
 
-
 ## 10.2.3.5 Transmitter's Response to an Ack DLLP | 10.2.3.5 发送器对 Ack DLLP 的响应
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -393,7 +377,6 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">A single Ack returned by the receiver may acknowledge multiple TLPs; it isn't necessary that every TLP transmitted receive a dedicated Ack. The receiver can get multiple good TLPs and send one Ack with the Sequence Number of the last good TLP received. The transmitter's response to an Ack that makes forward progress (has a Sequence Number that is later than the last one seen) is to load the AckD\_SEQ register with the Sequence Number of the new Ack. It also resets the REPLAY\_NUM counter and REPLAY\_TIMER, and purges the Replay Buffer of all TLPs that were acknowledged by that Ack.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">接收方返回的一个 Ack 可确认多个 TLP；并非每个发送的 TLP 都需获得专用的 Ack。接收方可收到多个正确的 TLP，然后发送一个 Ack，其中携带最后一个正确收到的 TLP 的序列号。发送方对推动进度（即其序列号晚于上一次所见序列号）的 Ack 的响应是：将新 Ack 的序列号加载到 AckD\_SEQ 寄存器中。同时它还复位 REPLAY\_NUM 计数器和 REPLAY\_TIMER，并清除重放缓冲区中该 Ack 已确认的所有 TLP。</td></tr>
   </tbody>
 </table>
-
 
 ## 10.2.3.6 Ack/Nak Examples | 10.2.3.6 Ack/Nak 示例
 ## 10.2.3.6 Ack/Nak Examples | 10.2.3.6 Ack/Nak 示例
@@ -416,7 +399,6 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
   </tbody>
 </table>
 
-
 Figure 10-8: Example 1 - Example of Ack | 图10-8：示例1 - Ack示例
 
 <img src="images/part03_53d208a2661a2ae54305e58ed78cde00db7e56192da39d163bd53d3fc28f6ba1.jpg" width="700" alt="">
@@ -436,7 +418,6 @@ Figure 10-8: Example 1 - Example of Ack | 图10-8：示例1 - Ack示例
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">4. Device A successfully receives Ack 1, purges TLPs 4094, 4095, 0, and 1 from the Replay Buffer and resets the REPLAY_TIMER and REPLAY_NUM count.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">4. 设备A成功接收Ack 1，从重放缓冲区中清除TLP 4094、4095、0和1，并重置REPLAY_TIMER和REPLAY_NUM计数。</td></tr>
   </tbody>
 </table>
-
 
 Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 - 序列号翻转的Ack
 
@@ -458,7 +439,6 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -471,7 +451,6 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">When a Replay becomes necessary, the transmitter blocks acceptance of new TLPs from its Transaction Layer. It then replays the necessary TLPs in the buffer in the same order they were placed into the buffer (like a FIFO). After the replay event, the Data Link Layer unblocks acceptance of new TLPs from its Transaction Layer. The replayed TLPs remain in the buffer until they are finally acknowledged at some later time.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">当需要重发时，发送方阻止从其事务层接受新的 TLP。然后，它按照这些 TLP 被放入缓冲区的相同顺序（如同 FIFO）重发缓冲区中所需的 TLP。重发事件后，数据链路层解除对从其事务层接受新 TLP 的阻止。被重发的 TLP 将一直保留在缓冲区中，直到它们在稍后的某个时间被最终确认。</td></tr>
   </tbody>
 </table>
-
 
 ## 10.2.3.8 Efficient TLP Replay | 10.2.3.8 高效的 TLP 重放
 
@@ -486,7 +465,6 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Ack or Nak DLLPs received during replay must be processed. So there are two main options here, the transmitter may hold them until the replay is finished and then evaluate the Acks or Naks and take the appropriate steps. Another option would be to begin processing the new Ack/Nak DLLPs even during the replay. If this option is used, the newly received Acks might purge some entries from the buffer while replay is in progress, possibly reducing the number of TLPs that need to be replayed and saving time on the Link. This is allowed, but it is important to remember that once a TLP is started for transmission, it must be completed.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">重放期间收到的Ack或Nak DLLP必须被处理。因此主要有两种选择：发送器可以将它们暂存，直到重放完成后再评估这些Ack或Nak并采取适当步骤。另一种选择是即使在重放期间也开始处理新的Ack/Nak DLLP。如果采用此选项，新收到的Ack可能会在重放进行过程中从缓冲区中清除某些条目，从而可能减少需要重放的TLP数量并节省链路时间。这是允许的，但务必记住，一旦TLP开始传输，就必须完成该传输。</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
@@ -508,7 +486,6 @@ Figure 10-9: Example 2 - Ack with Sequence Number Rollover | 图10-9：示例2 -
   </tbody>
 </table>
 
-
 Figure 10‐10: Example of a Nak | 图10‐10：Nak示例  
 <img src="images/part03_b88375d17a336277c7f8c10ba6a3960290d0cda6ea472764f15d6ab28bffd741.jpg" width="700" alt="">  
 Repeated Replay of TLPs
@@ -527,7 +504,6 @@ Repeated Replay of TLPs
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The spec does not describe how a device might handle repeated rollover events if the Link training doesn't clear the problem. The author has seen commercially available hardware that had no mechanism to detect this condition and got stuck in an endless loop of re‐training. It seems good therefore, to recommend that a device track the number of re‐train attempts. After sufficient attempts, the device could signal an Uncorrectable Fatal Error or an interrupt as a way to notify software of this condition.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">规范未描述如果链路训练未能清除问题，设备应如何处理重复的回绕事件。作者曾见过商用硬件没有检测此状况的机制，而陷入无限重新训练循环。因此，建议设备跟踪重新训练尝试次数似乎是好的做法。在足够的尝试次数后，设备可发出不可恢复致命错误信号或中断，以此方式将这一状况通知给软件。</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
@@ -554,7 +530,6 @@ Repeated Replay of TLPs
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">REPLAY\_TIMER Equation. The timeout value depends primarily on the max data payload and the width of the Link. The equation to calculate the REPLAY\_TIMER value in symbol times is given below. Note that the value is simply three times the Ack/Nak Latency value.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">REPLAY\_TIMER方程。超时值主要取决于最大数据有效载荷（Max_Payload_Size）和链路宽度。下面给出了以符号时间（symbol times）为单位计算REPLAY\_TIMER值的方程。请注意，该值正好是Ack/Nak延迟值的三倍。</td></tr>
   </tbody>
 </table>
-
 
 $$
 \left(\frac {(\text { Max\_Payload\_Size } + \text { TLPOverhead }) * \text { AckFactor }}{\text { LinkWidth }} + \text { InternalDelay }\right) * 3 + R x _ {-} L O s _ {-} A d j u s t m e n t   \begin{array}{c} \uparrow \\ \text {(this term removed)} \\ \text { for Gen2 and later} \end{array}
@@ -614,7 +589,6 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
   </tbody>
 </table>
 
-
 ## 10.2.4.3 Next Received TLP's Sequence Number | 10.2.4.3 下一个接收 TLP 的序列号
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -637,7 +611,6 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
   </tbody>
 </table>
 
-
 ## 10.2.4.4 Receiver Schedules An Ack DLLP | 10.2.4.4 接收方调度 Ack DLLP
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -651,7 +624,6 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">If the Data Link Layer of the receiver does not detect an error in an incoming TLP, it forwards the TLP to the Transaction Layer. The NEXT_RCV_SEQ counter is incremented and the receiver starts the AckNak_LATENCY_TIMER (assuming it was not already running). This is the equivalent of "scheduling an Ack." The receiver is allowed to continue receiving good TLPs without sending an Ack until the AckNak_LATENCY_TIMER expires. When the timer expires it sends just one Ack with the Sequence Number of the last good TLP, acknowledging good receipt of all received TLPs up to the Sequence Number in the current Ack. This technique improves Link efficiency by reducing Ack/Nak traffic. For review, recall that this technique works because the TLPs must always be successfully received in order.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如果接收方数据链路层在传入的TLP中未检测到错误，则将该TLP转发给事务层。NEXT_RCV_SEQ计数器递增，且接收方启动AckNak_LATENCY_TIMER（假设其尚未运行）。这相当于"调度一个Ack"。在AckNak_LATENCY_TIMER超时之前，允许接收方继续接收好TLP而无需发送Ack。当定时器超时时，它仅发送一个带有最后一个好TLP的序列号的Ack，确认已正确接收到当前Ack中序列号之前的所有已收TLP。该技术通过减少Ack/Nak流量来提高链路效率。回顾一下，该技术之所以有效，是因为TLP必须始终按顺序成功接收。</td></tr>
   </tbody>
 </table>
-
 
 ## 10.2.4.5 Receiver Schedules a Nak | 10.2.4.5 接收端调度 Nak
 
@@ -667,7 +639,6 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Although it's important to get the Nak to the transmitter quickly (no other TLPs can be accepted until the failed one is seen without errors), other outgoing TLPs, DLLPs or Ordered Sets already in progress or have a higher priority than the Nak which means the receiver would have to delay the transmission of the Nak until they're done (see "Recommended Priority To Schedule Packets" on page 350). In the meantime, if other TLPs arrive at the receiver they are discarded and no additional Acks or Naks will be scheduled while the NAK_SCHEDULED flag is set.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">尽管快速将 Nak 发送至发送端非常重要（在错误报文被无错误地接收之前，无法接受其他 TLP），但其他正在传输中或优先级高于 Nak 的待发送 TLP、DLLP 或 Ordered Set 意味着接收端必须延迟 Nak 的发送，直到这些传输完成（参见第 350 页的"调度报文的推荐优先级"）。在此期间，如果其他 TLP 到达接收端，它们将被丢弃，并且在 NAK_SCHEDULED 标志置位期间不会调度额外的 Ack 或 Nak。</td></tr>
   </tbody>
 </table>
-
 
 ## 10.2.4.6 AckNak_LATENCY_TIMER | 10.2.4.6 AckNak_LATENCY_TIMER
 
@@ -686,7 +657,6 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
   </tbody>
 </table>
 
-
 ## 10.2.2.5 AckNak\_LATENCY\_TIMER | 10.2.2.5 AckNak\_LATENCY\_TIMER Equation.
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -700,7 +670,6 @@ Figure 10‐12: Ack/Nak Receiver Elements | 图10‐12：Ack/Nak接收器元素
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">The timeout value for the AckNak\_LATENCY\_TIMER is defined by the spec and varies based on the Negotiated Link Width and Max Payload Size Enabled. The equation which defines the timeout is shown below:</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">AckNak\_LATENCY\_TIMER 的超时值由规范定义，并根据协商的链路宽度(Negotiated Link Width)和启用的最大有效载荷大小(Max Payload Size)而变化。定义该超时的方程如下所示：</td></tr>
   </tbody>
 </table>
-
 
 $$
 \frac {(\text { Max\_Payload\_Size } + \text { TLPOverhead }) * \text { AckFactor }}{\text { LinkWidth }} + \text { InternalDelay } + \underset {\substack {\text { this term removed} \\ \text { for Gen2 and later }}} {\text { Tx\_L0s\_Adjustment}}
@@ -719,7 +688,6 @@ $$
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -737,7 +705,6 @@ $$
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -750,7 +717,6 @@ $$
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">**Table 10-2: Gen1 Unadjusted Ack Transmission Latency**</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">**表 10-2：Gen1 未调整的 Ack 传输延迟**</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Max_Payload Size</td><td style="border:1px solid #ddd;">X1 Link</td><td style="border:1px solid #ddd;">X2 Link</td><td style="border:1px solid #ddd;">X4 Link</td><td style="border:1px solid #ddd;">X8 Link</td><td style="border:1px solid #ddd;">X12 Link</td><td style="border:1px solid #ddd;">x16 Link</td><td style="border:1px solid #ddd;">X32 Link</td></tr><tr><td style="border:1px solid #ddd;">128 Bytes</td><td style="border:1px solid #ddd;">237 (AF=1.4)</td><td style="border:1px solid #ddd;">128 (AF=1.4)</td><td style="border:1px solid #ddd;">73 (AF=1.4)</td><td style="border:1px solid #ddd;">67 (AF=2.5)</td><td style="border:1px solid #ddd;">58 (AF=3.0)</td><td style="border:1px solid #ddd;">48 (AF=3.0)</td><td style="border:1px solid #ddd;">33 (AF=3.0)</td></tr><tr><td style="border:1px solid #ddd;">256 Bytes</td><td style="border:1px solid #ddd;">416 (AF=1.4)</td><td style="border:1px solid #ddd;">217 (AF=1.4)</td><td style="border:1px solid #ddd;">118 (AF=1.4)</td><td style="border:1px solid #ddd;">107 (AF=2.5)</td><td style="border:1px solid #ddd;">90 (AF=3.0)</td><td style="border:1px solid #ddd;">72 (AF=3.0)</td><td style="border:1px solid #ddd;">45 (AF=3.0)</td></tr><tr><td style="border:1px solid #ddd;">512 Bytes</td><td style="border:1px solid #ddd;">559 (AF=1.0)</td><td style="border:1px solid #ddd;">289 (AF=1.0)</td><td style="border:1px solid #ddd;">154 (AF=1.0)</td><td style="border:1px solid #ddd;">86 (AF=1.0)</td><td style="border:1px solid #ddd;">109 (AF=2.0)</td><td style="border:1px solid #ddd;">86 (AF=2.0)</td><td style="border:1px solid #ddd;">52 (AF=2.0)</td></tr><tr><td style="border:1px solid #ddd;">1024 Bytes</td><td style="border:1px solid #ddd;">1071 (AF=1.0)</td><td style="border:1px solid #ddd;">545 (AF=1.0)</td><td style="border:1px solid #ddd;">282 (AF=1.0)</td><td style="border:1px solid #ddd;">150 (AF=1.0)</td><td style="border:1px solid #ddd;">194 (AF=2.0)</td><td style="border:1px solid #ddd;">150 (AF=2.0)</td><td style="border:1px solid #ddd;">84 (AF=2.0)</td></tr><tr><td style="border:1px solid #ddd;">2048 Bytes</td><td style="border:1px solid #ddd;">2095 (AF=1.0)</td><td style="border:1px solid #ddd;">1057 (AF=1.0)</td><td style="border:1px solid #ddd;">538 (AF=1.0)</td><td style="border:1px solid #ddd;">278 (AF=1.0)</td><td style="border:1px solid #ddd;">365 (AF=2.0)</td><td style="border:1px solid #ddd;">278 (AF=2.0)</td><td style="border:1px solid #ddd;">148 (AF=2.0)</td></tr><tr><td style="border:1px solid #ddd;">4096 Bytes</td><td style="border:1px solid #ddd;">4143 (AF=1.0)</td><td style="border:1px solid #ddd;">2081 (AF=1.0)</td><td style="border:1px solid #ddd;">1050 (AF=1.0)</td><td style="border:1px solid #ddd;">534 (AF=1.0)</td><td style="border:1px solid #ddd;">706 (AF=2.0)</td><td style="border:1px solid #ddd;">534 (AF=2.0)</td><td style="border:1px solid #ddd;">276 (AF=2.0)</td></tr></table>
 
@@ -766,7 +732,6 @@ $$
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">In the classroom setting examples often make it much easier to grasp the Ack/Nak process and so some of them are presented here to illustrate special cases.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">在课堂教学中，示例通常能大大简化对 Ack/Nak 过程的理解，因此这里提供了一些示例来说明特殊情况。</td></tr>
   </tbody>
 </table>
-
 
 ## 10.4.1 Lost TLPs | 10.4.1 丢失的TLP
 
@@ -792,7 +757,6 @@ Consider Figure 10-13 on page 346, showing how a lost TLP is detected and handle
   </tbody>
 </table>
 
-
 Figure 10-13: Handling Lost TLPs | 图10-13：丢失TLP的处理
 
 <img src="images/part03_550592b528a721031674d51dc0fc0118f9beb66ed4d8e00e5f04468f0c0fce13.jpg" width="700" alt="">
@@ -815,7 +779,6 @@ Figure 10-13: Handling Lost TLPs | 图10-13：丢失TLP的处理
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">If Ack 2 is also lost or corrupted and no further Ack or Nak DLLPs are returned to Device A, its REPLAY_TIMER expires causing a replay of its entire buffer. Device B sees TLPs 4094, 4095, 0, 1 and 2 and considers them to be duplicates [their sequence numbers are earlier than NEXT_RCV_SEQ count (3)]. They are discarded and another Ack 2 would be returned to Device A because of the duplicate packets.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">如果Ack 2也丢失或损坏，且没有进一步的Ack或Nak DLLP返回给设备A，其REPLAY_TIMER超时将导致其整个缓冲区重放。设备B看到TLP 4094、4095、0、1和2，并将其视为重复报文[它们的序列号早于NEXT_RCV_SEQ计数(3)]。这些TLP被丢弃，并且由于重复报文，另一个Ack 2将返回给设备A。</td></tr>
   </tbody>
 </table>
-
 
 Figure 10‐14: Handling Bad Ack | 图10‐14：错误Ack的处理
 <img src="images/part03_54f680dbb772b412b8024ffa44a44adb726f36b0766ae29a6578f19005d3c8ae.jpg" width="700" alt="">
@@ -840,7 +803,6 @@ Figure 10‐14: Handling Bad Ack | 图10‐14：错误Ack的处理
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">7. Once TLP 1 is successfully received by Device B, it will clear the NAK\_SCHEDULED flag, increment the NEXT\_RCV\_SEQ and restart the AckNak\_LATENCY\_TIMER because it has successfully received a TLP that it has not yet acknowledged.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">7. 一旦设备B成功接收TLP 1，它将清除NAK\_SCHEDULED标志，递增NEXT\_RCV\_SEQ，并重启AckNak\_LATENCY\_TIMER，因为它已成功接收到一个尚未确认的TLP。</td></tr>
   </tbody>
 </table>
-
 
 Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
 <img src="images/part03_ac1639c87e799df7fa499a8d762b62782b08400a1baceb3f3d677ab7eb255448.jpg" width="700" alt="">
@@ -868,7 +830,6 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
   </tbody>
 </table>
 
-
 ## 10.6 Recommended Priority To Schedule Packets | 10.6 推荐的数据包调度优先级
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -891,7 +852,6 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
   </tbody>
 </table>
 
-
 ## 10.7 Timing Differences for Newer Spec Versions | 10.7 较新规范版本的时序差异
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -906,7 +866,6 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">As before, the values given are in symbol times, so the actual time is that value multiplied by the time needed to deliver one symbol over the Link at that rate. For review, the time to transmit one symbol (known as a Symbol Time) is 4ns for Gen1, 2ns for Gen2, and 1.25ns to transmit 1 byte for Gen3.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">与之前相同，所给出的值均以符号时间为单位，因此实际时间等于该值乘以在该速率下通过链路传输一个符号所需的时间。回顾一下，传输一个符号的时间（称为符号时间）在 Gen1 中为 4ns，Gen2 中为 2ns，Gen3 中传输 1 字节为 1.25ns。</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
@@ -923,7 +882,6 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -935,7 +893,6 @@ Figure 10‐15: Handling Bad Nak | 图10‐15：错误Nak的处理
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 10‐3: Gen1 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times)</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">表10‐3：Gen1 未调整的 AckNak\_LATENCY\_TIMER 值（符号时间）</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Max Payload</td><td style="border:1px solid #ddd;">x1Link</td><td style="border:1px solid #ddd;">x2Link</td><td style="border:1px solid #ddd;">x4Link</td><td style="border:1px solid #ddd;">x8Link</td><td style="border:1px solid #ddd;">x12Link</td><td style="border:1px solid #ddd;">x16Link</td><td style="border:1px solid #ddd;">x32Link</td></tr><tr><td style="border:1px solid #ddd;">128 Bytes</td><td style="border:1px solid #ddd;">237</td><td style="border:1px solid #ddd;">128</td><td style="border:1px solid #ddd;">73</td><td style="border:1px solid #ddd;">67</td><td style="border:1px solid #ddd;">58</td><td style="border:1px solid #ddd;">48</td><td style="border:1px solid #ddd;">33</td></tr><tr><td style="border:1px solid #ddd;">256 Bytes</td><td style="border:1px solid #ddd;">416</td><td style="border:1px solid #ddd;">217</td><td style="border:1px solid #ddd;">118</td><td style="border:1px solid #ddd;">107</td><td style="border:1px solid #ddd;">90</td><td style="border:1px solid #ddd;">72</td><td style="border:1px solid #ddd;">45</td></tr><tr><td style="border:1px solid #ddd;">512 Bytes</td><td style="border:1px solid #ddd;">559</td><td style="border:1px solid #ddd;">289</td><td style="border:1px solid #ddd;">154</td><td style="border:1px solid #ddd;">86</td><td style="border:1px solid #ddd;">109</td><td style="border:1px solid #ddd;">86</td><td style="border:1px solid #ddd;">52</td></tr><tr><td style="border:1px solid #ddd;">1024 Bytes</td><td style="border:1px solid #ddd;">1071</td><td style="border:1px solid #ddd;">545</td><td style="border:1px solid #ddd;">282</td><td style="border:1px solid #ddd;">150</td><td style="border:1px solid #ddd;">194</td><td style="border:1px solid #ddd;">150</td><td style="border:1px solid #ddd;">84</td></tr><tr><td style="border:1px solid #ddd;">2048 Bytes</td><td style="border:1px solid #ddd;">2095</td><td style="border:1px solid #ddd;">1057</td><td style="border:1px solid #ddd;">538</td><td style="border:1px solid #ddd;">278</td><td style="border:1px solid #ddd;">365</td><td style="border:1px solid #ddd;">278</td><td style="border:1px solid #ddd;">148</td></tr><tr><td style="border:1px solid #ddd;">4096 Bytes</td><td style="border:1px solid #ddd;">4143</td><td style="border:1px solid #ddd;">2081</td><td style="border:1px solid #ddd;">1050</td><td style="border:1px solid #ddd;">534</td><td style="border:1px solid #ddd;">706</td><td style="border:1px solid #ddd;">534</td><td style="border:1px solid #ddd;">276</td></tr></table>
 
@@ -957,7 +914,6 @@ Table 10‑4: Gen2 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表
   </tbody>
 </table>
 
-
 ## GT | s Operation
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -971,7 +927,6 @@ Table 10‑4: Gen2 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times)</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">表 10-5：Gen3 未调整的 AckNak\_LATENCY\_TIMER 值（符号时间）</td></tr>
   </tbody>
 </table>
-
 
 Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10-5：Gen3未调整的AckNak_LATENCY_TIMER值（符号时间）
 
@@ -993,7 +948,6 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -1005,7 +959,6 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 10-6: Gen1 Unadjusted REPLAY_TIMER Values in Symbol Times</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">表 10-6：Gen1 未调整的 REPLAY_TIMER 值（以符号时间计）</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Max Payload</td><td style="border:1px solid #ddd;">x1Link</td><td style="border:1px solid #ddd;">x2Link</td><td style="border:1px solid #ddd;">x4Link</td><td style="border:1px solid #ddd;">x8Link</td><td style="border:1px solid #ddd;">x12Link</td><td style="border:1px solid #ddd;">x16Link</td><td style="border:1px solid #ddd;">x32Link</td></tr><tr><td style="border:1px solid #ddd;">128 Bytes</td><td style="border:1px solid #ddd;">711</td><td style="border:1px solid #ddd;">384</td><td style="border:1px solid #ddd;">219</td><td style="border:1px solid #ddd;">201</td><td style="border:1px solid #ddd;">174</td><td style="border:1px solid #ddd;">144</td><td style="border:1px solid #ddd;">99</td></tr><tr><td style="border:1px solid #ddd;">256 Bytes</td><td style="border:1px solid #ddd;">1248</td><td style="border:1px solid #ddd;">651</td><td style="border:1px solid #ddd;">354</td><td style="border:1px solid #ddd;">321</td><td style="border:1px solid #ddd;">270</td><td style="border:1px solid #ddd;">216</td><td style="border:1px solid #ddd;">135</td></tr><tr><td style="border:1px solid #ddd;">512 Bytes</td><td style="border:1px solid #ddd;">1677</td><td style="border:1px solid #ddd;">867</td><td style="border:1px solid #ddd;">462</td><td style="border:1px solid #ddd;">258</td><td style="border:1px solid #ddd;">327</td><td style="border:1px solid #ddd;">258</td><td style="border:1px solid #ddd;">156</td></tr><tr><td style="border:1px solid #ddd;">1024 Bytes</td><td style="border:1px solid #ddd;">3213</td><td style="border:1px solid #ddd;">1635</td><td style="border:1px solid #ddd;">846</td><td style="border:1px solid #ddd;">450</td><td style="border:1px solid #ddd;">582</td><td style="border:1px solid #ddd;">450</td><td style="border:1px solid #ddd;">252</td></tr><tr><td style="border:1px solid #ddd;">2048 Bytes</td><td style="border:1px solid #ddd;">6285</td><td style="border:1px solid #ddd;">3171</td><td style="border:1px solid #ddd;">1614</td><td style="border:1px solid #ddd;">834</td><td style="border:1px solid #ddd;">1095</td><td style="border:1px solid #ddd;">834</td><td style="border:1px solid #ddd;">444</td></tr><tr><td style="border:1px solid #ddd;">4096 Bytes</td><td style="border:1px solid #ddd;">12429</td><td style="border:1px solid #ddd;">6243</td><td style="border:1px solid #ddd;">3150</td><td style="border:1px solid #ddd;">1602</td><td style="border:1px solid #ddd;">2118</td><td style="border:1px solid #ddd;">1602</td><td style="border:1px solid #ddd;">828</td></tr></table>
 
@@ -1021,7 +974,6 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
   </tbody>
 </table>
 
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Max Payload</td><td style="border:1px solid #ddd;">x1Link</td><td style="border:1px solid #ddd;">x2Link</td><td style="border:1px solid #ddd;">x4Link</td><td style="border:1px solid #ddd;">x8Link</td><td style="border:1px solid #ddd;">x12Link</td><td style="border:1px solid #ddd;">x16Link</td><td style="border:1px solid #ddd;">x32Link</td></tr><tr><td style="border:1px solid #ddd;">128 Bytes</td><td style="border:1px solid #ddd;">864</td><td style="border:1px solid #ddd;">537</td><td style="border:1px solid #ddd;">372</td><td style="border:1px solid #ddd;">354</td><td style="border:1px solid #ddd;">327</td><td style="border:1px solid #ddd;">297</td><td style="border:1px solid #ddd;">252</td></tr><tr><td style="border:1px solid #ddd;">256 Bytes</td><td style="border:1px solid #ddd;">1401</td><td style="border:1px solid #ddd;">804</td><td style="border:1px solid #ddd;">507</td><td style="border:1px solid #ddd;">474</td><td style="border:1px solid #ddd;">423</td><td style="border:1px solid #ddd;">369</td><td style="border:1px solid #ddd;">288</td></tr><tr><td style="border:1px solid #ddd;">512 Bytes</td><td style="border:1px solid #ddd;">1830</td><td style="border:1px solid #ddd;">1020</td><td style="border:1px solid #ddd;">615</td><td style="border:1px solid #ddd;">411</td><td style="border:1px solid #ddd;">480</td><td style="border:1px solid #ddd;">411</td><td style="border:1px solid #ddd;">309</td></tr><tr><td style="border:1px solid #ddd;">1024 Bytes</td><td style="border:1px solid #ddd;">3366</td><td style="border:1px solid #ddd;">1788</td><td style="border:1px solid #ddd;">999</td><td style="border:1px solid #ddd;">603</td><td style="border:1px solid #ddd;">735</td><td style="border:1px solid #ddd;">603</td><td style="border:1px solid #ddd;">405</td></tr><tr><td style="border:1px solid #ddd;">2048 Bytes</td><td style="border:1px solid #ddd;">6438</td><td style="border:1px solid #ddd;">3324</td><td style="border:1px solid #ddd;">1767</td><td style="border:1px solid #ddd;">987</td><td style="border:1px solid #ddd;">1248</td><td style="border:1px solid #ddd;">987</td><td style="border:1px solid #ddd;">597</td></tr><tr><td style="border:1px solid #ddd;">4096 Bytes</td><td style="border:1px solid #ddd;">12582</td><td style="border:1px solid #ddd;">6396</td><td style="border:1px solid #ddd;">3303</td><td style="border:1px solid #ddd;">1755</td><td style="border:1px solid #ddd;">2271</td><td style="border:1px solid #ddd;">1755</td><td style="border:1px solid #ddd;">981</td></tr></table>
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1035,7 +987,6 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Table 10-8: Gen3 Unadjusted REPLAY_TIMER Values</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">表 10-8：Gen3 未调整的 REPLAY_TIMER 值</td></tr>
   </tbody>
 </table>
-
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Max Payload</td><td style="border:1px solid #ddd;">x1 Link</td><td style="border:1px solid #ddd;">x2 Link</td><td style="border:1px solid #ddd;">x4 Link</td><td style="border:1px solid #ddd;">x8 Link</td><td style="border:1px solid #ddd;">x12 Link</td><td style="border:1px solid #ddd;">x16 Link</td><td style="border:1px solid #ddd;">x32 Link</td></tr><tr><td style="border:1px solid #ddd;">128 Bytes</td><td style="border:1px solid #ddd;">999</td><td style="border:1px solid #ddd;">672</td><td style="border:1px solid #ddd;">507</td><td style="border:1px solid #ddd;">489</td><td style="border:1px solid #ddd;">462</td><td style="border:1px solid #ddd;">432</td><td style="border:1px solid #ddd;">387</td></tr><tr><td style="border:1px solid #ddd;">256 Bytes</td><td style="border:1px solid #ddd;">1536</td><td style="border:1px solid #ddd;">939</td><td style="border:1px solid #ddd;">642</td><td style="border:1px solid #ddd;">609</td><td style="border:1px solid #ddd;">558</td><td style="border:1px solid #ddd;">504</td><td style="border:1px solid #ddd;">423</td></tr><tr><td style="border:1px solid #ddd;">512 Bytes</td><td style="border:1px solid #ddd;">1965</td><td style="border:1px solid #ddd;">1155</td><td style="border:1px solid #ddd;">750</td><td style="border:1px solid #ddd;">546</td><td style="border:1px solid #ddd;">615</td><td style="border:1px solid #ddd;">546</td><td style="border:1px solid #ddd;">444</td></tr><tr><td style="border:1px solid #ddd;">1024 Bytes</td><td style="border:1px solid #ddd;">3501</td><td style="border:1px solid #ddd;">1923</td><td style="border:1px solid #ddd;">1134</td><td style="border:1px solid #ddd;">738</td><td style="border:1px solid #ddd;">870</td><td style="border:1px solid #ddd;">738</td><td style="border:1px solid #ddd;">540</td></tr><tr><td style="border:1px solid #ddd;">2048 Bytes</td><td style="border:1px solid #ddd;">6573</td><td style="border:1px solid #ddd;">3459</td><td style="border:1px solid #ddd;">1902</td><td style="border:1px solid #ddd;">1122</td><td style="border:1px solid #ddd;">1383</td><td style="border:1px solid #ddd;">1122</td><td style="border:1px solid #ddd;">732</td></tr><tr><td style="border:1px solid #ddd;">4096 Bytes</td><td style="border:1px solid #ddd;">12717</td><td style="border:1px solid #ddd;">6531</td><td style="border:1px solid #ddd;">3438</td><td style="border:1px solid #ddd;">1890</td><td style="border:1px solid #ddd;">2406</td><td style="border:1px solid #ddd;">1890</td><td style="border:1px solid #ddd;">1116</td></tr></table>
 
@@ -1070,7 +1021,6 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
   </tbody>
 </table>
 
-
 ## 10.8.3 Cut-Through Operation | 10.8.3 直通模式操作
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
@@ -1086,7 +1036,6 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">When a device receives a TLP that it recognizes as being a nullified TLP, it simply drops the packet and treats it as if it never existed. The NEXT_RCV_SEQ is not incremented, the AckNak_LATENCY_TIMER is not started, nor is the NAK_SCHEDULED set. The receiving device silently discards the nullified TLP and does not return an Ack/Nak for it.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">当设备接收到它识别为作废 TLP 的数据包时，直接丢弃该数据包并将其视为从未存在。NEXT_RCV_SEQ 不会递增，AckNak_LATENCY_TIMER 不会启动，NAK_SCHEDULED 也不会置位。接收设备静默丢弃该作废 TLP，且不为其返回 Ack/Nak。</td></tr>
   </tbody>
 </table>
-
 
 ## 10.8.4 Example of Cut-Through Operation | 10.8.4 直通模式操作示例
 
@@ -1109,7 +1058,6 @@ Table 10-5: Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times) | 表10
     <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;">Now let's say the TLP source device replays the packet and no error occurs. As before, the TLP is forwarded to the Egress Port with very short latency. When the rest of the TLP arrives at the Switch, there is no error, so an Ack is returned to the TLP source which then purges this TLP from its Replay Buffer. This time the Switch Egress Port keeps a copy of the TLP in its Replay Buffer. When the TLP reaches the destination, the packet has no errors and the Endpoint returns an Ack. Based on that, the Switch purges the copy of the TLP from its Replay Buffer and the sequence is complete.</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;">现在假设TLP源设备重放该数据包且未发生错误。和之前一样，TLP以极短的延迟被转发到出口端口。当TLP的其余部分到达交换机时，没有错误，因此向TLP源返回一个Ack，TLP源随后从其重放缓冲区中清除此TLP。这一次，交换机出口端口在重放缓冲区中保留TLP的一个副本。当TLP到达目的地时，数据包没有错误，端点返回一个Ack。基于此，交换机从其重放缓冲区中清除TLP的副本，该序列完成。</td></tr>
   </tbody>
 </table>
-
 
 Figure 10-16: Switch Cut-Through Mode Showing Error Handling | 图10-16：显示错误处理的交换机直通模式
 

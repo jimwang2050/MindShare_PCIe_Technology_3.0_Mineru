@@ -255,8 +255,6 @@ Figure 4-1: Generic Memory And IO Address Maps | 图4-1：通用存储器和IO�
 
 ## 4.2 Base Address Registers (BARs) | 4.2 基址寄存器 (BAR)
 
-## 4.1.2 General | 4.1.2 概述
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">

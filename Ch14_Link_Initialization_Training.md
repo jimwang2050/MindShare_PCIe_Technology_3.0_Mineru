@@ -2844,7 +2844,7 @@ Figure 14-39: Link Status Register | 图14-39：链路状态寄存器
   </tbody>
 </table>
 
-## 1.5.2 L0s State | 1.5.2 L0s 状态
+## 14.5.2 L0s State | 14.5.2 L0s 状态 | 1.5.2 L0s 状态
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">

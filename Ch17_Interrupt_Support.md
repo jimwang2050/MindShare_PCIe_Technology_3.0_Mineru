@@ -111,8 +111,6 @@ Figure 17-2: Interrupt Delivery Options in PCIe System | 图17-2：PCIe系统中
   </tbody>
 </table>
 
-## 17.1.1.1 General | 17.1.1.1 概述
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>

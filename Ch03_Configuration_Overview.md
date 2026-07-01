@@ -540,8 +540,6 @@ o 否则，将其转换为Type 1配置访问。
 
 ## 3.4.2 Enhanced Configuration Access Mechanism | 3.4.2 增强型配置访问机制
 
-## 3.4.3 General | 3.4.3 概述
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">

@@ -870,8 +870,6 @@ Figure 15‐12: Advanced Source ID Register | 图15‐12：高级源ID寄存器
 
 ## 15.9 Baseline Error Detection and Handling | 15.9 基线错误检测与处理
 
-## 15.9 Baseline Error Detection and Handling | 15.9 基线错误检测与处理
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -1082,8 +1080,6 @@ Figure 15‐19: Link Control Register - Force Link Retraining | 图15‐19：链
 
 Figure 15‐20: Link Training Status in the Link Status Register | 图15‐20：链路状态寄存器中的链路训练状态
 <img src="images/part05_2404d9ebc3b66d9636d0b1c6e35adff571985ee6f8d5d75184fbc5254a67d268.jpg" width="700" alt="">
-
-## 15.10 Advanced Error Reporting (AER) | 15.10 高级错误报告（AER）
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">

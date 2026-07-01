@@ -240,8 +240,6 @@ Figure 8-3 on page 294 continues the example in this Part 2 sequence.
 
 16. The sequence of events starting with step 1. is repeated by the Producer.
 
-## 8.4.2 Producer/Consumer Sequence — No Errors | 8.4.2 生产者/消费者序列 — 无错误
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>

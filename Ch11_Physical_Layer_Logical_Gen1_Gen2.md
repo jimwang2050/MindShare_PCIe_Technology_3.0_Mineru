@@ -915,8 +915,6 @@ Figure 11-22: Receiver Logic's Front End Per Lane | 图11-22：每条通道的�
 
 ## 11.3.2 Rx Clock Recovery | 11.3.2 接收时钟恢复
 
-## 11.2.6.1 General | 11.2.6.1 概述
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -1132,7 +1130,7 @@ The number 28 in the equation is the TLP overhead. It is the largest number of S
   </tbody>
 </table>
 
-## 12.4.4 Lane-to-Lane Skew | 12.4.4 通道间偏移
+## 11.4.4 Lane-to-Lane Skew | 11.4.4 通道间偏移 | 12.4.4 通道间偏移
 
 ## Flight Time Will Vary Between Lanes | 传输时间在各通道之间会有差异
 
@@ -1362,7 +1360,7 @@ Figure 11‐25: Example of Delayed Disparity Error Detection | 图11‐25：延�
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;"></td><td style="border:1px solid #ddd;">CRD</td><td style="border:1px solid #ddd;">Character</td><td style="border:1px solid #ddd;">CRD</td><td style="border:1px solid #ddd;">Character</td><td style="border:1px solid #ddd;">CRD</td><td style="border:1px solid #ddd;">Character</td><td style="border:1px solid #ddd;">CRD</td></tr><tr><td style="border:1px solid #ddd;">Transmitted Character Stream</td><td style="border:1px solid #ddd;">-</td><td style="border:1px solid #ddd;">D21.1</td><td style="border:1px solid #ddd;">-</td><td style="border:1px solid #ddd;">D10.2</td><td style="border:1px solid #ddd;">-</td><td style="border:1px solid #ddd;">D23.5</td><td style="border:1px solid #ddd;">+</td></tr><tr><td style="border:1px solid #ddd;">Transmitted Bit Stream</td><td style="border:1px solid #ddd;">-</td><td style="border:1px solid #ddd;">101010 1001</td><td style="border:1px solid #ddd;">-</td><td style="border:1px solid #ddd;">010101 0101</td><td style="border:1px solid #ddd;">-</td><td style="border:1px solid #ddd;">111010 1010</td><td style="border:1px solid #ddd;">+</td></tr><tr><td style="border:1px solid #ddd;">Bit Stream After Error</td><td style="border:1px solid #ddd;">-</td><td style="border:1px solid #ddd;">101010 1011</td><td style="border:1px solid #ddd;">+</td><td style="border:1px solid #ddd;">010101 0101</td><td style="border:1px solid #ddd;">+</td><td style="border:1px solid #ddd;">111010 1010</td><td style="border:1px solid #ddd;">+</td></tr><tr><td style="border:1px solid #ddd;">Decoded Character Stream</td><td style="border:1px solid #ddd;">-</td><td style="border:1px solid #ddd;">D21.0</td><td style="border:1px solid #ddd;">+</td><td style="border:1px solid #ddd;">D10.2</td><td style="border:1px solid #ddd;">+</td><td style="border:1px solid #ddd;">Invalid</td><td style="border:1px solid #ddd;">+</td></tr></table>
 
-## 12.4.5 Descrambler | 12.4.5 解扰器
+## 11.4.5 Descrambler | 11.4.5 解扰器 | 12.4.5 解扰器
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -1449,7 +1447,7 @@ By default, descrambling is always enabled, but the spec allows it to be disable
 </tr>
 </table>
 
-## 12.4.6 Byte Un-Striping | 12.4.6 字节解条带化
+## 11.4.6 Byte Un-Striping | 11.4.6 字节解条带化 | 12.4.6 字节解条带化
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -1479,7 +1477,7 @@ Figure 11‐26: Example of x8 Byte Un‐Striping | 图11‐26：x8字节解条�
   </tbody>
 </table>
 
-## 12.4.8 Receive Buffer (Rx Buffer) | 12.4.8 接收缓冲器（Rx 缓冲器）
+## 11.4.8 Receive Buffer (Rx Buffer) | 11.4.8 接收缓冲器 | 12.4.8 接收缓冲器（Rx 缓冲器）
 
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">

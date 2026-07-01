@@ -185,8 +185,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
 <table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Hardware Element</td><td style="border:2px solid #000;">Description</td></tr><tr><td style="border:2px solid #000;">Hot-Plug Controller</td><td style="border:2px solid #000;">Receives and processes commands issued by the Hot-Plug System Driver. One Controller is associated with each Root or Switch Port that supports hot plug operation. The PCIe spec defines a standard software interface for the Hot-Plug Controller.</td></tr><tr><td style="border:2px solid #000;">Card Slot Power Switching Logic</td><td style="border:2px solid #000;">Allows power to a slot to be turned on or off under program control. Controlled by the Hot Plug controller under the direction of the Hot-Plug System Driver.</td></tr><tr><td style="border:2px solid #000;">Card Reset Logic</td><td style="border:2px solid #000;">Hot Plug Controller drives the PERST# signal to a specific slot as directed by the Hot-Plug System Driver.</td></tr><tr><td style="border:2px solid #000;">Power Indicator</td><td style="border:2px solid #000;">Indicates whether power is currently active on the connector. Controlled by the Hot Plug logic associated with each port and directed by the Hot Plug System Driver.</td></tr><tr><td style="border:2px solid #000;">Attention Indicator</td><td style="border:2px solid #000;">Draws operator attention to a connector that needs service. Controlled by the Hot Plug logic and directed by the Hot-Plug System Driver.</td></tr><tr><td style="border:2px solid #000;">Attention Button</td><td style="border:2px solid #000;">Pressed by the operator to notify Hot Plug software of a request to change a card.</td></tr><tr><td style="border:2px solid #000;">Card Present Detect Pins</td><td style="border:2px solid #000;">There are two of these: PRSNT1# is located at one end of the card slot and PRSNT2# at the opposite end. These pins are shorter than the others so that they disconnect first when a card is removed. The system board ties PRSNT1# to ground and connects PRSNT2# as an input to the Hot-Plug Controller with a pull-up resistor. Additional PRSNT2# pins are defined for wider connectors to support the insertion and recognition of shorter cards installed into longer connectors. The card itself shorts PRSNT1# to PRSNT2#, so that the PRSNT2# input is high if a card is not physically plugged in or low if it is.</td></tr></table>
 
 ## 19.4 Card Removal and Insertion Procedures | 19.4 卡移除与插入规程
-## 19.4 Card Removal and Insertion Procedures | 19.4 卡移除与插入规程
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>
@@ -365,8 +363,6 @@ Table 19-2: Major Hot-Plug Hardware Elements | 表19-2：主要热插拔硬件�
 </table>
 
 ## 19.5.2.1 User Interface Features | 19.5.2.1 用户界面特性
-## 19.5.2.1 User Interface Features | 19.5.2.1 用户界面特性
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>

@@ -379,8 +379,6 @@ Table 10‑1: Ack or Nak DLLP Fields | 表10‑1：Ack或Nak DLLP字段
 </table>
 
 ## 10.2.3.6 Ack/Nak Examples | 10.2.3.6 Ack/Nak 示例
-## 10.2.3.6 Ack/Nak Examples | 10.2.3.6 Ack/Nak 示例
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>

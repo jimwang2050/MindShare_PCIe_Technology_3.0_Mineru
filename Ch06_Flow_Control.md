@@ -470,8 +470,6 @@ The specification defines the latency between sending FC_INIT DLLPs as follows:
 
 ## 6.5 Introduction to the Flow Control Mechanism | 6.5 流控机制简介
 
-## 6.4.1.1 General | 6.4.1.1 概述
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>

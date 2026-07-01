@@ -322,8 +322,7 @@ Figure 18-6: Link Control Register | 图18-6：链路控制寄存器
     </tr>
   </thead>
   <tbody>
-    <tr><td width="50%" style="border:1px solid #ddd; background:#fff;padding:4px 8px;"># Part part06 — `mindshare_part06_p0901-1057`</td><td width="50%" style="border:1px solid #ddd; background-color:#e8e8e8;padding:4px 8px;"># 第06部分 — `mindshare_part06_p0901-1057`</td></tr>
-  </tbody>
+      </tbody>
 </table>
 
 Figure 18‐7: TS1 Ordered‐Set Showing Disable Link Bit | 图18‐7：显示禁用链路位的TS1有序集

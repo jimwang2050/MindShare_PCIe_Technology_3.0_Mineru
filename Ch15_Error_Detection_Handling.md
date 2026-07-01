@@ -496,8 +496,6 @@ Figure 15-6: The Error/Poisoned Bit in a Completion Header | 图15-6：完成头
 
 ---
 
-# Part part05 — `mindshare_part05_p0721-0900`
-
 <table style="border:1px solid #ddd;border-collapse:collapse; width:100%;" cellpadding="4" cellspacing="0" rules="all" frame="border">
   <thead style="border:1px solid #ddd;">
     <tr>

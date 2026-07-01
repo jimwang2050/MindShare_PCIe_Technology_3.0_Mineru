@@ -23,15 +23,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
-Part part01 — `mindshare_part01_p0001-0180`
-</td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-第一部分 part01 — `mindshare_part01_p0001-0180`
-</td>
-</tr>
-    <tr>
+        <tr>
 <td width="50%" style="border:2px solid #000;">
 For training, visit mindshare.com
 </td>

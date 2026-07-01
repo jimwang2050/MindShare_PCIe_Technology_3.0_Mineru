@@ -65,8 +65,6 @@ Almost all devices have internal registers or storage locations that software (a
   </tbody>
 </table>
 
-# Part part02 — `mindshare_part02_p0181-0360` | 第二部分 part02 — `mindshare_part02_p0181-0360`
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">

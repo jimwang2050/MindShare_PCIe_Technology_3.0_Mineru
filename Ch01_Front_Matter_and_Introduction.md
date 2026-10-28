@@ -1,50 +1,33 @@
-# Ch01_Front_Matter_and_Introduction
+# 0 前言与目录 | Front Matter
+---
 
 ---
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
+ 
+ <tbody>
+ <tr>
 <td width="50%" style="border:1px solid #ddd;">
-*(This chunk contains no translatable content — only a separator.)*
-</td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-*(本分块无可翻译内容——仅包含分隔符。)*
-</td>
-</tr>
-</table>
-
----
-
-<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead>
-    <tr>
-      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
-      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-        <tr>
-<td width="50%" style="border:2px solid #000;">
 For training, visit mindshare.com
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 如需培训，请访问 mindshare.com
 </td>
 </tr>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
 MindShare Technology Series
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 MindShare 技术丛书系列
 </td>
 </tr>
-  </tbody>
+ </tbody>
 </table>
 
 <img src="images/part01_bd6316ecf120ddff1378b0bbb71efdbcee731b0e24a2e03774f7a36afc462733.jpg" width="700" alt="">
 
-# Comprehensive Guide to Generations 1.x, 2.x and 3.0 | 1.x、2.x 及 3.0 代综合指南
+## Comprehensive Guide to Generations 1.x, 2.x and 3.0 | 1.x、2.x 及 3.0 代综合指南
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -64,8 +47,6 @@ MindShare, Inc.
 </td>
 </tr>
 </table>
-
-# PCI Express Technology | PCI Express 技术
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -113,7 +94,16 @@ MindShare 实时培训和自定进度培训
 </tr>
 </table>
 
+<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+<tr>
+<td width="50%" style="border:1px solid #ddd;">
 MindShare offers a wide range of courses covering processors, buses, firmware, storage, graphics, programming, and more. The following table lists some of the key training areas available.
+</td>
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+MindShare 提供涵盖处理器、总线、固件、存储、图形、编程等领域的广泛课程。下表列出了部分关键培训领域。
+</td>
+</tr>
+</table>
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Intel ArchitectureIntel Ivy Bridge ProcessorIntel 64 (x86) ArchitectureIntel QuickPath Interconnect (QPI)Computer Architecture</td><td style="border:1px solid #ddd;">Virtualization TechnologyPC VirtualizationIO Virtualization</td></tr><tr><td style="border:1px solid #ddd;">AMD ArchitectureAMD Opteron Processor (Bulldozer)AMD64 Architecture</td><td style="border:1px solid #ddd;">IO BusesPCI Express 3.0USB 3.0 / 2.0xHCI for USB</td></tr><tr><td style="border:1px solid #ddd;">Firmware TechnologyUEFI ArchitectureBIOS Essentials</td><td style="border:1px solid #ddd;">Storage TechnologySAS ArchitectureSerial ATA ArchitectureNVMe Architecture</td></tr><tr><td style="border:1px solid #ddd;">ARM ArchitectureARM Architecture</td><td style="border:1px solid #ddd;">Memory TechnologyModern DRAM Architecture</td></tr><tr><td style="border:1px solid #ddd;">Graphics ArchitectureGraphics Hardware Architecture</td><td style="border:1px solid #ddd;">High Speed DesignHigh Speed DesignEMI/EMC</td></tr><tr><td style="border:1px solid #ddd;">ProgrammingX86 Architecture ProgrammingX86 Assembly Language BasicsOpenCL Programming</td><td style="border:1px solid #ddd;">Surface-Mount Technology (SMT)SMT ManufacturingSMT Testing</td></tr></table>
 
@@ -131,22 +121,22 @@ Are your company's technical training needs being addressed in the most effectiv
 MindShare has over 25 years experience in conducting technical training on cutting-edge technologies. We understand the challenges companies have when searching for quality, effective training which reduces the students' time away from work and provides cost-effective alternatives. MindShare offers many flexible solutions to meet those needs. Our courses are taught by highly-skilled, enthusiastic, knowledgeable and experienced instructors. We bring life to knowledge through a wide variety of learning methods and delivery options.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-MindShare 在尖端技术领域拥有超过25年的技术培训经验。我们深知企业在寻求高质量、高效率的培训时所面临的挑战——他们需要既能减少学员离岗时间又能提供高性价比的替代方案。MindShare 提供多种灵活的解决方案来满足这些需求。我们的课程由技术精湛、充满热情、知识渊博且经验丰富的讲师授课。我们通过多样化的学习方法和交付选项，为知识注入生命力。
+MindShare 在尖端技术领域拥有超过 25 年的技术培训经验。我们深知企业在寻求高质量、高效率的培训时所面临的挑战——他们需要既能减少学员离岗时间又能提供高性价比的替代方案。MindShare 提供多种灵活的解决方案来满足这些需求。我们的课程由技术精湛、充满热情、知识渊博且经验丰富的讲师授课。我们通过多样化的学习方法和交付选项，为知识注入生命力。
 </td>
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-MindShare offers numerous courses in a self‑paced training format (eLearning). We've taken our 25+ years of experience in the technical training industry and made that knowledge available to you at the click of a mouse.
+MindShare offers numerous courses in a self-paced training format (eLearning). We've taken our 25+ years of experience in the technical training industry and made that knowledge available to you at the click of a mouse.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-MindShare 提供大量自定进度培训形式（在线学习）的课程。我们将25年以上的技术培训行业经验凝聚于此，轻点鼠标即可触达这些知识。
+MindShare 提供大量自定进度培训形式（在线学习）的课程。我们将 25 年以上的技术培训行业经验凝聚于此，轻点鼠标即可触达这些知识。
 </td>
 </tr>
 </table>
 
 <img src="images/part01_fabedc978fca82652e077628d3b7a144d3509d619e1a177f99fc364607fb5aa1.jpg" width="700" alt="">
 
-# The Ultimate Tool to View, Edit and Verify Configuration Settings of a Computer | 查看、编辑和验证计算机配置设置的终极工具
+## The Ultimate Tool to View, Edit and Verify Configuration Settings of a Computer | 查看、编辑和验证计算机配置设置的终极工具
 
 ## Feature List | 功能列表
 
@@ -335,42 +325,35 @@ The rule checks are written in JavaScript. (Python support coming soon.)
 
 ## Write Capability | 写操作功能
 
-<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead>
-    <tr>
-      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
-      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
+<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+ 
+ <tbody>
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
 MindShare Arbor provides a very simple interface to directly edit a register in PCI config space, memory address space or IO address space. This can be done in the decoded view so you see what the meaning of each bit, or by simply writing a hex value to the target location.
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 MindShare Arbor 提供了一个非常简单的界面，可直接编辑 PCI 配置空间、存储器地址空间或 IO 地址空间中的寄存器。这可以在解码视图中完成，以便您查看每个比特位的含义，或者直接向目标位置写入一个十六进制值。
 </td>
 </tr>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
 Saving System Scans (XML)
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 保存系统扫描结果 (XML)
 </td>
 </tr>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
 After a system scan has been performed, MindShare Arbor allows saving of that system's scanned data (PCI config space, memory space and IO space) all in a single file to be looked at later or sent to a colleague. The scanned data in these Arbor system scan files (.ARBSYS files) are XML-based and can be looked at with any text editor or web browser. Even scans performed with other tools can be easily converted to the Arbor XML format and evaluated with MindShare Arbor.
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 在执行系统扫描之后，MindShare Arbor 允许将系统的扫描数据（PCI 配置空间、存储器空间和 IO 空间）全部保存到单个文件中，以便日后查看或发送给同事。这些 Arbor 系统扫描文件（.ARBSYS 文件）中的扫描数据基于 XML 格式，可以使用任何文本编辑器或 web 浏览器查看。即使使用其他工具执行的扫描，也可以轻松转换为 Arbor XML 格式，并通过 MindShare Arbor 进行评估。
 </td>
 </tr>
-  </tbody>
+ </tbody>
 </table>
-
-# PCI Express Technology | PCI Express 技术
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -436,10 +419,10 @@ Jackson, Mike 与 Budruk, Ravi：《PCI Express 技术》/ MindShare, Inc.，Mik
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Includes index ISBN: 978-0-9836465-2-5 (alk. paper) 1. Computer Architecture. 2.0 Microcomputers - buses. I. Jackson, Mike    II. MindShare, Inc.   III. Title
+Includes index ISBN: 978-0-9836465-2-5 (alk. paper) 1. Computer Architecture. 2.0 Microcomputers - buses. I. Jackson, Mike II. MindShare, Inc. III. Title
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-含索引。ISBN：978-0-9836465-2-5（无酸纸）。1. 计算机体系结构。2. 微型计算机 - 总线。I. Jackson, Mike  II. MindShare, Inc.  III. 书名
+含索引。ISBN：978-0-9836465-2-5（无酸纸）。1. 计算机体系结构。2. 微型计算机 - 总线。I. Jackson, Mike II. MindShare, Inc. III. 书名
 </td>
 </tr>
 <tr>
@@ -516,7 +499,7 @@ Maryanne Daves — 担任本书项目经理，让本书得以按时出版。
 Don Anderson — for excellent work editing numerous chapters and doing a complete re-write of Chapter 8 on "Transaction Ordering".
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Don Anderson — 出色地编辑了多个章节，并完整重写了第8章"事务排序"。
+Don Anderson — 出色地编辑了多个章节，并完整重写了第 8 章"事务排序"。
 </td>
 </tr>
 <tr>
@@ -524,7 +507,7 @@ Don Anderson — 出色地编辑了多个章节，并完整重写了第8章"事�
 Joe Winkles — for his superb job of technical editing and doing a complete rewrite of Chapter 4 on "Address Space and Transaction Routing".
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Joe Winkles — 出色地完成了技术编辑工作，并完整重写了第4章"地址空间与事务路由"。
+Joe Winkles — 出色地完成了技术编辑工作，并完整重写了第 4 章"地址空间与事务路由"。
 </td>
 </tr>
 <tr>
@@ -532,7 +515,7 @@ Joe Winkles — 出色地完成了技术编辑工作，并完整重写了第4章
 Jay Trodden — for his contribution in developing Chapter 4 on "Address Space and Transaction Routing"
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Jay Trodden — 为第4章"地址空间与事务路由"的开发做出了贡献。
+Jay Trodden — 为第 4 章"地址空间与事务路由"的开发做出了贡献。
 </td>
 </tr>
 <tr>
@@ -548,7 +531,7 @@ Special thanks to LeCroy Corporation, Inc. for supplying:
 Appendix A: Debugging PCI Express™ Traffic using LeCroy Tools
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-附录A：使用 LeCroy 工具调试 PCI Express™ 流量
+附录 A：使用 LeCroy 工具调试 PCI Express™ 流量
 </td>
 </tr>
 <tr>
@@ -564,7 +547,7 @@ Special thanks to PLX Technology for contributing two appendices:
 Appendix B: Markets & Applications for PCI Express™
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-附录B：PCI Express™ 的市场与应用
+附录 B：PCI Express™ 的市场与应用
 </td>
 </tr>
 <tr>
@@ -572,7 +555,7 @@ Appendix B: Markets & Applications for PCI Express™
 Appendix C: Implementing Intelligent Adapters and Multi-Host Systems With PCI Express™ Technology
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-附录C：使用 PCI Express™ 技术实现智能适配器和多主机系统
+附录 C：使用 PCI Express™ 技术实现智能适配器和多主机系统
 </td>
 </tr>
 <tr>
@@ -603,7 +586,7 @@ Thanks also to the PCI SIG for giving permission to use some of the mechanical d
 1.01 - Fixed Revision ID field in Figures 1-12, 1-13, 4-2, 4-4, 4-5, 4-6, 4-8, 4-9, 4-10, 4-17, 4-20, 4-21
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-1.01 - 修正了图1-12、1-13、4-2、4-4、4-5、4-6、4-8、4-9、4-10、4-17、4-20、4-21中的修订ID字段
+1.01 - 修正了图 1-12、1-13、4-2、4-4、4-5、4-6、4-8、4-9、4-10、4-17、4-20、4-21 中的修订 ID 字段
 </td>
 </tr>
 <tr>
@@ -611,7 +594,7 @@ Thanks also to the PCI SIG for giving permission to use some of the mechanical d
 The MindShare Technology Series .... 1
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-MindShare技术系列 .... 1
+MindShare 技术系列 .... 1
 </td>
 </tr>
 <tr>
@@ -735,7 +718,7 @@ We Want Your Feedback .... 5
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第1章：背景
+第 1 章：背景
 </td>
 </tr>
 <tr>
@@ -1038,7 +1021,7 @@ PCI-X 2.0 源同步模型......37
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第2章：PCIe 架构概述
+第 2 章：PCIe 架构概述
 </td>
 </tr>
 <tr>
@@ -1246,7 +1229,7 @@ TLP 数据包拆解......64
 Non-Posted Transactions....65
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Non-Posted事务......65
+Non-Posted 事务......65
 </td>
 </tr>
 <tr>
@@ -1437,7 +1420,7 @@ Completion with Data....83
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第3章：配置概述
+第 3 章：配置概述
 </td>
 </tr>
 <tr>
@@ -1740,7 +1723,7 @@ MindShare Arbor 功能列表......119
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第4章：地址空间与事务路由
+第 4 章：地址空间与事务路由
 </td>
 </tr>
 <tr>
@@ -1972,7 +1955,7 @@ Split Transaction Protocol....149
 Posted versus Non-Posted....150
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-转发与Non-Posted......150
+转发与 Non-Posted......150
 </td>
 </tr>
 <tr>
@@ -2192,7 +2175,7 @@ DLLP 与有序集不参与路由......166
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第5章：TLP元素
+第 5 章：TLP 元素
 </td>
 </tr>
 <tr>
@@ -2240,7 +2223,7 @@ Motivation for a Packet-Based Protocol....171
 3. CRC Protects Entire Packet....172
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-3. CRC保护整个数据包....172
+3. CRC 保护整个数据包....172
 </td>
 </tr>
 <tr>
@@ -2256,7 +2239,7 @@ Transaction Layer Packet (TLP) Details....172
 TLP Assembly And Disassembly....172
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-TLP组装与拆解....172
+TLP 组装与拆解....172
 </td>
 </tr>
 <tr>
@@ -2264,7 +2247,7 @@ TLP组装与拆解....172
 TLP Structure....174
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-TLP结构....174
+TLP 结构....174
 </td>
 </tr>
 <tr>
@@ -2272,7 +2255,7 @@ TLP结构....174
 Generic TLP Header Format....175
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-通用TLP头格式....175
+通用 TLP 头格式....175
 </td>
 </tr>
 <tr>
@@ -2312,7 +2295,7 @@ Header Type/Format Field Encodings....179
 Digest / ECRC Field....180
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-摘要/ECRC字段....180
+摘要/ECRC 字段....180
 </td>
 </tr>
 <tr>
@@ -2320,7 +2303,7 @@ Digest / ECRC Field....180
 ECRC Generation and Checking....180
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-ECRC生成与校验....180
+ECRC 生成与校验....180
 </td>
 </tr>
 <tr>
@@ -2328,7 +2311,7 @@ ECRC生成与校验....180
 Who Checks ECRC?....180
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-由谁校验ECRC？....180
+由谁校验 ECRC？....180
 </td>
 </tr>
 <tr>
@@ -2376,7 +2359,7 @@ Transaction Descriptor Fields....182
 Transaction ID....183
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-事务ID....183
+事务 ID....183
 </td>
 </tr>
 <tr>
@@ -2400,7 +2383,7 @@ Transaction Attributes....183
 Additional Rules For TLPs With Data Payloads....183
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-带数据载荷TLP的附加规则....183
+带数据载荷 TLP 的附加规则....183
 </td>
 </tr>
 <tr>
@@ -2408,7 +2391,7 @@ Additional Rules For TLPs With Data Payloads....183
 Specific TLP Formats: Request & Completion TLPs....184
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-特定TLP格式：请求与完成TLP....184
+特定 TLP 格式：请求与完成报文....184
 </td>
 </tr>
 <tr>
@@ -2416,7 +2399,7 @@ Specific TLP Formats: Request & Completion TLPs....184
 IO Requests....184
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-IO请求....184
+IO 请求....184
 </td>
 </tr>
 <tr>
@@ -2424,7 +2407,7 @@ IO请求....184
 IO Request Header Format....185
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-IO请求头格式....185
+IO 请求头格式....185
 </td>
 </tr>
 <tr>
@@ -2432,7 +2415,7 @@ IO请求头格式....185
 IO Request Header Fields....186
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-IO请求头字段....186
+IO 请求头字段....186
 </td>
 </tr>
 <tr>
@@ -2536,7 +2519,7 @@ Data Returned For Read Requests:....201
 Receiver Completion Handling Rules:....202
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收端完成报文处理规则：....202
+接收器完成报文处理规则：....202
 </td>
 </tr>
 <tr>
@@ -2568,7 +2551,7 @@ Message Notes:....206
 INTx Interrupt Messages....206
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-INTx中断消息....206
+INTx 中断消息....206
 </td>
 </tr>
 <tr>
@@ -2608,7 +2591,7 @@ Set Slot Power Limit Message....210
 Vendor-Defined Message 0 and 1....210
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-厂商定义消息0和1....210
+厂商定义消息 0 和 1....210
 </td>
 </tr>
 <tr>
@@ -2639,7 +2622,7 @@ Optimized Buffer Flush and Fill Messages....213
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第6章：流控
+第 6 章：流控
 </td>
 </tr>
 <tr>
@@ -2663,7 +2646,7 @@ Flow Control Buffers and Credits....217
 VC Flow Control Buffer Organization....218
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-VC流控缓冲区组织....218
+VC 流控缓冲区组织....218
 </td>
 </tr>
 <tr>
@@ -2727,7 +2710,7 @@ General....222
 The FC Initialization Sequence....223
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-FC初始化序列....223
+FC 初始化序列....223
 </td>
 </tr>
 <tr>
@@ -2735,7 +2718,7 @@ FC初始化序列....223
 FC_Init1 Details....224
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-FC_Init1详细说明....224
+FC_Init1 详细说明....224
 </td>
 </tr>
 <tr>
@@ -2743,7 +2726,7 @@ FC_Init1详细说明....224
 FC_Init2 Details....225
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-FC_Init2详细说明....225
+FC_Init2 详细说明....225
 </td>
 </tr>
 <tr>
@@ -2751,7 +2734,7 @@ FC_Init2详细说明....225
 Rate of FC_INIT1 and FC_INIT2 Transmission....226
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-FC_INIT1与FC_INIT2的传输速率....226
+FC_INIT1 与 FC_INIT2 的传输速率....226
 </td>
 </tr>
 <tr>
@@ -2791,7 +2774,7 @@ The Flow Control Elements....227
 Transmitter Elements....228
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端要素....228
+发送器要素....228
 </td>
 </tr>
 <tr>
@@ -2799,7 +2782,7 @@ Transmitter Elements....228
 Receiver Elements....229
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收端要素....229
+接收器要素....229
 </td>
 </tr>
 <tr>
@@ -2813,10 +2796,6 @@ Receiver Elements....229
 </table>
 
 ## Contents | 目录
-
-## Chapter 7: Quality of Service | 第 7 章：服务质量
-
-## Chapter 8: Transaction Ordering | 第 8 章：事务排序
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -2904,7 +2883,7 @@ Maximum Latency Between Update Flow Control DLLPs....240
 Calculating Update Frequency Based on Payload Size and Link Width....240
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-基于净荷大小与链路宽度计算更新频率....240
+基于有效载荷大小与链路宽度计算更新频率....240
 </td>
 </tr>
 <tr>
@@ -3460,7 +3439,7 @@ Deadlock Avoidance....303
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第9章：DLLP 要素
+第 9 章：DLLP 要素
 </td>
 </tr>
 <tr>
@@ -3484,7 +3463,7 @@ DLLP 是本地流量......308
 Receiver handling of DLLPs......309
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收端对 DLLP 的处理......309
+接收器对 DLLP 的处理......309
 </td>
 </tr>
 <tr>
@@ -3563,7 +3542,7 @@ Vendor-Specific DLLP Format......316
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第10章：Ack/Nak 协议
+第 10 章：Ack/Nak 协议
 </td>
 </tr>
 <tr>
@@ -3587,7 +3566,7 @@ Ack/Nak 协议的要素......320
 Transmitter Elements......320
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端要素......320
+发送器要素......320
 </td>
 </tr>
 <tr>
@@ -3651,7 +3630,7 @@ DLLP CRC 校验......324
 Receiver Elements......324
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收端要素......324
+接收器要素......324
 </td>
 </tr>
 <tr>
@@ -3715,7 +3694,7 @@ Ack/Nak 协议细节......329
 Transmitter Protocol Details......329
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端协议细节......329
+发送器协议细节......329
 </td>
 </tr>
 <tr>
@@ -3771,7 +3750,7 @@ Replay Buffer Sizing......330
 Transmitter's Response to an Ack DLLP .... 331
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端对 Ack DLLP 的响应 .... 331
+发送器对 Ack DLLP 的响应 .... 331
 </td>
 </tr>
 <tr>
@@ -3803,7 +3782,7 @@ Example 2.... 332
 Transmitter's Response to a Nak.... 333
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端对 Nak 的响应.... 333
+发送器对 Nak 的响应.... 333
 </td>
 </tr>
 <tr>
@@ -3883,7 +3862,7 @@ REPLAY\_TIMER 汇总表 .... 338
 Transmitter DLLP Handling.... 340
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端 DLLP 处理.... 340
+发送器 DLLP 处理.... 340
 </td>
 </tr>
 <tr>
@@ -3891,7 +3870,7 @@ Transmitter DLLP Handling.... 340
 Receiver Protocol Details .... 340
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收端协议细节 .... 340
+接收器协议细节 .... 340
 </td>
 </tr>
 <tr>
@@ -3939,7 +3918,7 @@ Out of Sequence TLP.... 342
 Receiver Schedules An Ack DLLP .... 342
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收端调度 Ack DLLP .... 342
+接收器调度 Ack DLLP .... 342
 </td>
 </tr>
 <tr>
@@ -3947,7 +3926,7 @@ Receiver Schedules An Ack DLLP .... 342
 Receiver Schedules a Nak.... 343
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收端调度 Nak.... 343
+接收器调度 Nak.... 343
 </td>
 </tr>
 <tr>
@@ -4151,7 +4130,7 @@ Example of Cut-Through Operation.... 356
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第11章：物理层 - 逻辑子层 (Gen1与Gen2)
+第 11 章：物理层 - 逻辑子层 (Gen1 与 Gen2)
 </td>
 </tr>
 <tr>
@@ -4191,7 +4170,7 @@ Receive Logic Overview .... 366
 Transmit Logic Details (Gen1 and Gen2 Only) .... 368
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送逻辑详解 (仅Gen1与Gen2) .... 368
+发送逻辑详解 (仅 Gen1 与 Gen2) .... 368
 </td>
 </tr>
 <tr>
@@ -4239,7 +4218,7 @@ General Rules.... 373
 Example: x1 Format.... 374
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-示例：x1格式.... 374
+示例：x1 格式.... 374
 </td>
 </tr>
 <tr>
@@ -4247,7 +4226,7 @@ Example: x1 Format.... 374
 x4 Format Rules.... 374
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-x4格式规则.... 374
+x4 格式规则.... 374
 </td>
 </tr>
 <tr>
@@ -4255,7 +4234,7 @@ x4格式规则.... 374
 Example x4 Format.... 375
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-示例：x4格式.... 375
+示例：x4 格式.... 375
 </td>
 </tr>
 <tr>
@@ -4271,7 +4250,7 @@ Large Link-Width Packet Format Rules.... 376
 x8 Packet Format Example.... 376
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-x8数据包格式示例.... 376
+x8 数据包格式示例.... 376
 </td>
 </tr>
 <tr>
@@ -4335,7 +4314,7 @@ Motivation.... 380
 Properties of 10-bit Symbols.... 381
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-10位码元的属性.... 381
+10 位码元的属性.... 381
 </td>
 </tr>
 <tr>
@@ -4415,7 +4394,7 @@ General.... 388
 TS1 and TS2 Ordered Set (TS1OS/TS2OS)....388
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-TS1与TS2有序集 (TS1OS/TS2OS)....388
+TS1 与 TS2 有序集 (TS1OS/TS2OS)....388
 </td>
 </tr>
 <tr>
@@ -4431,7 +4410,7 @@ Electrical Idle Ordered Set (EIOS)....388
 FTS Ordered Set (FTSOS)....388
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-FTS有序集 (FTSOS)....388
+FTS 有序集 (FTSOS)....388
 </td>
 </tr>
 <tr>
@@ -4439,7 +4418,7 @@ FTS有序集 (FTSOS)....388
 SKP Ordered Set (SOS)....389
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-SKP有序集 (SOS)....389
+SKP 有序集 (SOS)....389
 </td>
 </tr>
 <tr>
@@ -4519,7 +4498,7 @@ Background....391
 SKIP ordered set Insertion Rules....391
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-SKIP有序集插入规则....391
+SKIP 有序集插入规则....391
 </td>
 </tr>
 <tr>
@@ -4527,7 +4506,7 @@ SKIP有序集插入规则....391
 Receive Logic Details (Gen1 and Gen2 Only)....392
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收逻辑详解 (仅Gen1与Gen2)....392
+接收逻辑详解 (仅 Gen1 与 Gen2)....392
 </td>
 </tr>
 <tr>
@@ -4814,7 +4793,7 @@ Link Training and Initialization....405
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第12章：物理层 - 逻辑子层 (Gen3)
+第 12 章：物理层 - 逻辑子层 (Gen3)
 </td>
 </tr>
 <tr>
@@ -4982,7 +4961,7 @@ Ordered Set Example - SOS....426
 Transmitter SOS Rules....429
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送器SOS规则....429
+发送器 SOS 规则....429
 </td>
 </tr>
 <tr>
@@ -4990,7 +4969,7 @@ Transmitter SOS Rules....429
 Receiver SOS Rules....430
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收器SOS规则....430
+接收器 SOS 规则....430
 </td>
 </tr>
 <tr>
@@ -5006,7 +4985,7 @@ Scrambling....430
 Number of LFSRs....430
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-LFSR数量....430
+LFSR 数量....430
 </td>
 </tr>
 <tr>
@@ -5014,7 +4993,7 @@ LFSR数量....430
 First Option: Multiple LFSRs....431
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第一选项：多个LFSR....431
+第一选项：多个 LFSR....431
 </td>
 </tr>
 <tr>
@@ -5022,7 +5001,7 @@ First Option: Multiple LFSRs....431
 Second Option: Single LFSR....432
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第二选项：单个LFSR....432
+第二选项：单个 LFSR....432
 </td>
 </tr>
 <tr>
@@ -5246,14 +5225,14 @@ Receive Buffer (Rx Buffer) .... 446
 Notes Regarding Loopback with 128b/130b .... 446
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-关于128b/130b环回的注意事项 .... 446
+关于 128b/130b 环回的注意事项 .... 446
 </td>
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第13章：物理层 - 电气子层
+第 13 章：物理层 - 电气子层
 </td>
 </tr>
 <tr>
@@ -5397,7 +5376,7 @@ Tx Impedance Requirements.... 459
 ESD and Short Circuit Requirements.... 459
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-ESD与短路要求.... 459
+ESD 与短路要求.... 459
 </td>
 </tr>
 <tr>
@@ -5533,7 +5512,7 @@ Signal Compensation .... 468
 De-emphasis Associated with Gen1 and Gen2 PCIe .... 468
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen1与Gen2 PCIe相关的去加重 .... 468
+Gen1 与 Gen2 PCIe 相关的去加重 .... 468
 </td>
 </tr>
 <tr>
@@ -5621,7 +5600,7 @@ Coefficient Example .... 480
 EIEOS Pattern .... 483
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-EIEOS码型 .... 483
+EIEOS 码型 .... 483
 </td>
 </tr>
 <tr>
@@ -5725,7 +5704,7 @@ Stressed-Eye Testing .... 492
 2.5 and 5.0 GT/s .... 492
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-2.5与5.0 GT/s .... 492
+2.5 与 5.0 GT/s .... 492
 </td>
 </tr>
 <tr>
@@ -5780,7 +5759,7 @@ Link Power Management States.... 500
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第14章：链路初始化与训练
+第 14 章：链路初始化与训练
 </td>
 </tr>
 <tr>
@@ -5812,7 +5791,7 @@ General.... 509
 TS1 and TS2 Ordered Sets.... 510
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-TS1与TS2有序集.... 510
+TS1 与 TS2 有序集.... 510
 </td>
 </tr>
 <tr>
@@ -5836,7 +5815,7 @@ General.... 518
 Overview of LTSSM States.... 519
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-LTSSM状态概述.... 519
+LTSSM 状态概述.... 519
 </td>
 </tr>
 <tr>
@@ -5940,7 +5919,7 @@ Polling.Compliance.... 529
 Compliance Pattern for 8b/10b.... 529
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-8b/10b合规码型.... 529
+8b/10b 合规码型.... 529
 </td>
 </tr>
 <tr>
@@ -5948,7 +5927,7 @@ Compliance Pattern for 8b/10b.... 529
 Compliance Pattern for 128b/130b.... 530
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-128b/130b合规码型.... 530
+128b/130b 合规码型.... 530
 </td>
 </tr>
 <tr>
@@ -5956,7 +5935,7 @@ Compliance Pattern for 128b/130b.... 530
 Modified Compliance Pattern for 8b/10b.... 532
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-8b/10b修改合规码型.... 532
+8b/10b 修改合规码型.... 532
 </td>
 </tr>
 <tr>
@@ -5964,7 +5943,7 @@ Modified Compliance Pattern for 8b/10b.... 532
 Modified Compliance Pattern for 128b/130b.... 533
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-128b/130b修改合规码型.... 533
+128b/130b 修改合规码型.... 533
 </td>
 </tr>
 <tr>
@@ -6028,7 +6007,7 @@ Introduction.... 542
 Link Configuration Example 1.... 542
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-链路配置示例1.... 542
+链路配置示例 1.... 542
 </td>
 </tr>
 <tr>
@@ -6060,7 +6039,7 @@ Confirming Link and Lane Numbers.... 544
 Link Configuration Example 2....545
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-链路配置示例2....545
+链路配置示例 2....545
 </td>
 </tr>
 <tr>
@@ -6092,7 +6071,7 @@ Confirming Link and Lane Numbers....548
 Link Configuration Example 3: Failed Lane....549
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-链路配置示例3：通道故障....549
+链路配置示例 3：通道故障....549
 </td>
 </tr>
 <tr>
@@ -6220,7 +6199,7 @@ Configuration.Idle....566
 L0 State....568
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-L0状态....568
+L0 状态....568
 </td>
 </tr>
 <tr>
@@ -6300,7 +6279,7 @@ Link Equalization Overview....577
 Phase 0....578
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段0....578
+阶段 0....578
 </td>
 </tr>
 <tr>
@@ -6308,7 +6287,7 @@ Phase 0....578
 Phase 1....581
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段1....581
+阶段 1....581
 </td>
 </tr>
 <tr>
@@ -6316,7 +6295,7 @@ Phase 1....581
 Phase 2....583
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段2....583
+阶段 2....583
 </td>
 </tr>
 <tr>
@@ -6324,7 +6303,7 @@ Phase 2....583
 Phase 3....586
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段3....586
+阶段 3....586
 </td>
 </tr>
 <tr>
@@ -6356,7 +6335,7 @@ Recovery.Equalization....587
 Phase 1 Downstream....589
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段1 下游....589
+阶段 1 下游....589
 </td>
 </tr>
 <tr>
@@ -6364,7 +6343,7 @@ Phase 1 Downstream....589
 Phase 2 Downstream....589
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段2 下游....589
+阶段 2 下游....589
 </td>
 </tr>
 <tr>
@@ -6372,7 +6351,7 @@ Phase 2 Downstream....589
 Phase 3 Downstream....591
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段3 下游....591
+阶段 3 下游....591
 </td>
 </tr>
 <tr>
@@ -6380,7 +6359,7 @@ Phase 3 Downstream....591
 Phase 0 Upstream....592
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段0 上游....592
+阶段 0 上游....592
 </td>
 </tr>
 <tr>
@@ -6388,7 +6367,7 @@ Phase 0 Upstream....592
 Phase 1 Upstream....593
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段1 上游....593
+阶段 1 上游....593
 </td>
 </tr>
 <tr>
@@ -6396,7 +6375,7 @@ Phase 1 Upstream....593
 Phase 2 Upstream....593
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段2 上游....593
+阶段 2 上游....593
 </td>
 </tr>
 <tr>
@@ -6404,7 +6383,7 @@ Phase 2 Upstream....593
 Phase 3 Upstream....594
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-阶段3 上游....594
+阶段 3 上游....594
 </td>
 </tr>
 <tr>
@@ -6436,7 +6415,7 @@ Recovery.Idle....601
 L0s State....603
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-L0s状态....603
+L0s 状态....603
 </td>
 </tr>
 <tr>
@@ -6444,7 +6423,7 @@ L0s状态....603
 L0s Transmitter State Machine....603
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-L0s发送器状态机....603
+L0s 发送器状态机....603
 </td>
 </tr>
 <tr>
@@ -6476,7 +6455,7 @@ Tx\_L0s.FTS....604
 L0s Receiver State Machine....605
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-L0s接收器状态机....605
+L0s 接收器状态机....605
 </td>
 </tr>
 <tr>
@@ -6508,7 +6487,7 @@ Rx\_L0s.FTS....606
 L1 State....607
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-L1状态....607
+L1 状态....607
 </td>
 </tr>
 <tr>
@@ -6532,7 +6511,7 @@ L1.Idle....609
 L2 State....609
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-L2状态....609
+L2 状态....609
 </td>
 </tr>
 <tr>
@@ -6692,7 +6671,7 @@ Maximum Link Width[9:4]....640
 Link Capabilities 2 Register....640
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-链路能力2寄存器....640
+链路能力 2 寄存器....640
 </td>
 </tr>
 <tr>
@@ -6775,7 +6754,7 @@ Extended Synch....643
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
 Part Five: Additional System Topics
-< | td>
+</td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第五部分：附加系统专题
 </td>
@@ -6787,7 +6766,7 @@ Part Five: Additional System Topics
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第15章：错误检测与处理
+第 15 章：错误检测与处理
 </td>
 </tr>
 <tr>
@@ -6987,7 +6966,7 @@ Unsupported Request (UR) Status ..... 663
 Completer Abort (CA) Status ..... 664
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Completer中止 (CA) 状态 ..... 664
+Completer 中止 (CA) 状态 ..... 664
 </td>
 </tr>
 <tr>
@@ -7309,7 +7288,7 @@ Example Flow of Software Error Investigation....699
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第16章：电源管理
+第 16 章：电源管理
 </td>
 </tr>
 <tr>
@@ -7530,18 +7509,18 @@ D3——全关.... 719
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-D3Hot State.... 719
+D3hot State.... 719
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-D3Hot 状态.... 719
+D3hot 状态.... 719
 </td>
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-D3Cold State.... 721
+D3cold State.... 721
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-D3Cold 状态.... 721
+D3cold 状态.... 721
 </td>
 </tr>
 <tr>
@@ -7645,7 +7624,7 @@ Electrical Idle.... 736
 Transmitter Entry to Electrical Idle.... 736
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端进入电气空闲.... 736
+发送器进入电气空闲.... 736
 </td>
 </tr>
 <tr>
@@ -7669,7 +7648,7 @@ Gen3 模式编码.... 737
 Transmitter Exit from Electrical Idle.... 738
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端退出电气空闲.... 738
+发送器退出电气空闲.... 738
 </td>
 </tr>
 <tr>
@@ -7701,7 +7680,7 @@ Gen3 模式.... 739
 Receiver Entry to Electrical Idle.... 740
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收端进入电气空闲.... 740
+接收器进入电气空闲.... 740
 </td>
 </tr>
 <tr>
@@ -7725,7 +7704,7 @@ Inferring Electrical Idle....741
 Receiver Exit from Electrical Idle....742
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-接收端退出电气空闲....742
+接收器退出电气空闲....742
 </td>
 </tr>
 <tr>
@@ -7757,7 +7736,7 @@ Flow Control Credits Must be Delivered....746
 Transmitter Initiates Entry to L0s....746
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端发起进入 L0s....746
+发送器发起进入 L0s....746
 </td>
 </tr>
 <tr>
@@ -7773,7 +7752,7 @@ Exit from L0s State....746
 Transmitter Initiates L0s Exit....746
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端发起 L0s 退出....746
+发送器发起 L0s 退出....746
 </td>
 </tr>
 <tr>
@@ -7813,7 +7792,7 @@ Negotiation Required to Enter L1 ASPM....748
 Scenario 1: Both Ports Ready to Enter L1 ASPM State....748
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-场景1：两端均准备好进入 L1 ASPM 状态....748
+场景 1：两端均准备好进入 L1 ASPM 状态....748
 </td>
 </tr>
 <tr>
@@ -7861,7 +7840,7 @@ Upstream Component Receives Electrical Idle....749
 Scenario 2: Upstream Component Transmits TLP Just Prior to Receiving L1 Request....750
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-场景2：上游组件在接收 L1 请求之前刚好发送了 TLP....750
+场景 2：上游组件在接收 L1 请求之前刚好发送了 TLP....750
 </td>
 </tr>
 <tr>
@@ -7885,7 +7864,7 @@ Upstream Component Receives Request to Enter L1....751
 Scenario 3: Downstream Component Receives TLP During Negotiation....751
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-场景3：下游组件在协商期间接收到 TLP....751
+场景 3：下游组件在协商期间接收到 TLP....751
 </td>
 </tr>
 <tr>
@@ -7893,7 +7872,7 @@ Scenario 3: Downstream Component Receives TLP During Negotiation....751
 Scenario 4: Upstream Component Receives TLP During Negotiation....751
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-场景4：上游组件在协商期间接收到 TLP....751
+场景 4：上游组件在协商期间接收到 TLP....751
 </td>
 </tr>
 <tr>
@@ -7901,7 +7880,7 @@ Scenario 4: Upstream Component Receives TLP During Negotiation....751
 Scenario 5: Upstream Component Rejects L1 Request....752
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-场景5：上游组件拒绝 L1 请求....752
+场景 5：上游组件拒绝 L1 请求....752
 </td>
 </tr>
 <tr>
@@ -7986,10 +7965,10 @@ Software Initiated Link Power Management....760
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-D1/D2/D3Hot and the L1 State....760
+D1/D2/D3hot and the L1 State....760
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-D1/D2/D3Hot 与 L1 状态....760
+D1/D2/D3hot 与 L1 状态....760
 </td>
 </tr>
 <tr>
@@ -8271,7 +8250,7 @@ LTR 示例....789
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第17章：中断支持
+第 17 章：中断支持
 </td>
 </tr>
 <tr>
@@ -8665,7 +8644,7 @@ Example Legacy System....831
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第18章：系统复位
+第 18 章：系统复位
 </td>
 </tr>
 <tr>
@@ -8803,7 +8782,7 @@ Reset Exit....846
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第19章：热插拔与功率预算
+第 19 章：热插拔与功率预算
 </td>
 </tr>
 <tr>
@@ -9181,7 +9160,7 @@ The Power Budget Capabilities Register Set....883
 <td width="50%" style="border:1px solid #ddd;">
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第20章：规范修订版 2.1 的更新
+第 20 章：规范修订版 2.1 的更新
 </td>
 </tr>
 <tr>
@@ -9490,7 +9469,7 @@ Simplified Ordering Table ....914
 Appendix A: Debugging PCIe Traffic with LeCroy Tools
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-附录A：使用LeCroy工具调试PCIe流量
+附录 A：使用 LeCroy 工具调试 PCIe 流量
 </td>
 </tr>
 <tr>
@@ -9514,7 +9493,7 @@ Pre-silicon Debugging......918
 RTL Simulation Perspective......918
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-RTL仿真视角......918
+RTL 仿真视角......918
 </td>
 </tr>
 <tr>
@@ -9522,7 +9501,7 @@ RTL仿真视角......918
 PCI Express RTL Bus Monitor......918
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI Express RTL总线监视器......918
+PCI Express RTL 总线监视器......918
 </td>
 </tr>
 <tr>
@@ -9530,7 +9509,7 @@ PCI Express RTL总线监视器......918
 RTL vector export to PETracer Application......918
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-RTL向量导出至PETracer应用程序......918
+RTL 向量导出至 PETracer 应用程序......918
 </td>
 </tr>
 <tr>
@@ -9578,7 +9557,7 @@ Using a Protocol Analyzer Probing Option......921
 Viewing Traffic Using the PETracer Application......924
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-使用PETracer应用程序查看流量......924
+使用 PETracer 应用程序查看流量......924
 </td>
 </tr>
 <tr>
@@ -9586,7 +9565,7 @@ Viewing Traffic Using the PETracer Application......924
 CATC Trace Viewer......924
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-CATC跟踪查看器......924
+CATC 跟踪查看器......924
 </td>
 </tr>
 <tr>
@@ -9594,7 +9573,7 @@ CATC跟踪查看器......924
 LTSSM Graphs......927
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-LTSSM图表......927
+LTSSM 图表......927
 </td>
 </tr>
 <tr>
@@ -9658,7 +9637,7 @@ Exerciser Card......931
 PTC card......932
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PTC卡......932
+PTC 卡......932
 </td>
 </tr>
 <tr>
@@ -9674,7 +9653,7 @@ Conclusion....933
 Appendix B: Markets & Applications for PCI Express
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-附录B：PCI Express的市场与应用
+附录 B：PCI Express 的市场与应用
 </td>
 </tr>
 <tr>
@@ -9690,7 +9669,7 @@ Introduction....935
 PCI Express IO Virtualization Solutions....937
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI Express IO虚拟化解决方案......937
+PCI Express IO 虚拟化解决方案......937
 </td>
 </tr>
 <tr>
@@ -9698,7 +9677,7 @@ PCI Express IO虚拟化解决方案......937
 Multi-Root (MR) PCIe Switch Solution....938
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-多根(MR) PCIe交换机解决方案......938
+多根(MR) PCIe 交换机解决方案......938
 </td>
 </tr>
 <tr>
@@ -9706,7 +9685,7 @@ Multi-Root (MR) PCIe Switch Solution....938
 PCIe Beyond Chip-to-Chip Interconnect....939
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCIe超越芯片间互连......939
+PCIe 超越芯片间互连......939
 </td>
 </tr>
 <tr>
@@ -9714,7 +9693,7 @@ PCIe超越芯片间互连......939
 SSD/Storage IO Expansion Boxes....940
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-SSD/存储IO扩展盒......940
+SSD/存储 IO 扩展盒......940
 </td>
 </tr>
 <tr>
@@ -9722,7 +9701,7 @@ SSD/存储IO扩展盒......940
 PCIe in SSD Modules for Servers....940
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-服务器中SSD模块的PCIe......940
+服务器中 SSD 模块的 PCIe......940
 </td>
 </tr>
 <tr>
@@ -9738,7 +9717,7 @@ Conclusion....942
 Appendix C: Implementing Intelligent Adapters and Multi-Host Systems With PCI Express Technology
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-附录C：使用PCI Express技术实现智能适配器和多主机系统
+附录 C：使用 PCI Express 技术实现智能适配器和多主机系统
 </td>
 </tr>
 <tr>
@@ -9786,7 +9765,7 @@ Multiprocessor Systems....945
 The History Multi-Processor Implementations Using PCI....945
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-使用PCI的多处理器实现历史......945
+使用 PCI 的多处理器实现历史......945
 </td>
 </tr>
 <tr>
@@ -9794,7 +9773,7 @@ The History Multi-Processor Implementations Using PCI....945
 Implementing Multi-host/Intelligent Adapters in PCI Express Base Systems....947
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-在PCI Express基础系统中实现多主机/智能适配器......947
+在 PCI Express 基础系统中实现多主机/智能适配器......947
 </td>
 </tr>
 <tr>
@@ -9802,7 +9781,7 @@ Implementing Multi-host/Intelligent Adapters in PCI Express Base Systems....947
 Example: Implementing Intelligent Adapters in a PCI Express Base System ....950
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-示例：在PCI Express基础系统中实现智能适配器......950
+示例：在 PCI Express 基础系统中实现智能适配器......950
 </td>
 </tr>
 <tr>
@@ -9810,7 +9789,7 @@ Example: Implementing Intelligent Adapters in a PCI Express Base System ....950
 Example: Implementing Host Failover in a PCI Express System ....952
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-示例：在PCI Express系统中实现主机故障切换......952
+示例：在 PCI Express 系统中实现主机故障切换......952
 </td>
 </tr>
 <tr>
@@ -9818,7 +9797,7 @@ Example: Implementing Host Failover in a PCI Express System ....952
 Example: Implementing Dual Host in a PCI Express Base System....955
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-示例：在PCI Express基础系统中实现双主机......955
+示例：在 PCI Express 基础系统中实现双主机......955
 </td>
 </tr>
 <tr>
@@ -9858,7 +9837,7 @@ Lookup Table Based Address Translation....959
 Downstream BAR Limit Registers....960
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-下游BAR限制寄存器......960
+下游 BAR 限制寄存器......960
 </td>
 </tr>
 <tr>
@@ -9866,7 +9845,7 @@ Downstream BAR Limit Registers....960
 Forwarding 64bit Address Memory Transactions....961
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-转发64位地址存储器事务......961
+转发 64 位地址存储器事务......961
 </td>
 </tr>
 <tr>
@@ -9874,7 +9853,7 @@ Forwarding 64bit Address Memory Transactions....961
 Appendix D: Locked Transactions
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-附录D：锁定事务
+附录 D：锁定事务
 </td>
 </tr>
 <tr>
@@ -9898,7 +9877,7 @@ Background....963
 The PCI Express Lock Protocol....964
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI Express锁定协议......964
+PCI Express 锁定协议......964
 </td>
 </tr>
 <tr>
@@ -10303,7 +10282,7 @@ Glossary....973
 2-18 Non-Posted Read Example....65
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-2-18 Non-Posted读示例....65
+2-18 Non-Posted 读示例....65
 </td>
 </tr>
 <tr>
@@ -10311,7 +10290,7 @@ Glossary....973
 2-19 Non-Posted Locked Read Transaction Protocol....67
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-2-19 Non-Posted锁定读事务协议....67
+2-19 Non-Posted 锁定读事务协议....67
 </td>
 </tr>
 <tr>
@@ -10319,7 +10298,7 @@ Glossary....973
 2-20 Non-Posted Write Transaction Protocol....68
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-2-20 Non-Posted写事务协议....68
+2-20 Non-Posted 写事务协议....68
 </td>
 </tr>
 <tr>
@@ -10375,7 +10354,7 @@ Glossary....973
 2-27 Non-Posted Transaction with Ack/Nak Protocol....76
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-2-27 带 Ack/Nak 协议的Non-Posted事务....76
+2-27 带 Ack/Nak 协议的 Non-Posted 事务....76
 </td>
 </tr>
 <tr>
@@ -10647,7 +10626,7 @@ Glossary....973
 4-13 PCI Express Transaction Request And Completion TLPs....149
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-4-13 PCI Express 事务请求与完成 TLP....149
+4-13 PCI Express 事务请求与完成报文....149
 </td>
 </tr>
 <tr>
@@ -12028,15 +12007,13 @@ Glossary....973
 </tr>
 </table>
 
-## Chapter 13: Physical Layer — Transmitter and Receiver | 第13章：物理层 — 发送器和接收器
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
 13-28 Rx Bad Eye (No De-emphasis)
-< | td>
+</td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-13-28 接收端不良眼图（无去加重）
+13-28 接收器不良眼图（无去加重）
 </td>
 </tr>
 <tr>
@@ -12044,7 +12021,7 @@ Glossary....973
 13-29 Rx Discrete-Time Linear Equalizer (DLE)
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-13-29 接收端离散时间线性均衡器 (DLE)
+13-29 接收器离散时间线性均衡器 (DLE)
 </td>
 </tr>
 <tr>
@@ -12052,7 +12029,7 @@ Glossary....973
 13-30 Rx Continuous-Time Linear Equalizer (CTLE)
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-13-30 接收端连续时间线性均衡器 (CTLE)
+13-30 接收器连续时间线性均衡器 (CTLE)
 </td>
 </tr>
 <tr>
@@ -12060,7 +12037,7 @@ Glossary....973
 13-31 Effect of Rx Continuous-Time Linear Equalizer (CTLE) on Received Signal
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-13-31 接收端连续时间线性均衡器 (CTLE) 对接收信号的影响
+13-31 接收器连续时间线性均衡器 (CTLE) 对接收信号的影响
 </td>
 </tr>
 <tr>
@@ -12068,7 +12045,7 @@ Glossary....973
 13-32 Rx 1-Tap DFE
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-13-32 接收端 1-Tap 判决反馈均衡器 (DFE)
+13-32 接收器 1-Tap 判决反馈均衡器 (DFE)
 </td>
 </tr>
 <tr>
@@ -12076,7 +12053,7 @@ Glossary....973
 13-33 Rx 2-Tap DFE
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-13-33 接收端 2-Tap 判决反馈均衡器 (DFE)
+13-33 接收器 2-Tap 判决反馈均衡器 (DFE)
 </td>
 </tr>
 <tr>
@@ -12084,7 +12061,7 @@ Glossary....973
 13-34 2.5 GT/s Receiver Eye Diagram
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-13-34 2.5 GT/s 接收端眼图
+13-34 2.5 GT/s 接收器眼图
 </td>
 </tr>
 <tr>
@@ -12128,8 +12105,6 @@ Glossary....973
 </td>
 </tr>
 </table>
-
-## Chapter 14: Link Training and Status State Machine (LTSSM) | 第14章：链路训练和状态机（LTSSM）
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -12393,7 +12368,7 @@ Glossary....973
 14-33 3-Tap Transmitter Equalization
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-14-33 3-Tap 发送端均衡
+14-33 3-Tap 发送器均衡
 </td>
 </tr>
 <tr>
@@ -12449,7 +12424,7 @@ Glossary....973
 14-40 L0s Tx State Machine
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-14-40 L0s 发送端状态机
+14-40 L0s 发送器状态机
 </td>
 </tr>
 <tr>
@@ -12457,7 +12432,7 @@ Glossary....973
 14-41 L0s Receiver State Machine
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-14-41 L0s 接收端状态机
+14-41 L0s 接收器状态机
 </td>
 </tr>
 <tr>
@@ -12701,8 +12676,6 @@ Glossary....973
 </td>
 </tr>
 </table>
-
-## Chapter 15: Error Handling | 第15章：错误处理
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -12962,8 +12935,6 @@ Glossary....973
 </td>
 </tr>
 </table>
-
-## Chapter 16: Power Management | 第16章：电源管理
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -13320,8 +13291,6 @@ Glossary....973
 </tr>
 </table>
 
-## Chapter 17: Interrupts | 第17章：中断
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -13509,8 +13478,6 @@ Glossary....973
 </tr>
 </table>
 
-## Chapter 18: Reset | 第18章：复位
-
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
@@ -13585,8 +13552,6 @@ Glossary....973
 </td>
 </tr>
 </table>
-
-## Chapter 19: Hot Plug and Power Budgeting | 第19章：热插拔和功率预算
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -13694,8 +13659,6 @@ Glossary....973
 </td>
 </tr>
 </table>
-
-## Chapter 20: Multicast, TPH, and Resizable BAR | 第20章：多播、TPH 和可调整大小 BAR
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -13948,7 +13911,7 @@ Glossary....973
 8 "Split Level" Groups Completions with Associated Non-Posted Request
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-8 "Split Level" 将完成报文与关联的Non-Posted请求分组
+8 "Split Level" 将完成报文与关联的 Non-Posted 请求分组
 </td>
 </tr>
 <tr>
@@ -14166,7 +14129,7 @@ Glossary....973
 1 PC Architecture Book Series .... 1
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PC体系结构丛书系列 .... 1
+PC 体系结构丛书系列 .... 1
 </td>
 </tr>
 <tr>
@@ -14182,7 +14145,7 @@ PC体系结构丛书系列 .... 1
 2-1 PCIe Aggregate Gen1, Gen2 and Gen3 Bandwidth for Various Link Widths... 43
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-不同链路宽度下PCIe Gen1、Gen2和Gen3的总聚合带宽... 43
+不同链路宽度下 PCIe Gen1、Gen2 和 Gen3 的总聚合带宽... 43
 </td>
 </tr>
 <tr>
@@ -14190,7 +14153,7 @@ PC体系结构丛书系列 .... 1
 2-2 PCI Express Request Types .... 59
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI Express请求类型 .... 59
+PCI Express 请求类型 .... 59
 </td>
 </tr>
 <tr>
@@ -14198,7 +14161,7 @@ PCI Express请求类型 .... 59
 2-3 PCI Express TLP Types .... 61
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI Express TLP类型 .... 61
+PCI Express TLP 类型 .... 61
 </td>
 </tr>
 <tr>
@@ -14214,7 +14177,7 @@ PCI Express TLP类型 .... 61
 4-1 Results of Reading the BAR after Writing All 1s To It.... 129
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-向BAR写入全1后读取BAR的结果.... 129
+向 BAR 写入全 1 后读取 BAR 的结果.... 129
 </td>
 </tr>
 <tr>
@@ -14222,7 +14185,7 @@ PCI Express TLP类型 .... 61
 4-2 Results Of Reading the BAR Pair after Writing All 1s To Both .... 132
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-向BAR对写入全1后读取BAR对的结果 .... 132
+向 BAR 对写入全 1 后读取 BAR 对的结果 .... 132
 </td>
 </tr>
 <tr>
@@ -14230,7 +14193,7 @@ PCI Express TLP类型 .... 61
 4-3 Results Of Reading the IO BAR after Writing All 1s To It.... 134
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-向IO BAR写入全1后读取IO BAR的结果.... 134
+向 IO BAR 写入全 1 后读取 IO BAR 的结果.... 134
 </td>
 </tr>
 <tr>
@@ -14254,7 +14217,7 @@ PCI Express TLP类型 .... 61
 4-6 Example IO Base/Limit Register Meanings.... 143
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-IO基址/上限寄存器含义示例.... 143
+IO 基址/上限寄存器含义示例.... 143
 </td>
 </tr>
 <tr>
@@ -14262,7 +14225,7 @@ IO基址/上限寄存器含义示例.... 143
 4-7 PCI Express TLP Types And Routing Methods.... 147
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI Express TLP类型与路由方法.... 147
+PCI Express TLP 类型与路由方法.... 147
 </td>
 </tr>
 <tr>
@@ -14270,7 +14233,7 @@ PCI Express TLP类型与路由方法.... 147
 4-8 Posted and Non-Posted Transactions.... 150
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Posted与非Posted事务.... 150
+Posted 与非 Posted 事务.... 150
 </td>
 </tr>
 <tr>
@@ -14278,7 +14241,7 @@ Posted与非Posted事务.... 150
 4-9 TLP Header Format and Type Field Encodings.... 153
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-TLP数据包头格式与Type字段编码.... 153
+TLP 数据包头格式与 Type 字段编码.... 153
 </td>
 </tr>
 <tr>
@@ -14286,7 +14249,7 @@ TLP数据包头格式与Type字段编码.... 153
 4-10 Message Request Header Type Field Usage.... 165
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-消息请求数据包头Type字段用法.... 165
+消息请求数据包头 Type 字段用法.... 165
 </td>
 </tr>
 <tr>
@@ -14294,7 +14257,7 @@ TLP数据包头格式与Type字段编码.... 153
 5-1 TLP Header Type Field Defines Transaction Variant.... 174
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-TLP数据包头Type字段定义事务变体.... 174
+TLP 数据包头 Type 字段定义事务变体.... 174
 </td>
 </tr>
 <tr>
@@ -14310,7 +14273,7 @@ TLP数据包头Type字段定义事务变体.... 174
 5-3 TLP Header Type and Format Field Encodings.... 179
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-TLP数据包头Type与Format字段编码.... 179
+TLP 数据包头 Type 与 Format 字段编码.... 179
 </td>
 </tr>
 <tr>
@@ -14318,7 +14281,7 @@ TLP数据包头Type与Format字段编码.... 179
 5-4 IO Request Header Fields.... 186
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-IO请求数据包头字段.... 186
+IO 请求数据包头字段.... 186
 </td>
 </tr>
 <tr>
@@ -14326,7 +14289,7 @@ IO请求数据包头字段.... 186
 5-5 4DW Memory Request Header Fields.... 189
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-4DW存储器请求数据包头字段.... 189
+4DW 存储器请求数据包头字段.... 189
 </td>
 </tr>
 <tr>
@@ -14358,7 +14321,7 @@ IO请求数据包头字段.... 186
 5-9 INTx Interrupt Signaling Message Coding.... 207
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-INTx中断信令消息编码.... 207
+INTx 中断信令消息编码.... 207
 </td>
 </tr>
 <tr>
@@ -14414,7 +14377,7 @@ INTx中断信令消息编码.... 207
 5-16 LTR Message Coding.... 213
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-LTR消息编码.... 213
+LTR 消息编码.... 213
 </td>
 </tr>
 <tr>
@@ -14422,7 +14385,7 @@ LTR消息编码.... 213
 5-17 LTR Message Coding.... 213
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-LTR消息编码.... 213
+LTR 消息编码.... 213
 </td>
 </tr>
 <tr>
@@ -14446,7 +14409,7 @@ LTR消息编码.... 213
 6-3 Gen1 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times).... 241
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen1未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 241
+Gen1 未调整的 AckNak\_LATENCY\_TIMER 值（符号时间）.... 241
 </td>
 </tr>
 <tr>
@@ -14454,7 +14417,7 @@ Gen1未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 241
 6-4 Gen2 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times).... 241
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen2未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 241
+Gen2 未调整的 AckNak\_LATENCY\_TIMER 值（符号时间）.... 241
 </td>
 </tr>
 <tr>
@@ -14462,7 +14425,7 @@ Gen2未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 241
 6-5 Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times).... 242
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen3未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 242
+Gen3 未调整的 AckNak\_LATENCY\_TIMER 值（符号时间）.... 242
 </td>
 </tr>
 <tr>
@@ -14486,7 +14449,7 @@ Gen3未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 242
 9-1 DLLP Types .... 311
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-DLLP类型 .... 311
+DLLP 类型 .... 311
 </td>
 </tr>
 <tr>
@@ -14494,7 +14457,7 @@ DLLP类型 .... 311
 9-2 Ack/Nak DLLP Fields .... 313
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Ack/Nak DLLP字段 .... 313
+Ack/Nak DLLP 字段 .... 313
 </td>
 </tr>
 <tr>
@@ -14502,7 +14465,7 @@ Ack/Nak DLLP字段 .... 313
 9-3 Power Management DLLP Fields.... 314
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-电源管理DLLP字段.... 314
+电源管理 DLLP 字段.... 314
 </td>
 </tr>
 <tr>
@@ -14510,7 +14473,7 @@ Ack/Nak DLLP字段 .... 313
 9-4 Flow Control DLLP Fields.... 315
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-流控DLLP字段.... 315
+流控 DLLP 字段.... 315
 </td>
 </tr>
 <tr>
@@ -14518,7 +14481,7 @@ Ack/Nak DLLP字段 .... 313
 10-1 Ack or Nak DLLP Fields.... 329
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Ack或Nak DLLP字段.... 329
+Ack 或 Nak DLLP 字段.... 329
 </td>
 </tr>
 <tr>
@@ -14526,7 +14489,7 @@ Ack或Nak DLLP字段.... 329
 10-2 Gen1 Unadjusted Ack Transmission Latency.... 345
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen1未调整的Ack传输延迟.... 345
+Gen1 未调整的 Ack 传输延迟.... 345
 </td>
 </tr>
 <tr>
@@ -14534,7 +14497,7 @@ Gen1未调整的Ack传输延迟.... 345
 10-3 Gen1 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times).... 351
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen1未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 351
+Gen1 未调整的 AckNak\_LATENCY\_TIMER 值（符号时间）.... 351
 </td>
 </tr>
 <tr>
@@ -14542,7 +14505,7 @@ Gen1未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 351
 10-4 Gen2 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times).... 352
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen2未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 352
+Gen2 未调整的 AckNak\_LATENCY\_TIMER 值（符号时间）.... 352
 </td>
 </tr>
 <tr>
@@ -14550,7 +14513,7 @@ Gen2未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 352
 10-5 Gen3 Unadjusted AckNak\_LATENCY\_TIMER Values (Symbol Times).... 352
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen3未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 352
+Gen3 未调整的 AckNak\_LATENCY\_TIMER 值（符号时间）.... 352
 </td>
 </tr>
 <tr>
@@ -14558,7 +14521,7 @@ Gen3未调整的AckNak\_LATENCY\_TIMER值（符号时间）.... 352
 10-6 Gen1 Unadjusted REPLAY\_TIMER Values in Symbol Times.... 353
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen1未调整的REPLAY\_TIMER值（符号时间）.... 353
+Gen1 未调整的 REPLAY\_TIMER 值（符号时间）.... 353
 </td>
 </tr>
 <tr>
@@ -14566,7 +14529,7 @@ Gen1未调整的REPLAY\_TIMER值（符号时间）.... 353
 10-7 Gen2 Unadjusted REPLAY\_TIMER Values in Symbol Times.... 354
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen2未调整的REPLAY\_TIMER值（符号时间）.... 354
+Gen2 未调整的 REPLAY\_TIMER 值（符号时间）.... 354
 </td>
 </tr>
 <tr>
@@ -14574,7 +14537,7 @@ Gen2未调整的REPLAY\_TIMER值（符号时间）.... 354
 10-8 Gen3 Unadjusted REPLAY\_TIMER Values.... 354
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen3未调整的REPLAY\_TIMER值.... 354
+Gen3 未调整的 REPLAY\_TIMER 值.... 354
 </td>
 </tr>
 <tr>
@@ -14590,7 +14553,7 @@ Gen3未调整的REPLAY\_TIMER值.... 354
 11-2 Allowable Transmitter Signal Skew.... 391
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-允许的发送端信号偏移.... 391
+允许的发送器信号偏移.... 391
 </td>
 </tr>
 <tr>
@@ -14598,7 +14561,7 @@ Gen3未调整的REPLAY\_TIMER值.... 354
 11-3 Allowable Receiver Signal Skew.... 399
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-允许的接收端信号偏移.... 399
+允许的接收器信号偏移.... 399
 </td>
 </tr>
 <tr>
@@ -14606,7 +14569,7 @@ Gen3未调整的REPLAY\_TIMER值.... 354
 12-1 PCI Express Aggregate Bandwidth for Various Link Widths.... 408
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-不同链路宽度下PCI Express的总聚合带宽.... 408
+不同链路宽度下 PCI Express 的总聚合带宽.... 408
 </td>
 </tr>
 <tr>
@@ -14614,7 +14577,7 @@ Gen3未调整的REPLAY\_TIMER值.... 354
 12-2 Gen3 16-bit Skip Ordered Set Encoding.... 428
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen3 16位Skip有序集编码.... 428
+Gen3 16 位 Skip 有序集编码.... 428
 </td>
 </tr>
 <tr>
@@ -14622,7 +14585,7 @@ Gen3 16位Skip有序集编码.... 428
 12-3 Gen3 Scrambler Seed Values.... 432
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen3加扰器种子值.... 432
+Gen3 加扰器种子值.... 432
 </td>
 </tr>
 <tr>
@@ -14630,7 +14593,7 @@ Gen3加扰器种子值.... 432
 12-4 Gen3 Tap Equations for Single-LFSR Scrambler.... 433
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Gen3单LFSR加扰器的抽头方程.... 433
+Gen3 单 LFSR 加扰器的抽头方程.... 433
 </td>
 </tr>
 <tr>
@@ -14646,7 +14609,7 @@ Gen3单LFSR加扰器的抽头方程.... 433
 13-1 Tx Preset Encodings with Coefficients and Voltage Ratios.... 478
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-含系数与电压比的Tx预设编码.... 478
+含系数与电压比的 Tx 预设编码.... 478
 </td>
 </tr>
 <tr>
@@ -14654,7 +14617,7 @@ Gen3单LFSR加扰器的抽头方程.... 433
 13-2 Tx Coefficient Table.... 480
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Tx系数表.... 480
+Tx 系数表.... 480
 </td>
 </tr>
 <tr>
@@ -14662,7 +14625,7 @@ Tx系数表.... 480
 13-3 Transmitter Specs.... 489
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-发送端规格.... 489
+发送器规格.... 489
 </td>
 </tr>
 <tr>
@@ -14670,7 +14633,7 @@ Tx系数表.... 480
 13-4 Parameters Specific to 8.0 GT/s.... 491
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-8.0 GT/s特定参数.... 491
+8.0 GT/s 特定参数.... 491
 </td>
 </tr>
 <tr>
@@ -14678,7 +14641,7 @@ Tx系数表.... 480
 13-5 Common Receiver Characteristics.... 498
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-通用接收端特性.... 498
+通用接收器特性.... 498
 </td>
 </tr>
 <tr>
@@ -14686,7 +14649,7 @@ Tx系数表.... 480
 14-1 Summary of TS1 Ordered Set Contents.... 514
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-TS1有序集内容摘要.... 514
+TS1 有序集内容摘要.... 514
 </td>
 </tr>
 <tr>
@@ -14694,7 +14657,7 @@ TS1有序集内容摘要.... 514
 14-2 Summary of TS2 Ordered Set Contents.... 516
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-TS2有序集内容摘要.... 516
+TS2 有序集内容摘要.... 516
 </td>
 </tr>
 <tr>
@@ -14702,7 +14665,7 @@ TS2有序集内容摘要.... 516
 14-3 Symbol Sequence 8b/10b Compliance Pattern.... 529
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-符号序列8b/10b合规性码型.... 529
+符号序列 8b/10b 合规性码型.... 529
 </td>
 </tr>
 <tr>
@@ -14710,7 +14673,7 @@ TS2有序集内容摘要.... 516
 14-4 Second Block of 128b/130b Compliance Pattern.... 530
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-128b/130b合规性码型的第二块.... 530
+128b/130b 合规性码型的第二块.... 530
 </td>
 </tr>
 <tr>
@@ -14718,7 +14681,7 @@ TS2有序集内容摘要.... 516
 14-5 Third Block of 128b/130b Compliance Pattern.... 531
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-128b/130b合规性码型的第三块.... 531
+128b/130b 合规性码型的第三块.... 531
 </td>
 </tr>
 <tr>
@@ -14726,7 +14689,7 @@ TS2有序集内容摘要.... 516
 14-6 Symbol Sequence of 8b/10b Modified Compliance Pattern.... 532
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-8b/10b修改版合规性码型的符号序列.... 532
+8b/10b 修改版合规性码型的符号序列.... 532
 </td>
 </tr>
 <tr>
@@ -14734,7 +14697,7 @@ TS2有序集内容摘要.... 516
 14-7 Sequence of Compliance Tx Settings.... 535
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-合规性Tx设置序列.... 535
+合规性 Tx 设置序列.... 535
 </td>
 </tr>
 <tr>
@@ -14742,7 +14705,7 @@ TS2有序集内容摘要.... 516
 14-8 Tx Preset Encodings.... 579
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Tx预设编码.... 579
+Tx 预设编码.... 579
 </td>
 </tr>
 <tr>
@@ -14750,7 +14713,7 @@ Tx预设编码.... 579
 14-9 Rx Preset Hint Encodings.... 580
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Rx预设提示编码.... 580
+Rx 预设提示编码.... 580
 </td>
 </tr>
 <tr>
@@ -14782,7 +14745,7 @@ Rx预设提示编码.... 580
 15-3 Error-Related Fields in Command Register.... 675
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Command寄存器中与错误相关的字段.... 675
+Command 寄存器中与错误相关的字段.... 675
 </td>
 </tr>
 <tr>
@@ -14790,7 +14753,7 @@ Command寄存器中与错误相关的字段.... 675
 15-4 Error-Related Fields in Status Register.... 677
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Status寄存器中与错误相关的字段.... 677
+Status 寄存器中与错误相关的字段.... 677
 </td>
 </tr>
 <tr>
@@ -14814,7 +14777,7 @@ Status寄存器中与错误相关的字段.... 677
 16-1 Major Software/Hardware Elements Involved In PC PM.... 706
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PC电源管理中涉及的主要软件/硬件元素.... 706
+PC 电源管理中涉及的主要软件/硬件元素.... 706
 </td>
 </tr>
 <tr>
@@ -14822,7 +14785,7 @@ PC电源管理中涉及的主要软件/硬件元素.... 706
 16-2 System PM States as Defined by the OnNow Design Initiative.... 708
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-OnNow设计倡议定义的系统PM状态.... 708
+OnNow 设计倡议定义的系统 PM 状态.... 708
 </td>
 </tr>
 <tr>
@@ -14830,7 +14793,7 @@ OnNow设计倡议定义的系统PM状态.... 708
 16-3 OnNow Definition of Device-Level PM States.... 709
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-OnNow对设备级PM状态的定义.... 709
+OnNow 对设备级 PM 状态的定义.... 709
 </td>
 </tr>
 <tr>
@@ -14838,7 +14801,7 @@ OnNow对设备级PM状态的定义.... 709
 16-4 Default Device Class PM States.... 710
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-默认设备类别PM状态.... 710
+默认设备类别 PM 状态.... 710
 </td>
 </tr>
 <tr>
@@ -14846,7 +14809,7 @@ OnNow对设备级PM状态的定义.... 709
 16-5 D0 Power Management Policies.... 714
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-D0电源管理策略.... 714
+D0 电源管理策略.... 714
 </td>
 </tr>
 <tr>
@@ -14854,7 +14817,7 @@ D0电源管理策略.... 714
 16-6 D1 Power Management Policies.... 717
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-D1电源管理策略.... 717
+D1 电源管理策略.... 717
 </td>
 </tr>
 <tr>
@@ -14862,7 +14825,7 @@ D1电源管理策略.... 717
 16-7 D2 Power Management Policies.... 719
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-D2电源管理策略.... 719
+D2 电源管理策略.... 719
 </td>
 </tr>
 <tr>
@@ -14870,7 +14833,7 @@ D2电源管理策略.... 719
 16-8 D3hot Power Management Policies.... 721
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-D3hot电源管理策略.... 721
+D3hot 电源管理策略.... 721
 </td>
 </tr>
 <tr>
@@ -14878,7 +14841,7 @@ D3hot电源管理策略.... 721
 16-9 D3cold Power Management Policies.... 722
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-D3cold电源管理策略.... 722
+D3cold 电源管理策略.... 722
 </td>
 </tr>
 <tr>
@@ -14902,7 +14865,7 @@ D3cold电源管理策略.... 722
 16-12 The PMC Register Bit Assignments.... 725
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PMC寄存器位分配.... 725
+PMC 寄存器位分配.... 725
 </td>
 </tr>
 <tr>
@@ -14910,7 +14873,7 @@ PMC寄存器位分配.... 725
 16-13 PM Control/Status Register (PMCSR) Bit Assignments.... 728
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PM控制/状态寄存器(PMCSR)位分配.... 728
+PM 控制/状态寄存器(PMCSR)位分配.... 728
 </td>
 </tr>
 <tr>
@@ -14918,7 +14881,7 @@ PM控制/状态寄存器(PMCSR)位分配.... 728
 16-14 Data Register Interpretation.... 733
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Data寄存器含义解读.... 733
+Data 寄存器含义解读.... 733
 </td>
 </tr>
 <tr>
@@ -14958,7 +14921,7 @@ Data寄存器含义解读.... 733
 17-1 INTx Message Mapping Across Virtual PCI-to-PCI Bridges.... 809
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-跨虚拟PCI-to-PCI桥的INTx消息映射.... 809
+跨虚拟 PCI-to-PCI 桥的 INTx 消息映射.... 809
 </td>
 </tr>
 <tr>
@@ -14966,7 +14929,7 @@ Data寄存器含义解读.... 733
 17-2 Format and Usage of Message Control Register.... 814
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Message Control寄存器格式与用法.... 814
+Message Control 寄存器格式与用法.... 814
 </td>
 </tr>
 <tr>
@@ -14974,7 +14937,7 @@ Message Control寄存器格式与用法.... 814
 17-3 Format and Usage of MSI-X Message Control Register.... 823
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-MSI-X Message Control寄存器格式与用法.... 823
+MSI-X Message Control 寄存器格式与用法.... 823
 </td>
 </tr>
 <tr>
@@ -15014,7 +14977,7 @@ MSI-X Message Control寄存器格式与用法.... 823
 19-5 Slot Capability Register Fields and Descriptions.... 866
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Slot Capability寄存器字段与描述.... 866
+Slot Capability 寄存器字段与描述.... 866
 </td>
 </tr>
 <tr>
@@ -15022,7 +14985,7 @@ Slot Capability寄存器字段与描述.... 866
 19-6 Slot Control Register Fields and Descriptions.... 869
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Slot Control寄存器字段与描述.... 869
+Slot Control 寄存器字段与描述.... 869
 </td>
 </tr>
 <tr>
@@ -15030,7 +14993,7 @@ Slot Control寄存器字段与描述.... 869
 19-7 Slot Status Register Fields and Descriptions.... 871
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-Slot Status寄存器字段与描述.... 871
+Slot Status 寄存器字段与描述.... 871
 </td>
 </tr>
 <tr>
@@ -15054,7 +15017,7 @@ Slot Status寄存器字段与描述.... 871
 20-1 PH Encoding Table.... 905
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PH编码表.... 905
+PH 编码表.... 905
 </td>
 </tr>
 <tr>
@@ -15062,7 +15025,7 @@ PH编码表.... 905
 20-2 ST Table Location Encoding.... 907
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-ST表位置编码.... 907
+ST 表位置编码.... 907
 </td>
 </tr>
 </table>
@@ -15080,7 +15043,7 @@ MindShare 技术丛书系列包含表 1 中所列的书籍。
 </tr>
 </table>
 
-Table 1: PC Architecture Book Series | 表1：PC架构丛书
+Table 1: PC Architecture Book Series | 表 1：PC 架构丛书
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Category</td><td style="border:1px solid #ddd;">Title</td><td style="border:1px solid #ddd;">Edition</td><td style="border:1px solid #ddd;">ISBN</td></tr><tr><td rowspan="7" style="border:1px solid #ddd;">Processor Architectures</td><td style="border:1px solid #ddd;">x86 Instruction Set Architecture</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">978-0-9770878-5-3</td></tr><tr><td style="border:1px solid #ddd;">The Unabridged Pentium 4</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">0-321-24656-X</td></tr><tr><td style="border:1px solid #ddd;">Pentium Pro and Pentium II System Architecture</td><td style="border:1px solid #ddd;">2nd</td><td style="border:1px solid #ddd;">0-201-30973-4</td></tr><tr><td style="border:1px solid #ddd;">Pentium Processor System Architecture</td><td style="border:1px solid #ddd;">2nd</td><td style="border:1px solid #ddd;">0-201-40992-5</td></tr><tr><td style="border:1px solid #ddd;">Protected Mode Software Architecture</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">0-201-55447-X</td></tr><tr><td style="border:1px solid #ddd;">80486 System Architecture</td><td style="border:1px solid #ddd;">3rd</td><td style="border:1px solid #ddd;">0-201-40994-1</td></tr><tr><td style="border:1px solid #ddd;">PowerPC 601 System Architecture</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">0-201-40990-9</td></tr><tr><td rowspan="11" style="border:1px solid #ddd;">Interconnect Architectures</td><td style="border:1px solid #ddd;">PCI Express Technology 1.x, 2.x, 3.0</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">978-0-9770878-6-0</td></tr><tr><td style="border:1px solid #ddd;">Universal Serial Bus System Architecture 3.0</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">978-0-9836465-1-8</td></tr><tr><td style="border:1px solid #ddd;">HyperTransport 3.1 Interconnect Technology</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">978-0-9770878-2-2</td></tr><tr><td style="border:1px solid #ddd;">PCI Express System Architecture</td><td style="border:1px solid #ddd;">2nd</td><td style="border:1px solid #ddd;">0-321-15630-7</td></tr><tr><td style="border:1px solid #ddd;">Universal Serial Bus System Architecture 2.0</td><td style="border:1px solid #ddd;">2nd</td><td style="border:1px solid #ddd;">0-201-46137-4</td></tr><tr><td style="border:1px solid #ddd;">HyperTransport System Architecture</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">0-321-16845-3</td></tr><tr><td style="border:1px solid #ddd;">PCI-X System Architecture</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">0-201-72682-3</td></tr><tr><td style="border:1px solid #ddd;">PCI System Architecture</td><td style="border:1px solid #ddd;">4th</td><td style="border:1px solid #ddd;">0-201-30974-2</td></tr><tr><td style="border:1px solid #ddd;">Firewire System Architecture: IEEE 1394a</td><td style="border:1px solid #ddd;">2nd</td><td style="border:1px solid #ddd;">0-201-48535-4</td></tr><tr><td style="border:1px solid #ddd;">EISA System Architecture</td><td style="border:1px solid #ddd;">Out-of-print</td><td style="border:1px solid #ddd;">0-201-40995-X</td></tr><tr><td style="border:1px solid #ddd;">ISA System Architecture</td><td style="border:1px solid #ddd;">3rd</td><td style="border:1px solid #ddd;">0-201-40996-8</td></tr><tr><td style="border:1px solid #ddd;">Network Architecture</td><td style="border:1px solid #ddd;">InfiniBand Network Architecture</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">0-321-11765-4</td></tr><tr><td rowspan="4" style="border:1px solid #ddd;">Other Architectures</td><td style="border:1px solid #ddd;">PCMCIA System Architecture: 16-Bit PC Cards</td><td style="border:1px solid #ddd;">2nd</td><td style="border:1px solid #ddd;">0-201-40991-7</td></tr><tr><td style="border:1px solid #ddd;">CardBus System Architecture</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">0-201-40997-6</td></tr><tr><td style="border:1px solid #ddd;">Plug and Play System Architecture</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">0-201-41013-3</td></tr><tr><td style="border:1px solid #ddd;">AGP System Architecture</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">0-201-37964-3</td></tr><tr><td rowspan="2" style="border:1px solid #ddd;">Storage Technologies</td><td style="border:1px solid #ddd;">SAS Storage Architecture</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">978-0-9770878-0-8</td></tr><tr><td style="border:1px solid #ddd;">SATA Storage Technology</td><td style="border:1px solid #ddd;">1st</td><td style="border:1px solid #ddd;">978-0-9770878-1-5</td></tr></table>
 
@@ -15118,7 +15081,7 @@ The intended audience for this book is hardware and software design, verificatio
 To get the full benefit of this material, it's recommended that the reader have a reasonable background in PC architecture, including knowledge of an I/O bus and its related protocol. Because PCI Express maintains several levels of compatibility with the original PCI design, critical background information regarding PCI has been incorporated into this book. However, the reader may well find it beneficial to read the MindShare book PCI System Architecture.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-为了充分利用本教材，建议读者具备一定的PC体系架构背景知识，包括对I/O总线及其相关协议的了解。由于PCI Express与原始PCI设计保持了多个层次的兼容性，本书已纳入了关于PCI的关键背景信息。不过，读者可能会发现阅读MindShare出版的《PCI System Architecture》一书也大有裨益。
+为了充分利用本教材，建议读者具备一定的 PC 体系架构背景知识，包括对 I/O 总线及其相关协议的了解。由于 PCI Express 与原始 PCI 设计保持了多个层次的兼容性，本书已纳入了关于 PCI 的关键背景信息。不过，读者可能会发现阅读 MindShare 出版的《PCI System Architecture》一书也大有裨益。
 </td>
 </tr>
 </table>
@@ -15136,15 +15099,15 @@ Topics covered in this book and chapter flow are as follows:
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Part 1: Big Picture. Provides an architectural perspective of the PCI Express technology by comparing and contrasting it with PCI and PCI‑X buses. It also introduces features of the PCI Express architecture. An overview of configuration space concepts plus methods of packet routing are described.
+Part 1: Big Picture. Provides an architectural perspective of the PCI Express technology by comparing and contrasting it with PCI and PCI-X buses. It also introduces features of the PCI Express architecture. An overview of configuration space concepts plus methods of packet routing are described.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第一部分：全景概览。通过将 PCI Express 技术与 PCI 及 PCI‑X 总线进行对比，从架构视角审视 PCI Express 技术。同时介绍 PCI Express 架构的特性，并描述配置空间概念及数据包路由方法。
+第一部分：全景概览。通过将 PCI Express 技术与 PCI 及 PCI-X 总线进行对比，从架构视角审视 PCI Express 技术。同时介绍 PCI Express 架构的特性，并描述配置空间概念及数据包路由方法。
 </td>
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Part 2: Transaction Layer. Includes high‑level packet (TLP) format and field definitions, along with Transaction Layer functions and responsibilities such as Quality of Service, Flow Control and Transaction Ordering.
+Part 2: Transaction Layer. Includes high-level packet (TLP) format and field definitions, along with Transaction Layer functions and responsibilities such as Quality of Service, Flow Control and Transaction Ordering.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 第二部分：事务层。包括高层数据包（TLP）格式与字段定义，以及事务层的功能与职责，例如服务质量（Quality of Service）、流控（Flow Control）和事务排序（Transaction Ordering）。
@@ -15200,7 +15163,7 @@ Part 6: Appendices.
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-• Implementing Intelligent Adapters and Multi‑Host Systems with PCI Express Technology
+• Implementing Intelligent Adapters and Multi-Host Systems with PCI Express Technology
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 • 使用 PCI Express 技术实现智能适配器与多主机系统
@@ -15569,7 +15532,7 @@ The Big Picture
 </tr>
 </table>
 
-# Background | 背景
+# 1 Background | 1 背景
 
 ## This Chapter | 本章
 
@@ -15579,7 +15542,7 @@ The Big Picture
 This chapter reviews the PCI (Peripheral Component Interface) bus models that preceded PCI Express (PCIe) as a way of building a foundation for understanding PCI Express architecture. PCI and PCI-X (PCI-eXtended) are introduced and their basic features and characteristics are described, followed by a discussion of the motivation for migrating from those earlier parallel bus models to the serial bus model used by PCIe.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-本章回顾了先于PCI Express (PCIe)出现的PCI (外设组件互连)总线模型，以此为基础来理解PCI Express架构。本章介绍PCI和PCI-X (PCI eXtended)并描述其基本特性和特点，随后讨论从这些早期并行总线模型迁移到PCIe所用串行总线模型的动机。
+本章回顾了先于 PCI Express (PCIe)出现的 PCI (外设组件互连)总线模型，以此为基础来理解 PCI Express 架构。本章介绍 PCI 和 PCI-X (PCI eXtended)并描述其基本特性和特点，随后讨论从这些早期并行总线模型迁移到 PCIe 所用串行总线模型的动机。
 </td>
 </tr>
 </table>
@@ -15592,20 +15555,20 @@ This chapter reviews the PCI (Peripheral Component Interface) bus models that pr
 The next chapter provides an introduction to the PCI Express architecture and is intended to serve as an "executive level" overview, covering all the basics of the architecture at a high level. It introduces the layered approach to PCIe port design given in the spec and describes the responsibilities of each layer.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-下一章提供PCI Express架构的入门介绍，旨在作为一个"高层级"概述，从较高的层次涵盖该架构的所有基础知识。它介绍了规范中给出的PCIe端口设计的分层方法，并描述了每一层的职责。
+下一章提供 PCI Express 架构的入门介绍，旨在作为一个"高层级"概述，从较高的层次涵盖该架构的所有基础知识。它介绍了规范中给出的 PCIe 端口设计的分层方法，并描述了每一层的职责。
 </td>
 </tr>
 </table>
 
-## 99.1 Introduction | 99.1 引言
+## 1.1 Introduction | 1.1 引言
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Establishing a solid foundation in the technologies on which PCIe is built is a helpful first step to understanding it, and an overview of those architectures is presented here. Readers already familiar with PCI may prefer to skip to the next chapter. This background is only intended as a brief overview. For more depth and detail on PCI and PCI‑X, please refer to MindShare's books: PCI System Architecture, and PCI‑X System Architecture.
+Establishing a solid foundation in the technologies on which PCIe is built is a helpful first step to understanding it, and an overview of those architectures is presented here. Readers already familiar with PCI may prefer to skip to the next chapter. This background is only intended as a brief overview. For more depth and detail on PCI and PCI-X, please refer to MindShare's books: PCI System Architecture, and PCI-X System Architecture.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-在构成 PCIe 的基础技术上建立坚实的基础是理解 PCIe 的一个有益的第一步，这里给出了这些架构的概述。已经熟悉 PCI 的读者可直接跳至下一章。此背景知识只作为简要概述。有关 PCI 和 PCI‑X 的更深入详细内容，请参阅 MindShare 的书籍：《PCI System Architecture》和《PCI‑X System Architecture》。
+在构成 PCIe 的基础技术上建立坚实的基础是理解 PCIe 的一个有益的第一步，这里给出了这些架构的概述。已经熟悉 PCI 的读者可直接跳至下一章。此背景知识只作为简要概述。有关 PCI 和 PCI-X 的更深入详细内容，请参阅 MindShare 的书籍：《PCI System Architecture》和《PCI-X System Architecture》。
 </td>
 </tr>
 <tr>
@@ -15639,17 +15602,17 @@ A few years later, PCI-X (PCI-eXtended) was developed as a logical extension of 
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-These earlier bus definitions are listed in Table 1-1 on page 11, which shows the development over time of higher frequencies and bandwidths. One of the interesting things to note in this table is the correlation of clock frequency and the number of add-in card slots on the bus. This was due to PCI's low-power signaling model, which meant that higher frequencies required shorter traces and fewer loads on the bus (see "Reflected-Wave Signaling" on page 16). Another point of interest is that, as the clock frequency increases, the number of devices permitted on the shared bus decreases. When PCI-X 2.0 was introduced, its high speed mandated that the bus become a point-to-point interconnect.
+These earlier bus definitions are listed in Table 1-1, which shows the development over time of higher frequencies and bandwidths. One of the interesting things to note in this table is the correlation of clock frequency and the number of add-in card slots on the bus. This was due to PCI's low-power signaling model, which meant that higher frequencies required shorter traces and fewer loads on the bus (see "Reflected-Wave Signaling"). Another point of interest is that, as the clock frequency increases, the number of devices permitted on the shared bus decreases. When PCI-X 2.0 was introduced, its high speed mandated that the bus become a point-to-point interconnect.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-这些早期的总线定义列在第 11 页的表 1-1 中，该表展示了随时间推移频率和带宽不断提升的发展过程。表中一个值得注意的有趣之处是时钟频率与总线上附加卡插槽数量之间的相关性。这是由于 PCI 的低功耗信号模型所致，即更高的频率要求更短的走线和更少的总线负载（参见第 16 页的"反射波信号"）。另一个值得关注的点是，随着时钟频率的增加，共享总线上允许的设备数量减少。当 PCI-X 2.0 推出时，其高速要求使得总线必须成为点对点互连。
+这些早期的总线定义列在表 1-1 中，该表展示了随时间推移频率和带宽不断提升的发展过程。表中一个值得注意的有趣之处是时钟频率与总线上附加卡插槽数量之间的相关性。这是由于 PCI 的低功耗信号模型所致，即更高的频率要求更短的走线和更少的总线负载（参见"反射波信号"）。另一个值得关注的点是，随着时钟频率的增加，共享总线上允许的设备数量减少。当 PCI-X 2.0 推出时，其高速要求使得总线必须成为点对点互连。
 </td>
 </tr>
 </table>
 
-Table 1-1:  Comparison of Bus Frequency, Bandwidth and Number of Slots | 表1-1：总线频率、带宽和插槽数量的比较
+Table 1-1: Comparison of Bus Frequency, Bandwidth and Number of Slots | 表 1-1：总线频率、带宽和插槽数量的比较
 
-<table style="border:2px solid #000;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:2px solid #000;">Bus Type</td><td style="border:2px solid #000;">Clock Frequency</td><td style="border:2px solid #000;">Peak Bandwidth 32-bit - 64-bit bus</td><td style="border:2px solid #000;">Number of Card Slots per Bus</td></tr><tr><td style="border:2px solid #000;">PCI</td><td style="border:2px solid #000;">33 MHz</td><td style="border:2px solid #000;">133 - 266 MB/s</td><td style="border:2px solid #000;">4-5</td></tr><tr><td style="border:2px solid #000;">PCI</td><td style="border:2px solid #000;">66 MHz</td><td style="border:2px solid #000;">266 - 533 MB/s</td><td style="border:2px solid #000;">1-2</td></tr><tr><td style="border:2px solid #000;">PCI-X 1.0</td><td style="border:2px solid #000;">66 MHz</td><td style="border:2px solid #000;">266 - 533 MB/s</td><td style="border:2px solid #000;">4</td></tr><tr><td style="border:2px solid #000;">PCI-X 1.0</td><td style="border:2px solid #000;">133 MHz</td><td style="border:2px solid #000;">533 - 1066 MB/s</td><td style="border:2px solid #000;">1-2</td></tr><tr><td style="border:2px solid #000;">PCI-X 2.0 (DDR)</td><td style="border:2px solid #000;">133 MHz</td><td style="border:2px solid #000;">1066 - 2132 MB/s</td><td style="border:2px solid #000;">1 (point-to-point bus)</td></tr><tr><td style="border:2px solid #000;">PCI-X 2.0 (QDR)</td><td style="border:2px solid #000;">133 MHz</td><td style="border:2px solid #000;">2132 - 4262 MB/s</td><td style="border:2px solid #000;">1 (point-to-point bus)</td></tr></table>
+<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;">Bus Type</td><td style="border:1px solid #ddd;">Clock Frequency</td><td style="border:1px solid #ddd;">Peak Bandwidth 32-bit - 64-bit bus</td><td style="border:1px solid #ddd;">Number of Card Slots per Bus</td></tr><tr><td style="border:1px solid #ddd;">PCI</td><td style="border:1px solid #ddd;">33 MHz</td><td style="border:1px solid #ddd;">133 - 266 MB/s</td><td style="border:1px solid #ddd;">4-5</td></tr><tr><td style="border:1px solid #ddd;">PCI</td><td style="border:1px solid #ddd;">66 MHz</td><td style="border:1px solid #ddd;">266 - 533 MB/s</td><td style="border:1px solid #ddd;">1-2</td></tr><tr><td style="border:1px solid #ddd;">PCI-X 1.0</td><td style="border:1px solid #ddd;">66 MHz</td><td style="border:1px solid #ddd;">266 - 533 MB/s</td><td style="border:1px solid #ddd;">4</td></tr><tr><td style="border:1px solid #ddd;">PCI-X 1.0</td><td style="border:1px solid #ddd;">133 MHz</td><td style="border:1px solid #ddd;">533 - 1066 MB/s</td><td style="border:1px solid #ddd;">1-2</td></tr><tr><td style="border:1px solid #ddd;">PCI-X 2.0 (DDR)</td><td style="border:1px solid #ddd;">133 MHz</td><td style="border:1px solid #ddd;">1066 - 2132 MB/s</td><td style="border:1px solid #ddd;">1 (point-to-point bus)</td></tr><tr><td style="border:1px solid #ddd;">PCI-X 2.0 (QDR)</td><td style="border:1px solid #ddd;">133 MHz</td><td style="border:1px solid #ddd;">2132 - 4262 MB/s</td><td style="border:1px solid #ddd;">1 (point-to-point bus)</td></tr></table>
 
 ## 1.3 PCI Basics | 1.3 PCI 基础
 
@@ -15659,15 +15622,15 @@ Table 1-1:  Comparison of Bus Frequency, Bandwidth and Number of Slots | 表1-1�
 Basics of a PCI-Based System
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI系统基础
+PCI 系统基础
 </td>
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Figure 1-1 on page 12 shows an older system based on a PCI bus.
+Figure 1-1 shows an older system based on a PCI bus.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第12页的图1-1展示了一个基于PCI总线的较早期系统。
+图 1-1 展示了一个基于 PCI 总线的较早期系统。
 </td>
 </tr>
 <tr>
@@ -15675,7 +15638,7 @@ Figure 1-1 on page 12 shows an older system based on a PCI bus.
 The system includes a North Bridge (called "north" because if the diagram is viewed as a map, it appears geographically north of the central PCI bus) that interfaces between the processor and the PCI bus.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-该系统包含一个北桥（之所以称为"北桥"，是因为如果把该框图看作一张地图，它在地理上位于中央PCI总线的北方），它充当处理器与PCI总线之间的接口。
+该系统包含一个北桥（之所以称为"北桥"，是因为如果把该框图看作一张地图，它在地理上位于中央 PCI 总线的北方），它充当处理器与 PCI 总线之间的接口。
 </td>
 </tr>
 <tr>
@@ -15683,7 +15646,7 @@ The system includes a North Bridge (called "north" because if the diagram is vie
 Associated with the North Bridge is the processor bus, system memory bus, AGP graphics bus, and PCI.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-与北桥相连的有处理器总线、系统存储器总线、AGP图形总线和PCI总线。
+与北桥相连的有处理器总线、系统存储器总线、AGP 图形总线和 PCI 总线。
 </td>
 </tr>
 <tr>
@@ -15691,7 +15654,7 @@ Associated with the North Bridge is the processor bus, system memory bus, AGP gr
 Several devices share the PCI bus and are either connected directly to the bus or plugged into an add-in card connector.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-多个设备共享PCI总线，它们要么直接连接到总线上，要么通过插卡连接器插入。
+多个设备共享 PCI 总线，它们要么直接连接到总线上，要么通过插卡连接器插入。
 </td>
 </tr>
 <tr>
@@ -15699,7 +15662,7 @@ Several devices share the PCI bus and are either connected directly to the bus o
 A South Bridge connects PCI to system peripherals, such as the ISA bus where legacy peripherals were carried forward for a few years.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-南桥将PCI连接到系统外设，例如ISA总线——传统外设曾在ISA总线上延续使用了几年时间。
+南桥将 PCI 连接到系统外设，例如 ISA 总线——传统外设曾在 ISA 总线上延续使用了几年时间。
 </td>
 </tr>
 <tr>
@@ -15707,21 +15670,22 @@ A South Bridge connects PCI to system peripherals, such as the ISA bus where leg
 The South Bridge was typically also the central resource for PCI that provided system signals like reset, reference clock, and error reporting.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-南桥通常也是PCI的中央资源，负责提供系统信号，如复位、参考时钟和错误报告。
+南桥通常也是 PCI 的中央资源，负责提供系统信号，如复位、参考时钟和错误报告。
 </td>
 </tr>
 </table>
 
-Figure 1-1: Legacy PCI Bus-Based Platform | 图1-1：基于传统PCI总线的平台
+Figure 1-1: Legacy PCI Bus-Based Platform | 图 1-1：基于传统 PCI 总线的平台
+
 <img src="images/part01_27335e43881500fcba7bf8039fafeffbd5432b13f46ec8e6860dae353737c192.jpg" width="700" alt="">
 
-## 1.3.2 PCI Bus Initiator and Target | 1.3.2 PCI 总线发起方和目标
+## 1.3.1 PCI Bus Initiator and Target | 1.3.1 PCI 总线发起方和目标
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
 In a PCI hierarchy each device on the bus may contain up to eight functions that all share the bus interface for that device, numbered 0-7 (a single-function device is always assigned function number 0).
-< | td>
+</td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 在 PCI 层次结构中，总线上的每个设备最多可包含八个功能，这些功能全部共享该设备的总线接口，编号为 0-7（单功能设备始终分配功能编号 0）。
 </td>
@@ -15744,10 +15708,10 @@ Such an initiator (called a Bus Master) has a pair of pins (REQ# and GNT#) dedic
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-As shown in Figure 1-2 on page 13, a Request (REQ#) pin indicates that the master needs to use the bus and is sent to the bus arbiter for evaluation against all the other requests at that moment.
+As shown in Figure 1-2, a Request (REQ#) pin indicates that the master needs to use the bus and is sent to the bus arbiter for evaluation against all the other requests at that moment.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-如图 1-2（第 13 页）所示，请求（REQ#）引脚表示该主控需要使用总线，并将该请求发送至总线仲裁器，以便与该时刻所有其他请求一同进行评估。
+如图 1-2 所示，请求（REQ#）引脚表示该主控需要使用总线，并将该请求发送至总线仲裁器，以便与该时刻所有其他请求一同进行评估。
 </td>
 </tr>
 <tr>
@@ -15763,7 +15727,7 @@ The arbiter is often located in the bridge that is hierarchically above the bus 
 The arbiter decides which requester should be the next owner of the bus and asserts the Grant (GNT#) pin for that device.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-仲裁器决定哪个Requester应成为总线的下一个所有者，并为该设备置位准许（GNT#）引脚。
+仲裁器决定哪个 Requester 应成为总线的下一个所有者，并为该设备置位准许（GNT#）引脚。
 </td>
 </tr>
 <tr>
@@ -15776,21 +15740,19 @@ According to the protocol, whenever the previous transaction finishes and the bu
 </tr>
 </table>
 
-Figure 1-2: PCI Bus Arbitration | 图1-2：PCI总线仲裁  
+Figure 1-2: PCI Bus Arbitration | 图 1-2：PCI 总线仲裁
 
 <img src="images/part01_22d6be0e07ba099c1f0c2799d2843fa17a65c71bc5e7aecb00767acff80cd716.jpg" width="700" alt="">
 
-## 1.3.3 Typical PCI Bus Cycle | 1.3.3 典型PCI总线周期
-
-Figure 1-3 on page 15 represents a typical PCI bus cycle. PCI is synchronous, meaning events happen on clock edges, so the clock is shown at the top of the diagram and it's rising edges are marked with dotted lines because those are the times when signals are driven out or sampled. A brief description of what happens on the bus is as follows:
+## 1.3.2 Typical PCI Bus Cycle | 1.3.2 典型 PCI 总线周期
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Figure 1-3 on page 15 represents a typical PCI bus cycle.
+Figure 1-3 represents a typical PCI bus cycle.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-第15页的图1-3展示了一个典型的PCI总线周期。
+图 1-3 展示了一个典型的 PCI 总线周期。
 </td>
 </tr>
 <tr>
@@ -15798,7 +15760,7 @@ Figure 1-3 on page 15 represents a typical PCI bus cycle.
 PCI is synchronous, meaning events happen on clock edges, so the clock is shown at the top of the diagram and its rising edges are marked with dotted lines because those are the times when signals are driven out or sampled.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI是同步的,即事件发生在时钟边沿上,因此时钟显示在图表的顶部,其上升沿用虚线标记,因为这些时刻是信号被驱动输出或采样的时间。
+PCI 是同步的,即事件发生在时钟边沿上,因此时钟显示在图表的顶部,其上升沿用虚线标记,因为这些时刻是信号被驱动输出或采样的时间。
 </td>
 </tr>
 <tr>
@@ -15817,7 +15779,7 @@ A brief description of what happens on the bus is as follows:
 1. On clock edge 1, FRAME# (used to indicate when a bus access is in progress) and IRDY# (Initiator Ready for data) are both inactive, showing that the bus is idle. At the same time, GNT# is active, meaning the bus arbiter has selected this device to be the next initiator.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-1. 在时钟边沿1,FRAME#(用于指示总线访问正在进行中)和IRDY#(发起方数据就绪)均无效,表明总线处于空闲状态。与此同时,GNT#有效,意味着总线仲裁器已选择该设备作为下一个发起方。
+1. 在时钟边沿 1,FRAME#(用于指示总线访问正在进行中)和 IRDY#(发起方数据就绪)均无效,表明总线处于空闲状态。与此同时,GNT#有效,意味着总线仲裁器已选择该设备作为下一个发起方。
 </td>
 </tr>
 <tr>
@@ -15825,7 +15787,7 @@ A brief description of what happens on the bus is as follows:
 2. On clock edge 2, FRAME# is asserted by the initiator, indicating that a new transaction has started. At the same time, it drives the address and command for this transaction. All of the other devices on the bus will latch this information and begin the process of decoding the address to see whether it's a match for them.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-2. 在时钟边沿2,发起方将FRAME#置为有效,表示一个新的传输已经开始。同时,它驱动本次传输的地址和命令。总线上的所有其他设备将锁存此信息,并开始对地址进行译码以查看是否与自己匹配。
+2. 在时钟边沿 2,发起方将 FRAME#置为有效,表示一个新的传输已经开始。同时,它驱动本次传输的地址和命令。总线上的所有其他设备将锁存此信息,并开始对地址进行译码以查看是否与自己匹配。
 </td>
 </tr>
 <tr>
@@ -15833,7 +15795,7 @@ A brief description of what happens on the bus is as follows:
 3. On clock edge 3, the initiator indicates its readiness for data transfer by asserting IRDY#. The round arrow symbol shown on the AD bus indicates that the tri-stated bus is undergoing a "turn-around cycle" as ownership of the signals changes (needed here because this is a read transaction; the initiator drives the address but receives data on the same pins). The target's buffer is not turned on using the same clock edge that turns the initiator's buffer off because we want to avoid the possibility of both buffers trying to drive a signal simultaneously, even for a brief time. That contention on the bus could damage the devices so, instead, the previous buffer is turned off one clock before the new one is turned on. Every shared signal is handled this way before changing direction.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-3. 在时钟边沿3,发起方通过将IRDY#置为有效来表明其已准备就绪进行数据传输。AD总线上显示的圆形箭头符号表示,随着信号所有权发生变化,三态总线正在经历一个"周转周期"(此处需要是因为这是一个读传输;发起方驱动地址但在相同的引脚上接收数据)。目标方的缓冲器不会在关闭发起方缓冲器的同一个时钟边沿打开,因为我们希望避免两个缓冲器同时尝试驱动信号的可能性,即便是短暂的时间。总线上的这种竞争可能损坏设备,因此,前一个缓冲器在新缓冲器打开之前一个时钟关闭。每一个共享信号在改变方向之前都按此方式处理。
+3. 在时钟边沿 3,发起方通过将 IRDY#置为有效来表明其已准备就绪进行数据传输。AD 总线上显示的圆形箭头符号表示,随着信号所有权发生变化,三态总线正在经历一个"周转周期"(此处需要是因为这是一个读传输;发起方驱动地址但在相同的引脚上接收数据)。目标方的缓冲器不会在关闭发起方缓冲器的同一个时钟边沿打开,因为我们希望避免两个缓冲器同时尝试驱动信号的可能性,即便是短暂的时间。总线上的这种竞争可能损坏设备,因此,前一个缓冲器在新缓冲器打开之前一个时钟关闭。每一个共享信号在改变方向之前都按此方式处理。
 </td>
 </tr>
 <tr>
@@ -15841,7 +15803,7 @@ A brief description of what happens on the bus is as follows:
 4. On clock edge 4, a device on the bus has recognized the requested address and responded by asserting DEVSEL# (device select) to claim this transaction and participate in it. At the same time, it asserts TRDY# (target ready) to show that it is delivering the first part of the read data and drives that data onto the AD bus (this could have been delayed — the target is allowed 16 clocks from the assertion of FRAME# until TRDY#). Since both IRDY# and TRDY# are active at the same time here, data will be transferred on that clock edge, completing the first data phase. The initiator knows how many bytes will eventually be transferred, but the target does not. The command does not provide a byte count, so the target must look at the status of FRAME# whenever a data phase completes to learn when the initiator is satisfied with the amount of data transferred. If FRAME# is still asserted, this was not the last data phase and the transaction will continue with the next contiguous set of bytes, as is the case here.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-4. 在时钟边沿4,总线上的某个设备已识别出所请求的地址,并通过将DEVSEL#(设备选择)置为有效来响应,以认领此传输并参与其中。同时,它还将TRDY#(目标就绪)置为有效,表明它正在交付第一部分的读数据,并将该数据驱动到AD总线上(这可能会被延迟——目标方允许在FRAME#有效之后最多16个时钟内完成TRDY#)。由于此处IRDY#和TRDY#同时有效,数据将在该时钟边沿上传输,完成第一个数据阶段。发起方知道最终将传输多少字节,但目标方不知道。命令不提供字节计数,因此目标方必须在每次数据阶段完成时查看FRAME#的状态,以获知发起方对所传输的数据量何时满意。如果FRAME#仍然有效,则表明这不是最后一个数据阶段,传输将继续进行下一组连续的字节,如此处的情况。
+4. 在时钟边沿 4,总线上的某个设备已识别出所请求的地址,并通过将 DEVSEL#(设备选择)置为有效来响应,以认领此传输并参与其中。同时,它还将 TRDY#(目标就绪)置为有效,表明它正在交付第一部分的读数据,并将该数据驱动到 AD 总线上(这可能会被延迟——目标方允许在 FRAME#有效之后最多 16 个时钟内完成 TRDY#)。由于此处 IRDY#和 TRDY#同时有效,数据将在该时钟边沿上传输,完成第一个数据阶段。发起方知道最终将传输多少字节,但目标方不知道。命令不提供字节计数,因此目标方必须在每次数据阶段完成时查看 FRAME#的状态,以获知发起方对所传输的数据量何时满意。如果 FRAME#仍然有效,则表明这不是最后一个数据阶段,传输将继续进行下一组连续的字节,如此处的情况。
 </td>
 </tr>
 <tr>
@@ -15849,7 +15811,7 @@ A brief description of what happens on the bus is as follows:
 5. On clock edge 5, the target is not prepared to deliver the next set of data, so it deasserts TRDY#. This is called inserting a "Wait State" and the transaction is delayed for a clock. Both initiator and target are allowed to do this, and each can delay the next data transfer by up to 8 consecutive clocks.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-5. 在时钟边沿5,目标方未准备好交付下一组数据,因此它将TRDY#置为无效。这称为插入一个"等待状态",传输被延迟一个时钟。发起方和目标方都可以这样做,且每一方最多可将下一次数据传输延迟8个连续的时钟。
+5. 在时钟边沿 5,目标方未准备好交付下一组数据,因此它将 TRDY#置为无效。这称为插入一个"等待状态",传输被延迟一个时钟。发起方和目标方都可以这样做,且每一方最多可将下一次数据传输延迟 8 个连续的时钟。
 </td>
 </tr>
 <tr>
@@ -15857,7 +15819,7 @@ A brief description of what happens on the bus is as follows:
 6. On clock edge 6, the second data item is transferred, and since FRAME# is still asserted, the target knows that the initiator still wants more data.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-6. 在时钟边沿6,第二个数据项被传输,并且由于FRAME#仍然有效,目标方知道发起方还需要更多数据。
+6. 在时钟边沿 6,第二个数据项被传输,并且由于 FRAME#仍然有效,目标方知道发起方还需要更多数据。
 </td>
 </tr>
 <tr>
@@ -15865,7 +15827,7 @@ A brief description of what happens on the bus is as follows:
 7. On clock edge 7, the initiator forces a Wait State. Wait States allow devices to pause a transaction to quickly fill or empty a buffer and can be helpful because they allow the transaction to resume without having to stop and restart. On the other hand, they are often very inefficient because they not only stall the current transaction, they also prevent other devices from gaining access to the bus while it's stalled.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-7. 在时钟边沿7,发起方强制插入一个等待状态。等待状态允许设备暂停传输以快速填充或清空缓冲器,这非常有用,因为它们允许传输在无需停止和重新启动的情况下恢复。另一方面,它们通常非常低效,因为它们不仅阻塞当前传输,还阻止其他设备在总线被阻塞时获得总线访问权。
+7. 在时钟边沿 7,发起方强制插入一个等待状态。等待状态允许设备暂停传输以快速填充或清空缓冲器,这非常有用,因为它们允许传输在无需停止和重新启动的情况下恢复。另一方面,它们通常非常低效,因为它们不仅阻塞当前传输,还阻止其他设备在总线被阻塞时获得总线访问权。
 </td>
 </tr>
 <tr>
@@ -15873,7 +15835,7 @@ A brief description of what happens on the bus is as follows:
 8. On clock edge 8, the third data set is transferred and now FRAME# has been deasserted so the target can tell that this was the last data item. Consequently, after this clock, all the control lines are turned off and the bus once again goes to the idle state.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-8. 在时钟边沿8,第三组数据被传输,此时FRAME#已被置为无效,因此目标方可以判断这是最后一个数据项。因此,在此时钟之后,所有控制线被关闭,总线再次回到空闲状态。
+8. 在时钟边沿 8,第三组数据被传输,此时 FRAME#已被置为无效,因此目标方可以判断这是最后一个数据项。因此,在此时钟之后,所有控制线被关闭,总线再次回到空闲状态。
 </td>
 </tr>
 </table>
@@ -15884,12 +15846,12 @@ A brief description of what happens on the bus is as follows:
 In keeping with the low cost design goal for PCI, several signals have more than one meaning on the bus to reduce the pin count. The 32 address and data signals are multiplexed and the C/BE# (Command/Byte Enable) signals share their four pins for the same reason. Although reducing the pin count is desirable, it's also the reason that PCI uses "turn-around cycles", which add more delay. It also precludes the option to pipeline transactions (sending the address for the next cycle while data for the previous one is delivered). Handshake signals like FRAME#, DEVSEL#, TRDY#, IRDY#, and STOP# control the timing of events during the transaction.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-为了符合PCI的低成本设计目标,总线上的若干信号具有不止一种含义,以减少引脚数量。32位地址和数据信号是复用的,C/BE#(命令/字节使能)信号出于同样的原因共享其四个引脚。虽然减少引脚数是可取的,但这也是PCI使用"周转周期"的原因,这增加了更多的延迟。它也排除了流水线传输的选项(在前一个传输交付数据的同时发送下一个传输的地址)。诸如FRAME#、DEVSEL#、TRDY#、IRDY#和STOP#之类的握手信号控制传输过程中事件的时间顺序。
+为了符合 PCI 的低成本设计目标,总线上的若干信号具有不止一种含义,以减少引脚数量。32 位地址和数据信号是复用的,C/BE#(命令/字节使能)信号出于同样的原因共享其四个引脚。虽然减少引脚数是可取的,但这也是 PCI 使用"周转周期"的原因,这增加了更多的延迟。它也排除了流水线传输的选项(在前一个传输交付数据的同时发送下一个传输的地址)。诸如 FRAME#、DEVSEL#、TRDY#、IRDY#和 STOP#之类的握手信号控制传输过程中事件的时间顺序。
 </td>
 </tr>
 </table>
 
-Figure 1-3: Simple PCI Bus Transfer | 图1-3：简单PCI总线传输
+Figure 1-3: Simple PCI Bus Transfer | 图 1-3：简单 PCI 总线传输
 
 <img src="images/part01_21c63a177c6e8db0027f681b5522a2d4059ea9a946ae3b050c3292fee37620d7.jpg" width="700" alt="">
 
@@ -15904,23 +15866,23 @@ Reflected-Wave Signaling
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-PCI architecturally supports up to 32 devices on each bus, but the practical electrical limit is considerably less, on the order of 10 to 12 electrical loads at the base frequency of 33MHz. The reason for this is that the bus uses a technique called "reflected-wave signaling" to reduce the power consumption on the bus (see Figure 1-4 on page 17). In this model, devices save cost and power by implementing weak transmit buffers that can only drive the signal to about half the voltage needed to switch the signal. The incident wave of the signal propagates down the transmission line until it reaches the end. By design, there is no termination at the end of the line so the wavefront encounters an infinite impedance and reflects back. This reflection is additive in nature and increases the signal to the full voltage level as it makes its way back to the transmitter. When the signal reaches the originating buffer, the low output impedance of the driver terminates the signal and prevents further reflections. The total elapsed time from the buffer asserting a signal until the receiver detects a valid signal is thus the propagation time down the wire plus the reflection delay coming back and the setup time. All of that must be less than the clock period.
+PCI architecturally supports up to 32 devices on each bus, but the practical electrical limit is considerably less, on the order of 10 to 12 electrical loads at the base frequency of 33MHz. The reason for this is that the bus uses a technique called "reflected-wave signaling" to reduce the power consumption on the bus (see Figure 1-4). In this model, devices save cost and power by implementing weak transmit buffers that can only drive the signal to about half the voltage needed to switch the signal. The incident wave of the signal propagates down the transmission line until it reaches the end. By design, there is no termination at the end of the line so the wavefront encounters an infinite impedance and reflects back. This reflection is additive in nature and increases the signal to the full voltage level as it makes its way back to the transmitter. When the signal reaches the originating buffer, the low output impedance of the driver terminates the signal and prevents further reflections. The total elapsed time from the buffer asserting a signal until the receiver detects a valid signal is thus the propagation time down the wire plus the reflection delay coming back and the setup time. All of that must be less than the clock period.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI 在架构上支持每个总线上最多 32 个设备，但在 33MHz 基频下的实际电气限制要少得多，约为 10 到 12 个电气负载。其原因在于总线采用了一种称为"反射波信令"的技术来降低总线上的功耗（参见第 17 页图 1-4）。在这种模型中，设备通过实现只能将信号驱动到切换信号所需电压的大约一半的弱发送缓冲器来节省成本和功耗。信号的入射波沿传输线传播，直到到达末端。按设计，线路末端没有终端匹配，因此波前遇到无限阻抗并反射回来。这种反射本质上是叠加的，在它返回发送器的过程中将信号增强到完整的电压电平。当信号到达始发缓冲器时，驱动器的低输出阻抗终止信号并防止进一步反射。因此，从缓冲器发出信号到接收器检测到有效信号的总耗时为沿导线的传播时间加上反射回来的延迟和建立时间。所有这些时间之和必须小于时钟周期。
+PCI 在架构上支持每个总线上最多 32 个设备，但在 33MHz 基频下的实际电气限制要少得多，约为 10 到 12 个电气负载。其原因在于总线采用了一种称为"反射波信令"的技术来降低总线上的功耗（参见图 1-4）。在这种模型中，设备通过实现只能将信号驱动到切换信号所需电压的大约一半的弱发送缓冲器来节省成本和功耗。信号的入射波沿传输线传播，直到到达末端。按设计，线路末端没有终端匹配，因此波前遇到无限阻抗并反射回来。这种反射本质上是叠加的，在它返回发送器的过程中将信号增强到完整的电压电平。当信号到达始发缓冲器时，驱动器的低输出阻抗终止信号并防止进一步反射。因此，从缓冲器发出信号到接收器检测到有效信号的总耗时为沿导线的传播时间加上反射回来的延迟和建立时间。所有这些时间之和必须小于时钟周期。
 </td>
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-As the length of the trace and the number of electrical loads on a bus increase, the time required for the signal to make this round trip increases. A 33 MHz PCI bus can only meet the signal timing with about 10-12 electrical loads. An electrical load is one device installed on the system board, but a populated connector slot actually counts as two loads. Therefore, as indicated in Table 1-1 on page 11, a 33 MHz PCI bus can only be designed for reliable operation with a maximum of 4 or 5 add-in card connectors.
+As the length of the trace and the number of electrical loads on a bus increase, the time required for the signal to make this round trip increases. A 33 MHz PCI bus can only meet the signal timing with about 10-12 electrical loads. An electrical load is one device installed on the system board, but a populated connector slot actually counts as two loads. Therefore, as indicated in Table 1-1, a 33 MHz PCI bus can only be designed for reliable operation with a maximum of 4 or 5 add-in card connectors.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-随着走线长度和总线上电气负载数量的增加，信号完成这一往返所需的时间也随之增加。33 MHz PCI 总线只能在约 10 到 12 个电气负载下满足信号时序要求。一个电气负载是安装在系统板上的一个设备，但一个已插卡的连接器插槽实际上计为两个负载。因此，如第 11 页表 1-1 所示，33 MHz PCI 总线最多只能设计为使用 4 或 5 个附加卡连接器来保证可靠运行。
+随着走线长度和总线上电气负载数量的增加，信号完成这一往返所需的时间也随之增加。33 MHz PCI 总线只能在约 10 到 12 个电气负载下满足信号时序要求。一个电气负载是安装在系统板上的一个设备，但一个已插卡的连接器插槽实际上计为两个负载。因此，如表 1-1 所示，33 MHz PCI 总线最多只能设计为使用 4 或 5 个附加卡连接器来保证可靠运行。
 </td>
 </tr>
 </table>
 
-Figure 1-4: PCI Reflected-Wave Signaling | 图1-4：PCI反射波信令
+Figure 1-4: PCI Reflected-Wave Signaling | 图 1-4：PCI 反射波信令
 
 <img src="images/part01_6e57e6b5c72eb19d7c166337bcdfa03fc93f9f6ab824e5034f80c461d34fb019.jpg" width="700" alt="">
 
@@ -15943,37 +15905,45 @@ PCI 桥是拓扑结构的扩展。每个桥创建一个新的 PCI 总线，该�
 </tr>
 </table>
 
-Figure 1-5: 33 MHz PCI System, Including a PCI-to-PCI Bridge | 图1-5：33 MHz PCI系统，含PCI-to-PCI桥
+Figure 1-5: 33 MHz PCI System, Including a PCI-to-PCI Bridge | 图 1-5：33 MHz PCI 系统，含 PCI-to-PCI 桥
 
 <img src="images/part01_863423002256f4bc14466a3226976a98f34bfb7995af11345ce198b8b7f55945.jpg" width="700" alt="">
 
-## 1.4 PCI Bus Architecture Perspective | 1.4 PCI总线架构视角
+## 1.4 PCI Bus Architecture Perspective | 1.4 PCI 总线架构视角
 
 ## 1.4.1 PCI Transaction Models | 1.4.1 PCI 事务模型
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-PCI uses three models for data transfer just as previous bus models did: Programmed I/O (PIO), Peer‐to‐peer, and DMA. These models are illustrated in Figure 1‐6 on page 19 and described in the following sections.
+PCI uses three models for data transfer just as previous bus models did: Programmed I/O (PIO), Peer-to-peer, and DMA. These models are illustrated in Figure 1-6 and described in the following sections.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI 与前代总线模型一样，使用三种数据传输模型：程序控制 I/O (PIO)、点对点传输和 DMA。这些模型如图 1-6（第 19 页）所示，并在以下各节中描述。
+PCI 与前代总线模型一样，使用三种数据传输模型：程序控制 I/O (PIO)、点对点传输和 DMA。这些模型如图 1-6 所示，并在以下各节中描述。
 </td>
 </tr>
 </table>
 
-## Programmed I/O | 编程I/O (PIO)
+## 1.5 Programmed I/O | 1.5 编程 I/O (PIO)
 
+<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+<tr>
+<td width="50%" style="border:1px solid #ddd;">
 PIO was commonly used in the early days of the PC because designers were reluctant to add the expense or complexity to their devices of transaction management logic. The processor could do the job faster than any other device anyway so, in this model, it handles all the work. For example, if a PCI device interrupts the CPU to indicate that it needs to put data in memory, the CPU will end up reading data from the PCI device into an internal register and then copying that register to memory. Going the other way, if data is to be moved from memory to the PCI device, software instructs the CPU to read from memory into its internal register and then write that register to the PCI device.
+</td>
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+PIO 在 PC 早期被广泛使用，因为设计者不愿为其设备增加事务管理逻辑的成本或复杂性。处理器执行任务的速度本来也比任何其他设备都快，因此在这种模式下，它承担了所有工作。例如，如果一个 PCI 设备向 CPU 发出中断，表明它需要将数据放入存储器，CPU 最终会从 PCI 设备读取数据到一个内部寄存器，然后将该寄存器中的数据拷贝到存储器。反过来，如果需要将数据从存储器移到 PCI 设备，软件会指示 CPU 从存储器读取数据到其内部寄存器，然后将该寄存器的值写入 PCI 设备。
+</td>
+</tr>
+</table>
 
-| PIO在PC早期被广泛使用，因为设计者不愿为其设备增加事务管理逻辑的成本或复杂性。处理器执行任务的速度本来也比任何其他设备都快，因此在这种模式下，它承担了所有工作。例如，如果一个PCI设备向CPU发出中断，表明它需要将数据放入存储器，CPU最终会从PCI设备读取数据到一个内部寄存器，然后将该寄存器中的数据拷贝到存储器。反过来，如果需要将数据从存储器移到PCI设备，软件会指示CPU从存储器读取数据到其内部寄存器，然后将该寄存器的值写入PCI设备。 |
+<tr><td width="50%" style="border:1px solid #ddd;background:#fff;padding:4px 8px;">The process works but is inefficient for two reasons. First, there are two bus cycles generated by the CPU for every data transfer, and second, the CPU is busy with data transfer housekeeping rather than more interesting work. In the early days this was the fastest transfer method and the single-tasking processor didn't have much else to do. These types of inefficiencies are typically not acceptable in modern systems, so this method is no longer very common for data transfers, and instead the DMA method described in the next section is the preferred approach. However, programmed IO is still a necessary transaction model in order for software to interact with a device.</td><td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8;padding:4px 8px;">这个过程可行但效率低下，原因有二。第一，每次数据传输 CPU 会产生两个总线周期；第二，CPU 忙于数据传输的簿记工作，而非更有价值的任务。在早期，这是最快的传输方法，而且单任务处理器也没有太多其他事情可做。这类低效在现代系统中通常不可接受，因此这种方法在数据传输中已不再普遍，取而代之的是下一节描述的 DMA 方法，这也是目前的首选方案。然而，编程 I/O 仍然是软件与设备交互所必需的一种事务模型。</td></tr>
 
-<tr><td width="50%" style="border:1px solid #ddd;background:#fff;padding:4px 8px;">The process works but is inefficient for two reasons. First, there are two bus cycles generated by the CPU for every data transfer, and second, the CPU is busy with data transfer housekeeping rather than more interesting work. In the early days this was the fastest transfer method and the single‐tasking processor didn't have much else to do. These types of inefficiencies are typically not acceptable in modern systems, so this method is no longer very common for data transfers, and instead the DMA method described in the next section is the preferred approach. However, programmed IO is still a necessary transaction model in order for software to interact with a device.</td><td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8;padding:4px 8px;">这个过程可行但效率低下，原因有二。第一，每次数据传输CPU会产生两个总线周期；第二，CPU忙于数据传输的簿记工作，而非更有价值的任务。在早期，这是最快的传输方法，而且单任务处理器也没有太多其他事情可做。这类低效在现代系统中通常不可接受，因此这种方法在数据传输中已不再普遍，取而代之的是下一节描述的DMA方法，这也是目前的首选方案。然而，编程I/O仍然是软件与设备交互所必需的一种事务模型。</td></tr>
+Figure 1-6: PCI Transaction Models | 图 1-6：PCI 事务模型
 
-Figure 1-6: PCI Transaction Models | 图1-6：PCI事务模型
 <img src="images/part01_b53605b8d37744d231a8c79cc0b82a013b286a518fe76391d30056b3ae2c76eb.jpg" width="700" alt="">
 
-## Direct Memory Access (DMA) | 直接存储器访问 (DMA)
+## 1.6 Direct Memory Access (DMA) | 1.6 直接存储器访问 (DMA)
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -15981,41 +15951,41 @@ Figure 1-6: PCI Transaction Models | 图1-6：PCI事务模型
 A more efficient method of transferring data is called DMA (direct memory access). In this model another device, called a DMA engine, handles the details of memory transfers to a peripheral on behalf of the processor, off-loading this tedious task. Once the CPU has programmed the starting address and byte count into it, the DMA engine handled the bus protocol and address sequencing on its own. This didn't involve any change to the PCI peripherals and allowed them to keep their low-cost designs. Later, improved integration allowed peripherals to integrate this DMA functionality locally, so they didn't need an external DMA engine. These devices were capable of handling their own bus transfers and were called Bus Master devices.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-一种更高效的数据传输方式称为DMA（直接存储器访问）。在这种模型中，另一个称为DMA引擎的设备代表处理器处理到外设的存储器传输细节，从而卸下这一繁琐的任务。一旦CPU将起始地址和字节计数编程写入其中，DMA引擎便会自行处理总线协议和地址排序。这并不涉及对PCI外设的任何更改，从而使它们能够保持低成本的设计。后来，集成度的提升使外设能够在本地集成这种DMA功能，因此它们不再需要外部DMA引擎。这些设备能够自行处理其总线传输，被称为总线主控（Bus Master）设备。
+一种更高效的数据传输方式称为 DMA（直接存储器访问）。在这种模型中，另一个称为 DMA 引擎的设备代表处理器处理到外设的存储器传输细节，从而卸下这一繁琐的任务。一旦 CPU 将起始地址和字节计数编程写入其中，DMA 引擎便会自行处理总线协议和地址排序。这并不涉及对 PCI 外设的任何更改，从而使它们能够保持低成本的设计。后来，集成度的提升使外设能够在本地集成这种 DMA 功能，因此它们不再需要外部 DMA 引擎。这些设备能够自行处理其总线传输，被称为总线主控（Bus Master）设备。
 </td>
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Figure 1-3 on page 15 is an example of a Bus Master transaction on PCI. The North Bridge might decode the address and recognize that it will be the target for the transaction. In the data phase of the bus cycle, data is transferred between the Bus Master and the North Bridge acting as the target. The North Bridge in turn will generate DRAM bus cycles to communicate with system memory. After the transfer is completed, the PCI peripheral might generate an interrupt to inform the system. The DMA method of data transfer is more efficient because the CPU is not involved in the data movement, and a single bus cycle may be sufficient to move a block of data.
+Figure 1-3 is an example of a Bus Master transaction on PCI. The North Bridge might decode the address and recognize that it will be the target for the transaction. In the data phase of the bus cycle, data is transferred between the Bus Master and the North Bridge acting as the target. The North Bridge in turn will generate DRAM bus cycles to communicate with system memory. After the transfer is completed, the PCI peripheral might generate an interrupt to inform the system. The DMA method of data transfer is more efficient because the CPU is not involved in the data movement, and a single bus cycle may be sufficient to move a block of data.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-图1-3（第15页）是PCI总线上总线主控事务的一个例子。北桥可以译码地址并识别出自己将是该事务的目标。在总线周期的数据阶段，数据在总线主控设备与作为目标的北桥之间进行传输。北桥反过来将生成DRAM总线周期以与系统存储器进行通信。传输完成后，PCI外设可以产生一个中断来通知系统。DMA数据传输方式更为高效，因为CPU不参与数据搬移，且单个总线周期可能足以搬移一个数据块。
-</td>
-</tr>
-</table>
-
-## Peer-to-Peer | 对等传输
-
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
-If a device is capable of acting as a Bus Master, then another interesting option presents itself. One PCI Bus Master could initiate a transfer to another PCI device, with the result that the entire transaction remains local to the PCI bus and doesn't involve any other system resources. Since this transaction takes place between devices that are considered peers in the system, it's referred to as a peer‑to‑peer transaction. This has some obvious efficiencies because the rest of the system remains free to do other work. Nevertheless, it's rarely used in practice because the initiator and target don't often use the same format for the data unless both are made by the same vendor. Consequently, the data usually must first be sent to memory where the CPU can reformat it before it is then transferred to the target, defeating the goal of a peer‑to‑peer transfer.
-</td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-如果设备具有充当总线主控（Bus Master）的能力，那么另一个有趣的选项就出现了。一个PCI总线主控可以发起向另一个PCI设备的数据传输，其结果是整个事务完全保持在PCI总线本地，不涉及任何其他系统资源。由于该事务发生在系统中被视为对等实体的设备之间，因此被称为对等传输（peer‑to‑peer transaction）。这种方式具有明显的效率优势，因为系统的其余部分可以自由地执行其他工作。然而，在实际中它很少被使用，因为除非发起方和目标方由同一厂商制造，否则它们通常不会使用相同的数据格式。因此，数据通常必须首先发送到存储器，由CPU对其进行重新格式化，然后再传输到目标设备，这就违背了对等传输的初衷。
+图 1-3 是 PCI 总线上总线主控事务的一个例子。北桥可以译码地址并识别出自己将是该事务的目标。在总线周期的数据阶段，数据在总线主控设备与作为目标的北桥之间进行传输。北桥反过来将生成 DRAM 总线周期以与系统存储器进行通信。传输完成后，PCI 外设可以产生一个中断来通知系统。DMA 数据传输方式更为高效，因为 CPU 不参与数据搬移，且单个总线周期可能足以搬移一个数据块。
 </td>
 </tr>
 </table>
 
-## 1.4.2 PCI Bus Arbitration | 1.4.2 PCI 总线仲裁
+## 1.7 Peer-to-Peer | 1.7 对等传输
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Consider Figure 1‑2 on page 13. Since PCI devices today are almost all capable of being bus‑master, they are able to do both DMA and peer‑to‑peer transfers. In a shared bus architecture like PCI, they have to take turns on the bus, so a device that wants to initiate transactions must first request ownership of the bus from the bus arbiter. The arbiter sees all the current requests and uses an implementation‑specific algorithm to decide which Bus Master gets ownership of the bus next. The PCI spec doesn't describe this algorithm, but does state that it must be "fair" and not starve any device for access.
+If a device is capable of acting as a Bus Master, then another interesting option presents itself. One PCI Bus Master could initiate a transfer to another PCI device, with the result that the entire transaction remains local to the PCI bus and doesn't involve any other system resources. Since this transaction takes place between devices that are considered peers in the system, it's referred to as a peer-to-peer transaction. This has some obvious efficiencies because the rest of the system remains free to do other work. Nevertheless, it's rarely used in practice because the initiator and target don't often use the same format for the data unless both are made by the same vendor. Consequently, the data usually must first be sent to memory where the CPU can reformat it before it is then transferred to the target, defeating the goal of a peer-to-peer transfer.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-参见第13页的图1‑2。由于当今的PCI设备几乎都具备总线主控能力，它们能够执行DMA和点对点传输。在像PCI这样的共享总线架构中，设备必须轮流使用总线，因此想要发起事务的设备必须首先向总线仲裁器请求总线所有权。仲裁器监控所有当前请求，并使用特定于实现的算法来决定下一个获得总线所有权的总线主控设备。PCI规范并未描述该算法，但明确指出其必须"公平"，且不得使任何设备因无法获得访问权限而饥饿。
+如果设备具有充当总线主控（Bus Master）的能力，那么另一个有趣的选项就出现了。一个 PCI 总线主控可以发起向另一个 PCI 设备的数据传输，其结果是整个事务完全保持在 PCI 总线本地，不涉及任何其他系统资源。由于该事务发生在系统中被视为对等实体的设备之间，因此被称为对等传输（peer-to-peer transaction）。这种方式具有明显的效率优势，因为系统的其余部分可以自由地执行其他工作。然而，在实际中它很少被使用，因为除非发起方和目标方由同一厂商制造，否则它们通常不会使用相同的数据格式。因此，数据通常必须首先发送到存储器，由 CPU 对其进行重新格式化，然后再传输到目标设备，这就违背了对等传输的初衷。
+</td>
+</tr>
+</table>
+
+## 1.7.1 PCI Bus Arbitration | 1.7.1 PCI 总线仲裁
+
+<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+<tr>
+<td width="50%" style="border:1px solid #ddd;">
+Consider Figure 1-2. Since PCI devices today are almost all capable of being bus-master, they are able to do both DMA and peer-to-peer transfers. In a shared bus architecture like PCI, they have to take turns on the bus, so a device that wants to initiate transactions must first request ownership of the bus from the bus arbiter. The arbiter sees all the current requests and uses an implementation-specific algorithm to decide which Bus Master gets ownership of the bus next. The PCI spec doesn't describe this algorithm, but does state that it must be "fair" and not starve any device for access.
+</td>
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+参见图 1-2。由于当今的 PCI 设备几乎都具备总线主控能力，它们能够执行 DMA 和点对点传输。在像 PCI 这样的共享总线架构中，设备必须轮流使用总线，因此想要发起事务的设备必须首先向总线仲裁器请求总线所有权。仲裁器监控所有当前请求，并使用特定于实现的算法来决定下一个获得总线所有权的总线主控设备。PCI 规范并未描述该算法，但明确指出其必须"公平"，且不得使任何设备因无法获得访问权限而饥饿。
 </td>
 </tr>
 <tr>
@@ -16028,9 +15998,9 @@ The arbiter can grant bus ownership to the next requesting device while the prev
 </tr>
 </table>
 
-## 1.4.3 PCI Inefficiencies | 1.4.3 PCI 低效率问题
+## 1.7.2 PCI Inefficiencies | 1.7.2 PCI 低效率问题
 
-## PCI Retry Protocol | PCI 重试协议
+## 1.8 PCI Retry Protocol | 1.8 PCI 重试协议
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -16043,13 +16013,14 @@ When a PCI master initiates a transaction to access a target device and the targ
 </tr>
 </table>
 
-Figure 1-7: PCI Transaction Retry Mechanism | 图1-7：PCI事务重试机制
+Figure 1-7: PCI Transaction Retry Mechanism | 图 1-7：PCI 事务重试机制
+
 <img src="images/part01_eb09c497d409916d80fddfa7593b59ef25bea7a1f6d93ebe7dce9fbf1e4e2690.jpg" width="700" alt="">
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Consider the following example in which the North bridge initiates a memory read transaction to read data from the Ethernet device. The Ethernet target claims the bus cycle. However, the Ethernet target does not immediately have the data to return to the North bridge master. The Ethernet device has two choices by which to delay the data transfer. The first is to insert wait‑states in the data phase. If only a few wait‑states are needed, then the data is still transferred efficiently. If however the target device requires more time (more than 16 clocks from the beginning of the transaction), then the second option the target has is to signal a retry with a signal called STOP#. A retry tells the master to end the bus cycle prematurely without transferring data. Doing so prevents the bus from being held for a long time in wait‑states, which compromises the bus efficiency. The Bus Master that is retried by the target waits a minimum of 2 clocks and must once again arbitrate for use of the bus to re‑initiate the identical bus cycle. During the time that the Bus Master is retried, the arbiter can grant the bus to other requesting masters so that the PCI bus is more efficiently utilized. By the time the retried master is granted the bus and it re‑initiates the bus cycle, hopefully the target will claim the cycle and will be ready to transfer data. The bus cycle goes to completion with data transfer. Otherwise, if the target is still not ready, it retries the master's bus cycle again and the process is repeated until the master successfully transfers data.
+Consider the following example in which the North bridge initiates a memory read transaction to read data from the Ethernet device. The Ethernet target claims the bus cycle. However, the Ethernet target does not immediately have the data to return to the North bridge master. The Ethernet device has two choices by which to delay the data transfer. The first is to insert wait-states in the data phase. If only a few wait-states are needed, then the data is still transferred efficiently. If however the target device requires more time (more than 16 clocks from the beginning of the transaction), then the second option the target has is to signal a retry with a signal called STOP#. A retry tells the master to end the bus cycle prematurely without transferring data. Doing so prevents the bus from being held for a long time in wait-states, which compromises the bus efficiency. The Bus Master that is retried by the target waits a minimum of 2 clocks and must once again arbitrate for use of the bus to re-initiate the identical bus cycle. During the time that the Bus Master is retried, the arbiter can grant the bus to other requesting masters so that the PCI bus is more efficiently utilized. By the time the retried master is granted the bus and it re-initiates the bus cycle, hopefully the target will claim the cycle and will be ready to transfer data. The bus cycle goes to completion with data transfer. Otherwise, if the target is still not ready, it retries the master's bus cycle again and the process is repeated until the master successfully transfers data.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 考虑以下示例：北桥发起一个存储器读事务，从以太网设备读取数据。以太网目标设备认领了该总线周期。然而，以太网目标设备并没有立即准备好要返回给北桥主设备的数据。以太网设备有两种选择来延迟数据传输。第一种是在数据阶段插入等待状态。如果只需要少量等待状态，那么数据仍可以高效地完成传输。但如果目标设备需要更多时间（从事务开始超过 16 个时钟周期），则目标的第二种选择是使用一个称为 STOP# 的信号来发出重试。重试告诉主设备提前终止总线周期而不传输数据。这样做可以避免总线因长时间处于等待状态而被占用，从而损害总线效率。被目标重试的总线主设备最少等待 2 个时钟周期，然后必须重新参与总线仲裁，以重新发起完全相同的总线周期。在总线主设备被重试期间，仲裁器可以将总线授予其他请求中的主设备，从而使 PCI 总线得到更高效的利用。当被重试的主设备再次获得总线授权并重新发起总线周期时，希望目标设备会认领该周期并准备好传输数据。总线周期将以数据传输完成。否则，如果目标设备仍未就绪，它会再次重试主设备的总线周期，该过程将重复进行，直到主设备成功完成数据传输。
@@ -16057,18 +16028,19 @@ Consider the following example in which the North bridge initiates a memory read
 </tr>
 </table>
 
-Figure 1-8: PCI Transaction Disconnect Mechanism | 图1-8：PCI事务断开机制
+Figure 1-8: PCI Transaction Disconnect Mechanism | 图 1-8：PCI 事务断开机制
+
 <img src="images/part01_57885615fcb97ee162e046ed435021dc9d41ba0e249019fa0f203f7d58acac8b.jpg" width="700" alt="Figure 1-8">
 
-## PCI Disconnect Protocol | PCI断开协议
+## 1.9 PCI Disconnect Protocol | 1.9 PCI 断开协议
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-When a PCI master initiates a transaction to access a target device and if the target device is able to transfer at least one doubleword of data but cannot complete the entire data transfer, it disconnects the transaction at the point at which it cannot continue. This scenario is illustrated in Figure 1-8 on page 23.
+When a PCI master initiates a transaction to access a target device and if the target device is able to transfer at least one doubleword of data but cannot complete the entire data transfer, it disconnects the transaction at the point at which it cannot continue. This scenario is illustrated in Figure 1-8.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-当PCI主设备发起事务访问目标设备时，如果目标设备能够传输至少一个双字的数据，但无法完成整个数据传输，则目标设备会在无法继续的位置断开该事务。此场景如图1-8（第23页）所示。
+当 PCI 主设备发起事务访问目标设备时，如果目标设备能够传输至少一个双字的数据，但无法完成整个数据传输，则目标设备会在无法继续的位置断开该事务。此场景如图 1-8 所示。
 </td>
 </tr>
 <tr>
@@ -16076,49 +16048,44 @@ When a PCI master initiates a transaction to access a target device and if the t
 Consider the following example in which the North bridge initiates a burst memory read transaction to read data from the Ethernet device. The Ethernet target device claims the bus cycle and transfers some data, but then runs out of data to transfer. The Ethernet device has two choices to delay the data transfer. The first option is to insert wait-states during the current data phase while waiting for additional data to arrive. If the target needs to insert only a few waitstates, then the data is still transferred efficiently. If however the target device requires more time (the PCI specification allows maximum of 8 clocks in the data phase), then the target device must signal a disconnect. To do this the target asserts STOP# in the middle of the bus cycle to tell the master to end the bus cycle prematurely. A disconnect results in some data transferred, while a retry does not. Disconnect frees the bus from long periods of wait states. The disconnected master waits a minimum of 2 clocks before once again arbitrating for use of the bus and continuing the bus cycle at the disconnected address. During the time that the Bus Master is disconnected, the arbiter may grant the bus to other requesting masters so that the PCI bus is utilized more efficiently. By the time the disconnected master is granted the bus and continues the bus cycle, hopefully the target is ready to continue the data transfer until it is completed. Otherwise, the target once again retries or disconnects the master\'s bus cycle and the process is repeated until the master successfully transfers all its data.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-考虑以下示例：北桥发起一个突发存储器读事务，从以太网设备读取数据。以太网目标设备认领该总线周期并传输了一些数据，但随后数据耗尽，无法继续传输。以太网设备有两种选择来延迟数据传输。第一种选择是在当前数据阶段插入等待状态，同时等待更多数据到达。如果目标设备仅需插入少量等待状态，数据仍可高效传输。然而，如果目标设备需要更多时间（PCI规范允许数据阶段最多8个时钟周期），则目标设备必须发出断开信号。为此，目标设备在总线周期中间置位STOP#，告知主设备提前结束该总线周期。断开（disconnect）会导致部分数据已传输，而重试（retry）则不会传输任何数据。断开操作将总线从长时间的等待状态中释放出来。被断开的主设备至少等待2个时钟周期后，再次仲裁总线使用权，并在断开地址处继续该总线周期。在主设备被断开的期间，仲裁器可以将总线授予其他请求的主设备，从而更高效地利用PCI总线。当被断开的主设备重新获得总线并继续该总线周期时，希望目标设备已准备好继续数据传输，直至完成。否则，目标设备将再次重试或断开主设备的总线周期，此过程重复进行，直到主设备成功传输其所有数据。
+考虑以下示例：北桥发起一个突发存储器读事务，从以太网设备读取数据。以太网目标设备认领该总线周期并传输了一些数据，但随后数据耗尽，无法继续传输。以太网设备有两种选择来延迟数据传输。第一种选择是在当前数据阶段插入等待状态，同时等待更多数据到达。如果目标设备仅需插入少量等待状态，数据仍可高效传输。然而，如果目标设备需要更多时间（PCI 规范允许数据阶段最多 8 个时钟周期），则目标设备必须发出断开信号。为此，目标设备在总线周期中间置位 STOP#，告知主设备提前结束该总线周期。断开（disconnect）会导致部分数据已传输，而重试（retry）则不会传输任何数据。断开操作将总线从长时间的等待状态中释放出来。被断开的主设备至少等待 2 个时钟周期后，再次仲裁总线使用权，并在断开地址处继续该总线周期。在主设备被断开的期间，仲裁器可以将总线授予其他请求的主设备，从而更高效地利用 PCI 总线。当被断开的主设备重新获得总线并继续该总线周期时，希望目标设备已准备好继续数据传输，直至完成。否则，目标设备将再次重试或断开主设备的总线周期，此过程重复进行，直到主设备成功传输其所有数据。
 </td>
 </tr>
 </table>
 
-## 1.4.4 PCI Interrupt Handling | 1.4.4 PCI 中断处理
+## 1.9.1 PCI Interrupt Handling | 1.9.1 PCI 中断处理
 
-<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead>
-    <tr>
-      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
-      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
-PCI devices use one of four sideband interrupt signals (INTA#, INTB#, INTC#, or INTD#) to send an interrupt request to the system. When one of the pins is asserted, the interrupt controller in a single‑CPU system responded by asserting the INTR (interrupt request) pin to the CPU. Later multi‑CPU designs needed to improve on the single wire input for interrupts and changed to an APIC (Advanced Programmable Interrupt Controller) model, in which the controller sends a message to the multiple CPUs instead of asserting the INTR pin to one of them. Regardless of the delivery model, an interrupted CPU must determine the source of the interrupt and then service the interrupt. The legacy model required several bus cycles for this and wasn't very efficient. The APIC model is better but also leaves room for improvement.
+<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+ 
+ <tbody>
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
+PCI devices use one of four sideband interrupt signals (INTA#, INTB#, INTC#, or INTD#) to send an interrupt request to the system. When one of the pins is asserted, the interrupt controller in a single-CPU system responded by asserting the INTR (interrupt request) pin to the CPU. Later multi-CPU designs needed to improve on the single wire input for interrupts and changed to an APIC (Advanced Programmable Interrupt Controller) model, in which the controller sends a message to the multiple CPUs instead of asserting the INTR pin to one of them. Regardless of the delivery model, an interrupted CPU must determine the source of the interrupt and then service the interrupt. The legacy model required several bus cycles for this and wasn't very efficient. The APIC model is better but also leaves room for improvement.
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 PCI 设备使用四条边带中断信号（INTA#、INTB#、INTC# 或 INTD#）之一向系统发送中断请求。当其中一个引脚被置位时，单 CPU 系统中的中断控制器通过向 CPU 置位 INTR（中断请求）引脚来响应。后来的多 CPU 设计需要改进单线中断输入方式，转而采用 APIC（高级可编程中断控制器）模型，在该模型中，控制器向多个 CPU 发送消息，而不是向其中一个 CPU 置位 INTR 引脚。无论采用何种传递模型，被中断的 CPU 都必须确定中断源，然后对中断进行服务。传统模型需要多个总线周期来完成这一过程，效率不高。APIC 模型更好，但仍有改进空间。
 </td>
 </tr>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
 PCI Error Handling
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 PCI 错误处理
 </td>
 </tr>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
 PCI devices can optionally detect and report address and data phase parity errors during transactions. PCI generates "even parity" across most of the signals during a transaction by using the PAR signal. This means that if the number of set bits during an address or data phase is odd, the master device will set the PAR signal to make the parity "even." The target device receives the address or data and checks for errors. Parity errors are detectable only as long as an odd number of signals are affected causing the received number of ones to be odd. If a device detects a data phase parity error, it asserts PERR# (parity error). This is potentially a recoverable error since, for cases like a memory read, just repeating the transaction may resolve the problem. PCI does not include any automatic or hardware-based recovery mechanisms, though, so any attempts to resolve the error would be handled by software.
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 PCI 设备可以选择性地在事务期间检测并报告地址阶段和数据阶段的奇偶校验错误。PCI 在事务期间使用 PAR 信号对大多数信号生成"偶校验"。这意味着，如果在地址阶段或数据阶段中置位比特的数量为奇数，主设备将置位 PAR 信号以使校验为"偶"。目标设备接收地址或数据并检查错误。只有当受影响的信号数量为奇数（导致接收到的 1 的数量为奇数）时，才能检测到奇偶校验错误。如果设备检测到数据阶段的奇偶校验错误，它将断言 PERR#（奇偶校验错误）。这有可能是一种可恢复的错误，因为对于像存储器读取这样的情况，只需重复该事务即可解决问题。不过，PCI 不包含任何基于硬件的自动恢复机制，因此任何尝试解决该错误的操作都将由软件处理。
 </td>
 </tr>
-  </tbody>
+ </tbody>
 </table>
 
-Figure 1-9: PCI Error Handling | 图1-9：PCI错误处理
+Figure 1-9: PCI Error Handling | 图 1-9：PCI 错误处理
 
 <img src="images/part01_d101166c59da15ec294149d007b126d8c7247e132432f4912b28f3933e6bebf5.jpg" width="700" alt="">
 
@@ -16141,18 +16108,19 @@ In older machines, both PERR# and SERR# were connected to the error logic in the
 </tr>
 </table>
 
-Figure 1-10: Address Space Mapping | 图1-10：地址空间映射
+Figure 1-10: Address Space Mapping | 图 1-10：地址空间映射
+
 <img src="images/part01_ba5280d1c80b10db8e5de47fcc4cb402f8ebf11c400b61b21e5340c3957ac9a1.jpg" width="700" alt="">
 
-## 1.4.6 PCI Address Space Map | 1.4.6 PCI 地址空间映射
+## 1.9.2 PCI Address Space Map | 1.9.2 PCI 地址空间映射
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-PCI architecture supports 3 address spaces as shown in Figure 1-10 on page 26: memory, I/O and configuration address space. x86 processors can access memory and IO space directly. A PCI device maps into the processors memory address space and can either support 32 or 64 bit memory addressing. In I/O address space, PCI supports 32 bit addresses but, since x86 CPUs only used 16 bits for I/O space, many platforms limit the I/O space to 64 KB (16 bits worth).
+PCI architecture supports 3 address spaces as shown in Figure 1-10: memory, I/O and configuration address space. x86 processors can access memory and IO space directly. A PCI device maps into the processors memory address space and can either support 32 or 64 bit memory addressing. In I/O address space, PCI supports 32 bit addresses but, since x86 CPUs only used 16 bits for I/O space, many platforms limit the I/O space to 64 KB (16 bits worth).
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI 架构支持三种地址空间，如第 26 页图 1-10 所示：存储器地址空间、I/O 地址空间和配置地址空间。x86 处理器可以直接访问存储器空间和 I/O 空间。PCI 设备映射到处理器的存储器地址空间中，可以支持 32 位或 64 位存储器寻址。在 I/O 地址空间中，PCI 支持 32 位地址，但由于 x86 CPU 仅使用 16 位 I/O 空间，许多平台将 I/O 空间限制为 64 KB（16 位）。
+PCI 架构支持三种地址空间，如图 1-10 所示：存储器地址空间、I/O 地址空间和配置地址空间。x86 处理器可以直接访问存储器空间和 I/O 空间。PCI 设备映射到处理器的存储器地址空间中，可以支持 32 位或 64 位存储器寻址。在 I/O 地址空间中，PCI 支持 32 位地址，但由于 x86 CPU 仅使用 16 位 I/O 空间，许多平台将 I/O 空间限制为 64 KB（16 位）。
 </td>
 </tr>
 <tr>
@@ -16165,15 +16133,15 @@ PCI 还引入了第三种地址空间，称为配置空间，CPU 只能间接访
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Since an x86 CPU cannot access configuration space directly, it must do so indirectly by indexing through IO registers (although with PCI Express a new method to access configuration space was introduced by mapping it into the memory address space). The legacy model, shown in Figure 1-10 on page 26, uses an IO Port called Configuration Address Port located at address CF8h-CFBh and a Configuration Data Port mapped to address CFCh-CFFh. Details regarding this method and the memory mapped method of accessing configuration space are explained in the next section.
+Since an x86 CPU cannot access configuration space directly, it must do so indirectly by indexing through IO registers (although with PCI Express a new method to access configuration space was introduced by mapping it into the memory address space). The legacy model, shown in Figure 1-10, uses an IO Port called Configuration Address Port located at address CF8h-CFBh and a Configuration Data Port mapped to address CFCh-CFFh. Details regarding this method and the memory mapped method of accessing configuration space are explained in the next section.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-由于 x86 CPU 无法直接访问配置空间，它必须通过 I/O 寄存器间接索引访问（尽管 PCI Express 引入了一种新方法，通过将配置空间映射到存储器地址空间中来访问它）。旧版模型（如第 26 页图 1-10 所示）使用一个称为配置地址端口的 I/O 端口，位于地址 CF8h-CFBh 处，以及一个映射到地址 CFCh-CFFh 的配置数据端口。有关此方法和通过存储器映射访问配置空间的方法的详细信息将在下一节中说明。
+由于 x86 CPU 无法直接访问配置空间，它必须通过 I/O 寄存器间接索引访问（尽管 PCI Express 引入了一种新方法，通过将配置空间映射到存储器地址空间中来访问它）。旧版模型（如图 1-10 所示）使用一个称为配置地址端口的 I/O 端口，位于地址 CF8h-CFBh 处，以及一个映射到地址 CFCh-CFFh 的配置数据端口。有关此方法和通过存储器映射访问配置空间的方法的详细信息将在下一节中说明。
 </td>
 </tr>
 </table>
 
-## 1.4.7 PCI Configuration Cycle Generation | 1.4.7 PCI 配置周期生成
+## 1.9.3 PCI Configuration Cycle Generation | 1.9.3 PCI 配置周期生成
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -16186,10 +16154,10 @@ Since IO address space is limited, the legacy model was designed to be very cons
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Step 1: The CPU generates an IO write to the Address Port at IO address CF8h in the North Bridge to give the address of the configuration register to be accessed. This address, shown in Figure 1-11 on page 27, consists primarily of the three things that locate a PCI function within the topology: which bus we want to access out of the 256 possible, which device on that bus out of the 32 possible, and which function within that device out of the 8 possible. The only other information needed is to identify which of the 64 dwords (256 bytes) in that function's configuration space is to be accessed.
+Step 1: The CPU generates an IO write to the Address Port at IO address CF8h in the North Bridge to give the address of the configuration register to be accessed. This address, shown in Figure 1-11, consists primarily of the three things that locate a PCI function within the topology: which bus we want to access out of the 256 possible, which device on that bus out of the 32 possible, and which function within that device out of the 8 possible. The only other information needed is to identify which of the 64 dwords (256 bytes) in that function's configuration space is to be accessed.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-步骤 1: CPU 向北桥芯片中 IO 地址 CF8h 处的地址端口（Address Port）发起一次 IO 写操作，以给出要访问的配置寄存器的地址。该地址（如图 1-11 第 27 页所示）主要由三项信息组成，用于在拓扑结构中定位一个 PCI 功能：我们要访问 256 条可能总线中的哪一条总线，该总线上 32 个可能设备中的哪一个设备，以及该设备中 8 个可能功能中的哪一个功能。唯一需要的其他信息是标识该功能配置空间中 64 个双字（256 字节）中的哪一个双字要被访问。
+步骤 1: CPU 向北桥芯片中 IO 地址 CF8h 处的地址端口（Address Port）发起一次 IO 写操作，以给出要访问的配置寄存器的地址。该地址（如图 1-11 所示）主要由三项信息组成，用于在拓扑结构中定位一个 PCI 功能：我们要访问 256 条可能总线中的哪一条总线，该总线上 32 个可能设备中的哪一个设备，以及该设备中 8 个可能功能中的哪一个功能。唯一需要的其他信息是标识该功能配置空间中 64 个双字（256 字节）中的哪一个双字要被访问。
 </td>
 </tr>
 <tr>
@@ -16202,11 +16170,11 @@ Step 2: The CPU generates either an IO read or IO write to the Data Port at loca
 </tr>
 </table>
 
-Figure 1-11: Configuration Address Register | 图1-11：配置地址寄存器
+Figure 1-11: Configuration Address Register | 图 1-11：配置地址寄存器
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border"><tr><td style="border:1px solid #ddd;"></td><td style="border:1px solid #ddd;">0CFBh</td><td style="border:1px solid #ddd;">0CFAh</td><td style="border:1px solid #ddd;">0CF9h</td><td style="border:1px solid #ddd;">0CF8h</td></tr><tr><td style="border:1px solid #ddd;">31 30</td><td style="border:1px solid #ddd;">24 23</td><td style="border:1px solid #ddd;">16 15</td><td style="border:1px solid #ddd;">11 10</td><td style="border:1px solid #ddd;">7 2 1 0</td></tr><tr><td style="border:1px solid #ddd;"></td><td style="border:1px solid #ddd;">Reserved</td><td style="border:1px solid #ddd;">Bus Number</td><td style="border:1px solid #ddd;">Device Number</td><td style="border:1px solid #ddd;">Function Number Doubleword 0 0</td></tr></table>
 
-## 1.4.8 PCI Function Configuration Register Space | 1.4.8 PCI 功能配置寄存器空间
+## 1.9.4 PCI Function Configuration Register Space | 1.9.4 PCI 功能配置寄存器空间
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -16214,22 +16182,23 @@ Figure 1-11: Configuration Address Register | 图1-11：配置地址寄存器
 Each PCI function contains up to 256 bytes of configuration space. The first 64 bytes of each function's configuration space contains a structure called the Header, while the remaining 192 Bytes support optional functionality. System configuration is first performed by Boot ROM firmware. After the OS loads, it may reconfigure the system and rearrange resource assignments, with the result that the process of system configuration may be done twice.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-每个 PCI 功能最多包含 256 字节的配置空间。每个功能配置空间的前 64 字节包含一个称为头标区（Header）的结构，而其余 192 字节支持可选功能。系统配置首先由启动 ROM 固件执行。操作系统加载后，它可能会重新配置系统并重新安排资源分配，因此系统配置过程可能会执行两次。
+每个 PCI 功能最多包含 256 字节的配置空间。每个功能配置空间的前 64 字节包含一个称为头部区域（Header）的结构，而其余 192 字节支持可选功能。系统配置首先由启动 ROM 固件执行。操作系统加载后，它可能会重新配置系统并重新安排资源分配，因此系统配置过程可能会执行两次。
 </td>
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-There are two basic classes of PCI functions as defined by their header types. A Type 1 header identifies a function that is a bridge (as shown in Figure 1‑12 on page 28) and creates another bus in the topology, while a Type 0 header indicates a function that is NOT a bridge (as shown in Figure 1‑13 on page 29). This header type information is contained in a field by the same name in dword 3, byte 2, and should be one of the first things software checks when discovering which functions exist in the system (a process called "enumeration").
+There are two basic classes of PCI functions as defined by their header types. A Type 1 header identifies a function that is a bridge (as shown in Figure 1-12) and creates another bus in the topology, while a Type 0 header indicates a function that is NOT a bridge (as shown in Figure 1-13). This header type information is contained in a field by the same name in dword 3, byte 2, and should be one of the first things software checks when discovering which functions exist in the system (a process called "enumeration").
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI 功能按其头标区类型分为两个基本类别。Type 1 头标区标识一个作为桥的功能（如图 1‑12 第 28 页所示），并在拓扑中创建另一条总线；而 Type 0 头标区表示一个非桥功能（如图 1‑13 第 29 页所示）。该头标区类型信息包含在双字 3、字节 2 的同名字段中，并且应当是软件在发现系统中存在哪些功能（该过程称为"枚举"）时最先检查的事项之一。
+PCI 功能按其头部区域类型分为两个基本类别。Type 1 头部区域标识一个作为桥的功能（如图 1-12 所示），并在拓扑中创建另一条总线；而 Type 0 头部区域表示一个非桥功能（如图 1-13 所示）。该头部区域类型信息包含在双字 3、字节 2 的同名字段中，并且应当是软件在发现系统中存在哪些功能（该过程称为"枚举"）时最先检查的事项之一。
 </td>
 </tr>
 </table>
 
-Figure 1-12: PCI Configuration Header Type 1 (Bridge) | 图1-12：PCI配置头类型1（桥）
+Figure 1-12: PCI Configuration Header Type 1 (Bridge) | 图 1-12：PCI 配置头类型 1（桥）
 
-Figure 1-13: PCI Configuration Header Type 0 (not a Bridge) | 图1-13：PCI配置头类型0（非桥）
+Figure 1-13: PCI Configuration Header Type 0 (not a Bridge) | 图 1-13：PCI 配置头类型 0（非桥）
+
 <img src="images/part01_49ec424c8231f6eea5fe09595e7566fb632679ad3d8c022202afb6802ede09e4.jpg" width="700" alt="">
 
 <img src="images/part01_309be0dd78c13eadc99f0fc99ddc29a43992e836e8477fe20addadeaf737607c.jpg" width="700" alt="">
@@ -16245,13 +16214,11 @@ Details of the configuration register space and the enumeration process are desc
 </tr>
 </table>
 
-## 1.4.9 Higher-bandwidth PCI | 1.4.9 更高带宽 PCI
+## 1.9.5 Higher-bandwidth PCI | 1.9.5 更高带宽 PCI
 
-Figure 1-14: 66 MHz PCI Bus Based Platform | 图1-14：基于66 MHz PCI总线的平台
+Figure 1-14: 66 MHz PCI Bus Based Platform | 图 1-14：基于 66 MHz PCI 总线的平台
 
 <img src="images/part01_c4555b2f52ea498bae7de7abf87991fb4cc699ab803ee995cbde06f458ff2eff.jpg" width="700" alt="">
-
-## 1.4.9 Higher-bandwidth PCI | 1.4.9 更高带宽的 PCI
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -16272,57 +16239,52 @@ Figure 1-14 shows an example of a 66 MHz, 64-bit PCI system.
 </tr>
 </table>
 
-## Limitations of 66 MHz PCI bus | 66 MHz PCI总线的局限
+## 1.10 Limitations of 66 MHz PCI bus | 1.10 MHz PCI 总线的局限
 
-<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead>
-    <tr>
-      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
-      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
-While the throughput of the bus was doubled at this speed relative to the 33 MHz bus, the diagram illustrates one of its major shortcomings: using the same reflected‑wave switching model with only half the timing budget meant that the loading on the bus had to be greatly reduced. The result was that only one add‑in card could be supported on each bus. Adding more devices meant adding more PCI bridges and buses, which would increase both cost and board real estate requirements. The 64‑bit PCI bus increases pin count, increasing system cost and lowering system reliability. In combination, it's easy to see why these factors limited the popularity of the 64‑bit or 66 MHz version of the PCI bus.
+<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+ 
+ <tbody>
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
+While the throughput of the bus was doubled at this speed relative to the 33 MHz bus, the diagram illustrates one of its major shortcomings: using the same reflected-wave switching model with only half the timing budget meant that the loading on the bus had to be greatly reduced. The result was that only one add-in card could be supported on each bus. Adding more devices meant adding more PCI bridges and buses, which would increase both cost and board real estate requirements. The 64-bit PCI bus increases pin count, increasing system cost and lowering system reliability. In combination, it's easy to see why these factors limited the popularity of the 64-bit or 66 MHz version of the PCI bus.
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-虽然在此速度下总线吞吐量相对于33 MHz总线翻了一番，但图中说明了其主要缺点之一：采用相同的反射波切换模型且时序预算减半，意味着必须大幅减少总线上的负载。结果是每条总线只能支持一个扩展卡。增加更多设备意味着需要增加更多的PCI桥和PCI总线，这会增加成本和板面积需求。64位PCI总线增加了引脚数，提高了系统成本并降低了系统可靠性。综合来看，不难看出这些因素为何限制了64位或66 MHz版本PCI总线的普及。
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+虽然在此速度下总线吞吐量相对于 33 MHz 总线翻了一番，但图中说明了其主要缺点之一：采用相同的反射波切换模型且时序预算减半，意味着必须大幅减少总线上的负载。结果是每条总线只能支持一个扩展卡。增加更多设备意味着需要增加更多的 PCI 桥和 PCI 总线，这会增加成本和板面积需求。64 位 PCI 总线增加了引脚数，提高了系统成本并降低了系统可靠性。综合来看，不难看出这些因素为何限制了 64 位或 66 MHz 版本 PCI 总线的普及。
 </td>
 </tr>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
 Signal Timing Problems with the Parallel PCI Bus Model beyond 66 MHz
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-并行PCI总线模型在66 MHz以上的信号时序问题
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+并行 PCI 总线模型在 66 MHz 以上的信号时序问题
 </td>
 </tr>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
 PCI bus clock frequency cannot be increased beyond 66MHz given the realistic loads that exist on a PCI bus and signal flight times. With a 66 MHz clock, the clock period is 15 ns. Setup time allocated at the receiver is 3 ns. With the PCI "non-registered input" signal bus model, reducing signal setup time below this 3 ns value is not realistic. The rest of the 12 ns timing budget is allocated towards output delays at the transmitter and signal flight time. Clocking PCI bus any faster than 66 MHz implies reducing clock period. A transmitted signal will not be received in time enough to be sampled at the receiver.
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-考虑到PCI总线上存在的实际负载和信号飞行时间，PCI总线时钟频率无法提高到超过66 MHz。在66 MHz时钟下，时钟周期为15 ns。接收端分配的建立时间为3 ns。在PCI"非寄存输入"信号总线模型下，将信号建立时间降低到3 ns以下是不现实的。时序预算中剩余的12 ns分配给发送端的输出延迟和信号飞行时间。以超过66 MHz的频率为PCI总线提供时钟意味着缩短时钟周期。发送的信号将无法及时到达接收端并被采样。
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+考虑到 PCI 总线上存在的实际负载和信号飞行时间，PCI 总线时钟频率无法提高到超过 66 MHz。在 66 MHz 时钟下，时钟周期为 15 ns。接收器分配的建立时间为 3 ns。在 PCI"非寄存输入"信号总线模型下，将信号建立时间降低到 3 ns 以下是不现实的。时序预算中剩余的 12 ns 分配给发送器的输出延迟和信号飞行时间。以超过 66 MHz 的频率为 PCI 总线提供时钟意味着缩短时钟周期。发送的信号将无法及时到达接收器并被采样。
 </td>
 </tr>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
 The PCI-X bus introduced in the next section takes the approach of registering all input signals with a Flip-Flop before using them. Doing so reduced signal setup time to below 1 ns. The setup time savings of PCI setup time allows PCI-X bus to be run at higher frequencies of 100 MHz or even 133 Mhz. In the next section, we describe PCI-X bus architecture briefly.
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-下一节介绍的PCI-X总线采取的方法是在使用所有输入信号之前，先用触发器对其进行寄存。这样做将信号建立时间降低到1 ns以下。PCI建立时间的节省使得PCI-X总线能够以100 MHz甚至133 MHz的更高频率运行。在下一节中，我们将简要描述PCI-X总线架构。
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+下一节介绍的 PCI-X 总线采取的方法是在使用所有输入信号之前，先用触发器对其进行寄存。这样做将信号建立时间降低到 1 ns 以下。PCI 建立时间的节省使得 PCI-X 总线能够以 100 MHz 甚至 133 MHz 的更高频率运行。在下一节中，我们将简要描述 PCI-X 总线架构。
 </td>
 </tr>
-  </tbody>
+ </tbody>
 </table>
 
-## 1.5 Introducing PCI-X | 1.5 PCI-X 简介
+## 1.11 Introducing PCI-X | 1.11 PCI-X 简介
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-PCI‐X is backward compatible with PCI in both hardware and software, but provides better performance and higher efficiency. It uses the same connector format, so PCI‐X devices can be plugged into PCI slots and vice‐versa. And it uses the same configuration model, so device drivers, operating systems, and applications that run on a PCI system also run on a PCI‐X system.
+PCI-X is backward compatible with PCI in both hardware and software, but provides better performance and higher efficiency. It uses the same connector format, so PCI-X devices can be plugged into PCI slots and vice-versa. And it uses the same configuration model, so device drivers, operating systems, and applications that run on a PCI system also run on a PCI-X system.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 PCI-X 在硬件和软件层面均向后兼容 PCI，但提供了更好的性能和更高的效率。它使用相同的连接器规格，因此 PCI-X 设备可以插入 PCI 插槽，反之亦然。此外，它采用相同的配置模型，因此在 PCI 系统上运行的设备驱动程序、操作系统和应用程序也能在 PCI-X 系统上运行。
@@ -16330,7 +16292,7 @@ PCI-X 在硬件和软件层面均向后兼容 PCI，但提供了更好的性能�
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-To achieve higher speeds without changing the PCI signaling model, PCI‐X added a few tricks to improve the bus timing. First, they implement PLL (phase‐locked loop) clock generators that provide phase‐shifted clocks internally. That allows the outputs to be driven a little earlier and the inputs to be sampled a little later, improving the timing on the bus. Likewise, PCI‐X inputs are registered (latched) at the input pin of the target device, resulting in shorter setup times. The time gained by these means increased the time available for signal propagation on the bus and allowed higher clock frequencies.
+To achieve higher speeds without changing the PCI signaling model, PCI-X added a few tricks to improve the bus timing. First, they implement PLL (phase-locked loop) clock generators that provide phase-shifted clocks internally. That allows the outputs to be driven a little earlier and the inputs to be sampled a little later, improving the timing on the bus. Likewise, PCI-X inputs are registered (latched) at the input pin of the target device, resulting in shorter setup times. The time gained by these means increased the time available for signal propagation on the bus and allowed higher clock frequencies.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 为了在不改变 PCI 信令模型的前提下实现更高的速度，PCI-X 引入了一些技巧来改善总线时序。首先，它实现了 PLL（锁相环）时钟发生器，可在内部提供移相的时钟。这使得输出可以稍微提前驱动，输入可以稍微延迟采样，从而改善了总线上的时序。类似地，PCI-X 的输入在目标设备的输入引脚处进行寄存（锁存），从而缩短了建立时间。通过这些手段赢得的时间增加了总线上信号传播的可用时间，并允许使用更高的时钟频率。
@@ -16338,82 +16300,69 @@ To achieve higher speeds without changing the PCI signaling model, PCI‐X added
 </tr>
 </table>
 
-## 1.5.1 PCI-X System Example | 1.5.1 PCI-X 系统示例
+## 1.11.1 PCI-X System Example | 1.11.1 PCI-X 系统示例
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-An example of an Intel 7500 server chipset‐based system is shown in Figure 1‑15 on page 32. The MCH chip includes three additional high‐performance Hub Link 2.0 ports that are connected to three PCI‐X Hub 2 bridges (P64H2). Each
+An example of an Intel 7500 server chipset-based system is shown in Figure 1-15. The MCH chip includes three additional high-performance Hub Link 2.0 ports that are connected to three PCI-X Hub 2 bridges (P64H2). Each bridge supports two PCI-X buses that can run at frequencies up to 133MHz. The Hub Link 2.0 can sustain the higher bandwidth requirements for PCI-X traffic. Note that we have the same loading problem that we did for 66-MHz PCI, resulting in a large number of buses needed to support more devices and a relatively expensive solution. The bandwidth is much higher now, though.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-图1-15（第32页）展示了一个基于Intel 7500服务器芯片组的系统示例。MCH芯片包含三个额外的高性能Hub Link 2.0端口，分别连接到三个PCI-X Hub 2桥（P64H2）。每个
+图 1-15 展示了一个基于 Intel 7500 服务器芯片组的系统示例。MCH 芯片包含三个额外的高性能 Hub Link 2.0 端口，分别连接到三个 PCI-X Hub 2 桥（P64H2）。每个桥接器支持两条 PCI-X 总线，运行频率最高可达 133MHz。Hub Link 2.0 能够满足 PCI-X 流量更高的带宽需求。请注意，这里存在与 66MHz PCI 相同的负载问题，导致需要大量总线来支持更多设备，这是一种相对昂贵的解决方案。不过，此时的带宽已大幅提升。
 </td>
 </tr>
 </table>
 
-<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-<tr>
-<td width="50%" style="border:1px solid #ddd;">
-bridge supports two PCI‐X buses that can run at frequencies up to 133MHz. The Hub Link 2.0 can sustain the higher bandwidth requirements for PCI‐X traffic. Note that we have the same loading problem that we did for 66‐MHz PCI, resulting in a large number of buses needed to support more devices and a relatively expensive solution. The bandwidth is much higher now, though.
-< | td>
-<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-该桥接器支持两条PCI-X总线，运行频率最高可达133MHz。Hub Link 2.0能够满足PCI-X流量更高的带宽需求。请注意，这里存在与66MHz PCI相同的负载问题，导致需要大量总线来支持更多设备，这是一种相对昂贵的解决方案。不过，此时的带宽已大幅提升。
-</td>
-</tr>
-</table>
 
-Figure 1‐15: 66 MHz/133 MHz PCI‐X Bus Based Platform | 图1‐15：基于66 MHz/133 MHz PCI-X总线的平台
+
+Figure 1-15: 66 MHz/133 MHz PCI-X Bus Based Platform | 图 1-15：基于 66 MHz/133 MHz PCI-X 总线的平台
+
 <img src="images/part01_a40997bda98b7cd989a078ecea9d743fc2192a6741c26da9f07640cfd23056b7.jpg" width="700" alt="">
 
-## 1.5.2 PCI-X Transactions | 1.5.2 PCI-X 事务
+## 1.11.2 PCI-X Transactions | 1.11.2 PCI-X 事务
 
 <img src="images/part01_f418f43ac089b0da6d6f61dfc3aa3208ae33692a9564e237bc3afeb13c9c9acb.jpg" width="700" alt="">
-Figure 1‐16: Example PCI‐X Burst Memory Read Bus Cycle | 图1‐16：PCI-X突发存储器读总线周期示例
+Figure 1-16: Example PCI-X Burst Memory Read Bus Cycle | 图 1-16：PCI-X 突发存储器读总线周期示例
 
-<table style="border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
-  <thead>
-    <tr>
-      <th width="50%" style="border:2px solid #000;background:#f5f5f5;padding:4px 8px;">EN</th>
-      <th width="50%" style="border:2px solid #000;background-color:#e8e8e8;padding:4px 8px;">中文</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
-Figure 1‐16 on page 33 shows an example of a PCI‐X burst memory read transaction. Note that PCI‐X does not allow Wait States after the first data phase. This is possible because the transfer size is now provided to the target device in the Attribute phase of the transaction, so the target devices knows exactly what is going to be required of him. In addition, most PCI‐X bus cycles are bursts and data is generally transferred in blocks of 128 Bytes. These features allow for more efficient bus utilization and device buffer management.
+<table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
+ 
+ <tbody>
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
+Figure 1-16 shows an example of a PCI-X burst memory read transaction. Note that PCI-X does not allow Wait States after the first data phase. This is possible because the transfer size is now provided to the target device in the Attribute phase of the transaction, so the target devices knows exactly what is going to be required of him. In addition, most PCI-X bus cycles are bursts and data is generally transferred in blocks of 128 Bytes. These features allow for more efficient bus utilization and device buffer management.
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
-图1-16(第33页)展示了一个PCI-X突发存储器读事务的示例。注意,PCI-X在第一个数据期之后不允许等待状态。这是可能的,因为传输大小现在在事务的属性阶段提供给目标设备,因此目标设备确切地知道将需要对它提出什么要求。此外,大多数PCI-X总线周期是突发的,数据通常以128字节的块传输。这些特性允许更高效的总线利用率和设备缓冲区管理。
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
+图 1-16 展示了一个 PCI-X 突发存储器读事务的示例。注意,PCI-X 在第一个数据期之后不允许等待状态。这是可能的,因为传输大小现在在事务的属性阶段提供给目标设备,因此目标设备确切地知道将需要对它提出什么要求。此外,大多数 PCI-X 总线周期是突发的,数据通常以 128 字节的块传输。这些特性允许更高效的总线利用率和设备缓冲区管理。
 </td>
 </tr>
-    <tr>
-<td width="50%" style="border:2px solid #000;">
+ <tr>
+<td width="50%" style="border:1px solid #ddd;">
 PCI-X Features
 </td>
-<td width="50%" style="border:2px solid #000;background-color:#e8e8e8">
+<td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
 PCI-X 特性
 </td>
 </tr>
-  </tbody>
+ </tbody>
 </table>
 
-## Split-Transaction Model | 拆分事务模型
+## 1.12 Split-Transaction Model | 1.12 拆分事务模型
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
 In a conventional PCI read transaction, the Bus Master initiates a read to a target device on the bus. As described earlier, if the target is unprepared to finish the transaction it can either hold the bus with Wait States while fetching the data, or issue a Retry in the process of a Delayed Transaction.
-< | td>
+</td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-在传统PCI读事务中，总线主控器向总线上的目标设备发起一次读取。如前所述，如果目标设备尚未准备好完成事务，它可以在获取数据期间通过等待状态保持总线，或者在延迟事务过程中发出重试。
+在传统 PCI 读事务中，总线主控器向总线上的目标设备发起一次读取。如前所述，如果目标设备尚未准备好完成事务，它可以在获取数据期间通过等待状态保持总线，或者在延迟事务过程中发出重试。
 </td>
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-PCI-X bus uses a Split Transaction to handle these cases, as illustrated in Figure 1-17 on page 34. To help keep track of what each device is doing, the device initiating the read is now called the Requester, and the device fulfilling the read request is called the Completer. If the completer is unable to service the request immediately, it memorizes the transaction (address, transaction type, byte count, requester ID) and signals a split response. This tells the requester to put this transaction aside in a queue, end the current bus cycle, and release the bus to the idle state. That makes the bus available for other transactions while the completer is awaiting the requested data. The requester is free to do whatever it likes while it waits for the completer, such as initiating other requests, even to the same completer. Once the completer has gathered the requested data, it then arbitrates for ownership of the bus and initiates a split completion during which it returns the requested data. The requester claims the split completion bus cycle and accepts the data from the completer. The split completion looks very much like a write transaction to the system. This Split Transaction Model is possible because not only does the request indicate how much data they are requesting in the Attribute phase, but they also indicate who they are (their Bus:Device:Function number) which allows the completer to target the correct device with the completion.
+PCI-X bus uses a Split Transaction to handle these cases, as illustrated in Figure 1-17. To help keep track of what each device is doing, the device initiating the read is now called the Requester, and the device fulfilling the read request is called the Completer. If the completer is unable to service the request immediately, it memorizes the transaction (address, transaction type, byte count, requester ID) and signals a split response. This tells the requester to put this transaction aside in a queue, end the current bus cycle, and release the bus to the idle state. That makes the bus available for other transactions while the completer is awaiting the requested data. The requester is free to do whatever it likes while it waits for the completer, such as initiating other requests, even to the same completer. Once the completer has gathered the requested data, it then arbitrates for ownership of the bus and initiates a split completion during which it returns the requested data. The requester claims the split completion bus cycle and accepts the data from the completer. The split completion looks very much like a write transaction to the system. This Split Transaction Model is possible because not only does the request indicate how much data they are requesting in the Attribute phase, but they also indicate who they are (their Bus:Device:Function number) which allows the completer to target the correct device with the completion.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI-X总线使用拆分事务来处理这些情况，如图1-17所示（第34页）。为了跟踪每个设备的行为，发起读取的设备现在称为Requester（Requester），而完成读取请求的设备称为Completer（Completer）。如果Completer无法立即处理请求，它会记住该事务（地址、事务类型、字节计数、RequesterID）并发出拆分响应。这告诉Requester将该事务放入队列，结束当前总线周期，并将总线释放到空闲状态。这使得在Completer等待请求数据期间，总线可用于其他事务。Requester在等待Completer时可以自由执行任何操作，例如发起其他请求，甚至可以向同一Completer发起。一旦Completer收集到请求的数据，它会仲裁总线所有权并发起拆分完成，在拆分完成期间返回请求的数据。Requester认领拆分完成总线周期并接受来自Completer的数据。拆分完成对系统来说看起来非常像一次写事务。这种拆分事务模型之所以成为可能，是因为请求不仅在属性阶段指示了请求的数据量，还指示了它们的身份（它们的总线:设备:功能编号），这使得Completer能够将完成数据正确地定向到目标设备。
+PCI-X 总线使用拆分事务来处理这些情况，如图 1-17 所示。为了跟踪每个设备的行为，发起读取的设备现在称为 Requester（Requester），而完成读取请求的设备称为 Completer（Completer）。如果 Completer 无法立即处理请求，它会记住该事务（地址、事务类型、字节计数、RequesterID）并发出拆分响应。这告诉 Requester 将该事务放入队列，结束当前总线周期，并将总线释放到空闲状态。这使得在 Completer 等待请求数据期间，总线可用于其他事务。Requester 在等待 Completer 时可以自由执行任何操作，例如发起其他请求，甚至可以向同一 Completer 发起。一旦 Completer 收集到请求的数据，它会仲裁总线所有权并发起拆分完成，在拆分完成期间返回请求的数据。Requester 认领拆分完成总线周期并接受来自 Completer 的数据。拆分完成对系统来说看起来非常像一次写事务。这种拆分事务模型之所以成为可能，是因为请求不仅在属性阶段指示了请求的数据量，还指示了它们的身份（它们的总线:设备:功能编号），这使得 Completer 能够将完成数据正确地定向到目标设备。
 </td>
 </tr>
 <tr>
@@ -16421,7 +16370,7 @@ PCI-X总线使用拆分事务来处理这些情况，如图1-17所示（第34页
 Two bus transactions are needed to complete the entire data transfer, but between the read request and the split completion the bus is available for other work. The requester does not need to poll the device with retries to learn when the data is ready. The completer simply arbitrates for the bus and drives the requested data back when it is ready. This makes for a much more efficient transaction model in terms of bus utilization.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-完成整个数据传输需要两次总线事务，但在读请求和拆分完成之间，总线可用于其他工作。Requester无需通过重试轮询设备来了解数据何时就绪。Completer只需仲裁总线，并在数据就绪时将其驱动回去。这使得总线利用率方面的效率大大提高。
+完成整个数据传输需要两次总线事务，但在读请求和拆分完成之间，总线可用于其他工作。Requester 无需通过重试轮询设备来了解数据何时就绪。Completer 只需仲裁总线，并在数据就绪时将其驱动回去。这使得总线利用率方面的效率大大提高。
 </td>
 </tr>
 <tr>
@@ -16429,16 +16378,16 @@ Two bus transactions are needed to complete the entire data transfer, but betwee
 These protocol enhancements made to the PCI-X bus architecture described so far contribute towards an increased transfer efficiency of around 85% for PCI-X as compared to 50%-60% with the standard PCI protocol.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-迄今为止描述的这些对PCI-X总线架构所做的协议增强，使得PCI-X的传输效率提高到约85%，而标准PCI协议的传输效率为50%-60%。
+迄今为止描述的这些对 PCI-X 总线架构所做的协议增强，使得 PCI-X 的传输效率提高到约 85%，而标准 PCI 协议的传输效率为 50%-60%。
 </td>
 </tr>
 </table>
 
-Figure 1-17: PCI-X Split Transaction Protocol | 图1-17：PCI-X分离事务协议
+Figure 1-17: PCI-X Split Transaction Protocol | 图 1-17：PCI-X 分离事务协议
 
 <img src="images/part01_dc7f761323804fc0c82434c3eccdcf462bec5a73be437a83471925c51f403fe5.jpg" width="700" alt="">
 
-## Message Signaled Interrupts | 消息信号中断 (MSI)
+## 1.13 Message Signaled Interrupts | 1.13 消息信号中断 (MSI)
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -16459,15 +16408,15 @@ To generate an interrupt request using MSI, a device initiates a memory write tr
 </tr>
 </table>
 
-## Transaction Attributes | 事务属性
+## 1.14 Transaction Attributes | 1.14 事务属性
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-Finally, PCI-X also added another phase to the beginning of each transaction called the Attribute Phase (see Figure 1-16 on page 33). In this time slot the requester delivers information that can be used to help improve the efficiency of transactions on the bus, such as the byte count for this request and who the requester is (Bus:Device:Function number). In addition to those items, two new bits were added to help characterize this transaction: the "No Snoop" bit and the "Relaxed Ordering" bit.
+Finally, PCI-X also added another phase to the beginning of each transaction called the Attribute Phase (see Figure 1-16). In this time slot the requester delivers information that can be used to help improve the efficiency of transactions on the bus, such as the byte count for this request and who the requester is (Bus:Device:Function number). In addition to those items, two new bits were added to help characterize this transaction: the "No Snoop" bit and the "Relaxed Ordering" bit.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-最后，PCI-X还在每个事务的开头增加了另一个阶段，称为属性阶段（参见第33页的图1-16）。在此时间槽中，Requester提供的信息可用于帮助提高总线上事务的效率，例如本次请求的字节计数以及Requester是谁（总线:设备:功能号）。除了这些内容外，还增加了两个新的比特位来帮助表征本次事务的特征："无监听"(No Snoop)位和"宽松排序"(Relaxed Ordering)位。
+最后，PCI-X 还在每个事务的开头增加了另一个阶段，称为属性阶段（参见图 1-16）。在此时间槽中，Requester 提供的信息可用于帮助提高总线上事务的效率，例如本次请求的字节计数以及 Requester 是谁（总线:设备:功能号）。除了这些内容外，还增加了两个新的比特位来帮助表征本次事务的特征："无监听"(No Snoop)位和"宽松排序"(Relaxed Ordering)位。
 </td>
 </tr>
 <tr>
@@ -16475,7 +16424,7 @@ Finally, PCI-X also added another phase to the beginning of each transaction cal
 No Snoop (NS): Normally, when a transaction moves data into or out of memory, the CPU's internal caches need to be checked to see if that memory location has been copied into one or more CPU caches. If so, the cache contents may need to be written back to memory or invalidated before the requested transaction is allowed to access memory. Naturally, this snoop process takes time and adds latency to a request. Sometimes the software is aware that a requested location will never be found in the CPU caches (perhaps because the location was defined by the system as uncacheable), so snooping is unnecessary and that step could be skipped. The No Snoop bit was added with precisely that case in mind.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-无监听(NS)：通常，当事务将数据移入或移出存储器时，需要检查CPU的内部缓存，以查看该存储器位置是否已被复制到一个或多个CPU缓存中。如果是，则可能需要先将缓存内容写回存储器或使其失效，然后才允许被请求的事务访问存储器。自然，此监听过程需要时间并增加请求的延迟。有时，软件知道被请求的位置永远不会出现在CPU缓存中（可能是因为该系统将该位置定义为不可缓存），因此监听是不必要的，可以跳过该步骤。无监听位正是为此情况而添加的。
+无监听(NS)：通常，当事务将数据移入或移出存储器时，需要检查 CPU 的内部缓存，以查看该存储器位置是否已被复制到一个或多个 CPU 缓存中。如果是，则可能需要先将缓存内容写回存储器或使其失效，然后才允许被请求的事务访问存储器。自然，此监听过程需要时间并增加请求的延迟。有时，软件知道被请求的位置永远不会出现在 CPU 缓存中（可能是因为该系统将该位置定义为不可缓存），因此监听是不必要的，可以跳过该步骤。无监听位正是为此情况而添加的。
 </td>
 </tr>
 <tr>
@@ -16483,12 +16432,12 @@ No Snoop (NS): Normally, when a transaction moves data into or out of memory, th
 Relaxed Ordering (RO): Normally, transactions are required to remain in the same order that they were issued on the bus while they go through buffers in bridges. This is referred to as the Strongly Ordered model, and PCI and PCI-X generally follow that rule with a few exceptions. That's because it helps resolve dependencies among transactions that are related to each other, such as writing and then reading the same location. However, not all transactions actually have dependencies. If they don't, then forcing them to stay in order can result in loss of performance, and that's what this bit was designed to alleviate. If the requester knows that a particular transaction is unrelated to the other transactions that have gone before, it can set this bit to tell bridges that this transaction is allowed to jump ahead in the queue to give better performance.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-宽松排序(RO)：通常，事务在通过桥接器中的缓冲区时，需要保持它们在总线上发出时的相同顺序。这被称为强排序(Strongly Ordered)模型，而PCI和PCI-X通常遵循该规则，仅有少数例外。这是因为该规则有助于解决彼此相关的事务之间的依赖关系，例如先写入再读取同一位置。然而，并非所有事务实际上都有依赖关系。如果没有，那么强制它们保持顺序可能导致性能损失，而此位的设计正是为了缓解这一问题。如果Requester知道某个特定事务与之前发出的其他事务无关，它可以设置此位来告知桥接器，该事务允许在队列中超前，以获得更好的性能。
+宽松排序(RO)：通常，事务在通过桥接器中的缓冲区时，需要保持它们在总线上发出时的相同顺序。这被称为强排序(Strongly Ordered)模型，而 PCI 和 PCI-X 通常遵循该规则，仅有少数例外。这是因为该规则有助于解决彼此相关的事务之间的依赖关系，例如先写入再读取同一位置。然而，并非所有事务实际上都有依赖关系。如果没有，那么强制它们保持顺序可能导致性能损失，而此位的设计正是为了缓解这一问题。如果 Requester 知道某个特定事务与之前发出的其他事务无关，它可以设置此位来告知桥接器，该事务允许在队列中超前，以获得更好的性能。
 </td>
 </tr>
 </table>
 
-## 1.5.4 Higher Bandwidth PCI-X | 1.5.4 更高带宽的PCI-X
+## 1.14.1 Higher Bandwidth PCI-X | 1.14.1 更高带宽的 PCI-X
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -16496,21 +16445,21 @@ Relaxed Ordering (RO): Normally, transactions are required to remain in the same
 Problems with the Common Clock Approach of PCI and PCI-X 1.0 Parallel Bus Model
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-PCI与PCI-X 1.0并行总线模型公共时钟方法存在的问题
+PCI 与 PCI-X 1.0 并行总线模型公共时钟方法存在的问题
 </td>
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-An issue that becomes clear when trying to migrate a bus like PCI to higher speeds is that parallel bus designs have some inherent limitations. Figure 1‑18 on page 36 helps illustrate these. These designs use a common or distributed clock, in which data is driven out on one clock edge and latched in on the next clock edge so that the total timing budget is the time for one clock period. Naturally, the higher the frequency, the smaller the clock period and thus the smaller the timing budget.
+An issue that becomes clear when trying to migrate a bus like PCI to higher speeds is that parallel bus designs have some inherent limitations. Figure 1-18 helps illustrate these. These designs use a common or distributed clock, in which data is driven out on one clock edge and latched in on the next clock edge so that the total timing budget is the time for one clock period. Naturally, the higher the frequency, the smaller the clock period and thus the smaller the timing budget.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-在试图将PCI这样的总线迁移到更高速度时，一个显而易见的问题是：并行总线设计存在一些固有的局限性。第36页的图1-18有助于说明这些问题。这些设计采用公共时钟或分布式时钟，数据在一个时钟沿上驱动输出，在下一个时钟沿上锁存输入，因此总时序预算为一个时钟周期的时间。自然地，频率越高，时钟周期越小，因而时序预算也越小。
+在试图将 PCI 这样的总线迁移到更高速度时，一个显而易见的问题是：并行总线设计存在一些固有的局限性。图 1-18 有助于说明这些问题。这些设计采用公共时钟或分布式时钟，数据在一个时钟沿上驱动输出，在下一个时钟沿上锁存输入，因此总时序预算为一个时钟周期的时间。自然地，频率越高，时钟周期越小，因而时序预算也越小。
 </td>
 </tr>
 </table>
 
 <img src="images/part01_f13965b6aab47f4a646b6ae1c28b7e323cf21f21e8d71e09a970c5ce86320ba9.jpg" width="700" alt="">
-Figure 1‐18: Inherent Problems in a Parallel Design | 图1‐18：并行设计中的固有问题
+Figure 1-18: Inherent Problems in a Parallel Design | 图 1-18：并行设计中的固有问题
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -16523,15 +16472,15 @@ The first issue to note is signal skew. When multiple data bits are sent at once
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-To further improve performance in spite of these limitations, a couple of techniques can be used. First, the existing protocol can be streamlined and made more efficient. And second, the bus model can be changed to a source synchronous clocking model where the bus signal and clock (strobe) are driven at the same time on signals that experience equal propagation delay. This is the approach taken by PCI‑X 2.0 protocol.
+To further improve performance in spite of these limitations, a couple of techniques can be used. First, the existing protocol can be streamlined and made more efficient. And second, the bus model can be changed to a source synchronous clocking model where the bus signal and clock (strobe) are driven at the same time on signals that experience equal propagation delay. This is the approach taken by PCI-X 2.0 protocol.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-尽管存在这些局限性，为了进一步提高性能，可以采用两种技术。第一，可以对现有协议进行精简，使其更加高效。第二，可以将总线模型改为源同步时钟(source synchronous clocking)模型，在该模型中，总线信号和时钟（选通信号）在具有相同传播延迟的信号上同时被驱动。这就是PCI-X 2.0协议采用的方法。
+尽管存在这些局限性，为了进一步提高性能，可以采用两种技术。第一，可以对现有协议进行精简，使其更加高效。第二，可以将总线模型改为源同步时钟(source synchronous clocking)模型，在该模型中，总线信号和时钟（选通信号）在具有相同传播延迟的信号上同时被驱动。这就是 PCI-X 2.0 协议采用的方法。
 </td>
 </tr>
 </table>
 
-## PCI-X 2.0 Source-Synchronous Model | PCI-X 2.0 源同步模型
+## 1.15 PCI-X 2.0 Source-Synchronous Model | 1.15 PCI-X 2.0 源同步模型
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">
 <tr>
@@ -16544,10 +16493,10 @@ PCI-X 2.0 进一步提升了 PCI-X 的带宽。与之前一样，设备和连接
 </tr>
 <tr>
 <td width="50%" style="border:1px solid #ddd;">
-The term "source synchronous" means that the device transmitting the data also provides another signal that travels the same basic path as the data. As illustrated in Figure 1-19 on page 38, that signal in PCI-X 2.0 is called a "strobe" and is used by the receiver for latching the incoming data bits. The transmitter assigns the timing relationship between the data and strobe and as long as their paths are similar in length and other characteristics that can affect transmission latency, that relationship will be about the same when they arrive at the receiver and the receiver can simply use the Strobe as the signal to latch the data in with. This allows higher speeds because clock skew with respect to the common clock is removed as a separate budget item and because the issue of flight time goes away. It no longer matters how long it takes for the data to travel from point A to point B because the strobe that latches it in takes about the same time and so their relationship will be unaffected.
+The term "source synchronous" means that the device transmitting the data also provides another signal that travels the same basic path as the data. As illustrated in Figure 1-19, that signal in PCI-X 2.0 is called a "strobe" and is used by the receiver for latching the incoming data bits. The transmitter assigns the timing relationship between the data and strobe and as long as their paths are similar in length and other characteristics that can affect transmission latency, that relationship will be about the same when they arrive at the receiver and the receiver can simply use the Strobe as the signal to latch the data in with. This allows higher speeds because clock skew with respect to the common clock is removed as a separate budget item and because the issue of flight time goes away. It no longer matters how long it takes for the data to travel from point A to point B because the strobe that latches it in takes about the same time and so their relationship will be unaffected.
 </td>
 <td width="50%" style="border:1px solid #ddd;background-color:#e8e8e8">
-"源同步"一词意味着传输数据的设备同时还提供另一个信号，该信号与数据走基本相同路径。如图 1-19（第 38 页）所示，在 PCI-X 2.0 中该信号称为"选通信号"(strobe)，接收器使用它来锁存输入的数据位。发送器确定数据与选通信号之间的时序关系，只要它们的路径长度及其他可能影响传输延迟的特性相似，当它们到达接收器时该时序关系将基本保持不变，接收器即可直接使用选通信号作为锁存数据的信号。这允许更高的速度，因为相对于公共时钟的时钟偏移不再作为独立的预算项，而且飞行时间的问题也不复存在。数据从 A 点传输到 B 点需要多长时间不再重要，因为用于锁存数据的选通信号大致同时到达，因此它们之间的时序关系不会受到影响。
+"源同步"一词意味着传输数据的设备同时还提供另一个信号，该信号与数据走基本相同路径。如图 1-19 所示，在 PCI-X 2.0 中该信号称为"选通信号"(strobe)，接收器使用它来锁存输入的数据位。发送器确定数据与选通信号之间的时序关系，只要它们的路径长度及其他可能影响传输延迟的特性相似，当它们到达接收器时该时序关系将基本保持不变，接收器即可直接使用选通信号作为锁存数据的信号。这允许更高的速度，因为相对于公共时钟的时钟偏移不再作为独立的预算项，而且飞行时间的问题也不复存在。数据从 A 点传输到 B 点需要多长时间不再重要，因为用于锁存数据的选通信号大致同时到达，因此它们之间的时序关系不会受到影响。
 </td>
 </tr>
 <tr>
@@ -16560,7 +16509,8 @@ It's important to note again that the very high-speed signal timing eliminates t
 </tr>
 </table>
 
-Figure 1-19: Source-Synchronous Clocking Model | 图1-19：源同步时钟模型
+Figure 1-19: Source-Synchronous Clocking Model | 图 1-19：源同步时钟模型
+
 <img src="images/part01_3911a74a375e86d594f70fe7f7dcceff4c54b74d9cc5d0a6662b8e40e7940217.jpg" width="700" alt="">
 
 <table style="border:1px solid #ddd;border-collapse:collapse;width:100%" cellpadding="4" cellspacing="0" rules="all" frame="border">

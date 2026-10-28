@@ -24,7 +24,7 @@
 | Ch15 | [Ch15_Error_Detection_Handling.md](Ch15_Error_Detection_Handling.md) | 错误检测与处理（AER、错误分类） | pp 708-763 |
 | Ch16 | [Ch16_Power_Management.md](Ch16_Power_Management.md) | 电源管理（ASPM、L0s/L1/L2） | pp 764-853 |
 | Ch17 | [Ch17_Interrupt_Support.md](Ch17_Interrupt_Support.md) | 中断支持（INTx、MSI、MSI-X） | pp 854-893 |
-| Ch18 | [Ch18_Optional_Features.md](Ch18_Optional_Features.md) | 可选特性（LTR、OBFF、TPH、FLR、DPA） | pp 894-907 |
+| Ch18 | [Ch18_Optional_Features.md](Ch18_Optional_Features.md) | 系统复位（Conventional Reset、Hot Reset、FLR） | pp 894-907 |
 | Ch19 | [Ch19_Hot_Plug_Power_Budgeting.md](Ch19_Hot_Plug_Power_Budgeting.md) | 热插拔与功率预算 | pp 908-947 |
 | Ch20 | [Ch20_Updates_Spec_Rev_2.1.md](Ch20_Updates_Spec_Rev_2.1.md) | Spec 2.1 修订更新 | pp 948-1057 |
 | Appendix | [Appendix.md](Appendix.md) | 附录（索引、术语表） | pp 948-1057 |
@@ -83,6 +83,12 @@ Figure X-Y: English Description | 图X-Y：中文描述
 | `fix_headings.py` | 标题 EN\|CN 双语化 |
 | `add_bilingual_captions.py` | Figure/Table 标题双语化 |
 | `audit_images.py` | 检查图片引用完整性 |
+| `qc_lint.py` | 质量门禁：结构/双语/编号/图表/术语/文本异常，输出 `qc_report.json` |
+| `extract_table_headings.py` | 把误入表格行的标题还原为 Markdown 标题 |
+| `rebuild_numbering.py` | 规范化 H1 并按层级重建章节编号 |
+| `normalize_terms.py` | 术语与协议标识符统一（带上下文保护） |
+| `normalize_layout.py` | 表格模板、图注空行、连字符统一 |
+| `fix_page_refs.py` | 移除悬空纸质页码引用 |
 | `README.md` | 工具说明 |
 
 ## 📦 目录结构

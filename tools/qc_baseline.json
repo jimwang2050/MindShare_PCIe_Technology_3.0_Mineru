@@ -1,0 +1,1543 @@
+{
+  "files": 21,
+  "structure": {
+    "h1_count": [
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        6,
+        [
+          "# Ch01_Front_Matter_and_Introduction",
+          "# Comprehensive Guide to Generations 1.x, 2.x and 3.0 | 1.x、2.x 及 3.0 代综合指南",
+          "# PCI Express Technology | PCI Express 技术",
+          "# The Ultimate Tool to View, Edit and Verify Configuration Settings of a Computer | 查看、编辑和验证计算机配置设置的终极工具"
+        ]
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        2,
+        [
+          "# Ch02_PCIe_Architecture_Overview",
+          "# 2 PCIe Architecture Overview | 2 PCIe 架构概览"
+        ]
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        2,
+        [
+          "# Ch03_Configuration_Overview",
+          "# 3 Configuration Overview | 3 配置概述"
+        ]
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        2,
+        [
+          "# Ch04_Address_Space_and_Transaction_Routing",
+          "# 4 Address Space & Transaction Routing | 4 地址空间与事务路由"
+        ]
+      ],
+      [
+        "Ch06_Flow_Control.md",
+        2,
+        [
+          "# Ch06_Flow_Control",
+          "# 6 Flow Control | 6 流控"
+        ]
+      ],
+      [
+        "Ch10_AckNak_Protocol.md",
+        2,
+        [
+          "# Ch10_AckNak_Protocol",
+          "# 10 Ack/Nak Protocol"
+        ]
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        3,
+        [
+          "# Ch11_Physical_Layer_Logical_Gen1_Gen2",
+          "# 11 Physical Layer - Logical (Gen1 and Gen2)",
+          "# Receive Logic Details (Gen1 and Gen2 Only) | 接收逻辑细节（仅Gen1和Gen2）"
+        ]
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        2,
+        [
+          "# Ch12_Physical_Layer_Logical_Gen3",
+          "# 12 Physical Layer ‐ Logical (Gen3)"
+        ]
+      ],
+      [
+        "Ch15_Error_Detection_Handling.md",
+        2,
+        [
+          "# Ch15_Error_Detection_Handling",
+          "# 15 Error Detection and Handling"
+        ]
+      ],
+      [
+        "Ch16_Power_Management.md",
+        2,
+        [
+          "# Ch16_Power_Management",
+          "# 16 Power Management"
+        ]
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        2,
+        [
+          "# Ch17_Interrupt_Support",
+          "# 17 Interrupt Support"
+        ]
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        4,
+        [
+          "# Ch20_Updates_Spec_Rev_2.1",
+          "# Appendix B: Markets & Applications for PCI Express",
+          "# Implementing Intelligent Adapters and Multi‐Host Systems With PCI Express Technology",
+          "# Appendix D: Locked Transactions | 附录D：锁定事务"
+        ]
+      ]
+    ],
+    "chapter_title_missing": [
+      "Ch01_Front_Matter_and_Introduction.md",
+      "Ch05_TLP_Elements.md",
+      "Ch07_Quality_of_Service.md",
+      "Ch08_Transaction_Ordering.md",
+      "Ch09_DLLP_Elements.md",
+      "Ch13_Physical_Layer_Electrical.md",
+      "Ch14_Link_Initialization_Training.md",
+      "Ch18_Optional_Features.md",
+      "Ch19_Hot_Plug_Power_Budgeting.md",
+      "Ch20_Updates_Spec_Rev_2.1.md",
+      "Appendix.md"
+    ],
+    "br_tags": [
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        12
+      ],
+      [
+        "Ch06_Flow_Control.md",
+        22
+      ],
+      [
+        "Ch09_DLLP_Elements.md",
+        13
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        4
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        64
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        8
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        38
+      ],
+      [
+        "Ch15_Error_Detection_Handling.md",
+        12
+      ],
+      [
+        "Ch16_Power_Management.md",
+        21
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        10
+      ]
+    ]
+  },
+  "bilingual": {
+    "en_only": [
+      [
+        "Ch06_Flow_Control.md",
+        595,
+        "txt 01100110 (CL) 11111111 (2's complement of CR) 01100101 = 65h (carr",
+        "txt 01100110 (CL) 11111111 (2's complement of CR) 01100101 = 65h (carr"
+      ],
+      [
+        "Ch06_Flow_Control.md",
+        597,
+        "txt CL 01100111 (67) CR 10011001 add 2's complement of 67 00000000 = 0",
+        "txt CL 01100111 (67) CR 10011001 add 2's complement of 67 00000000 = 0"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        2176,
+        "3. $\\mathrm{C}_{0} - \\mid \\mathrm{C}_{-1}\\mid - \\mid \\mathrm{C}_{+1}\\m",
+        "3. $\\mathrm{C}_{0} - \\mid \\mathrm{C}_{-1}\\mid - \\mid \\mathrm{C}_{+1}\\m"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1470,
+        "Jack Regula, Danny Chi, Tim Canepa (PLX Technology, Inc. )",
+        "Jack Regula, Danny Chi, Tim Canepa (PLX Technology, Inc. )"
+      ]
+    ],
+    "total_cells": 6732
+  },
+  "headings": {
+    "placeholder": [
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        15600,
+        "99.1 Introduction | 99.1 引言"
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        1063,
+        "99.2 Background | 99.2 背景"
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        994,
+        "99.2 Background | 99.2 背景"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        47,
+        "99.1 Overview | 99.1 概述"
+      ],
+      [
+        "Ch15_Error_Detection_Handling.md",
+        34,
+        "99.2 Background | 99.2 背景"
+      ],
+      [
+        "Ch15_Error_Detection_Handling.md",
+        742,
+        "99.1 Introduction | 99.1 引言"
+      ],
+      [
+        "Ch19_Hot_Plug_Power_Budgeting.md",
+        44,
+        "99.2 Background | 99.2 背景"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        905,
+        "99.2.1 RTL Simulation Perspective | 99.2.1 RTL 仿真视角"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        919,
+        "99.2.2 PCI Express RTL Bus Monitor | 99.2.2 PCI Express RTL 总线监视器"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        933,
+        "99.2.3 RTL vector export to PETracer Application | 99.2.3 RTL 向量导出到 PETracer 应用"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        971,
+        "99.3.2 Protocol Analyzer | 99.3.2 协议分析仪"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        987,
+        "99.3.3 Logic Analyzer | 99.3.3 逻辑分析仪"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1004,
+        "99.4 Using a Protocol Analyzer Probing Option | 99.4 使用协议分析仪探测选项"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1148,
+        "99.5.3 Flow Control Credit Tracking | 99.5.3 流控信用跟踪"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1167,
+        "99.5.4 Bit Tracer | 99.5.4 位追踪器"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1202,
+        "99.6.1 Pre-Silicon | 99.6.1 硅前"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1255,
+        "99.7 Conclusion | 99.7 结论"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1285,
+        "99.1 Introduction | 99.1 引言"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1354,
+        "99.3 Multi-Root (MR) PCIe Switch Solution | 99.3 多根（MR）PCIe 交换机解决方案"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1355,
+        "99.3 Multi-Root (MR) PCIe Switch Solution | 99.3 多根(MR)PCIe交换机解决方案"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1444,
+        "99.7 Conclusion | 99.7 结论"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1474,
+        "99.1 Introduction | 99.1 引言"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1490,
+        "99.2.1 Intelligent Adapters | 99.2.1 智能适配器"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1505,
+        "99.2.2 Host Failover | 99.2.2 主机故障切换"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1535,
+        "99.2.3 Multiprocessor Systems | 99.2.3 多处理器系统"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1554,
+        "99.3 The History Multi-Processor Implementations Using PCI | 99.3 使用 PCI 的多处理器实现"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1629,
+        "99.4.1 Example: Implementing Intelligent Adapters in a PCI Express Base System |"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1667,
+        "99.4.2 Example: Implementing Host Failover in a PCI Express System | 99.4.2 示例：在"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1752,
+        "99.5 Summary | 99.5 总结"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1765,
+        "99.6 Address Translation | 99.6 地址翻译"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1826,
+        "99.6.1 Direct Address Translation | 99.6.1 直接地址翻译"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1843,
+        "99.6.2 Lookup Table Based Address Translation | 99.6.2 基于查找表的地址转换"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1875,
+        "99.6.3 Downstream BAR Limit Registers | 99.6.3 下游BAR限制寄存器"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1891,
+        "99.6.4 Forwarding 64bit Address Memory Transactions | 99.6.4 转发64位地址存储器事务"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1922,
+        "99.1 Introduction | 99.1 引言"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1935,
+        "99.2 Background | 99.2 背景"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        2057,
+        "99.3 The PCI Express Lock Protocol | 99.3 PCI Express锁定协议"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        2384,
+        "99.3.3 Notification of an Unsuccessful Lock | 99.3.3 不成功锁定的通知"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        2397,
+        "99.4 Summary of Locking Rules | 99.4 锁定规则总结"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        2410,
+        "99.4.1 Rules Related To the Initiation and Propagation of Locked Transactions | "
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        2527,
+        "99.4.2 Rules Related to Switches | 99.4.2 与交换机相关的规则"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        2596,
+        "99.4.3 Rules Related To PCI Express/PCI Bridges | 99.4.3 与PCI Express/PCI桥相关的规则"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        2609,
+        "99.4.4 Rules Related To the Root Complex | 99.4.4 与根复合体相关的规则"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        2622,
+        "99.4.5 Rules Related To Legacy Endpoints | 99.4.5 与遗留端点相关的规则"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        2675,
+        "99.4.6 Rules Related To PCI Express Endpoints | 99.4.6 与PCI Express端点相关的规则"
+      ],
+      [
+        "Appendix.md",
+        3,
+        "N | N"
+      ],
+      [
+        "Appendix.md",
+        203,
+        "O | O"
+      ],
+      [
+        "Appendix.md",
+        219,
+        "P | P"
+      ]
+    ],
+    "duplicate_number": [
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        "1.4.9",
+        2
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        "2.2.1",
+        2
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        "2.2.2",
+        2
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        "2.2.3",
+        2
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        "2.2.4",
+        2
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        "2.3.1",
+        2
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        "2.3.2",
+        2
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        "3.4.3",
+        3
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        "3.4.2",
+        2
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        "3.8.1",
+        2
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        "3.8.2",
+        2
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        "4.1.2",
+        4
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        "4.5.2",
+        3
+      ],
+      [
+        "Ch10_AckNak_Protocol.md",
+        "10.2.2.5",
+        2
+      ],
+      [
+        "Ch10_AckNak_Protocol.md",
+        "10.8.4",
+        2
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        "11.2.6.1",
+        4
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        "12.4",
+        2
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        "13.5.2.1",
+        2
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        "13.7.1",
+        2
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        "13.7.2",
+        2
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        "13.7.3",
+        2
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        "13.7.4",
+        2
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        "14.4.1",
+        3
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        "14.5.2",
+        2
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        "14.5.2.10",
+        9
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        "14.9.3",
+        2
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        "14.10.2",
+        2
+      ],
+      [
+        "Ch15_Error_Detection_Handling.md",
+        "15.7.5",
+        2
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        "17.1.1.1",
+        2
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        "17.5",
+        2
+      ],
+      [
+        "Ch19_Hot_Plug_Power_Budgeting.md",
+        "19.4.2",
+        2
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.2.1",
+        2
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.2.2",
+        2
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.2.3",
+        2
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.3.3",
+        2
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.4",
+        2
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.6.1",
+        2
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.7",
+        2
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.1",
+        3
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.3",
+        4
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.4.1",
+        2
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        "99.4.2",
+        2
+      ]
+    ],
+    "multi_pipe": [
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        1234,
+        "2.6 Link Training and Initialization | 2.6 链路训练和初始化 | 11.6 链路训练与初始化"
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        542,
+        "4.5.2 Resizable BARs | 4.5.2 可调整大小的 BAR | 20.5.2 可调整大小的 BAR"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        427,
+        "5.2.3.3 Header Type | Format Field Encodings | 5.2.3.3 头类型 | 格式字段编码"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        444,
+        "5.2.3.4 Digest | ECRC Field | 5.2.3.4 摘要 | ECRC 字段"
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        1133,
+        "11.4.4 Lane-to-Lane Skew | 11.4.4 通道间偏移 | 12.4.4 通道间偏移"
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        1363,
+        "11.4.5 Descrambler | 11.4.5 解扰器 | 12.4.5 解扰器"
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        1450,
+        "11.4.6 Byte Un-Striping | 11.4.6 字节解条带化 | 12.4.6 字节解条带化"
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        1480,
+        "11.4.8 Receive Buffer (Rx Buffer) | 11.4.8 接收缓冲器 | 12.4.8 接收缓冲器（Rx 缓冲器）"
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        931,
+        "12.3.3 Deserializer | 12.3.3 解串器 | 11.3.3 解串器"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        2847,
+        "14.5.2 L0s State | 14.5.2 L0s 状态 | 1.5.2 L0s 状态"
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        762,
+        "17.5 Memory Synchronization When Interrupt Handler Entered | 17.5 进入中断处理程序时的内存同步 |"
+      ]
+    ],
+    "cn_only": [
+      [
+        "Ch09_DLLP_Elements.md",
+        80,
+        "DLLP的接收处理"
+      ],
+      [
+        "Ch10_AckNak_Protocol.md",
+        810,
+        "Ack/Nak 协议处理的错误情况"
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        636,
+        "有序集示例 - SOS（Skip Ordered Set，跳过有序集）"
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        732,
+        "Scrambling (扰码)"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        1408,
+        "处于 Configuration.Lanenum.Wait 状态期间"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        1929,
+        "进入恢复状态的原因"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        2769,
+        "Exit to \"Configuration State\" — 退出到“配置状态”"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        3402,
+        "Loopback.Exit — 环回.退出"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        3659,
+        "第14章：链路初始化和训练"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        3723,
+        "第14章：链路初始化和训练"
+      ],
+      [
+        "Ch15_Error_Detection_Handling.md",
+        1435,
+        "软件错误调查的示例流程"
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        696,
+        "MSI-X 能力结构 (Capability Structure)"
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        855,
+        "MSI 可能导致错误"
+      ],
+      [
+        "Ch19_Hot_Plug_Power_Budgeting.md",
+        16,
+        "This Chapter ## 本章"
+      ],
+      [
+        "Ch19_Hot_Plug_Power_Budgeting.md",
+        861,
+        "规范要求："
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1630,
+        "示例：在 PCI Express 基础系统中实现智能适配器"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1668,
+        "示例：在PCI Express系统中实现主机故障切换"
+      ]
+    ],
+    "en_only": [
+      [
+        "Ch14_Link_Initialization_Training.md",
+        2923,
+        "Tx\\_L0s.FTS."
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        2972,
+        "Rx\\_L0s.Entry."
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        3002,
+        "Exit to \"Rx\\_L0s.FTS\""
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        3016,
+        "Rx\\_L0s.FTS."
+      ]
+    ]
+  },
+  "captions": {
+    "fig_total": 309,
+    "tab_total": 50,
+    "fig_no_cn": 13,
+    "tab_no_cn": 4,
+    "caption_img_noblank": [
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        15715
+      ],
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        15973
+      ],
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        16046
+      ],
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        16060
+      ],
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        16144
+      ],
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        16232
+      ],
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        16563
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        395
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        544
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        547
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        853
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        875
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        895
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        1023
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        1079
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        1212
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        1279
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        147
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        479
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        565
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        1660
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        1822
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        251
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        660
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        1088
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        1251
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        1427
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        1632
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        382
+      ],
+      [
+        "Ch06_Flow_Control.md",
+        181
+      ],
+      [
+        "Ch07_Quality_of_Service.md",
+        287
+      ],
+      [
+        "Ch07_Quality_of_Service.md",
+        409
+      ],
+      [
+        "Ch08_Transaction_Ordering.md",
+        274
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        222
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        245
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        220
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        135
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        195
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        198
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        1026
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        1870
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        2331
+      ],
+      [
+        "Ch16_Power_Management.md",
+        506
+      ],
+      [
+        "Ch16_Power_Management.md",
+        743
+      ],
+      [
+        "Ch16_Power_Management.md",
+        759
+      ],
+      [
+        "Ch16_Power_Management.md",
+        779
+      ],
+      [
+        "Ch16_Power_Management.md",
+        866
+      ],
+      [
+        "Ch16_Power_Management.md",
+        881
+      ],
+      [
+        "Ch16_Power_Management.md",
+        898
+      ],
+      [
+        "Ch16_Power_Management.md",
+        976
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1068
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1141
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1242
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1334
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1360
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1377
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1427
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1586
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1603
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1665
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1683
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1704
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1720
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1736
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1780
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1847
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1863
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1878
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1894
+      ],
+      [
+        "Ch16_Power_Management.md",
+        1896
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        268
+      ],
+      [
+        "Ch18_Optional_Features.md",
+        347
+      ],
+      [
+        "Ch19_Hot_Plug_Power_Budgeting.md",
+        131
+      ]
+    ]
+  },
+  "images": {
+    "missing": [
+      [
+        "Ch16_Power_Management.md",
+        "images/part05_f8a402cfb1b111948b6519c4926cd1f805434d361cbfc9ec79ec955bf366f3d805.jpg"
+      ],
+      [
+        "Appendix.md",
+        "images/part06_9b957f7566a7a6443690ad205f5b9a683894de6724be7447b3afe3e40c807723.jpg"
+      ]
+    ]
+  },
+  "terms": {
+    "Header": {
+      "包头": 176,
+      "头标": 30,
+      "头部": 4,
+      "报头": 0
+    },
+    "Requester": {
+      "请求者": 2,
+      "请求方": 0,
+      "发起者": 2,
+      "发起方": 18
+    },
+    "Receiver": {
+      "接收器": 435,
+      "接收端": 183,
+      "接收方": 79
+    },
+    "Transmitter": {
+      "发送器": 299,
+      "发送端": 113,
+      "发送方": 53
+    },
+    "Payload": {
+      "有效载荷": 30,
+      "负载": 44,
+      "净荷": 1
+    },
+    "Upstream": {
+      "上游": 286,
+      "上行": 72
+    },
+    "Downstream": {
+      "下游": 331,
+      "下行": 54
+    },
+    "Completion": {
+      "完成报文": 207,
+      "完成包": 2,
+      "完成TLP": 9
+    },
+    "Tag": {
+      "标签": 13,
+      "标记": 28
+    },
+    "Scrambler": {
+      "加扰器": 29,
+      "扰码器": 6
+    },
+    "Credit": {
+      "信用": 136,
+      "信用额度": 1
+    }
+  },
+  "text": {
+    "truncated": [
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        438,
+        "icrocomputers - buses. I. Jackson, Mike II. MindShare, Inc. III. Title"
+      ],
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        16345,
+        ".0 ports that are connected to three PCI‐X Hub 2 bridges (P64H2). Each"
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        128,
+        "ut it can never be eliminated. A third factor is signal skew, which is"
+      ],
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        162,
+        "l good reasons for doing it as we'll see later. For now it's enough to"
+      ],
+      [
+        "Ch03_Configuration_Overview.md",
+        545,
+        "tics. With no locking semantics, once thread A writes a value into the"
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        152,
+        "on practice to map the same set of device-specific registers in memory"
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        290,
+        "llocated to this device into the upper bits of the BAR. Since a single"
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        1267,
+        " is not specified, only that functions must save it. The saved Bus and"
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        1671,
+        "e Root Complex $\\bullet$ 110b - 111b = Reserved: terminate at receiver"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        349,
+        "s, ID, etc.Transfer size (if any), Byte EnablesAttributesTraffic Class"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        406,
+        "fault/Untranslated01 = Translation Request10 = Translated11 = Reserved"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        406,
+        "lid; otherwise notBit 4 = 1: Byte 0 in last DW is valid; otherwise not"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        406,
+        "id; otherwise notBit 0 = 1: Byte 0 in first DW is valid; otherwise not"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        800,
+        "0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        832,
+        "fault/Untranslated01 = Translation Request10 = Translated11 = Reserved"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        1131,
+        "o reflect the address of the first enabled byte of data being returned"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        1324,
+        "iver101b = Gather &amp; route to RC0thers = Reserved, treated as Local"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        1324,
+        "101 0000b = Set Slot Power Message0111 111xb = Vendor-Defined Messages"
+      ],
+      [
+        "Ch06_Flow_Control.md",
+        269,
+        " credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytes"
+      ],
+      [
+        "Ch06_Flow_Control.md",
+        792,
+        "buffer sizes – the value varies with Max\\_Payload\\_Size and Link width"
+      ],
+      [
+        "Ch07_Quality_of_Service.md",
+        43,
+        "an give preference to some traffic flows. The broader term for this is"
+      ],
+      [
+        "Ch07_Quality_of_Service.md",
+        780,
+        "5 instances of 512 bytes are needed. But how much data can actually be"
+      ],
+      [
+        "Ch08_Transaction_Ordering.md",
+        488,
+        "ed explanation of the scenarios that are the basis for the PCI Express"
+      ],
+      [
+        "Ch09_DLLP_Elements.md",
+        211,
+        "L2 0010 0011b = PM_Active_State_Request_L1 0010 0100b = PM_Request_Ack"
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        63,
+        "5.0 GT/s • Gen3 ‐ the third generation (rev 3.x) operating at 8.0 GT/s"
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        848,
+        "es, though, and during that time several SKIP ordered sets should have"
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        1146,
+        " • Printed wiring board impedance variations • Trace length mismatches"
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        342,
+        "y a DLLP • Logical Idle (IDLA) — sent when there is no packet activity"
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        343,
+        "ed Sets • End Bad (EDB) — reports a nullified packet has been detected"
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        361,
+        "s of the activity listed above may be delivered in a single Data Block"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        243,
+        " states 4. Active-State Power Management (ASPM) states 5. Other states"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        748,
+        "g.Compliance when the Enter Compliance register bit was used for entry"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        1637,
+        "be: – Associated with a new LTSSM or – Transitioned to Electrical Idle"
+      ],
+      [
+        "Ch15_Error_Detection_Handling.md",
+        302,
+        " timeout is handled by replaying the contents of the Replay Buffer and"
+      ],
+      [
+        "Ch15_Error_Detection_Handling.md",
+        965,
+        "tatus • Providing link training status and initiating link re-training"
+      ],
+      [
+        "Ch16_Power_Management.md",
+        183,
+        "Audio ‐ Communications ‐ Display ‐ Input ‐ Network ‐ PC Card ‐ Storage"
+      ],
+      [
+        "Ch16_Power_Management.md",
+        326,
+        " maximum time required to transition into that substate from any other"
+      ],
+      [
+        "Ch16_Power_Management.md",
+        384,
+        " polling the Transactions Pending bit in the Device Status register of"
+      ],
+      [
+        "Ch16_Power_Management.md",
+        610,
+        "rded and no state change occurs.10 PM State0 0 D00 1 D11 0 D21 1 D3hot"
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        903,
+        "ports • Keyboard and Mouse Controller • System Timer • IDE controllers"
+      ],
+      [
+        "Ch19_Hot_Plug_Power_Budgeting.md",
+        112,
+        "ndardized hot plug controller on the system board that handled all the"
+      ],
+      [
+        "Ch19_Hot_Plug_Power_Budgeting.md",
+        619,
+        "e current state, as follows:00b = Reserved01b = On10b = Blink11b = Off"
+      ],
+      [
+        "Ch19_Hot_Plug_Power_Budgeting.md",
+        619,
+        "e current state, as follows:00b = Reserved01b = On10b = Blink11b = Off"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1641,
+        "ard contains a local host, a root complex, a three port switch, and an"
+      ],
+      [
+        "Appendix.md",
+        2662,
+        "Sales Engineer: 1-800-909-7211 or 408-653-1262; or PSGsales@lecroy.com"
+      ]
+    ],
+    "page_refs": 1692,
+    "non_ascii_hyphen": 1820,
+    "cjk_latin_adjacent": 13056,
+    "duplicated_paragraphs": [
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "Intel ArchitectureIntel Ivy Bridge ProcessorIntel 64 (x86) ArchitectureIntel QuickPath Int"
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "MindShare Arbor is a computer system debug, validation, analysis and learning tool that al"
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "MindShare Arbor is an excellent reference tool to quickly look at standard PCI, PCI-X and "
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "MindShare Arbor can perform a scan of the system it is running on to record the config spa"
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "MindShare Arbor provides a very simple interface to directly edit a register in PCI config"
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "After a system scan has been performed, MindShare Arbor allows saving of that system's sca"
+      },
+      {
+        "files": [
+          "Ch04_Address_Space_and_Transaction_Routing.md",
+          "Ch04_Address_Space_and_Transaction_Routing.md"
+        ],
+        "text": "1. IF the target address in the TLP matches one of the BARs, then this bridge (switch port"
+      },
+      {
+        "files": [
+          "Ch05_TLP_Elements.md",
+          "Ch05_TLP_Elements.md",
+          "Ch05_TLP_Elements.md"
+        ],
+        "text": "Indicates whether ID-based Ordering is to be used for this TLP. To learn more, see \"ID Bas"
+      },
+      {
+        "files": [
+          "Ch05_TLP_Elements.md",
+          "Ch05_TLP_Elements.md",
+          "Ch05_TLP_Elements.md"
+        ],
+        "text": "1. They're required to use the default traffic class TC0. Receivers must check for this an"
+      },
+      {
+        "files": [
+          "Ch05_TLP_Elements.md",
+          "Ch05_TLP_Elements.md"
+        ],
+        "text": "1. They're required to use the default traffic class TC0. Receivers must check for this an"
+      },
+      {
+        "files": [
+          "Ch14_Link_Initialization_Training.md",
+          "Ch15_Error_Detection_Handling.md"
+        ],
+        "text": "This chapter describes the operation of the Link Training and Status State Machine (LTSSM)"
+      },
+      {
+        "files": [
+          "Ch14_Link_Initialization_Training.md",
+          "Ch14_Link_Initialization_Training.md"
+        ],
+        "text": "For 8b/10b encoding, Lane de-skewing must be completed when leaving this substate. Also, s"
+      },
+      {
+        "files": [
+          "Ch14_Link_Initialization_Training.md",
+          "Ch14_Link_Initialization_Training.md"
+        ],
+        "text": "d) No EIOS is needed before Lanes go to Electrical Idle, and the transition doesn't have t"
+      },
+      {
+        "files": [
+          "Ch14_Link_Initialization_Training.md",
+          "Ch14_Link_Initialization_Training.md"
+        ],
+        "text": "The Perform Equalization bit of the Link Control 3 register is also cleared to 0b as is th"
+      },
+      {
+        "files": [
+          "Ch14_Link_Initialization_Training.md",
+          "Ch14_Link_Initialization_Training.md"
+        ],
+        "text": "The total time spent on a preset or coefficient request, from the time the request is sent"
+      },
+      {
+        "files": [
+          "Ch14_Link_Initialization_Training.md",
+          "Ch14_Link_Initialization_Training.md"
+        ],
+        "text": "Otherwise, after a 24ms timeout (with a tolerance of -0 or +2ms), the next state will be R"
+      },
+      {
+        "files": [
+          "Ch16_Power_Management.md",
+          "Ch16_Power_Management.md"
+        ],
+        "text": "Configuration and Message Requests are accepted in this state, but all other Requests must"
+      },
+      {
+        "files": [
+          "Ch16_Power_Management.md",
+          "Ch16_Power_Management.md"
+        ],
+        "text": "If an error is caused by an incoming Request and reporting it is enabled, an Error Message"
+      }
+    ],
+    "duplicate_count": 20
+  }
+}

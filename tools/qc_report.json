@@ -1,0 +1,343 @@
+{
+  "files": 21,
+  "structure": {
+    "br_tags": [
+      [
+        "Ch02_PCIe_Architecture_Overview.md",
+        12
+      ],
+      [
+        "Ch06_Flow_Control.md",
+        22
+      ],
+      [
+        "Ch09_DLLP_Elements.md",
+        13
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        4
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        64
+      ],
+      [
+        "Ch13_Physical_Layer_Electrical.md",
+        8
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        38
+      ],
+      [
+        "Ch15_Error_Detection_Handling.md",
+        12
+      ],
+      [
+        "Ch16_Power_Management.md",
+        27
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        10
+      ]
+    ]
+  },
+  "bilingual": {
+    "en_only": [
+      [
+        "Ch06_Flow_Control.md",
+        523,
+        "txt 01100110 (CL) 11111111 (2's complement of CR) 01100101 = 65h (carr",
+        "txt 01100110 (CL) 11111111 (2's complement of CR) 01100101 = 65h (carr"
+      ],
+      [
+        "Ch06_Flow_Control.md",
+        525,
+        "txt CL 01100111 (67) CR 10011001 add 2's complement of 67 00000000 = 0",
+        "txt CL 01100111 (67) CR 10011001 add 2's complement of 67 00000000 = 0"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        1500,
+        "3. $\\mathrm{C}_{0} - \\mid \\mathrm{C}_{-1}\\mid - \\mid \\mathrm{C}_{+1}\\m",
+        "3. $\\mathrm{C}_{0} - \\mid \\mathrm{C}_{-1}\\mid - \\mid \\mathrm{C}_{+1}\\m"
+      ],
+      [
+        "Ch20_Updates_Spec_Rev_2.1.md",
+        1037,
+        "Jack Regula, Danny Chi, Tim Canepa (PLX Technology, Inc. )",
+        "Jack Regula, Danny Chi, Tim Canepa (PLX Technology, Inc. )"
+      ]
+    ],
+    "total_cells": 6401
+  },
+  "headings": {},
+  "captions": {
+    "fig_total": 478,
+    "tab_total": 107,
+    "fig_no_cn": 0,
+    "tab_no_cn": 0
+  },
+  "images": {},
+  "terms": {
+    "Requester": {
+      "请求者": 3,
+      "请求方": 0,
+      "发起者": 2,
+      "发起方": 17
+    },
+    "Receiver": {
+      "接收器": 676,
+      "接收端": 0,
+      "接收方": 17
+    },
+    "Transmitter": {
+      "发送器": 458,
+      "发送端": 0,
+      "发送方": 5
+    },
+    "Payload": {
+      "有效载荷": 46,
+      "负载": 29,
+      "净荷": 0
+    },
+    "Upstream": {
+      "上游": 323,
+      "上行": 34
+    },
+    "Downstream": {
+      "下游": 370,
+      "下行": 15
+    },
+    "Tag": {
+      "标签": 13,
+      "标记": 27
+    }
+  },
+  "text": {
+    "truncated": [
+      [
+        "Ch01_Front_Matter_and_Introduction.md",
+        421,
+        "icrocomputers - buses. I. Jackson, Mike II. MindShare, Inc. III. Title"
+      ],
+      [
+        "Ch04_Address_Space_and_Transaction_Routing.md",
+        1578,
+        "e Root Complex $\\bullet$ 110b - 111b = Reserved: terminate at receiver"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        345,
+        "s, ID, etc.Transfer size (if any), Byte EnablesAttributesTraffic Class"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        397,
+        "fault/Untranslated01 = Translation Request10 = Translated11 = Reserved"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        397,
+        "lid; otherwise notBit 4 = 1: Byte 0 in last DW is valid; otherwise not"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        397,
+        "id; otherwise notBit 0 = 1: Byte 0 in first DW is valid; otherwise not"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        791,
+        "0 = Bus NumberByte 5, 7:3 = Device NumberByte 5, 2:0 = Function Number"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        823,
+        "fault/Untranslated01 = Translation Request10 = Translated11 = Reserved"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        1123,
+        "o reflect the address of the first enabled byte of data being returned"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        1316,
+        "iver101b = Gather &amp; route to RC0thers = Reserved, treated as Local"
+      ],
+      [
+        "Ch05_TLP_Elements.md",
+        1316,
+        "101 0000b = Set Slot Power Message0111 111xb = Vendor-Defined Messages"
+      ],
+      [
+        "Ch06_Flow_Control.md",
+        268,
+        " credit size (4 DWs) = 32,768 bytes2048 credits @ 4 DWs = 32,768 bytes"
+      ],
+      [
+        "Ch06_Flow_Control.md",
+        662,
+        "buffer sizes – the value varies with Max\\_Payload\\_Size and Link width"
+      ],
+      [
+        "Ch09_DLLP_Elements.md",
+        145,
+        "L2 0010 0011b = PM_Active_State_Request_L1 0010 0100b = PM_Request_Ack"
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        47,
+        "5.0 GT/s • Gen3 - the third generation (rev 3.x) operating at 8.0 GT/s"
+      ],
+      [
+        "Ch11_Physical_Layer_Logical_Gen1_Gen2.md",
+        782,
+        " • Printed wiring board impedance variations • Trace length mismatches"
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        296,
+        "y a DLLP • Logical Idle (IDLA) — sent when there is no packet activity"
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        297,
+        "ed Sets • End Bad (EDB) — reports a nullified packet has been detected"
+      ],
+      [
+        "Ch12_Physical_Layer_Logical_Gen3.md",
+        319,
+        "s of the activity listed above may be delivered in a single Data Block"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        170,
+        " states 4. Active-State Power Management (ASPM) states 5. Other states"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        522,
+        "g.Compliance when the Enter Compliance register bit was used for entry"
+      ],
+      [
+        "Ch14_Link_Initialization_Training.md",
+        1141,
+        "be: – Associated with a new LTSSM or – Transitioned to Electrical Idle"
+      ],
+      [
+        "Ch15_Error_Detection_Handling.md",
+        646,
+        "tatus • Providing link training status and initiating link re-training"
+      ],
+      [
+        "Ch16_Power_Management.md",
+        141,
+        "Audio - Communications - Display - Input - Network - PC Card - Storage"
+      ],
+      [
+        "Ch16_Power_Management.md",
+        284,
+        " polling the Transactions Pending bit in the Device Status register of"
+      ],
+      [
+        "Ch16_Power_Management.md",
+        439,
+        "nbsp;&nbsp;D0 0 1&nbsp;&nbsp;D1 1 0&nbsp;&nbsp;D2 1 1&nbsp;&nbsp;D3hot"
+      ],
+      [
+        "Ch17_Interrupt_Support.md",
+        591,
+        "ports • Keyboard and Mouse Controller • System Timer • IDE controllers"
+      ],
+      [
+        "Ch19_Hot_Plug_Power_Budgeting.md",
+        414,
+        "e current state, as follows:00b = Reserved01b = On10b = Blink11b = Off"
+      ],
+      [
+        "Ch19_Hot_Plug_Power_Budgeting.md",
+        414,
+        "e current state, as follows:00b = Reserved01b = On10b = Blink11b = Off"
+      ],
+      [
+        "Appendix.md",
+        2662,
+        "Sales Engineer: 1-800-909-7211 or 408-653-1262; or PSGsales@lecroy.com"
+      ]
+    ],
+    "page_refs": 0,
+    "non_ascii_hyphen": 0,
+    "cjk_latin_adjacent": 2,
+    "duplicated_paragraphs": [
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "Intel ArchitectureIntel Ivy Bridge ProcessorIntel 64 (x86) ArchitectureIntel QuickPath Int"
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "MindShare offers numerous courses in a self-paced training format (eLearning). We've taken"
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "MindShare Arbor is a computer system debug, validation, analysis and learning tool that al"
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "MindShare Arbor is an excellent reference tool to quickly look at standard PCI, PCI-X and "
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "MindShare Arbor can perform a scan of the system it is running on to record the config spa"
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "MindShare Arbor provides a very simple interface to directly edit a register in PCI config"
+      },
+      {
+        "files": [
+          "Ch01_Front_Matter_and_Introduction.md",
+          "Appendix.md"
+        ],
+        "text": "After a system scan has been performed, MindShare Arbor allows saving of that system's sca"
+      },
+      {
+        "files": [
+          "Ch05_TLP_Elements.md",
+          "Ch05_TLP_Elements.md",
+          "Ch05_TLP_Elements.md"
+        ],
+        "text": "1. They're required to use the default traffic class TC0. Receivers must check for this an"
+      },
+      {
+        "files": [
+          "Ch14_Link_Initialization_Training.md",
+          "Ch15_Error_Detection_Handling.md"
+        ],
+        "text": "This chapter describes the operation of the Link Training and Status State Machine (LTSSM)"
+      }
+    ],
+    "duplicate_count": 10
+  }
+}
